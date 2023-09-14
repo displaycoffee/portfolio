@@ -3,5 +3,50 @@
 @use '../utils/_mixins';
 @use '../theme/_theme';
 
-//// INDEX
+//// MAIN
 //// --------------------------------------------------------------------------
+
+.wrapper-main {
+	max-width: theme.$wrapper-base - 400px;
+	padding: theme.$spacing-x4;
+	@include mixins.flex-layout((flex-flow: nowrap column, justify-content: center));
+	& > * {
+		margin: 0 0 theme.$spacing-x8 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.main {
+	.row {
+		.main-content, .main-sidebar {
+			width: 100%;
+		}
+		.main-content {
+			& > *:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+@include mixins.respond-min(theme.$bp-02) {
+	.wrapper-main {
+		padding: theme.$spacing-x8;
+	}
+	.main {
+		.row {
+			.main-content, .main-sidebar {
+				width: auto;
+			}
+			.main-content {
+				@include mixins.flex;
+			}
+			.main-sidebar {
+				@include mixins.flex(0 1 auto);
+				width: 300px;
+			}
+		}
+	}
+}

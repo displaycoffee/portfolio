@@ -43,10 +43,11 @@ body {
 	font-size: functions.em(theme.$font-size-global, rem);
 	font-weight: normal;
 	color: theme.$color-02;
-	line-height: 1.5;
+	line-height: 1.7;
 }
 
 b, strong {
+	font-family: theme.$font-family-02;
 	font-weight: theme.$font-weight;
 }
 
@@ -61,7 +62,6 @@ a, abbr[title] {
 a {
 	color: theme.$color-03;
 	background-color: transparent;
-	transition: color 0.3s ease-in-out;
 	&:active, &:hover {
 		outline: 0;
 		color: theme.$color-02;
@@ -106,23 +106,23 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h6, .h6 {
 }
 
 h1, .h1 {
-	font-size: functions.em(34px, rem);
+	font-size: functions.em(24px, rem);
 }
 
 h2, .h2 {
-	font-size: functions.em(30px, rem);
-}
-
-h3, .h3 {
-	font-size: functions.em(26px, rem);
-}
-
-h4, .h4 {
 	font-size: functions.em(22px, rem);
 }
 
+h3, .h3 {
+	font-size: functions.em(18px, rem);
+}
+
+h4, .h4 {
+	font-size: functions.em(16px, rem);
+}
+
 h5, h6, .h5, .h6 {
-	font-size: functions.em(20px, rem);
+	font-size: functions.em(16px, rem);
 }
 
 //// CONTENT BLOCKS
