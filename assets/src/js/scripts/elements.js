@@ -9,7 +9,7 @@ import { Start } from '../pages/Start';
 export const elements = {
 	navigation: [
 		{
-			id: 1,
+			id: 6,
 			label: 'Start',
 			path: '/',
 			component: (props) => {
@@ -17,7 +17,7 @@ export const elements = {
 			}
 		},
 		{
-			id: 2,
+			id: 5,
 			label: 'About',
 			path: '/about',
 			component: (props) => {
@@ -25,7 +25,7 @@ export const elements = {
 			}
 		},
 		{
-			id: 3,
+			id: 4,
 			label: 'Projects',
 			path: '/projects',
 			component: (props) => {
@@ -33,7 +33,7 @@ export const elements = {
 			}
 		},
 		{
-			id: 4,
+			id: 3,
 			label: 'Art',
 			path: '/art',
 			component: (props) => {
@@ -41,7 +41,7 @@ export const elements = {
 			}
 		},
 		{
-			id: 5,
+			id: 2,
 			label: 'Resume',
 			path: '/resume',
 			component: (props) => {
@@ -49,7 +49,7 @@ export const elements = {
 			}
 		},
 		{
-			id: 6,
+			id: 1,
 			label: 'Contact',
 			path: '/contact',
 			component: (props) => {
@@ -59,7 +59,7 @@ export const elements = {
 	],
 	footer: [
 		{
-			id: 1,
+			id: 3,
 			label: 'GitHub',
 			path: '//github.com/displaycoffee'
 		},
@@ -69,7 +69,7 @@ export const elements = {
 			path: '//www.linkedin.com/in/adriamurphy'
 		},
 		{
-			id: 3,
+			id: 1,
 			label: 'Twitch',
 			path: '//www.twitch.tv/displaycoffee'
 		},

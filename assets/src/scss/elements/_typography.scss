@@ -69,7 +69,7 @@ a {
 }
 
 mark {
-	background: theme.$color-04;
+	background: theme.$color-10;
 }
 
 small {
@@ -123,6 +123,28 @@ h4, .h4 {
 
 h5, h6, .h5, .h6 {
 	font-size: functions.em(16px, rem);
+}
+
+h2, h3, h4, h5, .h2, .h3, .h4, .h6, .h6 {
+	position: relative;
+	display: inline-block;
+	padding: 0 0 4px 0;
+	&:before, &:after {
+		content: '';
+		display: block;
+		height: 2px;
+		@include mixins.position($type: absolute, $left: 0);
+	}
+	&:before {
+		right: -#{theme.$spacing-x1};
+		bottom: 0;
+		background-color: theme.$color-03;
+	}
+	&:after {
+		right: -#{theme.$spacing-x1 - 1px};
+		bottom: -2px;
+		background-color: theme.$color-04;
+	}
 }
 
 //// CONTENT BLOCKS

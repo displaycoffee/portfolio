@@ -74,3 +74,7 @@ ul.unstyled {
 .clearfix {
 	@include mixins.clearfix('&');
 }
+
+.pixel-border {
+	@include mixins.pixel-border(3px, theme.$color-03, theme.$color-05, theme.$color-06);
+}

@@ -62,17 +62,8 @@
 		.navigation-menu-header {
 			margin: 0 0 theme.$spacing-x8 0;
 			.navigation-menu-title {
-				display: inline-block;
 				margin: 0;
-				padding: 0 theme.$spacing-x2 3px 0;
-				position: relative;
-				&:before {
-					content: '';
-					display: block;
-					height: 3px;
-					background-color: theme.$color-03;
-					@include mixins.position($type: absolute, $left: 0, $right: 0, $bottom: -3px);
-				}
+				padding-right: theme.$spacing-x2;
 			}
 			.navigation-menu-close {
 				margin-left: auto;
