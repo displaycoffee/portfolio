@@ -297,30 +297,28 @@
 // Mixin for a pixel style border
 @mixin pixel-border($width: 3px, $color: #000000, $inset: #333333, $highlight: '') {
 	$inner-width: if($width == 1px, 1px, $width - 1px);
-	box-shadow: -#{$width} 0 0 0 $color, $width 0 0 0 $color, 0 -#{$width} 0 0 $color, 0 $width 0 0 $color;
 	position: relative;
-	@if $highlight != '' {
-		&:before, &:after {
-			content: '';
-			display: block;
-			@include position-fill;
-		}
-		&:before {
-			box-shadow: inset $inner-width 0 0 0 $highlight, inset 0 $inner-width 0 0 $highlight;
-			z-index: 1;
-		}
-		&:after {
-			box-shadow: inset -#{$inner-width} 0 0 0 $inset, inset 0 -#{$inner-width} 0 0 $inset;
-			z-index: 2;
-		}
-
-	} @else {
-		&:after {
-			content: '';
-			display: block;
-			@include position-fill;
+	display: inline-block;
+	& > * {
+		padding: $width;
+	}
+	&:before, &:after {
+		content: '';
+		display: block;
+		@include position($type: absolute, $top: $width, $bottom: $width, $right: $width, $left: $width);
+		margin: auto;
+	}
+	&:before {
+		box-shadow: -#{$width} 0 0 0 $color, $width 0 0 0 $color, 0 -#{$width} 0 0 $color, 0 $width 0 0 $color;
+		z-index: 2;
+	}
+	&:after {
+		@if $highlight != '' {
+			box-shadow: inset -#{$inner-width} 0 0 0 $inset, inset $inner-width 0 0 0 $highlight, inset 0 -#{$inner-width} 0 0 $inset, inset 0 $inner-width 0 0 $highlight;
+		} @else {		
 			box-shadow: inset -#{$inner-width} 0 0 0 $inset, inset 0 -#{$inner-width} 0 0 $inset;
 		}
+		z-index: 1;
 	}
 }
 

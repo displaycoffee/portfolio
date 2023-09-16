@@ -18,11 +18,7 @@ export const Index = () => {
 		<Router basename={'/'}>
 			<div className="wrapper wrapper-main">
 				<Header isDesktop={isDesktop} />
-
-				<div>
-					<div className="pixel-border"></div>
-				</div>
-
+				
 				<div className="main">
 					<div className="row row-wrap row-auto row-40">
 						<section className="main-content column">

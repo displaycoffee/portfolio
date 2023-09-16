@@ -1,0 +1,38 @@
+// Use utils and theme variables
+@use '../utils/_functions';
+@use '../utils/_mixins';
+@use '../theme/_theme';
+
+//// GALLERY
+//// --------------------------------------------------------------------------
+
+.gallery {
+	position: relative;
+	@include mixins.flex-parent(align-content, flex-start);
+	.gallery-item .gallery-image, .gallery-info .gallery-info-image {
+		line-height: 0;
+		img {
+			@include mixins.image-base;
+		}
+	}
+	.gallery-item {
+		width: 75px;
+		@include mixins.flex-layout((flex-flow: column nowrap, justify-content: center, align-items: center));
+	}
+	.gallery-info {
+		@include mixins.position($type: absolute, $top: auto, $left: calc(theme.$spacing-x2 / 2), $right: theme.$spacing-x2, $z: 3);
+		margin: theme.$spacing-x2 0;
+		padding: 0 0 theme.$spacing-x8 0;
+		.gallery-info-inner {
+			display: block;
+			padding: theme.$spacing-x4;
+			background-color: theme.$color-01;
+		}
+		.gallery-info-inner > div {
+			margin: 0 0 theme.$spacing-x4 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
