@@ -1,6 +1,3 @@
-/* Local scripts */
-import { variables } from '../scripts/variables';
-
 /* Local components */
 import { About } from '../pages/About';
 import { Art } from '../pages/Art';
@@ -15,7 +12,7 @@ export const elements = {
 		{
 			id: 7,
 			label: 'Start',
-			path: variables.paths.base,
+			path: '/',
 			component: (props) => {
 				return props ? <Start props={props} /> : <Start />; 
 			}
