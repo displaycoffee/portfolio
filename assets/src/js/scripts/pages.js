@@ -8,7 +8,7 @@ export const pages = {
 		{
 			id: 2,
 			date: '09.16.23',
-			content: 'Stil a work in progress.'
+			content: 'Still a work in progress.'
 		},
 		{
 			id: 1,
