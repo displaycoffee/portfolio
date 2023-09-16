@@ -6,6 +6,11 @@ const artPath = `${distPath}art/`;
 export const pages = {
 	updates: [
 		{
+			id: 2,
+			date: '09.16.23',
+			content: 'Stil a work in progress.'
+		},
+		{
 			id: 1,
 			date: '09.14.23',
 			content: 'Created portfolio. Amazing.'

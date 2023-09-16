@@ -6,32 +6,116 @@
 //// GALLERY
 //// --------------------------------------------------------------------------
 
+.gallery-active {
+	overflow: hidden;
+}
+
 .gallery {
-	position: relative;
-	@include mixins.flex-parent(align-content, flex-start);
-	.gallery-item .gallery-image, .gallery-info .gallery-info-image {
+	.gallery-items .gallery-item .gallery-image, .gallery-info .gallery-info-image {
 		line-height: 0;
 		img {
 			@include mixins.image-base;
 		}
 	}
-	.gallery-item {
-		width: 75px;
-		@include mixins.flex-layout((flex-flow: column nowrap, justify-content: center, align-items: center));
+	.gallery-items {
+		@include mixins.flex-parent(align-content, flex-start);
+		.gallery-item {
+			width: 75px;
+			@include mixins.flex-layout((flex-flow: column nowrap, justify-content: center, align-items: center));
+		}
+	}
+	.gallery-info, .gallery-overlay {
+		@include mixins.position($type: fixed, $top: 0, $bottom: 0, $right: 0, $left: 0);
+	}
+	.gallery-overlay {
+		z-index: 9998;
+		background-color: theme.$color-03;
+		opacity: 0.75;
 	}
 	.gallery-info {
-		@include mixins.position($type: absolute, $top: auto, $left: calc(theme.$spacing-x2 / 2), $right: theme.$spacing-x2, $z: 3);
-		margin: theme.$spacing-x2 0;
-		padding: 0 0 theme.$spacing-x8 0;
+		z-index: 9999;
+		max-height: 90vh;
+		max-width: 90vw;
+		margin: auto;
+		padding: theme.$spacing-x8;
+		background-color: theme.$color-01;
 		.gallery-info-inner {
-			display: block;
-			padding: theme.$spacing-x4;
-			background-color: theme.$color-01;
+			height: 100%;
+			@include mixins.position($type: relative, $z: 3);
+			.gallery-info-header {
+				margin: 0 0 theme.$spacing-x8 0;
+				.gallery-info-title {
+					margin: 0;
+					padding-right: theme.$spacing-x2;
+				}
+				.gallery-info-close {
+					margin-left: auto;
+				}
+			}
+			.gallery-info-content {
+				max-height: 85%;
+				max-height: calc(100% - 80px);
+				overflow-y: auto;
+				margin-right: 0;
+				padding: 0 theme.$spacing-x2 0 0;
+				@include mixins.scrollbar('&', 6px, theme.$color-04, theme.$color-03);
+				.gallery-info-image, .gallery-info-details {
+					width: 100%;
+				}
+				.gallery-info-details {
+					& > div {
+						margin: 0 0 theme.$spacing-x4 0;
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+				}
+			}
 		}
-		.gallery-info-inner > div {
-			margin: 0 0 theme.$spacing-x4 0;
-			&:last-child {
-				margin-bottom: 0;
+	}
+}
+
+@include mixins.respond-min(theme.$bp-02) {
+	.gallery {
+		.gallery-info {
+			.gallery-info-inner {
+				.gallery-info-content {
+					.gallery-info-image {
+						width: auto;
+						@include mixins.flex;
+					}
+					.gallery-info-details {
+						width: 200px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mixins.respond-min(theme.$bp-03) {
+	.gallery {
+		.gallery-info {
+			.gallery-info-inner {
+				.gallery-info-content {
+					.gallery-info-details {
+						width: 300px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mixins.respond-min(theme.$bp-04) {
+	.gallery {
+		.gallery-info {
+			.gallery-info-inner {
+				.gallery-info-content {
+					.gallery-info-details {
+						width: 500px;
+					}
+				}
 			}
 		}
 	}

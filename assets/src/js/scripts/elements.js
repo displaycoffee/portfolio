@@ -3,13 +3,14 @@ import { About } from '../pages/About';
 import { Art } from '../pages/Art';
 import { Contact } from '../pages/Contact';
 import { Projects } from '../pages/Projects';
+import { CheatCodes } from '../pages/CheatCodes';
 import { Resume } from '../pages/Resume';
 import { Start } from '../pages/Start';
 
 export const elements = {
 	navigation: [
 		{
-			id: 6,
+			id: 7,
 			label: 'Start',
 			path: '/',
 			component: (props) => {
@@ -17,7 +18,7 @@ export const elements = {
 			}
 		},
 		{
-			id: 5,
+			id: 6,
 			label: 'About',
 			path: '/about',
 			component: (props) => {
@@ -25,7 +26,7 @@ export const elements = {
 			}
 		},
 		{
-			id: 4,
+			id: 5,
 			label: 'Projects',
 			path: '/projects',
 			component: (props) => {
@@ -33,11 +34,19 @@ export const elements = {
 			}
 		},
 		{
-			id: 3,
+			id: 4,
 			label: 'Art',
 			path: '/art',
 			component: (props) => {
 				return props ? <Art props={props} /> : <Art />; 
+			}
+		},
+		{
+			id: 3,
+			label: 'Cheat codes',
+			path: '/cheat-codes',
+			component: (props) => {
+				return props ? <CheatCodes props={props} /> : <CheatCodes />; 
 			}
 		},
 		{

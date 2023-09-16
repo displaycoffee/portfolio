@@ -298,7 +298,6 @@
 @mixin pixel-border($width: 3px, $color: #000000, $inset: #333333, $highlight: '') {
 	$inner-width: if($width == 1px, 1px, $width - 1px);
 	position: relative;
-	display: inline-block;
 	& > * {
 		padding: $width;
 	}

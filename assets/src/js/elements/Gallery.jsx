@@ -1,103 +1,104 @@
 /* React */
-import React from 'react';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 export const Gallery = (props) => {
 	const { gallery } = props;
+	const galleryActiveClass = 'gallery-active';
 
-	// Set item ref and state
-	const itemRef = useRef(null);
-	const infoRef = useRef(null);
+	// Set item state
 	let [activeItem, setActiveItem] = useState(false);
-	let [galleryHeight, setGalleryHeight] = useState(false);
 
 	// Handle toggle event for gallery click
-	const handleToggle = (e, item) => {
+	const toggleGallery = (e, item) => {
 		e.preventDefault();
-		if (activeItem && (activeItem.id == item.id)) {
+		const bodySelector = document.querySelector('body');
+		
+		// Change gallery state and set item
+		if (activeItem) {
 			activeItem = false;
-			galleryHeight = false;
+			bodySelector.classList.remove(galleryActiveClass);
 		} else {
 			activeItem = item;
-			setTimeout(() => {
-				galleryHeight = infoRef.current.offsetHeight + 10;
-				setGalleryHeight(galleryHeight);
-			}, 500);
+			bodySelector.classList.add(galleryActiveClass);
 		}
+
+		// Set gallery state
 		setActiveItem(activeItem);
 	}
 
-	// If clicked outside gallery item, reset gallery
-	document.onclick = (e) => {
-		const element = e.target;
-		if (activeItem && itemRef.current && !itemRef.current.contains(element)) {
-			activeItem = false;
-			setActiveItem(activeItem);
-			galleryHeight = false;
-			setGalleryHeight(galleryHeight);
-		}
-	}
-
 	return (
-		<div className="gallery row row-wrap row-auto row-10" style={{ minHeight: galleryHeight }}>
-			{gallery.map((item) => (
-				<div className="gallery-item column" key={item.id} ref={itemRef} onClick={(e) => e.stopPropagation()}>
-					<div className="gallery-inner">
-						<div className="gallery-image pointer" onClick={(e) => handleToggle(e, item)}>
-							{item.border ? (
-								<div className="pixel-border">
+		<>
+			<div className="gallery">
+				<div className="gallery-items row row-wrap row-auto row-10">
+					{gallery.map((item) => (
+						<div className="gallery-item column" key={item.id}>
+							<div className="gallery-image pointer" onClick={(e) => toggleGallery(e, item)}>
+								{item.border ? (
+									<div className="pixel-border">
+										<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
+									</div>
+								) : (
 									<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
-								</div>
-							) : (
-								<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
-							)}
+								)}
+							</div>
 						</div>
+					))}
+				</div>
 
-						{activeItem && (activeItem.id == item.id) ? (
-							<div className="gallery-info" ref={infoRef}>
-								<div className="gallery-info-inner pixel-border">
-									{activeItem.image && (
-										<div className="gallery-info-image">
-											<img src={activeItem.image} alt={activeItem.name} title={activeItem.name} loading="lazy" />
-										</div>
-									)}
+				{activeItem ? (
+					<>
+						<div className="gallery-overlay" onClick={(e) => toggleGallery(e, activeItem)}></div>
 
-									{(activeItem.name || activeItem.date) && (
-										<div className="gallery-info-meta">
-											{activeItem.name && (
-												<strong>{activeItem.name}</strong>
-											)}
-											{activeItem.date ? ` on ${activeItem.date}` : ''}
-										</div>
-									)}
+						<div className="gallery-info pixel-border">
+							<div className="gallery-info-inner">
+								<header className="gallery-info-header flex-nowrap flex-align-items-center">
+									<h3 className="gallery-info-title">{activeItem.name}</h3>
 
-									{activeItem.url && (
-										<div className="gallery-info-technologies">
-											<strong>Visit:</strong> <a href={activeItem.url} target="_blank">{activeItem.url.replace('//', '')}</a>
-										</div>
-									)}
+									<button className="gallery-info-close" type="button" onClick={(e) => toggleGallery(e, activeItem)}>x</button>
+								</header>
 
-									{activeItem.technologies && (
-										<div className="gallery-info-technologies">
-											<strong>Technologies:</strong> {activeItem.technologies}
-										</div>
-									)}
+								<div className="gallery-info-content row row-wrap row-auto row-20">
+									<div className="gallery-info-image column">
+										<a href={activeItem.image ? activeItem.image : activeItem.thumb} target="_blank">
+											<img src={activeItem.image ? activeItem.image : activeItem.thumb} alt={activeItem.name} title={activeItem.name} loading="lazy" />
+										</a>
+									</div>
 
-									{activeItem.mediums && (
-										<div className="gallery-info-technologies">
-											<strong>Mediums:</strong> {activeItem.mediums}
-										</div>
-									)}
-									
-									{activeItem.content && (
-										<div className="gallery-info-content" dangerouslySetInnerHTML={{ __html: activeItem.content }}></div>
-									)}
+									<div className="gallery-info-details column">
+										{activeItem.date && (
+											<div className="gallery-info-date">
+												<strong>Date:</strong> {activeItem.date}
+											</div>
+										)}
+
+										{activeItem.url && (
+											<div className="gallery-info-technologies">
+												<strong>Visit:</strong> <a href={activeItem.url} target="_blank">{activeItem.url.replace('//', '')}</a>
+											</div>
+										)}
+
+										{activeItem.technologies && (
+											<div className="gallery-info-technologies">
+												<strong>Technologies:</strong> {activeItem.technologies}
+											</div>
+										)}
+
+										{activeItem.mediums && (
+											<div className="gallery-info-technologies">
+												<strong>Mediums:</strong> {activeItem.mediums}
+											</div>
+										)}
+										
+										{activeItem.content && (
+											<div className="gallery-info-content" dangerouslySetInnerHTML={{ __html: activeItem.content }}></div>
+										)}
+									</div>
 								</div>
 							</div>
-						) : (null)}
-					</div>
-				</div>
-			))}
-		</div>
+						</div>
+					</>
+				) : (null)}
+			</div>
+		</>
 	);
 };
