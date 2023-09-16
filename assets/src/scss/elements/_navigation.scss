@@ -1,0 +1,73 @@
+// Use utils and theme variables
+@use '../utils/_functions';
+@use '../utils/_mixins';
+@use '../theme/_theme';
+
+//// NAVIGATION
+//// --------------------------------------------------------------------------
+
+.navigation {
+	.navigation-list {
+		.navigation-list-item {
+			margin: 0 0 theme.$spacing-x2 0;
+			a {
+				color: theme.$color-02;
+				&:hover {
+					color: theme.$color-03;
+					&:before {
+						content: '>';
+						padding: 0 8px 0 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+//// NAVIGATION - MENU
+//// --------------------------------------------------------------------------
+
+.navigation-menu-active {
+	overflow: hidden;
+	.navigation-menu {
+		.navigation-menu-overlay, .navigation-menu-content {
+			left: 0;
+		}
+		.navigation-menu-overlay {
+			display: block;
+		}
+	}
+}
+
+.navigation-menu {
+	.navigation-menu-tigger, .navigation-menu-content .navigation .navigation-list .navigation-list-item {
+		font-size: functions.em(16px, rem);
+	}
+	.navigation-menu-overlay, .navigation-menu-content {
+		@include mixins.position($type: fixed, $top: 0, $bottom: 0, $left: -350px);
+	}
+	.navigation-menu-overlay {
+		background-color: theme.$color-03;
+		opacity: 0.75;
+		right: 0;
+		z-index: 9998;
+		display: none;
+	}
+	.navigation-menu-content {
+		@include mixins.transition(left 0.3s ease-in-out);
+		background-color: theme.$color-01;
+		width: 350px;
+		z-index: 9999;
+		padding: theme.$spacing-x8;
+		.navigation-menu-header {
+			margin: 0 0 theme.$spacing-x8 0;
+			.navigation-menu-title {
+				margin: 0;
+				padding-right: theme.$spacing-x2;
+			}
+			.navigation-menu-close {
+				margin-left: auto;
+			}
+		}
+	}
+}

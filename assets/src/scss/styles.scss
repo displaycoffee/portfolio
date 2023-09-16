@@ -1,0 +1,13 @@
+// Generic element styles
+@use 'elements/_normalize';
+@use 'elements/_typography';
+@use 'elements/_base';
+@use 'elements/_forms';
+@use 'elements/_layout';
+@use 'elements/_header';
+@use 'elements/_navigation';
+@use 'elements/_footer';
+@use 'elements/_gallery';
+
+// Specific styles for pages
+@use 'pages/_index';
