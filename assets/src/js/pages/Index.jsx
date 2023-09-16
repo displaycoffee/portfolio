@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 /* Local scripts */
 import { theme } from '../scripts/theme';
+import { variables } from '../scripts/variables';
 import { utils } from '../scripts/utils';
 import { elements } from '../scripts/elements';
 
@@ -15,7 +16,7 @@ export const Index = () => {
 	const isDesktop = utils.respond(theme.bps.bp02);
 
 	return (
-		<Router basename={'/'}>
+		<Router basename={variables.paths.base}>
 			<div className="wrapper wrapper-main">
 				<Header isDesktop={isDesktop} />
 				
