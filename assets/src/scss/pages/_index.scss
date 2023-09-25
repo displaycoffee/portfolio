@@ -7,8 +7,6 @@
 //// --------------------------------------------------------------------------
 
 .wrapper-main {
-	max-width: theme.$wrapper-base - 400px;
-	padding: theme.$spacing-x4;
 	& > * {
 		margin: 0 0 theme.$spacing-x8 0;
 		&:last-child {
@@ -31,9 +29,6 @@
 }
 
 @include mixins.respond-min(theme.$bp-02) {
-	.wrapper-main {
-		padding: theme.$spacing-x8;
-	}
 	.main {
 		.row {
 			.main-content, .main-sidebar {

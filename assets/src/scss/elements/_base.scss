@@ -21,13 +21,14 @@ html {
 
 body {
 	min-height: 100%;
-	@include mixins.flex-layout((flex-flow: nowrap column, justify-content: center));
 	background: theme.$color-01;
+	padding: theme.$spacing-x12 0;
 }
 
 .wrapper {
 	max-width: theme.$wrapper-base;
 	margin: 0 auto;
+	padding: 0 theme.$spacing-x4;
 }
 
 p, .p, h1, h2, h3, h4, h5, h6 {
@@ -73,5 +74,9 @@ ul.unstyled {
 }
 
 .pixel-border {
-	@include mixins.pixel-border(3px, theme.$color-03, theme.$color-05, theme.$color-06);
+	@include mixins.pixel-border;
+}
+
+.pixel-border-modal {
+	@include mixins.pixel-border($width: 3px, $bg: theme.$color-03);
 }

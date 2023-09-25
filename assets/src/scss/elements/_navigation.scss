@@ -24,6 +24,16 @@
 	}
 }
 
+@include mixins.respond-min(theme.$bp-02) {
+	.navigation {
+		.navigation-list {
+			.navigation-list-item {
+				text-align: right;
+			}
+		}
+	}
+}
+
 //// NAVIGATION - MENU
 //// --------------------------------------------------------------------------
 
