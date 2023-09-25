@@ -27,6 +27,7 @@
 @include mixins.respond-min(theme.$bp-02) {
 	.footer {
 		.row {
+			@include mixins.flex-parent(justify-content, flex-end);
 			.footer-copyright, .footer-navigation {
 				width: auto;
 			}			
