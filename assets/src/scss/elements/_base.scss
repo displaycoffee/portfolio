@@ -25,14 +25,12 @@ body {
 	padding: theme.$spacing-x12 0;
 }
 
-.wrapper {
-	max-width: theme.$wrapper-base;
-	margin: 0 auto;
-	padding: 0 theme.$spacing-x4;
+p, .p, h1, h2, h3, h4, h5, h6, .spacing-reset > div {
+	margin: 0 0 theme.$spacing-x4 0;
 }
 
-p, .p, h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 theme.$spacing-x4 0;
+.spacing-reset > *:last-child {
+	margin-bottom: 0;
 }
 
 ul {
@@ -58,6 +56,12 @@ ul.unstyled {
 	padding: 0;
 }
 
+.wrapper {
+	max-width: theme.$wrapper-base;
+	margin: 0 auto;
+	padding: 0 theme.$spacing-x4;
+}
+
 //// HELPERS
 //// --------------------------------------------------------------------------
 
@@ -74,9 +78,9 @@ ul.unstyled {
 }
 
 .pixel-border {
-	@include mixins.pixel-border;
+	@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06);
 }
 
 .pixel-border-modal {
-	@include mixins.pixel-border($width: 3px, $bg: theme.$color-03);
+	@include mixins.pixel-border($width: 3px, $bg: theme.$color-04, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06);
 }
