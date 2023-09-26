@@ -12,75 +12,90 @@ export const elements = {
 		{
 			id: 7,
 			label: 'Start',
-			path: '/',
+			alt: 'Back to home',
+			url: '/',
 			component: (props) => {
-				return props ? <Start props={props} /> : <Start />; 
-			}
+				return props ? <Start props={props} /> : <Start />;
+			},
 		},
 		{
 			id: 6,
 			label: 'About',
-			path: '/about',
+			alt: 'All about me, Adria',
+			url: '/about',
 			component: (props) => {
-				return props ? <About props={props} /> : <About />; 
-			}
+				return props ? <About props={props} /> : <About />;
+			},
 		},
 		{
 			id: 5,
 			label: 'Projects',
-			path: '/projects',
+			alt: 'Web projects throughout the years',
+			url: '/projects',
 			component: (props) => {
-				return props ? <Projects props={props} /> : <Projects />; 
-			}
+				return props ? <Projects props={props} /> : <Projects />;
+			},
 		},
 		{
 			id: 4,
 			label: 'Art',
-			path: '/art',
+			alt: 'Pixel, traditional, and digital art',
+			url: '/art',
 			component: (props) => {
-				return props ? <Art props={props} /> : <Art />; 
-			}
+				return props ? <Art props={props} /> : <Art />;
+			},
 		},
 		{
 			id: 3,
 			label: 'Cheat codes',
-			path: '/cheat-codes',
+			alt: 'Coming soon... code snippets',
+			url: '/cheat-codes',
 			component: (props) => {
-				return props ? <CheatCodes props={props} /> : <CheatCodes />; 
-			}
+				return props ? <CheatCodes props={props} /> : <CheatCodes />;
+			},
 		},
 		{
 			id: 2,
 			label: 'Resume',
-			path: '/resume',
+			alt: 'Fancy online resume',
+			url: '/resume',
 			component: (props) => {
-				return props ? <Resume props={props} /> : <Resume />; 
-			}
+				return props ? <Resume props={props} /> : <Resume />;
+			},
 		},
 		{
 			id: 1,
 			label: 'Contact',
-			path: '/contact',
+			alt: 'Get in touch',
+			url: '/contact',
 			component: (props) => {
-				return props ? <Contact props={props} /> : <Contact />; 
-			}
+				return props ? <Contact props={props} /> : <Contact />;
+			},
 		},
 	],
 	footer: [
 		{
-			id: 3,
+			id: 4,
 			label: 'GitHub',
-			path: '//github.com/displaycoffee'
+			url: '//github.com/displaycoffee',
+		},
+		{
+			id: 3,
+			label: 'LinkedIn',
+			alt: 'LinkedIn (serious stuff only)',
+			url: '//www.linkedin.com/in/adriamurphy',
 		},
 		{
 			id: 2,
-			label: 'LinkedIn',
-			path: '//www.linkedin.com/in/adriamurphy'
+			label: 'BGA',
+			alt: 'Challenge me on BoardGame Arena!',
+			url: '//boardgamearena.com/player?id=88435295',
 		},
 		{
 			id: 1,
 			label: 'Twitch',
-			path: '//www.twitch.tv/displaycoffee'
+			alt: 'Play video games with me on twitch',
+			url: '//www.twitch.tv/displaycoffee',
 		},
-	]
+	],
 };

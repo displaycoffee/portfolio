@@ -6,14 +6,14 @@ export const Header = (props) => {
 	const mugs = ['blue', 'green', 'purple', 'red', 'orange'];
 
 	return (
-		<header className="header">
+		<header className="header spacing-reset">
 			<h1 className="header-title">
 				<span className="header-type">{`* { display : coffee; }`}</span>
 			</h1>
 
 			<div className="header-mugs">
 				{mugs.map((mug) => (
-					<img src={`./assets/dist/images/icons/mug-${mug}-${isDesktop ? '36x36' : '18x18'}.png`} alt={`${mug} coffee mug`} key={mug} />
+					<img src={`./assets/dist/images/theme/mug-${mug}-${isDesktop ? '36x36' : '18x18'}.png`} alt={`${mug} coffee mug`} key={mug} />
 				))}
 			</div>
 			

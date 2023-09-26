@@ -19,14 +19,14 @@ export const Index = () => {
 		<Router basename={variables.paths.base}>
 			<div className="wrapper wrapper-main">
 				<Header isDesktop={isDesktop} />
-				
+
 				<div className="main">
 					<div className="row row-wrap row-auto row-40">
-						<section className="main-content column">
+						<section className="main-content spacing-reset column">
 							{elements.navigation && elements.navigation.length != 0 ? (
 								<Routes>
 									{elements.navigation.map((navigation) => (
-										<Route path={navigation.path} element={navigation.component()} key={navigation.id} />
+										<Route path={navigation.url} element={navigation.component()} key={navigation.id} />
 									))}
 								</Routes>
 							) : null}

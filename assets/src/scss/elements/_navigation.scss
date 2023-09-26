@@ -57,8 +57,7 @@
 		@include mixins.position($type: fixed, $top: 0, $bottom: 0, $left: -350px);
 	}
 	.navigation-menu-overlay {
-		background-color: theme.$color-03;
-		opacity: 0.75;
+		background-color: theme.$color-07;
 		right: 0;
 		z-index: 9998;
 		display: none;
