@@ -1,6 +1,9 @@
 /* React */
 import { useState } from 'react';
 
+/* Local scripts */
+import { utils } from '../scripts/utils';
+
 export const Gallery = (props) => {
 	const { gallery } = props;
 	const galleryActiveClass = 'gallery-active';
@@ -13,7 +16,7 @@ export const Gallery = (props) => {
 	const toggleGallery = (e, item, index) => {
 		e.preventDefault();
 		const bodySelector = document.querySelector('body');
-		
+
 		// Change gallery state and set item
 		if (!item) {
 			activeItem = false;
@@ -28,7 +31,7 @@ export const Gallery = (props) => {
 		// Set gallery state
 		setActiveItem(activeItem);
 		setActiveIndex(activeIndex);
-	}
+	};
 
 	return (
 		<>
@@ -58,44 +61,54 @@ export const Gallery = (props) => {
 								<header className="gallery-info-header flex-nowrap flex-align-items-center">
 									<h3 className="gallery-info-title">{activeItem.name}</h3>
 
-									<button className="gallery-info-close" type="button" onClick={(e) => toggleGallery(e, false, false)}>x</button>
+									<button className="gallery-info-close" type="button" onClick={(e) => toggleGallery(e, false, false)}>
+										x
+									</button>
 								</header>
 
 								<div className="gallery-info-scroll">
 									<div className="gallery-info-content flex-wrap">
 										<div className="gallery-info-image column">
 											<a href={activeItem.image ? activeItem.image : activeItem.thumb} target="_blank">
-												<img src={activeItem.image ? activeItem.image : activeItem.thumb} alt={activeItem.name} title={activeItem.name} loading="lazy" />
+												<img
+													src={activeItem.image ? activeItem.image : activeItem.thumb}
+													alt={activeItem.name}
+													title={activeItem.name}
+													loading="lazy"
+												/>
 											</a>
 										</div>
 
-										<div className="gallery-info-details column">
+										<div className="gallery-info-details spacing-reset column">
 											{activeItem.date && (
-												<div className="gallery-info-date">
+												<p className="gallery-info-date">
 													<strong>Date:</strong> {activeItem.date}
-												</div>
+												</p>
 											)}
 
 											{activeItem.url && (
-												<div className="gallery-info-technologies">
-													<strong>Visit:</strong> <a href={activeItem.url} target="_blank">{activeItem.url.replace('//', '')}</a>
-												</div>
+												<p className="gallery-info-visit">
+													<strong>Visit:</strong>{' '}
+													<a href={activeItem.url} target="_blank">
+														{activeItem.url.replace('//', '')}
+													</a>
+												</p>
 											)}
 
 											{activeItem.technologies && (
-												<div className="gallery-info-technologies">
+												<p className="gallery-info-technologies">
 													<strong>Technologies:</strong> {activeItem.technologies}
-												</div>
+												</p>
 											)}
 
 											{activeItem.mediums && (
-												<div className="gallery-info-technologies">
+												<p className="gallery-info-technologies">
 													<strong>Mediums:</strong> {activeItem.mediums}
-												</div>
+												</p>
 											)}
-											
+
 											{activeItem.content && (
-												<div className="gallery-info-content" dangerouslySetInnerHTML={{ __html: activeItem.content }}></div>
+												<p className="gallery-info-content" dangerouslySetInnerHTML={{ __html: activeItem.content }}></p>
 											)}
 										</div>
 									</div>
@@ -104,9 +117,19 @@ export const Gallery = (props) => {
 								<footer className="gallery-info-footer">
 									<nav className="gallery-navigation">
 										{activeIndex === 0 ? (
-											<GalleryNavigationButton direction={'Previous'} toggleGallery={toggleGallery} item={gallery[gallery.length - 1]} index={gallery.length - 1} />
+											<GalleryNavigationButton
+												direction={'Previous'}
+												toggleGallery={toggleGallery}
+												item={gallery[gallery.length - 1]}
+												index={gallery.length - 1}
+											/>
 										) : (
-											<GalleryNavigationButton direction={'Previous'} toggleGallery={toggleGallery} item={gallery[activeIndex - 1]} index={activeIndex - 1} />
+											<GalleryNavigationButton
+												direction={'Previous'}
+												toggleGallery={toggleGallery}
+												item={gallery[activeIndex - 1]}
+												index={activeIndex - 1}
+											/>
 										)}
 
 										<span className="gallery-navigation-separator">&#9642;</span>
@@ -114,14 +137,19 @@ export const Gallery = (props) => {
 										{activeIndex === gallery.length - 1 ? (
 											<GalleryNavigationButton direction={'Next'} toggleGallery={toggleGallery} item={gallery[0]} index={0} />
 										) : (
-											<GalleryNavigationButton direction={'Next'} toggleGallery={toggleGallery} item={gallery[activeIndex + 1]} index={activeIndex + 1} />
+											<GalleryNavigationButton
+												direction={'Next'}
+												toggleGallery={toggleGallery}
+												item={gallery[activeIndex + 1]}
+												index={activeIndex + 1}
+											/>
 										)}
 									</nav>
 								</footer>
 							</div>
 						</div>
 					</>
-				) : (null)}
+				) : null}
 			</div>
 		</>
 	);
@@ -131,7 +159,11 @@ export const GalleryNavigationButton = (props) => {
 	const { direction, toggleGallery, item, index } = props;
 
 	return (
-		<button className={`gallery-navigation-button gallery-navigation-${direction.toLowerCase()}`} type="button" onClick={(e) => toggleGallery(e, item, index)}>
+		<button
+			className={`gallery-navigation-button gallery-navigation-${utils.handleize(direction)}`}
+			type="button"
+			onClick={(e) => toggleGallery(e, item, index)}
+		>
 			{direction}
 		</button>
 	);

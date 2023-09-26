@@ -20,11 +20,6 @@
 		.main-content, .main-sidebar {
 			width: 100%;
 		}
-		.main-content {
-			& > *:last-child {
-				margin-bottom: 0;
-			}
-		}
 	}
 }
 
@@ -39,7 +34,7 @@
 			}
 			.main-sidebar {
 				@include mixins.flex(0 1 auto);
-				width: 300px;
+				width: 250px;
 			}
 		}
 	}

@@ -132,18 +132,19 @@ h2, h3, h4, h5, .h2, .h3, .h4, .h6, .h6 {
 	&:before, &:after {
 		content: '';
 		display: block;
-		height: 2px;
 		@include mixins.position($type: absolute, $left: 0);
 	}
 	&:before {
+		height: 3px;
 		right: -#{theme.$spacing-x1};
 		bottom: 0;
-		background-color: theme.$color-03;
+		background-color: theme.$color-04;
 	}
 	&:after {
-		right: -#{theme.$spacing-x1 - 1px};
+		height: 2px;
+		right: -#{theme.$spacing-x1 - 2px};
 		bottom: -2px;
-		background-color: theme.$color-04;
+		background-color: theme.$color-06;
 	}
 }
 
