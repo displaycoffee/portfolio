@@ -8,12 +8,6 @@
 //// Note: type effect from https://css-tricks.com/snippets/css/typewriter-effect
 
 .header {
-	& > * {
-		margin: 0 0 theme.$spacing-x4 0;
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
 	.header-title {
 		display: inline-block;
 		max-width: 100%;
@@ -63,5 +57,5 @@
 
 @keyframes cursor {
 	from, to { background-color: transparent }
-	50%      { background-color: theme.$color-03 }
+	50%      { background-color: theme.$color-04 }
 }
