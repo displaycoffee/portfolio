@@ -11,8 +11,8 @@ export const Navigation = (props) => {
 	return elements.navigation && elements.navigation.length != 0 ? (
 		<nav className="navigation">
 			<ul className="navigation-list unstyled">
-				{elements.navigation.map((navigation) => (
-					<li className="navigation-list-item" key={navigation.id}>
+				{elements.navigation.map((navigation, index) => (
+					<li className="navigation-list-item" key={index}>
 						<Link
 							to={navigation.url}
 							onClick={(e) => {

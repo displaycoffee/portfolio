@@ -46,20 +46,23 @@ export const About = () => {
 			</p>
 			<ul>
 				<li>
-					<strong>Video games:</strong> Final Fantasy IX, Valkyrie Profile
+					<strong>Video games</strong> - Final Fantasy IX, Valkyrie Profile
 				</li>
 				<li>
-					<strong>Board games:</strong> Clank!, Lords of Waterdeep, Scythe
+					<strong>Board games</strong> - Clank!, Lords of Waterdeep, Scythe
 				</li>
 				<li>
-					<strong>Movies:</strong> Big Fish, Interstellar, How to Train Your Dragon, The Princess Bride, Horror movies (Ginger Snaps,
+					<strong>Movies</strong> - Big Fish, Interstellar, How to Train Your Dragon, The Princess Bride, Horror movies (Ginger Snaps,
 					Ravenous)
 				</li>
 				<li>
-					<strong>Shows:</strong> Pushing Daisies, Futurama, Home Movies, The Good Place
+					<strong>Shows</strong> - Pushing Daisies, Futurama, Home Movies, The Good Place
 				</li>
 				<li>
-					<strong>Music:</strong> Two Steps from Hell, Thomas Bergersen, Audiomachine, various scores / instrumentals, Queen
+					<strong>Music</strong> - Two Steps from Hell, Thomas Bergersen, Audiomachine, various scores / instrumentals, Queen
+				</li>
+				<li>
+					<strong>Books</strong> - Extremely Loud and Incredibly Close
 				</li>
 			</ul>
 		</>
