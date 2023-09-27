@@ -11,6 +11,9 @@
 	.header-title {
 		display: inline-block;
 		max-width: 100%;
+		a:hover {
+			color: inherit;
+		}
 		.header-type {
 			position: relative;
 			display: block;

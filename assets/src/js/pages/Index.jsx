@@ -25,8 +25,8 @@ export const Index = () => {
 						<section className="main-content spacing-reset column">
 							{elements.navigation && elements.navigation.length != 0 ? (
 								<Routes>
-									{elements.navigation.map((navigation) => (
-										<Route path={navigation.url} element={navigation.component()} key={navigation.id} />
+									{elements.navigation.map((navigation, index) => (
+										<Route path={navigation.url} element={navigation.render()} key={index} />
 									))}
 								</Routes>
 							) : null}
