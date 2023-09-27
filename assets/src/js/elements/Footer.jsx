@@ -1,4 +1,4 @@
-/* react imports */
+/* React */
 import React from 'react';
 
 /* Local scripts */
@@ -18,7 +18,7 @@ export const Footer = (props) => {
 					<div className="footer-navigation column">
 						<nav className="footer-navigation-links">
 							{elements.footer.map((footer, index) => (
-								<React.Fragment key={footer.id}>
+								<React.Fragment key={index}>
 									{isDesktop && index === 0 && <span className="footer-navigation-separator">&#9642;</span>}
 
 									<a

@@ -38,7 +38,7 @@ export const Gallery = (props) => {
 			<div className="gallery">
 				<div className="gallery-items row row-wrap row-auto row-10">
 					{gallery.map((item, index) => (
-						<div className="gallery-item column" key={item.id}>
+						<div className="gallery-item column" key={index}>
 							<div className="gallery-image pointer" onClick={(e) => toggleGallery(e, item, index)}>
 								{item.border ? (
 									<div className="pixel-border">
@@ -82,13 +82,13 @@ export const Gallery = (props) => {
 										<div className="gallery-info-details spacing-reset column">
 											{activeItem.date && (
 												<p className="gallery-info-date">
-													<strong>Date:</strong> {activeItem.date}
+													<strong>Date</strong> - {activeItem.date}
 												</p>
 											)}
 
 											{activeItem.url && (
 												<p className="gallery-info-visit">
-													<strong>Visit:</strong>{' '}
+													<strong>Visit</strong> -{' '}
 													<a href={activeItem.url} target="_blank">
 														{activeItem.url.replace('//', '')}
 													</a>
@@ -97,13 +97,13 @@ export const Gallery = (props) => {
 
 											{activeItem.technologies && (
 												<p className="gallery-info-technologies">
-													<strong>Technologies:</strong> {activeItem.technologies}
+													<strong>Technologies</strong> - {activeItem.technologies}
 												</p>
 											)}
 
 											{activeItem.mediums && (
 												<p className="gallery-info-technologies">
-													<strong>Mediums:</strong> {activeItem.mediums}
+													<strong>Mediums</strong> - {activeItem.mediums}
 												</p>
 											)}
 
