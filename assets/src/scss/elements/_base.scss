@@ -43,6 +43,10 @@ ul:not(.unstyled) {
 	li {
 		position: relative;
 		padding: 0 0 0 theme.$spacing-x4;
+		margin: 0 0 theme.$spacing-x1 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
 		&:before {
 			display: block;
 			content: '\0025AA';

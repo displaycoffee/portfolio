@@ -6,29 +6,28 @@ const artPath = `${distPath}art/`;
 export const pages = {
 	updates: [
 		{
-			id: 4,
+			date: '09.27.23',
+			content: 'Added "Resume" and cleaned up a few things.',
+		},
+		{
 			date: '09.26.23',
 			content: 'Fixed styles, re-organized, and added content for "About" page.',
 		},
 		{
-			id: 3,
 			date: '09.25.23',
 			content: 'Updated galleries for "Projects" and "Art". Also changed a few other things.',
 		},
 		{
-			id: 2,
 			date: '09.16.23',
 			content: 'Still a work in progress.',
 		},
 		{
-			id: 1,
 			date: '09.14.23',
 			content: 'Created portfolio. Amazing.',
 		},
 	],
 	projects: [
 		{
-			id: 31,
 			border: true,
 			image: `${projectsPath}2022-09-14-display-coffee.jpg`,
 			thumb: `${projectsPath}2022-09-14-display-coffee-${thumbnailSize}.jpg`,
@@ -38,7 +37,6 @@ export const pages = {
 			content: `The latest version of my portfolio. You're on it.`,
 		},
 		{
-			id: 30,
 			border: true,
 			image: `${projectsPath}2022-06-25-ff7-for-st-jude.jpg`,
 			thumb: `${projectsPath}2022-06-25-ff7-for-st-jude-${thumbnailSize}.jpg`,
@@ -49,7 +47,6 @@ export const pages = {
 			url: '//ff7forstjude.org',
 		},
 		{
-			id: 29,
 			border: true,
 			image: `${projectsPath}2019-01-13-khyeras.jpg`,
 			thumb: `${projectsPath}2019-01-13-khyeras-${thumbnailSize}.jpg`,
@@ -60,7 +57,6 @@ export const pages = {
 			url: '//khyeras.org',
 		},
 		{
-			id: 28,
 			border: true,
 			image: `${projectsPath}2017-06-11-khyeras.jpg`,
 			thumb: `${projectsPath}2017-06-11-khyeras-${thumbnailSize}.jpg`,
@@ -71,7 +67,6 @@ export const pages = {
 			url: '//khyeras.org',
 		},
 		{
-			id: 27,
 			border: true,
 			image: `${projectsPath}2016-09-12-muses-circle.jpg`,
 			thumb: `${projectsPath}2016-09-12-muses-circle-${thumbnailSize}.jpg`,
@@ -81,7 +76,6 @@ export const pages = {
 			content: `Second website layout for The Muses Circle. Currently not up, but we hope to bring it back in the future.`,
 		},
 		{
-			id: 26,
 			border: true,
 			image: `${projectsPath}2014-02-22-aleris.jpg`,
 			thumb: `${projectsPath}2014-02-22-aleris-${thumbnailSize}.jpg`,
@@ -91,7 +85,6 @@ export const pages = {
 			content: `My final website layout for Aleris before I shut it down. This is still one of my favorites and I really loved the foliage drooping over the brick wall.`,
 		},
 		{
-			id: 25,
 			border: true,
 			image: `${projectsPath}2013-12-16-aleris.jpg`,
 			thumb: `${projectsPath}2013-12-16-aleris-${thumbnailSize}.jpg`,
@@ -101,7 +94,6 @@ export const pages = {
 			content: `This came shortly after the previous layout and was a kind of darker version of the previous mockup. I do like the textured gradient here, but did not end up using it.`,
 		},
 		{
-			id: 24,
 			border: true,
 			image: `${projectsPath}2013-10-10-aleris.jpg`,
 			thumb: `${projectsPath}2013-10-10-aleris-${thumbnailSize}.jpg`,
@@ -111,7 +103,6 @@ export const pages = {
 			content: `Another layout for Aleris RPG. I don't thinK I used this, though I did like the lightness and textures in it.`,
 		},
 		{
-			id: 23,
 			border: true,
 			image: `${projectsPath}2013-01-01-mattandadria.jpg`,
 			thumb: `${projectsPath}2013-01-01-mattandadria-${thumbnailSize}.jpg`,
@@ -122,7 +113,6 @@ export const pages = {
 			url: '//mattandadria.com',
 		},
 		{
-			id: 22,
 			border: true,
 			image: `${projectsPath}2012-12-01-invalid.jpg`,
 			thumb: `${projectsPath}2012-12-01-invalid-${thumbnailSize}.jpg`,
@@ -133,7 +123,6 @@ export const pages = {
 			url: '//neverend.org/invalid',
 		},
 		{
-			id: 21,
 			border: true,
 			image: `${projectsPath}2012-07-15-aleris.jpg`,
 			thumb: `${projectsPath}2012-07-15-aleris-${thumbnailSize}.jpg`,
@@ -143,7 +132,6 @@ export const pages = {
 			content: `Design for Aleris RPG. I don't think I ever used this as there were a few things I wasn't a fan of.`,
 		},
 		{
-			id: 20,
 			border: true,
 			image: `${projectsPath}2012-06-04-carol.jpg`,
 			thumb: `${projectsPath}2012-06-04-carol-${thumbnailSize}.jpg`,
@@ -153,7 +141,6 @@ export const pages = {
 			content: `This one was never fully finished, hence the iStock photo. It was a website for a nutrionist.`,
 		},
 		{
-			id: 19,
 			border: true,
 			image: `${projectsPath}2012-03-23-colorado-home-base.jpg`,
 			thumb: `${projectsPath}2012-03-23-colorado-home-base-${thumbnailSize}.jpg`,
@@ -163,7 +150,6 @@ export const pages = {
 			content: `Website for previous real estate agent, Robin Murphy.`,
 		},
 		{
-			id: 18,
 			border: true,
 			image: `${projectsPath}2011-12-28-muses-circle.jpg`,
 			thumb: `${projectsPath}2011-12-28-muses-circle-${thumbnailSize}.jpg`,
@@ -173,7 +159,6 @@ export const pages = {
 			content: `Blog website for a friend of mine, who reviews books and movies.`,
 		},
 		{
-			id: 17,
 			border: true,
 			image: `${projectsPath}2011-01-09-aleris.jpg`,
 			thumb: `${projectsPath}2011-01-09-aleris-${thumbnailSize}.jpg`,
@@ -183,7 +168,6 @@ export const pages = {
 			content: `First website for Aleris RPG.`,
 		},
 		{
-			id: 16,
 			border: true,
 			image: `${projectsPath}2010-08-02-federal-mailing.jpg`,
 			thumb: `${projectsPath}2010-08-02-federal-mailing-${thumbnailSize}.jpg`,
@@ -193,7 +177,6 @@ export const pages = {
 			content: `Website for a small, mailing business.`,
 		},
 		{
-			id: 15,
 			border: true,
 			image: `${projectsPath}2009-12-18-matt.jpg`,
 			thumb: `${projectsPath}2009-12-18-matt-${thumbnailSize}.jpg`,
@@ -204,7 +187,6 @@ export const pages = {
 			url: '//mattmurphymusic.org',
 		},
 		{
-			id: 14,
 			border: true,
 			image: `${projectsPath}2009-08-14-portfolio.jpg`,
 			thumb: `${projectsPath}2009-08-14-portfolio-${thumbnailSize}.jpg`,
@@ -214,7 +196,6 @@ export const pages = {
 			content: `Third portfolio layout. At one point, I think the bright latern in here was animated, because I had big dreams of being able to animate gifs.`,
 		},
 		{
-			id: 13,
 			border: true,
 			image: `${projectsPath}2009-07-10-portfolio.jpg`,
 			thumb: `${projectsPath}2009-07-10-portfolio-${thumbnailSize}.jpg`,
@@ -224,7 +205,6 @@ export const pages = {
 			content: `Second portfolio layout. I don't think I actually ever used this, but I was getting into a lot of textures then.`,
 		},
 		{
-			id: 12,
 			border: true,
 			image: `${projectsPath}2009-05-29-portfolio.jpg`,
 			thumb: `${projectsPath}2009-05-29-portfolio-${thumbnailSize}.jpg`,
@@ -234,7 +214,6 @@ export const pages = {
 			content: `First portfolio layout.`,
 		},
 		{
-			id: 11,
 			border: true,
 			image: `${projectsPath}2007-04-28-ro-diary.jpg`,
 			thumb: `${projectsPath}2007-04-28-ro-diary-${thumbnailSize}.jpg`,
@@ -244,7 +223,6 @@ export const pages = {
 			content: `Last RO Diary layout. I don't think I lasted long on there.`,
 		},
 		{
-			id: 10,
 			border: true,
 			image: `${projectsPath}2007-03-02-neverend.jpg`,
 			thumb: `${projectsPath}2007-03-02-neverend-${thumbnailSize}.jpg`,
@@ -254,7 +232,6 @@ export const pages = {
 			content: `Website for my Ragnarok Online guild, Neverend.`,
 		},
 		{
-			id: 9,
 			border: true,
 			image: `${projectsPath}2006-11-26-neverend.jpg`,
 			thumb: `${projectsPath}2006-11-26-neverend-${thumbnailSize}.jpg`,
@@ -264,7 +241,6 @@ export const pages = {
 			content: `Website for my Ragnarok Online guild, Neverend.`,
 		},
 		{
-			id: 8,
 			border: true,
 			image: `${projectsPath}2006-11-16-ro-diary.jpg`,
 			thumb: `${projectsPath}2006-11-16-ro-diary-${thumbnailSize}.jpg`,
@@ -274,7 +250,6 @@ export const pages = {
 			content: `Back in the day, some one created this spin off of diaries for Ragnarok Online. Kinda like LiveJournal, but for Ragnarok Online so you can rant about card drop rates.`,
 		},
 		{
-			id: 7,
 			border: true,
 			image: `${projectsPath}2006-07-06-matt.jpg`,
 			thumb: `${projectsPath}2006-07-06-matt-${thumbnailSize}.jpg`,
@@ -284,7 +259,6 @@ export const pages = {
 			content: `First music website for my husband. I don't know if I actually ever built this out.`,
 		},
 		{
-			id: 6,
 			border: true,
 			image: `${projectsPath}2006-06-07-neverend.jpg`,
 			thumb: `${projectsPath}2006-06-07-neverend-${thumbnailSize}.jpg`,
@@ -294,7 +268,6 @@ export const pages = {
 			content: `Website for my Ragnarok Online guild, Neverend.`,
 		},
 		{
-			id: 5,
 			border: true,
 			image: `${projectsPath}2006-02-04-neverend.jpg`,
 			thumb: `${projectsPath}2006-02-04-neverend-${thumbnailSize}.jpg`,
@@ -304,7 +277,6 @@ export const pages = {
 			content: `Website for my Ragnarok Online guild, Neverend.`,
 		},
 		{
-			id: 4,
 			border: true,
 			image: `${projectsPath}2005-12-19-be-careful.jpg`,
 			thumb: `${projectsPath}2005-12-19-be-careful-${thumbnailSize}.jpg`,
@@ -314,7 +286,6 @@ export const pages = {
 			content: `Website for a Care Bear Cousins fanlisting, back when fanlistings were a thing and super popular. I liked my clever use of the "Be Careful" website name.`,
 		},
 		{
-			id: 3,
 			border: true,
 			image: `${projectsPath}2005-06-18-neverend.jpg`,
 			thumb: `${projectsPath}2005-06-18-neverend-${thumbnailSize}.jpg`,
@@ -324,7 +295,6 @@ export const pages = {
 			content: `Website for my Ragnarok Online guild, Neverend.`,
 		},
 		{
-			id: 2,
 			border: true,
 			image: `${projectsPath}2005-05-09-terrae.jpg`,
 			thumb: `${projectsPath}2005-05-09-terrae-${thumbnailSize}.jpg`,
@@ -334,7 +304,6 @@ export const pages = {
 			content: `First iteration of a website for a story I want to write... some day.`,
 		},
 		{
-			id: 1,
 			border: true,
 			image: `${projectsPath}2004-08-20-oneiro.jpg`,
 			thumb: `${projectsPath}2004-08-20-oneiro-${thumbnailSize}.jpg`,
@@ -346,7 +315,6 @@ export const pages = {
 	],
 	pixels: [
 		{
-			id: 37,
 			border: false,
 			thumb: `${artPath}2022-11-20-ff7-materia.png`,
 			name: 'Support Materia',
@@ -355,7 +323,6 @@ export const pages = {
 			content: `A blue support materia, which is used for the <a href="//ff7forstjude.org" target="_blank">FF7 for St. Jude</a> page as the favicon.`,
 		},
 		{
-			id: 36,
 			border: false,
 			thumb: `${artPath}2021-12-04-toastmatt-sad-bread.png`,
 			name: 'Sad Bread',
@@ -364,7 +331,6 @@ export const pages = {
 			content: `Does a sad bread make itself soggy? For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 35,
 			border: false,
 			thumb: `${artPath}2021-12-04-toastmatt-materia-bread.png`,
 			name: 'Materia Bread',
@@ -373,7 +339,6 @@ export const pages = {
 			content: `I kinda hate this one, lol, but it's bread with materia slots. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 34,
 			border: false,
 			thumb: `${artPath}2021-11-28-money-bread.gif`,
 			name: 'Money Bread',
@@ -382,7 +347,6 @@ export const pages = {
 			content: `Currency with a bread icon. It's even animated! For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 33,
 			border: false,
 			thumb: `${artPath}2021-11-26-toastmatt-rip-bread.png`,
 			name: 'RIP Bread',
@@ -391,7 +355,6 @@ export const pages = {
 			content: `Okay, it's not really bread, but a tombstone shaped like bread. I felt kinda clever. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 32,
 			border: false,
 			thumb: `${artPath}2021-11-26-toastmatt-mad-bread.png`,
 			name: 'Mad Breads',
@@ -400,7 +363,6 @@ export const pages = {
 			content: `The bread is back and this one is mad. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 31,
 			border: false,
 			thumb: `${artPath}2021-03-13-khyeras-heart-badge.png`,
 			name: 'Heart Badge',
@@ -409,7 +371,6 @@ export const pages = {
 			content: `A heart badge for a Valentine's Day writing prompt event at <a href="//khyeras.org" target="_blank">Khy'eras</a>.`,
 		},
 		{
-			id: 30,
 			border: false,
 			thumb: `${artPath}2020-12-20-displaycofee-wave.png`,
 			name: 'Wave',
@@ -418,7 +379,6 @@ export const pages = {
 			content: `Feena from "Grandia" doing a little wave. For my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
 		},
 		{
-			id: 29,
 			border: false,
 			thumb: `${artPath}2020-12-20-displaycofee-hmm.png`,
 			name: 'Hmmm',
@@ -427,7 +387,6 @@ export const pages = {
 			content: `Alundra from "Alundra" thinking about puzzles. For my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
 		},
 		{
-			id: 28,
 			border: false,
 			thumb: `${artPath}2020-12-20-displaycofee-charge.png`,
 			name: 'Charge',
@@ -436,7 +395,6 @@ export const pages = {
 			content: `Frog from "Chrono Trigger" for my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
 		},
 		{
-			id: 27,
 			border: false,
 			thumb: `${artPath}2020-10-25-khyeras-pumpkin-badge.png`,
 			name: 'Pumpkin Badge',
@@ -445,7 +403,6 @@ export const pages = {
 			content: `A pumpkin badge for a Halloween writing prompt event at <a href="//khyeras.org" target="_blank">Khy'eras</a>.`,
 		},
 		{
-			id: 26,
 			border: false,
 			thumb: `${artPath}2020-08-24-displaycofee-hello.png`,
 			name: 'Hello',
@@ -454,7 +411,6 @@ export const pages = {
 			content: `I created this for my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>, but ended up removing it. It's Toothless from "How to Train Your Dragon" waving.`,
 		},
 		{
-			id: 25,
 			border: false,
 			thumb: `${artPath}2020-07-25-chestermcfisty-git-gud.png`,
 			name: 'Git Gud',
@@ -463,7 +419,6 @@ export const pages = {
 			content: `Also known as "get good". For <a href="//twitch.tv/chestermcfisty" target="_blank">chestermcfisty</a>.`,
 		},
 		{
-			id: 24,
 			border: false,
 			thumb: `${artPath}2020-07-19-scubasaul-pineapple.png`,
 			name: 'No Hints Please',
@@ -472,7 +427,6 @@ export const pages = {
 			content: `<a href="//twitch.tv/scubasaul" target="_blank">scubasaul</a>'s safe word to get a hint in a game is "pineapple", so I made him a not-so-impressed Terminator pineapple.`,
 		},
 		{
-			id: 23,
 			border: false,
 			thumb: `${artPath}2020-07-12-displaycofee-coffee-bean.png`,
 			name: 'Coffee Bean',
@@ -481,7 +435,6 @@ export const pages = {
 			content: `A coffee bean used for the channel point icon on my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
 		},
 		{
-			id: 22,
 			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-red-mug.png`,
 			name: 'Red Coffee Mug',
@@ -490,7 +443,6 @@ export const pages = {
 			content: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a red coffee mug with a paw print.`,
 		},
 		{
-			id: 21,
 			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-purple-mug.png`,
 			name: 'Purple Coffee Mug',
@@ -499,7 +451,6 @@ export const pages = {
 			content: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a purple coffee mug with a starburst (not the candy).`,
 		},
 		{
-			id: 20,
 			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-orange-mug.png`,
 			name: 'Orange Coffee Mug',
@@ -508,7 +459,6 @@ export const pages = {
 			content: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a orange coffee mug with a crescent moon.`,
 		},
 		{
-			id: 19,
 			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-green-mug.png`,
 			name: 'Green Coffee Mug',
@@ -517,7 +467,6 @@ export const pages = {
 			content: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a green coffee mug with a swirl.`,
 		},
 		{
-			id: 18,
 			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-blue-mug.png`,
 			name: 'Blue Coffee Mug',
@@ -526,7 +475,6 @@ export const pages = {
 			content: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a blue coffee mug with a heart.`,
 		},
 		{
-			id: 17,
 			border: false,
 			thumb: `${artPath}2020-07-11-displaycofee-love.png`,
 			name: 'Vivi Love',
@@ -535,7 +483,6 @@ export const pages = {
 			content: `Vivi from Final Fantasy IX. For my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
 		},
 		{
-			id: 16,
 			border: false,
 			thumb: `${artPath}2020-07-05-novakatebs-medkit.png`,
 			name: 'Support',
@@ -544,7 +491,6 @@ export const pages = {
 			content: `A medkit for all those viewers that support <a href="//twitch.tv/novakatebs" target="_blank">novakatebs</a>.`,
 		},
 		{
-			id: 15,
 			border: false,
 			thumb: `${artPath}2020-07-05-chestermcfisty-ggez.png`,
 			name: 'GGEZ',
@@ -553,7 +499,6 @@ export const pages = {
 			content: `Gold knuckles with GGEZ. I think that's "good game easy" for all you hip youngesters out there. For <a href="//twitch.tv/chestermcfisty" target="_blank">chestermcfisty</a>.`,
 		},
 		{
-			id: 14,
 			border: false,
 			thumb: `${artPath}2020-07-04-savko-tilt.png`,
 			name: 'Tilt',
@@ -562,7 +507,6 @@ export const pages = {
 			content: `An enraged, tilted <a href="//twitch.tv/savko" target="_blank">savko</a>.`,
 		},
 		{
-			id: 13,
 			border: false,
 			thumb: `${artPath}2020-07-04-savko-platforming.png`,
 			name: 'Platforming Bad',
@@ -571,7 +515,6 @@ export const pages = {
 			content: `An attempt at platforming for <a href="//twitch.tv/savko" target="_blank">savko</a> as there's always some sort of fail.`,
 		},
 		{
-			id: 12,
 			border: false,
 			thumb: `${artPath}2020-07-04-savko-greed.png`,
 			name: 'Greed',
@@ -580,7 +523,6 @@ export const pages = {
 			content: `One of my favorite RPG / fantasy monsters, the mimic. For <a href="//twitch.tv/savko" target="_blank">savko</a>.`,
 		},
 		{
-			id: 11,
 			border: false,
 			thumb: `${artPath}2020-07-03-savko-lore.png`,
 			name: 'Lore',
@@ -589,7 +531,6 @@ export const pages = {
 			content: `Made for <a href="//twitch.tv/savko" target="_blank">savko</a> as he always has the coolest stories to tell.`,
 		},
 		{
-			id: 10,
 			border: false,
 			thumb: `${artPath}2020-07-03-savko-kwr.png`,
 			name: 'Kate Was Right',
@@ -598,7 +539,6 @@ export const pages = {
 			content: `Was Kate right? According to <a href="//twitch.tv/savko" target="_blank">savko</a> she was, so we gave her a little crown.`,
 		},
 		{
-			id: 9,
 			border: false,
 			thumb: `${artPath}2020-06-06-toastmatt-wave-bread.png`,
 			name: 'Wave Bread',
@@ -607,7 +547,6 @@ export const pages = {
 			content: `Just bread saying hello. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 8,
 			border: false,
 			thumb: `${artPath}2020-06-06-toastmatt-gold-bread.png`,
 			name: 'Gold',
@@ -616,7 +555,6 @@ export const pages = {
 			content: `That's some shiny bread. Probably doesn't taste good. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 7,
 			border: false,
 			thumb: `${artPath}2020-05-24-toastmatt-pb-bread.png`,
 			name: 'PB Bread',
@@ -625,7 +563,6 @@ export const pages = {
 			content: `Peanut butter or personal best? The choice is yours and yours alone.`,
 		},
 		{
-			id: 6,
 			border: false,
 			thumb: `${artPath}2020-05-23-toastmatt-smile-bread.png`,
 			name: 'Smile Bread',
@@ -634,7 +571,6 @@ export const pages = {
 			content: `Smile. :) For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 5,
 			border: false,
 			thumb: `${artPath}2020-05-23-toastmatt-love-bread.png`,
 			name: 'Love Bead',
@@ -643,7 +579,6 @@ export const pages = {
 			content: `This bread is in love. <3 For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 4,
 			border: false,
 			thumb: `${artPath}2020-05-07-toastmatt-well-done.png`,
 			name: 'Well Done',
@@ -652,7 +587,6 @@ export const pages = {
 			content: `Well done toast for <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
 		},
 		{
-			id: 3,
 			border: false,
 			image: `${artPath}2020-04-30-toatmatt-bread-badges.png`,
 			thumb: `${artPath}2020-04-30-toatmatt-bread-badges-18x18.png`,
@@ -662,7 +596,6 @@ export const pages = {
 			content: `Bread sub-badges for <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>. We didn't use all of these, but the gradient is cool.`,
 		},
 		{
-			id: 2,
 			border: false,
 			thumb: `${artPath}2020-04-30-toastmatt-dead-bread.png`,
 			name: 'Dead Bread',
@@ -671,7 +604,6 @@ export const pages = {
 			content: `Dead Bread for <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>. Reminds us of the Nirvana smiley face, most likely inspired by it.`,
 		},
 		{
-			id: 1,
 			border: false,
 			thumb: `${artPath}2020-04-17-toastmatt-soft-lock.png`,
 			name: 'Soft Lock',
@@ -682,7 +614,6 @@ export const pages = {
 	],
 	art: [
 		{
-			id: 34,
 			border: true,
 			image: `${artPath}2019-12-12-khyeras-map.jpg`,
 			thumb: `${artPath}2019-12-12-khyeras-map-200x200.jpg`,
@@ -692,7 +623,6 @@ export const pages = {
 			content: `My second attempt at making a map, for Khy'eras, and a much improved version. This is an interactive version of the map <a href="//khyeras.org/setting-map" target="_blank">found here</a>.`,
 		},
 		{
-			id: 33,
 			border: true,
 			image: `${artPath}2013-03-23-charlie-rabbit.jpg`,
 			thumb: `${artPath}2013-03-23-charlie-rabbit-200x200.jpg`,
@@ -702,7 +632,6 @@ export const pages = {
 			content: `A marionette named Charlie Rabbit. This was based on my husband's song, Charlie Rabbit, and later we used it for his album cover.`,
 		},
 		{
-			id: 32,
 			border: true,
 			image: `${artPath}2012-12-01-aleris-map.jpg`,
 			thumb: `${artPath}2012-12-01-aleris-map-200x200.jpg`,
@@ -712,7 +641,6 @@ export const pages = {
 			content: `One of my first attempts at map making for my RPG Aleris.`,
 		},
 		{
-			id: 31,
 			border: true,
 			image: `${artPath}2011-02-14-beatrix.jpg`,
 			thumb: `${artPath}2011-02-14-beatrix-200x200.jpg`,
@@ -722,7 +650,6 @@ export const pages = {
 			content: `I drew this for my husband, but we both love the character Beatrix from Final Fantasy IX.`,
 		},
 		{
-			id: 30,
 			border: true,
 			image: `${artPath}2008-12-21-pachico.jpg`,
 			thumb: `${artPath}2008-12-21-pachico-200x200.jpg`,
@@ -732,7 +659,6 @@ export const pages = {
 			content: `Pachico, a friend's mastersmith from Ragnarok Online.`,
 		},
 		{
-			id: 29,
 			border: true,
 			image: `${artPath}2008-08-03-cantrixe.jpg`,
 			thumb: `${artPath}2008-08-03-cantrixe-200x200.jpg`,
@@ -742,7 +668,6 @@ export const pages = {
 			content: `A punked/gothed out version of Ragnarok Online high priestess, Cantrixe.`,
 		},
 		{
-			id: 28,
 			border: true,
 			image: `${artPath}2008-05-24-levanth.jpg`,
 			thumb: `${artPath}2008-05-24-levanth-200x200.jpg`,
@@ -752,7 +677,6 @@ export const pages = {
 			content: `Levanth the paladin from Ragnarok Online. I like a man in armor and kitty ears.`,
 		},
 		{
-			id: 27,
 			border: true,
 			image: `${artPath}2008-05-20-yours-truly.jpg`,
 			thumb: `${artPath}2008-05-20-yours-truly-200x200.jpg`,
@@ -762,7 +686,6 @@ export const pages = {
 			content: `My Ragnarok Online sage named Yours Truly. The name was stolen from "Snow Crash" by Neal Stephenson.`,
 		},
 		{
-			id: 26,
 			border: true,
 			image: `${artPath}2008-04-12-eleotea.jpg`,
 			thumb: `${artPath}2008-04-12-eleotea-200x200.jpg`,
@@ -772,7 +695,6 @@ export const pages = {
 			content: `A goth-style battle high priestess named Eleotea. From, you guessed it, Ragnarok Online. I did some coloring here with my tablet for once, which I was never great at.`,
 		},
 		{
-			id: 25,
 			border: true,
 			image: `${artPath}2008-03-01-sol.jpg`,
 			thumb: `${artPath}2008-03-01-sol-200x200.jpg`,
@@ -782,7 +704,6 @@ export const pages = {
 			content: `Sol the high priest (from Ragnarok Online) lovingly caressing his long braid.`,
 		},
 		{
-			id: 24,
 			border: true,
 			image: `${artPath}2008-02-22-melody.jpg`,
 			thumb: `${artPath}2008-02-22-melody-200x200.jpg`,
@@ -792,7 +713,6 @@ export const pages = {
 			content: `Melody, a Ragnarok Online dancer.`,
 		},
 		{
-			id: 23,
 			border: true,
 			image: `${artPath}2008-02-16-harpe.jpg`,
 			thumb: `${artPath}2008-02-16-harpe-200x200.jpg`,
@@ -802,7 +722,6 @@ export const pages = {
 			content: `I believe this was a ninja named, Harpe, in Ragnarok Online.`,
 		},
 		{
-			id: 22,
 			border: true,
 			image: `${artPath}2008-02-11-pachico.jpg`,
 			thumb: `${artPath}2008-02-11-pachico-200x200.jpg`,
@@ -812,7 +731,6 @@ export const pages = {
 			content: `Pachico, a friend's mastersmith from Ragnarok Online.`,
 		},
 		{
-			id: 21,
 			border: true,
 			image: `${artPath}2007-07-31-docks.jpg`,
 			thumb: `${artPath}2007-07-31-docks-200x200.jpg`,
@@ -822,7 +740,6 @@ export const pages = {
 			content: `Tempest sitting on the docks of his hometown, Emfei Fien.`,
 		},
 		{
-			id: 20,
 			border: true,
 			image: `${artPath}2007-05-05-heart-umbrella.jpg`,
 			thumb: `${artPath}2007-05-05-heart-umbrella-200x200.jpg`,
@@ -832,7 +749,6 @@ export const pages = {
 			content: `I kinda liked drawing umbrellas, so this is my husband's high priest and my assassin cross from Ragnarok Online.`,
 		},
 		{
-			id: 19,
 			border: true,
 			image: `${artPath}2007-04-13-kyra-jazzy.jpg`,
 			thumb: `${artPath}2007-04-13-kyra-jazzy-200x200.jpg`,
@@ -842,7 +758,6 @@ export const pages = {
 			content: `Two wizards from Ragnarok Online; one of these wizard's belonged to Kyra Darkblood.`,
 		},
 		{
-			id: 18,
 			border: true,
 			image: `${artPath}2007-03-16-caiin.jpg`,
 			thumb: `${artPath}2007-03-16-caiin-200x200.jpg`,
@@ -852,7 +767,6 @@ export const pages = {
 			content: `A Ragnarok Online priestess with her drooping kitty, both decked out to be thug-like. I called her "Caiin" one day do to my fat-fingered typing.`,
 		},
 		{
-			id: 17,
 			border: true,
 			image: `${artPath}2006-10-02-rhio-tempest.jpg`,
 			thumb: `${artPath}2006-10-02-rhio-tempest-200x200.jpg`,
@@ -862,7 +776,6 @@ export const pages = {
 			content: `This is a re-do of the previous drawing as I wasn't too fond of the colors. I wanted them to be a little more nuetral.`,
 		},
 		{
-			id: 16,
 			border: true,
 			image: `${artPath}2005-11-02-nightmare.jpg`,
 			thumb: `${artPath}2005-11-02-nightmare-200x200.jpg`,
@@ -872,7 +785,6 @@ export const pages = {
 			content: `I'm unsure of the exact date on this, but it was an art school project where we had to draw the letters of the alphabet, but make them represent a concept.`,
 		},
 		{
-			id: 15,
 			border: true,
 			image: `${artPath}2005-10-28-kyra.jpg`,
 			thumb: `${artPath}2005-10-28-kyra-200x200.jpg`,
@@ -882,7 +794,6 @@ export const pages = {
 			content: `Ragnarok Online priestess named Kyra Darkblood.`,
 		},
 		{
-			id: 14,
 			border: true,
 			image: `${artPath}2005-10-12-slash-kis.jpg`,
 			thumb: `${artPath}2005-10-12-slash-kis-200x200.jpg`,
@@ -892,7 +803,6 @@ export const pages = {
 			content: `My Ragnarok Online assassin (Kaila) and my husband's prest (Iezu). Doin' a little /kis command.`,
 		},
 		{
-			id: 13,
 			border: true,
 			image: `${artPath}2005-09-30-reid.jpg`,
 			thumb: `${artPath}2005-09-30-reid-200x200.jpg`,
@@ -902,7 +812,6 @@ export const pages = {
 			content: `My roleplaying character, Reid Feral.`,
 		},
 		{
-			id: 12,
 			border: true,
 			image: `${artPath}2005-09-16-manaeros.jpg`,
 			thumb: `${artPath}2005-09-16-manaeros-200x200.jpg`,
@@ -912,7 +821,6 @@ export const pages = {
 			content: `Messy sketch of an angel type race in Terrae.`,
 		},
 		{
-			id: 11,
 			border: true,
 			image: `${artPath}2005-08-21-wait-for-me.jpg`,
 			thumb: `${artPath}2005-08-21-wait-for-me-200x200.jpg`,
@@ -922,7 +830,6 @@ export const pages = {
 			content: `Inspire by a song my husband wrote, features me and my husband in the rain under the cutest star umbrella.`,
 		},
 		{
-			id: 10,
 			border: true,
 			image: `${artPath}2005-04-06-cantrixe.jpg`,
 			thumb: `${artPath}2005-04-06-cantrixe-200x200.jpg`,
@@ -932,7 +839,6 @@ export const pages = {
 			content: `Pen sketch of a Ragnarok Online priestess named Cantrixe.`,
 		},
 		{
-			id: 9,
 			border: true,
 			image: `${artPath}2005-01-14-rhio-tempest.jpg`,
 			thumb: `${artPath}2005-01-14-rhio-tempest-200x200.jpg`,
@@ -942,7 +848,6 @@ export const pages = {
 			content: `Characters (Rhio and Tempest) from a story called Terrae. I might write it some day.`,
 		},
 		{
-			id: 8,
 			border: true,
 			image: `${artPath}2004-10-13-kiska.jpg`,
 			thumb: `${artPath}2004-10-13-kiska-200x200.jpg`,
@@ -952,7 +857,6 @@ export const pages = {
 			content: `Kiska, a hunter from Ragnarok Online.`,
 		},
 		{
-			id: 7,
 			border: true,
 			image: `${artPath}2004-10-13-kaila.jpg`,
 			thumb: `${artPath}2004-10-13-kaila-200x200.jpg`,
@@ -962,7 +866,6 @@ export const pages = {
 			content: `My Ragnarok Online assassin, Kaila.`,
 		},
 		{
-			id: 6,
 			border: true,
 			image: `${artPath}2004-02-24-kaila-zomba.jpg`,
 			thumb: `${artPath}2004-02-24-kaila-zomba-200x200.jpg`,
@@ -972,7 +875,6 @@ export const pages = {
 			content: `My Ragnarok Online assassin, Kaila, and her pet spore, Zomba.`,
 		},
 		{
-			id: 5,
 			border: true,
 			image: `${artPath}2003-06-09-never-falling.jpg`,
 			thumb: `${artPath}2003-06-09-never-falling-200x200.jpg`,
@@ -982,7 +884,6 @@ export const pages = {
 			content: `My RPG character and his wife, Necia.`,
 		},
 		{
-			id: 4,
 			border: true,
 			image: `${artPath}2003-01-23-reid.jpg`,
 			thumb: `${artPath}2003-01-23-reid-200x200.jpg`,
@@ -992,7 +893,6 @@ export const pages = {
 			content: `My roleplaying character, Reid Feral.`,
 		},
 		{
-			id: 3,
 			border: true,
 			image: `${artPath}2003-01-11-flower.jpg`,
 			thumb: `${artPath}2003-01-11-flower-200x200.jpg`,
@@ -1002,7 +902,6 @@ export const pages = {
 			content: `Pen sketch of a character (Tempest) from a story of mine.`,
 		},
 		{
-			id: 2,
 			border: true,
 			image: `${artPath}2002-10-23-verial-sorvynia.jpg`,
 			thumb: `${artPath}2002-10-23-verial-sorvynia-200x200.jpg`,
@@ -1012,7 +911,6 @@ export const pages = {
 			content: `My RPG character as a kid and his mom, Sorvynia.`,
 		},
 		{
-			id: 1,
 			border: true,
 			image: `${artPath}2002-10-23-verial-necia.jpg`,
 			thumb: `${artPath}2002-10-23-verial-necia-200x200.jpg`,
@@ -1022,4 +920,109 @@ export const pages = {
 			content: `My RPG character and his wife, Necia.`,
 		},
 	],
+	resume: {
+		technical: {
+			languages: [
+				{
+					name: 'HTML',
+					value: 9,
+				},
+				{
+					name: 'CSS',
+					value: 9,
+				},
+				{
+					name: 'Sass',
+					value: 9,
+				},
+				{
+					name: 'JavaScript',
+					value: 8,
+				},
+				{
+					name: 'jQuery',
+					value: 8,
+				},
+				{
+					name: 'React',
+					value: 8,
+				},
+				{
+					name: 'Angular',
+					value: 6,
+				},
+				{
+					name: 'PHP',
+					value: 7,
+				},
+			],
+			cms: 'WordPress, WooCommerce, WHMCS, Interwoven / Teamsite, phpBB, eCommerce platforms (Shopify, BigCommerce, Magento2, etc.)',
+			tools: 'Windows, MacOS, VSCode, Chrome Dev Tools, Word, Excel, Outlook, Photoshop',
+			other: 'Git, Webpack, Gulp, experience with all major web browsers, API interaction, GraphQL',
+		},
+		history: [
+			{
+				name: 'Searchspring',
+				role: 'Implementation Engineer and Team Lead from November 2014 to <strong>Current</strong>',
+				content: [
+					`Use Searchspring API and SDKs (based on Angular or React) to create mockups that demo how Searchspring looks and functions when integrated on a client's eCommerce website`,
+					`Code JavaScript for additional functionality on mockups`,
+					`Construct templates and modules built with Sass and React and / or Angular for easy, standardized frontend code`,
+					`Create Searchspring specific themes for client websites that utilized React and Sass`,
+					`QA mockups on different browsers and mobile devices`,
+					`Write customer-facing Knowledge Base articles as well as internal team documentation and code snippets`,
+					`Lead team of four frontend developers and define best practices for the entire Professional Services team at Searchspring`,
+					`HTML, CSS, Sass, JavaScript, JavaScript frameworks (jQuery, React, Angular), Git`,
+				],
+			},
+			{
+				name: 'Power Plant Media',
+				role: 'Frontend Web Developer from October 2013 to September 2014',
+				content: [
+					`Code HTML and CSS for responsive, mobile-friendly websites`,
+					`Code HTML email newsletters`,
+					`Build templates and themes for WordPress, WooCommerce, and WHMCS`,
+					`Creation of custom content types and plugins for WordPress`,
+					`Optimize sites with schema.org markup (rich snippets)`,
+					`Cross browser device testing (Chrome, Firefox, IE, Samsung Galaxy S3, iPhone, etc.)`,
+					`HTML, CSS, Sass, Compass, PHP, JavaScript, jQuery, Photoshop CC, Dreamweaver`,
+				],
+			},
+			{
+				name: 'Decentrix Inc.',
+				role: 'Graphic Designer and Frontend Web Developer from April 2013 to September 2013',
+				content: [
+					`Design and implement website customizations for DISH authorized retailers`,
+					`Update HTML and CSS on outdated pages and clean-up of pages and files no longer in use`,
+					`Daily maintenance on pages to keep code current with web standards, simple, concise, and effective`,
+					`Graphic design for banners, home page sliders, image sprites, and buttons`,
+					`Write and proofread content for the web when necessary`,
+					`HTML, CSS, JavaScript, jQuery, Photoshop CC, IntelliJ IDEA, Microsoft Office`,
+				],
+			},
+			{
+				name: 'AT&T',
+				role: 'Implementation Specialist from April 2010 to April 2013',
+				content: [
+					`Review and analyze project documents used to place content on att.com (logging and solving issues as a result)`,
+					`Implement content using TeamSite and thoroughly check each piece of content for errors in the process`,
+					`Participation in various clean-up efforts (reviewing files in TeamSite and website scrubs)`,
+					`Creation of new tools (JavaScript-based HTML character translator and invalid character checker) and involvement with testing of new tools within AT&T`,
+					`QA implementation work of team members`,
+					`HTML, CSS, JavaScript, TeamSite, Microsoft Office, Wiki, SharePoint`,
+				],
+			},
+			{
+				name: 'Hilton Worldwide',
+				role: 'Web Analyst from November 2007 to April 2010',
+				content: [
+					`Creation of special offers on hotel websites across all Hilton Worldwide brands (includes daily copywriting, proofreading, and HTML editing)`,
+					`Review and publish promotions that built for brand websites (Hilton.com, Doubletreee.com, etc.)`,
+					`Edit images and content for the web using CMS (TeamSite and MediaBin)`,
+					`Placed on various projects - Hampton Focus, imagery clean up, Trade Show attendance`,
+					`HTML, CSS, JavaScript, Photoshop, Interwoven / TeamSite, MediaBin, Microsoft Office`,
+				],
+			},
+		],
+	},
 };
