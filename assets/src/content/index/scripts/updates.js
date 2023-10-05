@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 6,
+		date: '10.05.23',
+		content: 'Updated resume again and made a few style changes, like adding a pixelated gradient to the body.',
+	},
+	{
 		id: 5,
 		date: '10.04.23',
 		content: 'Did a refactor of the code base and updated resume.',

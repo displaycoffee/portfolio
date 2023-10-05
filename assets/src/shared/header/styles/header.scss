@@ -22,7 +22,7 @@
 				padding: 0 6px 0 0;
 				overflow: hidden;
 				white-space: nowrap;
-				font-size: functions.em(18px, rem);
+				font-size: functions.em(20px, rem);
 				animation: type 3.5s steps(40);	
 				&:after {
 					content: '';
@@ -62,6 +62,6 @@
 
 	@keyframes cursor {
 		from, to { background-color: transparent }
-		50%      { background-color: theme.$color-04 }
+		50%      { background-color: darken(theme.$color-03, 8%) }
 	}
 
