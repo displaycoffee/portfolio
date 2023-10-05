@@ -13,98 +13,111 @@ export const Resume = () => {
 
 	return (
 		<>
-			<p>
-				<strong>Note</strong> - If you're looking for a downloadable version of this resume, grab the pdf{' '}
-				<a href="./assets/dist/documents/adria-murphy-resume.pdf" target="_blank">
-					here
-				</a>
-				.
-			</p>
+			<div className="resume-section resume-note spacing-reset">
+				<p>
+					<strong>Note</strong> - If you're looking for a downloadable version of this resume, grab the pdf{' '}
+					<a href="./assets/dist/documents/adria-murphy-resume.pdf" target="_blank">
+						here
+					</a>
+					.
+				</p>
+			</div>
 
-			<h4>Skills</h4>
+			<div className="resume-section resume-skills spacing-reset">
+				<h4>Skills</h4>
 
-			{languages && languages.length !== 0
-				? languages.map((item) => <ResumeSkillBar key={item.id} name={item.name} outOf={item.value} />)
-				: null}
+				{languages && languages.length !== 0
+					? languages.map((item) => <ResumeSkillBar key={item.id} name={item.name} outOf={item.value} />)
+					: null}
+			</div>
 
-			<h4>Inventory</h4>
+			<div className="resume-section resume-inventory">
+				<h4>Inventory</h4>
 
-			<ul>
-				{cms && (
-					<li>
-						<strong>Armor</strong> - {cms}
-					</li>
-				)}
-				{tools && (
-					<li>
-						<strong>Weapons</strong> - {tools}
-					</li>
-				)}
-				{other && (
-					<li>
-						<strong>Items</strong> - {other}
-					</li>
-				)}
-			</ul>
+				<div className="row row-wrap row-20">
+					{cms && (
+						<div className="column">
+							<h5 className="unstyled">Armor</h5>
+							<p>{cms}</p>
+						</div>
+					)}
+					{tools && (
+						<div className="column">
+							<h5 className="unstyled">Weapons</h5>
+							<p>{tools}</p>
+						</div>
+					)}
+					{other && (
+						<div className="column">
+							<h5 className="unstyled">Items</h5>
+							<p>{other}</p>
+						</div>
+					)}
+				</div>
+			</div>
 
-			<h4>Quest Log</h4>
+			<div className="resume-section resume-story-quests spacing-reset">
+				<h4>Story Quests</h4>
 
-			{history && history.length !== 0
-				? history.map((item) => (
-						<React.Fragment key={item.id}>
-							<p>
-								<strong>Name</strong> - {item.name}
-							</p>
+				{history && history.length !== 0
+					? history.map((item) => (
+							<React.Fragment key={item.id}>
+								<p>
+									<strong>Name</strong> - {item.name}
+								</p>
 
-							<p>
-								<strong>Role</strong> - <span dangerouslySetInnerHTML={{ __html: item.role }}></span>
-							</p>
+								<p>
+									<strong>Role</strong> - <span dangerouslySetInnerHTML={{ __html: item.role }}></span>
+								</p>
 
-							<p>
-								<strong>Objectives</strong> -
-							</p>
+								<p>
+									<strong>Objectives</strong> -
+								</p>
 
-							<ul>
-								{item.content.map((content, index) => (
-									<li key={index}>
-										{index == item.content.length - 1 ? (
-											<>
-												<strong>Inventory</strong> -&nbsp;
-											</>
-										) : null}
-										{content}
-									</li>
-								))}
-							</ul>
-						</React.Fragment>
-				  ))
-				: null}
+								<ul>
+									{item.content.map((content, index) => (
+										<li key={index}>
+											{index == item.content.length - 1 ? (
+												<>
+													<strong>Inventory</strong> -&nbsp;
+												</>
+											) : null}
+											{content}
+										</li>
+									))}
+								</ul>
+							</React.Fragment>
+					  ))
+					: null}
+			</div>
 
-			<h4>Side Quests</h4>
+			<div className="resume-section resume-side-quests spacing-reset">
+				<h4>Side Quests</h4>
 
-			{volunteer && volunteer.length !== 0
-				? volunteer.map((item) => (
-						<React.Fragment key={item.id}>
-							<p>
-								<strong>Name</strong> - {item.name}
-							</p>
+				{volunteer && volunteer.length !== 0
+					? volunteer.map((item) => (
+							<React.Fragment key={item.id}>
+								<p>
+									<strong>Name</strong> - {item.name}
+								</p>
 
-							<p>
-								<strong>Date</strong> - {item.date}
-							</p>
+								<p>
+									<strong>Date</strong> - {item.date}
+								</p>
 
-							<p>
-								<strong>Objectives</strong> -
-							</p>
+								<p>
+									<strong>Objectives</strong> -
+								</p>
 
-							<ul>
-								{item.content.map((content, index) => (
-									<li key={index}>{content}</li>
-								))}
-							</ul>
-						</React.Fragment>
-				  ))
-				: null}
+								<ul>
+									{item.content.map((content, index) => (
+										<li key={index}>{content}</li>
+									))}
+								</ul>
+							</React.Fragment>
+					  ))
+					: null}
+			</div>
 		</>
 	);
 };

@@ -9,7 +9,13 @@
 	// Style block
 
 	.page-resume {
-		.skill-bar {
+		.resume-section {
+			margin: 0 0 theme.$spacing-x8 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		.resume-skills .skill-bar {
 			.skill-bar-name, .skill-bar-progress {
 				position: relative;
 				width: 100%;
@@ -32,8 +38,18 @@
 				}
 			}
 		}
+		.resume-inventory {
+			.row {
+				.column {
+					@include mixins.flex(1 1 100%);
+					p {
+						margin: 0;
+					}
+				}
+			}
+		}
 		@include mixins.respond-min(theme.$bp-01) {
-			.skill-bar {
+			.resume-skills .skill-bar {
 				.skill-bar-name {
 					@include mixins.flex(0 1 auto);
 					top: 2px;
@@ -44,6 +60,15 @@
 				.skill-bar-progress {
 					@include mixins.flex;
 					max-width: 400px;
+				}
+			}
+		}
+		@include mixins.respond-min(theme.$bp-03) {
+			.resume-inventory {
+				.row {
+					.column {
+						@include mixins.flex;
+					}
 				}
 			}
 		}
