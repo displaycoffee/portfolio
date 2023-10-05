@@ -111,25 +111,27 @@
 		font-size: functions.em(14px, rem);
 	}
 	h2, h3, h4, h5, .h2, .h3, .h4, .h6, .h6 {
-		position: relative;
-		display: inline-block;
-		padding: 0 0 4px 0;
-		&:before, &:after {
-			content: '';
-			display: block;
-			@include mixins.position($type: absolute, $left: 0);
-		}
-		&:before {
-			height: 3px;
-			right: -#{theme.$spacing-x1};
-			bottom: 0;
-			background-color: theme.$color-04;
-		}
-		&:after {
-			height: 2px;
-			right: -#{theme.$spacing-x1 - 2px};
-			bottom: -2px;
-			background-color: theme.$color-06;
+		&:not(.unstyled) {
+			position: relative;
+			display: inline-block;
+			padding: 0 0 4px 0;
+			&:before, &:after {
+				content: '';
+				display: block;
+				@include mixins.position($type: absolute, $left: 0);
+			}
+			&:before {
+				height: 3px;
+				right: -#{theme.$spacing-x1};
+				bottom: 0;
+				background-color: theme.$color-04;
+			}
+			&:after {
+				height: 2px;
+				right: -#{theme.$spacing-x1 - 2px};
+				bottom: -2px;
+				background-color: theme.$color-06;
+			}
 		}
 	}
 
