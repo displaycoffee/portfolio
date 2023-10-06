@@ -33,26 +33,14 @@
 	body {
 		min-height: 100%;
 		background-color: $base-elements-color-01;
-		background-image: url('../../../assets/dist/images/theme/gradient.png');
-		background-repeat: repeat-x;
+		background-image: url('../../../assets/dist/images/theme/gradient-top.png'), url('../../../assets/dist/images/theme/gradient-bottom.png');
+		background-repeat: repeat-x, repeat-x;
+		background-position: center top, center bottom;
 		@if $base-elements-body-spacing-vertical != 0 or $base-elements-body-spacing-horizontal != 0 {
 			padding: $base-elements-body-spacing-vertical $base-elements-body-spacing-horizontal;
 		}
 	}
-	.wrapper {
-		max-width: theme.$wrapper-base;
-		margin: 0 auto;
-		padding: 0 $base-elements-spacing;
-	}
-	.wrapper-main {
-		& > * {
-			margin: 0 0 theme.$spacing-x8 0;
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-	p, .p, h1, h2, h3, h4, h5, h6, .spacing-reset > div {
+	p, h1, h2, h3, h4, h5, h6, .spacing-reset > div {
 		margin: 0 0 $base-elements-spacing 0;
 	}
 	.spacing-reset > *:last-child {
@@ -82,6 +70,19 @@
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
+	}
+	.wrapper {
+		max-width: theme.$wrapper-base;
+		margin: 0 auto;
+		padding: 0 $base-elements-spacing;
+	}
+	.wrapper-main {
+		& > * {
+			margin: 0 0 theme.$spacing-x8 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 
 //// HELPERS

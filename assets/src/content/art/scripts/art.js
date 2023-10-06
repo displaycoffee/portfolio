@@ -1,4 +1,4 @@
-const distPath = './assets/dist/images/';
+const distPath = '/assets/dist/images/';
 const artPath = `${distPath}art/`;
 
 export const art = {

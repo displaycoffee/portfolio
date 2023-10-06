@@ -12,17 +12,9 @@
 		overflow: hidden;
 	}
 	.gallery {
-		.gallery-items .gallery-item .gallery-image, .gallery-info .gallery-info-image {
-			line-height: 0;
-			img {
-				@include mixins.image-base;
-			}
-		}
 		.gallery-items {
-			@include mixins.flex-parent(align-content, flex-start);
 			.gallery-item {
-				width: 75px;
-				@include mixins.flex-layout((flex-flow: column nowrap, justify-content: center, align-items: center));
+				width: 60px;
 			}
 		}
 		.gallery-modal, .gallery-overlay {

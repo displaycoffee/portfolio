@@ -23,9 +23,10 @@ export const Header = (props) => {
 			<div className="header-mugs">
 				{mugs.map((mug, index) => (
 					<img
-						src={`./assets/dist/images/theme/mug-${mug}-${isDesktop ? '36x36' : '18x18'}.png`}
+						src={`/assets/dist/images/theme/mug-${mug}-${isDesktop ? '36x36' : '18x18'}.png`}
 						alt={`${mug} coffee mug`}
 						title={`${mug} coffee mug`}
+						loading="lazy"
 						key={index}
 					/>
 				))}
