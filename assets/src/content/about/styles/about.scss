@@ -8,13 +8,7 @@
 
 	// Style block
 
-	.page-about {
-		.about-photo {
-			line-height: 0;
-			img {
-				max-width: 100%;
-			}
-		}	
+	.page-about {	
 		@include mixins.respond-min(theme.$bp-01) {
 			.about-photo {
 				float: left;

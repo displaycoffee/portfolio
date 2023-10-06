@@ -5,7 +5,9 @@ export const About = () => {
 	return (
 		<>
 			<div className="about-photo pixel-border">
-				<img src="./assets/dist/images/theme/me.jpg" alt="Me riding a real dinosaur" title="Me riding a real dinosaur" loading="lazy" />
+				<div className="image-wrapper">
+					<img src="/assets/dist/images/theme/me.jpg" alt="Me riding a real dinosaur" title="Me riding a real dinosaur" loading="lazy" />
+				</div>
 			</div>
 
 			<p>

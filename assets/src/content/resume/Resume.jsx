@@ -16,7 +16,7 @@ export const Resume = () => {
 			<div className="resume-section resume-note spacing-reset">
 				<p>
 					<strong>Note</strong> - If you're looking for a downloadable version of this resume, grab the pdf{' '}
-					<a href="./assets/dist/documents/adria-murphy-resume.pdf" target="_blank">
+					<a href="/assets/dist/documents/adria-murphy-resume.pdf" target="_blank">
 						here
 					</a>
 					.

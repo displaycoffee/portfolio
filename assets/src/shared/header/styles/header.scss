@@ -37,6 +37,7 @@
 		.header-mugs {
 			line-height: 1;
 			img {
+				@include mixins.inline-block(middle);
 				margin: 0 theme.$spacing-x2 0 0;
 				&:last-child {
 					margin-right: 0;
@@ -44,7 +45,6 @@
 			}
 		}
 	}
-
 	@include mixins.respond-min(theme.$bp-02) {
 		.header {
 			.header-title {
@@ -59,7 +59,6 @@
 		from { width: 0 }
 		to   { width: 100% }
 	}
-
 	@keyframes cursor {
 		from, to { background-color: transparent }
 		50%      { background-color: darken(theme.$color-03, 8%) }

@@ -1,5 +1,5 @@
 const thumbnailSize = '200x200';
-const distPath = './assets/dist/images/';
+const distPath = '/assets/dist/images/';
 const projectsPath = `${distPath}projects/`;
 
 export const projects = [

@@ -43,13 +43,9 @@ export const Gallery = (props) => {
 					{gallery.map((item, index) => (
 						<div className="gallery-item column" key={item.id}>
 							<div className="gallery-image pointer" onClick={(e) => toggleGallery(e, item, index)}>
-								{item.border ? (
-									<div className="pixel-border">
-										<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
-									</div>
-								) : (
+								<div className={`image-wrapper${item.border ? ' pixel-border' : ''}`}>
 									<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
-								)}
+								</div>
 							</div>
 						</div>
 					))}
