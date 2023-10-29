@@ -1,0 +1,133 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// RESETS
+//// --------------------------------------------------------------------------
+
+// Style block
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+//// ELEMENTS
+//// --------------------------------------------------------------------------
+
+// Colors
+
+$base-elements-color-01: theme.$color-01; // body background
+
+// Configuration
+
+$base-elements-spacing: theme.$spacing-x4; // overall spacing of theme
+$base-elements-body-spacing-vertical: theme.$spacing-x16; // top / bottom spacing for body
+$base-elements-body-spacing-horizontal: 0; // left / right spacing for body
+
+// Style block
+
+html,
+body {
+	min-height: 100%;
+}
+body {
+	background-color: $base-elements-color-01;
+	background-image: url('../../../assets/images/theme/gradient-top.png'), url('../../../assets/images/theme/gradient-bottom.png');
+	background-repeat: repeat-x, repeat-x;
+	background-position:
+		center top,
+		center bottom;
+	@if $base-elements-body-spacing-vertical != 0 or $base-elements-body-spacing-horizontal != 0 {
+		padding: $base-elements-body-spacing-vertical
+			$base-elements-body-spacing-horizontal
+			calc($base-elements-body-spacing-vertical * 3)
+			$base-elements-body-spacing-horizontal;
+	}
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.spacing-reset > div {
+	margin: 0 0 $base-elements-spacing 0;
+}
+.spacing-reset > *:last-child {
+	margin-bottom: 0;
+}
+ul:not(.unstyled) {
+	margin: 0 0 $base-elements-spacing 0;
+	padding: 0 0 0 $base-elements-spacing;
+	list-style: none;
+	li {
+		position: relative;
+		padding: 0 0 0 $base-elements-spacing;
+		margin: 0 0 theme.$spacing-x1 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&:before {
+			@include mixins.position($type: absolute, $top: 2px, $left: 0);
+			display: block;
+			content: '\0025AA';
+			font-size: functions.em(16px, rem);
+			line-height: 1;
+		}
+	}
+}
+ul.unstyled {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.wrapper {
+	max-width: theme.$wrapper-base;
+	margin: 0 auto;
+	padding: 0 $base-elements-spacing;
+}
+.wrapper-main {
+	& > * {
+		margin: 0 0 theme.$spacing-x8 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+//// HELPERS
+//// --------------------------------------------------------------------------
+
+// Colors
+
+$base-helpers-color-01: theme.$color-04; // scrollbar background
+$base-helpers-color-02: theme.$color-06; // scrollbar foreground
+
+// Configuration
+
+$base-helpers-scrollbar-width: 6px; // width of scrollbar
+
+// Style block
+
+.sr-only {
+	@include mixins.sr-only;
+}
+.pointer {
+	cursor: pointer;
+}
+.clearfix {
+	@include mixins.clearfix('&');
+}
+.scrollbar {
+	@include mixins.scrollbar('&', $base-helpers-scrollbar-width, $base-helpers-color-01, $base-helpers-color-02);
+}
+.pixel-border {
+	@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06);
+}
+.pixel-border-modal {
+	@include mixins.pixel-border($width: 3px, $bg: theme.$color-04, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06);
+}
