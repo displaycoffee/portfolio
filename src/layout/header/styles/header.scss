@@ -1,0 +1,65 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// HEADER
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	.header {
+		margin-bottom: theme.$spacing-x4;
+		.header-title {
+			display: inline-block;
+			max-width: 100%;
+			a:hover {
+				color: inherit;
+			}
+			.header-type {
+				position: relative;
+				display: block;
+				padding: 0 6px 0 0;
+				overflow: hidden;
+				white-space: nowrap;
+				font-size: functions.em(20px, rem);
+				animation: type 3.5s steps(40);	
+				&:after {
+					content: '';
+					display: block;
+					width: 3px;
+					@include mixins.position($type: absolute, $top: 2px, $bottom: 6px, $right: 0);
+					margin: auto 0;
+					animation: cursor .75s step-end infinite;	
+				}	
+			}
+		}
+		.header-mugs {
+			line-height: 1;
+			img {
+				@include mixins.inline-block(middle);
+				margin: 0 theme.$spacing-x2 0 0;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.header {
+			margin-bottom: theme.$spacing-x8;
+			.header-title {
+				.header-type {
+					font-size: functions.em(24px, rem);
+				}
+			}
+		}	
+	}
+	@keyframes type {
+		from { width: 0 }
+		to   { width: 100% }
+	}
+	@keyframes cursor {
+		from, to { background-color: transparent }
+		50%      { background-color: darken(theme.$color-03, 8%) }
+	}
