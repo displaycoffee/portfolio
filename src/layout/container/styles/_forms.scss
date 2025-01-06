@@ -1,0 +1,30 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// FORMS
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	button:not(.unstyled):not(.a) {
+		height: 40px;
+		line-height: 40px;
+		@include mixins.ellipsis;		
+	}
+	button {
+		&.unstyled, &.a {
+			background-color: transparent;
+			border: 0;
+			padding: 0;
+		}
+	}
+	button.unstyled {
+		font-family: theme.$font-family-02;
+		font-size: functions.em(18px, rem);
+		color: theme.$color-02;
+	}
+	button.a {
+		line-height: 1.7;
+	}
