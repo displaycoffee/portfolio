@@ -1,0 +1,175 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// SLIDESHOW
+//// --------------------------------------------------------------------------
+
+	// Colors
+
+	$slideshow-color-01: false; // navigation button
+	$slideshow-color-03: false; // default pagination
+	$slideshow-color-04: false; // default pagination border
+	$slideshow-color-05: false; // active pagination
+	$slideshow-color-06: false; // active pagination border
+
+	// Configuration
+
+	$slideshow-on: true; // enable slideshow
+	$slideshow-slide-position: 600px; // pixel value to slide by
+	$slideshow-slide-transition: false; // number represting slide transition duration (false will disable)
+	$slideshow-image-height: 100%; // fluid should use percentage, fixed should use pixels
+	$slideshow-image-fit-on: false; // make image fit space
+	$slideshow-image-fit-position: center top; // fit position of image
+	$slideshow-image-fit: cover; // fit size of image (cover, contain, 100% auto, etc.)
+	$slideshow-swipe-on: true; // enable slideshow swipe
+	$slideshow-navigation-on: true; // enable slideshow navigation
+	$slideshow-navigation-button-size: 32px; // size of navigations buttons (default is 32px)
+	$slideshow-navigation-sides-prev-left: 0; // left position of previous button
+	$slideshow-navigation-sides-next-right: 0; // right position of next button
+	$slideshow-pagination-on: true; // enable slideshow pagination
+	$slideshow-pagination-size: 12px; // size of pagination bullets
+	$slideshow-pagination-vertical: bottom; // top or bottom
+	$slideshow-pagination-vertical-position: 10px; // value for vertical position
+	$slideshow-pagination-horizontal: center; // left, right, or center
+	$slideshow-pagination-horizontal-position: 10px; // value for horizontal position (ignored if center)
+	$slideshow-pagination-radius: 50%; // add border radius to pagination bullets
+
+	// Style block
+
+	@if $slideshow-on == true {
+		.slideshow {
+			overflow: hidden;
+			&, .slideshow-slide {
+				position: relative;
+			}
+			@if $slideshow-slide-transition != false {
+				&.active .slideshow-slide {
+					left: 0;
+					.slideshow-content {
+						opacity: 1;
+					}
+				}
+				&:not(.active) {
+					&.slideshow-previous .slideshow-slide {
+						left: -#{$slideshow-slide-position};
+						@include mixins.animate(slidePrevious #{$slideshow-slide-transition}s forwards);
+					}
+					&.slideshow-next .slideshow-slide {
+						left: $slideshow-slide-position;
+						@include mixins.animate(slideNext #{$slideshow-slide-transition}s forwards);
+					}
+					.slideshow-slide .slideshow-content {
+						@include mixins.transition(opacity #{$slideshow-slide-transition}s ease);
+						opacity: 0;
+					}
+				}
+			}
+			.slideshow-slide {
+				.slideshow-image {
+					position: relative;
+					line-height: 0;
+					@if $slideshow-image-height != false {
+						@include mixins.fluid-sizing($slideshow-image-height);
+						img {
+							@include mixins.position-fill;
+							@if $slideshow-image-fit-on == true {
+								@include mixins.object-fit($slideshow-image-fit-position, $slideshow-image-fit);
+								@include mixins.sizing(100%, 100%);
+							} @else {
+								@include mixins.image-base;
+							}
+						}
+					}
+				}
+			}
+			.slideshow-position {
+				position: absolute;
+				z-index: 2;
+			}
+			@if $slideshow-swipe-on == true {
+				.slideshow-swipe {
+					@include mixins.position($top: 0, $bottom: 0, $left: 0, $right: 0, $z: 1);
+					margin: auto;
+				}
+			}
+			@if $slideshow-navigation-on == true {
+				.slideshow-navigation {
+					button {
+						@include mixins.flex-layout((flex-flow: column nowrap, align-items: center, justify-content: center));
+						margin: auto 0;
+						padding: 0;
+						@include mixins.if-exists((background-color: $slideshow-color-01));
+						@include mixins.sizing($slideshow-navigation-button-size, $slideshow-navigation-button-size);
+						line-height: $slideshow-navigation-button-size;
+						@include mixins.position($top: 0, $bottom: 0);
+					}
+					.slideshow-navigation-previous {
+						left: $slideshow-navigation-sides-prev-left;
+					}
+					.slideshow-navigation-next {
+						right: $slideshow-navigation-sides-next-right;
+					}
+				}
+			}
+			@if $slideshow-pagination-on == true {
+				.slideshow-pagination {
+					#{$slideshow-pagination-vertical} : $slideshow-pagination-vertical-position;
+					@if $slideshow-pagination-horizontal == center {
+						left: 0;
+						right: 0;
+					} @else {
+						#{$slideshow-pagination-horizontal} : $slideshow-pagination-horizontal-position;
+					}
+					.slideshow-pagination-row {
+						@include mixins.flex-layout((flex-flow: row nowrap, align-items: center, justify-content: center));
+						margin: 0 -2.5px;
+						.slideshow-pagination-column {
+							@include mixins.sizing($slideshow-pagination-size, $slideshow-pagination-size);
+							margin: 0 2.5px;
+							padding: 0;
+							@include mixins.if-exists((background-color: $slideshow-color-03));
+							@if $slideshow-color-04 != false {
+								border: 1px solid $slideshow-color-04;
+							}
+							@if $slideshow-pagination-radius != false {
+								@include mixins.border-radius($slideshow-pagination-radius);
+							}
+						}
+						.active {
+							@include mixins.if-exists((background-color: $slideshow-color-05));
+							@if $slideshow-color-06 != false {
+								border: 1px solid $slideshow-color-06;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@-webkit-keyframes slidePrevious {
+		0%   { transform: translateX($slideshow-slide-position); }
+		100% { transform: translateX(0); }
+	}
+	@-moz-keyframes slidePrevious {
+		0%   { transform: translateX($slideshow-slide-position); }
+		100% { transform: translateX(0); }
+	}
+	@keyframes slidePrevious {
+		0%   { transform: translateX($slideshow-slide-position); }
+		100% { transform: translateX(0); }
+	}
+	@-webkit-keyframes slideNext {
+		0%   { transform: translateX(-#{$slideshow-slide-position}); }
+		100% { transform: translateX(0); }
+	}
+	@-moz-keyframes slideNext {
+		0%   { transform: translateX(-#{$slideshow-slide-position}); }
+		100% { transform: translateX(0); }
+	}
+	@keyframes slideNext {
+		0%   { transform: translateX(-#{$slideshow-slide-position}); }
+		100% { transform: translateX(0); }
+	}
