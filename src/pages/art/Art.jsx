@@ -2,6 +2,7 @@
 import { art } from './scripts/art';
 
 /* Local components */
+import { Slideshow } from '../../components/slideshow/Slideshow';
 import { Gallery } from '../../components/gallery/Gallery';
 
 export const Art = () => {
@@ -14,6 +15,8 @@ export const Art = () => {
 				Below are various different art pieces I have completed over the years. Please do not take any of these without permission as they are
 				for my own use (and personal) or work that friends have commissioned.
 			</p>
+
+			<Slideshow type={'result'} slides={art.art} limit={99999} lazy={true} />
 
 			{hasPixels && (
 				<>
