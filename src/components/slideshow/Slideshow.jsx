@@ -109,7 +109,7 @@ export const Slideshow = (props) => {
 
 	// create base image attributes
 	let baseIndexAttributes = {
-		src: currentSlide.image,
+		src: currentSlide.image ? currentSlide.image : currentSlide.thumb,
 	};
 
 	// Add lazy if enabled
@@ -119,13 +119,15 @@ export const Slideshow = (props) => {
 
 	return slideshow.enable ? (
 		<div className={`slideshow${direction ? ' slideshow-' + direction : ''}${active ? ' active' : ''}`}>
-			<div className="slideshow-slide" style={{ maxWidth: '500px' }}>
+			<div className="slideshow-slide">
 				<div className="slideshow-content">
 					<div className="slideshow-image">
-						<img {...baseIndexAttributes} alt={currentSlide.name} title={currentSlide.name} />
+						<div className="image-wrapper">
+							<img {...baseIndexAttributes} alt={currentSlide.name} title={currentSlide.name} />
+						</div>
 					</div>
 
-					<div className="slideshow-details spacing-reset column">
+					<div className="slideshow-details">
 						{currentSlide.date && (
 							<p className="slideshow-date">
 								<strong>Date</strong> - {currentSlide.date}
@@ -160,7 +162,7 @@ export const Slideshow = (props) => {
 
 			{slideshow.swipe.enable && (
 				<div
-					className="slideshow-swipe slideshow-position"
+					className="slideshow-swipe"
 					onTouchStart={(e) => {
 						slideshow.swipe.start = e.changedTouches[0].screenX;
 					}}
@@ -175,41 +177,52 @@ export const Slideshow = (props) => {
 
 			{slideshow.navigation.enable && (
 				<nav className="slideshow-navigation">
-					<button
-						className="slideshow-navigation-previous slideshow-position"
-						type="button"
-						onClick={(e) => slideshow.navigation.set(e, 'previous')}
-					>
-						&lt; Previous
-					</button>
+					<div className="row row-nowrap row-auto">
+						<div className="column">
+							<button
+								className="slideshow-navigation-button slideshow-navigation-previous pointer unstyled"
+								type="button"
+								alt="Previous"
+								title="Previous"
+								onClick={(e) => slideshow.navigation.set(e, 'previous')}
+							>
+								&lt;
+							</button>
+						</div>
 
-					<button
-						className="slideshow-navigation-next slideshow-position"
-						type="button"
-						onClick={(e) => slideshow.navigation.set(e, 'next')}
-					>
-						&gt; Next
-					</button>
+						<div className="column">
+							<button
+								className="slideshow-navigation-button slideshow-navigation-next pointer unstyled"
+								type="button"
+								alt="Next"
+								title="Next"
+								onClick={(e) => slideshow.navigation.set(e, 'next')}
+							>
+								&gt;
+							</button>
+						</div>
+					</div>
 				</nav>
 			)}
 
 			{slideshow.pagination.enable && (
-				<div className="slideshow-pagination slideshow-position">
-					<div className="slideshow-pagination-row">
+				<div className="slideshow-pagination">
+					<div className="row row-nowrap row-auto">
 						{slidesArray.map((image, index) => {
 							const isActive = index == baseIndex;
 
 							return (
-								<button
-									key={image.id}
-									className={`slideshow-pagination-column pointer${isActive ? ' active' : ''}`}
-									type="button"
-									onClick={(e) => {
-										slideshow.pagination.set(e, index, isActive);
-									}}
-								>
-									x
-								</button>
+								<div className="column" key={image.id}>
+									<button
+										className={`slideshow-pagination-button pointer${isActive ? ' active' : ''}`}
+										type="button"
+										onClick={(e) => {
+											slideshow.pagination.set(e, index, isActive);
+										}}
+									>
+										x
+									</button>
+								</div>
 							);
 						})}
 					</div>

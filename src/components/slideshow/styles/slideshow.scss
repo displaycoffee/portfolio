@@ -19,16 +19,13 @@
 	$slideshow-on: true; // enable slideshow
 	$slideshow-slide-position: 600px; // pixel value to slide by
 	$slideshow-slide-transition: false; // number represting slide transition duration (false will disable)
-	$slideshow-image-height: 100%; // fluid should use percentage, fixed should use pixels
-	$slideshow-image-fit-on: false; // make image fit space
-	$slideshow-image-fit-position: center top; // fit position of image
-	$slideshow-image-fit: cover; // fit size of image (cover, contain, 100% auto, etc.)
 	$slideshow-swipe-on: true; // enable slideshow swipe
 	$slideshow-navigation-on: true; // enable slideshow navigation
 	$slideshow-navigation-button-size: 32px; // size of navigations buttons (default is 32px)
-	$slideshow-navigation-sides-prev-left: 0; // left position of previous button
-	$slideshow-navigation-sides-next-right: 0; // right position of next button
-	$slideshow-pagination-on: true; // enable slideshow pagination
+	$slideshow-navigation-vertical: -50px; // top position of navigation
+	$slideshow-navigation-left: false; // left position of navigation
+	$slideshow-navigation-right: 0; // right position of navigation
+	$slideshow-pagination-on: false; // enable slideshow pagination
 	$slideshow-pagination-size: 12px; // size of pagination bullets
 	$slideshow-pagination-vertical: bottom; // top or bottom
 	$slideshow-pagination-vertical-position: 10px; // value for vertical position
@@ -40,10 +37,7 @@
 
 	@if $slideshow-on == true {
 		.slideshow {
-			overflow: hidden;
-			&, .slideshow-slide {
-				position: relative;
-			}
+			position: relative;
 			@if $slideshow-slide-transition != false {
 				&.active .slideshow-slide {
 					left: 0;
@@ -67,26 +61,33 @@
 				}
 			}
 			.slideshow-slide {
+				overflow: hidden;
 				.slideshow-image {
-					position: relative;
-					line-height: 0;
-					@if $slideshow-image-height != false {
-						@include mixins.fluid-sizing($slideshow-image-height);
-						img {
-							@include mixins.position-fill;
-							@if $slideshow-image-fit-on == true {
-								@include mixins.object-fit($slideshow-image-fit-position, $slideshow-image-fit);
-								@include mixins.sizing(100%, 100%);
-							} @else {
-								@include mixins.image-base;
-							}
+					max-width: 600px;
+					margin: 0 0 theme.$spacing-x4 0;
+					.image-wrapper img {
+						margin: auto 0;
+					}
+				}
+				.slideshow-details {
+					& > * {
+						margin: 0 0 theme.$spacing-x2 0;
+						&:last-child {
+							margin-bottom: 0;
 						}
 					}
 				}
 			}
-			.slideshow-position {
+			.slideshow-swipe, .slideshow-navigation, .slideshow-pagination {
 				position: absolute;
 				z-index: 2;
+			}
+			.row {
+				margin: 0 -2.5px;
+				.column {
+					margin: 0 2.5px;
+					padding: 0;
+				}
 			}
 			@if $slideshow-swipe-on == true {
 				.slideshow-swipe {
@@ -96,21 +97,19 @@
 			}
 			@if $slideshow-navigation-on == true {
 				.slideshow-navigation {
-					button {
+					@include mixins.position($top: $slideshow-navigation-vertical);
+					@include mixins.if-exists((
+						left: $slideshow-navigation-left,
+						right: $slideshow-navigation-right,
+					));
+					.slideshow-navigation-button {
 						@include mixins.flex-layout((flex-flow: column nowrap, align-items: center, justify-content: center));
-						margin: auto 0;
-						padding: 0;
 						@include mixins.if-exists((background-color: $slideshow-color-01));
 						@include mixins.sizing($slideshow-navigation-button-size, $slideshow-navigation-button-size);
 						line-height: $slideshow-navigation-button-size;
-						@include mixins.position($top: 0, $bottom: 0);
 					}
-					.slideshow-navigation-previous {
-						left: $slideshow-navigation-sides-prev-left;
-					}
-					.slideshow-navigation-next {
-						right: $slideshow-navigation-sides-next-right;
-					}
+					.slideshow-navigation-previous {}
+					.slideshow-navigation-next {}
 				}
 			}
 			@if $slideshow-pagination-on == true {
@@ -122,25 +121,29 @@
 					} @else {
 						#{$slideshow-pagination-horizontal} : $slideshow-pagination-horizontal-position;
 					}
-					.slideshow-pagination-row {
-						@include mixins.flex-layout((flex-flow: row nowrap, align-items: center, justify-content: center));
-						margin: 0 -2.5px;
-						.slideshow-pagination-column {
-							@include mixins.sizing($slideshow-pagination-size, $slideshow-pagination-size);
-							margin: 0 2.5px;
-							padding: 0;
-							@include mixins.if-exists((background-color: $slideshow-color-03));
-							@if $slideshow-color-04 != false {
-								border: 1px solid $slideshow-color-04;
-							}
-							@if $slideshow-pagination-radius != false {
-								@include mixins.border-radius($slideshow-pagination-radius);
+					.row {
+						.column {
+							.slideshow-pagination-button {
+								display: block;
+								@include mixins.sizing($slideshow-pagination-size, $slideshow-pagination-size);
+								line-height: $slideshow-pagination-size;
+								@include mixins.if-exists((background-color: $slideshow-color-03));
+								@if $slideshow-color-04 != false {
+									border: 1px solid $slideshow-color-04;
+								} @else {
+									border: 0;
+								}
+								@if $slideshow-pagination-radius != false {
+									@include mixins.border-radius($slideshow-pagination-radius);
+								}
 							}
 						}
 						.active {
-							@include mixins.if-exists((background-color: $slideshow-color-05));
-							@if $slideshow-color-06 != false {
-								border: 1px solid $slideshow-color-06;
+							.slideshow-button {
+								@include mixins.if-exists((background-color: $slideshow-color-05));
+								@if $slideshow-color-06 != false {
+									border: 1px solid $slideshow-color-06;
+								}
 							}
 						}
 					}
