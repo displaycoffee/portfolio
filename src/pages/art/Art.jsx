@@ -16,12 +16,10 @@ export const Art = () => {
 				for my own use (and personal) or work that friends have commissioned.
 			</p>
 
-			<Slideshow type={'result'} slides={art.art} limit={99999} lazy={true} />
-
 			{hasPixels && (
 				<>
 					<h4>Pixel art</h4>
-					<Gallery gallery={art.pixels} />
+					<Slideshow type={'result'} slides={art.pixels} limit={99999} pagination={false} lazy={true} />
 				</>
 			)}
 
