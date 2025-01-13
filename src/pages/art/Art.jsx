@@ -2,8 +2,7 @@
 import { art } from './scripts/art';
 
 /* Local components */
-import { Slideshow } from '../../components/slideshow/Slideshow';
-import { Gallery } from '../../components/gallery/Gallery';
+import { GalleryNew } from '../../components/gallery/Gallery';
 
 export const Art = () => {
 	const hasPixels = art.pixels && art.pixels.length !== 0;
@@ -16,19 +15,9 @@ export const Art = () => {
 				for my own use (and personal) or work that friends have commissioned.
 			</p>
 
-			{hasPixels && (
-				<>
-					<h4>Pixel art</h4>
-					<Slideshow type={'result'} slides={art.pixels} limit={99999} pagination={false} lazy={true} />
-				</>
-			)}
+			{hasArt && <GalleryNew path={'/art'} type={'art'} header={'Traditional and digital art'} gallery={art.art} />}
 
-			{hasArt && (
-				<>
-					<h4>Traditional and digital art</h4>
-					<Gallery gallery={art.art} />
-				</>
-			)}
+			{hasPixels && <GalleryNew path={'/art'} type={'pixels'} header={'Pixel art'} gallery={art.pixels} />}
 		</>
 	) : null;
 };

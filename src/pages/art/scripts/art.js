@@ -1,7 +1,7 @@
 const distPath = '/assets/images/';
 const artPath = `${distPath}art/`;
 
-export const art = {
+export let art = {
 	pixels: [
 		{
 			id: 36,
