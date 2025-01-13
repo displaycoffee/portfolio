@@ -1,11 +1,86 @@
 /* React */
-import { useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { Link, Routes, Route, useParams, useNavigate } from 'react-router-dom';
 
 /* Local styles */
 import './styles/gallery.scss';
 
 /* Local components */
 import { Context } from '../../context/Context';
+
+export const GalleryNew = (props) => {
+	const { path, type, header, gallery } = props;
+	const context = useContext(Context);
+	const { utils } = context;
+
+	// to-do: navigate to art if page not found
+	// Modify gallery to add handle property for pretty urls
+	const modifiedGallery = gallery.map((item) => {
+		item.handle = `${type}-${utils.handleize(item.name)}`;
+		return item;
+	});
+
+	// Pass down gallery props
+	const galleryProps = {
+		path: path,
+		type: type,
+		header: header ? header : false,
+		gallery: modifiedGallery,
+	};
+
+	return (
+		<div className="gallery">
+			<Routes>
+				<Route path="/" element={<GalleryThumbnails {...galleryProps} />} />
+				<Route path=":id" element={<GalleryContent {...galleryProps} />} />
+			</Routes>
+		</div>
+	);
+};
+
+export const GalleryThumbnails = (props) => {
+	const { path, header, gallery } = props;
+
+	return (
+		<>
+			{header ? <h4>{header}</h4> : null}
+
+			<div className="gallery-items row row-wrap row-auto row-spacing-10">
+				{gallery.map((item) => (
+					<div className="gallery-item column" key={item.id}>
+						<Link className="gallery-image" to={`${path}/${item.handle}`}>
+							<div className={`image-wrapper${item.border ? ' pixel-border' : ''}`}>
+								<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
+							</div>
+						</Link>
+					</div>
+				))}
+			</div>
+		</>
+	);
+};
+
+export const GalleryContent = (props) => {
+	const { path, gallery } = props;
+	const { id } = useParams();
+
+	// Find active gallery item
+	const content = gallery.filter((item) => item.handle == id).pop();
+
+	return content ? (
+		<>
+			<div className="gallery-content">
+				<img src={content.image ? content.image : content.thumb} alt={content.name} title={content.name} loading="lazy" />
+			</div>
+
+			<div>
+				<Link className="gallery-image" to={path}>
+					Back
+				</Link>
+			</div>
+		</>
+	) : null;
+};
 
 export const Gallery = (props) => {
 	const { gallery } = props;
