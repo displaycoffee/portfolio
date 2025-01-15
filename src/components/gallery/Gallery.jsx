@@ -1,6 +1,6 @@
 /* React */
-import { useEffect, useState, useContext } from 'react';
-import { Link, Routes, Route, useParams, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
 /* Local styles */
 import './styles/gallery.scss';
@@ -8,15 +8,15 @@ import './styles/gallery.scss';
 /* Local components */
 import { Context } from '../../context/Context';
 
-export const GalleryNew = (props) => {
+export const Gallery = (props) => {
 	const { path, type, header, gallery } = props;
 	const context = useContext(Context);
 	const { utils } = context;
 
-	// to-do: navigate to art if page not found
 	// Modify gallery to add handle property for pretty urls
-	const modifiedGallery = gallery.map((item) => {
-		item.handle = `${type}-${utils.handleize(item.name)}`;
+	const modifiedGallery = gallery.map((item, index) => {
+		item.index = index;
+		item.handle = `${type}-${item.name ? utils.handleize(item.name) : index}`;
 		return item;
 	});
 
@@ -61,186 +61,111 @@ export const GalleryThumbnails = (props) => {
 };
 
 export const GalleryContent = (props) => {
-	const { path, gallery } = props;
+	const { path, type, header, gallery } = props;
 	const { id } = useParams();
+	const showContent = window.location.href.includes(`${path}/${type}-`) ? true : false; // Do not render content if not in matching gallery
+	const galleryCount = gallery.length - 1;
+
+	// Set initial variables for gallery item details
+	let content = false;
+	let previous = false;
+	let next = false;
 
 	// Find active gallery item
-	const content = gallery.filter((item) => item.handle == id).pop();
+	let selected = gallery.filter((item) => item.handle == id);
 
-	return content ? (
-		<>
-			<div className="gallery-content">
-				<img src={content.image ? content.image : content.thumb} alt={content.name} title={content.name} loading="lazy" />
-			</div>
+	// Update gallery details and create previous / next elements
+	if (selected && selected.length !== 0) {
+		// Set selected content
+		content = selected.pop();
 
-			<div>
-				<Link className="gallery-image" to={path}>
-					Back
-				</Link>
-			</div>
-		</>
-	) : null;
-};
+		// If previous / next index is out of bounds, loop around to start / end of gallery
+		const previousIndex = content.index - 1;
+		const nextIndex = content.index + 1;
+		previous = previousIndex <= 0 ? gallery[galleryCount] : gallery[previousIndex];
+		next = nextIndex >= galleryCount ? gallery[0] : gallery[nextIndex];
+	}
 
-export const Gallery = (props) => {
-	const { gallery } = props;
-	const galleryActiveClass = 'gallery-active';
+	return showContent ? (
+		content ? (
+			<>
+				<div className="gallery-content">
+					{content.name && (
+						<header className="gallery-content-header">
+							<h3 className="gallery-content-title">{content.name}</h3>
+						</header>
+					)}
 
-	// Set item state
-	let [activeItem, setActiveItem] = useState(false);
-	let [activeIndex, setActiveIndex] = useState(false);
-
-	// Handle toggle event for gallery click
-	const toggleGallery = (e, item, index) => {
-		e.preventDefault();
-		const bodySelector = document.querySelector('body');
-
-		// Change gallery state and set item
-		if (!item) {
-			activeItem = false;
-			activeIndex = false;
-			bodySelector.classList.remove(galleryActiveClass);
-		} else {
-			activeItem = item;
-			activeIndex = index;
-			bodySelector.classList.add(galleryActiveClass);
-		}
-
-		// Set gallery state
-		setActiveItem(activeItem);
-		setActiveIndex(activeIndex);
-	};
-
-	return (
-		<>
-			<div className="gallery">
-				<div className="gallery-items row row-wrap row-auto row-spacing-10">
-					{gallery.map((item, index) => (
-						<div className="gallery-item column" key={item.id}>
-							<div className="gallery-image pointer" onClick={(e) => toggleGallery(e, item, index)}>
-								<div className={`image-wrapper${item.border ? ' pixel-border' : ''}`}>
-									<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
-								</div>
-							</div>
+					{(content.image || content.thumb) && (
+						<div className="gallery-content-image">
+							<a href={content.image ? content.image : content.thumb} target="_blank" rel="noreferrer">
+								<img src={content.image ? content.image : content.thumb} alt={content.name} title={content.name} loading="lazy" />
+							</a>
 						</div>
-					))}
+					)}
+
+					<div className="gallery-content-details">
+						{content.date && (
+							<p className="gallery-content-date">
+								<strong>Date</strong> - {content.date}
+							</p>
+						)}
+
+						{content.url && (
+							<p className="gallery-content-visit">
+								<strong>Visit</strong> -{' '}
+								<a href={content.url} target="_blank" rel="noreferrer">
+									{content.url.replace('//', '')}
+								</a>
+							</p>
+						)}
+
+						{content.technologies && (
+							<p className="gallery-content-technologies">
+								<strong>Technologies</strong> - {content.technologies}
+							</p>
+						)}
+
+						{content.mediums && (
+							<p className="gallery-content-technologies">
+								<strong>Mediums</strong> - {content.mediums}
+							</p>
+						)}
+
+						{content.description && (
+							<p className="gallery-content-description" dangerouslySetInnerHTML={{ __html: content.description }}></p>
+						)}
+					</div>
 				</div>
 
-				{activeItem ? (
-					<>
-						<div className="gallery-modal" onClick={(e) => toggleGallery(e, false, false)}>
-							<div className="gallery-overlay"></div>
+				<nav className="gallery-navigation">
+					<ul className="gallery-navigation-list unstyled">
+						{previous && (
+							<li className="gallery-navigation-list-item">
+								<Link className="gallery-navigation-link" to={`${path}/${previous.handle}`}>
+									&lt; Previous
+								</Link>
+							</li>
+						)}
 
-							<div className="gallery-info pixel-border-modal" onClick={(e) => e.stopPropagation()}>
-								<header className="gallery-info-header flex-nowrap flex-align-items-center">
-									<h3 className="gallery-info-title">{activeItem.name}</h3>
+						<li className="gallery-navigation-list-item">
+							<Link className="gallery-navigation-link" to={path}>
+								Back{header ? ` to "${header}"` : ``}
+							</Link>
+						</li>
 
-									<button className="gallery-info-close" type="button" onClick={(e) => toggleGallery(e, false, false)}>
-										x
-									</button>
-								</header>
-
-								<div className="gallery-info-scrollbar scrollbar">
-									<div className="gallery-info-content flex-wrap">
-										<div className="gallery-info-image column">
-											<a href={activeItem.image ? activeItem.image : activeItem.thumb} target="_blank">
-												<img
-													src={activeItem.image ? activeItem.image : activeItem.thumb}
-													alt={activeItem.name}
-													title={activeItem.name}
-													loading="lazy"
-												/>
-											</a>
-										</div>
-
-										<div className="gallery-info-details spacing-reset column">
-											{activeItem.date && (
-												<p className="gallery-info-date">
-													<strong>Date</strong> - {activeItem.date}
-												</p>
-											)}
-
-											{activeItem.url && (
-												<p className="gallery-info-visit">
-													<strong>Visit</strong> -{' '}
-													<a href={activeItem.url} target="_blank">
-														{activeItem.url.replace('//', '')}
-													</a>
-												</p>
-											)}
-
-											{activeItem.technologies && (
-												<p className="gallery-info-technologies">
-													<strong>Technologies</strong> - {activeItem.technologies}
-												</p>
-											)}
-
-											{activeItem.mediums && (
-												<p className="gallery-info-technologies">
-													<strong>Mediums</strong> - {activeItem.mediums}
-												</p>
-											)}
-
-											{activeItem.content && (
-												<p className="gallery-info-content" dangerouslySetInnerHTML={{ __html: activeItem.content }}></p>
-											)}
-										</div>
-									</div>
-								</div>
-
-								<footer className="gallery-info-footer">
-									<nav className="gallery-navigation">
-										{activeIndex === 0 ? (
-											<GalleryNavigationButton
-												direction={'Previous'}
-												toggleGallery={toggleGallery}
-												item={gallery[gallery.length - 1]}
-												index={gallery.length - 1}
-											/>
-										) : (
-											<GalleryNavigationButton
-												direction={'Previous'}
-												toggleGallery={toggleGallery}
-												item={gallery[activeIndex - 1]}
-												index={activeIndex - 1}
-											/>
-										)}
-
-										<span className="gallery-navigation-separator">&#9642;</span>
-
-										{activeIndex === gallery.length - 1 ? (
-											<GalleryNavigationButton direction={'Next'} toggleGallery={toggleGallery} item={gallery[0]} index={0} />
-										) : (
-											<GalleryNavigationButton
-												direction={'Next'}
-												toggleGallery={toggleGallery}
-												item={gallery[activeIndex + 1]}
-												index={activeIndex + 1}
-											/>
-										)}
-									</nav>
-								</footer>
-							</div>
-						</div>
-					</>
-				) : null}
-			</div>
-		</>
-	);
-};
-
-export const GalleryNavigationButton = (props) => {
-	const { direction, toggleGallery, item, index } = props;
-	const context = useContext(Context);
-	const { utils } = context;
-
-	return (
-		<button
-			className={`gallery-navigation-button gallery-navigation-${utils.handleize(direction)}`}
-			type="button"
-			onClick={(e) => toggleGallery(e, item, index)}
-		>
-			{direction}
-		</button>
-	);
+						{next && (
+							<li className="gallery-navigation-list-item">
+								<Link className="gallery-navigation-link" to={`${path}/${next.handle}`}>
+									Next &gt;
+								</Link>
+							</li>
+						)}
+					</ul>
+				</nav>
+			</>
+		) : (
+			<Navigate to={path} replace />
+		)
+	) : null;
 };

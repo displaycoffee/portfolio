@@ -12,7 +12,7 @@ export const Start = () => {
 
 					{updates.map((update) => (
 						<p key={update.id}>
-							<strong>{update.date}</strong> - {update.content}
+							<strong>{update.date}</strong> - {update.description}
 						</p>
 					))}
 				</>

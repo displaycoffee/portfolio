@@ -61,7 +61,7 @@ export const NavigationRoutes = () => {
 						articles: <Route path={nav.url} element={<Articles />} />,
 						resume: <Route path={nav.url} element={<Resume />} />,
 						art: <Route path={`${nav.url}/*`} element={<Art />} />,
-						projects: <Route path={nav.url} element={<Projects />} />,
+						projects: <Route path={`${nav.url}/*`} element={<Projects />} />,
 						about: <Route path={nav.url} element={<About />} />,
 					}[nav.label.toLowerCase()] || <Route path={nav.url} element={<Start />} />}
 				</React.Fragment>
