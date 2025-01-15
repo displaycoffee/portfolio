@@ -51,7 +51,7 @@ export const resume = {
 			id: 4,
 			name: 'Searchspring',
 			role: 'Implementation Engineer and Team Lead from November 2014 to <strong>Current</strong>',
-			content: [
+			description: [
 				`Use Searchspring API and SDKs (based on Angular or React) to perform job tasks`,
 				`Create mockups to demo how the product looks and functions when integrated on a client's eCommerce website`,
 				`Code JavaScript for additional functionality on mockups`,
@@ -69,7 +69,7 @@ export const resume = {
 			id: 3,
 			name: 'Power Plant Media',
 			role: 'Frontend Web Developer from October 2013 to September 2014',
-			content: [
+			description: [
 				`Code HTML and CSS for responsive, mobile-friendly websites`,
 				`Code HTML email newsletters`,
 				`Build templates and themes for WordPress, WooCommerce, and WHMCS`,
@@ -83,7 +83,7 @@ export const resume = {
 			id: 2,
 			name: 'Decentrix Inc.',
 			role: 'Graphic Designer and Frontend Web Developer from April 2013 to September 2013',
-			content: [
+			description: [
 				`Design and implement website customizations for DISH authorized retailers`,
 				`Update HTML and CSS on outdated pages and clean-up of pages and files no longer in use`,
 				`Daily maintenance on pages to keep code current with web standards, simple, concise, and effective`,
@@ -96,7 +96,7 @@ export const resume = {
 			id: 1,
 			name: 'AT&T',
 			role: 'Implementation Specialist from April 2010 to April 2013',
-			content: [
+			description: [
 				`Review and analyze project documents used to place content on att.com (logging and solving issues as a result)`,
 				`Implement content using TeamSite and thoroughly check each piece of content for errors in the process`,
 				`Participation in various clean-up efforts (reviewing files in TeamSite and website scrubs)`,
@@ -109,7 +109,7 @@ export const resume = {
 			id: 0,
 			name: 'Hilton Worldwide',
 			role: 'Web Analyst from November 2007 to April 2010',
-			content: [
+			description: [
 				`Creation of special offers on hotel websites across all Hilton Worldwide brands (includes daily copywriting, proofreading, and HTML editing)`,
 				`Review and publish promotions that built for brand websites (Hilton.com, Doubletreee.com, etc.)`,
 				`Edit images and content for the web using CMS (TeamSite and MediaBin)`,
@@ -123,7 +123,7 @@ export const resume = {
 			id: 2,
 			name: 'FF7 for St. Jude',
 			date: 'December 2020 to Current',
-			content: [
+			description: [
 				`Twice a year, assists in organizing and managing a charity event where Final Fantasy VII speed runners
 				get together to raise money for St. Jude Children’s Research Hospital`,
 				`Built a React application using the Tiltify API that tracks donations, challenges, and rewards from all
@@ -135,13 +135,13 @@ export const resume = {
 			id: 1,
 			name: 'Girls in Tech - Colorado Springs',
 			date: 'November 2019 to November 2020',
-			content: [`Help start Colorado Springs Girls in Tech chapter and first event`, `Performed website updates for the chapter`],
+			description: [`Help start Colorado Springs Girls in Tech chapter and first event`, `Performed website updates for the chapter`],
 		},
 		{
 			id: 0,
 			name: 'BarkaBull Dog Rescue',
 			date: 'October 2018 to March 2019',
-			content: [`Foster dogs until they are ready for adoption`, `Care for dogs by providing daily essential and medical needs`],
+			description: [`Foster dogs until they are ready for adoption`, `Care for dogs by providing daily essential and medical needs`],
 		},
 	],
 };

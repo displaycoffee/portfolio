@@ -11,7 +11,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '09.14.20',
 		technologies: 'HTML, CSS, Sass, JavaScript, React',
-		content: `The latest version of my portfolio. You're on it.`,
+		description: `The latest version of my portfolio. You're on it.`,
 	},
 	{
 		id: 29,
@@ -21,7 +21,7 @@ export const projects = [
 		name: 'FF7 for St. Jude',
 		date: '12.28.20',
 		technologies: 'HTML, CSS, Sass, JavaScript, React, Tiltify API',
-		content: `Since December 28, 2020, my husband began a charity Final Fantasy VII speedrun event to support St. Jude. We have done this event twice a year since then. I get to help him out a little and specifically made this page using the Tiltify API to pull in donations, challenges, and rewards for all supporting campaigns. Right now, it's not fully working, but it'll be up and running for the next event.`,
+		description: `Since December 28, 2020, my husband began a charity Final Fantasy VII speedrun event to support St. Jude. We have done this event twice a year since then. I get to help him out a little and specifically made this page using the Tiltify API to pull in donations, challenges, and rewards for all supporting campaigns. Right now, it's not fully working, but it'll be up and running for the next event.`,
 		url: '//ff7forstjude.org',
 	},
 	{
@@ -32,7 +32,7 @@ export const projects = [
 		name: `Khy'eras`,
 		date: '01.13.19',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
-		content: `This was a lighter theme I made for Khy'eras. You can only see it if registered. It shares the same code base as the dark layout, but basically changes CSS and images.`,
+		description: `This was a lighter theme I made for Khy'eras. You can only see it if registered. It shares the same code base as the dark layout, but basically changes CSS and images.`,
 		url: '//khyeras.org',
 	},
 	{
@@ -43,7 +43,7 @@ export const projects = [
 		name: `Khy'eras`,
 		date: '06.11.17',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
-		content: `Website for my latest RPG, Khy'eras. I'm quite proud of this one, not just for the coding customizations, but for all the lore I put together.`,
+		description: `Website for my latest RPG, Khy'eras. I'm quite proud of this one, not just for the coding customizations, but for all the lore I put together.`,
 		url: '//khyeras.org',
 	},
 	{
@@ -54,7 +54,7 @@ export const projects = [
 		name: 'The Muses Circle',
 		date: '09.12.16',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, WordPress',
-		content: `Second website layout for The Muses Circle. Currently not up, but we hope to bring it back in the future.`,
+		description: `Second website layout for The Muses Circle. Currently not up, but we hope to bring it back in the future.`,
 	},
 	{
 		id: 25,
@@ -64,7 +64,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '02.22.14',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
-		content: `My final website layout for Aleris before I shut it down. This is still one of my favorites and I really loved the foliage drooping over the brick wall.`,
+		description: `My final website layout for Aleris before I shut it down. This is still one of my favorites and I really loved the foliage drooping over the brick wall.`,
 	},
 	{
 		id: 24,
@@ -74,7 +74,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '12.16.13',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
-		content: `This came shortly after the previous layout and was a kind of darker version of the previous mockup. I do like the textured gradient here, but did not end up using it.`,
+		description: `This came shortly after the previous layout and was a kind of darker version of the previous mockup. I do like the textured gradient here, but did not end up using it.`,
 	},
 	{
 		id: 23,
@@ -84,7 +84,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '10.10.13',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
-		content: `Another layout for Aleris RPG. I don't thinK I used this, though I did like the lightness and textures in it.`,
+		description: `Another layout for Aleris RPG. I don't thinK I used this, though I did like the lightness and textures in it.`,
 	},
 	{
 		id: 22,
@@ -94,7 +94,7 @@ export const projects = [
 		name: 'Matt and Adria',
 		date: '01.01.13',
 		technologies: 'HTML, CSS, Sass',
-		content: `Wedding website for myself and my husband. I think this was my fist "single page" website.`,
+		description: `Wedding website for myself and my husband. I think this was my fist "single page" website.`,
 		url: '//mattandadria.com',
 	},
 	{
@@ -105,7 +105,7 @@ export const projects = [
 		name: 'Invalid Character Detection',
 		date: '12.01.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery',
-		content: `This tool was build by myself and a friend, Nathan Pennington a long time ago! The date is not accurate. It was meant to take characters and convert them to HTML safe or Unicode conversions. I still use it to this day here and there, though it could use some love at some point.`,
+		description: `This tool was build by myself and a friend, Nathan Pennington a long time ago! The date is not accurate. It was meant to take characters and convert them to HTML safe or Unicode conversions. I still use it to this day here and there, though it could use some love at some point.`,
 		url: '//neverend.org/invalid',
 	},
 	{
@@ -116,7 +116,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '07.15.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
-		content: `Design for Aleris RPG. I don't think I ever used this as there were a few things I wasn't a fan of.`,
+		description: `Design for Aleris RPG. I don't think I ever used this as there were a few things I wasn't a fan of.`,
 	},
 	{
 		id: 19,
@@ -126,7 +126,7 @@ export const projects = [
 		name: 'Nutrition Consulting Services',
 		date: '06.04.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP',
-		content: `This one was never fully finished, hence the iStock photo. It was a website for a nutrionist.`,
+		description: `This one was never fully finished, hence the iStock photo. It was a website for a nutrionist.`,
 	},
 	{
 		id: 18,
@@ -136,7 +136,7 @@ export const projects = [
 		name: 'Colorado Home Base',
 		date: '03.23.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP',
-		content: `Website for previous real estate agent, Robin Murphy.`,
+		description: `Website for previous real estate agent, Robin Murphy.`,
 	},
 	{
 		id: 17,
@@ -146,7 +146,7 @@ export const projects = [
 		name: 'The Muses Circle',
 		date: '12.28.11',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, WordPress',
-		content: `Blog website for a friend of mine, who reviews books and movies.`,
+		description: `Blog website for a friend of mine, who reviews books and movies.`,
 	},
 	{
 		id: 16,
@@ -156,7 +156,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '01.09.11',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
-		content: `First website for Aleris RPG.`,
+		description: `First website for Aleris RPG.`,
 	},
 	{
 		id: 15,
@@ -166,7 +166,7 @@ export const projects = [
 		name: 'Federal Mailing',
 		date: '08.02.10',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP',
-		content: `Website for a small, mailing business.`,
+		description: `Website for a small, mailing business.`,
 	},
 	{
 		id: 14,
@@ -176,7 +176,7 @@ export const projects = [
 		name: 'Matt Murphy Music',
 		date: '12.18.09',
 		technologies: 'HTML, CSS, JavaScript, jQuery, PHP',
-		content: `Second website for my husband's music. At one point, there was a music player for the songs, but it seems to have broken.`,
+		description: `Second website for my husband's music. At one point, there was a music player for the songs, but it seems to have broken.`,
 		url: '//mattmurphymusic.org',
 	},
 	{
@@ -187,7 +187,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '08.14.09',
 		technologies: 'HTML, CSS, JavaScript, jQuery, PHP',
-		content: `Third portfolio layout. At one point, I think the bright latern in here was animated, because I had big dreams of being able to animate gifs.`,
+		description: `Third portfolio layout. At one point, I think the bright latern in here was animated, because I had big dreams of being able to animate gifs.`,
 	},
 	{
 		id: 12,
@@ -197,7 +197,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '07.10.09',
 		technologies: 'HTML, CSS',
-		content: `Second portfolio layout. I don't think I actually ever used this, but I was getting into a lot of textures then.`,
+		description: `Second portfolio layout. I don't think I actually ever used this, but I was getting into a lot of textures then.`,
 	},
 	{
 		id: 11,
@@ -207,7 +207,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '05.29.09',
 		technologies: 'HTML, CSS',
-		content: `First portfolio layout.`,
+		description: `First portfolio layout.`,
 	},
 	{
 		id: 10,
@@ -217,7 +217,7 @@ export const projects = [
 		name: 'RO Diary',
 		date: '04.28.07',
 		technologies: 'HTML, CSS',
-		content: `Last RO Diary layout. I don't think I lasted long on there.`,
+		description: `Last RO Diary layout. I don't think I lasted long on there.`,
 	},
 	{
 		id: 9,
@@ -227,7 +227,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '03.02.07',
 		technologies: 'HTML, CSS',
-		content: `Website for my Ragnarok Online guild, Neverend.`,
+		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
 		id: 8,
@@ -237,7 +237,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '11.26.06',
 		technologies: 'HTML, CSS',
-		content: `Website for my Ragnarok Online guild, Neverend.`,
+		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
 		id: 7,
@@ -247,7 +247,7 @@ export const projects = [
 		name: 'RO Diary',
 		date: '11.16.06',
 		technologies: 'HTML, CSS',
-		content: `Back in the day, some one created this spin off of diaries for Ragnarok Online. Kinda like LiveJournal, but for Ragnarok Online so you can rant about card drop rates.`,
+		description: `Back in the day, some one created this spin off of diaries for Ragnarok Online. Kinda like LiveJournal, but for Ragnarok Online so you can rant about card drop rates.`,
 	},
 	{
 		id: 6,
@@ -257,7 +257,7 @@ export const projects = [
 		name: 'Matt Murphy Music',
 		date: '07.06.06',
 		technologies: 'HTML, CSS',
-		content: `First music website for my husband. I don't know if I actually ever built this out.`,
+		description: `First music website for my husband. I don't know if I actually ever built this out.`,
 	},
 	{
 		id: 5,
@@ -267,7 +267,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '06.07.06',
 		technologies: 'HTML, CSS',
-		content: `Website for my Ragnarok Online guild, Neverend.`,
+		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
 		id: 4,
@@ -277,7 +277,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '02.04.06',
 		technologies: 'HTML, CSS',
-		content: `Website for my Ragnarok Online guild, Neverend.`,
+		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
 		id: 3,
@@ -287,7 +287,7 @@ export const projects = [
 		name: 'Be Careful',
 		date: '12.19.05',
 		technologies: 'HTML, CSS',
-		content: `Website for a Care Bear Cousins fanlisting, back when fanlistings were a thing and super popular. I liked my clever use of the "Be Careful" website name.`,
+		description: `Website for a Care Bear Cousins fanlisting, back when fanlistings were a thing and super popular. I liked my clever use of the "Be Careful" website name.`,
 	},
 	{
 		id: 2,
@@ -297,7 +297,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '06.18.05',
 		technologies: 'HTML, CSS',
-		content: `Website for my Ragnarok Online guild, Neverend.`,
+		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
 		id: 1,
@@ -307,7 +307,7 @@ export const projects = [
 		name: 'Terrae',
 		date: '05.09.05',
 		technologies: 'HTML, CSS',
-		content: `First iteration of a website for a story I want to write... some day.`,
+		description: `First iteration of a website for a story I want to write... some day.`,
 	},
 	{
 		id: 0,
@@ -317,6 +317,6 @@ export const projects = [
 		name: 'Oneiro-Zoe',
 		date: '08.20.04',
 		technologies: 'HTML, CSS',
-		content: `Not my very first design, but a quick website for an RPG.`,
+		description: `Not my very first design, but a quick website for an RPG.`,
 	},
 ];

@@ -75,9 +75,9 @@ export const Resume = () => {
 								</p>
 
 								<ul>
-									{item.content.map((content, index) => (
+									{item.description.map((content, index) => (
 										<li key={index}>
-											{index == item.content.length - 1 ? (
+											{index == item.description.length - 1 ? (
 												<>
 													<strong>Inventory</strong> -&nbsp;
 												</>
@@ -110,7 +110,7 @@ export const Resume = () => {
 								</p>
 
 								<ul>
-									{item.content.map((content, index) => (
+									{item.description.map((content, index) => (
 										<li key={index}>{content}</li>
 									))}
 								</ul>
