@@ -129,7 +129,7 @@ export const ResumeSkillBar = (props) => {
 		<div className="skill-bar flex-wrap flex-align-items-center">
 			<div className="skill-bar-name">{name}</div>
 
-			<div className="skill-bar-progress pixel-border">
+			<div className="skill-bar-progress pixel-border-rounded">
 				<div className="skill-bar-total"></div>
 				<div className="skill-bar-out-of" style={{ width: `${outOf * 10}%` }}></div>
 			</div>

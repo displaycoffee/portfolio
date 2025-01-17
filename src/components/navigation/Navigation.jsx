@@ -54,18 +54,22 @@ export const NavigationRoutes = () => {
 
 	return navigationList && navigationList.length != 0 ? (
 		<Routes>
-			{navigationList.map((nav) => (
-				<React.Fragment key={nav.id}>
-					{{
-						'cheat codes': <Route path={nav.url} element={<CheatCodes />} />,
-						articles: <Route path={nav.url} element={<Articles />} />,
-						resume: <Route path={nav.url} element={<Resume />} />,
-						art: <Route path={`${nav.url}/*`} element={<Art />} />,
-						projects: <Route path={`${nav.url}/*`} element={<Projects />} />,
-						about: <Route path={nav.url} element={<About />} />,
-					}[nav.label.toLowerCase()] || <Route path={nav.url} element={<Start />} />}
-				</React.Fragment>
-			))}
+			{navigationList.map((nav) => {
+				const path = nav.hasChildren ? `${nav.url}/*` : nav.url;
+
+				return (
+					<React.Fragment key={nav.id}>
+						{{
+							'cheat codes': <Route path={path} element={<CheatCodes />} />,
+							articles: <Route path={path} element={<Articles />} />,
+							resume: <Route path={path} element={<Resume />} />,
+							art: <Route path={path} element={<Art />} />,
+							projects: <Route path={path} element={<Projects />} />,
+							about: <Route path={path} element={<About />} />,
+						}[nav.label.toLowerCase()] || <Route path={path} element={<Start />} />}
+					</React.Fragment>
+				);
+			})}
 		</Routes>
 	) : null;
 };

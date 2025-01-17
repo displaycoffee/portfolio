@@ -354,7 +354,7 @@ export let art = {
 			border: true,
 			image: `${artPath}2013-03-23-charlie-rabbit.jpg`,
 			thumb: `${artPath}2013-03-23-charlie-rabbit-200x200.jpg`,
-			name: 'Charlie Rabiit',
+			name: 'Charlie Rabitt',
 			date: '03.23.13',
 			mediums: 'Watercolor, colored pencil, pen',
 			description: `A marionette named Charlie Rabbit. This was based on my husband's song, Charlie Rabbit, and later we used it for his album cover.`,

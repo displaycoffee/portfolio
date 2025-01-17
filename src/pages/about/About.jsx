@@ -20,11 +20,11 @@ export const About = () => {
 			<p>
 				I dove head-first into coding ages ago because I wanted to make websites for all my roleplaying (RPG) characters and an anime review
 				site. The RPG thing stuck and I often use it for inspiration. For example, you can see my personal site -{' '}
-				<a href="//khyeras.org" target="_blank">
+				<a href="//khyeras.org" target="_blank" rel="noreferrer">
 					Khy'eras
 				</a>{' '}
 				- for which I created all the lore and coding versus this{' '}
-				<a href="//www.angelfire.com/stars2/wishofthestars" target="_blank">
+				<a href="//www.angelfire.com/stars2/wishofthestars" target="_blank" rel="noreferrer">
 					sad, excuse of a site
 				</a>{' '}
 				I made back when Angelfire and Geocities were still a thing. I'm not embarrassed to show the differences here, because it illustrates

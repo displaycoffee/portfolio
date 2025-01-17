@@ -328,7 +328,7 @@
 }
 
 // Mixin for a pixel style border
-@mixin pixel-border($width: 2px, $bg: #333333, $border: #111111, $inset: #222222, $highlight: #666666) {
+@mixin pixel-border($width: 2px, $bg: #333333, $border: #111111, $inset: #222222, $highlight: #666666, $rounded: false) {
 	// Variables pixel borders
 	$svg-xlmns: 'xmlns="http://www.w3.org/2000/svg"';
 	$svg-viewbox: 'viewBox="0 0 30 30"';
@@ -342,19 +342,26 @@
 
 	// Style rules for pixel border
 	position: relative;
-	&:before, &:after {
-		content : '';
-		display: block;
-		@include position-fill;
-	}
-	&:before {
-		background-image: $top-left, $top-right, $bottom-right, $bottom-left;
-		background-repeat: no-repeat;
-		background-position: 0 0, right 0, right bottom, 0 bottom;
-		background-size: calc($width * 10) auto;
-		z-index: 2;
+	@if $rounded == true {
+		&:before, &:after {
+			content : '';
+			display: block;
+			@include position-fill;
+		}
+		&:before {
+			background-image: $top-left, $top-right, $bottom-right, $bottom-left;
+			background-repeat: no-repeat;
+			background-position: 0 0, right 0, right bottom, 0 bottom;
+			background-size: calc($width * 10) auto;
+			z-index: 2;
+		}
 	}
 	&:after {
+		@if $rounded == false {
+			content : '';
+			display: block;
+			@include position-fill;
+		}
 		border: $width solid $border;
 		box-shadow: inset -#{$width} 0 0 0 $inset, inset $width 0 0 0 $highlight, inset 0 -#{$width} 0 0 $inset, inset 0 $width 0 0 $highlight;
 	}
