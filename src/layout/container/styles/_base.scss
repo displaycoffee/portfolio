@@ -126,7 +126,7 @@
 	}
 	.pixel-border {
 		@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06);
-	}	
-	.pixel-border-modal {
-		@include mixins.pixel-border($width: 3px, $bg: theme.$color-04, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06);
+	}
+	.pixel-border-rounded {
+		@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06, $rounded: true);
 	}

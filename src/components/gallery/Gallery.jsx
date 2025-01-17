@@ -9,7 +9,7 @@ import './styles/gallery.scss';
 import { Context } from '../../context/Context';
 
 export const Gallery = (props) => {
-	const { path, type, header, gallery } = props;
+	const { path, type, header, gallery, backLink } = props;
 	const context = useContext(Context);
 	const { utils } = context;
 
@@ -26,15 +26,14 @@ export const Gallery = (props) => {
 		type: type,
 		header: header ? header : false,
 		gallery: modifiedGallery,
+		backLink: backLink ? backLink : false,
 	};
 
 	return (
-		<div className="gallery">
-			<Routes>
-				<Route path="/" element={<GalleryThumbnails {...galleryProps} />} />
-				<Route path=":id" element={<GalleryContent {...galleryProps} />} />
-			</Routes>
-		</div>
+		<Routes>
+			<Route path="/" element={<GalleryThumbnails {...galleryProps} />} />
+			<Route path=":id" element={<GalleryContent {...galleryProps} />} />
+		</Routes>
 	);
 };
 
@@ -42,26 +41,26 @@ export const GalleryThumbnails = (props) => {
 	const { path, header, gallery } = props;
 
 	return (
-		<>
+		<div className="gallery">
 			{header ? <h4>{header}</h4> : null}
 
-			<div className="gallery-items row row-wrap row-auto row-spacing-10">
+			<div className="gallery-items">
 				{gallery.map((item) => (
-					<div className="gallery-item column" key={item.id}>
+					<div className="gallery-item" key={item.id}>
 						<Link className="gallery-image" to={`${path}/${item.handle}`}>
-							<div className={`image-wrapper${item.border ? ' pixel-border' : ''}`}>
+							<div className="image-wrapper pixel-border">
 								<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
 							</div>
 						</Link>
 					</div>
 				))}
 			</div>
-		</>
+		</div>
 	);
 };
 
 export const GalleryContent = (props) => {
-	const { path, type, header, gallery } = props;
+	const { path, type, gallery, backLink } = props;
 	const { id } = useParams();
 	const showContent = window.location.href.includes(`${path}/${type}-`) ? true : false; // Do not render content if not in matching gallery
 	const galleryCount = gallery.length - 1;
@@ -86,60 +85,77 @@ export const GalleryContent = (props) => {
 		next = nextIndex >= galleryCount ? gallery[0] : gallery[nextIndex];
 	}
 
+	// Function to generate class for detail
+	const detailsClass = (type) => {
+		return `gallery-details-item gallery-details-${type} flex-wrap`;
+	};
+
 	return showContent ? (
 		content ? (
-			<>
-				<div className="gallery-content">
+			<div className="gallery">
+				<div className="gallery-content flex-wrap">
 					{content.name && (
-						<header className="gallery-content-header">
-							<h3 className="gallery-content-title">{content.name}</h3>
+						<header className="gallery-header">
+							<h3 className="gallery-header-title">{content.name}</h3>
 						</header>
 					)}
 
 					{(content.image || content.thumb) && (
-						<div className="gallery-content-image">
+						<div className="gallery-image">
 							<a href={content.image ? content.image : content.thumb} target="_blank" rel="noreferrer">
-								<img src={content.image ? content.image : content.thumb} alt={content.name} title={content.name} loading="lazy" />
+								<div className="pixel-border">
+									<img src={content.image ? content.image : content.thumb} alt={content.name} title={content.name} loading="lazy" />
+								</div>
 							</a>
 						</div>
 					)}
 
-					<div className="gallery-content-details">
-						{content.date && (
-							<p className="gallery-content-date">
-								<strong>Date</strong> - {content.date}
-							</p>
-						)}
+					<div className="gallery-details">
+						<dl className="gallery-details-list">
+							{content.date && (
+								<div className={detailsClass('date')}>
+									<dt>Date</dt>
+									<dd>{content.date}</dd>
+								</div>
+							)}
 
-						{content.url && (
-							<p className="gallery-content-visit">
-								<strong>Visit</strong> -{' '}
-								<a href={content.url} target="_blank" rel="noreferrer">
-									{content.url.replace('//', '')}
-								</a>
-							</p>
-						)}
+							{content.url && (
+								<div className={detailsClass('visit')}>
+									<dt>Visit</dt>
+									<dd>
+										<a href={content.url} target="_blank" rel="noreferrer">
+											{content.url.replace('//', '')}
+										</a>
+									</dd>
+								</div>
+							)}
 
-						{content.technologies && (
-							<p className="gallery-content-technologies">
-								<strong>Technologies</strong> - {content.technologies}
-							</p>
-						)}
+							{content.technologies && (
+								<div className={detailsClass('technologies')}>
+									<dt>Technologies</dt>
+									<dd>{content.technologies}</dd>
+								</div>
+							)}
 
-						{content.mediums && (
-							<p className="gallery-content-technologies">
-								<strong>Mediums</strong> - {content.mediums}
-							</p>
-						)}
+							{content.mediums && (
+								<div className={detailsClass('mediums')}>
+									<dt>Mediums</dt>
+									<dd>{content.mediums}</dd>
+								</div>
+							)}
 
-						{content.description && (
-							<p className="gallery-content-description" dangerouslySetInnerHTML={{ __html: content.description }}></p>
-						)}
+							{content.description && (
+								<div className={detailsClass('description')}>
+									<dt>Description</dt>
+									<dd dangerouslySetInnerHTML={{ __html: content.description }}></dd>
+								</div>
+							)}
+						</dl>
 					</div>
 				</div>
 
 				<nav className="gallery-navigation">
-					<ul className="gallery-navigation-list unstyled">
+					<ul className="gallery-navigation-list unstyled flex-nowrap flex-align-items-center">
 						{previous && (
 							<li className="gallery-navigation-list-item">
 								<Link className="gallery-navigation-link" to={`${path}/${previous.handle}`}>
@@ -148,11 +164,17 @@ export const GalleryContent = (props) => {
 							</li>
 						)}
 
-						<li className="gallery-navigation-list-item">
-							<Link className="gallery-navigation-link" to={path}>
-								Back{header ? ` to "${header}"` : ``}
-							</Link>
-						</li>
+						<li className="gallery-navigation-list-item gallery-navigation-separator">&#9642;</li>
+
+						{backLink && (
+							<li className="gallery-navigation-list-item">
+								<Link className="gallery-navigation-link" to={path}>
+									{backLink}
+								</Link>
+							</li>
+						)}
+
+						<li className="gallery-navigation-list-item gallery-navigation-separator">&#9642;</li>
 
 						{next && (
 							<li className="gallery-navigation-list-item">
@@ -163,7 +185,7 @@ export const GalleryContent = (props) => {
 						)}
 					</ul>
 				</nav>
-			</>
+			</div>
 		) : (
 			<Navigate to={path} replace />
 		)

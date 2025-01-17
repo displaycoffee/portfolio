@@ -6,6 +6,7 @@ export const navigation = [
 		url: '/cheat-codes',
 		showInNav: true,
 		isRoute: true,
+		hasChildren: false,
 	},
 	{
 		id: 5,
@@ -14,6 +15,7 @@ export const navigation = [
 		url: '/articles',
 		showInNav: true,
 		isRoute: true,
+		hasChildren: false,
 	},
 	{
 		id: 4,
@@ -22,6 +24,7 @@ export const navigation = [
 		url: '/resume',
 		showInNav: true,
 		isRoute: true,
+		hasChildren: false,
 	},
 	{
 		id: 3,
@@ -30,6 +33,7 @@ export const navigation = [
 		url: '/art',
 		showInNav: true,
 		isRoute: true,
+		hasChildren: true,
 	},
 	{
 		id: 2,
@@ -38,6 +42,7 @@ export const navigation = [
 		url: '/projects',
 		showInNav: true,
 		isRoute: true,
+		hasChildren: true,
 	},
 	{
 		id: 1,
@@ -46,6 +51,7 @@ export const navigation = [
 		url: '/about',
 		showInNav: true,
 		isRoute: true,
+		hasChildren: false,
 	},
 	{
 		id: 0,
@@ -54,6 +60,7 @@ export const navigation = [
 		url: '/',
 		showInNav: true,
 		isRoute: true,
+		hasChildren: false,
 	},
 ].sort((a, b) => {
 	// Sort navigation by id
