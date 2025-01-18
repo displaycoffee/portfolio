@@ -39,11 +39,6 @@ export const Navigation = () => {
 						</Link>
 					</li>
 				))}
-				<li className="navigation-list-item">
-					<a href="mailto:adria.m.murphy@gmail.com?subject=From portfolio" alt="Contact me" title="Contact me">
-						Contact
-					</a>
-				</li>
 			</ul>
 		</nav>
 	) : null;

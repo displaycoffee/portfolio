@@ -19,9 +19,9 @@ export const Art = () => {
 				</p>
 			)}
 
-			{hasArt && <Gallery path={'/art'} type={'art'} header={'Traditional and digital art'} gallery={art.art} backLink={backLink} />}
+			{hasArt && <Gallery path={'/art'} category={'art'} header={'Traditional and digital art'} gallery={art.art} backLink={backLink} />}
 
-			{hasPixels && <Gallery path={'/art'} type={'pixels'} header={'Pixel art'} gallery={art.pixels} backLink={backLink} />}
+			{hasPixels && <Gallery path={'/art'} category={'pixels'} header={'Pixel art'} gallery={art.pixels} backLink={backLink} />}
 		</>
 	) : null;
 };

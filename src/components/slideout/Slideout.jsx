@@ -35,7 +35,7 @@ export const Slideout = (props) => {
 			data-orientation={orientation}
 		>
 			<button className="slideout-button pointer unstyled" type="button" onClick={(e) => toggle(e, slideoutId)}>
-				&gt; {label}
+				&gt;&nbsp;{label}
 			</button>
 
 			<div className={config.classes.menu} style={styles}>

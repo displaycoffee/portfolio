@@ -10,7 +10,7 @@ export const Header = (props) => {
 
 	return (
 		<header className="header spacing-reset">
-			<h1 className="header-title">
+			<h1 className="header-title h-shadow-lg h-remove-before">
 				<Link to={'/'} alt="Back to start" title="Back to start">
 					<span className="header-type">{`* { display : coffee; }`}</span>
 				</Link>

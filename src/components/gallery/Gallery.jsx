@@ -1,5 +1,5 @@
 /* React */
-import { useContext } from 'react';
+import { useContext, useId } from 'react';
 import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
 /* Local styles */
@@ -9,23 +9,28 @@ import './styles/gallery.scss';
 import { Context } from '../../context/Context';
 
 export const Gallery = (props) => {
-	const { path, type, header, gallery, backLink } = props;
+	const { path, category, header, gallery, backLink } = props;
+	const fallbackId = useId().replace(/:/g, '');
 	const context = useContext(Context);
 	const { utils } = context;
+
+	// Ensure category is set for ids and handles
+	const galleryCategory = typeof category == 'undefined' ? `uncategorized-${fallbackId}` : category;
 
 	// Modify gallery to add handle property for pretty urls
 	const modifiedGallery = gallery.map((item, index) => {
 		item.index = index;
-		item.handle = `${type}-${item.name ? utils.handleize(item.name) : index}`;
+		item.handle = `${galleryCategory}-${item.name ? utils.handleize(item.name) : index}`;
 		return item;
 	});
 
 	// Pass down gallery props
 	const galleryProps = {
 		path: path,
-		type: type,
+		category: galleryCategory,
 		header: header ? header : false,
 		gallery: modifiedGallery,
+		galleryId: `gallery-${galleryCategory}`,
 		backLink: backLink ? backLink : false,
 	};
 
@@ -38,10 +43,10 @@ export const Gallery = (props) => {
 };
 
 export const GalleryThumbnails = (props) => {
-	const { path, header, gallery } = props;
+	const { path, header, gallery, galleryId } = props;
 
 	return (
-		<div className="gallery">
+		<div id={galleryId} className="gallery">
 			{header ? <h4>{header}</h4> : null}
 
 			<div className="gallery-items">
@@ -59,10 +64,15 @@ export const GalleryThumbnails = (props) => {
 	);
 };
 
+// Function to generate class for detail
+const detailsClass = (type) => {
+	return `gallery-details-item gallery-details-${type} flex-wrap`;
+};
+
 export const GalleryContent = (props) => {
-	const { path, type, gallery, backLink } = props;
+	const { path, category, gallery, galleryId, backLink } = props;
 	const { id } = useParams();
-	const showContent = window.location.href.includes(`${path}/${type}-`) ? true : false; // Do not render content if not in matching gallery
+	const showContent = window.location.href.includes(`${path}/${category}-`) ? true : false; // Do not render content if not in matching gallery
 	const galleryCount = gallery.length - 1;
 
 	// Set initial variables for gallery item details
@@ -85,14 +95,12 @@ export const GalleryContent = (props) => {
 		next = nextIndex >= galleryCount ? gallery[0] : gallery[nextIndex];
 	}
 
-	// Function to generate class for detail
-	const detailsClass = (type) => {
-		return `gallery-details-item gallery-details-${type} flex-wrap`;
-	};
+	// Check if we are on a pixels gallery
+	const isPixels = category == 'pixels' ? true : false;
 
 	return showContent ? (
 		content ? (
-			<div className="gallery">
+			<div id={galleryId} className="gallery">
 				<div className="gallery-content flex-wrap">
 					{content.name && (
 						<header className="gallery-header">
@@ -103,7 +111,7 @@ export const GalleryContent = (props) => {
 					{(content.image || content.thumb) && (
 						<div className="gallery-image">
 							<a href={content.image ? content.image : content.thumb} target="_blank" rel="noreferrer">
-								<div className="pixel-border">
+								<div className={`gallery-image-wrapper${!isPixels ? ' pixel-border' : ''}`}>
 									<img src={content.image ? content.image : content.thumb} alt={content.name} title={content.name} loading="lazy" />
 								</div>
 							</a>

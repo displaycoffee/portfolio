@@ -10,7 +10,7 @@ export let art = {
 			name: 'Support Materia',
 			date: '11.20.22',
 			mediums: 'Aseprite',
-			description: `A blue support materia, which is used for the <a href="//ff7forstjude.org" target="_blank">FF7 for St. Jude</a> page as the favicon.`,
+			description: `A blue support materia, which is used for the <a href="//ff7forstjude.org" target="_blank" rel="noreferrer">FF7 for St. Jude</a> page as the favicon.`,
 		},
 		{
 			id: 35,
@@ -19,7 +19,7 @@ export let art = {
 			name: 'Sad Bread',
 			date: '12.04.21',
 			mediums: 'Aseprite',
-			description: `Does a sad bread make itself soggy? For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `Does a sad bread make itself soggy? For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 34,
@@ -28,7 +28,7 @@ export let art = {
 			name: 'Materia Bread',
 			date: '12.04.21',
 			mediums: 'Aseprite',
-			description: `I kinda hate this one, lol, but it's bread with materia slots. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `I kinda hate this one, lol, but it's bread with materia slots. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 33,
@@ -37,7 +37,7 @@ export let art = {
 			name: 'Money Bread',
 			date: '11.28.21',
 			mediums: 'Aseprite',
-			description: `Currency with a bread icon. It's even animated! For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `Currency with a bread icon. It's even animated! For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 32,
@@ -46,7 +46,7 @@ export let art = {
 			name: 'RIP Bread',
 			date: '11.26.21',
 			mediums: 'Aseprite',
-			description: `Okay, it's not really bread, but a tombstone shaped like bread. I felt kinda clever. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `Okay, it's not really bread, but a tombstone shaped like bread. I felt kinda clever. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 31,
@@ -55,7 +55,7 @@ export let art = {
 			name: 'Mad Breads',
 			date: '11.26.21',
 			mediums: 'Aseprite',
-			description: `The bread is back and this one is mad. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `The bread is back and this one is mad. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 30,
@@ -64,7 +64,7 @@ export let art = {
 			name: 'Heart Badge',
 			date: '03.13.21',
 			mediums: 'Aseprite',
-			description: `A heart badge for a Valentine's Day writing prompt event at <a href="//khyeras.org" target="_blank">Khy'eras</a>.`,
+			description: `A heart badge for a Valentine's Day writing prompt event at <a href="//khyeras.org" target="_blank" rel="noreferrer">Khy'eras</a>.`,
 		},
 		{
 			id: 29,
@@ -73,7 +73,7 @@ export let art = {
 			name: 'Wave',
 			date: '12.20.20',
 			mediums: 'Aseprite',
-			description: `Feena from "Grandia" doing a little wave. For my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
+			description: `Feena from "Grandia" doing a little wave. For my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
 		},
 		{
 			id: 28,
@@ -82,7 +82,7 @@ export let art = {
 			name: 'Hmmm',
 			date: '12.20.20',
 			mediums: 'Aseprite',
-			description: `Alundra from "Alundra" thinking about puzzles. For my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
+			description: `Alundra from "Alundra" thinking about puzzles. For my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
 		},
 		{
 			id: 27,
@@ -91,7 +91,7 @@ export let art = {
 			name: 'Charge',
 			date: '12.20.20',
 			mediums: 'Aseprite',
-			description: `Frog from "Chrono Trigger" for my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
+			description: `Frog from "Chrono Trigger" for my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
 		},
 		{
 			id: 26,
@@ -100,7 +100,7 @@ export let art = {
 			name: 'Pumpkin Badge',
 			date: '10.25.20',
 			mediums: 'Aseprite',
-			description: `A pumpkin badge for a Halloween writing prompt event at <a href="//khyeras.org" target="_blank">Khy'eras</a>.`,
+			description: `A pumpkin badge for a Halloween writing prompt event at <a href="//khyeras.org" target="_blank" rel="noreferrer">Khy'eras</a>.`,
 		},
 		{
 			id: 25,
@@ -109,7 +109,7 @@ export let art = {
 			name: 'Hello',
 			date: '08.24.20',
 			mediums: 'Aseprite',
-			description: `I created this for my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>, but ended up removing it. It's Toothless from "How to Train Your Dragon" waving.`,
+			description: `I created this for my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>, but ended up removing it. It's Toothless from "How to Train Your Dragon" waving.`,
 		},
 		{
 			id: 24,
@@ -118,7 +118,7 @@ export let art = {
 			name: 'Git Gud',
 			date: '07.25.20',
 			mediums: 'Aseprite',
-			description: `Also known as "get good". For <a href="//twitch.tv/chestermcfisty" target="_blank">chestermcfisty</a>.`,
+			description: `Also known as "get good". For <a href="//twitch.tv/chestermcfisty" target="_blank" rel="noreferrer">chestermcfisty</a>.`,
 		},
 		{
 			id: 23,
@@ -127,7 +127,7 @@ export let art = {
 			name: 'No Hints Please',
 			date: '07.19.20',
 			mediums: 'Aseprite',
-			description: `<a href="//twitch.tv/scubasaul" target="_blank">scubasaul</a>'s safe word to get a hint in a game is "pineapple", so I made him a not-so-impressed Terminator pineapple.`,
+			description: `<a href="//twitch.tv/scubasaul" target="_blank" rel="noreferrer">scubasaul</a>'s safe word to get a hint in a game is "pineapple", so I made him a not-so-impressed Terminator pineapple.`,
 		},
 		{
 			id: 22,
@@ -136,7 +136,7 @@ export let art = {
 			name: 'Coffee Bean',
 			date: '07.12.20',
 			mediums: 'Aseprite',
-			description: `A coffee bean used for the channel point icon on my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
+			description: `A coffee bean used for the channel point icon on my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
 		},
 		{
 			id: 21,
@@ -145,7 +145,7 @@ export let art = {
 			name: 'Red Coffee Mug',
 			date: '07.11.20',
 			mediums: 'Aseprite',
-			description: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a red coffee mug with a paw print.`,
+			description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a red coffee mug with a paw print.`,
 		},
 		{
 			id: 20,
@@ -154,7 +154,7 @@ export let art = {
 			name: 'Purple Coffee Mug',
 			date: '07.11.20',
 			mediums: 'Aseprite',
-			description: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a purple coffee mug with a starburst (not the candy).`,
+			description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a purple coffee mug with a starburst (not the candy).`,
 		},
 		{
 			id: 19,
@@ -163,7 +163,7 @@ export let art = {
 			name: 'Orange Coffee Mug',
 			date: '07.11.20',
 			mediums: 'Aseprite',
-			description: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a orange coffee mug with a crescent moon.`,
+			description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a orange coffee mug with a crescent moon.`,
 		},
 		{
 			id: 18,
@@ -172,7 +172,7 @@ export let art = {
 			name: 'Green Coffee Mug',
 			date: '07.11.20',
 			mediums: 'Aseprite',
-			description: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a green coffee mug with a swirl.`,
+			description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a green coffee mug with a swirl.`,
 		},
 		{
 			id: 17,
@@ -181,7 +181,7 @@ export let art = {
 			name: 'Blue Coffee Mug',
 			date: '07.11.20',
 			mediums: 'Aseprite',
-			description: `<a href="//twitch.tv/displaycoffee" target="_blank">My</a> sub-badge of a blue coffee mug with a heart.`,
+			description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a blue coffee mug with a heart.`,
 		},
 		{
 			id: 16,
@@ -190,7 +190,7 @@ export let art = {
 			name: 'Vivi Love',
 			date: '07.11.20',
 			mediums: 'Aseprite',
-			description: `Vivi from Final Fantasy IX. For my <a href="//twitch.tv/displaycoffee" target="_blank">channel</a>.`,
+			description: `Vivi from Final Fantasy IX. For my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
 		},
 		{
 			id: 15,
@@ -199,7 +199,7 @@ export let art = {
 			name: 'Support',
 			date: '07.05.20',
 			mediums: 'Aseprite',
-			description: `A medkit for all those viewers that support <a href="//twitch.tv/novakatebs" target="_blank">novakatebs</a>.`,
+			description: `A medkit for all those viewers that support <a href="//twitch.tv/novakatebs" target="_blank" rel="noreferrer">novakatebs</a>.`,
 		},
 		{
 			id: 14,
@@ -208,7 +208,7 @@ export let art = {
 			name: 'GGEZ',
 			date: '07.05.20',
 			mediums: 'Aseprite',
-			description: `Gold knuckles with GGEZ. I think that's "good game easy" for all you hip youngesters out there. For <a href="//twitch.tv/chestermcfisty" target="_blank">chestermcfisty</a>.`,
+			description: `Gold knuckles with GGEZ. I think that's "good game easy" for all you hip youngesters out there. For <a href="//twitch.tv/chestermcfisty" target="_blank" rel="noreferrer">chestermcfisty</a>.`,
 		},
 		{
 			id: 13,
@@ -217,7 +217,7 @@ export let art = {
 			name: 'Tilt',
 			date: '07.04.20',
 			mediums: 'Aseprite',
-			description: `An enraged, tilted <a href="//twitch.tv/savko" target="_blank">savko</a>.`,
+			description: `An enraged, tilted <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a>.`,
 		},
 		{
 			id: 12,
@@ -226,7 +226,7 @@ export let art = {
 			name: 'Platforming Bad',
 			date: '07.04.20',
 			mediums: 'Aseprite',
-			description: `An attempt at platforming for <a href="//twitch.tv/savko" target="_blank">savko</a> as there's always some sort of fail.`,
+			description: `An attempt at platforming for <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a> as there's always some sort of fail.`,
 		},
 		{
 			id: 11,
@@ -235,7 +235,7 @@ export let art = {
 			name: 'Greed',
 			date: '07.04.20',
 			mediums: 'Aseprite',
-			description: `One of my favorite RPG / fantasy monsters, the mimic. For <a href="//twitch.tv/savko" target="_blank">savko</a>.`,
+			description: `One of my favorite RPG / fantasy monsters, the mimic. For <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a>.`,
 		},
 		{
 			id: 10,
@@ -244,7 +244,7 @@ export let art = {
 			name: 'Lore',
 			date: '07.03.20',
 			mediums: 'Aseprite',
-			description: `Made for <a href="//twitch.tv/savko" target="_blank">savko</a> as he always has the coolest stories to tell.`,
+			description: `Made for <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a> as he always has the coolest stories to tell.`,
 		},
 		{
 			id: 9,
@@ -253,7 +253,7 @@ export let art = {
 			name: 'Kate Was Right',
 			date: '07.03.20',
 			mediums: 'Aseprite',
-			description: `Was Kate right? According to <a href="//twitch.tv/savko" target="_blank">savko</a> she was, so we gave her a little crown.`,
+			description: `Was Kate right? According to <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a> she was, so we gave her a little crown.`,
 		},
 		{
 			id: 8,
@@ -262,7 +262,7 @@ export let art = {
 			name: 'Wave Bread',
 			date: '06.06.20',
 			mediums: 'Aseprite',
-			description: `Just bread saying hello. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `Just bread saying hello. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 7,
@@ -271,7 +271,7 @@ export let art = {
 			name: 'Gold',
 			date: '06.06.20',
 			mediums: 'Aseprite',
-			description: `That's some shiny bread. Probably doesn't taste good. For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `That's some shiny bread. Probably doesn't taste good. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 6,
@@ -289,7 +289,7 @@ export let art = {
 			name: 'Smile Bread',
 			date: '05.23.20',
 			mediums: 'Aseprite',
-			description: `Smile. :) For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `Smile. :) For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 4,
@@ -298,7 +298,7 @@ export let art = {
 			name: 'Love Bead',
 			date: '05.23',
 			mediums: 'Aseprite',
-			description: `This bread is in love. <3 For <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `This bread is in love. <3 For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 3,
@@ -307,7 +307,7 @@ export let art = {
 			name: 'Well Done',
 			date: '05.07.20',
 			mediums: 'Aseprite',
-			description: `Well done toast for <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `Well done toast for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 		{
 			id: 2,
@@ -317,7 +317,7 @@ export let art = {
 			name: 'Bread Badges',
 			date: '04.30.20',
 			mediums: 'Aseprite',
-			description: `Bread sub-badges for <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>. We didn't use all of these, but the gradient is cool.`,
+			description: `Bread sub-badges for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>. We didn't use all of these, but the gradient is cool.`,
 		},
 		{
 			id: 1,
@@ -326,7 +326,7 @@ export let art = {
 			name: 'Dead Bread',
 			date: '04.30.20',
 			mediums: 'Aseprite',
-			description: `Dead Bread for <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>. Reminds us of the Nirvana smiley face, most likely inspired by it.`,
+			description: `Dead Bread for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>. Reminds us of the Nirvana smiley face, most likely inspired by it.`,
 		},
 		{
 			id: 0,
@@ -335,7 +335,7 @@ export let art = {
 			name: 'Soft Lock',
 			date: '04.17.20',
 			mediums: 'Aseprite',
-			description: `My first twitch emote for <a href="//twitch.tv/toast_matt" target="_blank">toast_matt</a>.`,
+			description: `My first twitch emote for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 		},
 	],
 	art: [
@@ -347,14 +347,14 @@ export let art = {
 			name: `Khy'eras Map`,
 			date: '12.12.19',
 			mediums: 'Photoshop',
-			description: `My second attempt at making a map, for Khy'eras, and a much improved version. This is an interactive version of the map <a href="//khyeras.org/setting-map" target="_blank">found here</a>.`,
+			description: `My second attempt at making a map, for Khy'eras, and a much improved version. This is an interactive version of the map <a href="//khyeras.org/setting-map" target="_blank" rel="noreferrer">found here</a>.`,
 		},
 		{
 			id: 32,
 			border: true,
 			image: `${artPath}2013-03-23-charlie-rabbit.jpg`,
 			thumb: `${artPath}2013-03-23-charlie-rabbit-200x200.jpg`,
-			name: 'Charlie Rabitt',
+			name: 'Charlie Rabbit',
 			date: '03.23.13',
 			mediums: 'Watercolor, colored pencil, pen',
 			description: `A marionette named Charlie Rabbit. This was based on my husband's song, Charlie Rabbit, and later we used it for his album cover.`,

@@ -9,7 +9,6 @@
 	// Style block
 
 	.header {
-		margin-bottom: theme.$spacing-x4;
 		.header-title {
 			display: inline-block;
 			max-width: 100%;
@@ -47,7 +46,6 @@
 	}
 	@include mixins.respond-min(theme.$bp-02) {
 		.header {
-			margin-bottom: theme.$spacing-x8;
 			.header-title {
 				.header-type {
 					font-size: functions.em(24px, rem);
