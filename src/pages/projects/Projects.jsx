@@ -20,7 +20,7 @@ export const Projects = () => {
 				</p>
 			)}
 
-			<Gallery path={'/projects'} type={'projects'} header={false} gallery={projects} backLink={backLink} />
+			<Gallery path={'/projects'} category={'projects'} header={false} gallery={projects} backLink={backLink} />
 		</>
 	) : null;
 };

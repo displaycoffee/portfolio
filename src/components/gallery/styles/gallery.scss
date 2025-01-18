@@ -27,11 +27,8 @@
 			}
 			.gallery-image {
 				@include mixins.flex(0 1 auto);
-				.pixel-border {					
+				.gallery-image-wrapper {					
 					display: inline-block;
-				}
-				img {
-					max-height: 600px;
 				}
 			}
 			.gallery-details {
@@ -72,6 +69,16 @@
 			}
 		}
 	}
+	#gallery-pixels {
+		.gallery-content {
+			.gallery-image {
+				min-width: 150px;
+			}
+			.gallery-details {
+				min-height: 160px;
+			}
+		}
+	}
 	@include mixins.respond-min(theme.$bp-01) {
 		.gallery {
 			.gallery-content {
@@ -82,7 +89,7 @@
 								margin: 0;
 							}
 							dd {
-								@include mixins.flex();
+								@include mixins.flex;
 							}
 						}
 					}
@@ -95,11 +102,12 @@
 			.gallery-content {
 				.gallery-image {
 					@include mixins.flex(0 1 auto);
-					max-width: 500px;
+					max-width: 600px;
+					min-width: 400px;
 					margin: 0 theme.$spacing-x4 0 0;
 				}
 				.gallery-details {
-					@include mixins.flex();
+					@include mixins.flex;
 					.gallery-details-list {
 						.gallery-details-item {
 							dt {

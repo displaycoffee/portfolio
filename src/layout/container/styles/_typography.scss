@@ -51,7 +51,6 @@
 	}
 	a, .a {
 		color: theme.$color-03;
-		@include mixins.transition(color 0.3s ease-in-out);
 		&:active, &:hover {
 			color: theme.$color-02;
 		}
@@ -88,34 +87,17 @@
 			text-transform: theme.$font-transform
 		));
 		color: theme.$color-02;
+		text-shadow: 2px 2px 0 theme.$color-03, -1px -1px 0 theme.$color-06;
+		letter-spacing: 2px;
+		&:before {
+			content: '>';
+			display: inline-block;
+			padding: 0 theme.$spacing-x2 0 0;
+		}
 		a {
 			color: inherit;
 			&:hover {
 				color: theme.$color-03;
-			}
-		}
-	}
-	h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6 {
-		&:not(.unstyled) {
-			position: relative;
-			display: inline-block;
-			padding: 0 0 4px 0;
-			&:before, &:after {
-				content: '';
-				display: block;
-				@include mixins.position($type: absolute, $left: 0);
-			}
-			&:before {
-				height: 3px;
-				right: -#{theme.$spacing-x1};
-				bottom: 0;
-				background-color: theme.$color-04;
-			}
-			&:after {
-				height: 2px;
-				right: -#{theme.$spacing-x1 - 2px};
-				bottom: -2px;
-				background-color: theme.$color-06;
 			}
 		}
 	}
@@ -133,6 +115,14 @@
 	}
 	h5, h6, .h5, .h6 {
 		font-size: functions.em(14px, rem);
+	}
+	.h-shadow-lg {
+		text-shadow: 3px 3px 0 theme.$color-03, -1px -1px 0 theme.$color-06;
+	}
+	.h-remove-before {
+		&:before {
+			display: none;
+		}
 	}
 
 //// CONTENT BLOCKS

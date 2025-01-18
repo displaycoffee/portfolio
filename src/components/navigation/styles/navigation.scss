@@ -8,35 +8,52 @@
 
 	// Configuration
 
-	$navigation-is-inline: false; // determine if navigation is inline
+	$navigation-is-inline: true; // determine if navigation is inline
 
 	// Style block
 
+	.navigation-section {
+		padding: theme.$spacing-x4 0 calc(theme.$spacing-x4 - 8px) 0;
+		border-top: 2px solid theme.$color-03;
+		border-bottom: 2px solid theme.$color-03;
+		position: relative;
+		&:before, &:after {
+			content: '';
+			display: block;
+			@include mixins.sizing(100%, 0px);
+			@include mixins.position($type: absolute, $left: 0);
+			border-bottom: 2px solid theme.$color-06;
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: -4px;
+		}
+	}
 	.navigation {
 		.navigation-list {
 			.navigation-list-item {
+				padding: 0 theme.$spacing-x2;
 				@if $navigation-is-inline == true {
 					@include mixins.inline-block(middle);
 				}
-				margin: 0 0 theme.$spacing-x2 0;
 				a {
+					position: relative;
+					padding: 0 0 0 20px;
 					color: theme.$color-02;
+					&:before {
+						content: '\0025aa';
+						display: block;
+						@include mixins.position($type: absolute, $left: 0, $top: -5.5px);
+					}
 					&:hover {
 						color: theme.$color-03;
 						&:before {
+							top: -3.5px;
 							content: '>';
-							padding: 0 theme.$spacing-x2 0 0;
 						}
 					}
-				}
-			}
-		}
-	}
-	@include mixins.respond-min(theme.$bp-02) {
-		.navigation {
-			.navigation-list {
-				.navigation-list-item {
-					text-align: right;
 				}
 			}
 		}

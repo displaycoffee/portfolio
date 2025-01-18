@@ -24,9 +24,20 @@ export const Footer = (props) => {
 				{footer && footer.length != 0 ? (
 					<div className="footer-navigation column">
 						<nav className="footer-navigation-links">
+							<FooterSeparator />
+
+							<a
+								className="footer-navigation-link"
+								href="mailto:adria.m.murphy@gmail.com?subject=From portfolio"
+								alt="Contact me"
+								title="Contact me"
+							>
+								Contact
+							</a>
+
 							{footer.map((link, index) => (
 								<React.Fragment key={link.id}>
-									{isDesktop && index === 0 && <span className="footer-navigation-separator">&#9642;</span>}
+									{isDesktop && index === 0 && <FooterSeparator />}
 
 									<a
 										className="footer-navigation-link"
@@ -39,7 +50,7 @@ export const Footer = (props) => {
 										{link.label}
 									</a>
 
-									<span className="footer-navigation-separator">&#9642;</span>
+									<FooterSeparator />
 								</React.Fragment>
 							))}
 
@@ -57,4 +68,8 @@ export const Footer = (props) => {
 			</div>
 		</footer>
 	);
+};
+
+export const FooterSeparator = () => {
+	return <span className="footer-navigation-separator">&#9642;</span>;
 };

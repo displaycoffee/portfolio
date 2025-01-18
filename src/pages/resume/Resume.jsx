@@ -16,7 +16,7 @@ export const Resume = () => {
 			<div className="resume-section resume-note spacing-reset">
 				<p>
 					<strong>Note</strong> - If you're looking for a downloadable version of this resume, grab the pdf{' '}
-					<a href="/assets/documents/adria-murphy-resume.pdf" target="_blank">
+					<a href="/assets/documents/adria-murphy-resume.pdf" target="_blank" rel="noreferrer">
 						here
 					</a>
 					.
@@ -37,19 +37,19 @@ export const Resume = () => {
 				<div className="row row-wrap row-spacing-20">
 					{cms && (
 						<div className="column">
-							<h5 className="unstyled">Armor</h5>
+							<h5 className="h-remove-before">Armor</h5>
 							<p>{cms}</p>
 						</div>
 					)}
 					{tools && (
 						<div className="column">
-							<h5 className="unstyled">Weapons</h5>
+							<h5 className="h-remove-before">Weapons</h5>
 							<p>{tools}</p>
 						</div>
 					)}
 					{other && (
 						<div className="column">
-							<h5 className="unstyled">Items</h5>
+							<h5 className="h-remove-before">Items</h5>
 							<p>{other}</p>
 						</div>
 					)}

@@ -15,13 +15,12 @@ import { ErrorBoundary } from '../../components/error-boundary/ErrorBoundary';
 import { Slideout, SlideoutOverlay } from '../../components/slideout/Slideout';
 import { Header } from '../../layout/header/Header';
 import { Content } from '../../layout/content/Content';
-import { Sidebar } from '../../layout/sidebar/Sidebar';
 import { Footer } from '../../layout/footer/Footer';
 
 export const Container = (props) => {
 	const { theme } = props;
 	const location = useLocation();
-	const isDesktop = useRespond(theme.bps.bp02);
+	const isDesktop = useRespond(theme.bps.bp03);
 	let [sidebar, setSidebar] = useState(true);
 
 	// Set body class using custom hook
@@ -42,13 +41,17 @@ export const Container = (props) => {
 
 					<Header isDesktop={isDesktop} />
 
-					{isDesktop ? null : <Slideout id={'menu'} isDesktop={isDesktop} label={'Menu'} content={<Navigation />} closeOnClick={true} />}
+					<section className="navigation-section">
+						{isDesktop ? (
+							<Navigation />
+						) : (
+							<Slideout id={'menu'} isDesktop={isDesktop} label={'Menu'} content={<Navigation />} closeOnClick={true} />
+						)}
+					</section>
 
 					<main className="main">
 						<div className="main-layout flex-wrap">
 							<Content />
-
-							<Sidebar show={sidebar && isDesktop} />
 						</div>
 					</main>
 
