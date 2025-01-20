@@ -50,7 +50,8 @@ export const resume = {
 		{
 			id: 4,
 			name: 'Searchspring',
-			role: 'Implementation Engineer and Team Lead from November 2014 to <strong>Current</strong>',
+			role: 'Manager of Professional Services and Frontend Team Lead',
+			date: 'November 2014 to <strong>Current</strong>',
 			description: [
 				`Use Searchspring API and SDKs (based on Angular or React) to perform job tasks`,
 				`Create mockups to demo how the product looks and functions when integrated on a client's eCommerce website`,
@@ -68,7 +69,8 @@ export const resume = {
 		{
 			id: 3,
 			name: 'Power Plant Media',
-			role: 'Frontend Web Developer from October 2013 to September 2014',
+			role: 'Frontend Web Developer',
+			date: 'October 2013 to September 2014',
 			description: [
 				`Code HTML and CSS for responsive, mobile-friendly websites`,
 				`Code HTML email newsletters`,
@@ -82,7 +84,8 @@ export const resume = {
 		{
 			id: 2,
 			name: 'Decentrix Inc.',
-			role: 'Graphic Designer and Frontend Web Developer from April 2013 to September 2013',
+			role: 'Graphic Designer and Frontend Web Developer',
+			date: 'April 2013 to September 2013',
 			description: [
 				`Design and implement website customizations for DISH authorized retailers`,
 				`Update HTML and CSS on outdated pages and clean-up of pages and files no longer in use`,
@@ -95,7 +98,8 @@ export const resume = {
 		{
 			id: 1,
 			name: 'AT&T',
-			role: 'Implementation Specialist from April 2010 to April 2013',
+			role: 'Implementation Specialist',
+			date: 'April 2010 to April 2013',
 			description: [
 				`Review and analyze project documents used to place content on att.com (logging and solving issues as a result)`,
 				`Implement content using TeamSite and thoroughly check each piece of content for errors in the process`,
@@ -108,7 +112,8 @@ export const resume = {
 		{
 			id: 0,
 			name: 'Hilton Worldwide',
-			role: 'Web Analyst from November 2007 to April 2010',
+			role: 'Web Analyst',
+			date: 'November 2007 to April 2010',
 			description: [
 				`Creation of special offers on hotel websites across all Hilton Worldwide brands (includes daily copywriting, proofreading, and HTML editing)`,
 				`Review and publish promotions that built for brand websites (Hilton.com, Doubletreee.com, etc.)`,
@@ -125,10 +130,10 @@ export const resume = {
 			date: 'December 2020 to Current',
 			description: [
 				`Twice a year, assists in organizing and managing a charity event where Final Fantasy VII speed runners
-				get together to raise money for St. Jude Children’s Research Hospital`,
+				get together to raise money for St. Jude Children's Research Hospital`,
 				`Built a React application using the Tiltify API that tracks donations, challenges, and rewards from all
 				supporting campaigns for event`,
-				`To date, we have raised $36,653.67 for St. Jude`,
+				`To date, we have raised $50,870.13 for St. Jude`,
 			],
 		},
 		{

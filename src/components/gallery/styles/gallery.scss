@@ -31,32 +31,6 @@
 					display: inline-block;
 				}
 			}
-			.gallery-details {
-				.gallery-details-list {
-					margin: 0;
-					.gallery-details-item {
-						margin: 0 0 theme.$spacing-x2 0;
-						&:last-child {
-							margin-bottom: 0;
-						}
-						dt, dd {
-							min-width: 1px;
-						}
-						dt {
-							@include mixins.flex(0 0 150px);
-							font-family: theme.$font-family-02;
-							font-weight: theme.$font-weight-02;
-							margin: 0 0 theme.$spacing-x1 0;
-							&:after {
-								content: ':';
-							}
-						}
-						dd {
-							@include mixins.flex(1 1 100%);
-						}
-					}
-				}
-			}
 		}	
 		.gallery-navigation {
 			.gallery-navigation-list {
@@ -79,37 +53,19 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-01) {
-		.gallery {
-			.gallery-content {
-				.gallery-details {
-					.gallery-details-list {
-						.gallery-details-item {
-							dt {
-								margin: 0;
-							}
-							dd {
-								@include mixins.flex;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
 	@include mixins.respond-min(theme.$bp-03) {
 		.gallery {
 			.gallery-content {
 				.gallery-image {
 					@include mixins.flex(0 1 auto);
-					max-width: 600px;
+					max-width: 500px;
 					min-width: 400px;
 					margin: 0 theme.$spacing-x4 0 0;
 				}
 				.gallery-details {
 					@include mixins.flex;
-					.gallery-details-list {
-						.gallery-details-item {
+					.definition-list {
+						.definition-list-item {
 							dt {
 								margin: 0 0 theme.$spacing-x1 0;
 							}
@@ -125,9 +81,12 @@
 	@include mixins.respond-min(theme.$bp-04) {
 		.gallery {
 			.gallery-content {
+				.gallery-image {
+					max-width: 600px;
+				}
 				.gallery-details {
-					.gallery-details-list {
-						.gallery-details-item {
+					.definition-list {
+						.definition-list-item {
 							dt {
 								margin: 0;
 							}

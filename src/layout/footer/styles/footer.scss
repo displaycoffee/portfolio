@@ -13,6 +13,11 @@
 			.footer-copyright, .footer-navigation {
 				width: 100%;
 			}
+			.footer-copyright {
+				& ~ .footer-navigation .footer-navigation-links .footer-navigation-separator:first-child {
+					display: none;
+				}
+			}
 			.footer-navigation {
 				.footer-navigation-links {
 					margin: 0 -#{theme.$spacing-x1};
@@ -31,6 +36,11 @@
 				.footer-copyright, .footer-navigation {
 					width: auto;
 				}			
+				.footer-copyright {
+					& ~ .footer-navigation .footer-navigation-links .footer-navigation-separator:first-child {
+						display: inline-block;
+					}
+				}		
 			}
 		}	
 	}

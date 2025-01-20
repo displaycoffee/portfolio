@@ -37,19 +37,19 @@ export const Resume = () => {
 				<div className="row row-wrap row-spacing-20">
 					{cms && (
 						<div className="column">
-							<h5 className="h-remove-before">Armor</h5>
+							<h5 className="h-remove-before h-remove-shadow">Armor</h5>
 							<p>{cms}</p>
 						</div>
 					)}
 					{tools && (
 						<div className="column">
-							<h5 className="h-remove-before">Weapons</h5>
+							<h5 className="h-remove-before h-remove-shadow">Weapons</h5>
 							<p>{tools}</p>
 						</div>
 					)}
 					{other && (
 						<div className="column">
-							<h5 className="h-remove-before">Items</h5>
+							<h5 className="h-remove-before h-remove-shadow">Items</h5>
 							<p>{other}</p>
 						</div>
 					)}
@@ -62,30 +62,35 @@ export const Resume = () => {
 				{history && history.length !== 0
 					? history.map((item) => (
 							<React.Fragment key={item.id}>
-								<p>
-									<strong>Name</strong> - {item.name}
-								</p>
+								<dl className="definition-list">
+									<div className="definition-list-item">
+										<dt>Name</dt>
+										<dd>{item.name}</dd>
+									</div>
 
-								<p>
-									<strong>Role</strong> - <span dangerouslySetInnerHTML={{ __html: item.role }}></span>
-								</p>
+									<div className="definition-list-item">
+										<dt>Role</dt>
+										<dd dangerouslySetInnerHTML={{ __html: item.role }}></dd>
+									</div>
 
-								<p>
-									<strong>Objectives</strong> -
-								</p>
-
-								<ul>
-									{item.description.map((content, index) => (
-										<li key={index}>
-											{index == item.description.length - 1 ? (
-												<>
-													<strong>Inventory</strong> -&nbsp;
-												</>
-											) : null}
-											{content}
-										</li>
-									))}
-								</ul>
+									<div className="definition-list-item">
+										<dt>Objectives</dt>
+										<dd>
+											<ul>
+												{item.description.map((content, index) => (
+													<li key={index}>
+														{index == item.description.length - 1 ? (
+															<>
+																<strong>Inventory</strong> -&nbsp;
+															</>
+														) : null}
+														{content}
+													</li>
+												))}
+											</ul>
+										</dd>
+									</div>
+								</dl>
 							</React.Fragment>
 						))
 					: null}
@@ -97,23 +102,28 @@ export const Resume = () => {
 				{volunteer && volunteer.length !== 0
 					? volunteer.map((item) => (
 							<React.Fragment key={item.id}>
-								<p>
-									<strong>Name</strong> - {item.name}
-								</p>
+								<dl className="definition-list">
+									<div className="definition-list-item">
+										<dt>Name</dt>
+										<dd>{item.name}</dd>
+									</div>
 
-								<p>
-									<strong>Date</strong> - {item.date}
-								</p>
+									<div className="definition-list-item">
+										<dt>Date</dt>
+										<dd>{item.date}</dd>
+									</div>
 
-								<p>
-									<strong>Objectives</strong> -
-								</p>
-
-								<ul>
-									{item.description.map((content, index) => (
-										<li key={index}>{content}</li>
-									))}
-								</ul>
+									<div className="definition-list-item">
+										<dt>Objectives</dt>
+										<dd>
+											<ul>
+												{item.description.map((content, index) => (
+													<li key={index}>{content}</li>
+												))}
+											</ul>
+										</dd>
+									</div>
+								</dl>
 							</React.Fragment>
 						))
 					: null}

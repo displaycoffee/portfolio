@@ -57,6 +57,10 @@
 		.slideout-menu {
 			max-width: 100%;
 			background-color: $slideout-color-02;
+			background-image: url('../../../assets/images/theme/gradient-top.png');
+			background-repeat: repeat-x;
+			background-position: center top;
+			border-right: 2px solid theme.$color-03;
 			z-index: 9999;
 			padding: $slideout-spacing;
 			.slideout-header {
@@ -68,6 +72,7 @@
 				}
 				.slideout-close {
 					margin-left: auto;
+					text-shadow: 2px 2px 0 theme.$color-03;
 				}
 			}
 			.slideout-scrollbar {
@@ -78,9 +83,7 @@
 				max-height: calc(100% - ($slideout-header + $slideout-spacing));
 				.navigation {
 					.navigation-list {
-						margin: 0 -#{theme.$spacing-x2};
 						.navigation-list-item {
-							display: block;
 							font-size: functions.em(16px, rem);
 							margin: 0  0 theme.$spacing-x2 0;
 							&:last-child {

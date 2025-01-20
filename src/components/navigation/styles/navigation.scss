@@ -13,42 +13,46 @@
 	// Style block
 
 	.navigation-section {
-		padding: theme.$spacing-x4 0 calc(theme.$spacing-x4 - 8px) 0;
-		border-top: 2px solid theme.$color-03;
-		border-bottom: 2px solid theme.$color-03;
-		position: relative;
-		&:before, &:after {
-			content: '';
-			display: block;
-			@include mixins.sizing(100%, 0px);
-			@include mixins.position($type: absolute, $left: 0);
-			border-bottom: 2px solid theme.$color-06;
+		&, .navigation-section-wrapper {			
+			position: relative;
 		}
-		&:before {
-			top: 0;
+		.navigation-section-border {
+			@include mixins.position-fill($z: 1);
+			background-color: theme.$color-04;
 		}
-		&:after {
-			bottom: -4px;
+		.navigation-section-wrapper {
+			padding: theme.$spacing-x4 theme.$spacing-x4 calc(theme.$spacing-x4 - 8px) theme.$spacing-x4;
+			z-index: 2;
+			.slideout-button {
+				text-shadow: 2px 2px 0 theme.$color-03;
+				font-size: functions.em(16px, rem);
+			}
+			.navigation {
+				.navigation-list {
+					.navigation-list-item {
+						padding: 0 theme.$spacing-x2;
+						@if $navigation-is-inline == true {
+							@include mixins.inline-block(middle);
+						}
+					}
+				}
+			}
 		}
 	}
 	.navigation {
 		.navigation-list {
-			.navigation-list-item {
-				padding: 0 theme.$spacing-x2;
-				@if $navigation-is-inline == true {
-					@include mixins.inline-block(middle);
-				}
+			.navigation-list-item {				
 				a {
 					position: relative;
 					padding: 0 0 0 20px;
 					color: theme.$color-02;
+					text-shadow: 2px 2px 0 theme.$color-03;
 					&:before {
 						content: '\0025aa';
 						display: block;
 						@include mixins.position($type: absolute, $left: 0, $top: -5.5px);
 					}
 					&:hover {
-						color: theme.$color-03;
 						&:before {
 							top: -3.5px;
 							content: '>';

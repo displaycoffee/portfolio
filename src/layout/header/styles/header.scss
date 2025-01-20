@@ -21,7 +21,7 @@
 				padding: 0 6px 0 0;
 				overflow: hidden;
 				white-space: nowrap;
-				font-size: functions.em(20px, rem);
+				font-size: functions.em(13px, rem);
 				animation: type 3.5s steps(40);	
 				&:after {
 					content: '';
@@ -40,6 +40,24 @@
 				margin: 0 theme.$spacing-x2 0 0;
 				&:last-child {
 					margin-right: 0;
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(400px) {
+		.header {
+			.header-title {
+				.header-type {
+					font-size: functions.em(16px, rem);
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(480px) {
+		.header {
+			.header-title {
+				.header-type {
+					font-size: functions.em(20px, rem);
 				}
 			}
 		}
