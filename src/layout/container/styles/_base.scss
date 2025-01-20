@@ -84,6 +84,34 @@
 			}
 		}
 	}
+	.definition-list {
+		margin: 0 0 $base-elements-spacing 0;
+		.definition-list-item {
+			@include mixins.flex-layout;
+			margin: 0 0 theme.$spacing-x2 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			dt, dd {
+				min-width: 1px;
+			}
+			dt {
+				@include mixins.flex(0 0 175px);
+				font-family: theme.$font-family-02;
+				font-weight: theme.$font-weight-02;
+				margin: 0 0 theme.$spacing-x1 0;
+			}
+			dd {
+				@include mixins.flex(1 1 100%);
+				& > *:last-child {
+					margin-bottom: 0;
+				}
+				ul {
+					padding: 0;
+				}
+			}
+		}
+	}
 	.container {
 		max-width: theme.$container-base;
 		margin: 0 auto;
@@ -94,6 +122,18 @@
 			margin: 0 0 theme.$spacing-x8 0;
 			&:last-child {
 				margin-bottom: 0;
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.definition-list {
+			.definition-list-item {
+				dt {
+					margin: 0;
+				}
+				dd {
+					@include mixins.flex;
+				}
 			}
 		}
 	}

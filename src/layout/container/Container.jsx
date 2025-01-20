@@ -33,6 +33,15 @@ export const Container = (props) => {
 		setSidebar(sidebar);
 	}, [location.pathname]);
 
+	// Create props for mobile slideout menu
+	const slideoutProps = {
+		id: 'menu',
+		isDesktop: isDesktop,
+		label: 'Menu',
+		content: <Navigation />,
+		closeOnClick: true,
+	};
+
 	return (
 		<Context.Provider value={props}>
 			<div className="container container-main">
@@ -42,12 +51,14 @@ export const Container = (props) => {
 					<Header isDesktop={isDesktop} />
 
 					<section className="navigation-section">
-						{isDesktop ? (
-							<Navigation />
-						) : (
-							<Slideout id={'menu'} isDesktop={isDesktop} label={'Menu'} content={<Navigation />} closeOnClick={true} />
-						)}
+						<div className="navigation-section-border pixel-border-rounded"></div>
+
+						<div className="navigation-section-wrapper">
+							{isDesktop ? <Navigation /> : <Slideout {...slideoutProps} button={{ outside: true, show: true }} />}
+						</div>
 					</section>
+
+					{isDesktop ? null : <Slideout {...slideoutProps} button={{ outside: false, show: false }} />}
 
 					<main className="main">
 						<div className="main-layout flex-wrap">
@@ -55,7 +66,7 @@ export const Container = (props) => {
 						</div>
 					</main>
 
-					<Footer isDesktop={isDesktop} />
+					<Footer />
 				</ErrorBoundary>
 			</div>
 		</Context.Provider>

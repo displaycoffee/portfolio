@@ -64,11 +64,6 @@ export const GalleryThumbnails = (props) => {
 	);
 };
 
-// Function to generate class for detail
-const detailsClass = (type) => {
-	return `gallery-details-item gallery-details-${type} flex-wrap`;
-};
-
 export const GalleryContent = (props) => {
 	const { path, category, gallery, galleryId, backLink } = props;
 	const { id } = useParams();
@@ -118,17 +113,17 @@ export const GalleryContent = (props) => {
 						</div>
 					)}
 
-					<div className="gallery-details">
-						<dl className="gallery-details-list">
+					<div className="gallery-details spacing-reset">
+						<dl className="definition-list">
 							{content.date && (
-								<div className={detailsClass('date')}>
+								<div className="definition-list-item">
 									<dt>Date</dt>
 									<dd>{content.date}</dd>
 								</div>
 							)}
 
 							{content.url && (
-								<div className={detailsClass('visit')}>
+								<div className="definition-list-item">
 									<dt>Visit</dt>
 									<dd>
 										<a href={content.url} target="_blank" rel="noreferrer">
@@ -139,21 +134,21 @@ export const GalleryContent = (props) => {
 							)}
 
 							{content.technologies && (
-								<div className={detailsClass('technologies')}>
+								<div className="definition-list-item">
 									<dt>Technologies</dt>
 									<dd>{content.technologies}</dd>
 								</div>
 							)}
 
 							{content.mediums && (
-								<div className={detailsClass('mediums')}>
+								<div className="definition-list-item">
 									<dt>Mediums</dt>
 									<dd>{content.mediums}</dd>
 								</div>
 							)}
 
 							{content.description && (
-								<div className={detailsClass('description')}>
+								<div className="definition-list-item">
 									<dt>Description</dt>
 									<dd dangerouslySetInnerHTML={{ __html: content.description }}></dd>
 								</div>

@@ -11,7 +11,7 @@ import { slideout } from './scripts/slideout';
 import { Context } from '../../context/Context';
 
 export const Slideout = (props) => {
-	let { id, width, direction, label, content } = props;
+	let { id, width, direction, label, content, button } = props;
 	const { config, get, toggle } = slideout;
 	const fallbackId = useId().replace(/:/g, '');
 	const slideoutId = `slideout-${id ? id : fallbackId}`;
@@ -26,7 +26,16 @@ export const Slideout = (props) => {
 		[direction]: orientation == 'vertical' ? config.values.vertical : `-${width}`,
 	};
 
-	return (
+	// Create shared slideout button
+	const slideoutButton = (
+		<button className="slideout-button unstyled pointer" type="button" onClick={(e) => toggle(e, slideoutId)}>
+			&gt;&nbsp;{label}
+		</button>
+	);
+
+	return button.outside && button.show ? (
+		slideoutButton
+	) : (
 		<div
 			id={slideoutId}
 			className={`${config.classes.slideout} slideout-${orientation}`}
@@ -34,13 +43,11 @@ export const Slideout = (props) => {
 			data-direction={direction}
 			data-orientation={orientation}
 		>
-			<button className="slideout-button pointer unstyled" type="button" onClick={(e) => toggle(e, slideoutId)}>
-				&gt;&nbsp;{label}
-			</button>
+			{!button.outside && button.show ? slideoutButton : null}
 
 			<div className={config.classes.menu} style={styles}>
 				<header className="slideout-header flex-nowrap flex-align-items-center">
-					<h3 className="slideout-title">{label}</h3>
+					<h3 className="slideout-title h-remove-before">{label}</h3>
 
 					<button className="slideout-close pointer unstyled" type="button" onClick={(e) => toggle(e, false)}>
 						x

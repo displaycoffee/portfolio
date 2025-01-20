@@ -10,8 +10,7 @@ import { footer } from './scripts/footer';
 /* Local components */
 import { Context } from '../../context/Context';
 
-export const Footer = (props) => {
-	const { isDesktop } = props;
+export const Footer = () => {
 	const context = useContext(Context);
 	const { utils } = context;
 	const date = new Date().getFullYear();
@@ -37,7 +36,7 @@ export const Footer = (props) => {
 
 							{footer.map((link, index) => (
 								<React.Fragment key={link.id}>
-									{isDesktop && index === 0 && <FooterSeparator />}
+									{index === 0 && <FooterSeparator />}
 
 									<a
 										className="footer-navigation-link"
