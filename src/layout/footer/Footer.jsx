@@ -13,6 +13,7 @@ import { Context } from '../../context/Context';
 export const Footer = () => {
 	const context = useContext(Context);
 	const { utils } = context;
+	const iconSize = '32x32';
 	const date = new Date().getFullYear();
 
 	return (
@@ -23,33 +24,15 @@ export const Footer = () => {
 				{footer && footer.length != 0 ? (
 					<div className="footer-navigation column">
 						<nav className="footer-navigation-links">
-							<FooterSeparator />
-
-							<a
-								className="footer-navigation-link"
-								href="mailto:adria.m.murphy@gmail.com?subject=From portfolio"
-								alt="Contact me"
-								title="Contact me"
-							>
-								Contact
-							</a>
-
-							{footer.map((link, index) => (
+							{footer.map((link) => (
 								<React.Fragment key={link.id}>
-									{index === 0 && <FooterSeparator />}
-
-									<a
-										className="footer-navigation-link"
-										href={link.url}
-										alt={link.alt || link.label}
-										title={link.alt || link.label}
-										target="_blank"
-										rel="noreferrer"
-									>
-										{link.label}
+									<a className="footer-navigation-link" href={link.url} target="_blank" rel="noreferrer">
+										<img
+											src={utils.setIcon(link.label.toLowerCase(), iconSize)}
+											alt={link.alt || link.label}
+											title={link.alt || link.label}
+										/>
 									</a>
-
-									<FooterSeparator />
 								</React.Fragment>
 							))}
 

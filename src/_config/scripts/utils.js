@@ -40,4 +40,7 @@ export const utils = {
 			element.setAttribute(attribute, atttributes[attribute]);
 		}
 	},
+	setIcon: (file, size) => {
+		return `/assets/images/theme/${file}-${size}.png`;
+	},
 };

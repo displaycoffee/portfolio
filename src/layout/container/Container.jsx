@@ -48,7 +48,7 @@ export const Container = (props) => {
 				<ErrorBoundary message={<ContainerError />}>
 					<SlideoutOverlay isDesktop={isDesktop} />
 
-					<Header isDesktop={isDesktop} />
+					<Header />
 
 					<section className="navigation-section">
 						<div className="navigation-section-border pixel-border-rounded"></div>
