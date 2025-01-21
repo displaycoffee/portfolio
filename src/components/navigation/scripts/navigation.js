@@ -1,3 +1,12 @@
+/* Local components */
+import { Start } from '../../../pages/start/Start';
+import { About } from '../../../pages/about/About';
+import { Art } from '../../../pages/art/Art';
+import { Projects } from '../../../pages/projects/Projects';
+import { Articles } from '../../../pages/articles/Articles';
+import { CheatCodes } from '../../../pages/cheat-codes/CheatCodes';
+import { Resume } from '../../../pages/resume/Resume';
+
 export const navigation = [
 	{
 		id: 6,
@@ -7,6 +16,7 @@ export const navigation = [
 		showInNav: true,
 		isRoute: true,
 		hasChildren: false,
+		component: CheatCodes,
 	},
 	{
 		id: 5,
@@ -16,6 +26,7 @@ export const navigation = [
 		showInNav: true,
 		isRoute: true,
 		hasChildren: false,
+		component: Articles,
 	},
 	{
 		id: 4,
@@ -25,6 +36,7 @@ export const navigation = [
 		showInNav: true,
 		isRoute: true,
 		hasChildren: false,
+		component: Resume,
 	},
 	{
 		id: 3,
@@ -34,6 +46,7 @@ export const navigation = [
 		showInNav: true,
 		isRoute: true,
 		hasChildren: true,
+		component: Art,
 	},
 	{
 		id: 2,
@@ -43,6 +56,7 @@ export const navigation = [
 		showInNav: true,
 		isRoute: true,
 		hasChildren: true,
+		component: Projects,
 	},
 	{
 		id: 1,
@@ -52,6 +66,7 @@ export const navigation = [
 		showInNav: true,
 		isRoute: true,
 		hasChildren: false,
+		component: About,
 	},
 	{
 		id: 0,
@@ -61,6 +76,7 @@ export const navigation = [
 		showInNav: true,
 		isRoute: true,
 		hasChildren: false,
+		component: Start,
 	},
 ].sort((a, b) => {
 	// Sort navigation by id

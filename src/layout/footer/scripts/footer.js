@@ -1,5 +1,11 @@
 export const footer = [
 	{
+		id: 4,
+		label: 'Envelope',
+		alt: 'Contact me',
+		url: 'mailto:adria.m.murphy@gmail.com?subject=From portfolio',
+	},
+	{
 		id: 3,
 		label: 'GitHub',
 		url: '//github.com/displaycoffee',

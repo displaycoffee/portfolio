@@ -1,5 +1,5 @@
 /* React */
-import React, { useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
 /* Local styles */
@@ -10,13 +10,6 @@ import { navigation, createNavigationList } from './scripts/navigation';
 
 /* Local components */
 import { Context } from '../../context/Context';
-import { Start } from '../../pages/start/Start';
-import { About } from '../../pages/about/About';
-import { Art } from '../../pages/art/Art';
-import { Projects } from '../../pages/projects/Projects';
-import { Articles } from '../../pages/articles/Articles';
-import { CheatCodes } from '../../pages/cheat-codes/CheatCodes';
-import { Resume } from '../../pages/resume/Resume';
 
 export const Navigation = () => {
 	const { pathname } = useLocation();
@@ -51,19 +44,9 @@ export const NavigationRoutes = () => {
 		<Routes>
 			{navigationList.map((nav) => {
 				const path = nav.hasChildren ? `${nav.url}/*` : nav.url;
+				const navProps = nav?.props ? nav.props : {};
 
-				return (
-					<React.Fragment key={nav.id}>
-						{{
-							'cheat codes': <Route path={path} element={<CheatCodes />} />,
-							articles: <Route path={path} element={<Articles />} />,
-							resume: <Route path={path} element={<Resume />} />,
-							art: <Route path={path} element={<Art />} />,
-							projects: <Route path={path} element={<Projects />} />,
-							about: <Route path={path} element={<About />} />,
-						}[nav.label.toLowerCase()] || <Route path={path} element={<Start />} />}
-					</React.Fragment>
-				);
+				return <Route path={path} element={<nav.component {...navProps} />} key={nav.id} />;
 			})}
 		</Routes>
 	) : null;
