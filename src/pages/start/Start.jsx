@@ -1,6 +1,9 @@
 /* Local scripts */
 import { updates } from './scripts/updates';
 
+/* Local components */
+import { HeaderIcon } from '../../components/text/Text';
+
 export const Start = () => {
 	return (
 		<>
@@ -8,7 +11,7 @@ export const Start = () => {
 
 			{updates && updates.length !== 0 ? (
 				<>
-					<h4>Updates</h4>
+					<HeaderIcon>Updates</HeaderIcon>
 
 					{updates.map((update) => (
 						<p key={update.id}>

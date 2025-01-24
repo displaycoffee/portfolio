@@ -13,20 +13,11 @@ import { Context } from '../../context/Context';
 export const Footer = () => {
 	const context = useContext(Context);
 	const { utils } = context;
-	const iconSize = '16x16';
+	const iconSize = '32x32';
 	const date = new Date().getFullYear();
 
 	return (
 		<footer className="footer">
-			<h4>
-				<img style={{ display: 'inline-block' }} src={utils.setIcon('angle-down', iconSize)} alt={'test'} title={'test'} /> Testing
-			</h4>
-			<img src={utils.setIcon('angle-right', iconSize)} alt={'test'} title={'test'} />
-			<img src={utils.setIcon('angle-left', iconSize)} alt={'test'} title={'test'} />
-
-			<img src={utils.setIcon('angle-up', iconSize)} alt={'test'} title={'test'} />
-			<img src={utils.setIcon('x', iconSize)} alt={'test'} title={'test'} />
-
 			<div className="row row-wrap row-auto row-spacing-10">
 				<div className="footer-copyright column">&copy; {date}</div>
 
@@ -51,7 +42,7 @@ export const Footer = () => {
 								alt="Scroll to top"
 								title="Scroll to top"
 							>
-								^
+								<span className="icon icon-angle-up icon-lg icon-bold icon-shadow-x2"></span>
 							</button>
 						</nav>
 					</div>

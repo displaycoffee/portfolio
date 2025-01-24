@@ -29,7 +29,8 @@ export const Slideout = (props) => {
 	// Create shared slideout button
 	const slideoutButton = (
 		<button className="slideout-button unstyled pointer" type="button" onClick={(e) => toggle(e, slideoutId)}>
-			&gt;&nbsp;{label}
+			<span className="icon icon-angle-right icon-bold icon-shadow-x1"></span>
+			{label}
 		</button>
 	);
 
@@ -47,10 +48,10 @@ export const Slideout = (props) => {
 
 			<div className={config.classes.menu} style={styles}>
 				<header className="slideout-header flex-nowrap flex-align-items-center">
-					<h3 className="slideout-title h-remove-before">{label}</h3>
+					<h3 className="slideout-title">{label}</h3>
 
 					<button className="slideout-close pointer unstyled" type="button" onClick={(e) => toggle(e, false)}>
-						x
+						<span className="icon icon-close icon-lg icon-bold icon-shadow-x1"></span>
 					</button>
 				</header>
 
