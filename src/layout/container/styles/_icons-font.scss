@@ -1,0 +1,106 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+
+//// ICONS - FONT
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	.icon {
+		@include mixins.flex-layout((display: inline-flex, flex-flow: column nowrap, justify-content: center, align-items: center));
+		@include mixins.flex(0 0 auto);
+		@include mixins.icon-sizing(theme.$icon-size);
+		&:before {
+			position: relative;
+			display: block;
+			margin: auto;
+			@include mixins.sizing(auto, auto);
+			max-width: 100%;
+			max-height: 100%;
+			font-family: theme.$font-family-01;
+			font-size: theme.$icon-size;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			text-rendering: auto;
+			text-shadow: none;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			line-height: 1;
+		}
+	}
+	.icon-lg {
+		@include mixins.icon-sizing(theme.$icon-size + 6);
+		&:before {
+			font-size: theme.$icon-size + 6;
+		}
+	}
+	.icon-bold:before {
+		font-family: theme.$font-family-02;
+	}
+	.icon-shadow-x1:before {
+		text-shadow: 2px 2px 0 theme.$color-03;
+	}
+	.icon-shadow-x2:before {
+		text-shadow: 2px 2px 0 theme.$color-03, -1px -1px 0 theme.$color-06;
+	}
+	.icon-angle-left {
+		&:before {
+			content: '\00003c';
+		}
+		&.icon-lg:before {
+			top: 2px;
+		}
+	}
+	.icon-angle-right {
+		&:before {
+			content: '\00003e';
+		}
+		&.icon-lg:before {
+			top: 2px;
+		}
+	}
+	.icon-angle-up, .icon-angle-down {
+		&:before {
+			content: '\00003e';
+			top: -1px;
+		}
+	}
+	.icon-angle-up:before {
+		left: 1px;
+		@include mixins.transform(rotate(-90deg));
+	}
+	.icon-angle-down:before {
+		left: -1px;
+		@include mixins.transform(rotate(90deg));
+	}
+	.icon-plus {
+		&:before {
+			content: '\00002b';
+		}
+		&.icon-lg:before {
+			top: 1px;
+		}
+	}
+	.icon-minus:before {
+		top: -1px;
+		content: '\00002d';
+	}
+	.icon-close, .icon-remove {
+		&:before {
+			content: '\000078';
+		}
+	}
+	.icon-bullet {
+		&:before {
+			top: -1px;
+			content: '\0025aa';
+		}
+		&.icon-lg:before {
+			top: 1px;
+		}
+	}

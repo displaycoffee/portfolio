@@ -20,9 +20,10 @@
 			}
 			.footer-navigation {
 				.footer-navigation-links {
-					margin: 0 -#{theme.$spacing-x1};
-					.footer-navigation-link, .footer-navigation-separator {
-						margin: 0 theme.$spacing-x1;
+					margin: 0 -#{theme.$spacing-x2};
+					.footer-navigation-link {
+						color: theme.$color-02;
+						margin: 0 theme.$spacing-x2;
 						@include mixins.inline-block(middle);
 					}
 				}

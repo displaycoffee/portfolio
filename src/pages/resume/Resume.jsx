@@ -4,8 +4,11 @@ import React from 'react';
 /* Local styles */
 import './styles/resume.scss';
 
-/* Local styles */
+/* Local scripts */
 import { resume } from './scripts/resume';
+
+/* Local components */
+import { HeaderIcon } from '../../components/text/Text';
 
 export const Resume = () => {
 	const { technical, history, volunteer } = resume;
@@ -24,7 +27,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-skills spacing-reset">
-				<h4>Skills</h4>
+				<HeaderIcon>Skills</HeaderIcon>
 
 				{languages && languages.length !== 0
 					? languages.map((item) => <ResumeSkillBar key={item.id} name={item.name} outOf={item.value} />)
@@ -32,24 +35,24 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-inventory">
-				<h4>Inventory</h4>
+				<HeaderIcon>Inventory</HeaderIcon>
 
 				<div className="row row-wrap row-spacing-20">
 					{cms && (
 						<div className="column">
-							<h5 className="h-remove-before h-remove-shadow">Armor</h5>
+							<h5 className="h-remove-shadow">Armor</h5>
 							<p>{cms}</p>
 						</div>
 					)}
 					{tools && (
 						<div className="column">
-							<h5 className="h-remove-before h-remove-shadow">Weapons</h5>
+							<h5 className="h-remove-shadow">Weapons</h5>
 							<p>{tools}</p>
 						</div>
 					)}
 					{other && (
 						<div className="column">
-							<h5 className="h-remove-before h-remove-shadow">Items</h5>
+							<h5 className="h-remove-shadow">Items</h5>
 							<p>{other}</p>
 						</div>
 					)}
@@ -57,7 +60,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-story-quests spacing-reset">
-				<h4>Story Quests</h4>
+				<HeaderIcon>Story Quests</HeaderIcon>
 
 				{history && history.length !== 0
 					? history.map((item) => (
@@ -97,7 +100,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-side-quests spacing-reset">
-				<h4>Side Quests</h4>
+				<HeaderIcon>Side Quests</HeaderIcon>
 
 				{volunteer && volunteer.length !== 0
 					? volunteer.map((item) => (

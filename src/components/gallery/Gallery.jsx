@@ -7,6 +7,7 @@ import './styles/gallery.scss';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { HeaderIcon } from '../text/Text';
 
 export const Gallery = (props) => {
 	const { path, category, header, gallery, backLink } = props;
@@ -47,7 +48,7 @@ export const GalleryThumbnails = (props) => {
 
 	return (
 		<div id={galleryId} className="gallery">
-			{header ? <h4>{header}</h4> : null}
+			{header ? <HeaderIcon>{header}</HeaderIcon> : null}
 
 			<div className="gallery-items">
 				{gallery.map((item) => (
@@ -99,7 +100,7 @@ export const GalleryContent = (props) => {
 				<div className="gallery-content flex-wrap">
 					{content.name && (
 						<header className="gallery-header">
-							<h3 className="gallery-header-title">{content.name}</h3>
+							<HeaderIcon className={'gallery-header-title'}>{content.name}</HeaderIcon>
 						</header>
 					)}
 

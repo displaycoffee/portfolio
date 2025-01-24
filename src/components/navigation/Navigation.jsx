@@ -28,6 +28,7 @@ export const Navigation = () => {
 				{navigationList.map((nav) => (
 					<li className="navigation-list-item" key={nav.id}>
 						<Link to={nav.url} alt={nav.alt || nav.label} title={nav.alt || nav.label}>
+							<span className="icon icon-bullet icon-shadow-x1"></span>
 							{nav.label}
 						</Link>
 					</li>
