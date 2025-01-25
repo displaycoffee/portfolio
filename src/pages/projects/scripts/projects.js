@@ -5,7 +5,6 @@ const projectsPath = `${distPath}projects/`;
 export const projects = [
 	{
 		id: 30,
-		border: true,
 		image: `${projectsPath}2022-09-14-display-coffee.jpg`,
 		thumb: `${projectsPath}2022-09-14-display-coffee-${thumbnailSize}.jpg`,
 		name: 'Portfolio',
@@ -15,7 +14,6 @@ export const projects = [
 	},
 	{
 		id: 29,
-		border: true,
 		image: `${projectsPath}2022-06-25-ff7-for-st-jude.jpg`,
 		thumb: `${projectsPath}2022-06-25-ff7-for-st-jude-${thumbnailSize}.jpg`,
 		name: 'FF7 for St. Jude',
@@ -26,7 +24,6 @@ export const projects = [
 	},
 	{
 		id: 28,
-		border: true,
 		image: `${projectsPath}2019-01-13-khyeras.jpg`,
 		thumb: `${projectsPath}2019-01-13-khyeras-${thumbnailSize}.jpg`,
 		name: `Khy'eras`,
@@ -37,7 +34,6 @@ export const projects = [
 	},
 	{
 		id: 27,
-		border: true,
 		image: `${projectsPath}2017-06-11-khyeras.jpg`,
 		thumb: `${projectsPath}2017-06-11-khyeras-${thumbnailSize}.jpg`,
 		name: `Khy'eras`,
@@ -48,7 +44,6 @@ export const projects = [
 	},
 	{
 		id: 26,
-		border: true,
 		image: `${projectsPath}2016-09-12-muses-circle.jpg`,
 		thumb: `${projectsPath}2016-09-12-muses-circle-${thumbnailSize}.jpg`,
 		name: 'The Muses Circle',
@@ -58,7 +53,6 @@ export const projects = [
 	},
 	{
 		id: 25,
-		border: true,
 		image: `${projectsPath}2014-02-22-aleris.jpg`,
 		thumb: `${projectsPath}2014-02-22-aleris-${thumbnailSize}.jpg`,
 		name: 'Aleris',
@@ -68,7 +62,6 @@ export const projects = [
 	},
 	{
 		id: 24,
-		border: true,
 		image: `${projectsPath}2013-12-16-aleris.jpg`,
 		thumb: `${projectsPath}2013-12-16-aleris-${thumbnailSize}.jpg`,
 		name: 'Aleris',
@@ -78,7 +71,6 @@ export const projects = [
 	},
 	{
 		id: 23,
-		border: true,
 		image: `${projectsPath}2013-10-10-aleris.jpg`,
 		thumb: `${projectsPath}2013-10-10-aleris-${thumbnailSize}.jpg`,
 		name: 'Aleris',
@@ -88,7 +80,6 @@ export const projects = [
 	},
 	{
 		id: 22,
-		border: true,
 		image: `${projectsPath}2013-01-01-mattandadria.jpg`,
 		thumb: `${projectsPath}2013-01-01-mattandadria-${thumbnailSize}.jpg`,
 		name: 'Matt and Adria',
@@ -99,7 +90,6 @@ export const projects = [
 	},
 	{
 		id: 21,
-		border: true,
 		image: `${projectsPath}2012-12-01-invalid.jpg`,
 		thumb: `${projectsPath}2012-12-01-invalid-${thumbnailSize}.jpg`,
 		name: 'Invalid Character Detection',
@@ -110,7 +100,6 @@ export const projects = [
 	},
 	{
 		id: 20,
-		border: true,
 		image: `${projectsPath}2012-07-15-aleris.jpg`,
 		thumb: `${projectsPath}2012-07-15-aleris-${thumbnailSize}.jpg`,
 		name: 'Aleris',
@@ -120,7 +109,6 @@ export const projects = [
 	},
 	{
 		id: 19,
-		border: true,
 		image: `${projectsPath}2012-06-04-carol.jpg`,
 		thumb: `${projectsPath}2012-06-04-carol-${thumbnailSize}.jpg`,
 		name: 'Nutrition Consulting Services',
@@ -130,7 +118,6 @@ export const projects = [
 	},
 	{
 		id: 18,
-		border: true,
 		image: `${projectsPath}2012-03-23-colorado-home-base.jpg`,
 		thumb: `${projectsPath}2012-03-23-colorado-home-base-${thumbnailSize}.jpg`,
 		name: 'Colorado Home Base',
@@ -140,7 +127,6 @@ export const projects = [
 	},
 	{
 		id: 17,
-		border: true,
 		image: `${projectsPath}2011-12-28-muses-circle.jpg`,
 		thumb: `${projectsPath}2011-12-28-muses-circle-${thumbnailSize}.jpg`,
 		name: 'The Muses Circle',
@@ -150,7 +136,6 @@ export const projects = [
 	},
 	{
 		id: 16,
-		border: true,
 		image: `${projectsPath}2011-01-09-aleris.jpg`,
 		thumb: `${projectsPath}2011-01-09-aleris-${thumbnailSize}.jpg`,
 		name: 'Aleris',
@@ -160,7 +145,6 @@ export const projects = [
 	},
 	{
 		id: 15,
-		border: true,
 		image: `${projectsPath}2010-08-02-federal-mailing.jpg`,
 		thumb: `${projectsPath}2010-08-02-federal-mailing-${thumbnailSize}.jpg`,
 		name: 'Federal Mailing',
@@ -170,7 +154,6 @@ export const projects = [
 	},
 	{
 		id: 14,
-		border: true,
 		image: `${projectsPath}2009-12-18-matt.jpg`,
 		thumb: `${projectsPath}2009-12-18-matt-${thumbnailSize}.jpg`,
 		name: 'Matt Murphy Music',
@@ -181,7 +164,6 @@ export const projects = [
 	},
 	{
 		id: 13,
-		border: true,
 		image: `${projectsPath}2009-08-14-portfolio.jpg`,
 		thumb: `${projectsPath}2009-08-14-portfolio-${thumbnailSize}.jpg`,
 		name: 'Portfolio',
@@ -191,7 +173,6 @@ export const projects = [
 	},
 	{
 		id: 12,
-		border: true,
 		image: `${projectsPath}2009-07-10-portfolio.jpg`,
 		thumb: `${projectsPath}2009-07-10-portfolio-${thumbnailSize}.jpg`,
 		name: 'Portfolio',
@@ -201,7 +182,6 @@ export const projects = [
 	},
 	{
 		id: 11,
-		border: true,
 		image: `${projectsPath}2009-05-29-portfolio.jpg`,
 		thumb: `${projectsPath}2009-05-29-portfolio-${thumbnailSize}.jpg`,
 		name: 'Portfolio',
@@ -211,7 +191,6 @@ export const projects = [
 	},
 	{
 		id: 10,
-		border: true,
 		image: `${projectsPath}2007-04-28-ro-diary.jpg`,
 		thumb: `${projectsPath}2007-04-28-ro-diary-${thumbnailSize}.jpg`,
 		name: 'RO Diary',
@@ -221,7 +200,6 @@ export const projects = [
 	},
 	{
 		id: 9,
-		border: true,
 		image: `${projectsPath}2007-03-02-neverend.jpg`,
 		thumb: `${projectsPath}2007-03-02-neverend-${thumbnailSize}.jpg`,
 		name: 'Neverend',
@@ -231,7 +209,6 @@ export const projects = [
 	},
 	{
 		id: 8,
-		border: true,
 		image: `${projectsPath}2006-11-26-neverend.jpg`,
 		thumb: `${projectsPath}2006-11-26-neverend-${thumbnailSize}.jpg`,
 		name: 'Neverend',
@@ -241,7 +218,6 @@ export const projects = [
 	},
 	{
 		id: 7,
-		border: true,
 		image: `${projectsPath}2006-11-16-ro-diary.jpg`,
 		thumb: `${projectsPath}2006-11-16-ro-diary-${thumbnailSize}.jpg`,
 		name: 'RO Diary',
@@ -251,7 +227,6 @@ export const projects = [
 	},
 	{
 		id: 6,
-		border: true,
 		image: `${projectsPath}2006-07-06-matt.jpg`,
 		thumb: `${projectsPath}2006-07-06-matt-${thumbnailSize}.jpg`,
 		name: 'Matt Murphy Music',
@@ -261,7 +236,6 @@ export const projects = [
 	},
 	{
 		id: 5,
-		border: true,
 		image: `${projectsPath}2006-06-07-neverend.jpg`,
 		thumb: `${projectsPath}2006-06-07-neverend-${thumbnailSize}.jpg`,
 		name: 'Neverend',
@@ -271,7 +245,6 @@ export const projects = [
 	},
 	{
 		id: 4,
-		border: true,
 		image: `${projectsPath}2006-02-04-neverend.jpg`,
 		thumb: `${projectsPath}2006-02-04-neverend-${thumbnailSize}.jpg`,
 		name: 'Neverend',
@@ -281,7 +254,6 @@ export const projects = [
 	},
 	{
 		id: 3,
-		border: true,
 		image: `${projectsPath}2005-12-19-be-careful.jpg`,
 		thumb: `${projectsPath}2005-12-19-be-careful-${thumbnailSize}.jpg`,
 		name: 'Be Careful',
@@ -291,7 +263,6 @@ export const projects = [
 	},
 	{
 		id: 2,
-		border: true,
 		image: `${projectsPath}2005-06-18-neverend.jpg`,
 		thumb: `${projectsPath}2005-06-18-neverend-${thumbnailSize}.jpg`,
 		name: 'Neverend',
@@ -301,7 +272,6 @@ export const projects = [
 	},
 	{
 		id: 1,
-		border: true,
 		image: `${projectsPath}2005-05-09-terrae.jpg`,
 		thumb: `${projectsPath}2005-05-09-terrae-${thumbnailSize}.jpg`,
 		name: 'Terrae',
@@ -311,7 +281,6 @@ export const projects = [
 	},
 	{
 		id: 0,
-		border: true,
 		image: `${projectsPath}2004-08-20-oneiro.jpg`,
 		thumb: `${projectsPath}2004-08-20-oneiro-${thumbnailSize}.jpg`,
 		name: 'Oneiro-Zoe',
