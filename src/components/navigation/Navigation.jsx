@@ -16,6 +16,7 @@ export const Navigation = () => {
 	const context = useContext(Context);
 	const utils = context.utils;
 	const navigationList = createNavigationList(navigation, false);
+	const windowPath = window.location.pathname;
 
 	// Scroll to top when navigation link is clicked on
 	useEffect(() => {
@@ -25,14 +26,25 @@ export const Navigation = () => {
 	return navigationList && navigationList.length != 0 ? (
 		<nav className="navigation">
 			<ul className="navigation-list unstyled">
-				{navigationList.map((nav) => (
-					<li className="navigation-list-item" key={nav.id}>
-						<Link to={nav.url} alt={nav.alt || nav.label} title={nav.alt || nav.label}>
-							<span className="icon icon-bullet icon-shadow-x1"></span>
-							{nav.label}
-						</Link>
-					</li>
-				))}
+				{navigationList.map((nav) => {
+					const isIndex = nav.url == '/' ? true : false;
+					const isIndexWindow = windowPath == '/' ? true : false;
+
+					// Determine active navigation link
+					let isActive = isIndex && isIndexWindow ? true : false;
+					if (!isIndex && !isIndexWindow && windowPath.includes(nav.url)) {
+						isActive = true;
+					}
+
+					return (
+						<li className={`navigation-list-item${isActive ? ' active' : ''}`} key={nav.id}>
+							<Link to={nav.url} alt={nav.alt || nav.label} title={nav.alt || nav.label}>
+								<span className="icon icon-bullet icon-shadow-x1 animate-left"></span>
+								{nav.label}
+							</Link>
+						</li>
+					);
+				})}
 			</ul>
 		</nav>
 	) : null;

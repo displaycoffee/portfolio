@@ -170,3 +170,44 @@
 	.pixel-border-rounded {
 		@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06, $rounded: true);
 	}
+
+//// ANIMATIONS
+//// --------------------------------------------------------------------------	
+	
+	.animate-bottom, .animate-left {
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease;
+	}
+	.animate-bottom {
+		transform-origin: bottom;
+	}
+	.animate-left {
+		transform-origin: left;
+	}
+	@keyframes type {
+		from { width: 0 }
+		to   { width: 100% }
+	}
+	@keyframes cursor {
+		from, to { background-color: transparent }
+		50%      { background-color: darken(theme.$color-03, 8%) }
+	}
+	@keyframes bounce-horizontal {
+		0%   { transform: translateX(0); }
+		10%  { transform: translateX(0); }
+		30%  { transform: translateX(-16px); }
+		50%  { transform: translateX(0); }
+		57%  { transform: translateX(-8px); }
+		64%  { transform: translateX(0); }
+		100% { transform: translateX(0); }
+	}
+	@keyframes bounce-vertical {
+		0%   { transform: translateY(0); }
+		10%  { transform: translateY(0); }
+		30%  { transform: translateY(-16px); }
+		50%  { transform: translateY(0); }
+		57%  { transform: translateY(-8px); }
+		64%  { transform: translateY(0); }
+		100% { transform: translateY(0); }
+	}

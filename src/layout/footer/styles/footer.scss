@@ -13,24 +13,22 @@
 			.footer-copyright, .footer-navigation {
 				width: 100%;
 			}
-			.footer-copyright {
-				& ~ .footer-navigation .footer-navigation-links .footer-navigation-separator:first-child {
-					display: none;
-				}
-			}
 			.footer-navigation {
 				.footer-navigation-links {
-					margin: 0 -#{theme.$spacing-x2};
+					margin: 0 -#{theme.$spacing-x1};
 					.footer-navigation-link {
 						color: theme.$color-02;
-						margin: 0 theme.$spacing-x2;
+						margin: 0 theme.$spacing-x1;
 						@include mixins.inline-block(middle);
+					}
+					button:hover .icon {
+						animation-name: bounce-vertical;
 					}
 				}
 			}
 		}	
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond-min(theme.$bp-01) {
 		.footer {
 			.row {
 				@include mixins.flex-parent(justify-content, flex-end);
@@ -38,9 +36,7 @@
 					width: auto;
 				}			
 				.footer-copyright {
-					& ~ .footer-navigation .footer-navigation-links .footer-navigation-separator:first-child {
-						display: inline-block;
-					}
+					@include mixins.position($type: relative, $top: 4px);
 				}		
 			}
 		}	
