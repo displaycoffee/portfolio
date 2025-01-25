@@ -4,8 +4,16 @@ const artPath = `${distPath}art/`;
 export let art = {
 	pixels: [
 		{
+			id: 37,
+			image: `${artPath}2025-01-20-theme-icons.png`,
+			thumb: `${artPath}2025-01-20-theme-icons-18x18.png`,
+			name: 'Theme Icons',
+			date: '01.20.25',
+			mediums: 'Aseprite',
+			description: `Social media icons I made for this portfolio.`,
+		},
+		{
 			id: 36,
-			border: false,
 			thumb: `${artPath}2022-11-20-ff7-materia.png`,
 			name: 'Support Materia',
 			date: '11.20.22',
@@ -14,7 +22,6 @@ export let art = {
 		},
 		{
 			id: 35,
-			border: false,
 			thumb: `${artPath}2021-12-04-toastmatt-sad-bread.png`,
 			name: 'Sad Bread',
 			date: '12.04.21',
@@ -23,7 +30,6 @@ export let art = {
 		},
 		{
 			id: 34,
-			border: false,
 			thumb: `${artPath}2021-12-04-toastmatt-materia-bread.png`,
 			name: 'Materia Bread',
 			date: '12.04.21',
@@ -32,7 +38,6 @@ export let art = {
 		},
 		{
 			id: 33,
-			border: false,
 			thumb: `${artPath}2021-11-28-money-bread.gif`,
 			name: 'Money Bread',
 			date: '11.28.21',
@@ -41,7 +46,6 @@ export let art = {
 		},
 		{
 			id: 32,
-			border: false,
 			thumb: `${artPath}2021-11-26-toastmatt-rip-bread.png`,
 			name: 'RIP Bread',
 			date: '11.26.21',
@@ -50,7 +54,6 @@ export let art = {
 		},
 		{
 			id: 31,
-			border: false,
 			thumb: `${artPath}2021-11-26-toastmatt-mad-bread.png`,
 			name: 'Mad Breads',
 			date: '11.26.21',
@@ -59,7 +62,6 @@ export let art = {
 		},
 		{
 			id: 30,
-			border: false,
 			thumb: `${artPath}2021-03-13-khyeras-heart-badge.png`,
 			name: 'Heart Badge',
 			date: '03.13.21',
@@ -68,7 +70,6 @@ export let art = {
 		},
 		{
 			id: 29,
-			border: false,
 			thumb: `${artPath}2020-12-20-displaycofee-wave.png`,
 			name: 'Wave',
 			date: '12.20.20',
@@ -77,7 +78,6 @@ export let art = {
 		},
 		{
 			id: 28,
-			border: false,
 			thumb: `${artPath}2020-12-20-displaycofee-hmm.png`,
 			name: 'Hmmm',
 			date: '12.20.20',
@@ -86,7 +86,6 @@ export let art = {
 		},
 		{
 			id: 27,
-			border: false,
 			thumb: `${artPath}2020-12-20-displaycofee-charge.png`,
 			name: 'Charge',
 			date: '12.20.20',
@@ -95,7 +94,6 @@ export let art = {
 		},
 		{
 			id: 26,
-			border: false,
 			thumb: `${artPath}2020-10-25-khyeras-pumpkin-badge.png`,
 			name: 'Pumpkin Badge',
 			date: '10.25.20',
@@ -104,7 +102,6 @@ export let art = {
 		},
 		{
 			id: 25,
-			border: false,
 			thumb: `${artPath}2020-08-24-displaycofee-hello.png`,
 			name: 'Hello',
 			date: '08.24.20',
@@ -113,7 +110,6 @@ export let art = {
 		},
 		{
 			id: 24,
-			border: false,
 			thumb: `${artPath}2020-07-25-chestermcfisty-git-gud.png`,
 			name: 'Git Gud',
 			date: '07.25.20',
@@ -122,7 +118,6 @@ export let art = {
 		},
 		{
 			id: 23,
-			border: false,
 			thumb: `${artPath}2020-07-19-scubasaul-pineapple.png`,
 			name: 'No Hints Please',
 			date: '07.19.20',
@@ -131,7 +126,6 @@ export let art = {
 		},
 		{
 			id: 22,
-			border: false,
 			thumb: `${artPath}2020-07-12-displaycofee-coffee-bean.png`,
 			name: 'Coffee Bean',
 			date: '07.12.20',
@@ -140,7 +134,6 @@ export let art = {
 		},
 		{
 			id: 21,
-			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-red-mug.png`,
 			name: 'Red Coffee Mug',
 			date: '07.11.20',
@@ -149,7 +142,6 @@ export let art = {
 		},
 		{
 			id: 20,
-			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-purple-mug.png`,
 			name: 'Purple Coffee Mug',
 			date: '07.11.20',
@@ -158,7 +150,6 @@ export let art = {
 		},
 		{
 			id: 19,
-			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-orange-mug.png`,
 			name: 'Orange Coffee Mug',
 			date: '07.11.20',
@@ -167,7 +158,6 @@ export let art = {
 		},
 		{
 			id: 18,
-			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-green-mug.png`,
 			name: 'Green Coffee Mug',
 			date: '07.11.20',
@@ -176,7 +166,6 @@ export let art = {
 		},
 		{
 			id: 17,
-			border: false,
 			thumb: `${artPath}2020-07-11-displaycoffee-blue-mug.png`,
 			name: 'Blue Coffee Mug',
 			date: '07.11.20',
@@ -185,7 +174,6 @@ export let art = {
 		},
 		{
 			id: 16,
-			border: false,
 			thumb: `${artPath}2020-07-11-displaycofee-love.png`,
 			name: 'Vivi Love',
 			date: '07.11.20',
@@ -194,7 +182,6 @@ export let art = {
 		},
 		{
 			id: 15,
-			border: false,
 			thumb: `${artPath}2020-07-05-novakatebs-medkit.png`,
 			name: 'Support',
 			date: '07.05.20',
@@ -203,7 +190,6 @@ export let art = {
 		},
 		{
 			id: 14,
-			border: false,
 			thumb: `${artPath}2020-07-05-chestermcfisty-ggez.png`,
 			name: 'GGEZ',
 			date: '07.05.20',
@@ -212,7 +198,6 @@ export let art = {
 		},
 		{
 			id: 13,
-			border: false,
 			thumb: `${artPath}2020-07-04-savko-tilt.png`,
 			name: 'Tilt',
 			date: '07.04.20',
@@ -221,7 +206,6 @@ export let art = {
 		},
 		{
 			id: 12,
-			border: false,
 			thumb: `${artPath}2020-07-04-savko-platforming.png`,
 			name: 'Platforming Bad',
 			date: '07.04.20',
@@ -230,7 +214,6 @@ export let art = {
 		},
 		{
 			id: 11,
-			border: false,
 			thumb: `${artPath}2020-07-04-savko-greed.png`,
 			name: 'Greed',
 			date: '07.04.20',
@@ -239,7 +222,6 @@ export let art = {
 		},
 		{
 			id: 10,
-			border: false,
 			thumb: `${artPath}2020-07-03-savko-lore.png`,
 			name: 'Lore',
 			date: '07.03.20',
@@ -248,7 +230,6 @@ export let art = {
 		},
 		{
 			id: 9,
-			border: false,
 			thumb: `${artPath}2020-07-03-savko-kwr.png`,
 			name: 'Kate Was Right',
 			date: '07.03.20',
@@ -257,7 +238,6 @@ export let art = {
 		},
 		{
 			id: 8,
-			border: false,
 			thumb: `${artPath}2020-06-06-toastmatt-wave-bread.png`,
 			name: 'Wave Bread',
 			date: '06.06.20',
@@ -266,7 +246,6 @@ export let art = {
 		},
 		{
 			id: 7,
-			border: false,
 			thumb: `${artPath}2020-06-06-toastmatt-gold-bread.png`,
 			name: 'Gold',
 			date: '06.06.20',
@@ -275,7 +254,6 @@ export let art = {
 		},
 		{
 			id: 6,
-			border: false,
 			thumb: `${artPath}2020-05-24-toastmatt-pb-bread.png`,
 			name: 'PB Bread',
 			date: '05.24.20',
@@ -284,7 +262,6 @@ export let art = {
 		},
 		{
 			id: 5,
-			border: false,
 			thumb: `${artPath}2020-05-23-toastmatt-smile-bread.png`,
 			name: 'Smile Bread',
 			date: '05.23.20',
@@ -293,7 +270,6 @@ export let art = {
 		},
 		{
 			id: 4,
-			border: false,
 			thumb: `${artPath}2020-05-23-toastmatt-love-bread.png`,
 			name: 'Love Bead',
 			date: '05.23',
@@ -302,7 +278,6 @@ export let art = {
 		},
 		{
 			id: 3,
-			border: false,
 			thumb: `${artPath}2020-05-07-toastmatt-well-done.png`,
 			name: 'Well Done',
 			date: '05.07.20',
@@ -311,7 +286,6 @@ export let art = {
 		},
 		{
 			id: 2,
-			border: false,
 			image: `${artPath}2020-04-30-toatmatt-bread-badges.png`,
 			thumb: `${artPath}2020-04-30-toatmatt-bread-badges-18x18.png`,
 			name: 'Bread Badges',
@@ -321,7 +295,6 @@ export let art = {
 		},
 		{
 			id: 1,
-			border: false,
 			thumb: `${artPath}2020-04-30-toastmatt-dead-bread.png`,
 			name: 'Dead Bread',
 			date: '04.30.20',
@@ -330,7 +303,6 @@ export let art = {
 		},
 		{
 			id: 0,
-			border: false,
 			thumb: `${artPath}2020-04-17-toastmatt-soft-lock.png`,
 			name: 'Soft Lock',
 			date: '04.17.20',
@@ -341,7 +313,6 @@ export let art = {
 	art: [
 		{
 			id: 33,
-			border: true,
 			image: `${artPath}2019-12-12-khyeras-map.jpg`,
 			thumb: `${artPath}2019-12-12-khyeras-map-200x200.jpg`,
 			name: `Khy'eras Map`,
@@ -351,7 +322,6 @@ export let art = {
 		},
 		{
 			id: 32,
-			border: true,
 			image: `${artPath}2013-03-23-charlie-rabbit.jpg`,
 			thumb: `${artPath}2013-03-23-charlie-rabbit-200x200.jpg`,
 			name: 'Charlie Rabbit',
@@ -361,7 +331,6 @@ export let art = {
 		},
 		{
 			id: 31,
-			border: true,
 			image: `${artPath}2012-12-01-aleris-map.jpg`,
 			thumb: `${artPath}2012-12-01-aleris-map-200x200.jpg`,
 			name: 'Aleris Map',
@@ -371,7 +340,6 @@ export let art = {
 		},
 		{
 			id: 30,
-			border: true,
 			image: `${artPath}2011-02-14-beatrix.jpg`,
 			thumb: `${artPath}2011-02-14-beatrix-200x200.jpg`,
 			name: 'Beatrix',
@@ -381,7 +349,6 @@ export let art = {
 		},
 		{
 			id: 29,
-			border: true,
 			image: `${artPath}2008-12-21-pachico.jpg`,
 			thumb: `${artPath}2008-12-21-pachico-200x200.jpg`,
 			name: 'Pachico',
@@ -391,7 +358,6 @@ export let art = {
 		},
 		{
 			id: 28,
-			border: true,
 			image: `${artPath}2008-08-03-cantrixe.jpg`,
 			thumb: `${artPath}2008-08-03-cantrixe-200x200.jpg`,
 			name: 'Cantrixe',
@@ -401,7 +367,6 @@ export let art = {
 		},
 		{
 			id: 27,
-			border: true,
 			image: `${artPath}2008-05-24-levanth.jpg`,
 			thumb: `${artPath}2008-05-24-levanth-200x200.jpg`,
 			name: 'Levanth',
@@ -411,7 +376,6 @@ export let art = {
 		},
 		{
 			id: 26,
-			border: true,
 			image: `${artPath}2008-05-20-yours-truly.jpg`,
 			thumb: `${artPath}2008-05-20-yours-truly-200x200.jpg`,
 			name: 'Yours Truly',
@@ -421,7 +385,6 @@ export let art = {
 		},
 		{
 			id: 25,
-			border: true,
 			image: `${artPath}2008-04-12-eleotea.jpg`,
 			thumb: `${artPath}2008-04-12-eleotea-200x200.jpg`,
 			name: 'Eleotea',
@@ -431,7 +394,6 @@ export let art = {
 		},
 		{
 			id: 24,
-			border: true,
 			image: `${artPath}2008-03-01-sol.jpg`,
 			thumb: `${artPath}2008-03-01-sol-200x200.jpg`,
 			name: 'Sol',
@@ -441,7 +403,6 @@ export let art = {
 		},
 		{
 			id: 23,
-			border: true,
 			image: `${artPath}2008-02-22-melody.jpg`,
 			thumb: `${artPath}2008-02-22-melody-200x200.jpg`,
 			name: 'Melody',
@@ -451,7 +412,6 @@ export let art = {
 		},
 		{
 			id: 22,
-			border: true,
 			image: `${artPath}2008-02-16-harpe.jpg`,
 			thumb: `${artPath}2008-02-16-harpe-200x200.jpg`,
 			name: 'Harpe',
@@ -461,7 +421,6 @@ export let art = {
 		},
 		{
 			id: 21,
-			border: true,
 			image: `${artPath}2008-02-11-pachico.jpg`,
 			thumb: `${artPath}2008-02-11-pachico-200x200.jpg`,
 			name: 'Pachico',
@@ -471,7 +430,6 @@ export let art = {
 		},
 		{
 			id: 20,
-			border: true,
 			image: `${artPath}2007-07-31-docks.jpg`,
 			thumb: `${artPath}2007-07-31-docks-200x200.jpg`,
 			name: 'Emfei Fien Docks',
@@ -481,7 +439,6 @@ export let art = {
 		},
 		{
 			id: 19,
-			border: true,
 			image: `${artPath}2007-05-05-heart-umbrella.jpg`,
 			thumb: `${artPath}2007-05-05-heart-umbrella-200x200.jpg`,
 			name: 'Heart Umbrella',
@@ -491,7 +448,6 @@ export let art = {
 		},
 		{
 			id: 18,
-			border: true,
 			image: `${artPath}2007-04-13-kyra-jazzy.jpg`,
 			thumb: `${artPath}2007-04-13-kyra-jazzy-200x200.jpg`,
 			name: 'Kyra Darkblood and Jazz',
@@ -501,7 +457,6 @@ export let art = {
 		},
 		{
 			id: 17,
-			border: true,
 			image: `${artPath}2007-03-16-caiin.jpg`,
 			thumb: `${artPath}2007-03-16-caiin-200x200.jpg`,
 			name: 'Caiin',
@@ -511,7 +466,6 @@ export let art = {
 		},
 		{
 			id: 16,
-			border: true,
 			image: `${artPath}2006-10-02-rhio-tempest.jpg`,
 			thumb: `${artPath}2006-10-02-rhio-tempest-200x200.jpg`,
 			name: 'Rhio and Tempest',
@@ -521,7 +475,6 @@ export let art = {
 		},
 		{
 			id: 15,
-			border: true,
 			image: `${artPath}2005-11-02-nightmare.jpg`,
 			thumb: `${artPath}2005-11-02-nightmare-200x200.jpg`,
 			name: '"N" is for "Nightmare"',
@@ -531,7 +484,6 @@ export let art = {
 		},
 		{
 			id: 14,
-			border: true,
 			image: `${artPath}2005-10-28-kyra.jpg`,
 			thumb: `${artPath}2005-10-28-kyra-200x200.jpg`,
 			name: 'Kyra Darkblood',
@@ -541,7 +493,6 @@ export let art = {
 		},
 		{
 			id: 13,
-			border: true,
 			image: `${artPath}2005-10-12-slash-kis.jpg`,
 			thumb: `${artPath}2005-10-12-slash-kis-200x200.jpg`,
 			name: '/kis',
@@ -551,7 +502,6 @@ export let art = {
 		},
 		{
 			id: 12,
-			border: true,
 			image: `${artPath}2005-09-30-reid.jpg`,
 			thumb: `${artPath}2005-09-30-reid-200x200.jpg`,
 			name: 'Reid Feral',
@@ -561,7 +511,6 @@ export let art = {
 		},
 		{
 			id: 11,
-			border: true,
 			image: `${artPath}2005-09-16-manaeros.jpg`,
 			thumb: `${artPath}2005-09-16-manaeros-200x200.jpg`,
 			name: 'Manaeros',
@@ -571,7 +520,6 @@ export let art = {
 		},
 		{
 			id: 10,
-			border: true,
 			image: `${artPath}2005-08-21-wait-for-me.jpg`,
 			thumb: `${artPath}2005-08-21-wait-for-me-200x200.jpg`,
 			name: 'Wait for Me',
@@ -581,7 +529,6 @@ export let art = {
 		},
 		{
 			id: 9,
-			border: true,
 			image: `${artPath}2005-04-06-cantrixe.jpg`,
 			thumb: `${artPath}2005-04-06-cantrixe-200x200.jpg`,
 			name: 'Cantrixe',
@@ -591,7 +538,6 @@ export let art = {
 		},
 		{
 			id: 8,
-			border: true,
 			image: `${artPath}2005-01-14-rhio-tempest.jpg`,
 			thumb: `${artPath}2005-01-14-rhio-tempest-200x200.jpg`,
 			name: 'Rhio and Tempest',
@@ -601,7 +547,6 @@ export let art = {
 		},
 		{
 			id: 7,
-			border: true,
 			image: `${artPath}2004-10-13-kiska.jpg`,
 			thumb: `${artPath}2004-10-13-kiska-200x200.jpg`,
 			name: 'Kiska',
@@ -611,7 +556,6 @@ export let art = {
 		},
 		{
 			id: 6,
-			border: true,
 			image: `${artPath}2004-10-13-kaila.jpg`,
 			thumb: `${artPath}2004-10-13-kaila-200x200.jpg`,
 			name: 'Kaila',
@@ -621,7 +565,6 @@ export let art = {
 		},
 		{
 			id: 5,
-			border: true,
 			image: `${artPath}2004-02-24-kaila-zomba.jpg`,
 			thumb: `${artPath}2004-02-24-kaila-zomba-200x200.jpg`,
 			name: 'Kaila and Zomba',
@@ -631,7 +574,6 @@ export let art = {
 		},
 		{
 			id: 4,
-			border: true,
 			image: `${artPath}2003-06-09-never-falling.jpg`,
 			thumb: `${artPath}2003-06-09-never-falling-200x200.jpg`,
 			name: 'Never Falling',
@@ -641,7 +583,6 @@ export let art = {
 		},
 		{
 			id: 3,
-			border: true,
 			image: `${artPath}2003-01-23-reid.jpg`,
 			thumb: `${artPath}2003-01-23-reid-200x200.jpg`,
 			name: 'Reid Feral',
@@ -651,7 +592,6 @@ export let art = {
 		},
 		{
 			id: 2,
-			border: true,
 			image: `${artPath}2003-01-11-flower.jpg`,
 			thumb: `${artPath}2003-01-11-flower-200x200.jpg`,
 			name: `I'll Miss You`,
@@ -661,7 +601,6 @@ export let art = {
 		},
 		{
 			id: 1,
-			border: true,
 			image: `${artPath}2002-10-23-verial-sorvynia.jpg`,
 			thumb: `${artPath}2002-10-23-verial-sorvynia-200x200.jpg`,
 			name: 'Verial and Sorvynia',
@@ -671,7 +610,6 @@ export let art = {
 		},
 		{
 			id: 0,
-			border: true,
 			image: `${artPath}2002-10-23-verial-necia.jpg`,
 			thumb: `${artPath}2002-10-23-verial-necia-200x200.jpg`,
 			name: 'Verial and Necia',

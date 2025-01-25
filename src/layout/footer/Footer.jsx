@@ -28,7 +28,7 @@ export const Footer = () => {
 								<React.Fragment key={link.id}>
 									<a className="footer-navigation-link" href={link.url} target="_blank" rel="noreferrer">
 										<img
-											src={utils.setIcon(link.label.toLowerCase(), iconSize)}
+											src={utils.setIcon(`${link.label.toLowerCase()}-color`, iconSize)}
 											alt={link.alt || link.label}
 											title={link.alt || link.label}
 										/>
