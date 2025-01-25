@@ -44,19 +44,22 @@
 	}
 	.navigation {
 		.navigation-list {
-			.navigation-list-item {				
+			.navigation-list-item {
+				&.active a, &:not(.active) a:hover {									
+					.icon:before {
+						top: 1px;
+						content: '\00003e';
+					}
+				}
+				&:not(.active) a:hover .icon {
+					animation-name: bounce-horizontal;
+				}
 				a {
 					position: relative;
 					color: theme.$color-02;
 					text-shadow: 2px 2px 0 theme.$color-03;
 					.icon {
 						margin-right: theme.$spacing-x2;
-					}
-					&:hover {
-						.icon:before {
-							top: 1px;
-							content: '\00003e';
-						}
 					}
 				}
 			}

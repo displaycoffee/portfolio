@@ -10,7 +10,7 @@ export let art = {
 			name: 'Theme Icons',
 			date: '01.20.25',
 			mediums: 'Aseprite',
-			description: `Social media icons I made for this portfolio.`,
+			description: `Social media icons I made for this portfolio. I first made the icons in a brown color scale to match the site colors, then switched to brand colors.`,
 		},
 		{
 			id: 36,

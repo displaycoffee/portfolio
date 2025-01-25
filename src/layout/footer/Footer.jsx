@@ -18,7 +18,7 @@ export const Footer = () => {
 
 	return (
 		<footer className="footer">
-			<div className="row row-wrap row-auto row-spacing-10">
+			<div className="row row-wrap row-auto row-spacing-10 row-align-items-center">
 				<div className="footer-copyright column">&copy; {date}</div>
 
 				{footer && footer.length != 0 ? (
@@ -37,12 +37,12 @@ export const Footer = () => {
 							))}
 
 							<button
-								className="footer-navigation-link a pointer"
-								onClick={(e) => utils.scrollTo(e, '#index')}
+								className="footer-navigation-link unstyled pointer bounce-5"
+								onClick={(e) => utils.scrollTo(e, 'body')}
 								alt="Scroll to top"
 								title="Scroll to top"
 							>
-								<span className="icon icon-angle-up icon-lg icon-bold icon-shadow-x2"></span>
+								<span className="icon icon-angle-up icon-lg icon-bold icon-shadow-x1 animate-bottom"></span>
 							</button>
 						</nav>
 					</div>

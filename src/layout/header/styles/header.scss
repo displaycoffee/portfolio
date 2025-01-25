@@ -81,11 +81,3 @@
 			}
 		}	
 	}
-	@keyframes type {
-		from { width: 0 }
-		to   { width: 100% }
-	}
-	@keyframes cursor {
-		from, to { background-color: transparent }
-		50%      { background-color: darken(theme.$color-03, 8%) }
-	}
