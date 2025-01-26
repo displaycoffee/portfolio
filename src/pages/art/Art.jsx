@@ -12,6 +12,10 @@ export const Art = () => {
 	// Options for gallery
 	const options = {
 		path: '/art',
+		thumbnails: {
+			headers: false,
+			tabs: true,
+		},
 		navigation: {
 			back: 'Back to "Art"',
 		},

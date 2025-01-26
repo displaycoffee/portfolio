@@ -6,25 +6,66 @@
 //// FORMS
 //// --------------------------------------------------------------------------
 
+	// Configuration
+
+	$button-pixel-size: 4px;
+
 	// Style block
 
-	button:not(.unstyled):not(.a) {
-		height: 40px;
-		line-height: 40px;
-		@include mixins.ellipsis;		
-	}
 	button {
+		cursor: pointer;
+		&:not(.unstyled):not(.a) {
+			display: inline-block;
+			background-color: theme.$color-04;
+			border: 0;
+			height: 36px;
+			line-height: calc(36px + $button-pixel-size);
+			padding: 0 theme.$spacing-x2;
+			margin: $button-pixel-size 0;
+			font-size: functions.em(12px, rem);
+			color: theme.$color-02;
+			text-shadow: 2px 2px 0 theme.$color-03;
+			position: relative;
+			span {
+				display: block;
+				@include mixins.ellipsis();
+			}
+			&:before, &:after {
+				content: '';
+				display: block;
+				background-color: theme.$color-04;
+				@include mixins.position($type: absolute, $left: 0, $right: 0);
+				margin: auto;
+				width: 90%;
+				width: calc(100% - calc($button-pixel-size * 2));
+				height: $button-pixel-size;
+			}
+			&:before {
+				top: -#{$button-pixel-size};
+			}
+			&:after {
+				bottom: -#{$button-pixel-size};
+			}
+		}
 		&.unstyled, &.a {
 			background-color: transparent;
 			border: 0;
 			padding: 0;
 		}
+		&.unstyled {
+			font-family: theme.$font-family-02;
+			font-size: functions.em(18px, rem);
+			color: theme.$color-02;
+		}
+		&.a {
+			line-height: 1.7;
+		}
 	}
-	button.unstyled {
-		font-family: theme.$font-family-02;
-		font-size: functions.em(18px, rem);
-		color: theme.$color-02;
-	}
-	button.a {
-		line-height: 1.7;
+	@include mixins.respond-min(theme.$bp-02) {
+		button {
+			&:not(.unstyled):not(.a) {
+				padding: 0 theme.$spacing-x4;
+				font-size: functions.em(14px, rem);
+			}
+		}
 	}
