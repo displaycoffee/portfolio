@@ -1,4 +1,5 @@
 /* React */
+import React, { useEffect, useState } from 'react';
 import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
 /* Local styles */
@@ -11,38 +12,118 @@ import { gallery as galleryUtils } from './scripts/gallery';
 import { HeaderIcon } from '../blocks/Blocks';
 
 export const Gallery = (props) => {
-	let { path, gallery, backLink, createAll, thumbnailHeaders } = props;
-	createAll = typeof createAll == 'undefined' ? true : createAll;
-	thumbnailHeaders = typeof thumbnailHeaders == 'undefined' ? true : thumbnailHeaders;
+	let { gallery, options } = props;
+	const hasGallery = options && gallery && gallery.length !== 0 && options.path ? true : false;
+
+	return hasGallery ? <GalleryLayout gallery={gallery} options={options} /> : null;
+};
+
+export const GalleryLayout = (props) => {
+	let { gallery, options } = props;
+	const hasTabs = options?.thumbnails?.tabs ? true : false;
+
+	// Ensure categories are set as well as "All" category
+	if (!options.categories) {
+		options.categories = {};
+	}
+	if (typeof options.categories.all == 'undefined') {
+		options.categories.all = true;
+	}
+
+	// Ensure thumbnail options is set with headers defined
+	if (!options.thumbnails) {
+		options.thumbnails = {};
+	}
+	if (typeof options.thumbnails.headers == 'undefined') {
+		options.thumbnails.headers = true;
+	}
+
+	// Ensure navigation is set
+	if (!options.navigation) {
+		options.navigation = {};
+	}
 
 	// Create gallery object for art
-	const modifiedGallery = galleryUtils.build(gallery, createAll);
+	const modifiedGallery = galleryUtils.build(gallery, options.categories.all);
 
-	return gallery && gallery.length !== 0 ? (
-		<>
-			{Object.keys(modifiedGallery).map((key) => {
-				const current = modifiedGallery[key];
+	// Set gallery map
+	const galleryMap = Object.keys(modifiedGallery);
 
-				return current.values && current.values.length !== 0 ? (
-					<GalleryRoutes path={path} gallery={current} backLink={backLink} thumbnailHeaders={thumbnailHeaders} key={current.handle} />
-				) : null;
-			})}
-		</>
+	// Get gallery count
+	let galleryCount = 0;
+	galleryMap.forEach((key) => {
+		galleryCount = galleryCount + modifiedGallery[key].values.length;
+	});
+
+	// Set state for tab
+	let [tab, setTab] = useState(false);
+
+	// Update state for tab
+	useEffect(() => {
+		if (hasTabs) {
+			const tabId = options?.thumbnails?.tabDefault ? options.thumbnails.tabDefault : galleryMap[0];
+			tab = modifiedGallery[tabId] ? modifiedGallery[tabId].id : modifiedGallery[galleryMap[0]].id;
+			setTab(tab);
+		}
+	}, []);
+
+	return galleryCount !== 0 ? (
+		<div className={`gallery-${hasTabs ? 'tabs' : 'default'} spacing-reset`}>
+			{hasTabs ? (
+				<>
+					<div className="gallery-tabs-buttons">
+						{galleryMap.map((key) => {
+							const current = galleryUtils.get.category(modifiedGallery, key, options);
+
+							return current.gallery.show ? (
+								<button
+									key={current.gallery.handle}
+									onClick={() => {
+										// Update tab on click
+										tab = current.gallery.id;
+										setTab(tab);
+									}}
+								>
+									{current.gallery.header}
+								</button>
+							) : null;
+						})}
+					</div>
+
+					<div className="gallery-tabs-content">
+						{galleryMap.map((key) => {
+							const current = galleryUtils.get.category(modifiedGallery, key, options);
+
+							return current.gallery.show ? <GalleryRoutes {...current} tab={tab} key={current.gallery.handle} /> : null;
+						})}
+					</div>
+				</>
+			) : (
+				galleryMap.map((key) => {
+					const current = galleryUtils.get.category(modifiedGallery, key, options);
+
+					return current.gallery.show ? <GalleryRoutes {...current} key={current.gallery.handle} /> : null;
+				})
+			)}
+		</div>
 	) : null;
 };
 
 export const GalleryRoutes = (props) => {
-	const { path, gallery, backLink, thumbnailHeaders } = props;
+	const { options, gallery, tab } = props;
 
 	// Pass down gallery props
 	const galleryProps = {
-		path: path,
-		category: gallery.handle,
-		header: gallery.header ? gallery.header : false,
-		gallery: gallery.values,
-		galleryId: gallery.id,
-		backLink: backLink ? backLink : false,
-		thumbnailHeaders: thumbnailHeaders,
+		path: options.path,
+		navigation: options.navigation,
+		thumbnails: options.thumbnails,
+		tab: tab ? tab : false,
+		gallery: {
+			id: gallery.id,
+			header: gallery.header ? gallery.header : false,
+			handle: gallery.handle,
+			values: gallery.values,
+		},
 	};
 
 	return (
@@ -54,14 +135,14 @@ export const GalleryRoutes = (props) => {
 };
 
 export const GalleryThumbnails = (props) => {
-	const { path, header, gallery, galleryId, thumbnailHeaders } = props;
+	const { path, gallery, thumbnails, tab } = props;
 
 	return (
-		<div id={galleryId} className="gallery">
-			{thumbnailHeaders && header ? <HeaderIcon tag={'h4'}>{header}</HeaderIcon> : null}
+		<div id={gallery.id} className={`gallery${tab && tab == gallery.id ? ' active' : ''}`}>
+			{thumbnails && thumbnails.headers ? <HeaderIcon tag={'h4'}>{gallery.header}</HeaderIcon> : null}
 
 			<div className="gallery-items">
-				{gallery.map((value) => (
+				{gallery.values.map((value) => (
 					<div className="gallery-item" key={value.id}>
 						<Link className="gallery-image" to={`${path}/${value.handle}`}>
 							<div className="image-wrapper pixel-border">
@@ -76,10 +157,10 @@ export const GalleryThumbnails = (props) => {
 };
 
 export const GalleryContent = (props) => {
-	const { path, category, gallery, galleryId, backLink } = props;
+	const { path, gallery, navigation } = props;
 	const { id } = useParams();
-	const showCurrent = window.location.href.includes(`${path}/${category}-`) ? true : false; // Do not render current item if not in matching gallery
-	const galleryCount = gallery.length - 1;
+	const showCurrent = window.location.href.includes(`${path}/${gallery.handle}-`) ? true : false; // Do not render current item if not in matching gallery
+	const galleryCount = gallery.values.length - 1;
 
 	// Set initial variables for gallery item details
 	let current = false;
@@ -87,7 +168,7 @@ export const GalleryContent = (props) => {
 	let next = false;
 
 	// Find active gallery value
-	let selected = gallery.filter((value) => value.handle == id);
+	let selected = gallery.values.filter((value) => value.handle == id);
 
 	// Update gallery details and create previous / next elements
 	if (selected && selected.length !== 0) {
@@ -97,8 +178,8 @@ export const GalleryContent = (props) => {
 		// If previous / next order is out of bounds, loop around to start / end of gallery
 		const previousIndex = current.order - 1;
 		const nextIndex = current.order + 1;
-		previous = previousIndex <= 0 ? gallery[galleryCount] : gallery[previousIndex];
-		next = nextIndex >= galleryCount ? gallery[0] : gallery[nextIndex];
+		previous = previousIndex <= 0 ? gallery.values[galleryCount] : gallery.values[previousIndex];
+		next = nextIndex >= galleryCount ? gallery.values[0] : gallery.values[nextIndex];
 	}
 
 	// Check if we are on a pixels gallery
@@ -106,7 +187,7 @@ export const GalleryContent = (props) => {
 
 	return showCurrent ? (
 		current ? (
-			<div id={galleryId} className="gallery">
+			<div id={gallery.id} className="gallery">
 				<div className="gallery-content flex-wrap">
 					{current.name && (
 						<header className="gallery-header">
@@ -178,16 +259,18 @@ export const GalleryContent = (props) => {
 							</li>
 						)}
 
-						<li className="gallery-navigation-list-item gallery-navigation-separator">
-							<span className="icon icon-bullet"></span>
-						</li>
+						{navigation?.back && (
+							<>
+								<li className="gallery-navigation-list-item gallery-navigation-separator">
+									<span className="icon icon-bullet"></span>
+								</li>
 
-						{backLink && (
-							<li className="gallery-navigation-list-item gallery-navigation-back">
-								<Link className="gallery-navigation-link" to={path}>
-									{backLink}
-								</Link>
-							</li>
+								<li className="gallery-navigation-list-item gallery-navigation-back">
+									<Link className="gallery-navigation-link" to={path}>
+										{navigation?.back}
+									</Link>
+								</li>
+							</>
 						)}
 
 						<li className="gallery-navigation-list-item gallery-navigation-separator">

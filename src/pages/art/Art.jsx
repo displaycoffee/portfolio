@@ -7,8 +7,17 @@ import { Gallery } from '../../components/gallery/Gallery';
 
 export const Art = () => {
 	const showContent = window.location.pathname == '/art' ? true : false;
+	const hasArt = art && art.length !== 0 ? true : false;
 
-	return art && art.length !== 0 ? (
+	// Options for gallery
+	const options = {
+		path: '/art',
+		navigation: {
+			back: 'Back to "Art"',
+		},
+	};
+
+	return hasArt ? (
 		<>
 			{showContent && (
 				<>
@@ -21,7 +30,7 @@ export const Art = () => {
 				</>
 			)}
 
-			<Gallery path={'/art'} gallery={art} backLink={'Back to "Art"'} />
+			<Gallery gallery={hasArt ? art : false} options={options} />
 		</>
 	) : null;
 };
