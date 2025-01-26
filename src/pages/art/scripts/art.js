@@ -500,7 +500,7 @@ export let art = [
 		id: 18,
 		image: `${artPath}2007-04-13-kyra-jazzy.jpg`,
 		thumb: `${artPath}2007-04-13-kyra-jazzy-200x200.jpg`,
-		name: 'Kyra Darkblood and Jazz',
+		name: 'Kyra Darkblood and Jazzy',
 		date: '04.13.07',
 		mediums: 'Watercolor, colored pencil, pen',
 		categories: 'Traditional',

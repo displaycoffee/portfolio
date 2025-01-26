@@ -2,56 +2,63 @@
 import { utils } from '../../../_config/scripts/utils';
 
 export const gallery = {
-	build: (content, showAll) => {
+	create: {
+		handle: (handle, value, order) => {
+			// Create unique handle / path for values
+			const name = value.name ? utils.handleize(value.name) : order;
+			const number = value.date ? value.date.replace(/\./g, '') : order;
+			return `${handle}-${name}-${number}`;
+		},
+		values: (modified, handle, value) => {
+			// Create array of values for categories
+			if (modified[handle]) {
+				const order = modified[handle].values.length;
+				modified[handle].values.push({
+					...value,
+					order: order,
+					handle: gallery.create.handle(handle, value, order),
+				});
+			} else {
+				modified[handle] = {
+					header: value.categories,
+					handle: handle,
+					id: `gallery-${handle}`,
+					values: [
+						{
+							...value,
+							order: 0,
+							handle: gallery.create.handle(handle, value, 0),
+						},
+					],
+				};
+			}
+		},
+	},
+	build: (values, createAll) => {
 		// Set initial modified gallery
 		let modified = {};
 
-		// Determine if we should group by all
-		if (showAll) {
-			modified['all'] = {
-				header: 'All',
-				handle: 'all',
-				id: 'gallery-all',
-				values: [],
-			};
-		}
+		if (values && values.length !== 0) {
+			if (createAll) {
+				// Create grouping
+				modified['all'] = {
+					header: 'All',
+					handle: 'all',
+					id: 'gallery-all',
+					values: [],
+				};
 
-		// Build gallery with categories
-		if (content && content.length !== 0) {
-			content.forEach((item, index) => {
-				const category = item.categories ? item.categories : 'Uncategorized';
-				const handle = utils.handleize(category);
+				// Build values for "All" category
+				values.forEach((value) => {
+					gallery.create.values(modified, 'all', value);
+				});
+			}
 
-				// Add additional item props
-				item.handle = `${handle}-${item.name ? utils.handleize(item.name) : index}`;
-
-				// Push to all if enabled
-				if (showAll) {
-					modified.all.values.push({
-						...item,
-						index: modified.all.values.length,
-					});
-				}
-
-				// Create specific gallery category
-				if (modified[handle]) {
-					modified[handle].values.push({
-						...item,
-						index: modified[handle].values.length,
-					});
-				} else {
-					modified[handle] = {
-						header: item.categories,
-						handle: handle,
-						id: `gallery-${handle}`,
-						values: [
-							{
-								...item,
-								index: 0,
-							},
-						],
-					};
-				}
+			// Build values for other categories
+			values.forEach((value) => {
+				value.categories = value.categories ? value.categories : 'Uncategorized';
+				const handle = utils.handleize(value.categories);
+				gallery.create.values(modified, handle, value);
 			});
 		}
 

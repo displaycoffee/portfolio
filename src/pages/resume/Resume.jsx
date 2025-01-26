@@ -32,7 +32,7 @@ export const Resume = () => {
 				<HeaderIcon tag={'h4'}>Skills</HeaderIcon>
 
 				{languages && languages.length !== 0
-					? languages.map((item) => <ResumeSkillBar key={item.id} name={item.name} outOf={item.value} />)
+					? languages.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />)
 					: null}
 			</div>
 
@@ -65,26 +65,26 @@ export const Resume = () => {
 				<HeaderIcon tag={'h4'}>Story Quests</HeaderIcon>
 
 				{history && history.length !== 0
-					? history.map((item) => (
-							<React.Fragment key={item.id}>
+					? history.map((value) => (
+							<React.Fragment key={value.id}>
 								<dl className="definition-list">
 									<div className="definition-list-item">
 										<dt>Name</dt>
-										<dd>{item.name}</dd>
+										<dd>{value.name}</dd>
 									</div>
 
 									<div className="definition-list-item">
 										<dt>Role</dt>
-										<dd dangerouslySetInnerHTML={{ __html: item.role }}></dd>
+										<dd dangerouslySetInnerHTML={{ __html: value.role }}></dd>
 									</div>
 
 									<div className="definition-list-item">
 										<dt>Objectives</dt>
 										<dd>
 											<ul>
-												{item.description.map((content, index) => (
+												{value.description.map((content, index) => (
 													<li key={index}>
-														{index == item.description.length - 1 ? (
+														{index == value.description.length - 1 ? (
 															<>
 																<strong>Inventory</strong> -&nbsp;
 															</>
@@ -105,24 +105,24 @@ export const Resume = () => {
 				<HeaderIcon tag={'h4'}>Side Quests</HeaderIcon>
 
 				{volunteer && volunteer.length !== 0
-					? volunteer.map((item) => (
-							<React.Fragment key={item.id}>
+					? volunteer.map((value) => (
+							<React.Fragment key={value.id}>
 								<dl className="definition-list">
 									<div className="definition-list-item">
 										<dt>Name</dt>
-										<dd>{item.name}</dd>
+										<dd>{value.name}</dd>
 									</div>
 
 									<div className="definition-list-item">
 										<dt>Date</dt>
-										<dd>{item.date}</dd>
+										<dd>{value.date}</dd>
 									</div>
 
 									<div className="definition-list-item">
 										<dt>Objectives</dt>
 										<dd>
 											<ul>
-												{item.description.map((content, index) => (
+												{value.description.map((content, index) => (
 													<li key={index}>{content}</li>
 												))}
 											</ul>
