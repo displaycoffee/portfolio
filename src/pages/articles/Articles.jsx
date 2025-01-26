@@ -1,3 +1,12 @@
+/* Local components */
+import { HeaderIcon } from '../../components/blocks/Blocks';
+
 export const Articles = () => {
-	return <p>Coming soon.</p>;
+	return (
+		<>
+			<HeaderIcon>Articles</HeaderIcon>
+
+			<p>Coming soon.</p>
+		</>
+	);
 };

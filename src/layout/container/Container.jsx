@@ -20,7 +20,7 @@ import { Footer } from '../../layout/footer/Footer';
 export const Container = (props) => {
 	const { theme } = props;
 	const location = useLocation();
-	const isDesktop = useRespond(theme.bps.bp03);
+	const isDesktop = useRespond(theme.bps.bp02);
 	let [sidebar, setSidebar] = useState(true);
 
 	// Set body class using custom hook

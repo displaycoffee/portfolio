@@ -8,7 +8,7 @@ import './styles/resume.scss';
 import { resume } from './scripts/resume';
 
 /* Local components */
-import { HeaderIcon } from '../../components/text/Text';
+import { HeaderIcon } from '../../components/blocks/Blocks';
 
 export const Resume = () => {
 	const { technical, history, volunteer } = resume;
@@ -16,6 +16,8 @@ export const Resume = () => {
 
 	return (
 		<>
+			<HeaderIcon>Resume</HeaderIcon>
+
 			<div className="resume-section resume-note spacing-reset">
 				<p>
 					<strong>Note</strong> - If you're looking for a downloadable version of this resume, grab the pdf{' '}
@@ -27,7 +29,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-skills spacing-reset">
-				<HeaderIcon>Skills</HeaderIcon>
+				<HeaderIcon tag={'h4'}>Skills</HeaderIcon>
 
 				{languages && languages.length !== 0
 					? languages.map((item) => <ResumeSkillBar key={item.id} name={item.name} outOf={item.value} />)
@@ -35,7 +37,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-inventory">
-				<HeaderIcon>Inventory</HeaderIcon>
+				<HeaderIcon tag={'h4'}>Inventory</HeaderIcon>
 
 				<div className="row row-wrap row-spacing-20">
 					{cms && (
@@ -60,7 +62,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-story-quests spacing-reset">
-				<HeaderIcon>Story Quests</HeaderIcon>
+				<HeaderIcon tag={'h4'}>Story Quests</HeaderIcon>
 
 				{history && history.length !== 0
 					? history.map((item) => (
@@ -100,7 +102,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-side-quests spacing-reset">
-				<HeaderIcon>Side Quests</HeaderIcon>
+				<HeaderIcon tag={'h4'}>Side Quests</HeaderIcon>
 
 				{volunteer && volunteer.length !== 0
 					? volunteer.map((item) => (

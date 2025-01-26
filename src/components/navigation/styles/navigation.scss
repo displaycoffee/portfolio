@@ -32,10 +32,19 @@
 			}
 			.navigation {
 				.navigation-list {
+					margin: 0 -#{theme.$spacing-x2} -#{theme.$spacing-x2} -#{theme.$spacing-x2};
 					.navigation-list-item {
 						padding: 0 theme.$spacing-x2;
+						margin: 0 0 theme.$spacing-x2 0;
 						@if $navigation-is-inline == true {
 							@include mixins.inline-block(middle);
+						}
+						&:not(.active) a:hover .icon:before {
+							top: 1px;
+							content: '\00003e';
+						}
+						&:not(.active) a:hover .icon {
+							animation-name: bounce-horizontal;
 						}
 					}
 				}
@@ -45,14 +54,9 @@
 	.navigation {
 		.navigation-list {
 			.navigation-list-item {
-				&.active a, &:not(.active) a:hover {									
-					.icon:before {
-						top: 1px;
-						content: '\00003e';
-					}
-				}
-				&:not(.active) a:hover .icon {
-					animation-name: bounce-horizontal;
+				&.active a .icon:before {
+					top: 1px;
+					content: '\00003e';
 				}
 				a {
 					position: relative;
@@ -60,6 +64,7 @@
 					text-shadow: 2px 2px 0 theme.$color-03;
 					.icon {
 						margin-right: theme.$spacing-x2;
+						min-width: 16px;
 					}
 				}
 			}

@@ -51,7 +51,3 @@ export const Footer = () => {
 		</footer>
 	);
 };
-
-export const FooterSeparator = () => {
-	return <span className="footer-navigation-separator">&#9642;</span>;
-};

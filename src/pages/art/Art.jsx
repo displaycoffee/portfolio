@@ -1,27 +1,40 @@
 /* Local scripts */
 import { art } from './scripts/art';
 
+/* Local scripts */
+import { gallery } from '../../components/gallery/scripts/gallery';
+
 /* Local components */
-import { Gallery } from '../../components/gallery/Gallery';
+import { HeaderIcon } from '../../components/blocks/Blocks';
+import { Gallery2 } from '../../components/gallery/Gallery';
 
 export const Art = () => {
-	const hasPixels = art.pixels && art.pixels.length !== 0;
-	const hasArt = art.art && art.art.length !== 0;
-	const showDescription = window.location.pathname == '/art' ? true : false;
+	const showContent = window.location.pathname == '/art' ? true : false;
 	const backLink = 'Back to "Art"';
 
-	return hasPixels || hasArt ? (
+	// Create gallery object for art
+	const modifiedGallery = gallery.build(art, true);
+
+	return art && art.length !== 0 ? (
 		<>
-			{showDescription && (
-				<p>
-					Below are various different art pieces I have completed over the years. Please do not take any of these without permission as they
-					are for my own use (and personal) or work that friends have commissioned.
-				</p>
+			{showContent && (
+				<>
+					<HeaderIcon>Art</HeaderIcon>
+
+					<p>
+						Below are various different art pieces I have completed over the years. Please do not take any of these without permission as
+						they are for my own use (and personal) or work that friends have commissioned.
+					</p>
+				</>
 			)}
 
-			{hasArt && <Gallery path={'/art'} category={'art'} header={'Traditional and digital art'} gallery={art.art} backLink={backLink} />}
+			{Object.keys(modifiedGallery).map((key) => {
+				const current = modifiedGallery[key];
 
-			{hasPixels && <Gallery path={'/art'} category={'pixels'} header={'Pixel art'} gallery={art.pixels} backLink={backLink} />}
+				return current.values && current.values.length !== 0 ? (
+					<Gallery2 path={'/art'} gallery={current} backLink={backLink} key={current.handle} />
+				) : null;
+			})}
 		</>
 	) : null;
 };

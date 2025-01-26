@@ -12,12 +12,15 @@
 	.icon {
 		@include mixins.flex-layout((display: inline-flex, flex-flow: column nowrap, justify-content: center, align-items: center));
 		@include mixins.flex(0 0 auto);
-		@include mixins.icon-sizing(theme.$icon-size);
+		&, &:before {
+			@include mixins.sizing(auto, auto);
+			line-height: 1;
+		}
 		&:before {
 			position: relative;
 			display: block;
 			margin: auto;
-			@include mixins.sizing(auto, auto);
+			padding: 0;
 			max-width: 100%;
 			max-height: 100%;
 			font-family: theme.$font-family-01;
@@ -30,14 +33,10 @@
 			text-shadow: none;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			line-height: 1;
 		}
 	}
-	.icon-lg {
-		@include mixins.icon-sizing(theme.$icon-size + 6);
-		&:before {
-			font-size: theme.$icon-size + 6;
-		}
+	.icon-lg:before {
+		font-size: theme.$icon-size + 6;
 	}
 	.icon-bold:before {
 		font-family: theme.$font-family-02;

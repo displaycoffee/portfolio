@@ -89,13 +89,6 @@
 		color: theme.$color-02;
 		text-shadow: 2px 2px 0 theme.$color-03, -1px -1px 0 theme.$color-06;
 		letter-spacing: 2px;
-		.icon {			
-			margin-left: theme.$spacing-x2;
-			&:first-child {
-				margin-left: 0;
-				margin-right: theme.$spacing-x2;				
-			}
-		}
 		a {
 			color: inherit;
 			&:hover {
