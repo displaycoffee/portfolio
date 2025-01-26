@@ -69,25 +69,29 @@ export const GalleryLayout = (props) => {
 
 	return galleryCount !== 0 ? (
 		<div className={`gallery-${hasTabs ? 'tabs' : 'default'} spacing-reset`}>
-			{hasTabs ? (
+			{hasTabs && window.location.pathname == props.options.path ? (
 				<>
 					<div className="gallery-tabs-buttons">
-						{galleryMap.map((key) => {
-							const current = galleryUtils.get.category(modifiedGallery, key, options);
+						<div className="row row-wrap row-spacing-10 row-align-items-center">
+							{galleryMap.map((key) => {
+								const current = galleryUtils.get.category(modifiedGallery, key, options);
 
-							return current.gallery.show ? (
-								<button
-									key={current.gallery.handle}
-									onClick={() => {
-										// Update tab on click
-										tab = current.gallery.id;
-										setTab(tab);
-									}}
-								>
-									{current.gallery.header}
-								</button>
-							) : null;
-						})}
+								return current.gallery.show ? (
+									<div className="column" key={current.gallery.handle}>
+										<button
+											className={`gallery-tabs-button${tab && tab == current.gallery.id ? ' active' : ''}`}
+											onClick={() => {
+												// Update tab on click
+												tab = current.gallery.id;
+												setTab(tab);
+											}}
+										>
+											<span>{current.gallery.header}</span>
+										</button>
+									</div>
+								) : null;
+							})}
+						</div>
 					</div>
 
 					<div className="gallery-tabs-content">
@@ -187,7 +191,7 @@ export const GalleryContent = (props) => {
 
 	return showCurrent ? (
 		current ? (
-			<div id={gallery.id} className="gallery">
+			<div id={`gallery-${current.handle}`} className="gallery">
 				<div className="gallery-content flex-wrap">
 					{current.name && (
 						<header className="gallery-header">

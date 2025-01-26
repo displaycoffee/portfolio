@@ -76,6 +76,34 @@
 			}
 		}
 	}
+	.gallery-tabs {
+		.gallery-tabs-buttons {
+			.row .column {
+				line-height: 0;
+				.gallery-tabs-button {
+					&.active span:before {
+						content: '\00002a';
+						display: inline-block;
+						margin-right: theme.$spacing-x1;
+					}
+				}
+			}
+		}
+		.gallery-tabs-content {
+			position: relative;
+			.gallery {
+				@include mixins.position($type: absolute, $top: -9999px, $left: -9999px, $z: -1);
+				opacity: 0;
+				visibility: hidden;
+				@include mixins.transition(opacity 0.5s ease);
+				&.active {
+					position: static;
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
 	@include mixins.respond-min(theme.$bp-01 - 50) {
 		.gallery {
 			.gallery-navigation {
