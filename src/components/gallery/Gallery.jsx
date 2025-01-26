@@ -7,7 +7,28 @@ import './styles/gallery.scss';
 
 /* Local components */
 import { Context } from '../../context/Context';
-import { HeaderIcon } from '../text/Text';
+import { HeaderIcon } from '../blocks/Blocks';
+
+export const Gallery2 = (props) => {
+	const { path, gallery, backLink } = props;
+
+	// Pass down gallery props
+	const galleryProps = {
+		path: path,
+		category: gallery.handle,
+		header: gallery.header ? gallery.header : false,
+		gallery: gallery.values,
+		galleryId: gallery.id,
+		backLink: backLink ? backLink : false,
+	};
+
+	return (
+		<Routes>
+			<Route path="/" element={<GalleryThumbnails {...galleryProps} />} />
+			<Route path=":id" element={<GalleryContent {...galleryProps} />} />
+		</Routes>
+	);
+};
 
 export const Gallery = (props) => {
 	const { path, category, header, gallery, backLink } = props;
@@ -92,7 +113,7 @@ export const GalleryContent = (props) => {
 	}
 
 	// Check if we are on a pixels gallery
-	const isPixels = category == 'pixels' ? true : false;
+	const isPixels = content.categories == 'Pixels' ? true : false;
 
 	return showContent ? (
 		content ? (
@@ -159,31 +180,35 @@ export const GalleryContent = (props) => {
 				</div>
 
 				<nav className="gallery-navigation">
-					<ul className="gallery-navigation-list unstyled flex-nowrap flex-align-items-center">
+					<ul className="gallery-navigation-list unstyled flex-wrap flex-align-items-center">
 						{previous && (
-							<li className="gallery-navigation-list-item">
+							<li className="gallery-navigation-list-item gallery-navigation-previous">
 								<Link className="gallery-navigation-link" to={`${path}/${previous.handle}`}>
-									&lt; Previous
+									<span className="icon icon-angle-left"></span>Previous
 								</Link>
 							</li>
 						)}
 
-						<li className="gallery-navigation-list-item gallery-navigation-separator">&#9642;</li>
+						<li className="gallery-navigation-list-item gallery-navigation-separator">
+							<span className="icon icon-bullet"></span>
+						</li>
 
 						{backLink && (
-							<li className="gallery-navigation-list-item">
+							<li className="gallery-navigation-list-item gallery-navigation-back">
 								<Link className="gallery-navigation-link" to={path}>
 									{backLink}
 								</Link>
 							</li>
 						)}
 
-						<li className="gallery-navigation-list-item gallery-navigation-separator">&#9642;</li>
+						<li className="gallery-navigation-list-item gallery-navigation-separator">
+							<span className="icon icon-bullet"></span>
+						</li>
 
 						{next && (
-							<li className="gallery-navigation-list-item">
+							<li className="gallery-navigation-list-item gallery-navigation-next">
 								<Link className="gallery-navigation-link" to={`${path}/${next.handle}`}>
-									Next &gt;
+									Next<span className="icon icon-angle-right"></span>
 								</Link>
 							</li>
 						)}

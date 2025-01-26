@@ -196,18 +196,18 @@
 	@keyframes bounce-horizontal {
 		0%   { transform: translateX(0); }
 		10%  { transform: translateX(0); }
-		30%  { transform: translateX(-16px); }
+		30%  { transform: translateX(-10px); }
 		50%  { transform: translateX(0); }
-		57%  { transform: translateX(-8px); }
+		57%  { transform: translateX(-5px); }
 		64%  { transform: translateX(0); }
 		100% { transform: translateX(0); }
 	}
 	@keyframes bounce-vertical {
 		0%   { transform: translateY(0); }
 		10%  { transform: translateY(0); }
-		30%  { transform: translateY(-16px); }
+		30%  { transform: translateY(-10px); }
 		50%  { transform: translateY(0); }
-		57%  { transform: translateY(-8px); }
+		57%  { transform: translateY(-5px); }
 		64%  { transform: translateY(0); }
 		100% { transform: translateY(0); }
 	}

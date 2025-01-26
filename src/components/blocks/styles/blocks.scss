@@ -1,0 +1,17 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// BLOCKS
+//// --------------------------------------------------------------------------
+
+	.h-icon {
+		.icon {			
+			margin-left: theme.$spacing-x2;
+			&:first-child {
+				margin-left: 0;
+				margin-right: theme.$spacing-x2;				
+			}
+		}
+	}

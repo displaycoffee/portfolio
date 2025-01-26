@@ -2,7 +2,7 @@
 import { updates } from './scripts/updates';
 
 /* Local components */
-import { HeaderIcon } from '../../components/text/Text';
+import { HeaderIcon } from '../../components/blocks/Blocks';
 
 export const Start = () => {
 	return (

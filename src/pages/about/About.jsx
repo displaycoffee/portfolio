@@ -1,9 +1,14 @@
 /* Local styles */
 import './styles/about.scss';
 
+/* Local components */
+import { HeaderIcon } from '../../components/blocks/Blocks';
+
 export const About = () => {
 	return (
 		<>
+			<HeaderIcon>About</HeaderIcon>
+
 			<div className="about-photo pixel-border">
 				<div className="image-wrapper">
 					<img src="/assets/images/theme/me.jpg" alt="Me riding a real dinosaur" title="Me riding a real dinosaur" loading="lazy" />
