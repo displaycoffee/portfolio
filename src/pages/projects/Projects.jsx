@@ -7,8 +7,21 @@ import { Gallery } from '../../components/gallery/Gallery';
 
 export const Projects = () => {
 	const showContent = window.location.pathname == '/projects' ? true : false;
+	const hasProjects = projects && projects.length !== 0 ? true : false;
 
-	return projects && projects.length !== 0 ? (
+	// Options for gallery
+	const options = {
+		path: '/projects',
+		thumbnails: {
+			headers: false,
+			tabs: true,
+		},
+		navigation: {
+			back: 'Back to "Projects"',
+		},
+	};
+
+	return hasProjects ? (
 		<>
 			{showContent && (
 				<>
@@ -24,7 +37,7 @@ export const Projects = () => {
 				</>
 			)}
 
-			<Gallery path={'/projects'} gallery={projects} backLink={'Back to "Projects"'} />
+			<Gallery gallery={hasProjects ? projects : false} options={options} />
 		</>
 	) : null;
 };
