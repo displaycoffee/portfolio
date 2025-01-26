@@ -7,7 +7,6 @@ import { Gallery } from '../../components/gallery/Gallery';
 
 export const Projects = () => {
 	const showContent = window.location.pathname == '/projects' ? true : false;
-	const backLink = 'Back to "Projects"';
 
 	return projects && projects.length !== 0 ? (
 		<>
@@ -25,7 +24,7 @@ export const Projects = () => {
 				</>
 			)}
 
-			{/* <Gallery path={'/projects'} category={'projects'} header={false} gallery={projects} backLink={backLink} /> */}
+			<Gallery path={'/projects'} gallery={projects} backLink={'Back to "Projects"'} />
 		</>
 	) : null;
 };

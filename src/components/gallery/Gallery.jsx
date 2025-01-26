@@ -1,16 +1,38 @@
 /* React */
-import { useContext, useId } from 'react';
 import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
 /* Local styles */
 import './styles/gallery.scss';
 
+/* Local scripts */
+import { gallery as galleryUtils } from './scripts/gallery';
+
 /* Local components */
-import { Context } from '../../context/Context';
 import { HeaderIcon } from '../blocks/Blocks';
 
-export const Gallery2 = (props) => {
-	const { path, gallery, backLink } = props;
+export const Gallery = (props) => {
+	let { path, gallery, backLink, createAll, thumbnailHeaders } = props;
+	createAll = typeof createAll == 'undefined' ? true : createAll;
+	thumbnailHeaders = typeof thumbnailHeaders == 'undefined' ? true : thumbnailHeaders;
+
+	// Create gallery object for art
+	const modifiedGallery = galleryUtils.build(gallery, createAll);
+
+	return gallery && gallery.length !== 0 ? (
+		<>
+			{Object.keys(modifiedGallery).map((key) => {
+				const current = modifiedGallery[key];
+
+				return current.values && current.values.length !== 0 ? (
+					<GalleryRoutes path={path} gallery={current} backLink={backLink} thumbnailHeaders={thumbnailHeaders} key={current.handle} />
+				) : null;
+			})}
+		</>
+	) : null;
+};
+
+export const GalleryRoutes = (props) => {
+	const { path, gallery, backLink, thumbnailHeaders } = props;
 
 	// Pass down gallery props
 	const galleryProps = {
@@ -20,40 +42,7 @@ export const Gallery2 = (props) => {
 		gallery: gallery.values,
 		galleryId: gallery.id,
 		backLink: backLink ? backLink : false,
-	};
-
-	return (
-		<Routes>
-			<Route path="/" element={<GalleryThumbnails {...galleryProps} />} />
-			<Route path=":id" element={<GalleryContent {...galleryProps} />} />
-		</Routes>
-	);
-};
-
-export const Gallery = (props) => {
-	const { path, category, header, gallery, backLink } = props;
-	const fallbackId = useId().replace(/:/g, '');
-	const context = useContext(Context);
-	const { utils } = context;
-
-	// Ensure category is set for ids and handles
-	const galleryCategory = typeof category == 'undefined' ? `uncategorized-${fallbackId}` : category;
-
-	// Modify gallery to add handle property for pretty urls
-	const modifiedGallery = gallery.map((item, index) => {
-		item.index = index;
-		item.handle = `${galleryCategory}-${item.name ? utils.handleize(item.name) : index}`;
-		return item;
-	});
-
-	// Pass down gallery props
-	const galleryProps = {
-		path: path,
-		category: galleryCategory,
-		header: header ? header : false,
-		gallery: modifiedGallery,
-		galleryId: `gallery-${galleryCategory}`,
-		backLink: backLink ? backLink : false,
+		thumbnailHeaders: thumbnailHeaders,
 	};
 
 	return (
@@ -65,18 +54,18 @@ export const Gallery = (props) => {
 };
 
 export const GalleryThumbnails = (props) => {
-	const { path, header, gallery, galleryId } = props;
+	const { path, header, gallery, galleryId, thumbnailHeaders } = props;
 
 	return (
 		<div id={galleryId} className="gallery">
-			{header ? <HeaderIcon>{header}</HeaderIcon> : null}
+			{thumbnailHeaders && header ? <HeaderIcon tag={'h4'}>{header}</HeaderIcon> : null}
 
 			<div className="gallery-items">
-				{gallery.map((item) => (
-					<div className="gallery-item" key={item.id}>
-						<Link className="gallery-image" to={`${path}/${item.handle}`}>
+				{gallery.map((value) => (
+					<div className="gallery-item" key={value.id}>
+						<Link className="gallery-image" to={`${path}/${value.handle}`}>
 							<div className="image-wrapper pixel-border">
-								<img src={item.thumb} alt={item.name} title={item.name} loading="lazy" />
+								<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
 							</div>
 						</Link>
 					</div>
@@ -89,47 +78,47 @@ export const GalleryThumbnails = (props) => {
 export const GalleryContent = (props) => {
 	const { path, category, gallery, galleryId, backLink } = props;
 	const { id } = useParams();
-	const showContent = window.location.href.includes(`${path}/${category}-`) ? true : false; // Do not render content if not in matching gallery
+	const showCurrent = window.location.href.includes(`${path}/${category}-`) ? true : false; // Do not render current item if not in matching gallery
 	const galleryCount = gallery.length - 1;
 
 	// Set initial variables for gallery item details
-	let content = false;
+	let current = false;
 	let previous = false;
 	let next = false;
 
-	// Find active gallery item
-	let selected = gallery.filter((item) => item.handle == id);
+	// Find active gallery value
+	let selected = gallery.filter((value) => value.handle == id);
 
 	// Update gallery details and create previous / next elements
 	if (selected && selected.length !== 0) {
-		// Set selected content
-		content = selected.pop();
+		// Set current
+		current = selected.pop();
 
-		// If previous / next index is out of bounds, loop around to start / end of gallery
-		const previousIndex = content.index - 1;
-		const nextIndex = content.index + 1;
+		// If previous / next order is out of bounds, loop around to start / end of gallery
+		const previousIndex = current.order - 1;
+		const nextIndex = current.order + 1;
 		previous = previousIndex <= 0 ? gallery[galleryCount] : gallery[previousIndex];
 		next = nextIndex >= galleryCount ? gallery[0] : gallery[nextIndex];
 	}
 
 	// Check if we are on a pixels gallery
-	const isPixels = content.categories == 'Pixels' ? true : false;
+	const isPixels = current.categories == 'Pixels' ? true : false;
 
-	return showContent ? (
-		content ? (
+	return showCurrent ? (
+		current ? (
 			<div id={galleryId} className="gallery">
 				<div className="gallery-content flex-wrap">
-					{content.name && (
+					{current.name && (
 						<header className="gallery-header">
-							<HeaderIcon className={'gallery-header-title'}>{content.name}</HeaderIcon>
+							<HeaderIcon className={'gallery-header-title'}>{current.name}</HeaderIcon>
 						</header>
 					)}
 
-					{(content.image || content.thumb) && (
+					{(current.image || current.thumb) && (
 						<div className="gallery-image">
-							<a href={content.image ? content.image : content.thumb} target="_blank" rel="noreferrer">
+							<a href={current.image ? current.image : current.thumb} target="_blank" rel="noreferrer">
 								<div className={`gallery-image-wrapper${!isPixels ? ' pixel-border' : ''}`}>
-									<img src={content.image ? content.image : content.thumb} alt={content.name} title={content.name} loading="lazy" />
+									<img src={current.image ? current.image : current.thumb} alt={current.name} title={current.name} loading="lazy" />
 								</div>
 							</a>
 						</div>
@@ -137,42 +126,42 @@ export const GalleryContent = (props) => {
 
 					<div className="gallery-details spacing-reset">
 						<dl className="definition-list">
-							{content.date && (
+							{current.date && (
 								<div className="definition-list-item">
 									<dt>Date</dt>
-									<dd>{content.date}</dd>
+									<dd>{current.date}</dd>
 								</div>
 							)}
 
-							{content.url && (
+							{current.url && (
 								<div className="definition-list-item">
 									<dt>Visit</dt>
 									<dd>
-										<a href={content.url} target="_blank" rel="noreferrer">
-											{content.url.replace('//', '')}
+										<a href={current.url} target="_blank" rel="noreferrer">
+											{current.url.replace('//', '')}
 										</a>
 									</dd>
 								</div>
 							)}
 
-							{content.technologies && (
+							{current.technologies && (
 								<div className="definition-list-item">
 									<dt>Technologies</dt>
-									<dd>{content.technologies}</dd>
+									<dd>{current.technologies}</dd>
 								</div>
 							)}
 
-							{content.mediums && (
+							{current.mediums && (
 								<div className="definition-list-item">
 									<dt>Mediums</dt>
-									<dd>{content.mediums}</dd>
+									<dd>{current.mediums}</dd>
 								</div>
 							)}
 
-							{content.description && (
+							{current.description && (
 								<div className="definition-list-item">
 									<dt>Description</dt>
-									<dd dangerouslySetInnerHTML={{ __html: content.description }}></dd>
+									<dd dangerouslySetInnerHTML={{ __html: current.description }}></dd>
 								</div>
 							)}
 						</dl>

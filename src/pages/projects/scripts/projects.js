@@ -10,6 +10,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '09.14.20',
 		technologies: 'HTML, CSS, Sass, JavaScript, React',
+		categories: 'Personal',
 		description: `The latest version of my portfolio. You're on it.`,
 	},
 	{
@@ -19,6 +20,7 @@ export const projects = [
 		name: 'FF7 for St. Jude',
 		date: '12.28.20',
 		technologies: 'HTML, CSS, Sass, JavaScript, React, Tiltify API',
+		categories: 'Miscellaneous',
 		description: `Since December 28, 2020, my husband began a charity Final Fantasy VII speedrun event to support St. Jude. We have done this event twice a year since then. I get to help him out a little and specifically made this page using the Tiltify API to pull in donations, challenges, and rewards for all supporting campaigns. Right now, it's not fully working, but it'll be up and running for the next event.`,
 		url: '//ff7forstjude.org',
 	},
@@ -29,6 +31,7 @@ export const projects = [
 		name: `Khy'eras`,
 		date: '01.13.19',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
+		categories: 'Gaming',
 		description: `This was a lighter theme I made for Khy'eras. You can only see it if registered. It shares the same code base as the dark layout, but basically changes CSS and images.`,
 		url: '//khyeras.org',
 	},
@@ -39,6 +42,7 @@ export const projects = [
 		name: `Khy'eras`,
 		date: '06.11.17',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
+		categories: 'Gaming',
 		description: `Website for my latest RPG, Khy'eras. I'm quite proud of this one, not just for the coding customizations, but for all the lore I put together.`,
 		url: '//khyeras.org',
 	},
@@ -49,6 +53,7 @@ export const projects = [
 		name: 'The Muses Circle',
 		date: '09.12.16',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, WordPress',
+		categories: 'Journal',
 		description: `Second website layout for The Muses Circle. Currently not up, but we hope to bring it back in the future.`,
 	},
 	{
@@ -58,6 +63,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '02.22.14',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
+		categories: 'Gaming',
 		description: `My final website layout for Aleris before I shut it down. This is still one of my favorites and I really loved the foliage drooping over the brick wall.`,
 	},
 	{
@@ -67,6 +73,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '12.16.13',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
+		categories: 'Gaming',
 		description: `This came shortly after the previous layout and was a kind of darker version of the previous mockup. I do like the textured gradient here, but did not end up using it.`,
 	},
 	{
@@ -76,6 +83,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '10.10.13',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
+		categories: 'Gaming',
 		description: `Another layout for Aleris RPG. I don't thinK I used this, though I did like the lightness and textures in it.`,
 	},
 	{
@@ -85,6 +93,7 @@ export const projects = [
 		name: 'Matt and Adria',
 		date: '01.01.13',
 		technologies: 'HTML, CSS, Sass',
+		categories: 'Personal',
 		description: `Wedding website for myself and my husband. I think this was my fist "single page" website.`,
 		url: '//mattandadria.com',
 	},
@@ -95,6 +104,7 @@ export const projects = [
 		name: 'Invalid Character Detection',
 		date: '12.01.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery',
+		categories: 'Miscellaneous',
 		description: `This tool was build by myself and a friend, Nathan Pennington a long time ago! The date is not accurate. It was meant to take characters and convert them to HTML safe or Unicode conversions. I still use it to this day here and there, though it could use some love at some point.`,
 		url: '//neverend.org/invalid',
 	},
@@ -105,6 +115,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '07.15.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
+		categories: 'Gaming',
 		description: `Design for Aleris RPG. I don't think I ever used this as there were a few things I wasn't a fan of.`,
 	},
 	{
@@ -114,6 +125,7 @@ export const projects = [
 		name: 'Nutrition Consulting Services',
 		date: '06.04.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP',
+		categories: 'Miscellaneous',
 		description: `This one was never fully finished, hence the iStock photo. It was a website for a nutrionist.`,
 	},
 	{
@@ -123,6 +135,7 @@ export const projects = [
 		name: 'Colorado Home Base',
 		date: '03.23.12',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP',
+		categories: 'Miscellaneous',
 		description: `Website for previous real estate agent, Robin Murphy.`,
 	},
 	{
@@ -132,6 +145,7 @@ export const projects = [
 		name: 'The Muses Circle',
 		date: '12.28.11',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, WordPress',
+		categories: 'Journal',
 		description: `Blog website for a friend of mine, who reviews books and movies.`,
 	},
 	{
@@ -141,6 +155,7 @@ export const projects = [
 		name: 'Aleris',
 		date: '01.09.11',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP, phpBB',
+		categories: 'Gaming',
 		description: `First website for Aleris RPG.`,
 	},
 	{
@@ -150,6 +165,7 @@ export const projects = [
 		name: 'Federal Mailing',
 		date: '08.02.10',
 		technologies: 'HTML, CSS, Sass, JavaScript, jQuery, PHP',
+		categories: 'Miscellaneous',
 		description: `Website for a small, mailing business.`,
 	},
 	{
@@ -159,6 +175,7 @@ export const projects = [
 		name: 'Matt Murphy Music',
 		date: '12.18.09',
 		technologies: 'HTML, CSS, JavaScript, jQuery, PHP',
+		categories: 'Miscellaneous',
 		description: `Second website for my husband's music. At one point, there was a music player for the songs, but it seems to have broken.`,
 		url: '//mattmurphymusic.org',
 	},
@@ -169,6 +186,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '08.14.09',
 		technologies: 'HTML, CSS, JavaScript, jQuery, PHP',
+		categories: 'Personal',
 		description: `Third portfolio layout. At one point, I think the bright latern in here was animated, because I had big dreams of being able to animate gifs.`,
 	},
 	{
@@ -178,6 +196,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '07.10.09',
 		technologies: 'HTML, CSS',
+		categories: 'Personal',
 		description: `Second portfolio layout. I don't think I actually ever used this, but I was getting into a lot of textures then.`,
 	},
 	{
@@ -187,6 +206,7 @@ export const projects = [
 		name: 'Portfolio',
 		date: '05.29.09',
 		technologies: 'HTML, CSS',
+		categories: 'Personal',
 		description: `First portfolio layout.`,
 	},
 	{
@@ -196,6 +216,7 @@ export const projects = [
 		name: 'RO Diary',
 		date: '04.28.07',
 		technologies: 'HTML, CSS',
+		categories: 'Journal',
 		description: `Last RO Diary layout. I don't think I lasted long on there.`,
 	},
 	{
@@ -205,6 +226,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '03.02.07',
 		technologies: 'HTML, CSS',
+		categories: 'Gaming',
 		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
@@ -214,6 +236,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '11.26.06',
 		technologies: 'HTML, CSS',
+		categories: 'Gaming',
 		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
@@ -223,6 +246,7 @@ export const projects = [
 		name: 'RO Diary',
 		date: '11.16.06',
 		technologies: 'HTML, CSS',
+		categories: 'Journal',
 		description: `Back in the day, some one created this spin off of diaries for Ragnarok Online. Kinda like LiveJournal, but for Ragnarok Online so you can rant about card drop rates.`,
 	},
 	{
@@ -232,6 +256,7 @@ export const projects = [
 		name: 'Matt Murphy Music',
 		date: '07.06.06',
 		technologies: 'HTML, CSS',
+		categories: 'Miscellaneous',
 		description: `First music website for my husband. I don't know if I actually ever built this out.`,
 	},
 	{
@@ -241,6 +266,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '06.07.06',
 		technologies: 'HTML, CSS',
+		categories: 'Gaming',
 		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
@@ -250,6 +276,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '02.04.06',
 		technologies: 'HTML, CSS',
+		categories: 'Gaming',
 		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
@@ -259,6 +286,7 @@ export const projects = [
 		name: 'Be Careful',
 		date: '12.19.05',
 		technologies: 'HTML, CSS',
+		categories: 'Miscellaneous',
 		description: `Website for a Care Bear Cousins fanlisting, back when fanlistings were a thing and super popular. I liked my clever use of the "Be Careful" website name.`,
 	},
 	{
@@ -268,6 +296,7 @@ export const projects = [
 		name: 'Neverend',
 		date: '06.18.05',
 		technologies: 'HTML, CSS',
+		categories: 'Gaming',
 		description: `Website for my Ragnarok Online guild, Neverend.`,
 	},
 	{
@@ -277,6 +306,7 @@ export const projects = [
 		name: 'Terrae',
 		date: '05.09.05',
 		technologies: 'HTML, CSS',
+		categories: 'Personal',
 		description: `First iteration of a website for a story I want to write... some day.`,
 	},
 	{
@@ -286,6 +316,7 @@ export const projects = [
 		name: 'Oneiro-Zoe',
 		date: '08.20.04',
 		technologies: 'HTML, CSS',
+		categories: 'Gaming',
 		description: `Not my very first design, but a quick website for an RPG.`,
 	},
 ];
