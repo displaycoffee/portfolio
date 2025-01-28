@@ -9,7 +9,7 @@ import './styles/gallery.scss';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
-import { HeaderIcon } from '../blocks/Blocks';
+import { HeaderIcon, Button } from '../blocks/Blocks';
 
 export const Gallery = (props) => {
 	let { gallery, options } = props;
@@ -78,16 +78,16 @@ export const GalleryLayout = (props) => {
 
 								return current.gallery.show ? (
 									<div className="column" key={current.gallery.handle}>
-										<button
-											className={`gallery-tabs-button${tab && tab == current.gallery.id ? ' active' : ''}`}
+										<Button
+											type={tab && tab == current.gallery.id ? 'secondary' : 'primary'}
 											onClick={() => {
 												// Update tab on click
 												tab = current.gallery.id;
 												setTab(tab);
 											}}
 										>
-											<span>{current.gallery.header}</span>
-										</button>
+											{current.gallery.header}
+										</Button>
 									</div>
 								) : null;
 							})}
