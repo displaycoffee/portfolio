@@ -80,8 +80,8 @@
 		.gallery-tabs-buttons {
 			.row .column {
 				line-height: 0;
-				.gallery-tabs-button {
-					&.active span:before {
+				.button {
+					&.button-secondary span:before {
 						content: '\00002a';
 						display: inline-block;
 						margin-right: theme.$spacing-x1;

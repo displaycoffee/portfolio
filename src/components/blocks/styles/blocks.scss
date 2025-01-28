@@ -4,7 +4,13 @@
 @use '../../../_config/styles/theme/_theme';
 
 //// BLOCKS
-//// --------------------------------------------------------------------------
+//// --------------------------------------------------------------------------\
+
+	// Configuration
+
+	$button-pixel-size: 4px;
+
+	// Style block
 
 	.h-icon {
 		.icon {			
@@ -12,6 +18,66 @@
 			&:first-child {
 				margin-left: 0;
 				margin-right: theme.$spacing-x2;				
+			}
+		}
+	}
+	.button {
+		position: relative;
+		display: inline-block;		
+		border: 0;
+		height: 36px;
+		padding: 0 theme.$spacing-x2;
+		margin: $button-pixel-size 0;
+		font-size: functions.em(12px, rem);
+		color: theme.$color-02;
+		line-height: calc(36px + $button-pixel-size);
+		span {
+			display: block;
+			@include mixins.ellipsis();
+		}
+		&:before, &:after {
+			content: '';
+			display: block;
+			@include mixins.position($type: absolute, $left: 0, $right: 0);
+			margin: auto;
+			width: 90%;
+			width: calc(100% - calc($button-pixel-size * 2));
+			height: $button-pixel-size;
+		}
+		&:before {
+			top: -#{$button-pixel-size};
+		}
+		&:after {
+			bottom: -#{$button-pixel-size};
+		}
+	}
+	.button-primary {	
+		text-shadow: 2px 2px 0 theme.$color-03;
+		&, &:before, &:after {
+			background-color: theme.$color-04;
+		}
+	}
+	.button-secondary {
+		text-shadow: 2px 2px 0 theme.$color-07;
+		&, &:before, &:after {
+			background-color: theme.$color-03;
+		}
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.button {
+			padding: 0 theme.$spacing-x4;
+			font-size: functions.em(14px, rem);
+		}
+		.button-primary:hover {
+			text-shadow: 2px 2px 0 theme.$color-07;
+			&, &:before, &:after {
+				background-color: theme.$color-03;
+			}
+		}
+		.button-secondary:hover {
+			text-shadow: 2px 2px 0 theme.$color-03;
+			&, &:before, &:after {
+				background-color: theme.$color-04;
 			}
 		}
 	}
