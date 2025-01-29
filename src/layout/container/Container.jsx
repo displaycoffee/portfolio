@@ -10,6 +10,7 @@ import { useBodyClass, useRespond } from '../../_config/scripts/hooks';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { PixelSection } from '../../components/blocks/Blocks';
 import { Navigation } from '../../components/navigation/Navigation';
 import { ErrorBoundary } from '../../components/error-boundary/ErrorBoundary';
 import { Slideout, SlideoutOverlay } from '../../components/slideout/Slideout';
@@ -33,8 +34,8 @@ export const Container = (props) => {
 		setSidebar(sidebar);
 	}, [location.pathname]);
 
-	// Create props for mobile slideout menu
-	const slideoutProps = {
+	// Shared slideout options
+	const options = {
 		id: 'menu',
 		isDesktop: isDesktop,
 		label: 'Menu',
@@ -42,23 +43,35 @@ export const Container = (props) => {
 		closeOnClick: true,
 	};
 
+	// Button slideout options
+	const buttonOptions = {
+		...options,
+		button: {
+			outside: true,
+			show: true,
+		},
+	};
+
+	// Menu slideout options
+	const menuOptions = {
+		...options,
+		button: {
+			outside: false,
+			show: false,
+		},
+	};
+
 	return (
 		<Context.Provider value={props}>
 			<div className="container container-main">
 				<ErrorBoundary message={<ContainerError />}>
-					<SlideoutOverlay isDesktop={isDesktop} />
+					<SlideoutOverlay options={options} />
 
 					<Header />
 
-					<section className="navigation-section">
-						<div className="navigation-section-border pixel-border-rounded"></div>
+					<PixelSection className={'navigation-section'}>{isDesktop ? <Navigation /> : <Slideout options={buttonOptions} />}</PixelSection>
 
-						<div className="navigation-section-wrapper">
-							{isDesktop ? <Navigation /> : <Slideout {...slideoutProps} button={{ outside: true, show: true }} />}
-						</div>
-					</section>
-
-					{isDesktop ? null : <Slideout {...slideoutProps} button={{ outside: false, show: false }} />}
+					{isDesktop ? null : <Slideout options={menuOptions} />}
 
 					<main className="main">
 						<div className="main-layout flex-wrap">

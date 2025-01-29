@@ -31,36 +31,44 @@
 					display: inline-block;
 				}
 			}
-		}	
-		.gallery-navigation {
-			margin: theme.$spacing-x4 0 0 0;
-			.gallery-navigation-list {
-				margin: 0 -#{theme.$spacing-x2} -#{theme.$spacing-x2} -#{theme.$spacing-x2};
-				.gallery-navigation-list-item {
-					min-width: 1px;
-					@include mixins.flex(0 1 auto);
-					padding: 0 theme.$spacing-x2;
-					margin: 0 0 theme.$spacing-x2 0;
-					.gallery-navigation-link .icon {
-						@include mixins.position($type: relative, $top: 1.5px);
-					}
-				}
-				.gallery-navigation-separator {
-					display: none;
-				}
-				.gallery-navigation-back {
-					width: 100%;
-					order: 10;
-				}
-				.gallery-navigation-previous {
-					.gallery-navigation-link .icon {
-						margin: 0 theme.$spacing-x2 0 0;
-					}
-				}
-				.gallery-navigation-next {
-					margin-left: auto;
-					.gallery-navigation-link .icon {
-						margin: 0 0 0 theme.$spacing-x2;
+		}
+		.gallery-section {
+			.pixel-section-wrapper {
+				.gallery-navigation {
+					.gallery-navigation-list {
+						.gallery-navigation-list-item {
+							.gallery-navigation-link {
+								.gallery-navigation-label {
+									display: inline-block;
+								}
+								.icon {
+									@include mixins.position($type: relative, $top: 1px);
+								}
+							}
+						}
+						.gallery-navigation-previous {
+							.gallery-navigation-link {
+								.gallery-navigation-label {
+									margin: 0 0 0 theme.$spacing-x2;
+								}
+							}
+						}
+						.gallery-navigation-next {
+							margin-left: auto;
+							.gallery-navigation-link {
+								.gallery-navigation-label {
+									margin: 0 theme.$spacing-x2 0 0;
+								}
+							}
+						}
+						.gallery-navigation-back {
+							width: 100%;
+							order: 10;
+							text-align: center;
+						}
+						.gallery-navigation-separator {
+							display: none;
+						}
 					}
 				}
 			}
@@ -104,21 +112,26 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-01 - 50) {
+	@include mixins.respond-min(theme.$bp-02) {
 		.gallery {
-			.gallery-navigation {
-				.gallery-navigation-list {
-					.gallery-navigation-list-item {
-						width: auto;
-					}
-					.gallery-navigation-separator {
-						display: block;
-					}
-					.gallery-navigation-back {
-						order: 0;
-					}
-					.gallery-navigation-next {
-						margin-left: 0;
+			.gallery-section {
+				.pixel-section-wrapper {
+					.gallery-navigation {
+						.gallery-navigation-list {
+							.gallery-navigation-list-item {
+								width: auto;
+							}
+							.gallery-navigation-next {
+								margin-left: 0;
+							}
+							.gallery-navigation-back {
+								order: 0;
+								text-align: left;
+							}
+							.gallery-navigation-separator {
+								display: block;
+							}
+						}
 					}
 				}
 			}
