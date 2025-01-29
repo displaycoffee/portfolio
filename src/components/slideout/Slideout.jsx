@@ -11,14 +11,14 @@ import { slideout } from './scripts/slideout';
 import { Context } from '../../context/Context';
 
 export const Slideout = (props) => {
-	let { id, width, direction, label, content, button } = props;
+	let { options } = props;
 	const { config, get, toggle } = slideout;
 	const fallbackId = useId().replace(/:/g, '');
-	const slideoutId = `slideout-${id ? id : fallbackId}`;
+	const slideoutId = `slideout-${options?.id ? options.id : fallbackId}`;
 
 	// Get default attributes for slideout
-	width = width ? width : config.values.width;
-	direction = direction ? direction : config.values.direction;
+	const width = options?.width ? options.width : config.values.width;
+	const direction = options?.direction ? options.direction : config.values.direction;
 	const orientation = get.orientation(direction);
 	const styles = {
 		width: width,
@@ -29,10 +29,15 @@ export const Slideout = (props) => {
 	// Create shared slideout button
 	const slideoutButton = (
 		<button className="slideout-button unstyled pointer" type="button" onClick={(e) => toggle(e, slideoutId)}>
-			<span className="icon icon-angle-right icon-bold icon-shadow-x1"></span>
-			{label}
+			<span className="icon icon-filter icon-shadow-x1">
+				<span></span>
+			</span>
+			{options.label}
 		</button>
 	);
+
+	// Set button properties
+	const button = typeof options?.button == 'object' ? options.button : { outside: false, show: true };
 
 	return button.outside && button.show ? (
 		slideoutButton
@@ -48,7 +53,7 @@ export const Slideout = (props) => {
 
 			<div className={config.classes.menu} style={styles}>
 				<header className="slideout-header flex-nowrap flex-align-items-center">
-					<h3 className="slideout-title">{label}</h3>
+					<h3 className="slideout-title">{options.label}</h3>
 
 					<button className="slideout-close pointer unstyled" type="button" onClick={(e) => toggle(e, false)}>
 						<span className="icon icon-close icon-lg icon-bold icon-shadow-x1"></span>
@@ -71,7 +76,7 @@ export const Slideout = (props) => {
 						}}
 						role="presentation"
 					>
-						{content ? content : null}
+						{options?.content ? options?.content : null}
 					</div>
 				</div>
 			</div>
@@ -80,7 +85,7 @@ export const Slideout = (props) => {
 };
 
 export const SlideoutOverlay = (props) => {
-	const { isDesktop } = props;
+	const { options } = props;
 	const context = useContext(Context);
 	const { config, set, toggle } = slideout;
 
@@ -104,7 +109,7 @@ export const SlideoutOverlay = (props) => {
 
 	// If we are no desktop and slideout is active, remove body classes to hide overlay
 	const body = document.querySelector('body');
-	if (body && body.classList.contains(config.classes.activeBody) && isDesktop) {
+	if (body && body.classList.contains(config.classes.activeBody) && options.isDesktop) {
 		set.body('remove');
 	}
 };

@@ -63,6 +63,34 @@
 			background-color: theme.$color-03;
 		}
 	}
+	.pixel-section {
+		&, .pixel-section-wrapper {			
+			position: relative;
+		}
+		.pixel-border-rounded {
+			@include mixins.position-fill($z: 1);
+			background-color: theme.$color-04;
+		}
+		.pixel-section-wrapper {
+			padding: theme.$spacing-x4 theme.$spacing-x4 calc(theme.$spacing-x4 - 8px) theme.$spacing-x4;
+			z-index: 2;
+			a, button {
+				color: theme.$color-02;
+				text-shadow: 2px 2px 0 theme.$color-03;
+			}
+			ul {
+				@include mixins.flex-layout;
+				@include mixins.flex-parent(align-items, center);
+				margin: 0 -#{theme.$spacing-x2} -#{theme.$spacing-x2} -#{theme.$spacing-x2};
+				li {
+					min-width: 1px;
+					@include mixins.flex(0 1 auto);
+					padding: 0 theme.$spacing-x2;
+					margin: 0 0 theme.$spacing-x2 0;
+				}
+			}
+		}
+	}
 	@include mixins.respond-min(theme.$bp-02) {
 		.button {
 			padding: 0 theme.$spacing-x4;

@@ -9,7 +9,7 @@ import './styles/gallery.scss';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
-import { HeaderIcon, Button } from '../blocks/Blocks';
+import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
 export const Gallery = (props) => {
 	let { gallery, options } = props;
@@ -253,46 +253,54 @@ export const GalleryContent = (props) => {
 					</div>
 				</div>
 
-				<nav className="gallery-navigation">
-					<ul className="gallery-navigation-list unstyled flex-wrap flex-align-items-center">
-						{previous && (
-							<li className="gallery-navigation-list-item gallery-navigation-previous">
-								<Link className="gallery-navigation-link" to={`${path}/${previous.handle}`}>
-									<span className="icon icon-angle-left"></span>Previous
-								</Link>
-							</li>
-						)}
-
-						{navigation?.back && (
-							<>
-								<li className="gallery-navigation-list-item gallery-navigation-separator">
-									<span className="icon icon-bullet"></span>
-								</li>
-
-								<li className="gallery-navigation-list-item gallery-navigation-back">
-									<Link className="gallery-navigation-link" to={path}>
-										{navigation?.back}
+				<PixelSection className={'gallery-section'}>
+					<nav className="gallery-navigation">
+						<ul className="gallery-navigation-list unstyled flex-wrap flex-align-items-center">
+							{previous && (
+								<li className="gallery-navigation-list-item gallery-navigation-previous">
+									<Link className="gallery-navigation-link" to={`${path}/${previous.handle}`}>
+										<span className="icon icon-angle-left icon-shadow-x1"></span>
+										<span className="gallery-navigation-label">Previous</span>
 									</Link>
 								</li>
-							</>
-						)}
+							)}
 
-						<li className="gallery-navigation-list-item gallery-navigation-separator">
-							<span className="icon icon-bullet"></span>
-						</li>
+							{navigation?.back && (
+								<>
+									<GalleryNavigationSeparator />
 
-						{next && (
-							<li className="gallery-navigation-list-item gallery-navigation-next">
-								<Link className="gallery-navigation-link" to={`${path}/${next.handle}`}>
-									Next<span className="icon icon-angle-right"></span>
-								</Link>
-							</li>
-						)}
-					</ul>
-				</nav>
+									<li className="gallery-navigation-list-item gallery-navigation-back">
+										<Link className="gallery-navigation-link" to={path}>
+											{navigation?.back}
+										</Link>
+									</li>
+								</>
+							)}
+
+							<GalleryNavigationSeparator />
+
+							{next && (
+								<li className="gallery-navigation-list-item gallery-navigation-next">
+									<Link className="gallery-navigation-link" to={`${path}/${next.handle}`}>
+										<span className="gallery-navigation-label">Next</span>
+										<span className="icon icon-angle-right icon-shadow-x1"></span>
+									</Link>
+								</li>
+							)}
+						</ul>
+					</nav>
+				</PixelSection>
 			</div>
 		) : (
 			<Navigate to={path} replace />
 		)
 	) : null;
+};
+
+export const GalleryNavigationSeparator = () => {
+	return (
+		<li className="gallery-navigation-list-item gallery-navigation-separator">
+			<span className="icon icon-bullet icon-shadow-x1"></span>
+		</li>
+	);
 };
