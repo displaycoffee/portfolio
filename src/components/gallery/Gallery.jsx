@@ -133,7 +133,7 @@ export const GalleryRoutes = (props) => {
 	return (
 		<Routes>
 			<Route path="/" element={<GalleryThumbnails {...galleryProps} />} />
-			<Route path=":id" element={<GalleryContent {...galleryProps} />} />
+			<Route path=":id" element={<GalleryBody {...galleryProps} />} />
 		</Routes>
 	);
 };
@@ -160,36 +160,25 @@ export const GalleryThumbnails = (props) => {
 	);
 };
 
-export const GalleryContent = (props) => {
+export const GalleryBody = (props) => {
 	const { path, gallery, navigation } = props;
 	const { id } = useParams();
-	const showCurrent = window.location.href.includes(`${path}/${gallery.handle}-`) ? true : false; // Do not render current item if not in matching gallery
-	const galleryCount = gallery.values.length - 1;
-
-	// Set initial variables for gallery item details
-	let current = false;
-	let previous = false;
-	let next = false;
-
-	// Find active gallery value
-	let selected = gallery.values.filter((value) => value.handle == id);
-
-	// Update gallery details and create previous / next elements
-	if (selected && selected.length !== 0) {
-		// Set current
-		current = selected.pop();
-
-		// If previous / next order is out of bounds, loop around to start / end of gallery
-		const previousIndex = current.order - 1;
-		const nextIndex = current.order + 1;
-		previous = previousIndex <= 0 ? gallery.values[galleryCount] : gallery.values[previousIndex];
-		next = nextIndex >= galleryCount ? gallery.values[0] : gallery.values[nextIndex];
-	}
+	const showGallery = window.location.href.includes(`${path}/${gallery.handle}-`) ? true : false; // Do not render current item if not in matching gallery
+	const elements = galleryUtils.get.navigation(gallery.values, id);
+	const current = elements?.current ? elements.current : false;
 
 	// Check if we are on a pixels gallery
 	const isPixels = current.categories == 'Pixels' ? true : false;
 
-	return showCurrent ? (
+	// Build navigation props
+	const navigationProps = {
+		path: path,
+		previous: elements?.previous ? elements.previous : false,
+		next: elements?.next ? elements.next : false,
+		back: navigation?.back ? navigation.back : false,
+	};
+
+	return showGallery ? (
 		current ? (
 			<div id={`gallery-${current.handle}`} className="gallery">
 				<div className="gallery-content flex-wrap">
@@ -253,54 +242,10 @@ export const GalleryContent = (props) => {
 					</div>
 				</div>
 
-				<PixelSection className={'gallery-section'}>
-					<nav className="gallery-navigation">
-						<ul className="gallery-navigation-list unstyled flex-wrap flex-align-items-center">
-							{previous && (
-								<li className="gallery-navigation-list-item gallery-navigation-previous">
-									<Link className="gallery-navigation-link" to={`${path}/${previous.handle}`}>
-										<span className="icon icon-angle-left icon-shadow-x1"></span>
-										<span className="gallery-navigation-label">Previous</span>
-									</Link>
-								</li>
-							)}
-
-							{navigation?.back && (
-								<>
-									<GalleryNavigationSeparator />
-
-									<li className="gallery-navigation-list-item gallery-navigation-back">
-										<Link className="gallery-navigation-link" to={path}>
-											{navigation?.back}
-										</Link>
-									</li>
-								</>
-							)}
-
-							<GalleryNavigationSeparator />
-
-							{next && (
-								<li className="gallery-navigation-list-item gallery-navigation-next">
-									<Link className="gallery-navigation-link" to={`${path}/${next.handle}`}>
-										<span className="gallery-navigation-label">Next</span>
-										<span className="icon icon-angle-right icon-shadow-x1"></span>
-									</Link>
-								</li>
-							)}
-						</ul>
-					</nav>
-				</PixelSection>
+				<PixelSection navigation={navigationProps} />
 			</div>
 		) : (
 			<Navigate to={path} replace />
 		)
 	) : null;
-};
-
-export const GalleryNavigationSeparator = () => {
-	return (
-		<li className="gallery-navigation-list-item gallery-navigation-separator">
-			<span className="icon icon-bullet icon-shadow-x1"></span>
-		</li>
-	);
 };

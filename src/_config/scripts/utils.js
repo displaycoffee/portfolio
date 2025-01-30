@@ -2,6 +2,13 @@
 import { createRoot } from 'react-dom/client';
 
 export const utils = {
+	handle: (handle, value, index) => {
+		// Create unique handle / path for url routes
+		const category = handle ? `${handle}-` : ``;
+		const name = value.name ? utils.handleize(value.name) : index;
+		const number = value.date ? value.date.replace(/\./g, '') : index;
+		return `${category}${name}-${number}`;
+	},
 	handleize: (value) => {
 		// Format value for html classes
 		return value
@@ -10,12 +17,36 @@ export const utils = {
 			.replace(/\s/g, '-')
 			.trim();
 	},
-	pageHandle: (handle, value, order) => {
-		// Create unique handle / path for url routes
-		const category = handle ? `${handle}-` : ``;
-		const name = value.name ? utils.handleize(value.name) : order;
-		const number = value.date ? value.date.replace(/\./g, '') : order;
-		return `${category}${name}-${number}`;
+	getNavigation: (values, id) => {
+		// Function to get navigation indexes
+		const valuesCount = values.length - 1;
+
+		// Set initial variables for navigation
+		let navigation = {
+			current: false,
+			previous: false,
+			next: false,
+		};
+
+		// Find active index
+		let selected = values.filter((value, index) => {
+			value.index = index;
+			return (value?.handle || value?.id) == id;
+		});
+
+		// Update content details and create previous / next elements
+		if (selected && selected.length !== 0) {
+			// Set current
+			navigation.current = selected.pop();
+
+			// If previous / next index is out of bounds, loop around to start / end of values
+			const previousIndex = navigation.current.index - 1;
+			const nextIndex = navigation.current.index + 1;
+			navigation.previous = previousIndex < 0 ? values[valuesCount] : values[previousIndex];
+			navigation.next = nextIndex > valuesCount ? values[0] : values[nextIndex];
+		}
+
+		return navigation;
 	},
 	renderTarget: (element, component) => {
 		// Render target for app

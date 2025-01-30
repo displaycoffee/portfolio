@@ -11,16 +11,18 @@ export const gallery = {
 				gallery: current,
 			};
 		},
+		navigation: (values, id) => {
+			// Get navigation for gallery
+			return utils.getNavigation(values, id);
+		},
 	},
 	create: {
 		values: (modified, handle, value) => {
 			// Create array of values for categories
 			if (modified[handle]) {
-				const order = modified[handle].values.length;
 				modified[handle].values.push({
 					...value,
-					order: order,
-					handle: utils.pageHandle(handle, value, order),
+					handle: utils.handle(handle, value, modified[handle].values.length),
 				});
 			} else {
 				modified[handle] = {
@@ -30,8 +32,7 @@ export const gallery = {
 					values: [
 						{
 							...value,
-							order: 0,
-							handle: utils.pageHandle(handle, value, 0),
+							handle: utils.handle(handle, value, 0),
 						},
 					],
 				};

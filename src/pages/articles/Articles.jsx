@@ -2,7 +2,7 @@
 import { articles } from './scripts/articles';
 
 /* Local components */
-import { Pages } from '../../components/pages/Pages';
+import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
 
 export const Articles = () => {
@@ -21,7 +21,7 @@ export const Articles = () => {
 		<>
 			{showContent && <HeaderIcon>Articles</HeaderIcon>}
 
-			<Pages pages={hasArticles ? articles : false} options={options} />
+			<Contents contents={hasArticles ? articles : false} options={options} />
 		</>
 	);
 };

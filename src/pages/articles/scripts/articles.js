@@ -1,4 +1,6 @@
 /* Local components */
+import { BoxSizing } from '../content/BoxSizing';
+import { ProvidingCode } from '../content/ProvidingCode';
 import { StylingText } from '../content/StylingText';
 
 export const articles = [
@@ -6,13 +8,13 @@ export const articles = [
 		id: 2,
 		name: 'Box-Sizing: My Best Friend',
 		date: '04.30.16',
-		component: StylingText,
+		component: BoxSizing,
 	},
 	{
 		id: 1,
 		name: 'Providing Code',
 		date: '04.30.16',
-		component: StylingText,
+		component: ProvidingCode,
 	},
 	{
 		id: 0,
