@@ -13,12 +13,6 @@ export const gallery = {
 		},
 	},
 	create: {
-		handle: (handle, value, order) => {
-			// Create unique handle / path for values
-			const name = value.name ? utils.handleize(value.name) : order;
-			const number = value.date ? value.date.replace(/\./g, '') : order;
-			return `${handle}-${name}-${number}`;
-		},
 		values: (modified, handle, value) => {
 			// Create array of values for categories
 			if (modified[handle]) {
@@ -26,7 +20,7 @@ export const gallery = {
 				modified[handle].values.push({
 					...value,
 					order: order,
-					handle: gallery.create.handle(handle, value, order),
+					handle: utils.pageHandle(handle, value, order),
 				});
 			} else {
 				modified[handle] = {
@@ -37,7 +31,7 @@ export const gallery = {
 						{
 							...value,
 							order: 0,
-							handle: gallery.create.handle(handle, value, 0),
+							handle: utils.pageHandle(handle, value, 0),
 						},
 					],
 				};
