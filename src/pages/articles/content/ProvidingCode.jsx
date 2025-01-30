@@ -1,10 +1,10 @@
 /* Local components */
 import { HeaderIcon } from '../../../components/blocks/Blocks';
 
-export const StylingText = () => {
+export const ProvidingCode = () => {
 	return (
 		<>
-			<HeaderIcon>Styling Text</HeaderIcon>
+			<HeaderIcon>Providing Code</HeaderIcon>
 
 			<p>herllo</p>
 		</>
