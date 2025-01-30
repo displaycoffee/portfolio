@@ -10,6 +10,13 @@ export const utils = {
 			.replace(/\s/g, '-')
 			.trim();
 	},
+	pageHandle: (handle, value, order) => {
+		// Create unique handle / path for url routes
+		const category = handle ? `${handle}-` : ``;
+		const name = value.name ? utils.handleize(value.name) : order;
+		const number = value.date ? value.date.replace(/\./g, '') : order;
+		return `${category}${name}-${number}`;
+	},
 	renderTarget: (element, component) => {
 		// Render target for app
 		const targetElement = document.querySelector(element);

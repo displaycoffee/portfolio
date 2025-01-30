@@ -114,7 +114,7 @@ export const GalleryLayout = (props) => {
 };
 
 export const GalleryRoutes = (props) => {
-	const { options, gallery, tab } = props;
+	const { gallery, options, tab } = props;
 
 	// Pass down gallery props
 	const galleryProps = {

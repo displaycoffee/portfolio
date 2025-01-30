@@ -25,7 +25,7 @@ export const navigation = [
 		url: '/articles',
 		showInNav: true,
 		isRoute: true,
-		hasChildren: false,
+		hasChildren: true,
 		component: Articles,
 	},
 	{
