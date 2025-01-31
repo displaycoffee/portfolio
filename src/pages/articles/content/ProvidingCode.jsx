@@ -6,7 +6,7 @@ export const ProvidingCode = () => {
 		<>
 			<HeaderIcon>Providing Code</HeaderIcon>
 
-			<p>herllo</p>
+			<p>herllo 2</p>
 		</>
 	);
 };

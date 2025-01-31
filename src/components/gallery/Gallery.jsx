@@ -149,7 +149,7 @@ export const GalleryThumbnails = (props) => {
 				{gallery.values.map((value) => (
 					<div className="gallery-item" key={value.id}>
 						<Link className="gallery-image" to={`${path}/${value.handle}`}>
-							<div className="image-wrapper pixel-border">
+							<div className="image-wrapper image-wrapper-fluid pixel-border">
 								<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
 							</div>
 						</Link>
@@ -181,7 +181,7 @@ export const GalleryBody = (props) => {
 	return showGallery ? (
 		current ? (
 			<div id={`gallery-${current.handle}`} className="gallery">
-				<div className="gallery-content flex-wrap">
+				<div className="gallery-body flex-wrap">
 					{current.name && (
 						<header className="gallery-header">
 							<HeaderIcon className={'gallery-header-title'}>{current.name}</HeaderIcon>

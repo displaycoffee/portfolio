@@ -6,7 +6,7 @@ export const StylingText = () => {
 		<>
 			<HeaderIcon>Styling Text</HeaderIcon>
 
-			<p>herllo</p>
+			<p>herllo 1</p>
 		</>
 	);
 };

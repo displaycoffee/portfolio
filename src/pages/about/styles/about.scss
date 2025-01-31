@@ -11,10 +11,7 @@
 	.page-about {	
 		@include mixins.respond-min(theme.$bp-01) {
 			.about-photo {
-				float: left;
-				clear: left;
 				width: 300px;
-				margin-right: theme.$spacing-x4;
 			}
 		}
 		@include mixins.respond-min(theme.$bp-02) {

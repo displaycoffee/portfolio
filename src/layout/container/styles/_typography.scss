@@ -124,7 +124,8 @@
 	// Style block
 	
 	code, kbd, pre, samp {
-		background: theme.$color-07;
+		background-color: theme.$color-08;
+		margin: 0;
 		padding: theme.$spacing-x4;
 		font-family: 'Courier New', monospace;
 		font-size: functions.em(16px, rem);

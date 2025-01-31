@@ -170,6 +170,10 @@
 	.pixel-border-rounded {
 		@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06, $rounded: true);
 	}
+	.pixel-border-image {
+		display: inline-block;
+		padding: theme.$spacing-x2;
+	}
 
 //// ANIMATIONS
 //// --------------------------------------------------------------------------	

@@ -8,7 +8,7 @@
 
 	// Configuration
 
-	$button-pixel-size: 4px;
+	$pixel-size: 4px;
 
 	// Style block
 
@@ -27,10 +27,10 @@
 		border: 0;
 		height: 36px;
 		padding: 0 theme.$spacing-x2;
-		margin: $button-pixel-size 0;
+		margin: $pixel-size 0;
 		font-size: functions.em(12px, rem);
 		color: theme.$color-02;
-		line-height: calc(36px + $button-pixel-size);
+		line-height: calc(36px + $pixel-size);
 		span {
 			display: block;
 			@include mixins.ellipsis();
@@ -41,14 +41,14 @@
 			@include mixins.position($type: absolute, $left: 0, $right: 0);
 			margin: auto;
 			width: 90%;
-			width: calc(100% - calc($button-pixel-size * 2));
-			height: $button-pixel-size;
+			width: calc(100% - calc($pixel-size * 2));
+			height: $pixel-size;
 		}
 		&:before {
-			top: -#{$button-pixel-size};
+			top: -#{$pixel-size};
 		}
 		&:after {
-			bottom: -#{$button-pixel-size};
+			bottom: -#{$pixel-size};
 		}
 	}
 	.button-primary {	
@@ -61,6 +61,56 @@
 		text-shadow: 2px 2px 0 theme.$color-07;
 		&, &:before, &:after {
 			background-color: theme.$color-03;
+		}
+	}
+	.code-block {
+		position: relative;
+		padding: $pixel-size 0;
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 90%;
+			width: calc(100% - calc($pixel-size * 2));
+			height: $pixel-size;
+			@include mixins.position($type: absolute, $left: 0, $right: 0);
+			margin: auto;
+		}
+		&:before {
+			top: 0;
+			background-color: theme.$color-04;
+		}
+		&:after {
+			bottom: 0;
+			background-color: theme.$color-08;
+		}
+		.code-block-header {
+			background-color: theme.$color-04;
+			padding: theme.$spacing-x2;
+			& > * {
+				@include mixins.position($type: relative, $top: 2px);
+				font-size: functions.em(14px, rem);
+				line-height: 1.5;
+			}
+			.code-block-label {
+				padding: 0 theme.$spacing-x2 0 0;
+			}
+			.code-block-button {
+				margin: 0 0 0 auto;
+				color: theme.$color-08;
+				&:hover {
+					color: theme.$color-02;
+				}
+			}
+		}
+		.code-block-pre {
+			max-height: 500px;
+			overflow-y: auto;
+			&::-webkit-scrollbar-thumb {
+				background: theme.$color-04;
+			}
+			&::-webkit-scrollbar-track {
+				background: theme.$color-08
+			}
 		}
 	}
 	.pixel-section {
