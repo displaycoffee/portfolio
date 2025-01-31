@@ -1,9 +1,6 @@
 /* React */
 import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
-/* Local styles */
-import './styles/contents.scss';
-
 /* Local scripts */
 import { contents as contentsUtils } from './scripts/contents';
 
@@ -62,6 +59,7 @@ export const ContentsLinks = (props) => {
 						<Link className="contents-list-link" to={`${path}/${value.handle}`}>
 							{value.name}
 						</Link>
+						{value?.date ? <span className="contents-list-date"> - Posted on {value.date}</span> : null}
 					</li>
 				))}
 			</ul>
@@ -91,7 +89,7 @@ export const ContentsBody = (props) => {
 		current ? (
 			<div id={`contents-${current.handle}`} className="contents spacing-reset">
 				<div className="contents-body spacing-reset">
-					<Body />
+					<Body name={current?.name} date={current?.date} />
 				</div>
 
 				<PixelSection navigation={navigationProps} />

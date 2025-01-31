@@ -9,8 +9,8 @@ export const About = () => {
 		<>
 			<HeaderIcon>About</HeaderIcon>
 
-			<div className="about-photo pixel-border image-wrapper-float-left">
-				<div className="image-wrapper image-wrapper-fluid">
+			<div className="about-photo pixel-border image-wrapper image-wrapper-float-left">
+				<div className="image-wrapper-fluid">
 					<img src="/assets/images/theme/me.jpg" alt="Me riding a real dinosaur" title="Me riding a real dinosaur" loading="lazy" />
 				</div>
 			</div>
