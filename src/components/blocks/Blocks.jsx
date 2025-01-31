@@ -51,7 +51,7 @@ export const CodeBlock = (props) => {
 
 	return (
 		<div className={`${codeClass}code-block`}>
-			<header className="code-block-header">
+			<header className="code-block-header flex-nowrap flex-align-items-center">
 				{header ? <span className="code-block-label">{header}</span> : null}
 
 				<button className="code-block-button a" onClick={() => selectCode()}>
@@ -59,7 +59,7 @@ export const CodeBlock = (props) => {
 				</button>
 			</header>
 
-			<pre className="code-block-pre">
+			<pre className="code-block-pre scrollbar">
 				<code ref={codeRef}>{children}</code>
 			</pre>
 		</div>

@@ -15,7 +15,7 @@
 		.gallery-items {
 			@include mixins.grid-layout(5px, 50px);
 		}
-		.gallery-content {
+		.gallery-body {
 			&, .gallery-image {
 				margin: 0 0 theme.$spacing-x4 0;
 			}
@@ -34,7 +34,7 @@
 		}
 	}
 	#gallery-pixels {
-		.gallery-content {
+		.gallery-body {
 			.gallery-image {
 				min-width: 150px;
 			}
@@ -73,7 +73,7 @@
 	}
 	@include mixins.respond-min(theme.$bp-03) {
 		.gallery {
-			.gallery-content {
+			.gallery-body {
 				.gallery-image {
 					@include mixins.flex(0 1 auto);
 					max-width: 500px;
@@ -98,7 +98,7 @@
 	}
 	@include mixins.respond-min(theme.$bp-04) {
 		.gallery {
-			.gallery-content {
+			.gallery-body {
 				.gallery-image {
 					max-width: 600px;
 				}

@@ -32,8 +32,10 @@ export const Navigation = () => {
 
 					// Determine active navigation link
 					let isActive = isIndex && isIndexWindow ? true : false;
-					if (!isIndex && !isIndexWindow && windowPath.includes(nav.url)) {
-						isActive = true;
+					if (!isIndex && !isIndexWindow) {
+						const windowSlash = `${windowPath}/`;
+						const navSlash = `${nav.url}/`;
+						isActive = windowSlash.includes(navSlash) ? true : false;
 					}
 
 					return (
