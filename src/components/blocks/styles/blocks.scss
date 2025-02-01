@@ -113,6 +113,31 @@
 			}
 		}
 	}
+	.preview {
+		position: relative;
+		padding: $pixel-size 0;
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 90%;
+			width: calc(100% - calc($pixel-size * 2));
+			height: $pixel-size;
+			@include mixins.position($type: absolute, $left: 0, $right: 0);
+			margin: auto;
+			background-color: theme.$color-02;
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
+		.preview-content {
+			background-color: theme.$color-02;
+			padding: theme.$spacing-x4;
+			color: theme.$color-03;
+		}
+	}
 	.pixel-section {
 		&, .pixel-section-wrapper {			
 			position: relative;

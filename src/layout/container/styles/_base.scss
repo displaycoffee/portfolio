@@ -58,7 +58,6 @@
 		& > li {
 			position: relative;
 			margin: 0 0 theme.$spacing-x1 0;
-			padding: 0 0 0 $base-elements-spacing;
 			&:before {
 				display: block;
 				@include mixins.position($type: absolute, $left: 0);
@@ -68,15 +67,21 @@
 			}
 		}
 	}
-	ul:not(.unstyled) > li:before {
-		top: 2px;
-		content: '\0025AA';
-		font-size: functions.em(16px, rem);
-		line-height: 1;
+	ul:not(.unstyled) {
+		& > li {
+			padding: 0 0 0 $base-elements-spacing;
+			&:before {
+				top: 2px;
+				content: '\0025AA';
+				font-size: functions.em(16px, rem);
+				line-height: 1;
+			}
+		}
 	}
 	ol:not(.unstyled) {
 		counter-reset: section;
 		& > li {
+			padding: 0 0 0 calc($base-elements-spacing * 2);
 			&:before {
 				top: 0;
 				counter-increment: section;

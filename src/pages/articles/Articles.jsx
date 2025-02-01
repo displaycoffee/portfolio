@@ -102,3 +102,15 @@ export const ArticlesToc = (props) => {
 		</div>
 	);
 };
+
+export const ArticlesPreview = (props) => {
+	const { className, children } = props;
+	const previewClass = className ? ` articles-preview-${className}` : '';
+
+	return (
+		<>
+			<h5>Display / Output</h5>
+			<div className={`articles-preview${previewClass}`}>{children}</div>
+		</>
+	);
+};
