@@ -19,6 +19,37 @@
 			font-size: functions.em(12px, rem);
 		}
 	}
+	.preview-articles {
+		font-size: 16px;
+		.preview-content {
+			font-family: Tahoma, Calibri, Arial, sans-serif;
+			font-size: 100%;
+			.fonts-are-awesome > * {				
+				margin: theme.$spacing-x4 0 0 0;
+			}
+		}
+		&.preview-font-size {			
+			.preview-content {				
+				.fonts-are-awesome, .fonts-are-awesome > .child {
+					font-size: 0.85em;
+				}
+				.fonts-are-awesome-part-02, .fonts-are-awesome-part-02 > .child {
+					font-size: 20px;
+				}
+			}
+		}
+		&.preview-line-height-01, &.preview-line-height-02, &.preview-line-height-03 {
+			.preview-content {
+				line-height: 1.5em;
+				.fonts-are-awesome-part-02 {
+					font-size: 30px;
+				}
+			}
+		}
+		&.preview-line-height-03 .preview-content {
+			line-height: 1.5;
+		}
+	}
 	.articles-top {
 		.articles-top-button {
 			.icon {

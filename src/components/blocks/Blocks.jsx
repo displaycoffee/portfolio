@@ -66,6 +66,20 @@ export const CodeBlock = (props) => {
 	);
 };
 
+export const Preview = (props) => {
+	const { className, children } = props;
+	const previewClass = className ? ` ${className}` : '';
+
+	return (
+		<>
+			<h5>Display / Output</h5>
+			<div className={`preview${previewClass}`}>
+				<div className="preview-content spacing-reset">{children}</div>
+			</div>
+		</>
+	);
+};
+
 export const PixelSection = (props) => {
 	let { className, children, navigation } = props;
 	const pixelClass = className ? `${className} ` : '';
