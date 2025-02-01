@@ -21,8 +21,8 @@ export const ProvidingCode = (props) => {
 				</p>
 				<p>
 					And when I say "good coding practices", keep in mind that most of this is my opinion. You don't have to do anything I say, but
-					after working with code for numerous amounts of years, some of my tips could be helpful. (I'd like to also note that this is not a
-					guide for submitting codes to the RPG-D Dexes, but just a general overview for submitting any code that some one else might use.)
+					after working with code for numerous amounts of years, some of my tips could be helpful. (I'd like to also note that this is a
+					general overview for submitting any code that some one else might use.)
 				</p>
 				<p>
 					You may also be wondering why you should even care what your code looks like when you submit if for other people. I mean, it's
@@ -45,169 +45,196 @@ export const ProvidingCode = (props) => {
 
 			<ArticlesSection header={sections[0]}>
 				<p>
-					Applied to almost every single HTML is something called <strong>"The Box Model"</strong>. On this model, there's an inside
-					properties and outside properties. What makes up the size of an HTML element (or box) consists of the visible width/height of an
-					element, padding, and border. It can be calculated like this:
+					If you're not sure what the difference between the two are, I'm going to break it down with the most basic definition ever. IDs
+					are unique while classes are not. Okay, I realize that may not be entirely helpful, so I'll explain in a bit more detail.
 				</p>
 				<p>
-					<strong>element size</strong> = width + padding ( left side + right side ) + border ( left side + right side )
+					Think of an ID as a really important element on a page. It should only appear once on your page; it should not be repeated.
+					Imagine yourself as an element. You have a name which is your ID. If I were code, I might look something like this:
 				</p>
-				<p>
-					Margin is in this model as well, but it does not get added into the above. It can (and will) effect the size of how the element
-					interacts with the rest of your page. I did not include "height" in the equation above, but it would be calculated the same way.
-					This tutorial is going to focus mainly on width and if you have a static, set height on an element, you can go with the same
-					lessons taught here.
-				</p>
-				<p>
-					Moving on, "The Box Model" is present on every element, though certain elements will ignore these properties that you specifically
-					define through CSS. "Block" level elements (body, div, p, etc.) can use things like margin and padding, while "inline" elements
-					(span) tend to ignore it or only add certain dimensions. If we add padding to a "span", the top and bottom padding would be
-					applied, but wouldn't visibly do anything to the element, while left and right padding does add spacing.
-				</p>
-				<p>
-					Some browsers will even render default box model properties onto elements. For example: Chrome adds bottom and top margin of 1em
-					to "p" tags.
-				</p>
-				<p>
-					Because I am too lazy to make a fancy image of my own, here's a screenshot of what "The Box Model" looks like when viewed with
-					Chrome Development Tools.
-				</p>
-				<div className="image-wrapper">
-					<img
-						src="/assets/images/articles/box-sizing-01.jpg"
-						alt="The Box Model in Chrome"
-						title="The Box Model in Chrome"
-						loading="lazy"
-					/>
-				</div>
-				<p>Here's the actual HTML:</p>
 				<CodeBlock header={'HTML'}>{cb1}</CodeBlock>
 				<p>
-					This div currently has no styles applied to it, save for some font styling inheritence. As such, the width is 1903 pixels (the
-					current size of my browser window) and the height is 11 pixels (roughly the size of the font). What if we want to start adding CSS
-					properties like width, padding, and border and we have a certain width we want to stick to? This often creates a bunch of math
-					that I personally prefer not to deal with, so I'm going to explain how we can deal with it.
+					Typically, there should only ever be one of me in one place at a time (unless I have a cloning machine). To add, one ID may only
+					appear on an element. Meaning, you can't do the following:
+				</p>
+				<CodeBlock header={'HTML'}>{cb2}</CodeBlock>
+				<p>
+					That just fails and doesn't work at all. In the past, I've spent time debugging my own code wondering why something wasn't working
+					only to realize I had two IDs.
+				</p>
+				<p>
+					Classes, on the other hand, are more generic. They can be used any number of times and you can have multiple classes on an
+					element. They should be used when similar styles apply to multiple elements. Using the example I provided earlier, say there's two
+					unique elements on the page: "display-coffee" and "display-coffees-friend". We're very different beings, but we might have similar
+					characteristics.
+				</p>
+				<CodeBlock header={'HTML'}>{cb3}</CodeBlock>
+				<p>
+					At this point you might be asking, "Why does this all matter? I've used multiple IDs per page and my styles were fine!" It's true
+					that CSS couldn't care less about any of this. Styles will still apply even if you have IDs repeated multiple times throughout a
+					page, but there are situations when using the same ID repeatedly doesn't work. This is mostly in the case of JavaScript
+					functionality, though it applies to HTML as well. You might want to design a template with "jump/anchor links" where clicking on
+					link brings you to another spot on the page. This requires the use of an ID, but if you have code like this:
+				</p>
+				<CodeBlock header={'HTML'}>{cb4}</CodeBlock>
+				<p>You're only ever going to be able to jump to one of those elements or the others.</p>
+				<p>
+					Another reason why you should avoid using IDs more than once is because, well, it's good practice and one of the most basic and
+					beginner "rules" of coding.
 				</p>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[1]}>
 				<p>
-					The way the sizing of "The Box Model" works is not really a problem per-say. The overall box width is calculated as it should be;
-					it's just mildly annoying to fix things without the help of our friend box-sizing.
-				</p>
-				<p>Let's take our div above and add some styling to it:</p>
-				<CodeBlock header={'CSS'}>{cb2}</CodeBlock>
-				<p>
-					<strong>Calculation:</strong>
+					Now that we've talked about IDs and classes, forgoing IDs in your template codes might not be a bad idea. You avoid any
+					potentially naming conflicts where another person might be using the same ID on their website theme that you're using in your
+					template. If you're going to go with classes, that's awesome, but there are things to consider. It's difficult to know what
+					classes everyone under the sun is going to be using, but try to at least create class names that are specific to your template.
 				</p>
 				<p>
-					<strong>element size ( 700px )</strong> = width ( 700px ) + padding ( 0 + 0 ) + border ( 0 + 0 )
+					Using classes like "header", "title", "name", etc etc are all kind of risky because they are so generic. People may already be
+					using these classes and as such, style rules from one group of CSS can clash with another. Instead, perhaps make your classes
+					relate to the code you're providing. This can be done simply by adding a prefix. If I'm writing a template that's based around the
+					concept of marshmallows, I might want to use classes such as "msh-mllw-header", "msh-mllw-title", and "msh-mllw-name".
 				</p>
-				<p>
-					Awesome. We have a div that's now 700 pixels in width and would like to keep it that way. Usually this is because we don't want it
-					to overflow a parent container. More styles need to be applied though so we can make this the fanciest div possible.
-				</p>
-				<CodeBlock header={'CSS'}>{cb3}</CodeBlock>
-				<p>
-					Well, guess what size our element is now? 730 pixels. The padding was calculated and added into the boxes' width, the border is
-					making everything too big, and our design doesn't look anything like it should. Here's the updated box model:
-				</p>
-				<div className="image-wrapper">
-					<img src="/assets/images/articles/box-sizing-02.jpg" alt="Updated Box Model" title="Updated Box Model" loading="lazy" />
-				</div>
-				<p>
-					<strong>Calculation:</strong>
-				</p>
-				<p>
-					<strong>element size ( 730px )</strong> = width ( 700px ) + padding ( 10px + 10px ) + border ( 5px + 5px )
-				</p>
-				<p>Luckily, box-sizing can help us with this.</p>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[2]}>
 				<p>
-					The box-sizing property takes into account padding and border then adjusts the element's width for us. It can be added in the
-					following way:
+					An entire book could be written on formatting CSS, so I'm going to try and keep this as simple as possible, though I do have a
+					tendency to ramble on passionately about code. A typical best practice is to put all your CSS in an external stylesheet and link
+					to that stylesheet. However, I do realize that with code you're submitting for other people, this is not always practical as
+					people want to be able to copy and paste code, then be done with it. Ideally, you'd end up with something like this:
 				</p>
-				<CodeBlock header={'CSS'}>{cb4}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb5}</CodeBlock>
 				<p>
-					After applying box-sizing, we have a box that's 700px! Usually we would have to subtract the amount of padding and border then
-					adjust the width property. Altered CSS without box-sizing would look something like this:
+					However, you can still give people the option to place styles in an external stylesheet or to use the full code. Placing the
+					styles in the external sheet means people are not repeating the same CSS over and over again if they're using your posting
+					template more than once per page. You could do something like this:
 				</p>
-				<CodeBlock header={'CSS'}>{cb5}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb6}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb7}</CodeBlock>
 				<p>
-					But that's annoying to do all the time for every element. Box-sizing takes care of those adjustments for us and says, "You want
-					the box to be 700 pixels? I got this, yo." Here's the updated box model:
-				</p>
-				<div className="image-wrapper">
-					<img src="/assets/images/articles/box-sizing-03.jpg" alt="Updated Box Model" title="Updated Box Model" loading="lazy" />
-				</div>
-				<p>
-					<strong>Calculation:</strong>
-				</p>
-				<p>
-					<strong>element size ( 700px )</strong> = width ( 670px = ( 700px ) - padding ( 10px + 10px ) - border ( 5px + 5px )) + padding (
-					10px + 10px ) + border ( 5px + 5px )
+					Placing the CSS in a stylesheet gives people more control too. When the styles are hosted in an external stylesheet, that should
+					only ever be managed by the site's admin. Thus, the template should remain consistent for members who are using the template
+					multiple times. Even better, you don't have to worry about members accidentally deleting styles that may be required for your code
+					to be functional.
 				</p>
 				<p>
-					<em>Niiiceee.</em>
+					No matter how you choose to add CSS to your posting template, I always recommend avoiding inline styles as it just creates clutter
+					and is less easy to read, especially when you have elements that use the same styles. For example:
 				</p>
+				<CodeBlock header={'HTML'}>{cb8}</CodeBlock>
+				<p>
+					<strong>
+						<em>versus</em>
+					</strong>
+				</p>
+				<CodeBlock header={'HTML'}>{cb9}</CodeBlock>
+				<p>
+					The second one is much more readable and manageable. And we can take this formatting even further! Notice how "green-div" and
+					"purple-div" share some similar styles? Group common styles by targeting more than one CSS selector separated by a comma. For
+					example:
+				</p>
+				<CodeBlock header={'HTML'}>{cb10}</CodeBlock>
+				<p>If some one wants to alter the font style, it's only in one place they need to change it for both divs, instead of two places.</p>
+				<p>
+					In relation to the above, group your CSS rules and structure them in a way that makes sense. If "green-div" and "purple-div" are
+					close together on the same page and are meant to style content, keep them together. In other words, if you have a bunch of styles,
+					don't do this:
+				</p>
+				<CodeBlock header={'CSS'}>{cb11}</CodeBlock>
+				<p>
+					There's one more thing I want to mention on the topic of formatting your CSS. Write CSS so it can be read even by some one who is
+					not coding savvy. That might be difficult to imagine how to do, but by following some of the pointers I mentioned above, you'll be
+					off to a good start. I've seen people who say that they write CSS a certain way to differentiate their code between everyone
+					else's code. I have three words to say about this.
+				</p>
+				<p>
+					<em>It doesn't matter.</em>
+				</p>
+				<p>
+					In the end, if I need to read your CSS and pick out some detail, I can copy the code and put it in one of the many CSS Beautifiers
+					found around the internet. Take for example the following formatted CSS:
+				</p>
+				<CodeBlock header={'CSS'}>{cb12}</CodeBlock>
+				<p>
+					Yikes, right? So I'm just going to take that and paste it into{' '}
+					<a href="//codebeautify.org/css-beautify-minify" target="_blank" rel="noreferrer">
+						CSS Beautifier
+					</a>{' '}
+					and end up with the following:
+				</p>
+				<CodeBlock header={'CSS'}>{cb13}</CodeBlock>
+				<p>All clean!</p>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[3]}>
 				<p>
-					There's an element to design where box-sizing really shines, at least in my opinion. That happens when working with pixels and
-					percentages. Often in responsive design (or any for that matter), you may want to use a percentage width, but add padding and
-					border. Without box-sizing, we end up with an element that is bigger than our page or parent containers. Subtracting pixels from
-					percentages is almost impossible to calculate and never accurate. But again, that is coming from me and I dislike math of any
-					sort.
+					Now that I've gone over how to improve your CSS through formatting, you can be I have something to say about formatting HTML.
+					Keeping your HTML clean is done through a process called "tabbing" which means indenting each new block of code so you can easily
+					see where one element ends and begins. This indentation can be done with a tab character or a number of spaces; I personally use
+					the tab key. As an example, here is unstructured HTML:
 				</p>
+				<CodeBlock header={'HTML'}>{cb14}</CodeBlock>
 				<p>
-					In the situation, box-sizing is amazing because again, it does the calculations for us. Let's add the following CSS instead to our
-					div:
+					It's difficult to tell where one element ends and another begins. If I wanted to add a new paragraph tag inside the
+					"polka-dot-trex" div, without formatted code, it takes longer to scan the code for correct placement. But, if we tab it out, we're
+					left with nice, readable code where new line/element insertion is easy.
 				</p>
-				<CodeBlock header={'CSS'}>{cb6}</CodeBlock>
-				<p>Here's what the dimensions of our div look like:</p>
-				<div className="image-wrapper">
-					<img src="/assets/images/articles/box-sizing-04.jpg" alt="Div dimensions" title="Div dimensions" loading="lazy" />
-				</div>
-				<p>
-					As I mentioned above, my browser width is at 1903 pixels. Without box-sizing, my box would overflow and create a nasty horizontal
-					scroll bar, because...
-				</p>
-				<p>
-					<strong>element size ( 1933px )</strong> = width ( 100% aka 1903px ) + padding ( 10px + 10px ) + border ( 5px + 5px )
-				</p>
-				<p>
-					And unfortunately, 1933 pixels is bigger than my screen width. And I'd like to highlight that: my screen width. Everyone's screen
-					width is going to be different sizes, so when using percentages, we can't as easily say, "Wellll, I think it'll always be 1903
-					pixels, so I'll just subtract this here and this here."
-				</p>
+				<CodeBlock header={'HTML'}>{cb15}</CodeBlock>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[4]}>
-				<p>When using box-sizing, honestly, I apply it to everything. At the top of my CSS, I usually add the following:</p>
-				<CodeBlock header={'CSS'}>{cb7}</CodeBlock>
 				<p>
-					If you're not familiar with "*" in CSS, it means all elements. Applying box-sizing to all elements covers us for mathematical
-					situations we might encounter when designing a layout. With box-sizing in place, we can focus on other things and not math. Shoo,
-					math. You're not welcome here.
+					I'm not going to tell you to comment ALL THE THINGS as that can get tiring really fast. However, where you think some one might
+					want to alter a color or a font face, it's' helpful to point out where to change that using comments.
 				</p>
+				<CodeBlock header={'CSS'}>{cb16}</CodeBlock>
+				<p>The above code only shows adding comments to CSS, but comments are available in pretty much all coding languages.</p>
+				<CodeBlock header={'CSS'}>{cb17}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb18}</CodeBlock>
 				<p>
-					As for browser support, unless you're using IE7 (???), you can pretty much{' '}
-					<a href="//caniuse.com/?search=box-sizing" target="_blank" rel="noreferrer">
-						use it with everything
-					</a>
-					. Go nuts. In my examples above, I include box-sizing vendor prefixes (-webkit-box-sizing and -moz-box-sizing), but these days,
-					it's really not necessary.
+					I'm not going to get into commenting for JavaScript, php, and all the other languages, but know that comments are your friends and
+					they are there for you to use to provide direction. Keep in mind that when using comments, they must be closed properly. So "/* "
+					should always be closed with " */" and vice versa, "". Otherwise, not closing out comments may result in entire blocks of HTML and
+					styles not rendering as they are nested inside a comment.
 				</p>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[5]}>
 				<p>
-					Earlier I mentioned that margin doesn't get calculated in the element width, but it takes up space, so don't rely on box-sizing
-					for it. We still have to account for margin. However, box-sizing is a very useful tool and if it's not in your CSS book of codes
-					yet, I would recommend adding it. Building your designs with this from the start will save you a lot of trouble.
+					I'd want to preface this section by saying, I love being able to use hosted font families for websites. Back when I began coding,
+					that was not an option and I was left to use standard, browser provided font styles. And even then, I had to determine what
+					percentage of that font worked on Mac and what percentage worked on Windows. These days, adding different fonts is amazingly easy
+					thanks in part to things like Google Fonts. New font styles don't end with Google either. We can get even more decorative by
+					uploading fonts to our web servers that are, of course, legal to use for web and turning them into font kits.
+				</p>
+				<p>
+					All of that being said, I completely understand the temptation to add Google Fonts to your templates. I'm not saying don't do it,
+					but what I am going to say is, be cautious about it. Inform people that they need to load a specific font to replicate the look of
+					a template and keep your font selections to a minimum. Let's say you want to add two fonts to your template: "Open Sans" and
+					"Roboto". The load time for these two fonts is not bad in the slightest, but when you start selecting different font weights (such
+					as bold and italic) or even adding more fonts, that increases the load time of a page.
+				</p>
+				<p>
+					Make people aware of fonts being added because of the template; don't sneak them into your code. A person might see you're using
+					"Open Sans" in the template and may already be loading that font on their site. Linking to it a second time would be useless and
+					an extra unnecessary resource that's loaded. Alternatively, provide font family fallbacks in your CSS so that if a person doesn't
+					want to load Google Fonts, they don't need to. Here's an example:
+				</p>
+				<CodeBlock header={'CSS'}>{cb19}</CodeBlock>
+				<p>
+					The above template will use "Open Sans" if that font is available. If not, the browser/operating system will try "Tahoma", then
+					"Arial", and then sans-serif, which is the generic font provided by the browser/operating system.
+				</p>
+			</ArticlesSection>
+
+			<ArticlesSection header={sections[6]}>
+				<p>
+					You've reached the end of this tutorial! Congrats! I have this nagging suspicion there was something else I needed to mention, but
+					I've forgotten. If anyone has any comments or questions about any of the above, let me know! Want me to cover another topic here?
+					I'd be happy to look into it.
 				</p>
 			</ArticlesSection>
 		</>
@@ -215,38 +242,167 @@ export const ProvidingCode = (props) => {
 };
 
 /* Code blocks */
-const cb1 = `<div class="boxy">I'm a box! Or maybe you are the box...?</div>`;
-const cb2 = `.boxy {
-	width: 700px;
-}`;
-const cb3 = `.boxy {
-	width: 700px;
+const cb1 = `<div id="display-coffee">
+	This is all the stuff that is unique and special to me.
+</div>`;
+const cb2 = `<div id="display-coffee dc">
+	This is all the stuff that is unique and special to me.
+</div>`;
+const cb3 = `<div id="display-coffee">
+	This is all the stuff that is unique and special to me.
+	<div class="eye-color">
+		Rainbow Sparkle
+	</div>
+</div>
+
+<div id="display-coffees-friend">
+	This is all the stuff that is unique to display coffee's friend.
+	<div class="eye-color">
+		Glittering ocean
+	</div>
+</div>`;
+const cb4 = `<h3>Table of Contents</h3>
+<a href="#thing-01">Thing 01</a>
+<a href="#thing-01">Thing 02</a>
+
+<h3 id="thing-01">Thing 01</h3>
+<div>Here's a thing.</div>
+
+<h3 id="thing-01">Thing 02</h3>
+<div>Here's another thing.</div>`;
+const cb5 = `<style>
+	.fancy-pants-div {
+		background: #ff00ff;
+		color: #fff;
+		padding: 10px;
+		border: 1px dashed red;
+	}
+</style>
+<div class="fancy-pants-div">Look at dem fancy pants.</div>`;
+const cb6 = `.fancy-pants-div {
+	background: #ff00ff;
+	color: #fff;
 	padding: 10px;
-	border: 5px solid #000;
+	border: 1px dashed red;
 }`;
-const cb4 = `.boxy {
-	width: 700px;
+const cb7 = `<div class="fancy-pants-div">Look at dem fancy pants.</div>`;
+const cb8 = `<div style="background: green; font-family: arial; color: #fff; padding: 20px;">Here's a green div.</div>
+<div style="background: purple; font-family: arial; color: #fff; padding: 10px;">Here's a purple div.</div>`;
+const cb9 = `<style>
+	.green-div {
+		background: green;
+		font-family: arial;
+		color: #fff;
+		padding: 20px;
+	}
+	.purple-div {
+		background: purple;
+		font-family: arial;
+		color: #fff;
+		padding: 10px;
+	}
+</style>
+<div class="green-div">Here's a green div.</div>
+<div class="purple-div">Here's a purple div.</div>`;
+const cb10 = `<style>
+	.green-div, .purple-div {
+		font-family: arial;
+		color: #fff;  
+	}
+	.green-div {
+		background: green;
+		padding: 20px;
+	}
+	.purple-div {
+		background: purple;
+		padding: 10px;
+	}
+</style>
+<div class="green-div">Here's a green div.</div>
+<div class="purple-div">Here's a purple div.</div>`;
+const cb11 = `.green-div {
+	background: green;
+	padding: 20px;
+}
+.random-style {
+	text-transform: uppercase;
+	font-size: 20px;
+}
+.a-new-style {
+	margin: 0 0 20px 0;
+}
+.green-div, .purple-div {
+	font-family: arial;
+	color: #fff;  
+}
+.got-style-yo {
+	float: left;
+	width: 200px;
+	height: 30px;
+}
+.purple-div {
+	background: purple;
 	padding: 10px;
-	border: 5px solid #000;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }`;
-const cb5 = `.boxy {
-	width: 670px;
+const cb12 = `.green-div, .purple-div {font-family:arial;color:#fff;}
+.green-div
+{
+    background: green;
+ padding: 20px; }
+.purple-div {
+
+
+background: purple; padding: 10px;
+   }`;
+const cb13 = `.green-div, .purple-div {
+	font-family: arial;
+	color: #fff;
+}
+.green-div {
+	background: green;
+	padding: 20px;
+}
+.purple-div {
+	background: purple;
 	padding: 10px;
-	border: 5px solid #000;
 }`;
-const cb6 = `.boxy {
-	width: 100%;
+const cb14 = `<div class="polka-dot-trex">I got some text for you right here.<p>Okay, but be nice!</p><img src="https://placecats.com/millie/300/150" /><div class="glow-in-the-dark-triceratops">Maybe we'll put some new text here.</div>
+<div class="dinosaur-broadway-musical"><p>What is this about?</p></div></div>`;
+const cb15 = `<div class="polka-dot-trex">
+	I got some text for you right here.
+
+	<p>Okay, but be nice!</p>
+
+	<img src="https://placecats.com/millie/300/150" />
+
+	<div class="glow-in-the-dark-triceratops">
+		Maybe we'll put some new text here.
+	</div>
+	
+	<div class="dinosaur-broadway-musical">
+		<p>What is this about?</p>
+	</div>
+</div>`;
+const cb16 = `.green-div, .purple-div {
+	font-family: arial; /* Change the font family here */
+	color: #fff; /* Change the font color here */
+}
+.green-div {
+	background: green; /* Green background color. Change to something else. */
+	padding: 20px;
+}
+.purple-div {
+	background: purple; /* Purple background color. Change to something else. */
 	padding: 10px;
-	border: 5px solid #000;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;    
 }`;
-const cb7 = `*, *:before, *:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;    
+const cb17 = `/* CSS Comment! */
+
+/* You can make fancy CSS Headers like this.
+========================================================================== */`;
+const cb18 = `<!-- HTML comment! -->
+
+<!-- Look at this though!
+I can span multiple lines. -->`;
+const cb19 = `.fonts-are-great {
+	font-family: "Open Sans", tahoma, arial, sans-serif;
 }`;
