@@ -126,10 +126,15 @@ export const StylingText = (props) => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb2}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb3}</CodeBlock>
-				<Preview className="preview-articles preview-font-families">
-					<div className="fonts-are-awesome">We're using font families! Woohoo!</div>
-				</Preview>
-				<p>As long as my computer knows what Tahoma is, it will use that font. Otherwise, it falls back to Calibri, then Arial, and so on.</p>
+				<Preview className="preview-articles preview-font-families" code={cb2} />
+				<p>
+					The first font listed is "Roboto" from{' '}
+					<a href="//fonts.google.com/specimen/Roboto" target="_blank" rel="noreferrer">
+						Google Fonts
+					</a>
+					. If that is not available for some strange reason, as long as my computer knows what "Tahoma" is, it will use that font.
+					Otherwise, it fallsback to "Calibri" and so on.
+				</p>
 				<p>
 					The above mostly relates to web safe fonts. Google fonts and font-face kits are an entirely different thing and I won't get into
 					that here. It's good practice to declare fallbacks for font families, but if you're using something like Google fonts or hosting
@@ -174,7 +179,7 @@ export const StylingText = (props) => {
 					<div className="definition-list-item">
 						<dt>% (Percentage)</dt>
 						<dd>
-							ercentages are perhaps the most scalable of the units as they resize with whatever font size your browser is set to. You
+							Percentages are perhaps the most scalable of the units as they resize with whatever font size your browser is set to. You
 							can change the font size of your browser by pressing 'Control' and '+' on Windows.
 						</dd>
 					</div>
@@ -201,16 +206,7 @@ export const StylingText = (props) => {
 				</dl>
 				<CodeBlock header={'HTML'}>{cb5}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb6}</CodeBlock>
-				<Preview className="preview-articles preview-font-size">
-					<div className="fonts-are-awesome">
-						Here we have some font that's set to 0.85em. With a body at a font size of 100%, this is about 14 pixels.
-						<div className="child">Here is a child element. Look how it's smaller, even though the value is 0.85em again.</div>
-					</div>
-					<div className="fonts-are-awesome-part-02">
-						This text, on the other hand, is set to 20px in font size.
-						<div className="child">And it's child is 20px as well regardless of the parent elements.</div>
-					</div>
-				</Preview>
+				<Preview className="preview-articles preview-font-size" code={cb5} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[2]}>
@@ -254,25 +250,14 @@ export const StylingText = (props) => {
 				<p>That might be a little confusing, so let's go over some examples. Yay!</p>
 				<CodeBlock header={'HTML'}>{cb8}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb9}</CodeBlock>
-				<Preview className="preview-articles preview-line-height-01">
-					<div className="fonts-are-awesome">
-						This is a long paragraph to show you how the line height looks. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-						do eiusmod tempor.
-					</div>
-				</Preview>
+				<Preview className="preview-articles preview-line-height-01" code={cb8} />
 				<p>
 					If we just add text to the div, the calculated line height is 24px. Now, let's add a child element with a different font size
 					that's bigger than the normal text.
 				</p>
 				<CodeBlock header={'HTML'}>{cb10}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb11}</CodeBlock>
-				<Preview className="preview-articles preview-line-height-02">
-					<div className="fonts-are-awesome">
-						This is a long paragraph to show you how the line height looks. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-						do eiusmod tempor.
-						<div className="fonts-are-awesome-part-02">This is a long paragraph to show you how the line height looks.</div>
-					</div>
-				</Preview>
+				<Preview className="preview-articles preview-line-height-02" code={cb10} />
 				<p>
 					The line height for that new div is calculated by the ems in the parent, which for a font size of 30px, is not very good.
 					Basically, we still have a line height of 24px, so our 30px font is starting to look a little cramped. The higher font value we
@@ -280,13 +265,7 @@ export const StylingText = (props) => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb12}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb13}</CodeBlock>
-				<Preview className="preview-articles preview-line-height-03">
-					<div className="fonts-are-awesome">
-						This is a long paragraph to show you how the line height looks. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-						do eiusmod tempor.
-						<div className="fonts-are-awesome-part-02">This is a long paragraph to show you how the line height looks.</div>
-					</div>
-				</Preview>
+				<Preview className="preview-articles preview-line-height-03" code={cb12} />
 				<p>
 					We still have a line height of 24px for any text in the first div. However, child elements are now calculating their line height
 					value based on the font size rather than a unit determined in the parent. Our child div now has a calculated line height of 45px
@@ -297,59 +276,264 @@ export const StylingText = (props) => {
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[3]}>
+				<CodeBlock header={'CSS'}>{cb14}</CodeBlock>
+				<h5>Values</h5>
+				<dl className="definition-list">
+					<div className="definition-list-item">
+						<dt>inherit</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>initial</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>normal</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>bold</dt>
+						<dd>Turns font bold.</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>lighter</dt>
+						<dd>The font is lighter.</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>bolder</dt>
+						<dd>The font is bolder.</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>numeric</dt>
+						<dd>Differing weights such as 100, 200, 300, 400, 500, 600, 700, 800 and 900.</dd>
+					</div>
+				</dl>
 				<p>
-					There's an element to design where box-sizing really shines, at least in my opinion. That happens when working with pixels and
-					percentages. Often in responsive design (or any for that matter), you may want to use a percentage width, but add padding and
-					border. Without box-sizing, we end up with an element that is bigger than our page or parent containers. Subtracting pixels from
-					percentages is almost impossible to calculate and never accurate. But again, that is coming from me and I dislike math of any
-					sort.
+					After all that confusing math about font size and line height, we're going to get into "text decorating" starting with the
+					property font weight. This property determines how bold or light your text is going to be.
 				</p>
 				<p>
-					In the situation, box-sizing is amazing because again, it does the calculations for us. Let's add the following CSS instead to our
-					div:
+					It is important to note that if you're using google fonts, certain fonts don't have a bold weight and if you use a value like bold
+					or some number it can't interpret, it won't change anything. <strong>For example:</strong> The font Droid Sans has two values -
+					400 and 700. If we choose 100 or 200 for a lighter version of this font, it does nothing. Likewise, if we choose 800 or 900 for a
+					bolder style, there's also no change. Adding a value of 800 or 900 to this font will be the same as 700. If you're looking for a
+					font with a lot of different weights, keep this in mind.
 				</p>
-				<CodeBlock header={'CSS'}>{cb6}</CodeBlock>
-				<p>Here's what the dimensions of our div look like:</p>
-				<div className="image-wrapper">
-					<img src="/assets/images/articles/box-sizing-04.jpg" alt="Div dimensions" title="Div dimensions" loading="lazy" />
-				</div>
-				<p>
-					As I mentioned above, my browser width is at 1903 pixels. Without box-sizing, my box would overflow and create a nasty horizontal
-					scroll bar, because...
-				</p>
-				<p>
-					<strong>element size ( 1933px )</strong> = width ( 100% aka 1903px ) + padding ( 10px + 10px ) + border ( 5px + 5px )
-				</p>
-				<p>
-					And unfortunately, 1933 pixels is bigger than my screen width. And I'd like to highlight that: my screen width. Everyone's screen
-					width is going to be different sizes, so when using percentages, we can't as easily say, "Wellll, I think it'll always be 1903
-					pixels, so I'll just subtract this here and this here."
-				</p>
+				<CodeBlock header={'HTML'}>{cb15}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb16}</CodeBlock>
+				<Preview className="preview-articles preview-font-weight" code={cb15} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[4]}>
-				<p>When using box-sizing, honestly, I apply it to everything. At the top of my CSS, I usually add the following:</p>
-				<CodeBlock header={'CSS'}>{cb7}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb17}</CodeBlock>
+				<h5>Values</h5>
+				<dl className="definition-list">
+					<div className="definition-list-item">
+						<dt>inherit</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>initial</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>normal</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>italic</dt>
+						<dd>
+							Looks for an italic version of the font if one is available. If there is none, it gets set to oblique. Italic fonts are
+							usually cursive or script like in nature.
+						</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>oblique</dt>
+						<dd>
+							A slanted version of the font used when an italic version is not present. If neither italic nor oblique are available, the
+							font becomes slanted to give it the effect of italics.
+						</dd>
+					</div>
+				</dl>
 				<p>
-					If you're not familiar with "*" in CSS, it means all elements. Applying box-sizing to all elements covers us for mathematical
-					situations we might encounter when designing a layout. With box-sizing in place, we can focus on other things and not math. Shoo,
-					math. You're not welcome here.
+					The font style property has some similarities with font weight. Setting a font style to italic will slant the font even if there
+					is not an italic version of the font. There is a difference though between using italic font style and a font that has an italic
+					variant. Sometimes this is very subtle, but just be aware if are using font-face kits where you do not have the italic version of
+					the font.
 				</p>
-				<p>
-					As for browser support, unless you're using IE7 (???), you can pretty much{' '}
-					<a href="//caniuse.com/?search=box-sizing" target="_blank" rel="noreferrer">
-						use it with everything
-					</a>
-					. Go nuts. In my examples above, I include box-sizing vendor prefixes (-webkit-box-sizing and -moz-box-sizing), but these days,
-					it's really not necessary.
-				</p>
+				<CodeBlock header={'HTML'}>{cb18}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb19}</CodeBlock>
+				<Preview className="preview-articles preview-font-style" code={cb18} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[5]}>
+				<CodeBlock header={'CSS'}>{cb20}</CodeBlock>
+				<h5>Values</h5>
+				<dl className="definition-list">
+					<div className="definition-list-item">
+						<dt>inherit</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>initial</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>normal</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>small-caps</dt>
+						<dd>Turns all characters to caps and decreases their size.</dd>
+					</div>
+				</dl>
 				<p>
-					Earlier I mentioned that margin doesn't get calculated in the element width, but it takes up space, so don't rely on box-sizing
-					for it. We still have to account for margin. However, box-sizing is a very useful tool and if it's not in your CSS book of codes
-					yet, I would recommend adding it. Building your designs with this from the start will save you a lot of trouble.
+					There's not much to say about the font variant property. The one thing you may find useful is the small-caps value. This value
+					will change everything to caps, but makes the rest of the text smaller. If you have a letter that is capped already, that letter
+					will appear as its normal size. The word "Cat" set to 16px font with small-caps leaves the "C" at 16px and the "at" will now be
+					uppercase, but a smaller size.
+				</p>
+				<CodeBlock header={'HTML'}>{cb21}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb22}</CodeBlock>
+				<Preview className="preview-articles preview-font-variant" code={cb21} />
+			</ArticlesSection>
+
+			<ArticlesSection header={sections[6]}>
+				<CodeBlock header={'CSS'}>{cb23}</CodeBlock>
+				<h5>Values</h5>
+				<dl className="definition-list">
+					<div className="definition-list-item">
+						<dt>inherit</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>initial</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>none</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>capitalize</dt>
+						<dd>
+							Capitalizes the first letter of every word. If another character, such as the second or third character is capitalized, it
+							does nothing to this character.
+						</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>lowercase</dt>
+						<dd>Changes all characters to lowercase.</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>uppercase</dt>
+						<dd>Changes all characters to uppercase.</dd>
+					</div>
+				</dl>
+				<p>
+					Text transform gives us the flexibility to change the formatting of the text without worrying about how a user has inputted
+					something. I often see a lot of forum admins asking their users to register in all caps or all lowercase, but if you are able to
+					in your CSS, this effect can usually be achieved using text transform. My thoughts: write text how it should be written; like
+					normal sentence case. Then, if needed, change it with text transform. This saves a lot of trouble down the road if you want to
+					switch styles.
+				</p>
+				<p>
+					One thing to note about the capitalize value is that it will not change subsequent letters that are already caps. If you have the
+					word "CAT", it stays "CAT" instead of "Cat". And unfortunately, you can't set a parent element to have a lowercase value and then
+					a child to have to have a capitalize value. I tried it; it doesn't work. :(
+				</p>
+				<CodeBlock header={'HTML'}>{cb24}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb25}</CodeBlock>
+				<Preview className="preview-articles preview-text-transform" code={cb24} />
+			</ArticlesSection>
+
+			<ArticlesSection header={sections[7]}>
+				<CodeBlock header={'CSS'}>{cb26}</CodeBlock>
+				<h5>Values</h5>
+				<dl className="definition-list">
+					<div className="definition-list-item">
+						<dt>inherit</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>initial</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>none</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>blink</dt>
+						<dd>
+							Makes the text blink or flash. Though you can use this property, in a lot of browsers it's disabled or doesn't work.
+							Probably for a good reason.
+						</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>line-through</dt>
+						<dd>Places a 1px line through the text.</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>overline</dt>
+						<dd>Places a 1px line above the text.</dd>
+					</div>
+					<div className="definition-list-item">
+						<dt>underline</dt>
+						<dd>Places a 1px line below the text.</dd>
+					</div>
+				</dl>
+				<p>
+					My favorite value out of all text decoration choices is "none". I state this because I often use the value "none" to remove the
+					underline from a link element. The other properties should be used mostly for decorative/emphasis purposes and I wouldn't
+					recommend using them on the bulk of your text as they can be distracting.
+				</p>
+				<p>
+					A little history about styling words that need to be underlined. Many years ago, there used to be a 'u' tag that was used for
+					underlining text, but in HTML 4 this was deprecated. In HTML5, it was brought back and redefined. If you need to underline text,
+					you should probably wrap that text in an element and style it using text decoration. Also, if you're underlining something in the
+					middle of a paragraph of text, do make sure it won't be mistaken for a link.
+				</p>
+				<CodeBlock header={'HTML'}>{cb27}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb28}</CodeBlock>
+				<Preview className="preview-articles preview-text-decoration" code={cb27} />
+			</ArticlesSection>
+
+			<ArticlesSection header={sections[8]}>
+				<CodeBlock header={'CSS'}>{cb29}</CodeBlock>
+				<h5>Values</h5>
+				<dl className="definition-list">
+					<div className="definition-list-item">
+						<dt>inherit</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>initial</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>normal</dt>
+					</div>
+					<div className="definition-list-item">
+						<dt>length</dt>
+						<dd>A defined value usually measured with something like %, px, em, pt, cm, etc.</dd>
+					</div>
+				</dl>
+				<p>
+					Letter spacing controls how much space is in-between each character. Positive values spread characters out, where negative values
+					bring the letters closer together. (You probably shouldn't use negative values too much. ;))
+				</p>
+				<CodeBlock header={'HTML'}>{cb30}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb31}</CodeBlock>
+				<Preview className="preview-articles preview-letter-spacing" code={cb30} />
+			</ArticlesSection>
+
+			<ArticlesSection header={sections[9]}>
+				<CodeBlock header={'CSS'}>{cb32}</CodeBlock>
+				<h5>Values</h5>
+				<p>
+					After going through all the above properties, we can combine some of these properties into one property called "font". This CSS
+					property accepts a few different values (as noted above). It can be useful if you want to declare a bunch of styles in one go.
+					This is the only shorthand I don't use that often. I find it easier to override font styles when they're not clumped together like
+					this.
+				</p>
+				<p>
+					If you're using the font property, you can leave certain values out and it should still work correctly. The two values that are
+					required are font size and font family.
+				</p>
+				<CodeBlock header={'HTML'}>{cb33}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb34}</CodeBlock>
+				<Preview className="preview-articles preview-font-shorthand" code={cb33} />
+			</ArticlesSection>
+
+			<ArticlesSection header={sections[10]}>
+				<p>
+					I hope you found this tutorial somewhat useful! There may be a second part to this that will go over things like text alignment,
+					HTML elements that are suited for text and more (as I think of it). So, go forth my lovers of text and style with the knowledge
+					you've been given!
 				</p>
 			</ArticlesSection>
 		</>
@@ -362,7 +546,7 @@ const cb2 = `<div class="fonts-are-awesome">
 	We're using font families! Woohoo!
 </div>`;
 const cb3 = `.fonts-are-awesome {
-	font-family: Tahoma, Calibri, Arial, sans-serif;
+	font-family: 'Roboto', Tahoma, Calibri, Arial, sans-serif;
 }`;
 const cb4 = `font-size: value;`;
 const cb5 = `<div class="fonts-are-awesome">
@@ -428,9 +612,9 @@ const cb15 = `<div class="fonts-are-awesome">
 	Light text (100 weight).
 </div>
 <div class="fonts-are-awesome-part-02">
-	Normal text (400 weight). Here we are using the font Roboto to demonstate.
+	Normal text (400 weight).
 </div>
-<div class="fonts-are-awesome-part03">
+<div class="fonts-are-awesome-part-03">
 	Bold text (900 weight).
 </div>`;
 const cb16 = `.fonts-are-awesome {
@@ -439,7 +623,7 @@ const cb16 = `.fonts-are-awesome {
 .fonts-are-awesome-part-02 {
 	font-weight: 400;
 }
-.fonts-are-awesome-part03 {
+.fonts-are-awesome-part-03 {
 	font-weight: 900;
 }`;
 const cb17 = `font-style: value;`;
@@ -449,10 +633,7 @@ const cb18 = `<div class="fonts-are-awesome">
 <div class="fonts-are-awesome-part-02">
 	This is not!
 </div>`;
-const cb19 = `.fonts-are-awesome, .fonts-are-awesome-part-02 {
-	font-family: Tahoma, Calibri, Arial, sans-serif;
-}
-.fonts-are-awesome {
+const cb19 = `.fonts-are-awesome {
 	font-style: italic;
 }
 .fonts-are-awesome-part-02 {
@@ -464,7 +645,6 @@ const cb21 = `<div class="fonts-are-awesome">
 </div>`;
 const cb22 = `.fonts-are-awesome {
 	font-variant: small-caps;
-	font-size: 16px;
 }`;
 const cb23 = `text-transform: value;`;
 const cb24 = `<div class="fonts-are-awesome">
@@ -473,7 +653,7 @@ const cb24 = `<div class="fonts-are-awesome">
 <div class="fonts-are-awesome-part-02">
 	THIS TEXT IS NOW ALL LOWERCASE. MAGIC!
 </div>
-<div class="fonts-are-awesome-part03">
+<div class="fonts-are-awesome-part-03">
 	this text is now all uppercase. more magic!
 </div>`;
 const cb25 = `.fonts-are-awesome {
@@ -482,7 +662,7 @@ const cb25 = `.fonts-are-awesome {
 .fonts-are-awesome-part-02 {
 	text-transform: lowercase;
 }
-.fonts-are-awesome-part03 {
+.fonts-are-awesome-part-03 {
 	text-transform: uppercase;
 }`;
 const cb26 = `text-decoration: value;`;
@@ -492,7 +672,7 @@ const cb27 = `<div class="fonts-are-awesome">
 <div class="fonts-are-awesome-part-02">
 	Text with a line above it.
 </div>
-<div class="fonts-are-awesome-part03">
+<div class="fonts-are-awesome-part-03">
 	Text with a line below it.
 </div>`;
 const cb28 = `.fonts-are-awesome {
@@ -501,7 +681,7 @@ const cb28 = `.fonts-are-awesome {
 .fonts-are-awesome-part-02 {
 	text-decoration: overline;
 }
-.fonts-are-awesome-part03 {
+.fonts-are-awesome-part-03 {
 	text-decoration: underline;
 }`;
 const cb29 = `letter-spacing: value;`;
@@ -524,15 +704,15 @@ const cb33 = `<div class="fonts-are-awesome">
 <div class="fonts-are-awesome-part-02">
 	Shorthand example 02.
 </div>
-<div class="fonts-are-awesome-part03">
+<div class="fonts-are-awesome-part-03">
 	Shorthand example 03.
 </div>`;
 const cb34 = `.fonts-are-awesome {
-	font: 12px Arial;
+	font: 14px 'Roboto', sans-serif;
 }
 .fonts-are-awesome-part-02 {
-	font: italic bold 12px Arial;
+	font: italic bold 14px 'Roboto', sans-serif;
 }
-.fonts-are-awesome-part03 {
-	font: italic small-caps bold 12px/16px Arial, sans-serif;
+.fonts-are-awesome-part-03 {
+	font: italic small-caps bold 14px/18px 'Roboto', sans-serif;
 }`;

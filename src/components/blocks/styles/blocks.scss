@@ -134,7 +134,8 @@
 		}
 		.preview-content {
 			background-color: theme.$color-02;
-			padding: theme.$spacing-x4;
+			padding: theme.$spacing-x4;			
+			font-family: theme.$font-family-03;
 			color: theme.$color-03;
 		}
 	}
