@@ -1,6 +1,7 @@
 /* Local components */
 import { Test } from '../content/_Test';
 import { NavigationMenus } from '../content/NavigationMenus';
+import { WishYouWereHere } from '../content/WishYouWereHere';
 
 export const cheatCodes = [
 	{
@@ -43,7 +44,9 @@ export const cheatCodes = [
 		id: 2,
 		name: 'Wish You Were Here',
 		date: '10.03.15',
-		component: Test,
+		updated: '02.02.25',
+		tags: 'HTML, CSS, Sass, Template',
+		component: WishYouWereHere,
 	},
 	{
 		id: 1,
@@ -56,7 +59,7 @@ export const cheatCodes = [
 		name: 'Navigation Menus',
 		date: '06.01.14',
 		updated: '02.02.25',
-		tags: 'HTML, CSS, Sass',
+		tags: 'HTML, CSS, Sass, Navigation, Layout',
 		component: NavigationMenus,
 	},
 ];
