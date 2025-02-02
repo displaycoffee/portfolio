@@ -5,10 +5,10 @@ const projectsPath = `${distPath}projects/`;
 export const projects = [
 	{
 		id: 30,
-		image: `${projectsPath}2022-09-14-display-coffee.jpg`,
-		thumb: `${projectsPath}2022-09-14-display-coffee-${thumbnailSize}.jpg`,
+		image: `${projectsPath}2022-09-14-displaycoffee.jpg`,
+		thumb: `${projectsPath}2022-09-14-displaycoffee-${thumbnailSize}.jpg`,
 		name: 'Portfolio',
-		date: '09.14.20',
+		date: '09.14.22',
 		technologies: 'HTML, CSS, Sass, JavaScript, React',
 		categories: 'Personal',
 		description: `The latest version of my portfolio. You're on it.`,
@@ -18,7 +18,7 @@ export const projects = [
 		image: `${projectsPath}2022-06-25-ff7-for-st-jude.jpg`,
 		thumb: `${projectsPath}2022-06-25-ff7-for-st-jude-${thumbnailSize}.jpg`,
 		name: 'FF7 for St. Jude',
-		date: '12.28.20',
+		date: '06.25.22',
 		technologies: 'HTML, CSS, Sass, JavaScript, React, Tiltify API',
 		categories: 'Miscellaneous',
 		description: `Since December 28, 2020, my husband began a charity Final Fantasy VII speedrun event to support St. Jude. We have done this event twice a year since then. I get to help him out a little and specifically made this page using the Tiltify API to pull in donations, challenges, and rewards for all supporting campaigns. Right now, it's not fully working, but it'll be up and running for the next event.`,
