@@ -3,27 +3,293 @@
 @use '../../../_config/styles/utils/_mixins';
 @use '../../../_config/styles/theme/_theme';
 
-//// ARTICLES
+//// CHEAT CODES
 //// --------------------------------------------------------------------------
 
 	// Style block
 	
-	.cheat-codes-header {
-		margin: 0 0 theme.$spacing-x8 0;
-		.cheat-codes-header-title {
-			& ~ .cheat-codes-header-date {
-				margin-top: -#{theme.$spacing-x2};
+	// Colors
+	$menu-01-color-01: #ffffff; // font
+	$menu-01-color-02: #4bc6f3; // font hover
+	$menu-01-color-03: #167192; // main background
+	$menu-01-color-04: #08212b; // border
+	$menu-01-color-05: #11566f; // sublist background
+	$menu-02-color-01: #ffffff; // font
+	$menu-02-color-02: #000000; // font hover
+	$menu-02-color-03: #0f5d21; // main background
+	$menu-02-color-04: #127f2c; // alternating background
+	$menu-03-color-01: #ffffff; // font
+	$menu-03-color-02: #461515; // font hover
+	$menu-03-color-03: #942929; // main background
+	$menu-03-color-04: #5c1b1b; // sublist background
+	$menu-03-color-05: #e54444; // sublist font hover
+
+	// Configuration
+
+	$menu-01-max-width: 100%; // max width of menu
+	$menu-01-font-family: Arial, Helvetica, sans-serif; // font family
+	$menu-01-font-size: 12px; // font size
+	$menu-01-spacing: 20px; // spacing for menu
+	$menu-01-items-per-row: 5; // number of navigation items in main row
+	$menu-02-max-width: 100%; // max width of menu
+	$menu-02-font-family: Arial, Helvetica, sans-serif; // font family
+	$menu-02-font-size: 12px; // font size
+	$menu-02-spacing: 20px; // spacing for menu
+	$menu-02-items-per-row: 5; // number of navigation items in main row
+	$menu-03-max-width: 100%; // max width of menu
+	$menu-03-font-family: Arial, Helvetica, sans-serif; // font family
+	$menu-03-font-size: 12px; // font size
+	$menu-03-spacing: 20px; // spacing for menu
+	$menu-03-items-per-row: 5; // number of navigation items in main row
+	$menu-03-arrow-size: 13px; // size of dropdown arrow
+
+	// Style block
+
+	.preview-cheat-codes {
+		&.preview-navigation-menus {
+			#dc-navigation-menu-01 {
+				max-width: $menu-01-max-width;
+				width: auto;
+				margin: 0 auto;
+				text-align: center;
+				&, & * {
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					font-family: $menu-01-font-family;
+					font-size: $menu-01-font-size;
+				}
+				ul {
+					&, li {
+						padding: 0;
+						margin: 0;
+						list-style: none;
+					}
+					li {
+						a, span {
+							display: block;
+							padding: $menu-01-spacing;
+							color: $menu-01-color-01;
+							text-decoration: none;
+						}
+						a:hover {
+							color: $menu-01-color-02;
+						}
+					}
+				}
+				.dc-navigation-list {
+					-webkit-flex-flow: row wrap;
+					flex-flow: row wrap;
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: -moz-flex;
+					display: flex;
+					-webkit-align-items: center;
+					align-items: center;
+					border-top: 1px solid $menu-01-color-04;
+					border-bottom: 1px solid $menu-01-color-04;
+					.dc-navigation-list-item {
+						position: relative;
+						min-width: 1px;
+						-webkit-flex: 0 1 auto;
+						-ms-flex: 0 1 auto;
+						-moz-flex: 0 1 auto;
+						flex: 0 1 auto;
+						width: calc(100% / $menu-01-items-per-row);
+						background-color: $menu-01-color-03;
+						border-left: 1px solid $menu-01-color-04;
+						&:hover {
+							background-color: $menu-01-color-05;
+						}
+						&:last-child {
+							border-right: 1px solid $menu-01-color-04;
+						}
+						&:hover .dc-navigation-sublist {
+							top: auto;
+							left: -1px;
+							right: -1px;
+						}
+						.dc-navigation-sublist {
+							position: absolute;
+							top: -9999px;
+							left: -9999px;
+							z-index: 100;
+							margin: 1px auto 0 auto;
+							border-left: 1px solid $menu-01-color-04;
+							border-right: 1px solid $menu-01-color-04;
+							background-color: $menu-01-color-05;
+							.dc-navigation-sublist-item {
+								border-bottom: 1px solid $menu-01-color-04;
+								a, span {
+									border: 0;
+									padding: calc($menu-01-spacing / 2);
+								}
+							}
+						}
+					}
+				}
 			}
-		}
-		.cheat-codes-header-date {
-			font-size: functions.em(12px, rem);
-		}
-	}
-	.preview-cheat-codes {}
-	.cheat-codes-top {
-		.cheat-codes-top-button {
-			.icon {
-				margin: 0 theme.$spacing-x2 0 0;
+			#dc-navigation-menu-02 {
+				max-width: $menu-02-max-width;
+				width: auto;
+				margin: 0 auto;
+				text-align: center;
+				&, & * {
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					font-family: $menu-02-font-family;
+					font-size: $menu-02-font-size;
+				}
+				ul {
+					&, li {
+						padding: 0;
+						margin: 0;
+						list-style: none;
+					}
+					li {
+						background-color: $menu-02-color-03;
+						a, span {
+							display: block;
+							padding: $menu-02-spacing;
+							color: $menu-02-color-01;
+							text-decoration: none;
+						}
+						a:hover {
+							color: $menu-02-color-02;
+						}
+					}
+				}
+				.dc-navigation-list {
+					-webkit-flex-flow: row wrap;
+					flex-flow: row wrap;
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: -moz-flex;
+					display: flex;
+					-webkit-align-items: center;
+					align-items: center;
+					.dc-navigation-list-item {
+						position: relative;
+						min-width: 1px;
+						-webkit-flex: 0 1 auto;
+						-ms-flex: 0 1 auto;
+						-moz-flex: 0 1 auto;
+						flex: 0 1 auto;
+						width: calc(100% / $menu-02-items-per-row);
+						&:nth-child(even), &:nth-child(even) .dc-navigation-sublist .dc-navigation-sublist-item:nth-child(even),
+						&:nth-child(odd) .dc-navigation-sublist .dc-navigation-sublist-item:nth-child(odd) {
+							background: $menu-02-color-04;
+						}
+						&:hover .dc-navigation-sublist {
+							top: auto;
+							left: 0;
+							right: 0;
+							background-color: $menu-02-color-04;
+						}
+						.dc-navigation-sublist {
+							position: absolute;
+							top: -9999px;
+							left: -9999px;
+							z-index: 100;
+							margin: 0 auto;
+							.dc-navigation-sublist-item {
+								a, span {
+									padding: calc($menu-02-spacing / 2);
+								}
+							}
+						}
+					}
+				}
+			}
+			#dc-navigation-menu-03 {
+				max-width: $menu-03-max-width;
+				width: auto;
+				margin: 0 auto;
+				text-align: center;
+				&, & * {
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					font-family: $menu-03-font-family;
+					font-size: $menu-03-font-size;
+				}
+				ul {
+					&, li {
+						padding: 0;
+						margin: 0;
+						list-style: none;
+					}
+					li {
+						a, span {
+							display: block;
+							padding: $menu-03-spacing;
+							color: $menu-03-color-01;
+							text-decoration: none;
+						}
+						a:hover {
+							color: $menu-03-color-02;
+						}
+					}
+				}
+				.dc-navigation-list {
+					-webkit-flex-flow: row wrap;
+					flex-flow: row wrap;
+					display: -webkit-flex;
+					display: -ms-flex;
+					display: -moz-flex;
+					display: flex;
+					-webkit-align-items: center;
+					align-items: center;
+					background-color: $menu-03-color-03;
+					.dc-navigation-list-item {
+						position: relative;
+						min-width: 1px;
+						-webkit-flex: 0 1 auto;
+						-ms-flex: 0 1 auto;
+						-moz-flex: 0 1 auto;
+						flex: 0 1 auto;
+						width: calc(100% / $menu-03-items-per-row);
+						&:hover .dc-navigation-sublist {
+							top: auto;
+							left: 0;
+							right: 0;
+							background-color: $menu-03-color-04;
+						}
+						.dc-navigation-sublist {
+							top: -9999px;
+							left: -9999px;
+							&, &:before {
+								position: absolute;
+								z-index: 100;
+								margin: 0 auto;
+							}
+							&:before {
+								content: '';
+								display: block;
+								width: 0;
+								height: 0;
+								border-left: $menu-03-arrow-size solid transparent;
+								border-right: $menu-03-arrow-size solid transparent;
+								border-bottom: $menu-03-arrow-size solid $menu-03-color-04;
+								top: -#{$menu-03-arrow-size};
+								left: 0;
+								right: 0;
+							}
+							.dc-navigation-sublist-item {
+								a, span {
+									padding: calc($menu-03-spacing / 2);
+								}
+								a:hover {
+									color: $menu-03-color-05;
+								}
+							}
+						}
+					}
+				}
+			}			
+			#dc-navigation-menu-01, #dc-navigation-menu-02 {
+				margin-bottom: theme.$spacing-x4;
 			}
 		}
 	}

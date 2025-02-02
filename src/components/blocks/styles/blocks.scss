@@ -113,7 +113,7 @@
 			}
 		}
 	}
-	.preview {
+	.output {
 		position: relative;
 		padding: $pixel-size 0;
 		&:before, &:after {
@@ -132,7 +132,7 @@
 		&:after {
 			bottom: 0;
 		}
-		.preview-content {
+		.output-content {
 			background-color: theme.$color-02;
 			padding: theme.$spacing-x4;			
 			font-family: theme.$font-family-03;

@@ -33,20 +33,9 @@ export const Articles = () => {
 	);
 };
 
-export const ArticlesIntroduction = (props) => {
-	const { children } = props;
-
-	return (
-		<div className="articles-introduction">
-			<h4>Introduction</h4>
-
-			{children}
-		</div>
-	);
-};
-
 export const ArticlesSection = (props) => {
-	const { header, children } = props;
+	let { header, scrollTop, children } = props;
+	scrollTop = typeof scrollTop == 'undefined' ? true : scrollTop;
 	const fallbackId = useId().replace(/:/g, '');
 	const context = useContext(Context);
 	const utils = context.utils;
@@ -57,11 +46,13 @@ export const ArticlesSection = (props) => {
 
 			{children}
 
-			<div className="articles-top">
-				<button className="articles-top-button a" onClick={(e) => utils.scrollTo(e, 'body')}>
-					<span className="icon icon-angle-up"></span>Back to top
-				</button>
-			</div>
+			{scrollTop ? (
+				<div className="articles-top">
+					<button className="articles-top-button a" onClick={(e) => utils.scrollTo(e, 'body')}>
+						<span className="icon icon-angle-up"></span>Back to top
+					</button>
+				</div>
+			) : null}
 		</section>
 	);
 };
@@ -88,17 +79,5 @@ export const ArticlesToc = (props) => {
 				))}
 			</ol>
 		</div>
-	);
-};
-
-export const ArticlesPreview = (props) => {
-	const { className, children } = props;
-	const previewClass = className ? ` articles-preview-${className}` : '';
-
-	return (
-		<>
-			<h5>Display / Output</h5>
-			<div className={`articles-preview${previewClass}`}>{children}</div>
-		</>
 	);
 };

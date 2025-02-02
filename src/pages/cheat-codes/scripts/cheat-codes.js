@@ -1,23 +1,62 @@
 /* Local components */
 import { Test } from '../content/_Test';
+import { NavigationMenus } from '../content/NavigationMenus';
 
 export const cheatCodes = [
 	{
+		id: 8,
+		name: 'Best Friends',
+		date: '05.01.16',
+		component: Test,
+	},
+	{
+		id: 7,
+		name: 'Dreaming of a White Christmas',
+		date: '01.17.16',
+		component: Test,
+	},
+	{
+		id: 6,
+		name: 'A Promise',
+		date: '10.03.15',
+		component: Test,
+	},
+	{
+		id: 5,
+		name: 'Dragony',
+		date: '10.03.15',
+		component: Test,
+	},
+	{
+		id: 4,
+		name: 'Velociraptor Pack',
+		date: '10.03.15',
+		component: Test,
+	},
+	{
+		id: 3,
+		name: 'Friends Not Food',
+		date: '10.03.15',
+		component: Test,
+	},
+	{
 		id: 2,
-		name: 'Box-Sizing: My Best Friend',
-		date: '04.30.16',
+		name: 'Wish You Were Here',
+		date: '10.03.15',
 		component: Test,
 	},
 	{
 		id: 1,
-		name: 'Providing Code',
-		date: '04.30.16',
+		name: 'Hello Content! (A Tabbing Script)',
+		date: '09.16.15',
 		component: Test,
 	},
 	{
 		id: 0,
-		name: 'Styling Text',
-		date: '05.30.15',
-		component: Test,
+		name: 'Navigation Menus',
+		date: '06.01.14',
+		updated: '02.02.25',
+		tags: 'HTML, CSS, Sass',
+		component: NavigationMenus,
 	},
 ];

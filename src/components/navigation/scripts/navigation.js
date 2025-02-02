@@ -15,7 +15,7 @@ export const navigation = [
 		url: '/cheat-codes',
 		showInNav: true,
 		isRoute: true,
-		hasChildren: false,
+		hasChildren: true,
 		component: CheatCodes,
 	},
 	{

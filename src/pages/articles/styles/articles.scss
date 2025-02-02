@@ -8,16 +8,16 @@
 
 	// Style block
 	
-	.preview-articles {
+	.output-articles {
 		font-size: 16px;
-		.preview-content {
+		.output-content {
 			font-size: 100%;
 			.fonts-are-awesome > * {
 				margin: theme.$spacing-x4 0 0 0;
 			}
 		}
-		&.preview-font-size {
-			.preview-content {
+		&.output-font-size {
+			.output-content {
 				.fonts-are-awesome, .fonts-are-awesome > .child {
 					font-size: 0.85em;
 				}
@@ -26,18 +26,18 @@
 				}
 			}
 		}
-		&.preview-line-height-01, &.preview-line-height-02, &.preview-line-height-03 {
-			.preview-content {
+		&.output-line-height-01, &.output-line-height-02, &.output-line-height-03 {
+			.output-content {
 				line-height: 1.5em;
 				.fonts-are-awesome-part-02 {
 					font-size: 30px;
 				}
 			}
 		}
-		&.preview-line-height-03 .preview-content {
+		&.output-line-height-03 .output-content {
 			line-height: 1.5;
 		}
-		&.preview-font-weight .preview-content {
+		&.output-font-weight .output-content {
 			.fonts-are-awesome {
 				font-weight: 100;
 			}
@@ -48,13 +48,13 @@
 				font-weight: 900;
 			}
 		}
-		&.preview-font-style .preview-content .fonts-are-awesome {
+		&.output-font-style .output-content .fonts-are-awesome {
 			font-style: italic;
 		}
-		&.preview-font-variant .preview-content .fonts-are-awesome {
+		&.output-font-variant .output-content .fonts-are-awesome {
 			font-variant: small-caps;
 		}
-		&.preview-text-transform .preview-content {
+		&.output-text-transform .output-content {
 			.fonts-are-awesome {
 				text-transform: capitalize;
 			}
@@ -65,7 +65,7 @@
 				text-transform: uppercase;
 			}
 		}
-		&.preview-text-decoration .preview-content {
+		&.output-text-decoration .output-content {
 			.fonts-are-awesome {
 				text-decoration: line-through;
 			}
@@ -76,7 +76,7 @@
 				text-decoration: underline;
 			}
 		}
-		&.preview-letter-spacing .preview-content {
+		&.output-letter-spacing .output-content {
 			.fonts-are-awesome {
 				letter-spacing: 5px;
 			}
@@ -84,7 +84,7 @@
 				letter-spacing: -3px;
 			}
 		}
-		&.preview-font-shorthand .preview-content {
+		&.output-font-shorthand .output-content {
 			.fonts-are-awesome {
 				font: 14px 'Roboto', sans-serif;
 			}
