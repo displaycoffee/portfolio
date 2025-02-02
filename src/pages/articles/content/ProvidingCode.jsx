@@ -1,15 +1,12 @@
 /* Local components */
-import { ArticlesHeader, ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
+import { ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
 import { CodeBlock } from '../../../components/blocks/Blocks';
 
-export const ProvidingCode = (props) => {
-	const { name, date } = props;
+export const ProvidingCode = () => {
 	const sections = ['Classes versus IDs', "Don't Be Generic", 'Formatting CSS', 'Tabbing', 'Commenting', 'Choosing Fonts', 'Closing'];
 
 	return (
 		<>
-			<ArticlesHeader name={name} date={date} />
-
 			<ArticlesIntroduction>
 				<p>
 					Let me start off this tutorial by saying I had no idea what to use as a title, so you get the most generic, not-witty title ever!

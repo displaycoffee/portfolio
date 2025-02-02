@@ -1,9 +1,8 @@
 /* Local components */
-import { ArticlesHeader, ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
+import { ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
 import { CodeBlock, Preview } from '../../../components/blocks/Blocks';
 
-export const StylingText = (props) => {
-	const { name, date } = props;
+export const StylingText = () => {
 	const sections = [
 		'Font Family',
 		'Font Size',
@@ -20,8 +19,6 @@ export const StylingText = (props) => {
 
 	return (
 		<>
-			<ArticlesHeader name={name} date={date} />
-
 			<ArticlesIntroduction>
 				<p>
 					This documentation is meant to teach a person how to style text with the magic of CSS! I won't go into to HTML elements commonly

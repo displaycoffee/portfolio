@@ -1,11 +1,14 @@
 /* React */
 import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
+/* Local styles */
+import './styles/contents.scss';
+
 /* Local scripts */
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Local components */
-import { PixelSection } from '../blocks/Blocks';
+import { HeaderIcon, PixelSection } from '../blocks/Blocks';
 
 export const Contents = (props) => {
 	const { contents, options } = props;
@@ -82,14 +85,24 @@ export const ContentsBody = (props) => {
 		back: navigation?.back ? navigation.back : false,
 	};
 
+	// Check if we have a header
+	const hasHeader = current?.name || current?.date ? true : false;
+
 	// Set component for body
 	const Body = current.component;
 
 	return showContents ? (
 		current ? (
 			<div id={`contents-${current.handle}`} className="contents spacing-reset">
+				{hasHeader ? (
+					<header className="contents-header">
+						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
+
+						{current?.date ? <p className="contents-header-date">Posted on {current.date}</p> : null}
+					</header>
+				) : null}
 				<div className="contents-body spacing-reset">
-					<Body name={current?.name} date={current?.date} />
+					<Body />
 				</div>
 
 				<PixelSection navigation={navigationProps} />

@@ -8,27 +8,16 @@
 
 	// Style block
 	
-	.articles-header {
-		margin: 0 0 theme.$spacing-x8 0;
-		.articles-header-title {
-			& ~ .articles-header-date {
-				margin-top: -#{theme.$spacing-x2};
-			}
-		}
-		.articles-header-date {
-			font-size: functions.em(12px, rem);
-		}
-	}
 	.preview-articles {
 		font-size: 16px;
 		.preview-content {
 			font-size: 100%;
-			.fonts-are-awesome > * {				
+			.fonts-are-awesome > * {
 				margin: theme.$spacing-x4 0 0 0;
 			}
 		}
-		&.preview-font-size {			
-			.preview-content {				
+		&.preview-font-size {
+			.preview-content {
 				.fonts-are-awesome, .fonts-are-awesome > .child {
 					font-size: 0.85em;
 				}
