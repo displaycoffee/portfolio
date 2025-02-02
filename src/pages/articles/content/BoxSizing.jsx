@@ -1,15 +1,12 @@
 /* Local components */
-import { ArticlesHeader, ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
+import { ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
 import { CodeBlock } from '../../../components/blocks/Blocks';
 
-export const BoxSizing = (props) => {
-	const { name, date } = props;
+export const BoxSizing = () => {
 	const sections = ['The Box Model', 'The "Problem"', 'The Solution', 'Shining Star', 'Usage / Compatibility', 'Closing'];
 
 	return (
 		<>
-			<ArticlesHeader name={name} date={date} />
-
 			<ArticlesIntroduction>
 				<p>
 					If a person asked me what my favorite CSS property was, I'd tell them without a doubt, box-sizing. Not familiar with box-sizing?

@@ -33,18 +33,6 @@ export const Articles = () => {
 	);
 };
 
-export const ArticlesHeader = (props) => {
-	const { name, date } = props;
-
-	return name || date ? (
-		<header className="articles-header">
-			{name ? <HeaderIcon className="articles-header-title">{name}</HeaderIcon> : null}
-
-			{date ? <p className="articles-header-date">Posted on {date}</p> : null}
-		</header>
-	) : null;
-};
-
 export const ArticlesIntroduction = (props) => {
 	const { children } = props;
 
