@@ -66,21 +66,33 @@ export const CodeBlock = (props) => {
 	);
 };
 
-export const Preview = (props) => {
+export const Output = (props) => {
 	const { className, code, children } = props;
-	const previewClass = className ? ` ${className}` : '';
-	const previewContentClass = 'preview-content spacing-reset';
+	const outputClass = className ? ` ${className}` : '';
+	const outputContentClass = 'output-content spacing-reset';
 
 	return (
 		<>
-			<h5>Display / Output</h5>
-			<div className={`preview${previewClass}`}>
+			<h5>Output</h5>
+			<div className={`output${outputClass}`}>
 				{children ? (
-					<div className={previewContentClass}>{children}</div>
+					<div className={outputContentClass}>{children}</div>
 				) : code ? (
-					<div className={previewContentClass} dangerouslySetInnerHTML={{ __html: code }}></div>
+					<div className={outputContentClass} dangerouslySetInnerHTML={{ __html: code }}></div>
 				) : null}
 			</div>
+		</>
+	);
+};
+
+export const Preview = (props) => {
+	const { className, children } = props;
+	const previewClass = className ? ` ${className}` : '';
+
+	return (
+		<>
+			<h5>Preview</h5>
+			<div className={`preview${previewClass}`}>{children}</div>
 		</>
 	);
 };

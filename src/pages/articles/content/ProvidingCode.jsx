@@ -1,5 +1,5 @@
 /* Local components */
-import { ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
+import { ArticlesToc, ArticlesSection } from '../Articles';
 import { CodeBlock } from '../../../components/blocks/Blocks';
 
 export const ProvidingCode = () => {
@@ -7,7 +7,7 @@ export const ProvidingCode = () => {
 
 	return (
 		<>
-			<ArticlesIntroduction>
+			<ArticlesSection header={'Introduction'} scrollTop={false}>
 				<p>
 					Let me start off this tutorial by saying I had no idea what to use as a title, so you get the most generic, not-witty title ever!
 					So, what is this tutorial for and what am I going to attempt to teach you all? If you're looking to create posting templates,
@@ -36,7 +36,7 @@ export const ProvidingCode = () => {
 				<p>
 					If I've grabbed your attention, feel free to read on! And as always, if you have more questions afterwards, I'm happy to answer.
 				</p>
-			</ArticlesIntroduction>
+			</ArticlesSection>
 
 			<ArticlesToc sections={sections} offset={50} />
 

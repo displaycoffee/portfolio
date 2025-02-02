@@ -1,5 +1,5 @@
 /* Local components */
-import { ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
+import { ArticlesToc, ArticlesSection } from '../Articles';
 import { CodeBlock } from '../../../components/blocks/Blocks';
 
 export const BoxSizing = () => {
@@ -7,13 +7,13 @@ export const BoxSizing = () => {
 
 	return (
 		<>
-			<ArticlesIntroduction>
+			<ArticlesSection header={'Introduction'} scrollTop={false}>
 				<p>
 					If a person asked me what my favorite CSS property was, I'd tell them without a doubt, box-sizing. Not familiar with box-sizing?
 					That's okay! The goal of this documentation is to teach you what it is and why it'll make writing CSS a little bit easier. Or, at
 					least, it does for people who are bad at math like myself.
 				</p>
-			</ArticlesIntroduction>
+			</ArticlesSection>
 
 			<ArticlesToc sections={sections} offset={50} />
 

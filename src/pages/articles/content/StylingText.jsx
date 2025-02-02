@@ -1,6 +1,6 @@
 /* Local components */
-import { ArticlesIntroduction, ArticlesToc, ArticlesSection } from '../Articles';
-import { CodeBlock, Preview } from '../../../components/blocks/Blocks';
+import { ArticlesToc, ArticlesSection } from '../Articles';
+import { CodeBlock, Output } from '../../../components/blocks/Blocks';
 
 export const StylingText = () => {
 	const sections = [
@@ -19,7 +19,7 @@ export const StylingText = () => {
 
 	return (
 		<>
-			<ArticlesIntroduction>
+			<ArticlesSection header={'Introduction'} scrollTop={false}>
 				<p>
 					This documentation is meant to teach a person how to style text with the magic of CSS! I won't go into to HTML elements commonly
 					used with text at this stage. (Maybe with another tutorial at a later date!)
@@ -51,7 +51,7 @@ export const StylingText = () => {
 					<strong>Please note:</strong> Not all CSS properties share the above values, but they are very common.
 				</p>
 				<p>If you have questions or concerns, please feel free to send me a PM or respond to this topic. Thanks for reading!</p>
-			</ArticlesIntroduction>
+			</ArticlesSection>
 
 			<ArticlesToc sections={sections} offset={50} />
 
@@ -123,7 +123,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb2}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb3}</CodeBlock>
-				<Preview className="preview-articles preview-font-families" code={cb2} />
+				<Output className="output-articles output-font-families" code={cb2} />
 				<p>
 					The first font listed is "Roboto" from{' '}
 					<a href="//fonts.google.com/specimen/Roboto" target="_blank" rel="noreferrer">
@@ -203,7 +203,7 @@ export const StylingText = () => {
 				</dl>
 				<CodeBlock header={'HTML'}>{cb5}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb6}</CodeBlock>
-				<Preview className="preview-articles preview-font-size" code={cb5} />
+				<Output className="output-articles output-font-size" code={cb5} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[2]}>
@@ -247,14 +247,14 @@ export const StylingText = () => {
 				<p>That might be a little confusing, so let's go over some examples. Yay!</p>
 				<CodeBlock header={'HTML'}>{cb8}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb9}</CodeBlock>
-				<Preview className="preview-articles preview-line-height-01" code={cb8} />
+				<Output className="output-articles output-line-height-01" code={cb8} />
 				<p>
 					If we just add text to the div, the calculated line height is 24px. Now, let's add a child element with a different font size
 					that's bigger than the normal text.
 				</p>
 				<CodeBlock header={'HTML'}>{cb10}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb11}</CodeBlock>
-				<Preview className="preview-articles preview-line-height-02" code={cb10} />
+				<Output className="output-articles output-line-height-02" code={cb10} />
 				<p>
 					The line height for that new div is calculated by the ems in the parent, which for a font size of 30px, is not very good.
 					Basically, we still have a line height of 24px, so our 30px font is starting to look a little cramped. The higher font value we
@@ -262,7 +262,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb12}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb13}</CodeBlock>
-				<Preview className="preview-articles preview-line-height-03" code={cb12} />
+				<Output className="output-articles output-line-height-03" code={cb12} />
 				<p>
 					We still have a line height of 24px for any text in the first div. However, child elements are now calculating their line height
 					value based on the font size rather than a unit determined in the parent. Our child div now has a calculated line height of 45px
@@ -315,7 +315,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb15}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb16}</CodeBlock>
-				<Preview className="preview-articles preview-font-weight" code={cb15} />
+				<Output className="output-articles output-font-weight" code={cb15} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[4]}>
@@ -354,7 +354,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb18}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb19}</CodeBlock>
-				<Preview className="preview-articles preview-font-style" code={cb18} />
+				<Output className="output-articles output-font-style" code={cb18} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[5]}>
@@ -383,7 +383,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb21}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb22}</CodeBlock>
-				<Preview className="preview-articles preview-font-variant" code={cb21} />
+				<Output className="output-articles output-font-variant" code={cb21} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[6]}>
@@ -429,7 +429,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb24}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb25}</CodeBlock>
-				<Preview className="preview-articles preview-text-transform" code={cb24} />
+				<Output className="output-articles output-text-transform" code={cb24} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[7]}>
@@ -478,7 +478,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb27}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb28}</CodeBlock>
-				<Preview className="preview-articles preview-text-decoration" code={cb27} />
+				<Output className="output-articles output-text-decoration" code={cb27} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[8]}>
@@ -505,7 +505,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb30}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb31}</CodeBlock>
-				<Preview className="preview-articles preview-letter-spacing" code={cb30} />
+				<Output className="output-articles output-letter-spacing" code={cb30} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[9]}>
@@ -523,7 +523,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{cb33}</CodeBlock>
 				<CodeBlock header={'CSS'}>{cb34}</CodeBlock>
-				<Preview className="preview-articles preview-font-shorthand" code={cb33} />
+				<Output className="output-articles output-font-shorthand" code={cb33} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[10]}>

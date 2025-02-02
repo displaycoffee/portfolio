@@ -2,7 +2,7 @@
 import { CheatCodesSection } from '../CheatCodes';
 import { CodeBlock, Preview } from '../../../components/blocks/Blocks';
 
-export const Test = () => {
+export const NavigationMenus = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Description'}>
