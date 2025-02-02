@@ -67,14 +67,19 @@ export const CodeBlock = (props) => {
 };
 
 export const Preview = (props) => {
-	const { className, children } = props;
+	const { className, code, children } = props;
 	const previewClass = className ? ` ${className}` : '';
+	const previewContentClass = 'preview-content spacing-reset';
 
 	return (
 		<>
 			<h5>Display / Output</h5>
 			<div className={`preview${previewClass}`}>
-				<div className="preview-content spacing-reset">{children}</div>
+				{children ? (
+					<div className={previewContentClass}>{children}</div>
+				) : code ? (
+					<div className={previewContentClass} dangerouslySetInnerHTML={{ __html: code }}></div>
+				) : null}
 			</div>
 		</>
 	);

@@ -22,7 +22,6 @@
 	.preview-articles {
 		font-size: 16px;
 		.preview-content {
-			font-family: Tahoma, Calibri, Arial, sans-serif;
 			font-size: 100%;
 			.fonts-are-awesome > * {				
 				margin: theme.$spacing-x4 0 0 0;
@@ -48,6 +47,64 @@
 		}
 		&.preview-line-height-03 .preview-content {
 			line-height: 1.5;
+		}
+		&.preview-font-weight .preview-content {
+			.fonts-are-awesome {
+				font-weight: 100;
+			}
+			.fonts-are-awesome-part-02 {
+				font-weight: 400;
+			}
+			.fonts-are-awesome-part-03 {
+				font-weight: 900;
+			}
+		}
+		&.preview-font-style .preview-content .fonts-are-awesome {
+			font-style: italic;
+		}
+		&.preview-font-variant .preview-content .fonts-are-awesome {
+			font-variant: small-caps;
+		}
+		&.preview-text-transform .preview-content {
+			.fonts-are-awesome {
+				text-transform: capitalize;
+			}
+			.fonts-are-awesome-part-02 {
+				text-transform: lowercase;
+			}
+			.fonts-are-awesome-part-03 {
+				text-transform: uppercase;
+			}
+		}
+		&.preview-text-decoration .preview-content {
+			.fonts-are-awesome {
+				text-decoration: line-through;
+			}
+			.fonts-are-awesome-part-02 {
+				text-decoration: overline;
+			}
+			.fonts-are-awesome-part-03 {
+				text-decoration: underline;
+			}
+		}
+		&.preview-letter-spacing .preview-content {
+			.fonts-are-awesome {
+				letter-spacing: 5px;
+			}
+			.fonts-are-awesome-part-02 {
+				letter-spacing: -3px;
+			}
+		}
+		&.preview-font-shorthand .preview-content {
+			.fonts-are-awesome {
+				font: 14px 'Roboto', sans-serif;
+			}
+			.fonts-are-awesome-part-02 {
+				font: italic bold 14px 'Roboto', sans-serif;
+			}
+			.fonts-are-awesome-part-03 {
+				font: italic small-caps bold 14px/18px 'Roboto', sans-serif;
+			}
 		}
 	}
 	.articles-top {
