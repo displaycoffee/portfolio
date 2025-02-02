@@ -29,17 +29,6 @@ export const NavigationMenus = () => {
 				</dl>
 			</CheatCodesSection>
 
-			<CheatCodesSection header={'Notes'}>
-				<ol>
-					<li>
-						There are three different styles. Pick whichever one you want and copy the appropriate code. You can also use the code for all
-						three if you really need that many menus.
-					</li>
-					<li>Place the HTML on the page. The menu should easily adapt to any containing element you place it in.</li>
-					<li>Change the links in the HTML to whatever you'd like them to link to. Remove or add links as needed.</li>
-				</ol>
-			</CheatCodesSection>
-
 			<CheatCodesSection header={'Q&A'}>
 				<p>
 					<strong>Q: How do I change the width of the menu?</strong>
@@ -49,7 +38,7 @@ export const NavigationMenus = () => {
 					for the following code:
 				</p>
 				<CodeBlock header={'CSS'}>{cb1}</CodeBlock>
-				<p>In the Sass version, there is a variable configuration for this:</p>
+				<p>In the Sass file, there is a variable configuration for this:</p>
 				<CodeBlock header={'Sass'}>{cb2}</CodeBlock>
 				<p>
 					<strong>Q: Can I add more/less main nav items?</strong>
@@ -65,7 +54,7 @@ export const NavigationMenus = () => {
 				<CodeBlock header={'CSS'}>{cb4}</CodeBlock>
 				<p>Six main nav items:</p>
 				<CodeBlock header={'CSS'}>{cb5}</CodeBlock>
-				<p>In the Sass version, there is a variable configuration for this:</p>
+				<p>In the Sass file, there is a variable configuration for this:</p>
 				<CodeBlock header={'Sass'}>{cb6}</CodeBlock>
 				<p>
 					<strong>Q: Can I change the menu id name?</strong>
@@ -77,14 +66,22 @@ export const NavigationMenus = () => {
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
+				<h5 className="h-remove-shadow">Source / repo</h5>
 				<p>
-					<strong>Source</strong> -{' '}
 					<a href="//github.com/displaycoffee/cheat-codes/tree/production/navigation-menus" target="_blank" rel="noreferrer">
-						navigation-menus
+						View @ displaycoffee
 					</a>
+				</p>
+				<p>
+					There are three different styles. Pick whichever one you want and copy the appropriate code below. You can also use the code for
+					all three if you really need that many menus.
 				</p>
 
 				<h5 className="h-remove-shadow">HTML</h5>
+				<p>
+					Copy the menu HTML and place it on the page. The menu should easily adapt to any containing element you place it in. Change the
+					links in the HTML to whatever you'd like them to link to. Remove or add links as needed.
+				</p>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
@@ -125,7 +122,10 @@ export const NavigationMenus = () => {
 				</dl>
 
 				<h5 className="h-remove-shadow">CSS</h5>
-				<p>If using CSS and not Sass, choose one of these links.</p>
+				<p>
+					If using CSS and not Sass, choose one of these links. The CSS can be added in a style block or in a stylesheet or it can be
+					imported into a React component.
+				</p>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
@@ -166,7 +166,10 @@ export const NavigationMenus = () => {
 				</dl>
 
 				<h5 className="h-remove-shadow">Sass</h5>
-				<p>If using Sass and not CSS, choose one of these links.</p>
+				<p>
+					If using Sass and not CSS, choose one of these links. Import the scss file into another scss file or it can be imported into a
+					React component.
+				</p>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
@@ -208,302 +211,116 @@ export const NavigationMenus = () => {
 			</CheatCodesSection>
 
 			<Preview className="preview-cheat-codes preview-navigation-menus">
-				<nav id="dc-navigation-menu-01" className="display-coffee dc-navigation-menu">
-					<ul className="dc-navigation-list unstyled">
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 1</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<span>Sub Menu Link 1</span>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<span>Link 2</span>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 3</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 4</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<span>Link 5</span>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-				<nav id="dc-navigation-menu-02" className="display-coffee dc-navigation-menu">
-					<ul className="dc-navigation-list unstyled">
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 1</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<span>Sub Menu Link 1</span>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<span>Link 2</span>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 3</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 4</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<span>Link 5</span>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-				<nav id="dc-navigation-menu-03" className="display-coffee dc-navigation-menu">
-					<ul className="dc-navigation-list unstyled">
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 1</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<span>Sub Menu Link 1</span>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<span>Link 2</span>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 3</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<a href="/">Link 4</a>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-
-						<li className="dc-navigation-list-item">
-							<span>Link 5</span>
-
-							<ul className="dc-navigation-sublist unstyled">
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 1</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 2</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 3</a>
-								</li>
-								<li className="dc-navigation-sublist-item">
-									<a href="/">Sub Menu Link 4</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
+				<NavigationMenusPreview id={'01'} />
+				<NavigationMenusPreview id={'02'} />
+				<NavigationMenusPreview id={'03'} />
 			</Preview>
 		</>
+	);
+};
+
+export const NavigationMenusPreview = (props) => {
+	const { id } = props;
+
+	return (
+		<nav id={`dc-navigation-menu-${id}`} className="dc-navigation-menu display-coffee">
+			<ul className="dc-navigation-list unstyled">
+				<li className="dc-navigation-list-item">
+					<a href="/">Link 1</a>
+
+					<ul className="dc-navigation-sublist unstyled">
+						<li className="dc-navigation-sublist-item">
+							<span>Sub Menu Link 1</span>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 2</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 3</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 4</a>
+						</li>
+					</ul>
+				</li>
+
+				<li className="dc-navigation-list-item">
+					<span>Link 2</span>
+
+					<ul className="dc-navigation-sublist unstyled">
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 1</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 2</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 3</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 4</a>
+						</li>
+					</ul>
+				</li>
+
+				<li className="dc-navigation-list-item">
+					<a href="/">Link 3</a>
+
+					<ul className="dc-navigation-sublist unstyled">
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 1</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 2</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 3</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 4</a>
+						</li>
+					</ul>
+				</li>
+
+				<li className="dc-navigation-list-item">
+					<a href="/">Link 4</a>
+
+					<ul className="dc-navigation-sublist unstyled">
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 1</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 2</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 3</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 4</a>
+						</li>
+					</ul>
+				</li>
+
+				<li className="dc-navigation-list-item">
+					<span>Link 5</span>
+
+					<ul className="dc-navigation-sublist unstyled">
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 1</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 2</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 3</a>
+						</li>
+						<li className="dc-navigation-sublist-item">
+							<a href="/">Sub Menu Link 4</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 	);
 };
 
