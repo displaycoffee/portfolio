@@ -62,7 +62,7 @@ export const ProvidingCode = () => {
 				<p>
 					Classes, on the other hand, are more generic. They can be used any number of times and you can have multiple classes on an
 					element. They should be used when similar styles apply to multiple elements. Using the example I provided earlier, say there's two
-					unique elements on the page: "display-coffee" and "display-coffees-friend". We're very different beings, but we might have similar
+					unique elements on the page: "displaycoffee" and "displaycoffees-friend". We're very different beings, but we might have similar
 					characteristics.
 				</p>
 				<CodeBlock header={'HTML'}>{cb3}</CodeBlock>
@@ -239,20 +239,20 @@ export const ProvidingCode = () => {
 };
 
 /* Code blocks */
-const cb1 = `<div id="display-coffee">
+const cb1 = `<div id="displaycoffee">
 	This is all the stuff that is unique and special to me.
 </div>`;
-const cb2 = `<div id="display-coffee dc">
+const cb2 = `<div id="displaycoffee dc">
 	This is all the stuff that is unique and special to me.
 </div>`;
-const cb3 = `<div id="display-coffee">
+const cb3 = `<div id="displaycoffee">
 	This is all the stuff that is unique and special to me.
 	<div class="eye-color">
 		Rainbow Sparkle
 	</div>
 </div>
 
-<div id="display-coffees-friend">
+<div id="displaycoffees-friend">
 	This is all the stuff that is unique to display coffee's friend.
 	<div class="eye-color">
 		Glittering ocean

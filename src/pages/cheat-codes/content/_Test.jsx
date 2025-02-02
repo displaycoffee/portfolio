@@ -122,7 +122,7 @@ export const Test = () => {
 					@import
 					url('//fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 				</style>
-				<div className="dc-wish-you-were-here display-coffee">
+				<div className="dc-wish-you-were-here displaycoffee">
 					<div className="dc-wish-you-were-here-banner">
 						<h3 className="dc-wish-you-were-here-title">Wish you were here...</h3>
 						<div className="dc-wish-you-were-here-circles">

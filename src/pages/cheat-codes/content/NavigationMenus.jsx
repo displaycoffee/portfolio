@@ -223,7 +223,7 @@ export const NavigationMenusPreview = (props) => {
 	const { id } = props;
 
 	return (
-		<nav id={`dc-navigation-menu-${id}`} className="dc-navigation-menu display-coffee">
+		<nav id={`dc-navigation-menu-${id}`} className="dc-navigation-menu displaycoffee">
 			<ul className="dc-navigation-list unstyled">
 				<li className="dc-navigation-list-item">
 					<a href="/">Link 1</a>
