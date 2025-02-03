@@ -1,6 +1,7 @@
 /* Local components */
 import { Test } from '../content/_Test';
 import { NavigationMenus } from '../content/NavigationMenus';
+import { HelloContent } from '../content/HelloContent';
 import { WishYouWereHere } from '../content/WishYouWereHere';
 
 export const cheatCodes = [
@@ -52,7 +53,9 @@ export const cheatCodes = [
 		id: 1,
 		name: 'Hello Content! (A Tabbing Script)',
 		date: '09.16.15',
-		component: Test,
+		updated: '02.02.25',
+		tags: 'HTML, CSS, Sass, JavaScript, React, Functionality, Template',
+		component: HelloContent,
 	},
 	{
 		id: 0,
