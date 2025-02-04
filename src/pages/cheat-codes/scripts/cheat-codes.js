@@ -1,8 +1,8 @@
 /* Local components */
-import { Test } from '../content/_Test';
-import { NavigationMenus } from '../content/NavigationMenus';
-import { HelloContent } from '../content/HelloContent';
-import { WishYouWereHere } from '../content/WishYouWereHere';
+import { Test } from '../content/_test/Test';
+import { NavigationMenus } from '../content/navigation-menus/NavigationMenus';
+import { HelloContent } from '../content/hello-content/HelloContent';
+import { WishYouWereHere } from '../content/wish-you-were-here/WishYouWereHere';
 
 export const cheatCodes = [
 	{

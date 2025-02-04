@@ -1,6 +1,6 @@
 /* Local components */
-import { CheatCodesSection } from '../CheatCodes';
-import { CodeBlock, Preview } from '../../../components/blocks/Blocks';
+import { CheatCodesSection } from '../../CheatCodes';
+import { CodeBlock, Preview } from '../../../../components/blocks/Blocks';
 
 export const NavigationMenus = () => {
 	return (
@@ -44,9 +44,9 @@ export const NavigationMenus = () => {
 					<strong>Q: Can I add more/less main nav items?</strong>
 				</p>
 				<p>
-					<strong>A:</strong> Of course, but you'll need to adjust the width ofr the main nav items. By default, the menu is set up with
-					five nav links at a 20% width (5 x 20 = 100). If you want to add six nav menus for example, adjust your width by dividing the
-					number of nav items with 100 and edit the HTML to contain the new link.
+					<strong>A:</strong> Of course, but you'll need to adjust the width of the main nav items. By default, the menu is set up with five
+					nav links at a 20% width (5 x 20 = 100). If you want to add six nav menus for example, adjust your width by dividing the number of
+					nav items with 100 and edit the HTML to contain the new link.
 				</p>
 				<p>Four main nav items:</p>
 				<CodeBlock header={'CSS'}>{cb3}</CodeBlock>
@@ -122,10 +122,7 @@ export const NavigationMenus = () => {
 				</dl>
 
 				<h5 className="h-remove-shadow">CSS</h5>
-				<p>
-					If using CSS and not Sass, choose one of these links. The CSS can be added in a style block or in a stylesheet or it can be
-					imported into a React component.
-				</p>
+				<p>If using CSS and not Sass, copy the styles from the links below and add according to your preferred method.</p>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
@@ -164,12 +161,13 @@ export const NavigationMenus = () => {
 						</dd>
 					</div>
 				</dl>
+				<CodeBlock header={'Style block'}>{cb7}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{cb8}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{cb9}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb10}</CodeBlock>
 
 				<h5 className="h-remove-shadow">Sass</h5>
-				<p>
-					If using Sass and not CSS, choose one of these links. Import the scss file into another scss file or it can be imported into a
-					React component.
-				</p>
+				<p>If using Sass and not CSS, copy the styles from the links below and add according to your preferred method.</p>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
@@ -208,6 +206,8 @@ export const NavigationMenus = () => {
 						</dd>
 					</div>
 				</dl>
+				<CodeBlock header={'Sass import'}>{cb11}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb12}</CodeBlock>
 			</CheatCodesSection>
 
 			<Preview className="preview-cheat-codes preview-navigation-menus">
@@ -339,3 +339,12 @@ const cb5 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item
 	width: 16.66%;
 }`;
 const cb6 = `$menu-items-per-row: 5; // number of navigation items in main row`;
+const cb7 = `<style>
+	/* Copied styles go here */
+</style>`;
+const cb8 = `<!-- Copy styles and paste into stylesheet -->
+<link rel="stylesheet" href="styles.css" />`;
+const cb9 = `@import url('navigation-menus.css');`;
+const cb10 = `@import 'navigation-menus';`;
+const cb11 = `@import 'navigation-menus';`;
+const cb12 = `import 'navigation-menus.scss';`;
