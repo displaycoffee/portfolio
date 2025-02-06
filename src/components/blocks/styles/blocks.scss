@@ -113,6 +113,10 @@
 			}
 		}
 	}
+	.code-inline {
+		padding: calc(theme.$spacing-x1 / 2) theme.$spacing-x1;
+		@include mixins.position($type: relative, $top: -2px);
+	}
 	.output {
 		position: relative;
 		padding: $pixel-size 0;
