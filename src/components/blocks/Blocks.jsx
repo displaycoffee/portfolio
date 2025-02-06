@@ -66,6 +66,13 @@ export const CodeBlock = (props) => {
 	);
 };
 
+export const CodeInline = (props) => {
+	let { className, children } = props;
+	const codeClass = className ? `${className} ` : '';
+
+	return <code className={`${codeClass}code-inline`}>{children}</code>;
+};
+
 export const Output = (props) => {
 	const { className, code, children } = props;
 	const outputClass = className ? ` ${className}` : '';

@@ -1,17 +1,10 @@
 /* Local components */
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, Preview } from '../../../../components/blocks/Blocks';
+import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
 
 export const NavigationMenus = () => {
 	return (
 		<>
-			<CheatCodesSection header={'Description'}>
-				<p>
-					Using unordered lists, this code creates navigation menus with hover effects. You can change the colors and add things to the CSS.
-					Most of what I have in there is a base.
-				</p>
-			</CheatCodesSection>
-
 			<CheatCodesSection header={'Information'}>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -20,49 +13,13 @@ export const NavigationMenus = () => {
 					</div>
 					<div className="definition-list-item">
 						<dt>Languages</dt>
-						<dd>HTML, CSS or Sass</dd>
+						<dd>HTML or React, CSS or Sass</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Responsive</dt>
 						<dd>Mostly, but might get squished on small screens</dd>
 					</div>
 				</dl>
-			</CheatCodesSection>
-
-			<CheatCodesSection header={'Q&A'}>
-				<p>
-					<strong>Q: How do I change the width of the menu?</strong>
-				</p>
-				<p>
-					<strong>A:</strong> By default, each menu has a max-width of 100%. You can lower, increase, or change the value to a px unit. Look
-					for the following code:
-				</p>
-				<CodeBlock header={'CSS'}>{cb1}</CodeBlock>
-				<p>In the Sass file, there is a variable configuration for this:</p>
-				<CodeBlock header={'Sass'}>{cb2}</CodeBlock>
-				<p>
-					<strong>Q: Can I add more/less main nav items?</strong>
-				</p>
-				<p>
-					<strong>A:</strong> Of course, but you'll need to adjust the width of the main nav items. By default, the menu is set up with five
-					nav links at a 20% width (5 x 20 = 100). If you want to add six nav menus for example, adjust your width by dividing the number of
-					nav items with 100 and edit the HTML to contain the new link.
-				</p>
-				<p>Four main nav items:</p>
-				<CodeBlock header={'CSS'}>{cb3}</CodeBlock>
-				<p>Five main nav items:</p>
-				<CodeBlock header={'CSS'}>{cb4}</CodeBlock>
-				<p>Six main nav items:</p>
-				<CodeBlock header={'CSS'}>{cb5}</CodeBlock>
-				<p>In the Sass file, there is a variable configuration for this:</p>
-				<CodeBlock header={'Sass'}>{cb6}</CodeBlock>
-				<p>
-					<strong>Q: Can I change the menu id name?</strong>
-				</p>
-				<p>
-					<strong>A:</strong> You can change the menu id (dc-navigation-menu-01, dc-navigation-menu-02, dc-navigation-menu-03) to whatever
-					you'd like, just make sure you make changes in both the CSS and HTML.
-				</p>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
@@ -120,6 +77,29 @@ export const NavigationMenus = () => {
 						</dd>
 					</div>
 				</dl>
+				<p>
+					To add more menu items, add additional <CodeInline>dc-navigation-list-item</CodeInline> or{' '}
+					<CodeInline>dc-navigation-sublist-item</CodeInline> elements inside the HTML. If adding more{' '}
+					<CodeInline>dc-navigation-list-item</CodeInline> elements, you'll need to adjust the width of the main navigation items. See the
+					CSS or Sass examples below.
+				</p>
+
+				<h5 className="h-remove-shadow">React</h5>
+				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
+				<p>
+					<a
+						href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/NavigationMenus.jsx"
+						target="_blank"
+						rel="noreferrer"
+					>
+						navigation-menus/NavigationMenus.jsx
+					</a>
+				</p>
+				<CodeBlock header={'React import'}>{cb1}</CodeBlock>
+				<CodeBlock header={'React component'}>{cb2}</CodeBlock>
+				<p>
+					The component accepts an <CodeInline>id</CodeInline> prop which is the id of the menu you want to use.
+				</p>
 
 				<h5 className="h-remove-shadow">CSS</h5>
 				<p>If using CSS and not Sass, copy the styles from the links below and add according to your preferred method.</p>
@@ -161,10 +141,21 @@ export const NavigationMenus = () => {
 						</dd>
 					</div>
 				</dl>
-				<CodeBlock header={'Style block'}>{cb7}</CodeBlock>
-				<CodeBlock header={'Stylesheet'}>{cb8}</CodeBlock>
-				<CodeBlock header={'CSS import'}>{cb9}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb10}</CodeBlock>
+				<CodeBlock header={'Style block'}>{cb3}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{cb4}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{cb5}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb6}</CodeBlock>
+				<p>
+					By default, each menu has a <CodeInline>max-width</CodeInline> of <CodeInline>100%</CodeInline>. You can lower, increase, or
+					change the value to a px unit.
+				</p>
+				<CodeBlock header={'CSS'}>{cb7}</CodeBlock>
+				<p>If adding more navigation items, adjust the widths per the number of items. Four items:</p>
+				<CodeBlock header={'CSS'}>{cb8}</CodeBlock>
+				<p>Five items:</p>
+				<CodeBlock header={'CSS'}>{cb9}</CodeBlock>
+				<p>Six items:</p>
+				<CodeBlock header={'CSS'}>{cb10}</CodeBlock>
 
 				<h5 className="h-remove-shadow">Sass</h5>
 				<p>If using Sass and not CSS, copy the styles from the links below and add according to your preferred method.</p>
@@ -208,10 +199,16 @@ export const NavigationMenus = () => {
 				</dl>
 				<CodeBlock header={'Sass import'}>{cb11}</CodeBlock>
 				<CodeBlock header={'React import'}>{cb12}</CodeBlock>
+				<p>
+					To change the <CodeInline>max-width</CodeInline> of each menu, there is a variable configuration available.
+				</p>
+				<CodeBlock header={'Sass'}>{cb13}</CodeBlock>
+				<p>To add or remove navigation items:</p>
+				<CodeBlock header={'Sass'}>{cb14}</CodeBlock>
 			</CheatCodesSection>
 
 			<Preview className="preview-cheat-codes preview-navigation-menus">
-				<NavigationMenusPreview id={'01'} />
+				<NavigationMenusPreview />
 				<NavigationMenusPreview id={'02'} />
 				<NavigationMenusPreview id={'03'} />
 			</Preview>
@@ -220,7 +217,8 @@ export const NavigationMenus = () => {
 };
 
 export const NavigationMenusPreview = (props) => {
-	const { id } = props;
+	let { id } = props;
+	id = typeof id == 'undefined' ? '01' : id;
 
 	return (
 		<nav id={`dc-navigation-menu-${id}`} className="dc-navigation-menu displaycoffee">
@@ -325,26 +323,28 @@ export const NavigationMenusPreview = (props) => {
 };
 
 /* Code blocks */
-const cb1 = `#dc-navigation-menu-01 {
-	max-width: 100%;
-}`;
-const cb2 = `$menu-max-width: 100%; // max width of menu`;
-const cb3 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
-	width: 25%;
-}`;
-const cb4 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
-	width: 20%;
-}`;
-const cb5 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
-	width: 16.66%;
-}`;
-const cb6 = `$menu-items-per-row: 5; // number of navigation items in main row`;
-const cb7 = `<style>
+const cb1 = `import { NavigationMenus } from './NavigationMenus';`;
+const cb2 = `<NavigationMenus id={'01'} />`;
+const cb3 = `<style>
 	/* Copied styles go here */
 </style>`;
-const cb8 = `<!-- Copy styles and paste into stylesheet -->
-<link rel="stylesheet" href="styles.css" />`;
-const cb9 = `@import url('navigation-menus.css');`;
-const cb10 = `@import 'navigation-menus';`;
-const cb11 = `@import 'navigation-menus';`;
+const cb4 = `<!-- Copy styles and paste into stylesheet -->
+<link rel="stylesheet" href="navigation-menus.css" />`;
+const cb5 = `@import url('navigation-menus.css');`;
+const cb6 = `@import 'navigation-menus.css';`;
+const cb7 = `#dc-navigation-menu-01 {
+	max-width: 100%;
+}`;
+const cb8 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
+	width: 25%;
+}`;
+const cb9 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
+	width: 20%;
+}`;
+const cb10 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
+	width: 16.66%;
+}`;
+const cb11 = `@import 'navigation-menus.scss';`;
 const cb12 = `import 'navigation-menus.scss';`;
+const cb13 = `$menu-max-width: 100%; // max width of menu`;
+const cb14 = `$menu-items-per-row: 5; // number of navigation items in main row`;

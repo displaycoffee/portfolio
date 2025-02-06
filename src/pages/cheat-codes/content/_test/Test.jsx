@@ -1,14 +1,10 @@
 /* Local components */
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, Preview } from '../../../../components/blocks/Blocks';
+import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
 
 export const Test = () => {
 	return (
 		<>
-			<CheatCodesSection header={'Description'}>
-				<p>A summer-themed template. Not related to the Pink Floyd song.</p>
-			</CheatCodesSection>
-
 			<CheatCodesSection header={'Information'}>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -17,7 +13,7 @@ export const Test = () => {
 					</div>
 					<div className="definition-list-item">
 						<dt>Languages</dt>
-						<dd>HTML, CSS or Sass</dd>
+						<dd>HTML or React, CSS or Sass</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Responsive</dt>
@@ -35,41 +31,10 @@ export const Test = () => {
 				</dl>
 			</CheatCodesSection>
 
-			<CheatCodesSection header={'Q&A'}>
-				<p>
-					<strong>Q: How do I change the max-width of the template?</strong>
-				</p>
-				<p>
-					<strong>A:</strong> At the 768px breakpoint rule, Look for the following code:
-				</p>
-				<CodeBlock header={'CSS'}>{cb1}</CodeBlock>
-				<p>In the Sass, there is a variable configuration for this:</p>
-				<CodeBlock header={'Sass'}>{cb2}</CodeBlock>
-				<p>
-					<strong>Q: Where are the fonts coming from?</strong>
-				</p>
-				<p>
-					<strong>A:</strong> The fonts are from{' '}
-					<a href="//fonts.google.com" target="_blank" rel="noreferrer">
-						Google Fonts
-					</a>{' '}
-					and are imported into the CSS files. You can change the fonts to whatever you'd like.
-				</p>
-				<CodeBlock header={'CSS'}>{cb3}</CodeBlock>
-				<p>
-					<strong>Q: How do I change the image?</strong>
-				</p>
-				<p>
-					<strong>A:</strong> The image is a background image in the styles. You can change the background image by updating the below url.
-					If possible, please re-host any images and upload to your own server.
-				</p>
-				<CodeBlock header={'CSS'}>{cb4}</CodeBlock>
-			</CheatCodesSection>
-
 			<CheatCodesSection header={'Usage'}>
 				<h5 className="h-remove-shadow">Source / repo</h5>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/wish-you-were-here" target="_blank" rel="noreferrer">
+					<a href="//github.com/displaycoffee/cheat-codes/tree/production/test" target="_blank" rel="noreferrer">
 						View @ displaycoffee
 					</a>
 				</p>
@@ -77,47 +42,68 @@ export const Test = () => {
 				<h5 className="h-remove-shadow">HTML</h5>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.html"
-						target="_blank"
-						rel="noreferrer"
-					>
-						wish-you-were-here/wish-you-were-here.html
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/test/test.html" target="_blank" rel="noreferrer">
+						test/test.html
 					</a>
 				</p>
+
+				<h5 className="h-remove-shadow">React</h5>
+				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
+				<p>
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/test/Test.jsx" target="_blank" rel="noreferrer">
+						test/Test.jsx
+					</a>
+				</p>
+				<CodeBlock header={'React import'}>{cb1}</CodeBlock>
+				<CodeBlock header={'React component'}>{cb2}</CodeBlock>
+
+				<h5 className="h-remove-shadow">CSS or Sass</h5>
+				<p>
+					The fonts are from{' '}
+					<a href="//fonts.google.com" target="_blank" rel="noreferrer">
+						Google Fonts
+					</a>{' '}
+					and are imported into the CSS files. You can change the fonts to whatever you'd like.
+				</p>
+				<CodeBlock header={'Fonts'}>{cb3}</CodeBlock>
+				<p>
+					The image is a background image in the styles and can be altered by updating the below url. If possible, please re-host any images
+					and upload to your own server.
+				</p>
+				<CodeBlock header={'Images'}>{cb4}</CodeBlock>
 
 				<h5 className="h-remove-shadow">CSS</h5>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.css"
-						target="_blank"
-						rel="noreferrer"
-					>
-						wish-you-were-here/wish-you-were-here.css
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/test/test.css" target="_blank" rel="noreferrer">
+						test/test.css
 					</a>
 				</p>
 				<CodeBlock header={'Style block'}>{cb5}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{cb6}</CodeBlock>
 				<CodeBlock header={'CSS import'}>{cb7}</CodeBlock>
 				<CodeBlock header={'React import'}>{cb8}</CodeBlock>
+				<p>
+					To change the <CodeInline>max-width</CodeInline>, look for the following code at the 768px breakpoint rule:
+				</p>
+				<CodeBlock header={'CSS'}>{cb9}</CodeBlock>
 
 				<h5 className="h-remove-shadow">Sass</h5>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
-						wish-you-were-here/wish-you-were-here.scss
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/test/test.scss" target="_blank" rel="noreferrer">
+						test/test.scss
 					</a>
 				</p>
-				<CodeBlock header={'Sass import'}>{cb9}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb10}</CodeBlock>
+				<CodeBlock header={'Sass import'}>{cb10}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb11}</CodeBlock>
+				<p>
+					There is a variable configuration to change the <CodeInline>max-width</CodeInline> of the template:
+				</p>
+				<CodeBlock header={'Sass'}>{cb12}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className="preview-cheat-codes preview-wish-you-were-here">
+			<Preview className="preview-cheat-codes preview-test">
 				<TestPreview />
 			</Preview>
 		</>
@@ -126,25 +112,14 @@ export const Test = () => {
 
 export const TestPreview = () => {
 	return (
-		<div className="dc-wish-you-were-here displaycoffee">
-			<div className="dc-wish-you-were-here-banner">
-				<h3 className="dc-wish-you-were-here-title">Wish you were here...</h3>
-				<div className="dc-wish-you-were-here-circles">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
+		<div className="dc-test displaycoffee">
+			<div className="dc-test-banner">
+				<h3 className="dc-test-title">Wish you were here...</h3>
+				<div className="dc-test-circles"></div>
 			</div>
-			<div className="dc-wish-you-were-here-content">
-				<div className="dc-wish-you-were-here-row">
-					<div className="dc-wish-you-were-here-column dc-wish-you-were-here-column-01">
+			<div className="dc-test-content">
+				<div className="dc-test-row">
+					<div className="dc-test-column dc-test-column-01">
 						<dl>
 							<dt>Name:</dt>
 							<dd>Beach Goer</dd>
@@ -167,14 +142,14 @@ export const TestPreview = () => {
 						</dl>
 						<p>
 							<a href="/">Link 01</a>
-							<span className="dc-wish-you-were-here-separator"></span>
+							<span className="dc-test-separator"></span>
 							<a href="/">Link 02</a>
-							<span className="dc-wish-you-were-here-separator"></span>
+							<span className="dc-test-separator"></span>
 							<a href="/">Link 03</a>
 						</p>
 					</div>
-					<div className="dc-wish-you-were-here-column dc-wish-you-were-here-column-02">
-						<h4 className="dc-wish-you-were-here-title">Biography</h4>
+					<div className="dc-test-column dc-test-column-02">
+						<h4 className="dc-test-title">Biography</h4>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor omnis est quam accusantium! Ut corporis consequatur,{' '}
 							<a href="/">nisi assumenda veniam</a>, necessitatibus. Obcaecati porro optio fuga quod itaque, quibusdam odit qui nobis.
@@ -195,18 +170,20 @@ export const TestPreview = () => {
 };
 
 /* Code blocks */
-const cb1 = `.dc-wish-you-were-here {
-	max-width: 650px;
-}`;
-const cb2 = `$wish-you-were-here-breakpoint: 768px; // breakpoint for desktop styles`;
+const cb1 = `import { Test } from './Test';`;
+const cb2 = `<Test />`;
 const cb3 = `@import url('https://fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');`;
-const cb4 = `background: url('//display.coffee/assets/images/cheat-codes/wish-you-were-here.jpg') no-repeat;`;
+const cb4 = `background: url('//display.coffee/assets/images/cheat-codes/test.jpg') no-repeat;`;
 const cb5 = `<style>
 	/* Copied styles go here */
 </style>`;
 const cb6 = `<!-- Copy styles and paste into stylesheet -->
-<link rel="stylesheet" href="styles.css" />`;
-const cb7 = `@import url('wish-you-were-here.css');`;
-const cb8 = `import 'wish-you-were-here.css';`;
-const cb9 = `@import 'wish-you-were-here';`;
-const cb10 = `import 'wish-you-were-here.scss';`;
+<link rel="stylesheet" href="test.css" />`;
+const cb7 = `@import url('test.css');`;
+const cb8 = `import 'test.css';`;
+const cb9 = `.dc-test {
+	max-width: 650px;
+}`;
+const cb10 = `@import 'test.scss';`;
+const cb11 = `import 'test.scss';`;
+const cb12 = `$test-max-width: 650px; // max width for desktop`;

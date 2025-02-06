@@ -101,6 +101,15 @@ export const ContentsBody = (props) => {
 						{current?.date ? <p className="contents-header-date">Posted on {current.date}</p> : null}
 					</header>
 				) : null}
+
+				{current?.description ? (
+					<div className="contents-description spacing-reset">
+						<h4>Description</h4>
+
+						<p>{current.description}</p>
+					</div>
+				) : null}
+
 				<div className="contents-body spacing-reset">
 					<Body />
 				</div>
