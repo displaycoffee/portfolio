@@ -172,7 +172,7 @@ export const TestPreview = () => {
 /* Code blocks */
 const cb1 = `import { Test } from './Test';`;
 const cb2 = `<Test />`;
-const cb3 = `@import url('https://fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');`;
+const cb3 = `@import url('//fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');`;
 const cb4 = `background: url('//display.coffee/assets/images/cheat-codes/test.jpg') no-repeat;`;
 const cb5 = `<style>
 	/* Copied styles go here */

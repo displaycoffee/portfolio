@@ -363,14 +363,14 @@ const cb13 = `.green-div, .purple-div {
 	background: purple;
 	padding: 10px;
 }`;
-const cb14 = `<div class="polka-dot-trex">I got some text for you right here.<p>Okay, but be nice!</p><img src="https://placecats.com/millie/300/150" /><div class="glow-in-the-dark-triceratops">Maybe we'll put some new text here.</div>
+const cb14 = `<div class="polka-dot-trex">I got some text for you right here.<p>Okay, but be nice!</p><img src="//placecats.com/millie/300/150" /><div class="glow-in-the-dark-triceratops">Maybe we'll put some new text here.</div>
 <div class="dinosaur-broadway-musical"><p>What is this about?</p></div></div>`;
 const cb15 = `<div class="polka-dot-trex">
 	I got some text for you right here.
 
 	<p>Okay, but be nice!</p>
 
-	<img src="https://placecats.com/millie/300/150" />
+	<img src="//placecats.com/millie/300/150" />
 
 	<div class="glow-in-the-dark-triceratops">
 		Maybe we'll put some new text here.
@@ -381,7 +381,7 @@ const cb15 = `<div class="polka-dot-trex">
 	</div>
 </div>`;
 const cb16 = `.green-div, .purple-div {
-	font-family: arial; /* Change the font family here */
+	font-family: Arial, sans-serif; /* Change the font family here */
 	color: #fff; /* Change the font color here */
 }
 .green-div {
