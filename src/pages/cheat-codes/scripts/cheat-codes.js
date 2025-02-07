@@ -3,6 +3,7 @@ import { Test } from '../content/_test/Test';
 import { NavigationMenus } from '../content/navigation-menus/NavigationMenus';
 import { HelloContent } from '../content/hello-content/HelloContent';
 import { WishYouWereHere } from '../content/wish-you-were-here/WishYouWereHere';
+import { FriendsNotFood } from '../content/friends-not-food/FriendsNotFood';
 
 export const cheatCodes = [
 	{
@@ -54,10 +55,10 @@ export const cheatCodes = [
 		id: 3,
 		name: 'Friends Not Food',
 		date: '10.03.15',
-		updated: '02.02.25',
+		updated: '02.06.25',
 		tags: 'HTML, CSS, Sass, Template',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores, facilis sapiente animi beatae non quaerat.',
-		component: Test,
+		description: ' A shark/underwater themed layout. It has a hover button on the bottom to display more content.',
+		component: FriendsNotFood,
 	},
 	{
 		id: 2,
