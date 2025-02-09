@@ -61,39 +61,47 @@
 				font-size: calc($friends-not-food-font-size-02 - 4px);
 			}
 		}
-		.dc-friends-not-food-row {
-			-webkit-flex-flow: row wrap;
-			flex-flow: row wrap;
+		.dc-friends-not-food-row, .dc-friends-not-food-vertical {
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: -moz-flex;
 			display: flex;
-			-webkit-align-items: center;
-			align-items: center;
-			margin: 0 -#{calc($friends-not-food-spacing / 4)} -#{calc($friends-not-food-spacing / 2)} -#{calc($friends-not-food-spacing / 4)};
-			.dc-friends-not-food-column {
-				min-width: 1px;
-				width: 100%;
+			& > * {
 				-webkit-flex: 0 1 auto;
 				-ms-flex: 0 1 auto;
 				-moz-flex: 0 1 auto;
 				flex: 0 1 auto;
+				min-height: 1px;
+				min-width: 1px;
+			}
+		}
+		.dc-friends-not-food-row {
+			-webkit-flex-flow: row wrap;
+			flex-flow: row wrap;
+			-webkit-align-items: center;
+			align-items: center;
+			margin: 0 -#{calc($friends-not-food-spacing / 4)} -#{calc($friends-not-food-spacing / 2)} -#{calc($friends-not-food-spacing / 4)};
+			.dc-friends-not-food-column {
+				width: 100%;
 				padding: 0 calc($friends-not-food-spacing / 4);
 				margin: 0 0 calc($friends-not-food-spacing / 2) 0;
 			}
-		}		
+		}
+		.dc-friends-not-food-vertical {
+			-webkit-flex-flow: column nowrap;
+			flex-flow: column nowrap;
+		}
 		p, h3, h4 {
 			margin: 0;
 		}
 		.dc-friends-not-food-name .dc-friends-not-food-font, .dc-friends-not-food-hover {
 			text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75);
 		}
-		.dc-friends-not-food-wrapper {
+		.dc-friends-not-food-container {
+			position: relative;
 			background: url('//display.coffee/assets/images/cheat-codes/friends-not-food-bg.jpg') no-repeat 0 0;
 			background-size: cover;
-			padding: 0 0 calc($friends-not-food-spacing * 3) 0;
-			position: relative;
-			.dc-friends-not-food-information, .dc-friends-not-food-more {
+			.dc-friends-not-food-information-01, .dc-friends-not-food-information-02 {
 				padding: $friends-not-food-spacing;
 				-webkit-transition: opacity 0.5s ease;
 				-o-transition: opacity 0.5s ease;
@@ -101,12 +109,35 @@
 				-moz-transition: opacity 0.5s ease;
 				transition: opacity 0.5s ease;
 			}
-			.dc-friends-not-food-information {
+			.dc-friends-not-food-hover {
+				order: 10;
+				text-align: center;
+				background-color: $friends-not-food-color-02;
+				padding: 0 $friends-not-food-spacing;
+				line-height: 60px;
+				cursor: pointer;
+				bottom: $friends-not-food-spacing;
+				left: $friends-not-food-spacing;
+				right: $friends-not-food-spacing;
+				z-index: 1;
+				&:hover {
+					& ~ .dc-friends-not-food-information-01 {
+						opacity: 0;
+						visibility: hidden;
+					}
+					& ~ .dc-friends-not-food-information-02 {
+						visibility: visible;
+						opacity: 1;
+						z-index: 2;
+					}
+				}
+			}
+			.dc-friends-not-food-information-01 {
 				.dc-friends-not-food-top-bar {
 					position: relative;
 					width: auto;
 					background-color: $friends-not-food-color-02;
-					margin: -#{friends-not-food-spacing} -#{friends-not-food-spacing} 0 -#{friends-not-food-spacing};
+					margin: -#{$friends-not-food-spacing} -#{$friends-not-food-spacing} 0 -#{$friends-not-food-spacing};
 					padding: $friends-not-food-spacing $friends-not-food-spacing calc($friends-not-food-spacing * 3) $friends-not-food-spacing;
 					text-align: center;
 					.dc-friends-not-food-name, .dc-friends-not-food-species {
@@ -151,13 +182,7 @@
 					}
 				}
 			}
-			.dc-friends-not-food-more {
-				-webkit-flex-flow: column nowrap;
-				flex-flow: column nowrap;
-				display: -webkit-flex;
-				display: -ms-flex;
-				display: -moz-flex;
-				display: flex;
+			.dc-friends-not-food-information-02 {
 				top: 0;
 				bottom: calc($friends-not-food-spacing * 3);
 				z-index: 1;
@@ -165,46 +190,15 @@
 				opacity: 0;
 				visibility: hidden;
 				.dc-friends-not-food-block {
-					min-height: 1px;
 					-webkit-flex: 1 1 0%;
 					-ms-flex: 1 1 0%;
 					-moz-flex: 1 1 0%;
 					flex: 1 1 0%;
-					p {
+					&, p {
 						margin: 0 0 $friends-not-food-spacing 0;
 						&:last-child {
 							margin-bottom: 0;
 						}
-					}
-				}
-				.dc-friends-not-food-divider {
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					-moz-flex: 0 1 auto;
-					flex: 0 1 auto;
-					height: $friends-not-food-spacing;
-				}
-			}
-			.dc-friends-not-food-hover {
-				text-align: center;
-				background-color: $friends-not-food-color-02;
-				padding: 0 $friends-not-food-spacing;
-				margin: $friends-not-food-spacing -#{$friends-not-food-spacing} -#{$friends-not-food-spacing} -#{$friends-not-food-spacing};
-				line-height: 60px;
-				cursor: pointer;
-				bottom: $friends-not-food-spacing;
-				left: $friends-not-food-spacing;
-				right: $friends-not-food-spacing;
-				z-index: 1;
-				&:hover {
-					& ~ .dc-friends-not-food-information {
-						opacity: 0;
-						visibility: hidden;
-					}
-					& ~ .dc-friends-not-food-more {
-						visibility: visible;
-						opacity: 1;
-						z-index: 2;
 					}
 				}
 			}
@@ -216,8 +210,8 @@
 			.dc-friends-not-food-row .dc-friends-not-food-column {
 				width: 50%;
 			}
-			.dc-friends-not-food-wrapper {
-				.dc-friends-not-food-information {
+			.dc-friends-not-food-container {
+				.dc-friends-not-food-information-01 {
 					.dc-friends-not-food-top-bar {
 						padding: $friends-not-food-spacing calc($friends-not-food-spacing * 9) $friends-not-food-spacing $friends-not-food-spacing;
 						text-align: left;
