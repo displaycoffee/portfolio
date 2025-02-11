@@ -49,7 +49,7 @@ export const HelloContent = () => {
 					you should have the same number of button elements (<CodeInline>dc-hello-content-button</CodeInline>) and content elements (
 					<CodeInline>dc-hello-content-block</CodeInline>).
 				</p>
-				<CodeBlock header={'HTML'}>{cb1}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb01}</CodeBlock>
 				<p>
 					The button and content selectors can be changed. If using JavaScript, you will need to pass in options to update these selectors.
 				</p>
@@ -61,17 +61,17 @@ export const HelloContent = () => {
 						hello-content/hello-content.js
 					</a>
 				</p>
-				<CodeBlock header={'Script block'}>{cb2}</CodeBlock>
-				<CodeBlock header={'Script src'}>{cb3}</CodeBlock>
+				<CodeBlock header={'Script block'}>{cb02}</CodeBlock>
+				<CodeBlock header={'Script src'}>{cb03}</CodeBlock>
 				<p>
 					You will then need to initialize tabs, which can be done with the below function. This function can also be initialized in a
 					source file, but in either case, this initialization must come <strong>after</strong> adding the above JavaScript.
 				</p>
-				<CodeBlock header={'JavaScript'}>{cb4}</CodeBlock>
+				<CodeBlock header={'JavaScript'}>{cb04}</CodeBlock>
 				<p>
 					If you changed selectors in the HTML, you should pass in options to update those selectors. <strong>For example:</strong>
 				</p>
-				<CodeBlock header={'JavaScript'}>{cb5}</CodeBlock>
+				<CodeBlock header={'JavaScript'}>{cb05}</CodeBlock>
 
 				<h5 className="h-remove-shadow">React</h5>
 				<p>If using React and not JavaScript, copy the JSX component from the link below and add according to your preferred method.</p>
@@ -80,20 +80,20 @@ export const HelloContent = () => {
 						hello-content/HelloContent.jsx
 					</a>
 				</p>
-				<CodeBlock header={'React import'}>{cb6}</CodeBlock>
-				<CodeBlock header={'React component'}>{cb7}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb06}</CodeBlock>
+				<CodeBlock header={'React component'}>{cb07}</CodeBlock>
 				<p>
 					Out-of-the-box, the component accepts <CodeInline>tabs</CodeInline> prop which is an array of tabs. Each item in the array is an
 					object and should contain <CodeInline>label</CodeInline> and <CodeInline>content</CodeInline> or{' '}
 					<CodeInline>component</CodeInline> properties. <CodeInline>defaultTab</CodeInline> is optional.
 				</p>
-				<CodeBlock header={'Tabs array'}>{cb8}</CodeBlock>
+				<CodeBlock header={'Tabs array'}>{cb08}</CodeBlock>
 				<p>
 					In the component, I do use <CodeInline>dangerouslySetInnerHTML</CodeInline> to display <CodeInline>tab.content</CodeInline>. You
 					can remove this and insert <CodeInline>tab.content</CodeInline> inside content block instead. It all depends how much you trust
 					your content.
 				</p>
-				<CodeBlock header={'Content block'}>{cb9}</CodeBlock>
+				<CodeBlock header={'Content block'}>{cb09}</CodeBlock>
 
 				<h5 className="h-remove-shadow">CSS</h5>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
@@ -208,7 +208,7 @@ export const HelloContentPreview = (props) => {
 };
 
 /* Code blocks */
-const cb1 = `<div class="dc-hello-content-tabs displaycoffee">
+const cb01 = `<div class="dc-hello-content-tabs displaycoffee">
 	<button class="dc-hello-content-button">Tab 01</button>
 	<button class="dc-hello-content-button">Tab 02</button>
 	<button class="dc-hello-content-button">Tab 03</button>
@@ -223,15 +223,15 @@ const cb1 = `<div class="dc-hello-content-tabs displaycoffee">
 	<div class="dc-hello-content-block">Tab 01 Content</div>
 	<div class="dc-hello-content-block">Tab 02 Content</div>
 </div>`;
-const cb2 = `<script type="text/javascript">
+const cb02 = `<script type="text/javascript">
 	// Copied JavaScript goes here
 </script>`;
-const cb3 = `<!-- Copy JavaScript and paste into script source -->
+const cb03 = `<!-- Copy JavaScript and paste into script source -->
 <script type="text/javascript" src="hello-content.js"></script>`;
-const cb4 = `<script type="text/javascript">
+const cb04 = `<script type="text/javascript">
 	dcHelloContent.init();
 </script>`;
-const cb5 = `<script type="text/javascript">
+const cb05 = `<script type="text/javascript">
 	dcHelloContent.init({
 		default: 1, // default visible tab number
 		container: '.dc-hello-content-tabs',
@@ -239,9 +239,9 @@ const cb5 = `<script type="text/javascript">
 		content: '.dc-hello-content-block',
 	});
 </script>`;
-const cb6 = `import { HelloContent } from './HelloContent';`;
-const cb7 = `<HelloContent tabs={tabs} defaultTab={1} />`;
-const cb8 = `const tabs = [
+const cb06 = `import { HelloContent } from './HelloContent';`;
+const cb07 = `<HelloContent tabs={tabs} defaultTab={1} />`;
+const cb08 = `const tabs = [
 	{
 		label: 'Tab 01',
 		content: 'Tab 01 Content',
@@ -255,7 +255,7 @@ const cb8 = `const tabs = [
 		content: 'Tab 03 Content',
 	},
 ];`;
-const cb9 = `<div className={contentClass}>{tab.content}</div>`;
+const cb09 = `<div className={contentClass}>{tab.content}</div>`;
 const cb10 = `<style>
 	/* Copied styles go here */
 </style>`;

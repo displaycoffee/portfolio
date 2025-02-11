@@ -138,6 +138,7 @@
 		font-size: functions.em(16px, rem);
 		color: theme.$color-02;
 		white-space: pre-wrap;
+		word-break: break-word;
 	}
 	pre code {
 		padding: 0;

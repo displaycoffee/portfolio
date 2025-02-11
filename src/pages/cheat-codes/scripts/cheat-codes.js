@@ -4,6 +4,7 @@ import { NavigationMenus } from '../content/navigation-menus/NavigationMenus';
 import { HelloContent } from '../content/hello-content/HelloContent';
 import { WishYouWereHere } from '../content/wish-you-were-here/WishYouWereHere';
 import { FriendsNotFood } from '../content/friends-not-food/FriendsNotFood';
+import { VelociraptorPack } from '../content/velociraptor-pack/VelociraptorPack';
 
 export const cheatCodes = [
 	{
@@ -46,10 +47,11 @@ export const cheatCodes = [
 		id: 4,
 		name: 'Velociraptor Pack',
 		date: '10.03.15',
-		updated: '02.02.25',
+		updated: '02.10.25',
 		tags: 'HTML, CSS, Sass, Template',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores, facilis sapiente animi beatae non quaerat.',
-		component: Test,
+		description:
+			'A template with scrollable areas. When you click on the links, it changes the content displayed. This takes me back to my iframe layout days.',
+		component: VelociraptorPack,
 	},
 	{
 		id: 3,

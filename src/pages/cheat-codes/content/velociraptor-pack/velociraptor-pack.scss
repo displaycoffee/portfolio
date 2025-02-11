@@ -1,0 +1,161 @@
+//// VELOCIRAPTOR PACK
+//// --------------------------------------------------------------------------
+
+// Colors
+
+	$velociraptor-pack-color-01: #ffffff; // font
+	$velociraptor-pack-color-02: #31779c; // link
+	$velociraptor-pack-color-03: #ffffff; // link hover
+	$velociraptor-pack-color-04: #31779c; // border
+	$velociraptor-pack-color-05: rgba(0, 0, 0, 0.5); // nav and footer background
+	$velociraptor-pack-color-06: rgba(51, 51, 51, 0.5); // content and sidebar background
+
+	// Configuration
+
+	$velociraptor-pack-breakpoint: 768px; // breakpoint for desktop styles
+	$velociraptor-pack-max-width: 700px; // max width
+	$velociraptor-pack-content-height: 500px; // max-height of content
+	$velociraptor-pack-sidebar-width: 200px; // width for sidebar
+	$velociraptor-pack-font-family-01: Tahoma, Arial, sans-serif; // font family
+	$velociraptor-pack-font-family-02: 'Century Gothic', 'Arial Narrow', Arial, sans-serif; // header font family
+	$velociraptor-pack-font-size-01: 12px; // font size
+	$velociraptor-pack-font-size-02: 20px; // header font size
+	$velociraptor-scrollbar-size: 10px; // width and height of scrollbar
+	$velociraptor-pack-spacing: 20px; // spacing for template
+
+	// Style block	
+	
+	.dc-velociraptor-pack {
+		position: relative;
+		max-width: 100%;
+		width: auto;
+		margin: 0;
+		background-image: url('//display.coffee/assets/images/cheat-codes/velociraptor-pack.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		border: 4px solid $velociraptor-pack-color-04;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		-ms-border-radius: 8px;
+		-o-border-radius: 8px;
+		border-radius: 8px;
+		overflow: hidden;
+		&, & * {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font-family: $velociraptor-pack-font-family-01;
+			font-size: $velociraptor-pack-font-size-01;
+			line-height: 1.5;
+			color: $velociraptor-pack-color-01;
+		}
+		a {
+			color: $velociraptor-pack-color-02;
+			text-decoration: none;
+			&:hover {
+				color: $velociraptor-pack-color-03;
+			}
+		}
+		p {
+			margin: 0 0 $velociraptor-pack-spacing 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		.dc-velociraptor-pack-title {
+			font-family: $velociraptor-pack-font-family-02;
+			font-size: $velociraptor-pack-font-size-02;
+			font-weight: 600;
+			text-transform: uppercase;
+			text-shadow: none;
+			line-height: 1.2;
+			margin: 0 0 $velociraptor-pack-spacing 0;
+		}
+		.dc-velociraptor-pack-container {
+			-webkit-flex-flow: row wrap;
+			flex-flow: row wrap;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: -moz-flex;
+			display: flex;
+			& > * {
+				min-width: 1px;
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				-moz-flex: 0 1 auto;
+				flex: 0 1 auto;
+				width: 100%;
+				padding: $velociraptor-pack-spacing;
+			}				
+			.dc-velociraptor-pack-navigation, .dc-velociraptor-pack-footer {
+				text-align: center;
+				background-color: $velociraptor-pack-color-05;
+			}
+			.dc-velociraptor-pack-navigation {
+				a, .dc-velociraptor-pack-separator {
+					display: inline-block;
+					vertical-align: middle;
+					margin: 0;
+				}
+				.dc-velociraptor-pack-separator {
+					padding: 0 calc($velociraptor-pack-spacing / 2);
+					font-size: calc($velociraptor-pack-font-size-02 - 6px);
+				}
+			}
+			.dc-velociraptor-pack-footer {
+				padding: calc($velociraptor-pack-spacing / 2) $velociraptor-pack-spacing;
+			}
+			.dc-velociraptor-pack-content, .dc-velociraptor-pack-sidebar {
+				background-color: $velociraptor-pack-color-06;
+				margin: $velociraptor-pack-spacing;
+			}
+			.dc-velociraptor-pack-content {
+				height: calc($velociraptor-pack-content-height - 100px);
+				.dc-velociraptor-pack-scroll {
+					max-height: 100%;
+					overflow: hidden;
+					&, & .dc-velociraptor-pack-section {
+						height: 100%;
+					}
+					.dc-velociraptor-pack-section {
+						padding: 0 $velociraptor-pack-spacing 0 0;
+						overflow-y: auto;
+						&::-webkit-scrollbar {
+							width: $velociraptor-scrollbar-size;
+						}
+						&::-webkit-scrollbar {
+							height: $velociraptor-scrollbar-size;
+						}
+						&::-webkit-scrollbar-track {
+							background: transparent;
+						}
+						&::-webkit-scrollbar-thumb {
+							background: $velociraptor-pack-color-04;
+						}
+					}
+				}
+			}
+			.dc-velociraptor-pack-sidebar {
+				margin-top: 0;
+			}
+		}
+	}
+	@media only screen and (min-width: $velociraptor-pack-breakpoint) {
+		.dc-velociraptor-pack {
+			max-width: $velociraptor-pack-max-width;
+			.dc-velociraptor-pack-container {
+				.dc-velociraptor-pack-content {
+					-webkit-flex: 1 1 0%;
+					-ms-flex: 1 1 0%;
+					-moz-flex: 1 1 0%;
+					flex: 1 1 0%;
+					width: auto;
+					height: $velociraptor-pack-content-height;
+				}
+				.dc-velociraptor-pack-sidebar {
+					margin-top: $velociraptor-pack-spacing;
+					width: $velociraptor-pack-sidebar-width;
+				}
+			}
+		}
+	}
