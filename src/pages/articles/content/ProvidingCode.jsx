@@ -49,12 +49,12 @@ export const ProvidingCode = () => {
 					Think of an ID as a really important element on a page. It should only appear once on your page; it should not be repeated.
 					Imagine yourself as an element. You have a name which is your ID. If I were code, I might look something like this:
 				</p>
-				<CodeBlock header={'HTML'}>{cb1}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb01}</CodeBlock>
 				<p>
 					Typically, there should only ever be one of me in one place at a time (unless I have a cloning machine). To add, one ID may only
 					appear on an element. Meaning, you can't do the following:
 				</p>
-				<CodeBlock header={'HTML'}>{cb2}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb02}</CodeBlock>
 				<p>
 					That just fails and doesn't work at all. In the past, I've spent time debugging my own code wondering why something wasn't working
 					only to realize I had two IDs.
@@ -65,7 +65,7 @@ export const ProvidingCode = () => {
 					unique elements on the page: "displaycoffee" and "displaycoffees-friend". We're very different beings, but we might have similar
 					characteristics.
 				</p>
-				<CodeBlock header={'HTML'}>{cb3}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb03}</CodeBlock>
 				<p>
 					At this point you might be asking, "Why does this all matter? I've used multiple IDs per page and my styles were fine!" It's true
 					that CSS couldn't care less about any of this. Styles will still apply even if you have IDs repeated multiple times throughout a
@@ -73,7 +73,7 @@ export const ProvidingCode = () => {
 					functionality, though it applies to HTML as well. You might want to design a template with "jump/anchor links" where clicking on
 					link brings you to another spot on the page. This requires the use of an ID, but if you have code like this:
 				</p>
-				<CodeBlock header={'HTML'}>{cb4}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb04}</CodeBlock>
 				<p>You're only ever going to be able to jump to one of those elements or the others.</p>
 				<p>
 					Another reason why you should avoid using IDs more than once is because, well, it's good practice and one of the most basic and
@@ -103,14 +103,14 @@ export const ProvidingCode = () => {
 					to that stylesheet. However, I do realize that with code you're submitting for other people, this is not always practical as
 					people want to be able to copy and paste code, then be done with it. Ideally, you'd end up with something like this:
 				</p>
-				<CodeBlock header={'HTML'}>{cb5}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb05}</CodeBlock>
 				<p>
 					However, you can still give people the option to place styles in an external stylesheet or to use the full code. Placing the
 					styles in the external sheet means people are not repeating the same CSS over and over again if they're using your posting
 					template more than once per page. You could do something like this:
 				</p>
-				<CodeBlock header={'CSS'}>{cb6}</CodeBlock>
-				<CodeBlock header={'HTML'}>{cb7}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb06}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb07}</CodeBlock>
 				<p>
 					Placing the CSS in a stylesheet gives people more control too. When the styles are hosted in an external stylesheet, that should
 					only ever be managed by the site's admin. Thus, the template should remain consistent for members who are using the template
@@ -121,13 +121,13 @@ export const ProvidingCode = () => {
 					No matter how you choose to add CSS to your posting template, I always recommend avoiding inline styles as it just creates clutter
 					and is less easy to read, especially when you have elements that use the same styles. For example:
 				</p>
-				<CodeBlock header={'HTML'}>{cb8}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb08}</CodeBlock>
 				<p>
 					<strong>
 						<em>versus</em>
 					</strong>
 				</p>
-				<CodeBlock header={'HTML'}>{cb9}</CodeBlock>
+				<CodeBlock header={'HTML'}>{cb09}</CodeBlock>
 				<p>
 					The second one is much more readable and manageable. And we can take this formatting even further! Notice how "green-div" and
 					"purple-div" share some similar styles? Group common styles by targeting more than one CSS selector separated by a comma. For
@@ -239,13 +239,13 @@ export const ProvidingCode = () => {
 };
 
 /* Code blocks */
-const cb1 = `<div id="displaycoffee">
+const cb01 = `<div id="displaycoffee">
 	This is all the stuff that is unique and special to me.
 </div>`;
-const cb2 = `<div id="displaycoffee dc">
+const cb02 = `<div id="displaycoffee dc">
 	This is all the stuff that is unique and special to me.
 </div>`;
-const cb3 = `<div id="displaycoffee">
+const cb03 = `<div id="displaycoffee">
 	This is all the stuff that is unique and special to me.
 	<div class="eye-color">
 		Rainbow Sparkle
@@ -258,7 +258,7 @@ const cb3 = `<div id="displaycoffee">
 		Glittering ocean
 	</div>
 </div>`;
-const cb4 = `<h3>Table of Contents</h3>
+const cb04 = `<h3>Table of Contents</h3>
 <a href="#thing-01">Thing 01</a>
 <a href="#thing-01">Thing 02</a>
 
@@ -267,7 +267,7 @@ const cb4 = `<h3>Table of Contents</h3>
 
 <h3 id="thing-01">Thing 02</h3>
 <div>Here's another thing.</div>`;
-const cb5 = `<style>
+const cb05 = `<style>
 	.fancy-pants-div {
 		background: #ff00ff;
 		color: #fff;
@@ -276,16 +276,16 @@ const cb5 = `<style>
 	}
 </style>
 <div class="fancy-pants-div">Look at dem fancy pants.</div>`;
-const cb6 = `.fancy-pants-div {
+const cb06 = `.fancy-pants-div {
 	background: #ff00ff;
 	color: #fff;
 	padding: 10px;
 	border: 1px dashed red;
 }`;
-const cb7 = `<div class="fancy-pants-div">Look at dem fancy pants.</div>`;
-const cb8 = `<div style="background: green; font-family: arial; color: #fff; padding: 20px;">Here's a green div.</div>
+const cb07 = `<div class="fancy-pants-div">Look at dem fancy pants.</div>`;
+const cb08 = `<div style="background: green; font-family: arial; color: #fff; padding: 20px;">Here's a green div.</div>
 <div style="background: purple; font-family: arial; color: #fff; padding: 10px;">Here's a purple div.</div>`;
-const cb9 = `<style>
+const cb09 = `<style>
 	.green-div {
 		background: green;
 		font-family: arial;

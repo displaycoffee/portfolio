@@ -95,8 +95,8 @@ export const NavigationMenus = () => {
 						navigation-menus/NavigationMenus.jsx
 					</a>
 				</p>
-				<CodeBlock header={'React import'}>{cb1}</CodeBlock>
-				<CodeBlock header={'React component'}>{cb2}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb01}</CodeBlock>
+				<CodeBlock header={'React component'}>{cb02}</CodeBlock>
 				<p>
 					The component accepts an <CodeInline>id</CodeInline> prop which is the id of the menu you want to use.
 				</p>
@@ -141,19 +141,19 @@ export const NavigationMenus = () => {
 						</dd>
 					</div>
 				</dl>
-				<CodeBlock header={'Style block'}>{cb3}</CodeBlock>
-				<CodeBlock header={'Stylesheet'}>{cb4}</CodeBlock>
-				<CodeBlock header={'CSS import'}>{cb5}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb6}</CodeBlock>
+				<CodeBlock header={'Style block'}>{cb03}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{cb04}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{cb05}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb06}</CodeBlock>
 				<p>
 					By default, each menu has a <CodeInline>max-width</CodeInline> of <CodeInline>100%</CodeInline>. You can lower, increase, or
 					change the value to a px unit.
 				</p>
-				<CodeBlock header={'CSS'}>{cb7}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb07}</CodeBlock>
 				<p>If adding more navigation items, adjust the widths per the number of items. Four items:</p>
-				<CodeBlock header={'CSS'}>{cb8}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb08}</CodeBlock>
 				<p>Five items:</p>
-				<CodeBlock header={'CSS'}>{cb9}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb09}</CodeBlock>
 				<p>Six items:</p>
 				<CodeBlock header={'CSS'}>{cb10}</CodeBlock>
 
@@ -323,22 +323,22 @@ export const NavigationMenusPreview = (props) => {
 };
 
 /* Code blocks */
-const cb1 = `import { NavigationMenus } from './NavigationMenus';`;
-const cb2 = `<NavigationMenus id={'01'} />`;
-const cb3 = `<style>
+const cb01 = `import { NavigationMenus } from './NavigationMenus';`;
+const cb02 = `<NavigationMenus id={'01'} />`;
+const cb03 = `<style>
 	/* Copied styles go here */
 </style>`;
-const cb4 = `<!-- Copy styles and paste into stylesheet -->
+const cb04 = `<!-- Copy styles and paste into stylesheet -->
 <link rel="stylesheet" href="navigation-menus.css" />`;
-const cb5 = `@import url('navigation-menus.css');`;
-const cb6 = `@import 'navigation-menus.css';`;
-const cb7 = `#dc-navigation-menu-01 {
+const cb05 = `@import url('navigation-menus.css');`;
+const cb06 = `@import 'navigation-menus.css';`;
+const cb07 = `#dc-navigation-menu-01 {
 	max-width: 100%;
 }`;
-const cb8 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
+const cb08 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
 	width: 25%;
 }`;
-const cb9 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
+const cb09 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
 	width: 20%;
 }`;
 const cb10 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {

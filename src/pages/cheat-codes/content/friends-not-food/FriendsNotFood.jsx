@@ -35,7 +35,7 @@ export const FriendsNotFood = () => {
 					The shark gif can be altered by changing the below <CodeInline>img</CodeInline> source. If possible, please re-host any images and
 					upload to your own server.
 				</p>
-				<CodeBlock header={'Images'}>{cb1}</CodeBlock>
+				<CodeBlock header={'Images'}>{cb01}</CodeBlock>
 
 				<h5 className="h-remove-shadow">HTML</h5>
 				<p>Copy the template HTML and place it on the page.</p>
@@ -60,8 +60,8 @@ export const FriendsNotFood = () => {
 						friends-not-food/FriendsNotFood.jsx
 					</a>
 				</p>
-				<CodeBlock header={'React import'}>{cb2}</CodeBlock>
-				<CodeBlock header={'React component'}>{cb3}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb02}</CodeBlock>
+				<CodeBlock header={'React component'}>{cb03}</CodeBlock>
 
 				<h5 className="h-remove-shadow">CSS or Sass</h5>
 				<p>
@@ -71,12 +71,12 @@ export const FriendsNotFood = () => {
 					</a>{' '}
 					and are imported into the CSS files. You can change the fonts to whatever you'd like.
 				</p>
-				<CodeBlock header={'Fonts'}>{cb4}</CodeBlock>
+				<CodeBlock header={'Fonts'}>{cb04}</CodeBlock>
 				<p>
 					The image is a background image in the styles and can be altered by updating the below url. If possible, please re-host any images
 					and upload to your own server.
 				</p>
-				<CodeBlock header={'Images'}>{cb5}</CodeBlock>
+				<CodeBlock header={'Images'}>{cb05}</CodeBlock>
 
 				<h5 className="h-remove-shadow">CSS</h5>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
@@ -89,10 +89,10 @@ export const FriendsNotFood = () => {
 						friends-not-food/friends-not-food.css
 					</a>
 				</p>
-				<CodeBlock header={'Style block'}>{cb6}</CodeBlock>
-				<CodeBlock header={'Stylesheet'}>{cb7}</CodeBlock>
-				<CodeBlock header={'CSS import'}>{cb8}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb9}</CodeBlock>
+				<CodeBlock header={'Style block'}>{cb06}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{cb07}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{cb08}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb09}</CodeBlock>
 				<p>
 					To change the <CodeInline>max-width</CodeInline>, look for the following code at the 541px breakpoint rule:
 				</p>
@@ -245,21 +245,21 @@ export const FriendsNotFoodPreview = () => {
 };
 
 /* Code blocks */
-const cb1 = `<img src="//display.coffee/assets/images/cheat-codes/friends-not-food-shark.gif" alt="Shark swimming" title="Shark swimming" />`;
-const cb2 = `import { FriendsNotFood } from './FriendsNotFood';`;
-const cb3 = `<FriendsNotFood />`;
-const cb4 = `@import url('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');`;
-const cb5 = `background: url('//display.coffee/assets/images/cheat-codes/friends-not-food-bg.jpg') no-repeat;`;
-const cb6 = `<style>
+const cb01 = `<img src="//display.coffee/assets/images/cheat-codes/friends-not-food-shark.gif" alt="Shark swimming" title="Shark swimming" />`;
+const cb02 = `import { FriendsNotFood } from './FriendsNotFood';`;
+const cb03 = `<FriendsNotFood />`;
+const cb04 = `@import url('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');`;
+const cb05 = `background: url('//display.coffee/assets/images/cheat-codes/friends-not-food-bg.jpg') no-repeat;`;
+const cb06 = `<style>
 	/* Copied styles go here */
 </style>`;
-const cb7 = `<!-- Copy styles and paste into stylesheet -->
+const cb07 = `<!-- Copy styles and paste into stylesheet -->
 <link rel="stylesheet" href="friends-not-food.css" />`;
-const cb8 = `@import url('friends-not-food.css');`;
-const cb9 = `import 'friends-not-food.css';`;
+const cb08 = `@import url('friends-not-food.css');`;
+const cb09 = `import 'friends-not-food.css';`;
 const cb10 = `.dc-friends-not-food {
 	max-width: 400px;
 }`;
 const cb11 = `@import 'friends-not-food.scss';`;
 const cb12 = `import 'friends-not-food.scss';`;
-const cb13 = `$friends-not-food-max-width: 400px; // max width for desktop`;
+const cb13 = `$friends-not-food-max-width: 400px; // max width`;

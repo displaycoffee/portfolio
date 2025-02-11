@@ -56,7 +56,7 @@ export const StylingText = () => {
 			<ArticlesToc sections={sections} offset={50} />
 
 			<ArticlesSection header={sections[0]}>
-				<CodeBlock header={'CSS'}>{cb1}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb01}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -121,9 +121,9 @@ export const StylingText = () => {
 					recognizes. The last font in the family will usually be either sans-serif or serif meaning if all fonts in the family fail to
 					render, it will fall back to the default style.
 				</p>
-				<CodeBlock header={'HTML'}>{cb2}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb3}</CodeBlock>
-				<Output className="output-articles output-font-families" code={cb2} />
+				<CodeBlock header={'HTML'}>{cb02}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb03}</CodeBlock>
+				<Output className="output-articles output-font-families" code={cb02} />
 				<p>
 					The first font listed is "Roboto" from{' '}
 					<a href="//fonts.google.com/specimen/Roboto" target="_blank" rel="noreferrer">
@@ -148,7 +148,7 @@ export const StylingText = () => {
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[1]}>
-				<CodeBlock header={'CSS'}>{cb4}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb04}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -201,13 +201,13 @@ export const StylingText = () => {
 						</dd>
 					</div>
 				</dl>
-				<CodeBlock header={'HTML'}>{cb5}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb6}</CodeBlock>
-				<Output className="output-articles output-font-size" code={cb5} />
+				<CodeBlock header={'HTML'}>{cb05}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb06}</CodeBlock>
+				<Output className="output-articles output-font-size" code={cb05} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[2]}>
-				<CodeBlock header={'CSS'}>{cb7}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb07}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -245,9 +245,9 @@ export const StylingText = () => {
 					font size. Essentially, this makes less overriding line height in CSS down the road.
 				</p>
 				<p>That might be a little confusing, so let's go over some examples. Yay!</p>
-				<CodeBlock header={'HTML'}>{cb8}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb9}</CodeBlock>
-				<Output className="output-articles output-line-height-01" code={cb8} />
+				<CodeBlock header={'HTML'}>{cb08}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb09}</CodeBlock>
+				<Output className="output-articles output-line-height-01" code={cb08} />
 				<p>
 					If we just add text to the div, the calculated line height is 24px. Now, let's add a child element with a different font size
 					that's bigger than the normal text.
@@ -538,15 +538,15 @@ export const StylingText = () => {
 };
 
 /* Code blocks */
-const cb1 = `font-family: family-name, generic-family;`;
-const cb2 = `<div class="fonts-are-awesome">
+const cb01 = `font-family: family-name, generic-family;`;
+const cb02 = `<div class="fonts-are-awesome">
 	We're using font families! Woohoo!
 </div>`;
-const cb3 = `.fonts-are-awesome {
+const cb03 = `.fonts-are-awesome {
 	font-family: 'Roboto', Tahoma, Calibri, Arial, sans-serif;
 }`;
-const cb4 = `font-size: value;`;
-const cb5 = `<div class="fonts-are-awesome">
+const cb04 = `font-size: value;`;
+const cb05 = `<div class="fonts-are-awesome">
 	Here we have some font that's set to 0.85em. With a body at a font size of 100%, this is about 14 pixels.
 	<div class="child">
 		Here is a child element. Look how it's smaller, even though the value is 0.85em again.
@@ -558,19 +558,19 @@ const cb5 = `<div class="fonts-are-awesome">
 		And it's child is 20px as well regardless of the parent elements.
 	</div>
 </div>`;
-const cb6 = `.fonts-are-awesome, .fonts-are-awesome > .child {
+const cb06 = `.fonts-are-awesome, .fonts-are-awesome > .child {
 	font-size: 0.85em;
 }
 .fonts-are-awesome-part-02, .fonts-are-awesome-part-02 > .child {
 	font-size: 20px;
 }`;
-const cb7 = `line-height: value;`;
-const cb8 = `<body>
+const cb07 = `line-height: value;`;
+const cb08 = `<body>
 	<div class="fonts-are-awesome">
 		This is a long paragraph to show you how the line height looks. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
 	</div>
 </body>`;
-const cb9 = `body {
+const cb09 = `body {
 	font-size: 100%; /* Base font-size should be roughly 16px */
 	line-height: 1.5em;
 }`;

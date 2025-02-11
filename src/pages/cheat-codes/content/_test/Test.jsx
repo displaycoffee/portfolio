@@ -54,8 +54,8 @@ export const Test = () => {
 						test/Test.jsx
 					</a>
 				</p>
-				<CodeBlock header={'React import'}>{cb1}</CodeBlock>
-				<CodeBlock header={'React component'}>{cb2}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb01}</CodeBlock>
+				<CodeBlock header={'React component'}>{cb02}</CodeBlock>
 
 				<h5 className="h-remove-shadow">CSS or Sass</h5>
 				<p>
@@ -65,12 +65,12 @@ export const Test = () => {
 					</a>{' '}
 					and are imported into the CSS files. You can change the fonts to whatever you'd like.
 				</p>
-				<CodeBlock header={'Fonts'}>{cb3}</CodeBlock>
+				<CodeBlock header={'Fonts'}>{cb03}</CodeBlock>
 				<p>
 					The image is a background image in the styles and can be altered by updating the below url. If possible, please re-host any images
 					and upload to your own server.
 				</p>
-				<CodeBlock header={'Images'}>{cb4}</CodeBlock>
+				<CodeBlock header={'Images'}>{cb04}</CodeBlock>
 
 				<h5 className="h-remove-shadow">CSS</h5>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
@@ -79,14 +79,14 @@ export const Test = () => {
 						test/test.css
 					</a>
 				</p>
-				<CodeBlock header={'Style block'}>{cb5}</CodeBlock>
-				<CodeBlock header={'Stylesheet'}>{cb6}</CodeBlock>
-				<CodeBlock header={'CSS import'}>{cb7}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb8}</CodeBlock>
+				<CodeBlock header={'Style block'}>{cb05}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{cb06}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{cb07}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb08}</CodeBlock>
 				<p>
 					To change the <CodeInline>max-width</CodeInline>, look for the following code at the 768px breakpoint rule:
 				</p>
-				<CodeBlock header={'CSS'}>{cb9}</CodeBlock>
+				<CodeBlock header={'CSS'}>{cb09}</CodeBlock>
 
 				<h5 className="h-remove-shadow">Sass</h5>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
@@ -170,20 +170,20 @@ export const TestPreview = () => {
 };
 
 /* Code blocks */
-const cb1 = `import { Test } from './Test';`;
-const cb2 = `<Test />`;
-const cb3 = `@import url('//fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');`;
-const cb4 = `background: url('//display.coffee/assets/images/cheat-codes/test.jpg') no-repeat;`;
-const cb5 = `<style>
+const cb01 = `import { Test } from './Test';`;
+const cb02 = `<Test />`;
+const cb03 = `@import url('//fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');`;
+const cb04 = `background: url('//display.coffee/assets/images/cheat-codes/test.jpg') no-repeat;`;
+const cb05 = `<style>
 	/* Copied styles go here */
 </style>`;
-const cb6 = `<!-- Copy styles and paste into stylesheet -->
+const cb06 = `<!-- Copy styles and paste into stylesheet -->
 <link rel="stylesheet" href="test.css" />`;
-const cb7 = `@import url('test.css');`;
-const cb8 = `import 'test.css';`;
-const cb9 = `.dc-test {
+const cb07 = `@import url('test.css');`;
+const cb08 = `import 'test.css';`;
+const cb09 = `.dc-test {
 	max-width: 650px;
 }`;
 const cb10 = `@import 'test.scss';`;
 const cb11 = `import 'test.scss';`;
-const cb12 = `$test-max-width: 650px; // max width for desktop`;
+const cb12 = `$test-max-width: 650px; // max width`;
