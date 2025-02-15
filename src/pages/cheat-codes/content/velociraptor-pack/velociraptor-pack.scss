@@ -20,8 +20,12 @@
 	$velociraptor-pack-font-family-02: 'Century Gothic', 'Arial Narrow', Arial, sans-serif; // header font family
 	$velociraptor-pack-font-size-01: 12px; // font size
 	$velociraptor-pack-font-size-02: 20px; // header font size
-	$velociraptor-scrollbar-size: 10px; // width and height of scrollbar
+	$velociraptor-pack-scrollbar-size: 10px; // width and height of scrollbar
 	$velociraptor-pack-spacing: 20px; // spacing for template
+
+	// Calculations
+
+	$velociraptor-pack-spacing-half: calc($velociraptor-pack-spacing / 2);
 
 	// Style block	
 	
@@ -98,19 +102,19 @@
 					margin: 0;
 				}
 				.dc-velociraptor-pack-separator {
-					padding: 0 calc($velociraptor-pack-spacing / 2);
-					font-size: calc($velociraptor-pack-font-size-02 - 6px);
+					padding: 0 $velociraptor-pack-spacing-half;
+					font-size: $velociraptor-pack-font-size-02 - 6;
 				}
 			}
 			.dc-velociraptor-pack-footer {
-				padding: calc($velociraptor-pack-spacing / 2) $velociraptor-pack-spacing;
+				padding: $velociraptor-pack-spacing-half $velociraptor-pack-spacing;
 			}
 			.dc-velociraptor-pack-content, .dc-velociraptor-pack-sidebar {
 				background-color: $velociraptor-pack-color-06;
 				margin: $velociraptor-pack-spacing;
 			}
 			.dc-velociraptor-pack-content {
-				height: calc($velociraptor-pack-content-height - 100px);
+				height: $velociraptor-pack-content-height - 100;
 				.dc-velociraptor-pack-scroll {
 					max-height: 100%;
 					overflow: hidden;
@@ -121,10 +125,10 @@
 						padding: 0 $velociraptor-pack-spacing 0 0;
 						overflow-y: auto;
 						&::-webkit-scrollbar {
-							width: $velociraptor-scrollbar-size;
+							width: $velociraptor-pack-scrollbar-size;
 						}
 						&::-webkit-scrollbar {
-							height: $velociraptor-scrollbar-size;
+							height: $velociraptor-pack-scrollbar-size;
 						}
 						&::-webkit-scrollbar-track {
 							background: transparent;

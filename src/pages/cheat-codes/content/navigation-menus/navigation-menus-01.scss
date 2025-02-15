@@ -17,6 +17,10 @@
 	$menu-spacing: 20px; // spacing for menu
 	$menu-items-per-row: 5; // number of navigation items in main row
 
+	// Calculations
+
+	$menu-spacing-half: calc($menu-spacing / 2);
+
 	// Style block
 
 	#dc-navigation-menu-01 {
@@ -94,7 +98,7 @@
 						border-bottom: 1px solid $menu-color-04;
 						a, span {
 							border: 0;
-							padding: calc($menu-spacing / 2);
+							padding: $menu-spacing-half;
 						}
 					}
 				}

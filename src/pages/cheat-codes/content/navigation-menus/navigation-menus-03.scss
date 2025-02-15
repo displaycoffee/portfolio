@@ -18,6 +18,10 @@
 	$menu-items-per-row: 5; // number of navigation items in main row
 	$menu-arrow-size: 13px; // size of dropdown arrow
 
+	// Calculations
+
+	$menu-spacing-half: calc($menu-spacing / 2);
+
 	// Style block
 
 	#dc-navigation-menu-03 {
@@ -96,7 +100,7 @@
 					}
 					.dc-navigation-sublist-item {
 						a, span {
-							padding: calc($menu-spacing / 2);
+							padding: $menu-spacing-half;
 						}
 						a:hover {
 							color: $menu-color-05;

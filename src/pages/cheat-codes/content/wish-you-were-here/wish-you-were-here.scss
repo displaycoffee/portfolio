@@ -60,7 +60,7 @@
 			font-size: $wish-you-were-here-font-size-02;
 		}
 		h4.dc-wish-you-were-here-title {
-			font-size: calc($wish-you-were-here-font-size-02 - 10px);
+			font-size: $wish-you-were-here-font-size-02 - 10;
 		}
 		.dc-wish-you-were-here-banner {
 			width: 100%;
