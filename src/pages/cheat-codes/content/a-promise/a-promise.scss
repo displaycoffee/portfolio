@@ -19,13 +19,18 @@
 	$a-promise-spacing: 10px; // spacing for template
 	$a-promise-image-size: 120px; // size for avatar
 
+	// Calculations
+
+	$a-promise-spacing-double: calc($a-promise-spacing * 2);
+	$a-promise-spacing-half: calc($a-promise-spacing / 2);
+
 	// Style block
 
 	.dc-a-promise {
 		width: auto;
 		max-width: 100%;
 		margin: 0;
-		padding: calc($a-promise-spacing * 2);
+		padding: $a-promise-spacing-double;
 		text-align: right;
 		background-color: $a-promise-color-01;
 		&, & * {
@@ -80,7 +85,7 @@
 				min-height: 1px;
 				min-width: 1px;
 				padding: 0 $a-promise-spacing;
-				margin: 0 0 calc($a-promise-spacing * 2) 0;
+				margin: 0 0 $a-promise-spacing-double 0;
 			}
 			&:after {
 				content: '';
@@ -89,8 +94,8 @@
 				-ms-flex: 1 1 100%;
 				-moz-flex: 1 1 100%;
 				flex: 1 1 100%;
-				margin-left: calc($a-promise-spacing * 2);
-				margin-right: calc($a-promise-spacing * 2);
+				margin-left: $a-promise-spacing-double;
+				margin-right: $a-promise-spacing-double;
 				border-bottom: 1px dashed $a-promise-color-06;
 			}
 			&:last-child:after {
@@ -145,7 +150,7 @@
 			font-size: $a-promise-font-size + 22;
 			font-weight: 700;
 			color: $a-promise-color-03;
-			padding-right: calc($a-promise-spacing / 2);
+			padding-right: $a-promise-spacing-half;
 		}
 	}
 	@media only screen and (min-width: $a-promise-breakpoint) {

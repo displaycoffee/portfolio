@@ -22,6 +22,13 @@
 	$friends-not-food-image-size-01: 100px; // size for avatar on mobile
 	$friends-not-food-image-size-02: 125px; // size for avatar on desktop
 
+	// Calculations
+
+	$friends-not-foods-spacing-double: calc($friends-not-food-spacing * 2);
+	$friends-not-foods-spacing-triple: calc($friends-not-food-spacing * 3);
+	$friends-not-foods-spacing-half: calc($friends-not-food-spacing / 2);
+	$friends-not-foods-spacing-quarter: calc($friends-not-food-spacing / 4);
+
 	// Style block
 
 	.dc-friends-not-food {
@@ -54,11 +61,11 @@
 		}
 		.dc-friends-not-food-block {
 			background-color: rgba($friends-not-food-color-02, 0.6);
-			padding: calc($friends-not-food-spacing / 2);
+			padding: $friends-not-foods-spacing-half;
 			span {
 				display: block;
 				margin: 2.5px 0 0 0;
-				font-size: calc($friends-not-food-font-size-02 - 4px);
+				font-size: $friends-not-food-font-size-02 - 4;
 			}
 		}
 		.dc-friends-not-food-row, .dc-friends-not-food-vertical {
@@ -80,11 +87,11 @@
 			flex-flow: row wrap;
 			-webkit-align-items: center;
 			align-items: center;
-			margin: 0 -#{calc($friends-not-food-spacing / 4)} -#{calc($friends-not-food-spacing / 2)} -#{calc($friends-not-food-spacing / 4)};
+			margin: 0 -#{$friends-not-foods-spacing-quarter} -#{$friends-not-foods-spacing-half} -#{$friends-not-foods-spacing-quarter};
 			.dc-friends-not-food-column {
 				width: 100%;
-				padding: 0 calc($friends-not-food-spacing / 4);
-				margin: 0 0 calc($friends-not-food-spacing / 2) 0;
+				padding: 0 $friends-not-foods-spacing-quarter;
+				margin: 0 0 $friends-not-foods-spacing-half 0;
 			}
 		}
 		.dc-friends-not-food-vertical {
@@ -138,7 +145,7 @@
 					width: auto;
 					background-color: $friends-not-food-color-02;
 					margin: -#{$friends-not-food-spacing} -#{$friends-not-food-spacing} 0 -#{$friends-not-food-spacing};
-					padding: $friends-not-food-spacing $friends-not-food-spacing calc($friends-not-food-spacing * 3) $friends-not-food-spacing;
+					padding: $friends-not-food-spacing $friends-not-food-spacing $friends-not-foods-spacing-triple $friends-not-food-spacing;
 					text-align: center;
 					.dc-friends-not-food-name, .dc-friends-not-food-species {
 						overflow: hidden;
@@ -148,7 +155,7 @@
 					.dc-friends-not-food-species {
 						margin: 5px 0 0 0;
 						p, strong {
-							font-size: calc($friends-not-food-font-size-01 + 2px);
+							font-size: $friends-not-food-font-size-01 + 2;
 						}
 					}
 					.dc-friends-not-food-avatar {
@@ -172,7 +179,7 @@
 						width: 100%;
 					}
 					.dc-friends-not-food-title .dc-friends-not-food-font {
-						font-size: calc($friends-not-food-font-size-02 - 2px)
+						font-size: $friends-not-food-font-size-02 - 2;
 					}
 					.dc-friends-not-food-quote {
 						text-align: right;
@@ -184,7 +191,7 @@
 			}
 			.dc-friends-not-food-information-02 {
 				top: 0;
-				bottom: calc($friends-not-food-spacing * 3);
+				bottom: $friends-not-foods-spacing-triple;
 				z-index: 1;
 				margin: auto;
 				opacity: 0;
@@ -219,7 +226,7 @@
 						padding: $friends-not-food-spacing calc($friends-not-food-spacing * 9) $friends-not-food-spacing $friends-not-food-spacing;
 						text-align: left;
 						.dc-friends-not-food-name {
-							margin: calc($friends-not-food-spacing * 2) 0 0 0;
+							margin: $friends-not-foods-spacing-double 0 0 0;
 						}
 						.dc-friends-not-food-avatar {
 							width: $friends-not-food-image-size-02;

@@ -16,6 +16,10 @@
 	$menu-spacing: 20px; // spacing for menu
 	$menu-items-per-row: 5; // number of navigation items in main row
 
+	// Calculations
+
+	$menu-spacing-half: calc($menu-spacing / 2);
+
 	// Style block
 
 	#dc-navigation-menu-02 {
@@ -84,7 +88,7 @@
 					margin: 0 auto;
 					.dc-navigation-sublist-item {
 						a, span {
-							padding: calc($menu-spacing / 2);
+							padding: $menu-spacing-half;
 						}
 					}
 				}

@@ -145,8 +145,8 @@ export const FriendsNotFoodPreview = () => {
 						<div className="dc-friends-not-food-avatar dc-friends-not-food-absolute">
 							<img
 								src="//display.coffee/assets/images/cheat-codes/friends-not-food-avatar.gif"
-								alt="Shark swimming"
-								title="Shark swimming"
+								alt="Friends Not Food - Avatar"
+								title="Friends Not Food - Avatar"
 							/>
 						</div>
 					</header>
@@ -247,7 +247,7 @@ export const FriendsNotFoodPreview = () => {
 };
 
 /* Code blocks */
-const cb01 = `<img src="//display.coffee/assets/images/cheat-codes/friends-not-food-avatar.gif" alt="Shark swimming" title="Shark swimming" />`;
+const cb01 = `<img src="//display.coffee/assets/images/cheat-codes/friends-not-food-avatar.gif" alt="Friends Not Food - Avatar" title="Friends Not Food - Avatar" />`;
 const cb02 = `import { FriendsNotFood } from './FriendsNotFood';`;
 const cb03 = `<FriendsNotFood />`;
 const cb04 = `@import url('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');`;

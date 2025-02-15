@@ -20,6 +20,10 @@
 	$dragony-font-size-02: 28px; // header font size
 	$dragony-spacing: 20px; // spacing for template
 
+	// Calculations
+
+	$dragony-spacing-half: calc($dragony-spacing / 2);
+
 	// Style block
 
 	.dc-dragony {
@@ -58,7 +62,7 @@
 			text-transform: uppercase;
 		}
 		h4 {
-			font-size: calc($dragony-font-size-02 - 6px);
+			font-size: $dragony-font-size-02 - 6;
 			font-style: italic;
 			text-transform: lowercase;
 		}
@@ -81,7 +85,7 @@
 			}
 		}
 		.dc-dragony-footer .dc-dragony-separator {
-			padding: 0 calc($dragony-spacing / 2);
+			padding: 0 $dragony-spacing-half;
 		}
 	}
 	@media only screen and (min-width: $dragony-breakpoint) {

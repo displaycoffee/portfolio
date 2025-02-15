@@ -23,9 +23,9 @@ export const cheatCodes = [
 		id: 7,
 		name: 'Dreaming of Snow',
 		date: '01.17.16',
-		updated: '02.02.25',
+		updated: '02.15.25',
 		tags: 'HTML, CSS, Sass, Template',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores, facilis sapiente animi beatae non quaerat.',
+		description: 'A wintery themed template. The images can be changed. The circle avatar has a hover where you can place a small bit of code.',
 		component: DreamingOfSnow,
 	},
 	{
@@ -50,7 +50,7 @@ export const cheatCodes = [
 		id: 4,
 		name: 'Velociraptor Pack',
 		date: '10.03.15',
-		updated: '02.10.25',
+		updated: '02.15.25',
 		tags: 'HTML, CSS, Sass, Template',
 		description:
 			'A template with scrollable areas. When you click on the links, it changes the content displayed. This takes me back to my iframe layout days.',
@@ -88,7 +88,7 @@ export const cheatCodes = [
 		id: 0,
 		name: 'Navigation Menus',
 		date: '06.01.14',
-		updated: '02.05.25',
+		updated: '02.15.25',
 		tags: 'HTML, CSS, Sass, Navigation, Layout',
 		description:
 			'Using unordered lists, this code creates navigation menus with hover effects. You can change the colors and add things to the CSS. Most of what I have is a base.',
