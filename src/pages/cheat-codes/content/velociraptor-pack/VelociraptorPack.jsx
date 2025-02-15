@@ -241,7 +241,7 @@ export const VelociraptorPackPreview = () => {
 /* Code blocks */
 const cb01 = `import { VelociraptorPack } from './VelociraptorPack';`;
 const cb02 = `<VelociraptorPack />`;
-const cb03 = `background: url('//display.coffee/assets/images/cheat-codes/velociraptor-pack.jpg') no-repeat;`;
+const cb03 = `background: url('//display.coffee/assets/images/cheat-codes/velociraptor-pack-bg.jpg') no-repeat;`;
 const cb04 = `<style>
 	/* Copied styles go here */
 </style>`;

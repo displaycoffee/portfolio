@@ -113,11 +113,12 @@ export const Test = () => {
 export const TestPreview = () => {
 	return (
 		<div className="dc-test displaycoffee">
-			<div className="dc-test-banner">
+			<header className="dc-test-banner">
 				<h3 className="dc-test-title">Wish you were here...</h3>
 				<div className="dc-test-circles"></div>
-			</div>
-			<div className="dc-test-content">
+			</header>
+
+			<main className="dc-test-content">
 				<div className="dc-test-row">
 					<div className="dc-test-column dc-test-column-01">
 						<dl>
@@ -148,6 +149,7 @@ export const TestPreview = () => {
 							<a href="/">Link 03</a>
 						</p>
 					</div>
+
 					<div className="dc-test-column dc-test-column-02">
 						<h4 className="dc-test-title">Biography</h4>
 						<p>
@@ -164,7 +166,7 @@ export const TestPreview = () => {
 						</p>
 					</div>
 				</div>
-			</div>
+			</main>
 		</div>
 	);
 };
