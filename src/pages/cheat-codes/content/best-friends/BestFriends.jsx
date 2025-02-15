@@ -2,7 +2,7 @@
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
 
-export const WishYouWereHere = () => {
+export const BestFriends = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
@@ -34,7 +34,7 @@ export const WishYouWereHere = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h5 className="h-remove-shadow">Source / repo</h5>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/wish-you-were-here" target="_blank" rel="noreferrer">
+					<a href="//github.com/displaycoffee/cheat-codes/tree/production/best-friends" target="_blank" rel="noreferrer">
 						View @ displaycoffee
 					</a>
 				</p>
@@ -42,24 +42,16 @@ export const WishYouWereHere = () => {
 				<h5 className="h-remove-shadow">HTML</h5>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.html"
-						target="_blank"
-						rel="noreferrer"
-					>
-						wish-you-were-here/wish-you-were-here.html
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.html" target="_blank" rel="noreferrer">
+						best-friends/best-friends.html
 					</a>
 				</p>
 
 				<h5 className="h-remove-shadow">React</h5>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/WishYouWereHere.jsx"
-						target="_blank"
-						rel="noreferrer"
-					>
-						wish-you-were-here/WishYouWereHere.jsx
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/BestFriends.jsx" target="_blank" rel="noreferrer">
+						best-friends/BestFriends.jsx
 					</a>
 				</p>
 				<CodeBlock header={'React import'}>{cb01}</CodeBlock>
@@ -83,12 +75,8 @@ export const WishYouWereHere = () => {
 				<h5 className="h-remove-shadow">CSS</h5>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.css"
-						target="_blank"
-						rel="noreferrer"
-					>
-						wish-you-were-here/wish-you-were-here.css
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.css" target="_blank" rel="noreferrer">
+						best-friends/best-friends.css
 					</a>
 				</p>
 				<CodeBlock header={'Style block'}>{cb05}</CodeBlock>
@@ -103,12 +91,8 @@ export const WishYouWereHere = () => {
 				<h5 className="h-remove-shadow">Sass</h5>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
-						wish-you-were-here/wish-you-were-here.scss
+					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.scss" target="_blank" rel="noreferrer">
+						best-friends/best-friends.scss
 					</a>
 				</p>
 				<CodeBlock header={'Sass import'}>{cb10}</CodeBlock>
@@ -119,24 +103,23 @@ export const WishYouWereHere = () => {
 				<CodeBlock header={'Sass'}>{cb12}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className="preview-cheat-codes preview-wish-you-were-here">
-				<WishYouWereHerePreview />
+			<Preview className="preview-cheat-codes preview-best-friends">
+				<BestFriendsPreview />
 			</Preview>
 		</>
 	);
 };
 
-export const WishYouWereHerePreview = () => {
+export const BestFriendsPreview = () => {
 	return (
-		<div className="dc-wish-you-were-here displaycoffee">
-			<header className="dc-wish-you-were-here-banner">
-				<h3 className="dc-wish-you-were-here-title">Wish you were here...</h3>
-				<div className="dc-wish-you-were-here-circles"></div>
-			</header>
-
-			<main className="dc-wish-you-were-here-content">
-				<div className="dc-wish-you-were-here-row">
-					<div className="dc-wish-you-were-here-column dc-wish-you-were-here-column-01">
+		<div className="dc-best-friends displaycoffee">
+			<div className="dc-best-friends-banner">
+				<h3 className="dc-best-friends-title">Wish you were here...</h3>
+				<div className="dc-best-friends-circles"></div>
+			</div>
+			<div className="dc-best-friends-content">
+				<div className="dc-best-friends-row">
+					<div className="dc-best-friends-column dc-best-friends-column-01">
 						<dl>
 							<dt>Name:</dt>
 							<dd>Beach Goer</dd>
@@ -159,15 +142,14 @@ export const WishYouWereHerePreview = () => {
 						</dl>
 						<p>
 							<a href="/">Link 01</a>
-							<span className="dc-wish-you-were-here-separator"></span>
+							<span className="dc-best-friends-separator"></span>
 							<a href="/">Link 02</a>
-							<span className="dc-wish-you-were-here-separator"></span>
+							<span className="dc-best-friends-separator"></span>
 							<a href="/">Link 03</a>
 						</p>
 					</div>
-
-					<div className="dc-wish-you-were-here-column dc-wish-you-were-here-column-02">
-						<h4 className="dc-wish-you-were-here-title">Biography</h4>
+					<div className="dc-best-friends-column dc-best-friends-column-02">
+						<h4 className="dc-best-friends-title">Biography</h4>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor omnis est quam accusantium! Ut corporis consequatur,{' '}
 							<a href="/">nisi assumenda veniam</a>, necessitatibus. Obcaecati porro optio fuga quod itaque, quibusdam odit qui nobis.
@@ -182,26 +164,26 @@ export const WishYouWereHerePreview = () => {
 						</p>
 					</div>
 				</div>
-			</main>
+			</div>
 		</div>
 	);
 };
 
 /* Code blocks */
-const cb01 = `import { WishYouWereHere } from './WishYouWereHere';`;
-const cb02 = `<WishYouWereHere />`;
+const cb01 = `import { BestFriends } from './BestFriends';`;
+const cb02 = `<BestFriends />`;
 const cb03 = `@import url('//fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');`;
-const cb04 = `background: url('//display.coffee/assets/images/cheat-codes/wish-you-were-here-bg.jpg') no-repeat;`;
+const cb04 = `background: url('//display.coffee/assets/images/cheat-codes/best-friends.jpg') no-repeat;`;
 const cb05 = `<style>
 	/* Copied styles go here */
 </style>`;
 const cb06 = `<!-- Copy styles and paste into stylesheet -->
-<link rel="stylesheet" href="wish-you-were-here.css" />`;
-const cb07 = `@import url('wish-you-were-here.css');`;
-const cb08 = `import 'wish-you-were-here.css';`;
-const cb09 = `.dc-wish-you-were-here {
+<link rel="stylesheet" href="best-friends.css" />`;
+const cb07 = `@import url('best-friends.css');`;
+const cb08 = `import 'best-friends.css';`;
+const cb09 = `.dc-best-friends {
 	max-width: 650px;
 }`;
-const cb10 = `@import 'wish-you-were-here.scss';`;
-const cb11 = `import 'wish-you-were-here.scss';`;
-const cb12 = `$wish-you-were-here-max-width: 650px; // max width`;
+const cb10 = `@import 'best-friends.scss';`;
+const cb11 = `import 'best-friends.scss';`;
+const cb12 = `$best-friends-max-width: 650px; // max width`;

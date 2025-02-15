@@ -1,0 +1,233 @@
+//// BEST FRIENDS
+//// --------------------------------------------------------------------------
+
+	// Imports
+	
+	@import url('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+
+	// Colors
+
+	$friends-not-food-color-01: #ffffff; // font
+	$friends-not-food-color-02: #17476d; // main block color
+
+	// Configuration
+
+	$friends-not-food-breakpoint: 541px; // breakpoint for desktop styles
+	$friends-not-food-max-width: 400px; // max width
+	$friends-not-food-font-family-01: 'Open Sans', Arial, sans-serif; // font family
+	$friends-not-food-font-family-02: 'Oswald', Arial, sans-serif; // header font family
+	$friends-not-food-font-size-01: 12px; // font size
+	$friends-not-food-font-size-02: 18px; // header font size
+	$friends-not-food-spacing: 20px; // spacing for template
+	$friends-not-food-image-size-01: 100px; // size for avatar on mobile
+	$friends-not-food-image-size-02: 125px; // size for avatar on desktop
+
+	// Style block
+
+	.dc-best-friends {
+		width: auto;
+		max-width: 100%;
+		margin: 0;
+	}
+	.dc-best-friends, .dc-best-friends * {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		font-family: "Open Sans", Arial, sans-serif;
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 1.5;
+		color: #ffffff;
+	}
+	.dc-best-friends .dc-best-friends-font {
+		font-family: "Oswald", Arial, sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.2;
+		letter-spacing: 0;
+		text-transform: uppercase;
+		text-shadow: none;
+	}
+	.dc-best-friends .dc-best-friends-absolute {
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+	.dc-best-friends .dc-best-friends-block {
+		background-color: rgba(23, 71, 109, 0.6);
+		padding: 10px;
+	}
+	.dc-best-friends .dc-best-friends-block span {
+		display: block;
+		margin: 2.5px 0 0 0;
+		font-size: 14px;
+	}
+	.dc-best-friends .dc-best-friends-row, .dc-best-friends .dc-best-friends-vertical {
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: -moz-flex;
+		display: flex;
+	}
+	.dc-best-friends .dc-best-friends-row > *, .dc-best-friends .dc-best-friends-vertical > * {
+		-webkit-flex: 0 1 auto;
+		-ms-flex: 0 1 auto;
+		-moz-flex: 0 1 auto;
+		flex: 0 1 auto;
+		min-height: 1px;
+		min-width: 1px;
+	}
+	.dc-best-friends .dc-best-friends-row {
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		-webkit-align-items: center;
+		align-items: center;
+		margin: 0 -5px -10px -5px;
+	}
+	.dc-best-friends .dc-best-friends-row .dc-best-friends-column {
+		width: 100%;
+		padding: 0 5px;
+		margin: 0 0 10px 0;
+	}
+	.dc-best-friends .dc-best-friends-vertical {
+		-webkit-flex-flow: column nowrap;
+		flex-flow: column nowrap;
+	}
+	.dc-best-friends p, .dc-best-friends h3, .dc-best-friends h4 {
+		margin: 0;
+	}
+	.dc-best-friends .dc-best-friends-name .dc-best-friends-font, 
+	.dc-best-friends .dc-best-friends-hover {
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75);
+	}
+	.dc-best-friends .dc-best-friends-container {
+		position: relative;
+		background: url("//display.coffee/assets/images/cheat-codes/friends-not-food-bg.jpg") no-repeat 0 0;
+		background-size: cover;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01, 
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-02 {
+		padding: 20px;
+		-webkit-transition: opacity 0.5s ease;
+		-o-transition: opacity 0.5s ease;
+		-ms-transition: opacity 0.5s ease;
+		-moz-transition: opacity 0.5s ease;
+		transition: opacity 0.5s ease;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-hover {
+		order: 10;
+		text-align: center;
+		background-color: #17476d;
+		padding: 0 20px;
+		line-height: 60px;
+		cursor: pointer;
+		bottom: 20px;
+		left: 20px;
+		right: 20px;
+		z-index: 1;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-hover:hover ~ .dc-best-friends-information-01 {
+		opacity: 0;
+		visibility: hidden;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-hover:hover ~ .dc-best-friends-information-02 {
+		visibility: visible;
+		opacity: 1;
+		z-index: 2;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar {
+		position: relative;
+		width: auto;
+		background-color: #17476d;
+		margin: -20px -20px 0 -20px;
+		padding: 20px 20px 60px 20px;
+		text-align: center;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-name, 
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-species {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-species {
+		margin: 5px 0 0 0;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-species p, 
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-species strong {
+		font-size: 14px;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-avatar {
+		border-radius: 50%;
+		overflow: hidden;
+		width: 100px;
+		height: 100px;
+		bottom: -50px;
+		margin: auto;
+		line-height: 0;
+		border: 5px solid #17476d;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-avatar img {
+		max-width: 100%;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-profile {
+		margin: 82.5px 0 0 0;
+		text-align: center;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-profile .dc-best-friends-title, 
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-profile .dc-best-friends-quote {
+		width: 100%;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-profile .dc-best-friends-title .dc-best-friends-font {
+		font-size: 16px;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-profile .dc-best-friends-quote {
+		text-align: right;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-profile .dc-best-friends-quote span {
+		margin: 5px 0 0 0;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-02 {
+		top: 0;
+		bottom: 60px;
+		z-index: 1;
+		margin: auto;
+		opacity: 0;
+		visibility: hidden;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-02 .dc-best-friends-block {
+		-webkit-flex: 1 1 0%;
+		-ms-flex: 1 1 0%;
+		-moz-flex: 1 1 0%;
+		flex: 1 1 0%;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-02 .dc-best-friends-block, 
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-02 .dc-best-friends-block p {
+		margin: 0 0 20px 0;
+	}
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-02 .dc-best-friends-block:last-child, 
+	.dc-best-friends .dc-best-friends-container .dc-best-friends-information-02 .dc-best-friends-block p:last-child {
+		margin-bottom: 0;
+	}
+	@media only screen and (min-width: 541px) {
+		.dc-best-friends {
+			max-width: 400px;
+		}
+		.dc-best-friends .dc-best-friends-row .dc-best-friends-column {
+			width: 50%;
+		}
+		.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar {
+			padding: 20px 180px 20px 20px;
+			text-align: left;
+		}
+		.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-name {
+			margin: 40px 0 0 0;
+		}
+		.dc-best-friends .dc-best-friends-container .dc-best-friends-information-01 .dc-best-friends-top-bar .dc-best-friends-avatar {
+			width: 125px;
+			height: 125px;
+			bottom: -62.5px;
+			right: 20px;
+			left: auto;
+			margin: 0;
+			border-width: 10px;
+		}
+	}

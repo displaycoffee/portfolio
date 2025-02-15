@@ -32,7 +32,7 @@ export const FriendsNotFood = () => {
 
 				<h5 className="h-remove-shadow">HTML or React</h5>
 				<p>
-					The shark gif can be altered by changing the below <CodeInline>img</CodeInline> source. If possible, please re-host any images and
+					The avatar can be altered by changing the below <CodeInline>img</CodeInline> source. If possible, please re-host any images and
 					upload to your own server.
 				</p>
 				<CodeBlock header={'Images'}>{cb01}</CodeBlock>
@@ -131,7 +131,7 @@ export const FriendsNotFoodPreview = () => {
 				<div className="dc-friends-not-food-hover dc-friends-not-food-font">Hover For More</div>
 
 				<div className="dc-friends-not-food-information-01">
-					<div className="dc-friends-not-food-top-bar">
+					<header className="dc-friends-not-food-header">
 						<div className="dc-friends-not-food-name">
 							<h3 className="dc-friends-not-food-font">Imma Shark, Baby</h3>
 						</div>
@@ -144,14 +144,14 @@ export const FriendsNotFoodPreview = () => {
 
 						<div className="dc-friends-not-food-avatar dc-friends-not-food-absolute">
 							<img
-								src="//display.coffee/assets/images/cheat-codes/friends-not-food-shark.gif"
+								src="//display.coffee/assets/images/cheat-codes/friends-not-food-avatar.gif"
 								alt="Shark swimming"
 								title="Shark swimming"
 							/>
 						</div>
-					</div>
+					</header>
 
-					<div className="dc-friends-not-food-profile">
+					<main className="dc-friends-not-food-profile">
 						<div className="dc-friends-not-food-row">
 							<div className="dc-friends-not-food-title dc-friends-not-food-column">
 								<div className="dc-friends-not-food-block">
@@ -210,34 +210,36 @@ export const FriendsNotFoodPreview = () => {
 								</div>
 							</div>
 						</div>
-					</div>
+					</main>
 				</div>
 
-				<div className="dc-friends-not-food-information-02 dc-friends-not-food-vertical dc-friends-not-food-absolute">
-					<div className="dc-friends-not-food-block">
-						<p>
-							Quagga mussel cat shark is batfish frogfish. . Peppered moray clownfish hawkfish at seahorse hammerhead a funny snake eel.
-							Wobbegong shark blue whale gold damsel faucet snail, in snake eel sea coral grouper. The crackin crazy Neon goby nurse
-							shark moon. Quagga musse.
-						</p>
-						<p>
-							Grey whale mermaid appeared. Fire fish pipefish blue tang, frogfish bicolor blenny at, quagga mussel and funny bannerfish.
-							Milk shark swim Asian clam soldierfish. Banana wrasse in yellow pseudochromis non mermaid parrotfish mystery snail. In
-							seahorse banded eel, butter hamlet are butterflyfish blue tang, wabas.
-						</p>
-					</div>
+				<div className="dc-friends-not-food-information-02 dc-friends-not-food-absolute">
+					<main className="dc-friends-not-food-vertical">
+						<div className="dc-friends-not-food-block">
+							<p>
+								Quagga mussel cat shark is batfish frogfish. . Peppered moray clownfish hawkfish at seahorse hammerhead a funny snake
+								eel. Wobbegong shark blue whale gold damsel faucet snail, in snake eel sea coral grouper. The crackin crazy Neon goby
+								nurse shark moon. Quagga musse.
+							</p>
+							<p>
+								Grey whale mermaid appeared. Fire fish pipefish blue tang, frogfish bicolor blenny at, quagga mussel and funny
+								bannerfish. Milk shark swim Asian clam soldierfish. Banana wrasse in yellow pseudochromis non mermaid parrotfish
+								mystery snail. In seahorse banded eel, butter hamlet are butterflyfish blue tang, wabas.
+							</p>
+						</div>
 
-					<div className="dc-friends-not-food-block">
-						<p>
-							Pigtoe sea coral king crab heelsplitter, in painted comber Banded eel bicolor blenny. Bursa trigger funny filefish, a
-							Snaggletooth shark lobster in. Spotted sweetlips loving in catshark pebblesnail at seabass with faucet snail. Yellow
-							pseudochromis weasel shark shadow, darkness in deap ocean an, Motionless Wabash pigtoe Full moon. Fishies asian cla
-						</p>
-						<p>
-							Painted comber, king crab a elktoe a, grey whale seahorse. The crackin crazy Neon goby nurse shark moon. Hippo tang gold
-							damsel peaclam.
-						</p>
-					</div>
+						<div className="dc-friends-not-food-block">
+							<p>
+								Pigtoe sea coral king crab heelsplitter, in painted comber Banded eel bicolor blenny. Bursa trigger funny filefish, a
+								Snaggletooth shark lobster in. Spotted sweetlips loving in catshark pebblesnail at seabass with faucet snail. Yellow
+								pseudochromis weasel shark shadow, darkness in deap ocean an, Motionless Wabash pigtoe Full moon. Fishies asian cla
+							</p>
+							<p>
+								Painted comber, king crab a elktoe a, grey whale seahorse. The crackin crazy Neon goby nurse shark moon. Hippo tang
+								gold damsel peaclam.
+							</p>
+						</div>
+					</main>
 				</div>
 			</div>
 		</div>
@@ -245,7 +247,7 @@ export const FriendsNotFoodPreview = () => {
 };
 
 /* Code blocks */
-const cb01 = `<img src="//display.coffee/assets/images/cheat-codes/friends-not-food-shark.gif" alt="Shark swimming" title="Shark swimming" />`;
+const cb01 = `<img src="//display.coffee/assets/images/cheat-codes/friends-not-food-avatar.gif" alt="Shark swimming" title="Shark swimming" />`;
 const cb02 = `import { FriendsNotFood } from './FriendsNotFood';`;
 const cb03 = `<FriendsNotFood />`;
 const cb04 = `@import url('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');`;

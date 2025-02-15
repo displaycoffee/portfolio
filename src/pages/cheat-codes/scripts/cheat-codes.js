@@ -1,10 +1,13 @@
 /* Local components */
-import { Test } from '../content/_test/Test';
 import { NavigationMenus } from '../content/navigation-menus/NavigationMenus';
 import { HelloContent } from '../content/hello-content/HelloContent';
 import { WishYouWereHere } from '../content/wish-you-were-here/WishYouWereHere';
 import { FriendsNotFood } from '../content/friends-not-food/FriendsNotFood';
 import { VelociraptorPack } from '../content/velociraptor-pack/VelociraptorPack';
+import { Dragony } from '../content/dragony/Dragony';
+import { APromise } from '../content/a-promise/APromise';
+import { DreamingOfSnow } from '../content/dreaming-of-snow/DreamingOfSnow';
+import { BestFriends } from '../content/best-friends/BestFriends';
 
 export const cheatCodes = [
 	{
@@ -14,34 +17,34 @@ export const cheatCodes = [
 		updated: '02.02.25',
 		tags: 'HTML, CSS, Sass, Template',
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores, facilis sapiente animi beatae non quaerat.',
-		component: Test,
+		component: BestFriends,
 	},
 	{
 		id: 7,
-		name: 'Dreaming of a White Christmas',
+		name: 'Dreaming of Snow',
 		date: '01.17.16',
 		updated: '02.02.25',
 		tags: 'HTML, CSS, Sass, Template',
 		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores, facilis sapiente animi beatae non quaerat.',
-		component: Test,
+		component: DreamingOfSnow,
 	},
 	{
 		id: 6,
 		name: 'A Promise',
 		date: '10.03.15',
-		updated: '02.02.25',
-		tags: 'HTML, CSS, Sass, Template',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores, facilis sapiente animi beatae non quaerat.',
-		component: Test,
+		updated: '02.15.25',
+		tags: 'HTML, CSS, Sass, Block',
+		description: 'A signature or quote block based on Samwise Gamgee from "Lord of the Rings".',
+		component: APromise,
 	},
 	{
 		id: 5,
 		name: 'Dragony',
 		date: '10.03.15',
-		updated: '02.02.25',
-		tags: 'HTML, CSS, Sass, Template',
-		description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolores, facilis sapiente animi beatae non quaerat.',
-		component: Test,
+		updated: '02.15.25',
+		tags: 'HTML, CSS, Sass, Block',
+		description: 'A character block template based on Toothless from "How to Train Your Dragon".',
+		component: Dragony,
 	},
 	{
 		id: 4,
@@ -57,16 +60,16 @@ export const cheatCodes = [
 		id: 3,
 		name: 'Friends Not Food',
 		date: '10.03.15',
-		updated: '02.06.25',
+		updated: '02.15.25',
 		tags: 'HTML, CSS, Sass, Template',
-		description: ' A shark/underwater themed layout. It has a hover button on the bottom to display more content.',
+		description: ' A shark/underwater themed template. It has a hover button on the bottom to display more content.',
 		component: FriendsNotFood,
 	},
 	{
 		id: 2,
 		name: 'Wish You Were Here',
 		date: '10.03.15',
-		updated: '02.05.25',
+		updated: '02.15.25',
 		tags: 'HTML, CSS, Sass, Template',
 		description: 'A summer-themed template. Not related to the Pink Floyd song.',
 		component: WishYouWereHere,

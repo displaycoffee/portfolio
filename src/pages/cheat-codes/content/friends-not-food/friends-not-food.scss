@@ -14,8 +14,8 @@
 
 	$friends-not-food-breakpoint: 541px; // breakpoint for desktop styles
 	$friends-not-food-max-width: 400px; // max width
-	$friends-not-food-font-family-01: 'Open Sans', Arial, sans-serif; // font family
-	$friends-not-food-font-family-02: 'Oswald', Arial, sans-serif; // header font family
+	$friends-not-food-font-family-01: 'Open Sans', Arial, Helvetica, sans-serif; // font family
+	$friends-not-food-font-family-02: Oswald, Arial, Helvetica, sans-serif; // header font family
 	$friends-not-food-font-size-01: 12px; // font size
 	$friends-not-food-font-size-02: 18px; // header font size
 	$friends-not-food-spacing: 20px; // spacing for template
@@ -133,7 +133,7 @@
 				}
 			}
 			.dc-friends-not-food-information-01 {
-				.dc-friends-not-food-top-bar {
+				.dc-friends-not-food-header {
 					position: relative;
 					width: auto;
 					background-color: $friends-not-food-color-02;
@@ -189,15 +189,18 @@
 				margin: auto;
 				opacity: 0;
 				visibility: hidden;
-				.dc-friends-not-food-block {
-					-webkit-flex: 1 1 0%;
-					-ms-flex: 1 1 0%;
-					-moz-flex: 1 1 0%;
-					flex: 1 1 0%;
-					&, p {
-						margin: 0 0 $friends-not-food-spacing 0;
-						&:last-child {
-							margin-bottom: 0;
+				.dc-friends-not-food-vertical {
+					height: 100%;
+					.dc-friends-not-food-block {
+						-webkit-flex: 1 1 0%;
+						-ms-flex: 1 1 0%;
+						-moz-flex: 1 1 0%;
+						flex: 1 1 0%;
+						&, p {
+							margin: 0 0 $friends-not-food-spacing 0;
+							&:last-child {
+								margin-bottom: 0;
+							}
 						}
 					}
 				}
@@ -212,7 +215,7 @@
 			}
 			.dc-friends-not-food-container {
 				.dc-friends-not-food-information-01 {
-					.dc-friends-not-food-top-bar {
+					.dc-friends-not-food-header {
 						padding: $friends-not-food-spacing calc($friends-not-food-spacing * 9) $friends-not-food-spacing $friends-not-food-spacing;
 						text-align: left;
 						.dc-friends-not-food-name {
