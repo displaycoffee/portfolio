@@ -34,7 +34,7 @@ export const HelloContent = () => {
 				</p>
 
 				<h5 className="h-remove-shadow">HTML</h5>
-				<p>Copy the template HTML and place it on the page.</p>
+				<p>If using HTML and not React, copy the template HTML and place it on the page.</p>
 				<p>
 					<a
 						href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.html"
@@ -161,7 +161,7 @@ const tabs = [
 
 export const HelloContentPreview = (props) => {
 	let { tabs, defaultTab } = props;
-	defaultTab = typeof defaultTab == 'undefined' ? 0 : defaultTab;
+	defaultTab = typeof defaultTab == 'undefined' ? 0 : defaultTab - 1;
 	let [activeTab, setActiveTab] = useState(defaultTab);
 	const activeClass = 'dc-hello-content-active';
 
