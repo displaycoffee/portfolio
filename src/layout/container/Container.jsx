@@ -34,30 +34,16 @@ export const Container = (props) => {
 		setSidebar(sidebar);
 	}, [location.pathname]);
 
-	// Shared slideout options
-	const options = {
+	// Slideout options
+	const slideoutOptions = {
 		id: 'menu',
 		isDesktop: isDesktop,
 		label: 'Menu',
 		content: <Navigation />,
 		closeOnClick: true,
-	};
-
-	// Button slideout options
-	const buttonOptions = {
-		...options,
 		button: {
 			outside: true,
 			show: true,
-		},
-	};
-
-	// Menu slideout options
-	const menuOptions = {
-		...options,
-		button: {
-			outside: false,
-			show: false,
 		},
 	};
 
@@ -65,13 +51,25 @@ export const Container = (props) => {
 		<Context.Provider value={props}>
 			<div className="container container-main">
 				<ErrorBoundary message={<ContainerError />}>
-					<SlideoutOverlay options={options} />
+					<SlideoutOverlay options={slideoutOptions} />
 
 					<Header />
 
-					<PixelSection className={'navigation-section'}>{isDesktop ? <Navigation /> : <Slideout options={buttonOptions} />}</PixelSection>
+					<PixelSection className={'navigation-section'}>
+						{isDesktop ? <Navigation /> : <Slideout options={slideoutOptions} />}
+					</PixelSection>
 
-					{isDesktop ? null : <Slideout options={menuOptions} />}
+					{isDesktop ? null : (
+						<Slideout
+							options={{
+								...slideoutOptions,
+								button: {
+									outside: false,
+									show: false,
+								},
+							}}
+						/>
+					)}
 
 					<main className="main">
 						<div className="main-layout flex-wrap">
