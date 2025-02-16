@@ -1,6 +1,6 @@
 /* React */
 import { useEffect, useContext } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
 
 /* Local styles */
 import './styles/navigation.scss';
@@ -63,6 +63,8 @@ export const NavigationRoutes = () => {
 
 				return <Route path={path} element={<nav.component {...navProps} />} key={nav.id} />;
 			})}
+
+			<Route path="*" element={<Navigate to="/" />} />
 		</Routes>
 	) : null;
 };
