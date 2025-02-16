@@ -65,12 +65,12 @@
 						border: 1px solid $hello-content-color-02;
 						cursor: pointer;
 						padding: 10px;
-						&.dc-hello-content-active {
-							background-color: $hello-content-color-03;
-							border-color: $hello-content-color-03;
-							color: $hello-content-color-02;
-							font-weight: 700;
-						}
+					}
+					.dc-hello-content-active {
+						background-color: $hello-content-color-03;
+						border-color: $hello-content-color-03;
+						color: $hello-content-color-02;
+						font-weight: 700;
 					}
 				}
 			}
