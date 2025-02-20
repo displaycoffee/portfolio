@@ -1,0 +1,54 @@
+//// BANNER CODE GENERATOR
+//// --------------------------------------------------------------------------
+
+	// Colors
+
+	$banner-code-generator-color-01: #333333; // font
+	$banner-code-generator-color-02: #999999; // borders and main background
+	$banner-code-generator-color-03: #ffffff; // active background
+
+	// Configuration
+
+	$banner-code-generator-breakpoint: 541px; // breakpoint for desktop styles
+	$banner-code-generator-font-family: Arial, Helvetica, sans-serif; // font family
+	$banner-code-generator-font-size: 12px; // font size
+	$banner-code-generator-items-per-row: 5; // number of tabs in main row
+
+	// Style block
+
+	.bcg-banners, #bcg-code {
+		margin: 0 0 20px 0;
+	  }
+	  
+	  .bcg-banners h3, #bcg-code h3 {
+		margin: 0 0 10px 0;
+	  }
+	  
+	  .bcg-banners, .bcg-banners *, #bcg-code, #bcg-code * {
+		box-sizing: border-box;
+	  }
+	  
+	  /* Banner Code Generator - Banners */
+	  .bcg-banners img {
+		cursor: pointer;
+	  }
+	  
+	  /* Banner Code Generator - Code */
+	  #bcg-code pre, #bcg-code code {
+		margin: 0;
+		border: 0;
+		padding: 0;
+	  }
+	  
+	  #bcg-code pre code {
+		display: block;
+		font-family: 'Courier New', monospace;
+		background: #222222;
+		color: #ededed;
+		padding: 20px;
+		white-space: pre-wrap;
+		overflow: auto;
+	  }
+	@media only screen and (min-width: 541px) {
+		
+	}

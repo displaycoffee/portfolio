@@ -14,7 +14,7 @@ export const BestFriends = () => {
 					</div>
 					<div className="definition-list-item">
 						<dt>Languages</dt>
-						<dd>HTML or React, CSS or Sass</dd>
+						<dd>HTML / JavaScript or React, CSS or Sass</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Responsive</dt>
