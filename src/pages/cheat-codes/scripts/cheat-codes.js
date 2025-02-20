@@ -8,8 +8,18 @@ import { Dragony } from '../content/dragony/Dragony';
 import { APromise } from '../content/a-promise/APromise';
 import { DreamingOfSnow } from '../content/dreaming-of-snow/DreamingOfSnow';
 import { BestFriends } from '../content/best-friends/BestFriends';
+import { BannerCodeGenerator } from '../content/banner-code-generator/BannerCodeGenerator';
 
 export const cheatCodes = [
+	{
+		id: 9,
+		name: 'Banner Code Generator',
+		date: '09.16.18',
+		updated: '02.19.25',
+		tags: 'HTML, React, CSS, Sass, JavaScript, Functionality',
+		description: 'A little bit of code that generates code for placing image banners on websites.',
+		component: BannerCodeGenerator,
+	},
 	{
 		id: 8,
 		name: 'Best Friends',
@@ -79,7 +89,7 @@ export const cheatCodes = [
 		name: 'Hello Content! (A Tabbing Script)',
 		date: '09.16.15',
 		updated: '02.16.25',
-		tags: 'HTML, React, CSS, Sass, JavaScript, Functionality, Template',
+		tags: 'HTML, React, CSS, Sass, JavaScript, Functionality',
 		description:
 			'Simple, responsive tab functionality. Tabs work independently, so you can have multiple groups on the same page. Have fun and use as you wish!',
 		component: HelloContent,
