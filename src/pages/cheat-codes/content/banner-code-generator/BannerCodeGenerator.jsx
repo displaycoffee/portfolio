@@ -1,5 +1,5 @@
 /* React */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /* Local components */
 import { CheatCodesSection } from '../../CheatCodes';
@@ -135,7 +135,7 @@ export const BannerCodeGenerator = () => {
 			</CheatCodesSection>
 
 			<Preview className="preview-cheat-codes preview-banner-code-generator">
-				<BannerCodeGeneratorPreview banners={banners} />
+				<BannerCodeGeneratorPreview banners={banners} site={'//display.coffee'} />
 			</Preview>
 		</>
 	);
@@ -143,171 +143,143 @@ export const BannerCodeGenerator = () => {
 
 const banners = [
 	{
-		label: 'Tab 01',
-		content: `<p><strong>This Is Tab 01 Content!</strong></p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque nesciunt repudiandae vitae qui eveniet accusamus error possimus impedit voluptate quas, minus, tempore voluptatem a, architecto ipsum atque, ipsam quidem animi.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur fuga accusamus accusantium, unde voluptatum, ex dolore aspernatur est ullam minima facilis! In commodi unde laudantium voluptatibus distinctio repudiandae saepe inventore!</p>`,
+		header: '88x31',
+		values: [
+			{
+				alt: 'Coffee Banner - 88x31',
+				title: 'Coffee Banner - 88x31',
+				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-88x31.jpg',
+			},
+			{
+				alt: 'Dog Banner - 88x31',
+				title: 'Dog Banner - 88x31',
+				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-88x31.jpg',
+			},
+			{
+				alt: 'Lightning Banner - 88x31',
+				title: 'Lightning Banner - 88x31',
+				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-88x31.jpg',
+			},
+		],
 	},
 	{
-		label: 'Tab 02',
-		content: `<p><strong>This Is Tab 02 Content!</strong></p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque nesciunt repudiandae vitae qui eveniet accusamus error possimus impedit voluptate quas, minus, tempore voluptatem a, architecto ipsum atque, ipsam quidem animi.</p>`,
-	},
-	{
-		label: 'Tab 03',
-		content: `<p><strong>This Is Tab 03 Content!</strong></p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque nesciunt repudiandae vitae qui eveniet accusamus error possimus impedit voluptate quas, minus, tempore voluptatem a, architecto ipsum atque, ipsam quidem animi.</p>`,
-	},
-	{
-		label: 'Tab 04',
-		content: `<p><strong>This Is Tab 04 Content!</strong></p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque nesciunt repudiandae vitae qui eveniet accusamus error possimus impedit voluptate quas, minus, tempore voluptatem a, architecto ipsum atque, ipsam quidem animi.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur fuga accusamus accusantium, unde voluptatum, ex dolore aspernatur est ullam minima facilis! In commodi unde laudantium voluptatibus distinctio repudiandae saepe inventore!</p>`,
-	},
-	{
-		label: 'Tab 05',
-		content: `<p><strong>This Is Tab 05 Content!</strong></p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque nesciunt repudiandae vitae qui eveniet accusamus error possimus impedit voluptate quas, minus, tempore voluptatem a, architecto ipsum atque, ipsam quidem animi.</p>`,
+		header: '100x50',
+		values: [
+			{
+				alt: 'Coffee Banner - 100x50',
+				title: 'Coffee Banner - 100x50',
+				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-100x50.jpg',
+			},
+			{
+				alt: 'Dog Banner - 100x50',
+				title: 'Dog Banner - 100x50',
+				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-100x50.jpg',
+			},
+			{
+				alt: 'Lightning Banner - 100x50',
+				title: 'Lightning Banner - 100x50',
+				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-100x50.jpg',
+			},
+		],
 	},
 ];
 
 export const BannerCodeGeneratorPreview = (props) => {
-	let { banners } = props;
-	// defaultTab = typeof defaultTab == 'undefined' ? 0 : defaultTab - 1;
-	// let [activeTab, setActiveTab] = useState(defaultTab);
-	// const activeClass = 'dc-hello-content-active';
+	let { banners, defaultBanner, site } = props;
+	site = typeof site == 'undefined' ? '/' : site;
+	const activeClass = 'dc-banner-code-generator-active';
+	const hasBanners = banners && banners.length !== 0 ? true : false;
 
-	return (
+	// Since array of banners is nested, create and array that combines values
+	let allBanners = [];
+	if (hasBanners) {
+		banners.forEach((banner, index) => {
+			if (banner.values && banner.values.length !== 0) {
+				banner.values.forEach((value) => {
+					// Add a group for checking section later, then push to allBanners
+					value.group = index;
+					allBanners.push(value);
+				});
+			}
+		});
+	}
+
+	// Then set default banner
+	const defaultIndex = typeof defaultBanner == 'undefined' ? 0 : defaultBanner - 1;
+	defaultBanner = allBanners[defaultIndex] ? defaultIndex : 0;
+	let [activeBanner, setActiveBanner] = useState(defaultBanner);
+
+	// Create code output
+	const createOutput = (image) => {
+		// Set image attributes if available
+		const setImageAttr = (attribute) => {
+			const value = image[attribute] ? image[attribute] : false;
+			return value ? ` ${attribute}="${value}"` : ``;
+		};
+
+		// Return code output
+		return (
+			<>
+				{`\u003Ca href="${site}"\u003E`}
+				<br />
+				{`\u0009\u003Cimg${setImageAttr('src')}${setImageAttr('alt')}${setImageAttr('title')} /\u003E`}
+				<br />
+				{`\u003C/a\u003E`}
+			</>
+		);
+	};
+
+	// Set code output
+	let [output, setOutput] = useState(createOutput(allBanners[activeBanner]));
+
+	// Whenever active banner changes, update output
+	useEffect(() => {
+		output = createOutput(allBanners[activeBanner]);
+		setOutput(output);
+	}, [activeBanner]);
+
+	return hasBanners ? (
 		<>
 			<div className="dc-banner-code-generator displaycoffee">
-				<section className="dc-banner-code-generator-section">
-					<h4>88 x 31</h4>
+				{banners.map((banner, index) => {
+					return banner.values && banner.values.length !== 0 ? (
+						<section className="dc-banner-code-generator-section" key={index}>
+							<h5>{banner.header}</h5>
 
-					<div className="dc-banner-code-generator-banners">
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-88x31.jpg"
-								alt="Coffee Banner - 88x31"
-								title="Coffee Banner - 88x31"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-88x31.jpg"
-								alt="Dog Banner - 88x31"
-								title="Dog Banner - 88x31"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-88x31.jpg"
-								alt="Lightning Banner - 88x31"
-								title="Lightning Banner - 88x31"
-							/>
-						</button>
-					</div>
-				</section>
-
-				<section className="dc-banner-code-generator-section">
-					<h4>100 x 50</h4>
-
-					<div className="dc-banner-code-generator-banners">
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-100x50.jpg"
-								alt="Coffee Banner - 100 x 50"
-								title="Coffee Banner - 100 x 50"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-100x50.jpg"
-								alt="Dog Banner - 100 x 50"
-								title="Dog Banner - 100 x 50"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-100x50.jpg"
-								alt="Lightning Banner - 100 x 50"
-								title="Lightning Banner - 100 x 50"
-							/>
-						</button>
-					</div>
-				</section>
+							<div className="dc-banner-code-generator-banners">
+								{allBanners.map((value, valueIndex) => {
+									return value.group == index ? (
+										<button
+											className={`dc-banner-code-generator-button${valueIndex == activeBanner ? ` ${activeClass}` : ``}`}
+											type="button"
+											onClick={() => {
+												// Update banner on click
+												activeBanner = valueIndex;
+												setActiveBanner(activeBanner);
+											}}
+											key={valueIndex}
+										>
+											<img
+												src={value?.src ? value.src : ''}
+												alt={value?.alt ? value.alt : ''}
+												title={value?.title ? value.title : ''}
+											/>
+										</button>
+									) : null;
+								})}
+							</div>
+						</section>
+					) : null;
+				})}
 
 				<div className="dc-banner-code-generator-code">
 					<pre>
-						<code></code>
-					</pre>
-				</div>
-			</div>
-
-			<div className="dc-banner-code-generator displaycoffee">
-				<section className="dc-banner-code-generator-section">
-					<h4>88 x 31</h4>
-
-					<div className="dc-banner-code-generator-banners">
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-88x31.jpg"
-								alt="Coffee Banner - 88x31 - alt"
-								title="Coffee Banner - 88x31 - title"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-88x31.jpg"
-								alt="Dog Banner - 88x31 - alt"
-								title="Dog Banner - 88x31 - title"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-88x31.jpg"
-								alt="Lightning Banner - 88x31 - alt"
-								title="Lightning Banner - 88x31 - title"
-							/>
-						</button>
-					</div>
-				</section>
-
-				<section className="dc-banner-code-generator-section">
-					<h4>100 x 50</h4>
-
-					<div className="dc-banner-code-generator-banners">
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-100x50.jpg"
-								alt="Coffee Banner - 100 x 50 - alt"
-								title="Coffee Banner - 100 x 50 - title"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-100x50.jpg"
-								alt="Dog Banner - 100 x 50 - alt"
-								title="Dog Banner - 100 x 50 - title"
-							/>
-						</button>
-						<button className="dc-banner-code-generator-buttons" type="button">
-							<img
-								src="//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-100x50.jpg"
-								alt="Lightning Banner - 100 x 50 - alt"
-								title="Lightning Banner - 100 x 50 - title"
-							/>
-						</button>
-					</div>
-				</section>
-
-				<div className="dc-banner-code-generator-code">
-					<pre>
-						<code></code>
+						<code>{output}</code>
 					</pre>
 				</div>
 			</div>
 		</>
-	);
+	) : null;
 };
 
 /* Code blocks */

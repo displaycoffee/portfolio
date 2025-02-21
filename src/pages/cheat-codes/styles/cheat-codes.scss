@@ -47,4 +47,7 @@
 		&.preview-best-friends {
 			@import '../content/best-friends/best-friends';
 		}
+		&.preview-banner-code-generator {
+			@import '../content/banner-code-generator/banner-code-generator';
+		}
 	}	
