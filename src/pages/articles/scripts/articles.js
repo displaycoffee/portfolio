@@ -26,7 +26,7 @@ export const articles = [
 		id: 0,
 		name: `Styling Text`,
 		date: `05.30.15`,
-		updated: ``,
+		updated: `02.22.15`,
 		tags: `CSS`,
 		description: `The world of CSS text styling is large and vast. This article goes over only a small fraction of those rules (including the basics) and aims to show you how to use them.`,
 		component: StylingText,
