@@ -298,7 +298,7 @@ export let art = [
 		date: '05.23.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Smile. :) For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `Smile. &#128512; For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 	},
 	{
 		id: 38,

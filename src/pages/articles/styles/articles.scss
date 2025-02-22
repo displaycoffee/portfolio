@@ -103,3 +103,8 @@
 			}
 		}
 	}
+	#contents-styling-text-053015 {
+		.definition-list .definition-list-item dt {
+			@include mixins.flex(0 0 190px);
+		}
+	}
