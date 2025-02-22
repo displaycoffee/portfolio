@@ -1,5 +1,5 @@
 /* React */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 /* Local components */
 import { CheatCodesSection } from '../../CheatCodes';
@@ -45,14 +45,11 @@ export const BannerCodeGenerator = () => {
 					</a>
 				</p>
 				<p>
-					For multiple sets of tabs, duplicate the <CodeInline>dc-banner-code-generator-tabs</CodeInline> element and anything inside of it.
-					Ideally you should have the same number of button elements (<CodeInline>dc-banner-code-generator-button</CodeInline>) and content
-					elements (<CodeInline>dc-banner-code-generator-block</CodeInline>).
+					For multiple generators, duplicate the <CodeInline>dc-banner-code-generator</CodeInline> element and anything inside of it. Change
+					image banners as needed.
 				</p>
 				<CodeBlock header={'HTML'}>{cb01}</CodeBlock>
-				<p>
-					The button and content selectors can be changed. If using JavaScript, you will need to pass in options to update these selectors.
-				</p>
+				<p>The selectors can be changed. If using JavaScript, you will need to pass in options to update these selectors.</p>
 
 				<h5 className="h-remove-shadow">JavaScript</h5>
 				<p>If using JavaScript and not React, copy the script from the link below and add according to your preferred method.</p>
@@ -68,7 +65,7 @@ export const BannerCodeGenerator = () => {
 				<CodeBlock header={'Script block'}>{cb02}</CodeBlock>
 				<CodeBlock header={'Script src'}>{cb03}</CodeBlock>
 				<p>
-					You will then need to initialize tabs, which can be done with the below function. This function can also be initialized in a
+					You will then need to initialize generators, which can be done with the below function. This function can also be initialized in a
 					source file, but in either case, this initialization must come <strong>after</strong> adding the above JavaScript.
 				</p>
 				<CodeBlock header={'JavaScript'}>{cb04}</CodeBlock>
@@ -238,6 +235,21 @@ export const BannerCodeGeneratorPreview = (props) => {
 		setOutput(output);
 	}, [activeBanner]);
 
+	// Set code block ref
+	const codeRef = useRef(false);
+
+	// Function to select code inside code block
+	const selectCode = () => {
+		const codeBlock = codeRef?.current;
+		if (codeBlock) {
+			const range = document.createRange();
+			range.selectNodeContents(codeBlock);
+			const selection = window.getSelection();
+			selection.removeAllRanges();
+			selection.addRange(range);
+		}
+	};
+
 	return hasBanners ? (
 		<>
 			<div className="dc-banner-code-generator displaycoffee">
@@ -273,8 +285,11 @@ export const BannerCodeGeneratorPreview = (props) => {
 				})}
 
 				<div className="dc-banner-code-generator-code">
+					<button className="dc-banner-code-generator-select-code" type="button" onClick={() => selectCode()}>
+						Select code
+					</button>
 					<pre>
-						<code>{output}</code>
+						<code ref={codeRef}>{output}</code>
 					</pre>
 				</div>
 			</div>
@@ -283,20 +298,12 @@ export const BannerCodeGeneratorPreview = (props) => {
 };
 
 /* Code blocks */
-const cb01 = `<div class="dc-banner-code-generator-tabs displaycoffee">
-	<button class="dc-banner-code-generator-button">Tab 01</button>
-	<button class="dc-banner-code-generator-button">Tab 02</button>
-	<button class="dc-banner-code-generator-button">Tab 03</button>
-	<div class="dc-banner-code-generator-block">Tab 01 Content</div>
-	<div class="dc-banner-code-generator-block">Tab 02 Content</div>
-	<div class="dc-banner-code-generator-block">Tab 03 Content</div>
+const cb01 = `<div class="dc-banner-code-generator displaycoffee">
+	<!-- Banner elements -->
 </div>
 
-<div class="dc-banner-code-generator-tabs displaycoffee">
-	<button class="dc-banner-code-generator-button">Tab 01</button>
-	<button class="dc-banner-code-generator-button">Tab 02</button>
-	<div class="dc-banner-code-generator-block">Tab 01 Content</div>
-	<div class="dc-banner-code-generator-block">Tab 02 Content</div>
+<div class="dc-banner-code-generator displaycoffee">
+	<!-- Banner elements -->
 </div>`;
 const cb02 = `<script type="text/javascript">
 	// Copied JavaScript goes here
@@ -308,10 +315,12 @@ const cb04 = `<script type="text/javascript">
 </script>`;
 const cb05 = `<script type="text/javascript">
 	dcBannerCodeGenerator.init({
-		default: 1, // default visible tab number
-		container: '.dc-banner-code-generator-tabs',
-		button: '.dc-banner-code-generator-button',
-		content: '.dc-banner-code-generator-block',
+		default: 1, // default code to generate
+		site: '/', // site url for code link
+		container: '.dc-banner-code-generator',
+		buttons: '.dc-banner-code-generator-button',
+		code: '.dc-banner-code-generator-code code',
+		select: '.dc-banner-code-generator-select-code',
 	});
 </script>`;
 const cb06 = `import { BannerCodeGenerator } from './BannerCodeGenerator';`;
