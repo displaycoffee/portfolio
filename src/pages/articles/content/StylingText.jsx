@@ -4,6 +4,7 @@ import { CodeBlock, Output } from '../../../components/blocks/Blocks';
 
 export const StylingText = () => {
 	const sections = [
+		'Introduction',
 		'Font Family',
 		'Font Size',
 		'Line Height',
@@ -19,7 +20,9 @@ export const StylingText = () => {
 
 	return (
 		<>
-			<ArticlesSection header={'Introduction'} scrollTop={false}>
+			<ArticlesToc sections={sections} offset={50} />
+
+			<ArticlesSection header={sections[0]}>
 				<p>
 					This documentation is meant to teach a person how to style text with the magic of CSS! I won't go into to HTML elements commonly
 					used with text at this stage. (Maybe with another tutorial at a later date!)
@@ -53,9 +56,7 @@ export const StylingText = () => {
 				<p>If you have questions or concerns, please feel free to send me a PM or respond to this topic. Thanks for reading!</p>
 			</ArticlesSection>
 
-			<ArticlesToc sections={sections} offset={50} />
-
-			<ArticlesSection header={sections[0]}>
+			<ArticlesSection header={sections[1]}>
 				<CodeBlock header={'CSS'}>{cb01}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -147,7 +148,7 @@ export const StylingText = () => {
 				</p>
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[1]}>
+			<ArticlesSection header={sections[2]}>
 				<CodeBlock header={'CSS'}>{cb04}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -206,7 +207,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-font-size" code={cb05} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[2]}>
+			<ArticlesSection header={sections[3]}>
 				<CodeBlock header={'CSS'}>{cb07}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -272,7 +273,7 @@ export const StylingText = () => {
 				</p>
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[3]}>
+			<ArticlesSection header={sections[4]}>
 				<CodeBlock header={'CSS'}>{cb14}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -318,7 +319,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-font-weight" code={cb15} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[4]}>
+			<ArticlesSection header={sections[5]}>
 				<CodeBlock header={'CSS'}>{cb17}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -357,7 +358,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-font-style" code={cb18} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[5]}>
+			<ArticlesSection header={sections[6]}>
 				<CodeBlock header={'CSS'}>{cb20}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -386,7 +387,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-font-variant" code={cb21} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[6]}>
+			<ArticlesSection header={sections[7]}>
 				<CodeBlock header={'CSS'}>{cb23}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -432,7 +433,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-text-transform" code={cb24} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[7]}>
+			<ArticlesSection header={sections[8]}>
 				<CodeBlock header={'CSS'}>{cb26}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -481,7 +482,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-text-decoration" code={cb27} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[8]}>
+			<ArticlesSection header={sections[9]}>
 				<CodeBlock header={'CSS'}>{cb29}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
@@ -508,7 +509,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-letter-spacing" code={cb30} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[9]}>
+			<ArticlesSection header={sections[10]}>
 				<CodeBlock header={'CSS'}>{cb32}</CodeBlock>
 				<h5>Values</h5>
 				<p>
@@ -526,7 +527,7 @@ export const StylingText = () => {
 				<Output className="output-articles output-font-shorthand" code={cb33} />
 			</ArticlesSection>
 
-			<ArticlesSection header={sections[10]}>
+			<ArticlesSection header={sections[11]}>
 				<p>
 					I hope you found this tutorial somewhat useful! There may be a second part to this that will go over things like text alignment,
 					HTML elements that are suited for text and more (as I think of it). So, go forth my lovers of text and style with the knowledge
