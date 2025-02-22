@@ -65,8 +65,8 @@ export const BannerCodeGenerator = () => {
 				<CodeBlock header={'Script block'}>{cb02}</CodeBlock>
 				<CodeBlock header={'Script src'}>{cb03}</CodeBlock>
 				<p>
-					You will then need to initialize generators, which can be done with the below function. This function can also be initialized in a
-					source file, but in either case, this initialization must come <strong>after</strong> adding the above JavaScript.
+					You will then need to initialize any generators, which can be done with the below function. This function can also be initialized
+					in a JavaScript file, but in either case, this initialization must come <strong>after</strong> adding the above script block.
 				</p>
 				<CodeBlock header={'JavaScript'}>{cb04}</CodeBlock>
 				<p>
@@ -88,17 +88,13 @@ export const BannerCodeGenerator = () => {
 				<CodeBlock header={'React import'}>{cb06}</CodeBlock>
 				<CodeBlock header={'React component'}>{cb07}</CodeBlock>
 				<p>
-					Out-of-the-box, the component accepts <CodeInline>tabs</CodeInline> prop which is an array of tabs. Each item in the array is an
-					object and should contain <CodeInline>label</CodeInline> and <CodeInline>content</CodeInline> or{' '}
-					<CodeInline>component</CodeInline> properties. <CodeInline>defaultTab</CodeInline> is optional.
+					The component accepts a <CodeInline>banners</CodeInline> prop which is an nested object array of banners. The initial level should
+					contain a <CodeInline>header</CodeInline> property and then a <CodeInline>values</CodeInline> array containing details of the
+					banners. Each banner can have <CodeInline>src</CodeInline>, <CodeInline>alt</CodeInline>, and <CodeInline>title</CodeInline>{' '}
+					attributes. The <CodeInline>site</CodeInline> prop should contain your site url that you want to link people to.{' '}
+					<CodeInline>defaultBanner</CodeInline> is optional.
 				</p>
-				<CodeBlock header={'Tabs array'}>{cb08}</CodeBlock>
-				<p>
-					In the component, I do use <CodeInline>dangerouslySetInnerHTML</CodeInline> to display <CodeInline>tab.content</CodeInline>. You
-					can remove this and insert <CodeInline>tab.content</CodeInline> inside content block instead. It all depends how much you trust
-					your content.
-				</p>
-				<CodeBlock header={'Content block'}>{cb09}</CodeBlock>
+				<CodeBlock header={'Banners array'}>{cb08}</CodeBlock>
 
 				<h5 className="h-remove-shadow">CSS</h5>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
@@ -111,10 +107,10 @@ export const BannerCodeGenerator = () => {
 						banner-code-generator/banner-code-generator.css
 					</a>
 				</p>
-				<CodeBlock header={'Style block'}>{cb10}</CodeBlock>
-				<CodeBlock header={'Stylesheet'}>{cb11}</CodeBlock>
-				<CodeBlock header={'CSS import'}>{cb12}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb13}</CodeBlock>
+				<CodeBlock header={'Style block'}>{cb09}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{cb10}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{cb11}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb12}</CodeBlock>
 
 				<h5 className="h-remove-shadow">Sass</h5>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
@@ -127,8 +123,8 @@ export const BannerCodeGenerator = () => {
 						banner-code-generator/banner-code-generator.scss
 					</a>
 				</p>
-				<CodeBlock header={'Sass import'}>{cb14}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb15}</CodeBlock>
+				<CodeBlock header={'Sass import'}>{cb13}</CodeBlock>
+				<CodeBlock header={'React import'}>{cb14}</CodeBlock>
 			</CheatCodesSection>
 
 			<Preview className="preview-cheat-codes preview-banner-code-generator">
@@ -301,7 +297,6 @@ export const BannerCodeGeneratorPreview = (props) => {
 const cb01 = `<div class="dc-banner-code-generator displaycoffee">
 	<!-- Banner elements -->
 </div>
-
 <div class="dc-banner-code-generator displaycoffee">
 	<!-- Banner elements -->
 </div>`;
@@ -324,28 +319,35 @@ const cb05 = `<script type="text/javascript">
 	});
 </script>`;
 const cb06 = `import { BannerCodeGenerator } from './BannerCodeGenerator';`;
-const cb07 = `<BannerCodeGenerator tabs={tabs} defaultTab={1} />`;
-const cb08 = `const tabs = [
+const cb07 = `<BannerCodeGenerator banners={banners} defaultBanner={1} site={site} />`;
+const cb08 = `const banners = [
 	{
-		label: 'Tab 01',
-		content: 'Tab 01 Content',
+		header: '88x31',
+		values: [
+			{
+				alt: 'Banner - 88x31',
+				title: 'Banner - 88x31',
+				src: 'banner-88x31.jpg',
+			},
+		],
 	},
 	{
-		label: 'Tab 02',
-		content: Tab02Component,
-	},
-	{
-		label: 'Tab 03',
-		content: 'Tab 03 Content',
+		header: '100x50',
+		values: [
+			{
+				alt: 'Banner - 100x50',
+				title: 'Banner - 100x50',
+				src: 'banner-100x50.jpg',
+			},
+		],
 	},
 ];`;
-const cb09 = `<div className={contentClass}>{tab.content}</div>`;
-const cb10 = `<style>
+const cb09 = `<style>
 	/* Copied styles go here */
 </style>`;
-const cb11 = `<!-- Copy styles and paste into stylesheet -->
+const cb10 = `<!-- Copy styles and paste into stylesheet -->
 <link rel="stylesheet" href="banner-code-generator.css" />`;
-const cb12 = `@import url('banner-code-generator.css');`;
-const cb13 = `import 'banner-code-generator.css';`;
-const cb14 = `@import 'banner-code-generator';`;
-const cb15 = `import 'banner-code-generator.scss';`;
+const cb11 = `@import url('banner-code-generator.css');`;
+const cb12 = `import 'banner-code-generator.css';`;
+const cb13 = `@import 'banner-code-generator';`;
+const cb14 = `import 'banner-code-generator.scss';`;

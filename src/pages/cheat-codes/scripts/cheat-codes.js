@@ -9,13 +9,25 @@ import { APromise } from '../content/a-promise/APromise';
 import { DreamingOfSnow } from '../content/dreaming-of-snow/DreamingOfSnow';
 import { BestFriends } from '../content/best-friends/BestFriends';
 import { BannerCodeGenerator } from '../content/banner-code-generator/BannerCodeGenerator';
+import { Burmecia } from '../content/burmecia/Burmecia';
 
 export const cheatCodes = [
+	{
+		id: 10,
+		name: 'Burmecia',
+		date: '03.28.22',
+		updated: '02.16.25',
+		tags: 'React, JavaScript, Sass, Vite, Framework',
+		description:
+			'React-based framework to create projects. Primarily built with React, JavaScript, Sass, and Vite. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.',
+		description2: 'This is named after a city in the game Final Fantasy IX -- the "Realm of Eternal Rain" and home to the character Freya.',
+		component: Burmecia,
+	},
 	{
 		id: 9,
 		name: 'Banner Code Generator',
 		date: '09.16.18',
-		updated: '02.19.25',
+		updated: '02.21.25',
 		tags: 'HTML, React, CSS, Sass, JavaScript, Functionality',
 		description: 'A little bit of code that generates code for placing image banners on websites.',
 		component: BannerCodeGenerator,
@@ -88,7 +100,7 @@ export const cheatCodes = [
 		id: 1,
 		name: 'Hello Content! (A Tabbing Script)',
 		date: '09.16.15',
-		updated: '02.16.25',
+		updated: '02.21.25',
 		tags: 'HTML, React, CSS, Sass, JavaScript, Functionality',
 		description:
 			'Simple, responsive tab functionality. Tabs work independently, so you can have multiple groups on the same page. Have fun and use as you wish!',
