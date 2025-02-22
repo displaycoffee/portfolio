@@ -65,7 +65,7 @@ export const HelloContent = () => {
 				<CodeBlock header={'Script src'}>{cb03}</CodeBlock>
 				<p>
 					You will then need to initialize tabs, which can be done with the below function. This function can also be initialized in a
-					source file, but in either case, this initialization must come <strong>after</strong> adding the above JavaScript.
+					JavaScript file, but in either case, this initialization must come <strong>after</strong> adding the above script block.
 				</p>
 				<CodeBlock header={'JavaScript'}>{cb04}</CodeBlock>
 				<p>
@@ -83,9 +83,9 @@ export const HelloContent = () => {
 				<CodeBlock header={'React import'}>{cb06}</CodeBlock>
 				<CodeBlock header={'React component'}>{cb07}</CodeBlock>
 				<p>
-					Out-of-the-box, the component accepts <CodeInline>tabs</CodeInline> prop which is an array of tabs. Each item in the array is an
-					object and should contain <CodeInline>label</CodeInline> and <CodeInline>content</CodeInline> or{' '}
-					<CodeInline>component</CodeInline> properties. <CodeInline>defaultTab</CodeInline> is optional.
+					The component accepts a <CodeInline>tabs</CodeInline> prop which is an array of tabs. Each item in the array is an object and
+					should contain <CodeInline>label</CodeInline> and <CodeInline>content</CodeInline> or <CodeInline>component</CodeInline>{' '}
+					properties. <CodeInline>defaultTab</CodeInline> is optional.
 				</p>
 				<CodeBlock header={'Tabs array'}>{cb08}</CodeBlock>
 				<p>
@@ -161,11 +161,15 @@ const tabs = [
 
 export const HelloContentPreview = (props) => {
 	let { tabs, defaultTab } = props;
-	defaultTab = typeof defaultTab == 'undefined' ? 0 : defaultTab - 1;
-	let [activeTab, setActiveTab] = useState(defaultTab);
 	const activeClass = 'dc-hello-content-active';
+	const hasTabs = tabs && tabs.length !== 0 ? true : false;
 
-	return tabs && tabs.length !== 0 ? (
+	// Set default tab
+	const defaultIndex = typeof defaultTab == 'undefined' ? 0 : defaultTab - 1;
+	defaultTab = tabs[defaultIndex] ? defaultIndex : 0;
+	let [activeTab, setActiveTab] = useState(defaultTab);
+
+	return hasTabs ? (
 		<div className="dc-hello-content-tabs displaycoffee">
 			<div className="dc-hello-content-tabs-buttons">
 				<ul className="dc-hello-content-tabs-list unstyled">
@@ -209,19 +213,10 @@ export const HelloContentPreview = (props) => {
 
 /* Code blocks */
 const cb01 = `<div class="dc-hello-content-tabs displaycoffee">
-	<button class="dc-hello-content-button">Tab 01</button>
-	<button class="dc-hello-content-button">Tab 02</button>
-	<button class="dc-hello-content-button">Tab 03</button>
-	<div class="dc-hello-content-block">Tab 01 Content</div>
-	<div class="dc-hello-content-block">Tab 02 Content</div>
-	<div class="dc-hello-content-block">Tab 03 Content</div>
+	<!-- Tab elements -->
 </div>
-
 <div class="dc-hello-content-tabs displaycoffee">
-	<button class="dc-hello-content-button">Tab 01</button>
-	<button class="dc-hello-content-button">Tab 02</button>
-	<div class="dc-hello-content-block">Tab 01 Content</div>
-	<div class="dc-hello-content-block">Tab 02 Content</div>
+	<!-- Tab elements -->
 </div>`;
 const cb02 = `<script type="text/javascript">
 	// Copied JavaScript goes here

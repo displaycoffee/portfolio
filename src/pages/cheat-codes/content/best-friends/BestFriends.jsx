@@ -65,7 +65,7 @@ export const BestFriends = () => {
 				<CodeBlock header={'Script src'}>{cb03}</CodeBlock>
 				<p>
 					You will then need to initialize tabs, which can be done with the below function. This function can also be initialized in a
-					source file, but in either case, this initialization must come <strong>after</strong> adding the above JavaScript.
+					JavaScript file, but in either case, this initialization must come <strong>after</strong> adding the above script block.
 				</p>
 				<CodeBlock header={'JavaScript'}>{cb04}</CodeBlock>
 

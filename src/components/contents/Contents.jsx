@@ -107,6 +107,8 @@ export const ContentsBody = (props) => {
 						<h4>Description</h4>
 
 						<p>{current.description}</p>
+
+						{current?.description2 ? <p>{current.description2}</p> : null}
 					</div>
 				) : null}
 
