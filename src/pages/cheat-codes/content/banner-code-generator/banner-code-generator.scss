@@ -6,8 +6,9 @@
 
 	// Colors
 
-	$banner-code-generator-color-01: theme.$color-08; // code background
-	$banner-code-generator-color-02: theme.$color-02; // code font
+	$banner-code-generator-color-01: theme.$color-02; // select button
+	$banner-code-generator-color-02: theme.$color-08; // code background
+	$banner-code-generator-color-03: theme.$color-02; // code font
 
 	// Configuration
 
@@ -61,18 +62,34 @@
 				}
 			}
 		}
-		pre, code {
-			background-color: $banner-code-generator-color-01;
-			margin: 0;
-			padding: $banner-code-generator-spacing;
-			font-family: $banner-code-generator-font-family;
-			font-size: $banner-code-generator-font-size;
-			color: $banner-code-generator-color-02;
-			white-space: pre-wrap;
-			word-break: break-word;
-		}
-		pre code {
-			padding: 0;
-			margin: 0;
+		.dc-banner-code-generator-code {
+			position: relative;
+			.dc-banner-code-generator-select-code, pre, code {
+				font-family: $banner-code-generator-font-family;
+			}
+			.dc-banner-code-generator-select-code {
+				position: absolute;
+				top: $banner-code-generator-spacing;
+				right: $banner-code-generator-spacing;
+				background-color: transparent;
+				border: 0;
+				padding: 0;
+				font-size: $banner-code-generator-font-size - 2;
+				line-height: 1;
+				color: $banner-code-generator-color-01;
+			}
+			pre, code {
+				background-color: $banner-code-generator-color-02;
+				margin: 0;
+				padding: $banner-code-generator-spacing;				
+				font-size: $banner-code-generator-font-size;
+				color: $banner-code-generator-color-03;
+				white-space: pre-wrap;
+				word-break: break-word;
+			}
+			pre code {
+				padding: 0;
+				margin: 0;
+			}
 		}
 	}
