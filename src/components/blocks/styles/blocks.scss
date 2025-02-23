@@ -50,6 +50,12 @@
 		&:after {
 			bottom: -#{$pixel-size};
 		}
+		&.button-x-small {
+			height: 20px;
+			padding: 0 theme.$spacing-x2;
+			font-size: functions.em(12px, rem);
+			line-height: calc(20px + $pixel-size);
+		}
 	}
 	.button-primary {	
 		text-shadow: 2px 2px 0 theme.$color-03;
