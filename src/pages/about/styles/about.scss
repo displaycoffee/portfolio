@@ -8,7 +8,10 @@
 
 	// Style block
 
-	.page-about {	
+	.page-about {
+		.about-photo {
+			width: 100%;
+		}	
 		@include mixins.respond-min(theme.$bp-01) {
 			.about-photo {
 				width: 300px;
