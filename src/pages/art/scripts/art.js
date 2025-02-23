@@ -5,7 +5,7 @@ export let art = [
 	{
 		id: 71,
 		image: `${artPath}2025-01-20-theme-icons.png`,
-		thumb: `${artPath}2025-01-20-theme-icons-18x18.png`,
+		thumb: `${artPath}2025-01-20-theme-icons-34x34.png`,
 		name: 'Theme Icons',
 		date: '01.20.25',
 		mediums: 'Aseprite',
@@ -14,6 +14,7 @@ export let art = [
 	},
 	{
 		id: 70,
+		image: `${artPath}2022-11-20-ff7-materia.png`,
 		thumb: `${artPath}2022-11-20-ff7-materia.png`,
 		name: 'Support Materia',
 		date: '11.20.22',
@@ -23,6 +24,7 @@ export let art = [
 	},
 	{
 		id: 69,
+		image: `${artPath}2021-12-04-toastmatt-sad-bread.png`,
 		thumb: `${artPath}2021-12-04-toastmatt-sad-bread.png`,
 		name: 'Sad Bread',
 		date: '12.04.21',
@@ -32,6 +34,7 @@ export let art = [
 	},
 	{
 		id: 68,
+		image: `${artPath}2021-12-04-toastmatt-materia-bread.png`,
 		thumb: `${artPath}2021-12-04-toastmatt-materia-bread.png`,
 		name: 'Materia Bread',
 		date: '12.04.21',
@@ -41,6 +44,7 @@ export let art = [
 	},
 	{
 		id: 67,
+		image: `${artPath}2021-11-28-money-bread.gif`,
 		thumb: `${artPath}2021-11-28-money-bread.gif`,
 		name: 'Money Bread',
 		date: '11.28.21',
@@ -50,6 +54,7 @@ export let art = [
 	},
 	{
 		id: 66,
+		image: `${artPath}2021-11-26-toastmatt-rip-bread.png`,
 		thumb: `${artPath}2021-11-26-toastmatt-rip-bread.png`,
 		name: 'RIP Bread',
 		date: '11.26.21',
@@ -59,6 +64,7 @@ export let art = [
 	},
 	{
 		id: 65,
+		image: `${artPath}2021-11-26-toastmatt-mad-bread.png`,
 		thumb: `${artPath}2021-11-26-toastmatt-mad-bread.png`,
 		name: 'Mad Breads',
 		date: '11.26.21',
@@ -68,6 +74,7 @@ export let art = [
 	},
 	{
 		id: 64,
+		image: `${artPath}2021-03-13-khyeras-heart-badge.png`,
 		thumb: `${artPath}2021-03-13-khyeras-heart-badge.png`,
 		name: 'Heart Badge',
 		date: '03.13.21',
@@ -77,6 +84,7 @@ export let art = [
 	},
 	{
 		id: 63,
+		image: `${artPath}2020-12-20-displaycofee-wave.png`,
 		thumb: `${artPath}2020-12-20-displaycofee-wave.png`,
 		name: 'Wave',
 		date: '12.20.20',
@@ -86,6 +94,7 @@ export let art = [
 	},
 	{
 		id: 62,
+		image: `${artPath}2020-12-20-displaycofee-hmm.png`,
 		thumb: `${artPath}2020-12-20-displaycofee-hmm.png`,
 		name: 'Hmmm',
 		date: '12.20.20',
@@ -95,6 +104,7 @@ export let art = [
 	},
 	{
 		id: 61,
+		image: `${artPath}2020-12-20-displaycofee-charge.png`,
 		thumb: `${artPath}2020-12-20-displaycofee-charge.png`,
 		name: 'Charge',
 		date: '12.20.20',
@@ -104,6 +114,7 @@ export let art = [
 	},
 	{
 		id: 60,
+		image: `${artPath}2020-10-25-khyeras-pumpkin-badge.png`,
 		thumb: `${artPath}2020-10-25-khyeras-pumpkin-badge.png`,
 		name: 'Pumpkin Badge',
 		date: '10.25.20',
@@ -113,6 +124,7 @@ export let art = [
 	},
 	{
 		id: 59,
+		image: `${artPath}2020-08-24-displaycofee-hello.png`,
 		thumb: `${artPath}2020-08-24-displaycofee-hello.png`,
 		name: 'Hello',
 		date: '08.24.20',
@@ -122,6 +134,7 @@ export let art = [
 	},
 	{
 		id: 58,
+		image: `${artPath}2020-07-25-chestermcfisty-git-gud.png`,
 		thumb: `${artPath}2020-07-25-chestermcfisty-git-gud.png`,
 		name: 'Git Gud',
 		date: '07.25.20',
@@ -131,6 +144,7 @@ export let art = [
 	},
 	{
 		id: 57,
+		image: `${artPath}2020-07-19-scubasaul-pineapple.png`,
 		thumb: `${artPath}2020-07-19-scubasaul-pineapple.png`,
 		name: 'No Hints Please',
 		date: '07.19.20',
@@ -140,6 +154,7 @@ export let art = [
 	},
 	{
 		id: 56,
+		image: `${artPath}2020-07-12-displaycofee-coffee-bean.png`,
 		thumb: `${artPath}2020-07-12-displaycofee-coffee-bean.png`,
 		name: 'Coffee Bean',
 		date: '07.12.20',
@@ -149,6 +164,7 @@ export let art = [
 	},
 	{
 		id: 55,
+		image: `${artPath}2020-07-11-displaycoffee-red-mug.png`,
 		thumb: `${artPath}2020-07-11-displaycoffee-red-mug.png`,
 		name: 'Red Coffee Mug',
 		date: '07.11.20',
@@ -158,6 +174,7 @@ export let art = [
 	},
 	{
 		id: 54,
+		image: `${artPath}2020-07-11-displaycoffee-purple-mug.png`,
 		thumb: `${artPath}2020-07-11-displaycoffee-purple-mug.png`,
 		name: 'Purple Coffee Mug',
 		date: '07.11.20',
@@ -167,6 +184,7 @@ export let art = [
 	},
 	{
 		id: 53,
+		image: `${artPath}2020-07-11-displaycoffee-orange-mug.png`,
 		thumb: `${artPath}2020-07-11-displaycoffee-orange-mug.png`,
 		name: 'Orange Coffee Mug',
 		date: '07.11.20',
@@ -176,6 +194,7 @@ export let art = [
 	},
 	{
 		id: 52,
+		image: `${artPath}2020-07-11-displaycoffee-green-mug.png`,
 		thumb: `${artPath}2020-07-11-displaycoffee-green-mug.png`,
 		name: 'Green Coffee Mug',
 		date: '07.11.20',
@@ -185,6 +204,7 @@ export let art = [
 	},
 	{
 		id: 51,
+		image: `${artPath}2020-07-11-displaycoffee-blue-mug.png`,
 		thumb: `${artPath}2020-07-11-displaycoffee-blue-mug.png`,
 		name: 'Blue Coffee Mug',
 		date: '07.11.20',
@@ -194,6 +214,7 @@ export let art = [
 	},
 	{
 		id: 50,
+		image: `${artPath}2020-07-11-displaycofee-love.png`,
 		thumb: `${artPath}2020-07-11-displaycofee-love.png`,
 		name: 'Vivi Love',
 		date: '07.11.20',
@@ -203,6 +224,7 @@ export let art = [
 	},
 	{
 		id: 49,
+		image: `${artPath}2020-07-05-novakatebs-medkit.png`,
 		thumb: `${artPath}2020-07-05-novakatebs-medkit.png`,
 		name: 'Support',
 		date: '07.05.20',
@@ -212,6 +234,7 @@ export let art = [
 	},
 	{
 		id: 48,
+		image: `${artPath}2020-07-05-chestermcfisty-ggez.png`,
 		thumb: `${artPath}2020-07-05-chestermcfisty-ggez.png`,
 		name: 'GGEZ',
 		date: '07.05.20',
@@ -221,6 +244,7 @@ export let art = [
 	},
 	{
 		id: 47,
+		image: `${artPath}2020-07-04-savko-tilt.png`,
 		thumb: `${artPath}2020-07-04-savko-tilt.png`,
 		name: 'Tilt',
 		date: '07.04.20',
@@ -230,6 +254,7 @@ export let art = [
 	},
 	{
 		id: 46,
+		image: `${artPath}2020-07-04-savko-platforming.png`,
 		thumb: `${artPath}2020-07-04-savko-platforming.png`,
 		name: 'Platforming Bad',
 		date: '07.04.20',
@@ -239,6 +264,7 @@ export let art = [
 	},
 	{
 		id: 45,
+		image: `${artPath}2020-07-04-savko-greed.png`,
 		thumb: `${artPath}2020-07-04-savko-greed.png`,
 		name: 'Greed',
 		date: '07.04.20',
@@ -248,6 +274,7 @@ export let art = [
 	},
 	{
 		id: 44,
+		image: `${artPath}2020-07-03-savko-lore.png`,
 		thumb: `${artPath}2020-07-03-savko-lore.png`,
 		name: 'Lore',
 		date: '07.03.20',
@@ -257,6 +284,7 @@ export let art = [
 	},
 	{
 		id: 43,
+		image: `${artPath}2020-07-03-savko-kwr.png`,
 		thumb: `${artPath}2020-07-03-savko-kwr.png`,
 		name: 'Kate Was Right',
 		date: '07.03.20',
@@ -266,6 +294,7 @@ export let art = [
 	},
 	{
 		id: 42,
+		image: `${artPath}2020-06-06-toastmatt-wave-bread.png`,
 		thumb: `${artPath}2020-06-06-toastmatt-wave-bread.png`,
 		name: 'Wave Bread',
 		date: '06.06.20',
@@ -275,6 +304,7 @@ export let art = [
 	},
 	{
 		id: 41,
+		image: `${artPath}2020-06-06-toastmatt-gold-bread.png`,
 		thumb: `${artPath}2020-06-06-toastmatt-gold-bread.png`,
 		name: 'Gold',
 		date: '06.06.20',
@@ -284,6 +314,7 @@ export let art = [
 	},
 	{
 		id: 40,
+		image: `${artPath}2020-05-24-toastmatt-pb-bread.png`,
 		thumb: `${artPath}2020-05-24-toastmatt-pb-bread.png`,
 		name: 'PB Bread',
 		date: '05.24.20',
@@ -293,6 +324,7 @@ export let art = [
 	},
 	{
 		id: 39,
+		image: `${artPath}2020-05-23-toastmatt-smile-bread.png`,
 		thumb: `${artPath}2020-05-23-toastmatt-smile-bread.png`,
 		name: 'Smile Bread',
 		date: '05.23.20',
@@ -302,15 +334,17 @@ export let art = [
 	},
 	{
 		id: 38,
+		image: `${artPath}2020-05-23-toastmatt-love-bread.png`,
 		thumb: `${artPath}2020-05-23-toastmatt-love-bread.png`,
 		name: 'Love Bead',
-		date: '05.23',
+		date: '05.23.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
 		description: `This bread is in love. <3 For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
 	},
 	{
 		id: 37,
+		image: `${artPath}2020-05-07-toastmatt-well-done.png`,
 		thumb: `${artPath}2020-05-07-toastmatt-well-done.png`,
 		name: 'Well Done',
 		date: '05.07.20',
@@ -330,6 +364,7 @@ export let art = [
 	},
 	{
 		id: 35,
+		image: `${artPath}2020-04-30-toastmatt-dead-bread.png`,
 		thumb: `${artPath}2020-04-30-toastmatt-dead-bread.png`,
 		name: 'Dead Bread',
 		date: '04.30.20',
@@ -339,6 +374,7 @@ export let art = [
 	},
 	{
 		id: 34,
+		image: `${artPath}2020-04-17-toastmatt-soft-lock.png`,
 		thumb: `${artPath}2020-04-17-toastmatt-soft-lock.png`,
 		name: 'Soft Lock',
 		date: '04.17.20',
