@@ -1,5 +1,5 @@
 /* React */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, Routes, Route, useParams, Navigate, useSearchParams } from 'react-router-dom';
 
 /* Local styles */
@@ -9,6 +9,7 @@ import './styles/contents.scss';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Local components */
+import { Context } from '../../context/Context';
 import { HeaderIcon, PixelSection, Button } from '../blocks/Blocks';
 
 export const Contents = (props) => {
@@ -54,6 +55,8 @@ export const ContentsRoutes = (props) => {
 
 export const ContentsLinks = (props) => {
 	const { path, contents } = props;
+	const context = useContext(Context);
+	const utils = context.utils;
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
 	let [tags, setTags] = useState({});
@@ -62,6 +65,9 @@ export const ContentsLinks = (props) => {
 	// Create tags from content values
 	contents.values.forEach((value) => {
 		const tagsConfig = contentsUtils.tags(value?.tags);
+
+		// Set timestamp to sort values
+		utils.setTimestamp(value);
 
 		if (tagsConfig.hasTags) {
 			tagsConfig.values.forEach((tag) => {
@@ -79,6 +85,11 @@ export const ContentsLinks = (props) => {
 				}
 			});
 		}
+	});
+
+	// Sort values by newest
+	contents.values.sort((a, b) => {
+		return b.timestamp - a.timestamp;
 	});
 
 	// Once tags are built, set tags
@@ -124,7 +135,13 @@ export const ContentsLinks = (props) => {
 
 	return (
 		<div className="contents">
-			<div className="contents-row row row-wrap row-spacing-30">
+			{searchParams ? (
+				<div className="contents-clear">
+					<Button onClick={(e) => handleClear(e)}>Clear tags</Button>
+				</div>
+			) : null}
+
+			<div className="contents-row row row-wrap row-spacing-20">
 				{contents.values.map((value) => {
 					const tagsConfig = contentsUtils.tags(value?.tags);
 
@@ -133,12 +150,22 @@ export const ContentsLinks = (props) => {
 					const contentActive = !searchParams || (findActive && findActive.length !== 0) ? true : false;
 
 					return contentActive ? (
-						<div className="contents-column column column-width-50" key={value.id}>
+						<div className="contents-column column column-width-33" key={value.id}>
 							<Link className="contents-link" to={`${path}/${value.handle}`}>
-								<h4 className="contents-name">{value.name}</h4>
+								<div className="pixel-border">
+									<div className="image-wrapper image-wrapper-fit">
+										<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
+									</div>
+								</div>
+
+								<p className="contents-name">
+									<span>{value.name}</span>
+								</p>
 							</Link>
 
 							<ContentsDate content={value} />
+
+							<p className="contents-description">{value.description}</p>
 
 							{tagsConfig.hasTags ? (
 								<ContentsTags>
@@ -164,12 +191,6 @@ export const ContentsLinks = (props) => {
 					) : null;
 				})}
 			</div>
-
-			{searchParams ? (
-				<div className="contents-clear">
-					<Button onClick={(e) => handleClear(e)}>Clear tags</Button>
-				</div>
-			) : null}
 		</div>
 	);
 };
@@ -258,11 +279,11 @@ export const ContentsDate = (props) => {
 	const hasUpdated = content?.updated ? true : false;
 
 	return hasDate || hasUpdated ? (
-		<div className="contents-date">
+		<p className="contents-date">
 			{hasDate ? `Posted ${content.date}` : ``}
 			{hasDate && hasUpdated ? ` - ` : ``}
 			{hasUpdated ? `Updated ${content.updated}` : ``}
-		</div>
+		</p>
 	) : null;
 };
 

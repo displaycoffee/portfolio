@@ -1,5 +1,5 @@
 /* React */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
 /* Local styles */
@@ -9,6 +9,7 @@ import './styles/gallery.scss';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
+import { Context } from '../../context/Context';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
 export const Gallery = (props) => {
@@ -140,6 +141,18 @@ export const GalleryRoutes = (props) => {
 
 export const GalleryThumbnails = (props) => {
 	const { path, gallery, thumbnails, tab } = props;
+	const context = useContext(Context);
+	const utils = context.utils;
+
+	// Set timestamp to sort values
+	gallery.values.forEach((value) => {
+		utils.setTimestamp(value);
+	});
+
+	// Sort values by newest
+	gallery.values.sort((a, b) => {
+		return b.timestamp - a.timestamp;
+	});
 
 	return (
 		<div id={gallery.id} className={`gallery${tab && tab == gallery.id ? ' active' : ''}`}>

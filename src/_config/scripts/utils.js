@@ -1,6 +1,13 @@
 /* React */
 import { createRoot } from 'react-dom/client';
 
+/* Get today's date as a fallback for setting timestamps */
+const today = new Date();
+const year = today.getFullYear();
+const month = today.getMonth() + 1;
+const day = today.getDate();
+const fallback = `${year}-${month < 10 ? '0' + month : month}-${day}`;
+
 export const utils = {
 	handle: (handle, value, index) => {
 		// Create unique handle / path for url routes
@@ -80,5 +87,18 @@ export const utils = {
 	},
 	setIcon: (file, size) => {
 		return `/assets/images/theme/${file}-${size}.png`;
+	},
+	setTimestamp: (value) => {
+		// Set date for each value
+		let date = fallback;
+		if (value?.date) {
+			const splitDate = value.date.split('.');
+			date = splitDate.length === 3 ? `20${splitDate[2]}-${splitDate[0]}-${splitDate[1]}` : fallback;
+		}
+
+		// Create timestamp
+		const dateFromString = new Date(date);
+		const timestampFromString = dateFromString.getTime();
+		value.timestamp = timestampFromString;
 	},
 };

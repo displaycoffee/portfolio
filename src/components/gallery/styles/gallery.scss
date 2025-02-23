@@ -13,7 +13,7 @@
 	}
 	.gallery {
 		.gallery-items {
-			@include mixins.grid-layout(5px, 50px);
+			@include mixins.grid-layout(5px, 75px);
 		}
 		.gallery-body {
 			&, .gallery-image {
@@ -67,6 +67,25 @@
 					position: static;
 					opacity: 1;
 					visibility: visible;
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.gallery {
+			.gallery-items {
+				.gallery-item {
+					overflow: hidden;
+					.gallery-image {
+						&:hover {
+							.image-wrapper img {
+								@include mixins.transform(scale(1.5, 1.5));
+							}
+						}
+						.image-wrapper img {
+							@include mixins.transition(transform 0.5s ease-in-out);
+						}
+					}
 				}
 			}
 		}
