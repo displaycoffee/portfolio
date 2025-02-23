@@ -1,0 +1,107 @@
+//// NAVIGATION MENU 01
+//// --------------------------------------------------------------------------
+
+	// Colors
+
+	$menu-color-01: #ffffff; // font
+	$menu-color-02: #4bc6f3; // font hover
+	$menu-color-03: #167192; // main background
+	$menu-color-04: #08212b; // border
+	$menu-color-05: #11566f; // sublist background
+
+	// Configuration
+
+	$menu-max-width: 100%; // max width of menu
+	$menu-font-family: Arial, Helvetica, sans-serif; // font family
+	$menu-font-size: 12px; // font size
+	$menu-spacing: 20px; // spacing for menu
+	$menu-items-per-row: 5; // number of navigation items in main row
+
+	// Calculations
+
+	$menu-spacing-half: calc($menu-spacing / 2);
+
+	// Style block
+
+	#dc-navigation-menu-01 {
+		max-width: $menu-max-width;
+		width: auto;
+		margin: 0 auto;
+		text-align: center;
+		&, & * {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font-family: $menu-font-family;
+			font-size: $menu-font-size;
+		}
+		ul {
+			&, li {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			li {
+				a, span {
+					display: block;
+					padding: $menu-spacing;
+					color: $menu-color-01;
+					text-decoration: none;
+				}
+				a:hover {
+					color: $menu-color-02;
+				}
+			}
+		}
+		.dc-navigation-list {
+			-webkit-flex-flow: row nowrap;
+			flex-flow: row nowrap;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: -moz-flex;
+			display: flex;
+			-webkit-align-items: center;
+			align-items: center;
+			border-top: 1px solid $menu-color-04;
+			border-bottom: 1px solid $menu-color-04;
+			.dc-navigation-list-item {
+				position: relative;
+				min-width: 1px;
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				-moz-flex: 0 1 auto;
+				flex: 0 1 auto;
+				width: calc(100% / $menu-items-per-row);
+				background-color: $menu-color-03;
+				border-left: 1px solid $menu-color-04;
+				&:hover {
+					background-color: $menu-color-05;
+				}
+				&:last-child {
+					border-right: 1px solid $menu-color-04;
+				}
+				&:hover .dc-navigation-sublist {
+					top: auto;
+					left: -1px;
+					right: -1px;
+				}
+				.dc-navigation-sublist {
+					position: absolute;
+					top: -9999px;
+					left: -9999px;
+					z-index: 100;
+					margin: 1px auto 0 auto;
+					border-left: 1px solid $menu-color-04;
+					border-right: 1px solid $menu-color-04;
+					background-color: $menu-color-05;
+					.dc-navigation-sublist-item {
+						border-bottom: 1px solid $menu-color-04;
+						a, span {
+							border: 0;
+							padding: $menu-spacing-half;
+						}
+					}
+				}
+			}
+		}
+	}
