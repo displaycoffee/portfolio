@@ -1,5 +1,6 @@
 /* React */
-import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, Routes, Route, useParams, Navigate, useSearchParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/contents.scss';
@@ -8,7 +9,7 @@ import './styles/contents.scss';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Local components */
-import { HeaderIcon, PixelSection } from '../blocks/Blocks';
+import { HeaderIcon, PixelSection, Button } from '../blocks/Blocks';
 
 export const Contents = (props) => {
 	const { contents, options } = props;
@@ -53,19 +54,132 @@ export const ContentsRoutes = (props) => {
 
 export const ContentsLinks = (props) => {
 	const { path, contents } = props;
+	const searchParams = contentsUtils.params.get();
+	const tagParam = contentsUtils.params.url.tag;
+	let [tags, setTags] = useState({});
+	let [tagParams, setTagParams] = useSearchParams();
+
+	// Create tags from content values
+	contents.values.forEach((value) => {
+		const tagsConfig = contentsUtils.tags(value?.tags);
+
+		if (tagsConfig.hasTags) {
+			tagsConfig.values.forEach((tag) => {
+				const tagLower = tag.toLowerCase();
+
+				// Check if tag is in searchParams
+				if (!tags[tagLower]) {
+					const param = `${tagParam}=${tagLower}`;
+					const isActive = searchParams && searchParams.includes(param) ? true : false;
+					tags[tagLower] = {
+						label: tag,
+						value: tagLower,
+						active: isActive,
+					};
+				}
+			});
+		}
+	});
+
+	// Once tags are built, set tags
+	useEffect(() => {
+		setTags(tags);
+	}, []);
+
+	// Click functionality for applying tabs
+	const handleTag = (e, tag) => {
+		e.preventDefault();
+
+		if (tag.active) {
+			// Remove filter parameters from url and set active state
+			contentsUtils.params.remove(tagParams, tagParam, tag.value, setTagParams);
+			tag.active = false;
+		} else {
+			// Add filter parameters to url and set active state
+			contentsUtils.params.add(tagParams, tagParam, tag.value, setTagParams);
+			tag.active = true;
+		}
+
+		// Update tags when values are clicked
+		setTags(tags);
+	};
+
+	// Click functionality for clear
+	const handleClear = (e) => {
+		e.preventDefault();
+
+		// Remove all tag params
+		contentsUtils.params.clear(tagParams, tagParam, setTagParams);
+
+		// Set all tags to inactive
+		Object.keys(tags).forEach((tag) => {
+			if (tags[tag].active) {
+				tags[tag].active = false;
+			}
+		});
+
+		// Update tags when clear all is clicked
+		setTags(tags);
+	};
 
 	return (
 		<div className="contents">
-			<ul className="contents-list">
-				{contents.values.map((value) => (
-					<li className="contents-list-item" key={value.id}>
-						<Link className="contents-list-link" to={`${path}/${value.handle}`}>
-							{value.name}
-						</Link>
-						{value?.date ? <span className="contents-list-date"> - Posted on {value.date}</span> : null}
-					</li>
-				))}
-			</ul>
+			{searchParams ? <Button onClick={(e) => handleClear(e)}>Clear all</Button> : null}
+
+			<div className="contents-row">
+				{contents.values.map((value) => {
+					const tagsConfig = contentsUtils.tags(value?.tags);
+
+					// Check if any tags are active to display certain content
+					const findActive = tagsConfig.hasTags ? tagsConfig.values.filter((tag) => tags[tag.toLowerCase()].active) : [];
+					const contentActive = !searchParams || (findActive && findActive.length !== 0) ? true : false;
+
+					// Check dates
+					const hasDate = value?.date ? true : false;
+					const hasUpdated = value?.updated ? true : false;
+
+					return contentActive ? (
+						<div className="contents-column" key={value.id}>
+							<div className="contents-details">
+								<Link className="contents-link" to={`${path}/${value.handle}`}>
+									<div className="contents-image">
+										<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
+									</div>
+									<div className="contents-name">{value.name}</div>
+								</Link>
+
+								{hasDate || hasUpdated ? (
+									<div className="contents-date">
+										{hasDate ? `Posted ${value.date}` : ``}
+										{hasDate && hasUpdated ? ` - ` : ``}
+										{hasUpdated ? `Updated ${value.updated}` : ``}
+									</div>
+								) : null}
+							</div>
+
+							{tagsConfig.hasTags ? (
+								<div className="contents-tags">
+									{tagsConfig.values.map((tag, index) => {
+										const tagLower = tag.toLowerCase();
+										const tagConfig = tags[tagLower];
+
+										return (
+											<Button
+												type={tagConfig.active ? 'secondary' : 'primary'}
+												size={'x-small'}
+												onClick={(e) => handleTag(e, tagConfig)}
+												key={index}
+											>
+												{tag}
+											</Button>
+										);
+									})}
+								</div>
+							) : null}
+						</div>
+					) : null;
+				})}
+			</div>
 		</div>
 	);
 };
@@ -85,8 +199,12 @@ export const ContentsBody = (props) => {
 		back: navigation?.back ? navigation.back : false,
 	};
 
+	// Check dates
+	const hasDate = current?.date ? true : false;
+	const hasUpdated = current?.updated ? true : false;
+
 	// Check if we have a header
-	const hasHeader = current?.name || current?.date ? true : false;
+	const hasHeader = current?.name || hasDate || hasUpdated ? true : false;
 
 	// Set component for body
 	const Body = current.component;
@@ -98,7 +216,13 @@ export const ContentsBody = (props) => {
 					<header className="contents-header">
 						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
 
-						{current?.date ? <p className="contents-header-date">Posted on {current.date}</p> : null}
+						{hasDate || hasUpdated ? (
+							<p className="contents-header-date">
+								{hasDate ? `Posted ${current.date}` : ``}
+								{hasDate && hasUpdated ? ` - ` : ``}
+								{hasUpdated ? `Updated ${current.updated}` : ``}
+							</p>
+						) : null}
 					</header>
 				) : null}
 

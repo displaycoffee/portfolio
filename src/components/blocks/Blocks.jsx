@@ -19,12 +19,12 @@ export const HeaderIcon = (props) => {
 };
 
 export const Button = (props) => {
-	let { type, className, onClick, children } = props;
+	let { type, size, className, onClick, children } = props;
 	type = typeof type == 'undefined' ? 'primary' : type;
 	const buttonClass = className ? `${className} ` : '';
 
 	return (
-		<button className={`${buttonClass}button button-${type}`} onClick={() => onClick()}>
+		<button className={`${buttonClass}button button-${type}${size ? ' button-' + size : ''}`} onClick={(e) => onClick(e)} type="button">
 			<span>{children}</span>
 		</button>
 	);
