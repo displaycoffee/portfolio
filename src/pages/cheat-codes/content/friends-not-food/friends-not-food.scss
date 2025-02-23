@@ -1,0 +1,244 @@
+//// FRIENDS NOT FOOD
+//// --------------------------------------------------------------------------
+
+	// Imports
+	
+	//@import url('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+
+	// Colors
+
+	$friends-not-food-color-01: #ffffff; // font
+	$friends-not-food-color-02: #17476d; // main block color
+
+	// Configuration
+
+	$friends-not-food-breakpoint: 541px; // breakpoint for desktop styles
+	$friends-not-food-max-width: 400px; // max width
+	$friends-not-food-font-family-01: 'Open Sans', Arial, Helvetica, sans-serif; // font family
+	$friends-not-food-font-family-02: Oswald, Arial, Helvetica, sans-serif; // header font family
+	$friends-not-food-font-size-01: 12px; // font size
+	$friends-not-food-font-size-02: 18px; // header font size
+	$friends-not-food-spacing: 20px; // spacing for template
+	$friends-not-food-image-size-01: 100px; // size for avatar on mobile
+	$friends-not-food-image-size-02: 125px; // size for avatar on desktop
+
+	// Calculations
+
+	$friends-not-foods-spacing-double: calc($friends-not-food-spacing * 2);
+	$friends-not-foods-spacing-triple: calc($friends-not-food-spacing * 3);
+	$friends-not-foods-spacing-half: calc($friends-not-food-spacing / 2);
+	$friends-not-foods-spacing-quarter: calc($friends-not-food-spacing / 4);
+
+	// Style block
+
+	.dc-friends-not-food {
+		width: auto;
+		max-width: 100%;
+		margin: 0;
+		&, & * {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font-family: $friends-not-food-font-family-01;
+			font-size: $friends-not-food-font-size-01;
+			font-weight: 400;
+			line-height: 1.5;
+			color: $friends-not-food-color-01;
+		}
+		.dc-friends-not-food-font {
+			font-family: $friends-not-food-font-family-02;
+			font-size: $friends-not-food-font-size-02;
+			font-weight: 400;
+			line-height: 1.2;
+			letter-spacing: 0;
+			text-transform: uppercase;
+			text-shadow: none;
+		}
+		.dc-friends-not-food-absolute {
+			position: absolute;
+			left: 0;
+			right: 0;
+		}
+		.dc-friends-not-food-block {
+			background-color: rgba($friends-not-food-color-02, 0.6);
+			padding: $friends-not-foods-spacing-half;
+			span {
+				display: block;
+				margin: 2.5px 0 0 0;
+				font-size: $friends-not-food-font-size-02 - 4;
+			}
+		}
+		.dc-friends-not-food-row, .dc-friends-not-food-vertical {
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: -moz-flex;
+			display: flex;
+			& > * {
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				-moz-flex: 0 1 auto;
+				flex: 0 1 auto;
+				min-height: 1px;
+				min-width: 1px;
+			}
+		}
+		.dc-friends-not-food-row {
+			-webkit-flex-flow: row wrap;
+			flex-flow: row wrap;
+			-webkit-align-items: center;
+			align-items: center;
+			margin: 0 -#{$friends-not-foods-spacing-quarter} -#{$friends-not-foods-spacing-half} -#{$friends-not-foods-spacing-quarter};
+			.dc-friends-not-food-column {
+				width: 100%;
+				padding: 0 $friends-not-foods-spacing-quarter;
+				margin: 0 0 $friends-not-foods-spacing-half 0;
+			}
+		}
+		.dc-friends-not-food-vertical {
+			-webkit-flex-flow: column nowrap;
+			flex-flow: column nowrap;
+		}
+		p, h3, h4 {
+			margin: 0;
+		}
+		.dc-friends-not-food-name .dc-friends-not-food-font, .dc-friends-not-food-hover {
+			text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75);
+		}
+		.dc-friends-not-food-container {
+			position: relative;
+			background: url('//display.coffee/assets/images/cheat-codes/friends-not-food-bg.jpg') no-repeat 0 0;
+			background-size: cover;
+			.dc-friends-not-food-information-01, .dc-friends-not-food-information-02 {
+				padding: $friends-not-food-spacing;
+				-webkit-transition: opacity 0.5s ease;
+				-o-transition: opacity 0.5s ease;
+				-ms-transition: opacity 0.5s ease;
+				-moz-transition: opacity 0.5s ease;
+				transition: opacity 0.5s ease;
+			}
+			.dc-friends-not-food-hover {
+				order: 10;
+				text-align: center;
+				background-color: $friends-not-food-color-02;
+				padding: 0 $friends-not-food-spacing;
+				line-height: 60px;
+				cursor: pointer;
+				bottom: $friends-not-food-spacing;
+				left: $friends-not-food-spacing;
+				right: $friends-not-food-spacing;
+				z-index: 1;
+				&:hover {
+					& ~ .dc-friends-not-food-information-01 {
+						opacity: 0;
+						visibility: hidden;
+					}
+					& ~ .dc-friends-not-food-information-02 {
+						visibility: visible;
+						opacity: 1;
+						z-index: 2;
+					}
+				}
+			}
+			.dc-friends-not-food-information-01 {
+				.dc-friends-not-food-header {
+					position: relative;
+					width: auto;
+					background-color: $friends-not-food-color-02;
+					margin: -#{$friends-not-food-spacing} -#{$friends-not-food-spacing} 0 -#{$friends-not-food-spacing};
+					padding: $friends-not-food-spacing $friends-not-food-spacing $friends-not-foods-spacing-triple $friends-not-food-spacing;
+					text-align: center;
+					.dc-friends-not-food-name, .dc-friends-not-food-species {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+					.dc-friends-not-food-species {
+						margin: 5px 0 0 0;
+						p, strong {
+							font-size: $friends-not-food-font-size-01 + 2;
+						}
+					}
+					.dc-friends-not-food-avatar {
+						border-radius: 50%;
+						overflow: hidden;
+						width: $friends-not-food-image-size-01;
+						height: $friends-not-food-image-size-01;
+						bottom: -#{calc($friends-not-food-image-size-01 / 2)};
+						margin: auto;
+						line-height: 0;
+						border: 5px solid $friends-not-food-color-02;
+						img {
+							max-width: 100%;
+						}
+					}
+				}
+				.dc-friends-not-food-profile {
+					margin: calc($friends-not-food-spacing * 4.125) 0 0 0;
+					text-align: center;
+					.dc-friends-not-food-title, .dc-friends-not-food-quote {
+						width: 100%;
+					}
+					.dc-friends-not-food-title .dc-friends-not-food-font {
+						font-size: $friends-not-food-font-size-02 - 2;
+					}
+					.dc-friends-not-food-quote {
+						text-align: right;
+						span {
+							margin: 5px 0 0 0;
+						}
+					}
+				}
+			}
+			.dc-friends-not-food-information-02 {
+				top: 0;
+				bottom: $friends-not-foods-spacing-triple;
+				z-index: 1;
+				margin: auto;
+				opacity: 0;
+				visibility: hidden;
+				.dc-friends-not-food-vertical {
+					height: 100%;
+					.dc-friends-not-food-block {
+						-webkit-flex: 1 1 0%;
+						-ms-flex: 1 1 0%;
+						-moz-flex: 1 1 0%;
+						flex: 1 1 0%;
+						&, p {
+							margin: 0 0 $friends-not-food-spacing 0;
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: $friends-not-food-breakpoint) {
+		.dc-friends-not-food {
+			max-width: $friends-not-food-max-width;
+			.dc-friends-not-food-row .dc-friends-not-food-column {
+				width: 50%;
+			}
+			.dc-friends-not-food-container {
+				.dc-friends-not-food-information-01 {
+					.dc-friends-not-food-header {
+						padding: $friends-not-food-spacing calc($friends-not-food-spacing * 9) $friends-not-food-spacing $friends-not-food-spacing;
+						text-align: left;
+						.dc-friends-not-food-name {
+							margin: $friends-not-foods-spacing-double 0 0 0;
+						}
+						.dc-friends-not-food-avatar {
+							width: $friends-not-food-image-size-02;
+							height: $friends-not-food-image-size-02;
+							bottom: -#{calc($friends-not-food-image-size-02 / 2)};
+							right: $friends-not-food-spacing;
+							left: auto;
+							margin: 0;
+							border-width: 10px;
+						}
+					}
+				}
+			}
+		}
+	}

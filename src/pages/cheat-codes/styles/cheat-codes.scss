@@ -1,0 +1,53 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// CHEAT CODES
+//// --------------------------------------------------------------------------
+
+	// Imports
+
+	@import url('//fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+	@import url('//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+	@import url('//fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+	// Style block
+
+	.preview-cheat-codes {
+		&.preview-navigation-menus {
+			@import '../content/navigation-menus/navigation-menus-01';
+			@import '../content/navigation-menus/navigation-menus-02';
+			@import '../content/navigation-menus/navigation-menus-03';
+			#dc-navigation-menu-01, #dc-navigation-menu-02 {
+				margin-bottom: theme.$spacing-x4;
+			}
+		}
+		&.preview-wish-you-were-here {
+			@import '../content/wish-you-were-here/wish-you-were-here';
+		}
+		&.preview-hello-content {
+			@import '../content/hello-content/hello-content';
+		}
+		&.preview-friends-not-food {
+			@import '../content/friends-not-food/friends-not-food';
+		}
+		&.preview-velociraptor-pack {
+			@import '../content/velociraptor-pack/velociraptor-pack';
+		}
+		&.preview-dragony {
+			@import '../content/dragony/dragony';
+		}
+		&.preview-a-promise {
+			@import '../content/a-promise/a-promise';
+		}
+		&.preview-dreaming-of-snow {
+			@import '../content/dreaming-of-snow/dreaming-of-snow';
+		}
+		&.preview-best-friends {
+			@import '../content/best-friends/best-friends';
+		}
+		&.preview-banner-code-generator {
+			@import '../content/banner-code-generator/banner-code-generator';
+		}
+	}	

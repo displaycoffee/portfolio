@@ -1,0 +1,110 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// ARTICLES
+//// --------------------------------------------------------------------------
+
+	// Style block
+	
+	.output-articles {
+		font-size: 16px;
+		.output-content {
+			font-size: 100%;
+			.fonts-are-awesome > * {
+				margin: theme.$spacing-x4 0 0 0;
+			}
+		}
+		&.output-font-size {
+			.output-content {
+				.fonts-are-awesome, .fonts-are-awesome > .child {
+					font-size: 0.85em;
+				}
+				.fonts-are-awesome-part-02, .fonts-are-awesome-part-02 > .child {
+					font-size: 20px;
+				}
+			}
+		}
+		&.output-line-height-01, &.output-line-height-02, &.output-line-height-03 {
+			.output-content {
+				line-height: 1.5em;
+				.fonts-are-awesome-part-02 {
+					font-size: 30px;
+				}
+			}
+		}
+		&.output-line-height-03 .output-content {
+			line-height: 1.5;
+		}
+		&.output-font-weight .output-content {
+			.fonts-are-awesome {
+				font-weight: 100;
+			}
+			.fonts-are-awesome-part-02 {
+				font-weight: 400;
+			}
+			.fonts-are-awesome-part-03 {
+				font-weight: 900;
+			}
+		}
+		&.output-font-style .output-content .fonts-are-awesome {
+			font-style: italic;
+		}
+		&.output-font-variant .output-content .fonts-are-awesome {
+			font-variant: small-caps;
+		}
+		&.output-text-transform .output-content {
+			.fonts-are-awesome {
+				text-transform: capitalize;
+			}
+			.fonts-are-awesome-part-02 {
+				text-transform: lowercase;
+			}
+			.fonts-are-awesome-part-03 {
+				text-transform: uppercase;
+			}
+		}
+		&.output-text-decoration .output-content {
+			.fonts-are-awesome {
+				text-decoration: line-through;
+			}
+			.fonts-are-awesome-part-02 {
+				text-decoration: overline;
+			}
+			.fonts-are-awesome-part-03 {
+				text-decoration: underline;
+			}
+		}
+		&.output-letter-spacing .output-content {
+			.fonts-are-awesome {
+				letter-spacing: 5px;
+			}
+			.fonts-are-awesome-part-02 {
+				letter-spacing: -3px;
+			}
+		}
+		&.output-font-shorthand .output-content {
+			.fonts-are-awesome {
+				font: 14px 'Roboto', sans-serif;
+			}
+			.fonts-are-awesome-part-02 {
+				font: italic bold 14px 'Roboto', sans-serif;
+			}
+			.fonts-are-awesome-part-03 {
+				font: italic small-caps bold 14px/18px 'Roboto', sans-serif;
+			}
+		}
+	}
+	.articles-top {
+		.articles-top-button {
+			.icon {
+				margin: 0 theme.$spacing-x2 0 0;
+			}
+		}
+	}
+	#contents-styling-text-053015 {
+		.definition-list .definition-list-item dt {
+			@include mixins.flex(0 0 190px);
+		}
+	}

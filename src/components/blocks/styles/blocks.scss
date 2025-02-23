@@ -1,0 +1,255 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// BLOCKS
+//// --------------------------------------------------------------------------\
+
+	// Configuration
+
+	$pixel-size: 4px;
+
+	// Style block
+
+	.h-icon {
+		.icon {			
+			margin-left: theme.$spacing-x2;
+			&:first-child {
+				margin-left: 0;
+				margin-right: theme.$spacing-x2;				
+			}
+		}
+	}
+	.button {
+		position: relative;
+		display: inline-block;		
+		border: 0;
+		height: 36px;
+		padding: 0 theme.$spacing-x2;
+		margin: $pixel-size 0;
+		font-size: functions.em(12px, rem);
+		color: theme.$color-02;
+		line-height: calc(36px + $pixel-size);
+		span {
+			display: block;
+			@include mixins.ellipsis();
+		}
+		&:before, &:after {
+			content: '';
+			display: block;
+			@include mixins.position($type: absolute, $left: 0, $right: 0);
+			margin: auto;
+			width: 90%;
+			width: calc(100% - calc($pixel-size * 2));
+			height: $pixel-size;
+		}
+		&:before {
+			top: -#{$pixel-size};
+		}
+		&:after {
+			bottom: -#{$pixel-size};
+		}
+		&.button-x-small {
+			height: 20px;
+			padding: 0 theme.$spacing-x2;
+			font-size: functions.em(12px, rem);
+			line-height: calc(20px + $pixel-size);
+		}
+	}
+	.button-primary {	
+		text-shadow: 2px 2px 0 theme.$color-03;
+		&, &:before, &:after {
+			background-color: theme.$color-04;
+		}
+	}
+	.button-secondary {
+		text-shadow: 2px 2px 0 theme.$color-07;
+		&, &:before, &:after {
+			background-color: theme.$color-03;
+		}
+	}
+	.code-block {
+		position: relative;
+		padding: $pixel-size 0;
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 90%;
+			width: calc(100% - calc($pixel-size * 2));
+			height: $pixel-size;
+			@include mixins.position($type: absolute, $left: 0, $right: 0);
+			margin: auto;
+		}
+		&:before {
+			top: 0;
+			background-color: theme.$color-04;
+		}
+		&:after {
+			bottom: 0;
+			background-color: theme.$color-08;
+		}
+		.code-block-header {
+			background-color: theme.$color-04;
+			padding: theme.$spacing-x2;
+			& > * {
+				@include mixins.position($type: relative, $top: 2px);
+				font-size: functions.em(14px, rem);
+				line-height: 1.5;
+			}
+			.code-block-label {
+				padding: 0 theme.$spacing-x2 0 0;
+			}
+			.code-block-button {
+				margin: 0 0 0 auto;
+				color: theme.$color-08;
+				&:hover {
+					color: theme.$color-02;
+				}
+			}
+		}
+		.code-block-pre {
+			max-height: 500px;
+			overflow-y: auto;
+			&::-webkit-scrollbar-thumb {
+				background: theme.$color-04;
+			}
+			&::-webkit-scrollbar-track {
+				background: theme.$color-08
+			}
+		}
+	}
+	.code-inline {
+		padding: theme.$spacing-x05 theme.$spacing-x1;
+		@include mixins.position($type: relative, $top: -2px);
+	}
+	.output {
+		position: relative;
+		padding: $pixel-size 0;
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 90%;
+			width: calc(100% - calc($pixel-size * 2));
+			height: $pixel-size;
+			@include mixins.position($type: absolute, $left: 0, $right: 0);
+			margin: auto;
+			background-color: theme.$color-02;
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
+		.output-content {
+			background-color: theme.$color-02;
+			padding: theme.$spacing-x4;			
+			font-family: theme.$font-family-03;
+			color: theme.$color-03;
+		}
+	}
+	.pixel-section {
+		&, .pixel-section-wrapper {			
+			position: relative;
+		}
+		.pixel-border-rounded {
+			@include mixins.position-fill($z: 1);
+			background-color: theme.$color-04;
+		}
+		.pixel-section-wrapper {
+			padding: theme.$spacing-x4 theme.$spacing-x4 calc(theme.$spacing-x4 - 8px) theme.$spacing-x4;
+			z-index: 2;
+			a, button {
+				color: theme.$color-02;
+				text-shadow: 2px 2px 0 theme.$color-03;
+			}
+			ul {
+				@include mixins.flex-layout;
+				@include mixins.flex-parent(align-items, center);
+				margin: 0 -#{theme.$spacing-x2} -#{theme.$spacing-x2} -#{theme.$spacing-x2};
+				li {
+					min-width: 1px;
+					@include mixins.flex(0 1 auto);
+					padding: 0 theme.$spacing-x2;
+					margin: 0 0 theme.$spacing-x2 0;
+				}
+			}
+			.pixel-navigation {
+				.pixel-navigation-list {
+					.pixel-navigation-list-item {
+						.pixel-navigation-link {
+							.pixel-navigation-label {
+								display: inline-block;
+							}
+							.icon {
+								@include mixins.position($type: relative, $top: 1px);
+							}
+						}
+					}
+					.pixel-navigation-previous {
+						.pixel-navigation-link {
+							.pixel-navigation-label {
+								margin: 0 0 0 theme.$spacing-x2;
+							}
+						}
+					}
+					.pixel-navigation-next {
+						margin-left: auto;
+						.pixel-navigation-link {
+							.pixel-navigation-label {
+								margin: 0 theme.$spacing-x2 0 0;
+							}
+						}
+					}
+					.pixel-navigation-back {
+						width: 100%;
+						order: 10;
+						text-align: center;
+					}
+					.pixel-navigation-separator {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.button {
+			padding: 0 theme.$spacing-x4;
+			font-size: functions.em(14px, rem);
+		}
+		.button-primary:hover {
+			text-shadow: 2px 2px 0 theme.$color-07;
+			&, &:before, &:after {
+				background-color: theme.$color-03;
+			}
+		}
+		.button-secondary:hover {
+			text-shadow: 2px 2px 0 theme.$color-03;
+			&, &:before, &:after {
+				background-color: theme.$color-04;
+			}
+		}
+		.pixel-section {
+			.pixel-section-wrapper {
+				.pixel-navigation {
+					.pixel-navigation-list {
+						.pixel-navigation-list-item {
+							width: auto;
+						}
+						.pixel-navigation-next {
+							margin-left: 0;
+						}
+						.pixel-navigation-back {
+							order: 0;
+							text-align: left;
+						}
+						.pixel-navigation-separator {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}

@@ -1,0 +1,56 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// NAVIGATION
+//// --------------------------------------------------------------------------
+
+	// Configuration
+
+	$navigation-is-inline: true; // determine if navigation is inline
+
+	// Style block
+
+	.navigation-section {
+		.pixel-section-wrapper {
+			.slideout-button {
+				font-size: functions.em(16px, rem);
+				.icon {
+					margin-right: theme.$spacing-x2;
+				}
+			}
+			.navigation {
+				.navigation-list {
+					.navigation-list-item {
+						&:not(.active) a:hover .icon:before {
+							top: 1px;
+							content: '\00003e';
+						}
+						&:not(.active) a:hover .icon {
+							animation-name: bounce-horizontal;
+						}
+					}
+				}
+			}
+		}
+	}
+	.navigation {
+		.navigation-list {
+			.navigation-list-item {
+				&.active a .icon:before {
+					top: 1px;
+					content: '\00003e';
+				}
+				a {
+					position: relative;
+					color: theme.$color-02;
+					text-shadow: 2px 2px 0 theme.$color-03;
+					.icon {
+						margin-right: theme.$spacing-x2;
+						min-width: 16px;
+					}
+				}
+			}
+		}
+	}

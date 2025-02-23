@@ -1,0 +1,138 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// GALLERY
+//// --------------------------------------------------------------------------
+
+	// Style block
+	
+	.gallery-active {
+		overflow: hidden;
+	}
+	.gallery {
+		.gallery-items {
+			@include mixins.grid-layout(5px, 75px);
+		}
+		.gallery-body {
+			&, .gallery-image {
+				margin: 0 0 theme.$spacing-x4 0;
+			}
+			.gallery-header, .gallery-image, .gallery-details {
+				min-width: 1px;
+			}
+			.gallery-header, .gallery-details {				
+				@include mixins.flex(1 1 100%);
+			}
+			.gallery-image {
+				@include mixins.flex(0 1 auto);
+				.gallery-image-wrapper {					
+					display: inline-block;
+				}
+			}
+		}
+	}
+	#gallery-pixels {
+		.gallery-body {
+			.gallery-image {
+				min-width: 150px;
+			}
+			.gallery-details {
+				min-height: 160px;
+			}
+		}
+	}
+	.gallery-tabs {
+		.gallery-tabs-buttons {
+			.row .column {
+				line-height: 0;
+				.button {
+					&.button-secondary span:before {
+						content: '\00002a';
+						display: inline-block;
+						margin-right: theme.$spacing-x1;
+					}
+				}
+			}
+		}
+		.gallery-tabs-content {
+			position: relative;
+			.gallery {
+				@include mixins.position($type: absolute, $top: -9999px, $left: -9999px, $z: -1);
+				opacity: 0;
+				visibility: hidden;
+				@include mixins.transition(opacity 0.5s ease);
+				&.active {
+					position: static;
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.gallery {
+			.gallery-items {
+				.gallery-item {
+					overflow: hidden;
+					.gallery-image {
+						&:hover {
+							.image-wrapper img {
+								@include mixins.transform(scale(1.5, 1.5));
+							}
+						}
+						.image-wrapper img {
+							@include mixins.transition(transform 0.5s ease-in-out);
+						}
+					}
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-03) {
+		.gallery {
+			.gallery-body {
+				.gallery-image {
+					@include mixins.flex(0 1 auto);
+					max-width: 500px;
+					min-width: 400px;
+					margin: 0 theme.$spacing-x4 0 0;
+				}
+				.gallery-details {
+					@include mixins.flex;
+					.definition-list {
+						.definition-list-item {
+							dt {
+								margin: 0 0 theme.$spacing-x1 0;
+							}
+							dd {
+								@include mixins.flex(1 1 100%);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-04) {
+		.gallery {
+			.gallery-body {
+				.gallery-image {
+					max-width: 600px;
+				}
+				.gallery-details {
+					.definition-list {
+						.definition-list-item {
+							dt {
+								margin: 0;
+							}
+							dd {
+								@include mixins.flex(1 1 0%);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
