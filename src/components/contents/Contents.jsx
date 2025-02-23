@@ -124,9 +124,7 @@ export const ContentsLinks = (props) => {
 
 	return (
 		<div className="contents">
-			{searchParams ? <Button onClick={(e) => handleClear(e)}>Clear all</Button> : null}
-
-			<div className="contents-row">
+			<div className="contents-row row row-wrap row-spacing-30">
 				{contents.values.map((value) => {
 					const tagsConfig = contentsUtils.tags(value?.tags);
 
@@ -134,52 +132,44 @@ export const ContentsLinks = (props) => {
 					const findActive = tagsConfig.hasTags ? tagsConfig.values.filter((tag) => tags[tag.toLowerCase()].active) : [];
 					const contentActive = !searchParams || (findActive && findActive.length !== 0) ? true : false;
 
-					// Check dates
-					const hasDate = value?.date ? true : false;
-					const hasUpdated = value?.updated ? true : false;
-
 					return contentActive ? (
-						<div className="contents-column" key={value.id}>
-							<div className="contents-details">
-								<Link className="contents-link" to={`${path}/${value.handle}`}>
-									<div className="contents-image">
-										<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
-									</div>
-									<div className="contents-name">{value.name}</div>
-								</Link>
+						<div className="contents-column column column-width-50" key={value.id}>
+							<Link className="contents-link" to={`${path}/${value.handle}`}>
+								<h4 className="contents-name">{value.name}</h4>
+							</Link>
 
-								{hasDate || hasUpdated ? (
-									<div className="contents-date">
-										{hasDate ? `Posted ${value.date}` : ``}
-										{hasDate && hasUpdated ? ` - ` : ``}
-										{hasUpdated ? `Updated ${value.updated}` : ``}
-									</div>
-								) : null}
-							</div>
+							<ContentsDate content={value} />
 
 							{tagsConfig.hasTags ? (
-								<div className="contents-tags">
+								<ContentsTags>
 									{tagsConfig.values.map((tag, index) => {
 										const tagLower = tag.toLowerCase();
 										const tagConfig = tags[tagLower];
 
 										return (
-											<Button
-												type={tagConfig.active ? 'secondary' : 'primary'}
-												size={'x-small'}
-												onClick={(e) => handleTag(e, tagConfig)}
-												key={index}
-											>
-												{tag}
-											</Button>
+											<div className="contents-tags-column" key={index}>
+												<Button
+													type={tagConfig.active ? 'secondary' : 'primary'}
+													size={'x-small'}
+													onClick={(e) => handleTag(e, tagConfig)}
+												>
+													{tag}
+												</Button>
+											</div>
 										);
 									})}
-								</div>
+								</ContentsTags>
 							) : null}
 						</div>
 					) : null;
 				})}
 			</div>
+
+			{searchParams ? (
+				<div className="contents-clear">
+					<Button onClick={(e) => handleClear(e)}>Clear tags</Button>
+				</div>
+			) : null}
 		</div>
 	);
 };
@@ -199,12 +189,11 @@ export const ContentsBody = (props) => {
 		back: navigation?.back ? navigation.back : false,
 	};
 
-	// Check dates
-	const hasDate = current?.date ? true : false;
-	const hasUpdated = current?.updated ? true : false;
+	// Get tags
+	const tagsConfig = contentsUtils.tags(current?.tags);
 
 	// Check if we have a header
-	const hasHeader = current?.name || hasDate || hasUpdated ? true : false;
+	const hasHeader = current?.name || tagsConfig.hasTags || current?.date || current?.updated ? true : false;
 
 	// Set component for body
 	const Body = current.component;
@@ -216,12 +205,25 @@ export const ContentsBody = (props) => {
 					<header className="contents-header">
 						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
 
-						{hasDate || hasUpdated ? (
-							<p className="contents-header-date">
-								{hasDate ? `Posted ${current.date}` : ``}
-								{hasDate && hasUpdated ? ` - ` : ``}
-								{hasUpdated ? `Updated ${current.updated}` : ``}
-							</p>
+						<ContentsDate content={current} />
+
+						{tagsConfig.hasTags ? (
+							<ContentsTags>
+								{tagsConfig.values.map((tag, index) => {
+									return (
+										<div className="contents-tags-column" key={index}>
+											<Button
+												size={'x-small'}
+												onClick={() => {
+													window.location.href = `${path}?${contentsUtils.params.url.tag}=${tag.toLowerCase()}`;
+												}}
+											>
+												{tag}
+											</Button>
+										</div>
+									);
+								})}
+							</ContentsTags>
 						) : null}
 					</header>
 				) : null}
@@ -246,4 +248,30 @@ export const ContentsBody = (props) => {
 			<Navigate to={path} replace />
 		)
 	) : null;
+};
+
+export const ContentsDate = (props) => {
+	const { content } = props;
+
+	// Check dates
+	const hasDate = content?.date ? true : false;
+	const hasUpdated = content?.updated ? true : false;
+
+	return hasDate || hasUpdated ? (
+		<div className="contents-date">
+			{hasDate ? `Posted ${content.date}` : ``}
+			{hasDate && hasUpdated ? ` - ` : ``}
+			{hasUpdated ? `Updated ${content.updated}` : ``}
+		</div>
+	) : null;
+};
+
+export const ContentsTags = (props) => {
+	const { children } = props;
+
+	return (
+		<div className="contents-tags">
+			<div className="contents-tags-row flex-wrap flex-align-content-center">{children}</div>
+		</div>
+	);
 };
