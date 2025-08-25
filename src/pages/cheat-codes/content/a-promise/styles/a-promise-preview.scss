@@ -12,6 +12,7 @@
 
 	// Configuration
 
+	$a-promise-selector: '.dc-a-promise'; // selector of main wrapper element
 	$a-promise-breakpoint: 768px; // breakpoint for desktop styles
 	$a-promise-max-width: 700px; // max width
 	$a-promise-font-family: Georgia, 'Times New Roman', Times, serif; // font family
@@ -26,7 +27,7 @@
 
 	// Style block
 
-	.dc-a-promise {
+	#{$a-promise-selector} {
 		width: auto;
 		max-width: 100%;
 		margin: 0;
@@ -154,7 +155,7 @@
 		}
 	}
 	@media only screen and (min-width: $a-promise-breakpoint) {
-		.dc-a-promise {
+		#{$a-promise-selector} {
 			max-width: $a-promise-max-width;
 			margin: 0 auto;
 		}
