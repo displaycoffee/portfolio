@@ -1,5 +1,5 @@
 /* Local scripts */
-import { codeBlocks } from './scripts/banner-code-generator-blocks';
+import { codeBlocks } from './scripts/banner-code-generator-code-blocks';
 
 /* Local components */
 import { BannerCodeGenerator as BannerCodeGeneratorPreview } from './BannerCodeGeneratorPreview';
