@@ -12,6 +12,7 @@
 
 	// Configuration
 
+	$dragony-selector: '.dc-dragony'; // selector of main wrapper element
 	$dragony-breakpoint: 768px; // breakpoint for desktop styles
 	$dragony-max-width: 1000px; // max width
 	$dragony-font-family-01: Tahoma, Arial, Helvetica, sans-serif; // font family
@@ -26,7 +27,7 @@
 
 	// Style block
 
-	.dc-dragony {
+	#{$dragony-selector} {
 		width: auto;
 		max-width: 100%;
 		margin: 0;
@@ -89,7 +90,7 @@
 		}
 	}
 	@media only screen and (min-width: $dragony-breakpoint) {
-		.dc-dragony {
+		#{$dragony-selector} {
 			max-width: $dragony-max-width;
 			.dc-dragony-header h3 {
 				letter-spacing: 20px;

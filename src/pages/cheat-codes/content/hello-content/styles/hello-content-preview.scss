@@ -9,6 +9,7 @@
 
 	// Configuration
 
+	$hello-content-selector: '.dc-hello-content-tabs'; // selector of main wrapper element
 	$hello-content-breakpoint: 541px; // breakpoint for desktop styles
 	$hello-content-font-family: Arial, Helvetica, sans-serif; // font family
 	$hello-content-font-size: 12px; // font size
@@ -16,7 +17,7 @@
 
 	// Style block
 
-	.dc-hello-content-tabs {
+	#{$hello-content-selector} {
 		&, & * {
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
@@ -47,6 +48,10 @@
 					-moz-flex: 0 1 auto;
 					flex: 0 1 auto;
 					padding: 0 5px;
+					margin: 0;
+					&:before {
+						display: none; // custom for preview
+					}
 					&:first-child button {
 						-webkit-border-radius: 3px 3px 0 0;
 						-moz-border-radius: 3px 3px 0 0;
@@ -99,7 +104,7 @@
 		}
 	}
 	@media only screen and (min-width: $hello-content-breakpoint) {
-		.dc-hello-content-tabs {
+		#{$hello-content-selector} {
 			.dc-hello-content-tabs-buttons {
 				.dc-hello-content-tabs-list li {
 					width: calc(100% / $hello-content-items-per-row);

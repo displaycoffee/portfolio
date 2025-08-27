@@ -16,6 +16,7 @@
 
 	// Configuration
 
+	$best-friends-selector: '.dc-best-friends'; // selector of main wrapper element
 	$best-friends-breakpoint-01: 541px; // breakpoint for tablet styles
 	$best-friends-breakpoint-02: 768px; // breakpoint for desktop styles
 	$best-friends-max-width: 768px; // max width
@@ -28,7 +29,7 @@
 
 	// Style block
 
-	.dc-best-friends {
+	#{$best-friends-selector} {
 		width: auto;
 		max-width: 100%;
 		margin: 0;
@@ -131,7 +132,7 @@
 		}
 	}
 	@media only screen and (min-width: $best-friends-breakpoint-01) {
-		.dc-best-friends {
+		#{$best-friends-selector} {
 			.dc-hello-content-tabs {
 				.dc-hello-content-tabs-buttons .dc-hello-content-tabs-list {
 					li {
@@ -155,7 +156,7 @@
 		}
 	}
 	@media only screen and (min-width: $best-friends-breakpoint-02) {
-		.dc-best-friends {
+		#{$best-friends-selector} {
 			max-width: $best-friends-max-width;
 		}
 	}
