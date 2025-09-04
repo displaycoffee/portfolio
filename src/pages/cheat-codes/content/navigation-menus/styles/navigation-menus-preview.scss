@@ -1,0 +1,13 @@
+// Use utils and theme variables
+@use '../../../../../_config/styles/utils/_functions';
+@use '../../../../../_config/styles/utils/_mixins';
+@use '../../../../../_config/styles/theme/_theme';
+
+//// CHEAT CODES
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	#dc-navigation-menu-01, #dc-navigation-menu-02 {
+		margin-bottom: theme.$spacing-x4;
+	}

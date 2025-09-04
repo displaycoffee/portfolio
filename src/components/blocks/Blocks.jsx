@@ -49,6 +49,11 @@ export const CodeBlock = (props) => {
 		}
 	};
 
+	// Re-format children HTML to get aligned code blocks
+	if (children.includes('\n\t')) {
+		children = children.replace(/\n\t/g, '\n');
+	}
+
 	return (
 		<div className={`${codeClass}code-block`}>
 			<header className="code-block-header flex-nowrap flex-align-items-center">

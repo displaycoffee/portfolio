@@ -1,4 +1,8 @@
+/* Local scripts */
+import { codeBlocks } from './scripts/navigation-menus-code-blocks';
+
 /* Local components */
+import { NavigationMenus as NavigationMenusPreview } from './NavigationMenusPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
 
@@ -95,8 +99,8 @@ export const NavigationMenus = () => {
 						navigation-menus/NavigationMenus.jsx
 					</a>
 				</p>
-				<CodeBlock header={'React import'}>{cb01}</CodeBlock>
-				<CodeBlock header={'React component'}>{cb02}</CodeBlock>
+				<CodeBlock header={'React import'}>{codeBlocks[0]}</CodeBlock>
+				<CodeBlock header={'React component'}>{codeBlocks[1]}</CodeBlock>
 				<p>
 					The component accepts an <CodeInline>id</CodeInline> prop which is the id of the menu you want to use.
 				</p>
@@ -141,21 +145,21 @@ export const NavigationMenus = () => {
 						</dd>
 					</div>
 				</dl>
-				<CodeBlock header={'Style block'}>{cb03}</CodeBlock>
-				<CodeBlock header={'Stylesheet'}>{cb04}</CodeBlock>
-				<CodeBlock header={'CSS import'}>{cb05}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb06}</CodeBlock>
+				<CodeBlock header={'Style block'}>{codeBlocks[2]}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{codeBlocks[3]}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{codeBlocks[4]}</CodeBlock>
+				<CodeBlock header={'React import'}>{codeBlocks[5]}</CodeBlock>
 				<p>
 					By default, each menu has a <CodeInline>max-width</CodeInline> of <CodeInline>100%</CodeInline>. You can lower, increase, or
 					change the value to a px unit.
 				</p>
-				<CodeBlock header={'CSS'}>{cb07}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[6]}</CodeBlock>
 				<p>If adding more navigation items, adjust the widths per the number of items. Four items:</p>
-				<CodeBlock header={'CSS'}>{cb08}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[7]}</CodeBlock>
 				<p>Five items:</p>
-				<CodeBlock header={'CSS'}>{cb09}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[8]}</CodeBlock>
 				<p>Six items:</p>
-				<CodeBlock header={'CSS'}>{cb10}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[9]}</CodeBlock>
 
 				<h5 className="h-remove-shadow">Sass</h5>
 				<p>If using Sass and not CSS, copy the styles from the links below and add according to your preferred method.</p>
@@ -197,14 +201,14 @@ export const NavigationMenus = () => {
 						</dd>
 					</div>
 				</dl>
-				<CodeBlock header={'Sass import'}>{cb11}</CodeBlock>
-				<CodeBlock header={'React import'}>{cb12}</CodeBlock>
+				<CodeBlock header={'Sass import'}>{codeBlocks[10]}</CodeBlock>
+				<CodeBlock header={'React import'}>{codeBlocks[11]}</CodeBlock>
 				<p>
 					To change the <CodeInline>max-width</CodeInline> of each menu, there is a variable configuration available.
 				</p>
-				<CodeBlock header={'Sass'}>{cb13}</CodeBlock>
+				<CodeBlock header={'Sass'}>{codeBlocks[12]}</CodeBlock>
 				<p>To add or remove navigation items:</p>
-				<CodeBlock header={'Sass'}>{cb14}</CodeBlock>
+				<CodeBlock header={'Sass'}>{codeBlocks[13]}</CodeBlock>
 			</CheatCodesSection>
 
 			<Preview className="preview-cheat-codes preview-navigation-menus">
@@ -215,136 +219,3 @@ export const NavigationMenus = () => {
 		</>
 	);
 };
-
-export const NavigationMenusPreview = (props) => {
-	let { id } = props;
-	id = typeof id == 'undefined' ? '01' : id;
-
-	return (
-		<nav id={`dc-navigation-menu-${id}`} className="dc-navigation-menu displaycoffee">
-			<ul className="dc-navigation-list unstyled">
-				<li className="dc-navigation-list-item">
-					<a href="/">Link 1</a>
-
-					<ul className="dc-navigation-sublist unstyled">
-						<li className="dc-navigation-sublist-item">
-							<span>Sub Menu Link 1</span>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 2</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 3</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 4</a>
-						</li>
-					</ul>
-				</li>
-
-				<li className="dc-navigation-list-item">
-					<span>Link 2</span>
-
-					<ul className="dc-navigation-sublist unstyled">
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 1</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 2</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 3</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 4</a>
-						</li>
-					</ul>
-				</li>
-
-				<li className="dc-navigation-list-item">
-					<a href="/">Link 3</a>
-
-					<ul className="dc-navigation-sublist unstyled">
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 1</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 2</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 3</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 4</a>
-						</li>
-					</ul>
-				</li>
-
-				<li className="dc-navigation-list-item">
-					<a href="/">Link 4</a>
-
-					<ul className="dc-navigation-sublist unstyled">
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 1</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 2</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 3</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 4</a>
-						</li>
-					</ul>
-				</li>
-
-				<li className="dc-navigation-list-item">
-					<span>Link 5</span>
-
-					<ul className="dc-navigation-sublist unstyled">
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 1</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 2</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 3</a>
-						</li>
-						<li className="dc-navigation-sublist-item">
-							<a href="/">Sub Menu Link 4</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-	);
-};
-
-/* Code blocks */
-const cb01 = `import { NavigationMenus } from './NavigationMenus';`;
-const cb02 = `<NavigationMenus id={'01'} />`;
-const cb03 = `<style>
-	/* Copied styles go here */
-</style>`;
-const cb04 = `<!-- Copy styles and paste into stylesheet -->
-<link rel="stylesheet" href="navigation-menus.css" />`;
-const cb05 = `@import url('navigation-menus.css');`;
-const cb06 = `@import 'navigation-menus.css';`;
-const cb07 = `#dc-navigation-menu-01 {
-	max-width: 100%;
-}`;
-const cb08 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
-	width: 25%;
-}`;
-const cb09 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
-	width: 20%;
-}`;
-const cb10 = `#dc-navigation-menu-01 .dc-navigation-list .dc-navigation-list-item {
-	width: 16.66%;
-}`;
-const cb11 = `@import 'navigation-menus.scss';`;
-const cb12 = `import 'navigation-menus.scss';`;
-const cb13 = `$menu-max-width: 100%; // max width of menu`;
-const cb14 = `$menu-items-per-row: 5; // number of navigation items in main row`;

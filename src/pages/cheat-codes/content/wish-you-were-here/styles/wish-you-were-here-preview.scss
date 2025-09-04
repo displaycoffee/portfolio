@@ -1,0 +1,166 @@
+//// WISH YOU WERE HERE
+//// --------------------------------------------------------------------------
+
+	// Imports
+
+	@import url('//fonts.googleapis.com/css2?family=Damion&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+	// Colors
+
+	$wish-you-were-here-color-01: #ffffff; // font
+	$wish-you-were-here-color-02: #c97f4a; // link
+	$wish-you-were-here-color-03: #ffffff; // link hover
+	$wish-you-were-here-color-04: #373026; // main background
+	$wish-you-were-here-color-05:    373026; // circle color (without #)
+	$wish-you-were-here-color-06: #c97f4a; // border
+
+	// Configuration
+
+	$wish-you-were-here-selector: '.dc-wish-you-were-here'; // selector of main wrapper element
+	$wish-you-were-here-breakpoint: 768px; // breakpoint for desktop styles
+	$wish-you-were-here-max-width: 650px; // max width
+	$wish-you-were-here-font-family-01: Lato, Arial, Helvetica, sans-serif; // font family
+	$wish-you-were-here-font-family-02: Damion, Arial, Helvetica, sans-serif; // header font family
+	$wish-you-were-here-font-size-01: 13px; // font size
+	$wish-you-were-here-font-size-02: 40px; // header font size
+	$wish-you-were-here-spacing: 20px; // spacing for template
+
+	// Style block
+
+	#{$wish-you-were-here-selector} {
+		max-width: 100%;
+		border: 2px solid $wish-you-were-here-color-06;
+		border-bottom: 20px solid $wish-you-were-here-color-06;
+		background-color: $wish-you-were-here-color-04;
+		&, & * {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		* {
+			font-family: $wish-you-were-here-font-family-01;
+			font-size: $wish-you-were-here-font-size-01;
+			line-height: 1.5;
+			color: $wish-you-were-here-color-01;
+		}
+		a {
+			color: $wish-you-were-here-color-02;
+			text-decoration: none;
+			&:hover {
+				color: $wish-you-were-here-color-03;
+			}
+		}
+		.dc-wish-you-were-here-title {
+			font-family: $wish-you-were-here-font-family-02;
+			font-weight: normal;
+			text-shadow: none;
+			letter-spacing: 0;
+			line-height: 1.2;
+		}
+		h3.dc-wish-you-were-here-title {
+			font-size: $wish-you-were-here-font-size-02;
+		}
+		h4.dc-wish-you-were-here-title {
+			font-size: $wish-you-were-here-font-size-02 - 10;
+		}
+		.dc-wish-you-were-here-banner {
+			width: 100%;
+			height: 250px;
+			background: url('//display.coffee/assets/images/cheat-codes/wish-you-were-here-bg.jpg') no-repeat;
+			background-size: cover;
+			padding: $wish-you-were-here-spacing;
+			position: relative;
+			.dc-wish-you-were-here-title, .dc-wish-you-were-here-circles {
+				position: absolute;
+				z-index: 1;
+			}
+			.dc-wish-you-were-here-title {
+				text-align: right;
+				text-shadow: 0 2px 0 rgba(0, 0, 0, 0.8);
+				bottom: 30px;
+				right: $wish-you-were-here-spacing;
+				margin: 0;
+			}
+			.dc-wish-you-were-here-circles {
+				height: 50px;
+				bottom: -30px;
+				right: 0;
+				left: 0;
+				background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23#{$wish-you-were-here-color-05}' /%3E%3C/svg%3E");
+				background-size: auto 100%;
+				background-repeat: repeat-x;
+			}
+		}
+		.dc-wish-you-were-here-content {
+			position: relative;
+			z-index: 2;
+			padding: $wish-you-were-here-spacing;
+			dl, p, .dc-wish-you-were-here-title {
+				margin: 0 0 $wish-you-were-here-spacing 0;
+			}
+			dl, p {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+			dl {
+				dt, dd {
+					display: inline-block;
+					vertical-align: top;
+					margin: 0 0 5px 0;
+				}
+				dt {
+					width: 35%;
+					font-weight: bold;
+				}
+				dd {
+					width: 65%;
+					padding: 0 0 0 $wish-you-were-here-spacing;
+				}
+			}
+			p {
+				text-align: justify;
+			}
+			.dc-wish-you-were-here-separator {
+				padding: 0 5px;
+				&:before {
+					content: '|';
+				}
+			}
+			.dc-wish-you-were-here-title {
+				text-shadow: 0 2px 0 rgba(0, 0, 0, 1.0);
+			}
+			.dc-wish-you-were-here-row {
+				-webkit-flex-flow: row wrap;
+				flex-flow: row wrap;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: -moz-flex;
+				display: flex;
+				margin: 0 -#{$wish-you-were-here-spacing} -#{$wish-you-were-here-spacing} -#{$wish-you-were-here-spacing};
+				.dc-wish-you-were-here-column {
+					min-width: 1px;
+					-webkit-flex: 0 1 auto;
+					-ms-flex: 0 1 auto;
+					-moz-flex: 0 1 auto;
+					flex: 0 1 auto;
+					width: 100%;
+					padding: 0 $wish-you-were-here-spacing;
+					margin: 0 0 $wish-you-were-here-spacing 0;
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: $wish-you-were-here-breakpoint) {
+		#{$wish-you-were-here-selector} {
+			max-width: $wish-you-were-here-max-width;
+			.dc-wish-you-were-here-content {
+				.dc-wish-you-were-here-title {
+					text-align: right;
+				}
+				.dc-wish-you-were-here-row .dc-wish-you-were-here-column {
+					width: 50%;
+				}
+			}
+		}
+	}

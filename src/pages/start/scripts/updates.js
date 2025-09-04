@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 8,
+		date: `09.03.25`,
+		description: `It's been a while. I've been working on things behind the scenes. Mostly I updated the underlying code structure for this portfolio. I did, however, update my resume section, "Burmecia" template, and also changed the hover effect for the "Friends Not Food" cheat code.`,
+	},
+	{
 		id: 7,
 		date: `02.23.25`,
 		description: `I haven't updated this portfolio in quite some time, but here we are! A fresh new look and I finally got around to add content to "Articles" and "Cheat Codes".`,

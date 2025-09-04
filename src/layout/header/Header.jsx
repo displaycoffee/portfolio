@@ -36,7 +36,7 @@ export const Header = () => {
 	return (
 		<header className="header spacing-reset">
 			<h1 className={`header-title${desktopHeader && !timer ? ' header-title-cursor' : ''} h-shadow-lg`}>
-				<Link to={'/'} alt="Back to start" title="Back to start">
+				<Link to={'/'} title="Back to start">
 					<div className="header-type" dangerouslySetInnerHTML={{ __html: headerText }}></div>
 				</Link>
 			</h1>

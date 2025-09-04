@@ -40,7 +40,7 @@ export const Navigation = () => {
 
 					return (
 						<li className={`navigation-list-item${isActive ? ' active' : ''}`} key={nav.id}>
-							<Link to={nav.url} alt={nav.alt || nav.label} title={nav.alt || nav.label}>
+							<Link to={nav.url} title={nav.alt || nav.label}>
 								<span className="icon icon-bullet icon-shadow-x1 animate-left"></span>
 								{nav.label}
 							</Link>
