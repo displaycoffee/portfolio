@@ -36,12 +36,7 @@ export const Footer = () => {
 								</React.Fragment>
 							))}
 
-							<button
-								className="footer-navigation-link unstyled pointer bounce-5"
-								onClick={(e) => utils.scrollTo(e, 'body')}
-								alt="Scroll to top"
-								title="Scroll to top"
-							>
+							<button className="footer-navigation-link unstyled pointer bounce-5" onClick={(e) => utils.scrollTo(e, 'body')}>
 								<span className="icon icon-angle-up icon-lg icon-bold icon-shadow-x1 animate-bottom"></span>
 							</button>
 						</nav>

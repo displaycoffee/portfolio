@@ -1,5 +1,5 @@
 /* React */
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 /* Local styles */
@@ -18,8 +18,9 @@ import { Header } from '../../layout/header/Header';
 import { Content } from '../../layout/content/Content';
 import { Footer } from '../../layout/footer/Footer';
 
-export const Container = (props) => {
-	const { theme } = props;
+export const Container = () => {
+	const context = useContext(Context);
+	const { theme } = context;
 	const location = useLocation();
 	const isDesktop = useRespond(theme.bps.bp02);
 	let [sidebar, setSidebar] = useState(true);
@@ -48,39 +49,35 @@ export const Container = (props) => {
 	};
 
 	return (
-		<Context.Provider value={props}>
-			<div className="container container-main">
-				<ErrorBoundary message={<ContainerError />}>
-					<SlideoutOverlay options={slideoutOptions} />
+		<div className="container container-main">
+			<ErrorBoundary message={<ContainerError />}>
+				<SlideoutOverlay options={slideoutOptions} />
 
-					<Header />
+				<Header />
 
-					<PixelSection className={'navigation-section'}>
-						{isDesktop ? <Navigation /> : <Slideout options={slideoutOptions} />}
-					</PixelSection>
+				<PixelSection className={'navigation-section'}>{isDesktop ? <Navigation /> : <Slideout options={slideoutOptions} />}</PixelSection>
 
-					{isDesktop ? null : (
-						<Slideout
-							options={{
-								...slideoutOptions,
-								button: {
-									outside: false,
-									show: false,
-								},
-							}}
-						/>
-					)}
+				{isDesktop ? null : (
+					<Slideout
+						options={{
+							...slideoutOptions,
+							button: {
+								outside: false,
+								show: false,
+							},
+						}}
+					/>
+				)}
 
-					<main className="main">
-						<div className="main-layout flex-wrap">
-							<Content />
-						</div>
-					</main>
+				<main className="main">
+					<div className="main-layout flex-wrap">
+						<Content />
+					</div>
+				</main>
 
-					<Footer />
-				</ErrorBoundary>
-			</div>
-		</Context.Provider>
+				<Footer />
+			</ErrorBoundary>
+		</div>
 	);
 };
 

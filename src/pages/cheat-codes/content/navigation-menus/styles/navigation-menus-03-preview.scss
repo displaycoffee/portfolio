@@ -1,0 +1,113 @@
+//// NAVIGATION MENU 03
+//// --------------------------------------------------------------------------
+
+	// Colors
+
+	$menu-color-01: #ffffff; // font
+	$menu-color-02: #461515; // font hover
+	$menu-color-03: #942929; // main background
+	$menu-color-04: #5c1b1b; // sublist background
+	$menu-color-05: #e54444; // sublist font hover
+
+	// Configuration
+
+	$menu-selector: '#dc-navigation-menu-03'; // selector of main wrapper element
+	$menu-max-width: 100%; // max width of menu
+	$menu-font-family: Arial, Helvetica, sans-serif; // font family
+	$menu-font-size: 12px; // font size
+	$menu-spacing: 20px; // spacing for menu
+	$menu-items-per-row: 5; // number of navigation items in main row
+	$menu-arrow-size: 13px; // size of dropdown arrow
+
+	// Calculations
+
+	$menu-spacing-half: calc($menu-spacing / 2);
+
+	// Style block
+
+	#{$menu-selector} {
+		max-width: $menu-max-width;
+		width: auto;
+		margin: 0 auto;
+		text-align: center;
+		&, & * {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font-family: $menu-font-family;
+			font-size: $menu-font-size;
+		}
+		ul {
+			&, li {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			li {
+				a, span {
+					display: block;
+					padding: $menu-spacing;
+					color: $menu-color-01;
+					text-decoration: none;
+				}
+				a:hover {
+					color: $menu-color-02;
+				}
+			}
+		}
+		.dc-navigation-list {
+			-webkit-flex-flow: row nowrap;
+			flex-flow: row nowrap;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: -moz-flex;
+			display: flex;
+			-webkit-align-items: center;
+			align-items: center;
+			background-color: $menu-color-03;
+			.dc-navigation-list-item {
+				position: relative;
+				min-width: 1px;
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				-moz-flex: 0 1 auto;
+				flex: 0 1 auto;
+				width: calc(100% / $menu-items-per-row);
+				&:hover .dc-navigation-sublist {
+					top: auto;
+					left: 0;
+					right: 0;
+					background-color: $menu-color-04;
+				}
+				.dc-navigation-sublist {
+					top: -9999px;
+					left: -9999px;
+					&, &:before {
+						position: absolute;
+						z-index: 100;
+						margin: 0 auto;
+					}
+					&:before {
+						content: '';
+						display: block;
+						width: 0;
+						height: 0;
+						border-left: $menu-arrow-size solid transparent;
+						border-right: $menu-arrow-size solid transparent;
+						border-bottom: $menu-arrow-size solid $menu-color-04;
+						top: -#{$menu-arrow-size};
+						left: 0;
+						right: 0;
+					}
+					.dc-navigation-sublist-item {
+						a, span {
+							padding: $menu-spacing-half;
+						}
+						a:hover {
+							color: $menu-color-05;
+						}
+					}
+				}
+			}
+		}
+	}
