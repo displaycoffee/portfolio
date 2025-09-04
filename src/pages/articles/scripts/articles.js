@@ -2,9 +2,9 @@ const distPath = '/assets/images/';
 const articlesPath = `${distPath}articles/`;
 
 /* Local components */
-import { BoxSizing } from '../content/BoxSizing';
-import { StructuringCode } from '../content/StructuringCode';
-import { StylingText } from '../content/StylingText';
+import { BoxSizing } from '../content/box-sizing/BoxSizing';
+import { StructuringCode } from '../content/structuring-code/StructuringCode';
+import { StylingText } from '../content/styling-text/StylingText';
 
 export const articles = [
 	{

@@ -1,162 +1,98 @@
-//// A PROMISE
+//// NAVIGATION MENU 02
 //// --------------------------------------------------------------------------
 
 	// Colors
 
-	$a-promise-color-01: #2a1c15; // background
-	$a-promise-color-02: #ffffff; // font
-	$a-promise-color-03: #4a6c54; // strong
-	$a-promise-color-04: #4a6c54; // link
-	$a-promise-color-05: #ffffff; // link hover
-	$a-promise-color-06: #4a6c54; // border
+	$menu-color-01: #ffffff; // font
+	$menu-color-02: #000000; // font hover
+	$menu-color-03: #0f5d21; // main background
+	$menu-color-04: #127f2c; // alternating background
 
 	// Configuration
 
-	$a-promise-selector: '.dc-a-promise'; // selector of main wrapper element
-	$a-promise-breakpoint: 768px; // breakpoint for desktop styles
-	$a-promise-max-width: 700px; // max width
-	$a-promise-font-family: Georgia, 'Times New Roman', Times, serif; // font family
-	$a-promise-font-size: 16px; // font size
-	$a-promise-spacing: 10px; // spacing for template
-	$a-promise-image-size: 120px; // size for avatar
+	$menu-selector: '#dc-navigation-menu-02'; // selector of main wrapper element
+	$menu-max-width: 100%; // max width of menu
+	$menu-font-family: Arial, Helvetica, sans-serif; // font family
+	$menu-font-size: 12px; // font size
+	$menu-spacing: 20px; // spacing for menu
+	$menu-items-per-row: 5; // number of navigation items in main row
 
 	// Calculations
 
-	$a-promise-spacing-double: calc($a-promise-spacing * 2);
-	$a-promise-spacing-half: calc($a-promise-spacing / 2);
+	$menu-spacing-half: calc($menu-spacing / 2);
 
 	// Style block
 
-	#{$a-promise-selector} {
+	#{$menu-selector} {
+		max-width: $menu-max-width;
 		width: auto;
-		max-width: 100%;
-		margin: 0;
-		padding: $a-promise-spacing-double;
-		text-align: right;
-		background-color: $a-promise-color-01;
+		margin: 0 auto;
+		text-align: center;
 		&, & * {
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
-			font-family: $a-promise-font-family;
-			font-size: $a-promise-font-size;
-			font-weight: 400;
-			line-height: 30px;
-			letter-spacing: 1px;
-			color: $a-promise-color-02;
+			font-family: $menu-font-family;
+			font-size: $menu-font-size;
 		}
-		p {
-			margin: 0 0 $a-promise-spacing 0;
-			&:last-child {
-				margin-bottom: 0;
+		ul {
+			&, li {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			li {
+				background-color: $menu-color-03;
+				a, span {
+					display: block;
+					padding: $menu-spacing;
+					color: $menu-color-01;
+					text-decoration: none;
+				}
+				a:hover {
+					color: $menu-color-02;
+				}
 			}
 		}
-		a {
-			color: $a-promise-color-04;
-			&:hover {
-				color: $a-promise-color-05;
-			}
-		}
-		strong {
-			font-weight: 700;
-			color: $a-promise-color-03;
-			em {
-				font-weight: inherit;
-				color: inherit;
-			}
-		}
-		.dc-a-promise-separator {
-			padding: 0 $a-promise-spacing;
-			img {
-				display: inline-block;
-			}
-		}
-		.dc-a-promise-row {
+		.dc-navigation-list {
+			-webkit-flex-flow: row nowrap;
+			flex-flow: row nowrap;
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: -moz-flex;
 			display: flex;
-			-webkit-flex-flow: row wrap;
-			flex-flow: row wrap;
 			-webkit-align-items: center;
 			align-items: center;
-			margin: 0 -#{$a-promise-spacing};
-			&:after, .dc-a-promise-column {
-				width: auto;
-				min-height: 1px;
-				min-width: 1px;
-				padding: 0 $a-promise-spacing;
-				margin: 0 0 $a-promise-spacing-double 0;
-			}
-			&:after {
-				content: '';
-				display: block;
-				-webkit-flex: 1 1 100%;
-				-ms-flex: 1 1 100%;
-				-moz-flex: 1 1 100%;
-				flex: 1 1 100%;
-				margin-left: $a-promise-spacing-double;
-				margin-right: $a-promise-spacing-double;
-				border-bottom: 1px dashed $a-promise-color-06;
-			}
-			&:last-child:after {
-				display: none;
-			}
-			.dc-a-promise-column {
-				-webkit-flex: 1 1 0%;
-				-ms-flex: 1 1 0%;
-				-moz-flex: 1 1 0%;
-				flex: 1 1 0%;
-			}
-		}
-		.dc-a-promise-avatar {
-			max-width: $a-promise-image-size;
-			.dc-a-promise-image-wrapper {
-				line-height: 0;
-				height: 0;
-				padding-bottom: 100%;
+			.dc-navigation-list-item {
 				position: relative;
-				&:before, img {
-					display: block;
-					position: absolute;
-					top: 0;
-					bottom: 0;
+				min-width: 1px;
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				-moz-flex: 0 1 auto;
+				flex: 0 1 auto;
+				width: calc(100% / $menu-items-per-row);
+				&:nth-child(even), &:nth-child(even) .dc-navigation-sublist .dc-navigation-sublist-item:nth-child(even),
+				&:nth-child(odd) .dc-navigation-sublist .dc-navigation-sublist-item:nth-child(odd) {
+					background-color: $menu-color-04;
+				}
+				&:hover .dc-navigation-sublist {
+					top: auto;
 					left: 0;
 					right: 0;
-					margin: auto;
-					-webkit-border-radius: 50%;
-					-moz-border-radius: 50%;
-					-ms-border-radius: 50%;
-					-o-border-radius: 50%;
-					border-radius: 50%;
+					background-color: $menu-color-04;
 				}
-				&:before {
-					z-index: 2;
-					content: '';
-					border: 5px solid $a-promise-color-06;
-				}
-				img {
-					z-index: 1;
-					width: 100%;
-					height: 100%;
-					-o-object-position: center center;
-					object-position: center center;
-					-o-object-fit: cover;
-					object-fit: cover;
-					border: 2px solid $a-promise-color-06; 
+				.dc-navigation-sublist {
+					position: absolute;
+					top: -9999px;
+					left: -9999px;
+					z-index: 100;
+					margin: 0 auto;
+					.dc-navigation-sublist-item {
+						a, span {
+							padding: $menu-spacing-half;
+						}
+					}
 				}
 			}
-		}
-		.dc-a-promise-quote::first-letter {
-			font-size: $a-promise-font-size + 22;
-			font-weight: 700;
-			color: $a-promise-color-03;
-			padding-right: $a-promise-spacing-half;
-		}
-	}
-	@media only screen and (min-width: $a-promise-breakpoint) {
-		#{$a-promise-selector} {
-			max-width: $a-promise-max-width;
-			margin: 0 auto;
 		}
 	}

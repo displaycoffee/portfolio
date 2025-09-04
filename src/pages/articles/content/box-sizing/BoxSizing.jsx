@@ -1,6 +1,9 @@
+/* Local scripts */
+import { codeBlocks } from './scripts/box-sizing-code-blocks';
+
 /* Local components */
-import { ArticlesToc, ArticlesSection } from '../Articles';
-import { CodeBlock, CodeInline } from '../../../components/blocks/Blocks';
+import { ArticlesToc, ArticlesSection } from '../../Articles';
+import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
 
 export const BoxSizing = () => {
 	const sections = ['The Box Model', 'The Problem', 'The Solution', 'Shining Star', 'Usage / Compatibility', 'Closing'];
@@ -45,7 +48,7 @@ export const BoxSizing = () => {
 					/>
 				</div>
 				<p>Here's the actual HTML:</p>
-				<CodeBlock header={'HTML'}>{cb01}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[0]}</CodeBlock>
 				<p>
 					This <CodeInline>div</CodeInline> currently has no styles applied to it, save for styling inheritance. As such, the width is 1903
 					pixels (the current size of my browser window) and the height is 11 pixels (roughly the size of the font). What if we want to
@@ -62,7 +65,7 @@ export const BoxSizing = () => {
 				<p>
 					Let's take our <CodeInline>div</CodeInline> above and add styling to it:
 				</p>
-				<CodeBlock header={'CSS'}>{cb02}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[1]}</CodeBlock>
 				<p>
 					<strong>Calculation:</strong>
 				</p>
@@ -73,7 +76,7 @@ export const BoxSizing = () => {
 					Awesome. We have a <CodeInline>div</CodeInline> that's now 700 pixels in width and would like to keep it that way. More styles
 					need to be applied though so we can make this the fanciest <CodeInline>div</CodeInline> ever.
 				</p>
-				<CodeBlock header={'CSS'}>{cb03}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[2]}</CodeBlock>
 				<p>
 					Well, guess what size our element is now? <strong>730 pixels</strong>. The padding was calculated and added onto the width, the
 					border is making everything too big, and our design doesn't look anything like it should. Here's the updated box model:
@@ -95,12 +98,12 @@ export const BoxSizing = () => {
 					The box-sizing property takes into account padding and border then adjusts the element's width for us. It can be added in the
 					following way:
 				</p>
-				<CodeBlock header={'CSS'}>{cb04}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[3]}</CodeBlock>
 				<p>
 					After applying box-sizing, we have a box that's 700px! Usually we would have to subtract the amount of padding and border then
 					adjust the width property. The style rules without box-sizing would look something like this:
 				</p>
-				<CodeBlock header={'CSS'}>{cb05}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[4]}</CodeBlock>
 				<p>
 					But that's annoying to do all the time for every element. Box-sizing takes care of those adjustments for us and says, "You want
 					the box to be 700 pixels? No problem." Here's the updated box model:
@@ -127,7 +130,7 @@ export const BoxSizing = () => {
 					In the situation, box-sizing is amazing because again, it does calculations for us. Let's add the following CSS instead to our{' '}
 					<CodeInline>div</CodeInline>:
 				</p>
-				<CodeBlock header={'CSS'}>{cb06}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[5]}</CodeBlock>
 				<p>
 					Here's what the dimensions of our <CodeInline>div</CodeInline> look like:
 				</p>
@@ -150,7 +153,7 @@ export const BoxSizing = () => {
 
 			<ArticlesSection header={sections[4]}>
 				<p>When using box-sizing, honestly, I apply it to everything. At the top of my CSS, I usually add the following:</p>
-				<CodeBlock header={'CSS'}>{cb07}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[6]}</CodeBlock>
 				<p>
 					If you're not familiar with <CodeInline>*</CodeInline> in CSS, it means all elements. Applying box-sizing to all elements covers
 					us for mathematical situations we might encounter when designing a layout. With box-sizing in place, we can focus on other things
@@ -176,40 +179,3 @@ export const BoxSizing = () => {
 		</>
 	);
 };
-
-/* Code blocks */
-const cb01 = `<div class="boxy">I'm a box! Or maybe you are the box...?</div>`;
-const cb02 = `.boxy {
-	width: 700px;
-}`;
-const cb03 = `.boxy {
-	width: 700px;
-	padding: 10px;
-	border: 5px solid #000000;
-}`;
-const cb04 = `.boxy {
-	width: 700px;
-	padding: 10px;
-	border: 5px solid #000000;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}`;
-const cb05 = `.boxy {
-	width: 670px;
-	padding: 10px;
-	border: 5px solid #000000;
-}`;
-const cb06 = `.boxy {
-	width: 100%;
-	padding: 10px;
-	border: 5px solid #000000;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;    
-}`;
-const cb07 = `*, *:before, *:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;    
-}`;

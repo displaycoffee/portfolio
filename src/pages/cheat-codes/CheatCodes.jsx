@@ -1,9 +1,6 @@
 /* React */
 import { useContext, useId } from 'react';
 
-/* Local styles */
-import './styles/cheat-codes.scss';
-
 /* Local scripts */
 import { cheatCodes } from './scripts/cheat-codes';
 

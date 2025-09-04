@@ -1,162 +1,166 @@
-//// A PROMISE
+//// VELOCIRAPTOR PACK
 //// --------------------------------------------------------------------------
 
 	// Colors
 
-	$a-promise-color-01: #2a1c15; // background
-	$a-promise-color-02: #ffffff; // font
-	$a-promise-color-03: #4a6c54; // strong
-	$a-promise-color-04: #4a6c54; // link
-	$a-promise-color-05: #ffffff; // link hover
-	$a-promise-color-06: #4a6c54; // border
+	$velociraptor-pack-color-01: #ffffff; // font
+	$velociraptor-pack-color-02: #31779c; // link
+	$velociraptor-pack-color-03: #ffffff; // link hover
+	$velociraptor-pack-color-04: #31779c; // border
+	$velociraptor-pack-color-05: rgba(0, 0, 0, 0.5); // nav and footer background
+	$velociraptor-pack-color-06: rgba(51, 51, 51, 0.5); // content and sidebar background
 
 	// Configuration
 
-	$a-promise-selector: '.dc-a-promise'; // selector of main wrapper element
-	$a-promise-breakpoint: 768px; // breakpoint for desktop styles
-	$a-promise-max-width: 700px; // max width
-	$a-promise-font-family: Georgia, 'Times New Roman', Times, serif; // font family
-	$a-promise-font-size: 16px; // font size
-	$a-promise-spacing: 10px; // spacing for template
-	$a-promise-image-size: 120px; // size for avatar
+	$velociraptor-pack-selector: '.dc-velociraptor-pack'; // selector of main wrapper element
+	$velociraptor-pack-breakpoint: 768px; // breakpoint for desktop styles
+	$velociraptor-pack-max-width: 700px; // max width
+	$velociraptor-pack-content-height: 500px; // max-height of content
+	$velociraptor-pack-sidebar-width: 200px; // width for sidebar
+	$velociraptor-pack-font-family-01: Tahoma, Arial, sans-serif; // font family
+	$velociraptor-pack-font-family-02: 'Century Gothic', 'Arial Narrow', Arial, sans-serif; // header font family
+	$velociraptor-pack-font-size-01: 12px; // font size
+	$velociraptor-pack-font-size-02: 20px; // header font size
+	$velociraptor-pack-scrollbar-size: 10px; // width and height of scrollbar
+	$velociraptor-pack-spacing: 20px; // spacing for template
 
 	// Calculations
 
-	$a-promise-spacing-double: calc($a-promise-spacing * 2);
-	$a-promise-spacing-half: calc($a-promise-spacing / 2);
+	$velociraptor-pack-spacing-half: calc($velociraptor-pack-spacing / 2);
 
-	// Style block
+	// Style block	
 
-	#{$a-promise-selector} {
-		width: auto;
+	#{$velociraptor-pack-selector} {
+		position: relative;
 		max-width: 100%;
+		width: auto;
 		margin: 0;
-		padding: $a-promise-spacing-double;
-		text-align: right;
-		background-color: $a-promise-color-01;
+		background-image: url('//display.coffee/assets/images/cheat-codes/velociraptor-pack-bg.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		border: 4px solid $velociraptor-pack-color-04;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		-ms-border-radius: 8px;
+		-o-border-radius: 8px;
+		border-radius: 8px;
+		overflow: hidden;
 		&, & * {
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
-			font-family: $a-promise-font-family;
-			font-size: $a-promise-font-size;
-			font-weight: 400;
-			line-height: 30px;
-			letter-spacing: 1px;
-			color: $a-promise-color-02;
+			font-family: $velociraptor-pack-font-family-01;
+			font-size: $velociraptor-pack-font-size-01;
+			line-height: 1.5;
+			color: $velociraptor-pack-color-01;
+		}
+		a {
+			color: $velociraptor-pack-color-02;
+			text-decoration: none;
+			&:hover {
+				color: $velociraptor-pack-color-03;
+			}
 		}
 		p {
-			margin: 0 0 $a-promise-spacing 0;
+			margin: 0 0 $velociraptor-pack-spacing 0;
 			&:last-child {
 				margin-bottom: 0;
 			}
 		}
-		a {
-			color: $a-promise-color-04;
-			&:hover {
-				color: $a-promise-color-05;
-			}
+		.dc-velociraptor-pack-title {
+			font-family: $velociraptor-pack-font-family-02;
+			font-size: $velociraptor-pack-font-size-02;
+			font-weight: 600;
+			text-transform: uppercase;
+			text-shadow: none;
+			line-height: 1.2;
+			margin: 0 0 $velociraptor-pack-spacing 0;
 		}
-		strong {
-			font-weight: 700;
-			color: $a-promise-color-03;
-			em {
-				font-weight: inherit;
-				color: inherit;
-			}
-		}
-		.dc-a-promise-separator {
-			padding: 0 $a-promise-spacing;
-			img {
-				display: inline-block;
-			}
-		}
-		.dc-a-promise-row {
+		.dc-velociraptor-pack-container {
+			-webkit-flex-flow: row wrap;
+			flex-flow: row wrap;
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: -moz-flex;
 			display: flex;
-			-webkit-flex-flow: row wrap;
-			flex-flow: row wrap;
-			-webkit-align-items: center;
-			align-items: center;
-			margin: 0 -#{$a-promise-spacing};
-			&:after, .dc-a-promise-column {
-				width: auto;
-				min-height: 1px;
+			& > * {
 				min-width: 1px;
-				padding: 0 $a-promise-spacing;
-				margin: 0 0 $a-promise-spacing-double 0;
+				-webkit-flex: 0 1 auto;
+				-ms-flex: 0 1 auto;
+				-moz-flex: 0 1 auto;
+				flex: 0 1 auto;
+				width: 100%;
+				padding: $velociraptor-pack-spacing;
+			}				
+			.dc-velociraptor-pack-navigation, .dc-velociraptor-pack-footer {
+				text-align: center;
+				background-color: $velociraptor-pack-color-05;
 			}
-			&:after {
-				content: '';
-				display: block;
-				-webkit-flex: 1 1 100%;
-				-ms-flex: 1 1 100%;
-				-moz-flex: 1 1 100%;
-				flex: 1 1 100%;
-				margin-left: $a-promise-spacing-double;
-				margin-right: $a-promise-spacing-double;
-				border-bottom: 1px dashed $a-promise-color-06;
-			}
-			&:last-child:after {
-				display: none;
-			}
-			.dc-a-promise-column {
-				-webkit-flex: 1 1 0%;
-				-ms-flex: 1 1 0%;
-				-moz-flex: 1 1 0%;
-				flex: 1 1 0%;
-			}
-		}
-		.dc-a-promise-avatar {
-			max-width: $a-promise-image-size;
-			.dc-a-promise-image-wrapper {
-				line-height: 0;
-				height: 0;
-				padding-bottom: 100%;
-				position: relative;
-				&:before, img {
-					display: block;
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					margin: auto;
-					-webkit-border-radius: 50%;
-					-moz-border-radius: 50%;
-					-ms-border-radius: 50%;
-					-o-border-radius: 50%;
-					border-radius: 50%;
+			.dc-velociraptor-pack-navigation {
+				a, .dc-velociraptor-pack-separator {
+					display: inline-block;
+					vertical-align: middle;
+					margin: 0;
 				}
-				&:before {
-					z-index: 2;
-					content: '';
-					border: 5px solid $a-promise-color-06;
-				}
-				img {
-					z-index: 1;
-					width: 100%;
-					height: 100%;
-					-o-object-position: center center;
-					object-position: center center;
-					-o-object-fit: cover;
-					object-fit: cover;
-					border: 2px solid $a-promise-color-06; 
+				.dc-velociraptor-pack-separator {
+					padding: 0 $velociraptor-pack-spacing-half;
+					font-size: $velociraptor-pack-font-size-02 - 6;
 				}
 			}
-		}
-		.dc-a-promise-quote::first-letter {
-			font-size: $a-promise-font-size + 22;
-			font-weight: 700;
-			color: $a-promise-color-03;
-			padding-right: $a-promise-spacing-half;
+			.dc-velociraptor-pack-footer {
+				padding: $velociraptor-pack-spacing-half $velociraptor-pack-spacing;
+			}
+			.dc-velociraptor-pack-content, .dc-velociraptor-pack-sidebar {
+				background-color: $velociraptor-pack-color-06;
+				margin: $velociraptor-pack-spacing;
+			}
+			.dc-velociraptor-pack-content {
+				height: $velociraptor-pack-content-height - 100;
+				.dc-velociraptor-pack-scroll {
+					max-height: 100%;
+					overflow: hidden;
+					&, & .dc-velociraptor-pack-section {
+						height: 100%;
+					}
+					.dc-velociraptor-pack-section {
+						padding: 0 $velociraptor-pack-spacing 0 0;
+						overflow-y: auto;
+						&::-webkit-scrollbar {
+							width: $velociraptor-pack-scrollbar-size;
+						}
+						&::-webkit-scrollbar {
+							height: $velociraptor-pack-scrollbar-size;
+						}
+						&::-webkit-scrollbar-track {
+							background: transparent;
+						}
+						&::-webkit-scrollbar-thumb {
+							background: $velociraptor-pack-color-04;
+						}
+					}
+				}
+			}
+			.dc-velociraptor-pack-sidebar {
+				margin-top: 0;
+			}
 		}
 	}
-	@media only screen and (min-width: $a-promise-breakpoint) {
-		#{$a-promise-selector} {
-			max-width: $a-promise-max-width;
-			margin: 0 auto;
+	@media only screen and (min-width: $velociraptor-pack-breakpoint) {
+		#{$velociraptor-pack-selector} {
+			max-width: $velociraptor-pack-max-width;
+			.dc-velociraptor-pack-container {
+				.dc-velociraptor-pack-content {
+					-webkit-flex: 1 1 0%;
+					-ms-flex: 1 1 0%;
+					-moz-flex: 1 1 0%;
+					flex: 1 1 0%;
+					width: auto;
+					height: $velociraptor-pack-content-height;
+				}
+				.dc-velociraptor-pack-sidebar {
+					margin-top: $velociraptor-pack-spacing;
+					width: $velociraptor-pack-sidebar-width;
+				}
+			}
 		}
 	}

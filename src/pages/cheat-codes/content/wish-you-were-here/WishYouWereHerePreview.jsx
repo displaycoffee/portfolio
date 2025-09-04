@@ -1,45 +1,63 @@
 /* Local styles */
-import './styles/a-promise-preview.scss';
+import './styles/wish-you-were-here-preview.scss';
 
-export const APromise = () => {
-	const separator = <img src="//display.coffee/assets/images/cheat-codes/a-promise-leaf.png" alt="A Promise - Leaf" title="A Promise - Leaf" />;
-
+export const WishYouWereHere = () => {
 	return (
-		<div className="dc-a-promise displaycoffee">
-			<div className="dc-a-promise-row">
-				<div className="dc-a-promise-avatar dc-a-promise-column">
-					<div className="dc-a-promise-image-wrapper">
-						<img
-							src="//display.coffee/assets/images/cheat-codes/a-promise-avatar.jpg"
-							alt="A Promise - Avatar"
-							title="A Promise - Avatar"
-						/>
+		<div className="dc-wish-you-were-here displaycoffee">
+			<header className="dc-wish-you-were-here-banner">
+				<h3 className="dc-wish-you-were-here-title">Wish you were here...</h3>
+				<div className="dc-wish-you-were-here-circles"></div>
+			</header>
+
+			<main className="dc-wish-you-were-here-content">
+				<div className="dc-wish-you-were-here-row">
+					<div className="dc-wish-you-were-here-column dc-wish-you-were-here-column-01">
+						<dl>
+							<dt>Name:</dt>
+							<dd>Beach Goer</dd>
+							<dt>Gender:</dt>
+							<dd>Unknown</dd>
+							<dt>Location:</dt>
+							<dd>Beachy Beachtown</dd>
+							<dt>Occupation:</dt>
+							<dd>Beach Bum</dd>
+							<dt>Favorite Drink:</dt>
+							<dd>Pineapple juice and vodka</dd>
+							<dt>Favorite Song:</dt>
+							<dd>Kokomo</dd>
+							<dt>Another Field:</dt>
+							<dd>Another answer</dd>
+							<dt>Another Field:</dt>
+							<dd>Another answer</dd>
+							<dt>Another Field:</dt>
+							<dd>Another answer</dd>
+						</dl>
+						<p>
+							<a href="/">Link 01</a>
+							<span className="dc-wish-you-were-here-separator"></span>
+							<a href="/">Link 02</a>
+							<span className="dc-wish-you-were-here-separator"></span>
+							<a href="/">Link 03</a>
+						</p>
+					</div>
+
+					<div className="dc-wish-you-were-here-column dc-wish-you-were-here-column-02">
+						<h4 className="dc-wish-you-were-here-title">Biography</h4>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor omnis est quam accusantium! Ut corporis consequatur,{' '}
+							<a href="/">nisi assumenda veniam</a>, necessitatibus. Obcaecati porro optio fuga quod itaque, quibusdam odit qui nobis.
+						</p>
+						<p>
+							Neque possimus ipsam quas, corporis vitae at illo, ullam culpa non tempora dicta modi quibusdam saepe ipsa corrupti.{' '}
+							<a href="/">Quae</a> aliquid fuga reiciendis ipsam suscipit ex, nobis maiores excepturi, tempora. Ab.
+						</p>
+						<p>
+							Recusandae a <a href="/">ipsum</a> impedit laborum fugiat nihil esse quis libero hic quidem sapiente delectus cum aliquid
+							laudantium suscipit dolore, <a href="/">consectetur dolor</a> incidunt nam ipsa voluptas eius sunt mollitia. Sit, animi!
+						</p>
 					</div>
 				</div>
-
-				<div className="dc-a-promise-quote dc-a-promise-column">
-					<p>
-						I made a promise, Mr. Frodo.{' '}
-						<strong>
-							<em>A promise.</em>
-						</strong>{' '}
-						"Don't you leave him Samwise Gamgee."
-					</p>
-					<p>And I don't mean to. I don't mean to.</p>
-				</div>
-			</div>
-
-			<div className="dc-a-promise-row">
-				<div className="dc-a-promise-column">
-					<p>
-						<a href="/">Link 01</a>
-						<span className="dc-a-promise-separator">{separator}</span>
-						<a href="/">Link 02</a>
-						<span className="dc-a-promise-separator">{separator}</span>
-						<a href="/">Link 03</a>
-					</p>
-				</div>
-			</div>
+			</main>
 		</div>
 	);
 };
