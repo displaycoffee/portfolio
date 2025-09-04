@@ -1,6 +1,9 @@
+/* Local scripts */
+import { codeBlocks } from './scripts/structuring-code-code-blocks';
+
 /* Local components */
-import { ArticlesToc, ArticlesSection } from '../Articles';
-import { CodeBlock, CodeInline } from '../../../components/blocks/Blocks';
+import { ArticlesToc, ArticlesSection } from '../../Articles';
+import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
 
 export const StructuringCode = () => {
 	const sections = ['Introduction', 'Classes versus IDs', "Don't Be Generic", 'Formatting CSS', 'Tabbing', 'Comments', 'Choosing Fonts', 'Closing'];
@@ -40,12 +43,12 @@ export const StructuringCode = () => {
 					Think of an ID as a really important element on a page. It should only appear once on your page; it should not be repeated.
 					Imagine yourself as an element. You have a name which is your ID. If I were code, I might look like this:
 				</p>
-				<CodeBlock header={'HTML'}>{cb01}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[0]}</CodeBlock>
 				<p>
 					Typically, there should only ever be one of me in one place at a time (unless we enter the world of science-fiction). To add, a
 					single ID may only be present on an element. Meaning, you can't do the following:
 				</p>
-				<CodeBlock header={'HTML'}>{cb02}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[1]}</CodeBlock>
 				<p>In the past, I've spent time debugging my own code wondering why something wasn't working only to realize I had two IDs.</p>
 				<p>
 					Classes, on the other hand, are generic. They can be used any number of times and you can have multiple classes on an element.
@@ -53,7 +56,7 @@ export const StructuringCode = () => {
 					unique elements on the page: <CodeInline>displaycoffee</CodeInline> and <CodeInline>displaycoffees-friend</CodeInline>. We're very
 					different beings, but we might have similar characteristics.
 				</p>
-				<CodeBlock header={'HTML'}>{cb03}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[2]}</CodeBlock>
 				<p>
 					At this point you might be asking, "Why does this all matter? I've used multiple IDs per page and my styles were fine!" It's true
 					that CSS couldn't care less about any of this. Styles will still apply even if you have IDs repeated multiple times throughout a
@@ -61,7 +64,7 @@ export const StructuringCode = () => {
 					functionality, though it applies to HTML as well. You might want to design a template with "jump/anchor links" where clicking on
 					link brings you to another spot on the page. This requires the use of an ID, but if you have code like this:
 				</p>
-				<CodeBlock header={'HTML'}>{cb04}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[3]}</CodeBlock>
 				<p>You're only ever going to be able to jump to one of those elements.</p>
 				<p>
 					Another reason why you should avoid using IDs more than once is because, well, it's good practice and one of the most basic and
@@ -93,14 +96,14 @@ export const StructuringCode = () => {
 					with code you're building for people, this is not always practical as people want to be able to copy and paste, possibly alter the
 					code, then be done. You might end up with something like this:
 				</p>
-				<CodeBlock header={'HTML'}>{cb05}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[4]}</CodeBlock>
 				<p>
 					However, you can still give people the option to place styles in an external stylesheet. Placing the styles in the external
 					stylesheet means people are not repeating the same CSS over and over again if they're using your template more than once per page.
 					You could do something like this:
 				</p>
-				<CodeBlock header={'CSS'}>{cb06}</CodeBlock>
-				<CodeBlock header={'HTML'}>{cb07}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[5]}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[6]}</CodeBlock>
 				<p>
 					Placing the CSS in a stylesheet gives people more control too. When the styles are hosted in an external stylesheet, the styles
 					are managed by those who built the site. Thus, the template should remain consistent for members who are using the template in
@@ -111,26 +114,26 @@ export const StructuringCode = () => {
 					No matter how you choose to add CSS to your posting template, I always recommend avoiding inline styles as it creates clutter and
 					is difficult to read, especially when you have elements that use the same styles. <strong>For example:</strong>
 				</p>
-				<CodeBlock header={'HTML'}>{cb08}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[7]}</CodeBlock>
 				<p>
 					<strong>
 						<em>versus</em>
 					</strong>
 				</p>
-				<CodeBlock header={'HTML'}>{cb09}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[8]}</CodeBlock>
 				<p>
 					The second block is much more readable and manageable. And we can take this formatting even further! Notice how{' '}
 					<CodeInline>green-div</CodeInline> and <CodeInline>purple-div</CodeInline> share some similar styles? Group common styles by
 					targeting more than one CSS selector separated by a comma. <strong>For example:</strong>
 				</p>
-				<CodeBlock header={'HTML'}>{cb10}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[9]}</CodeBlock>
 				<p>If someone wants to alter the font, styles are ruled in one place instead of two places.</p>
 				<p>
 					In relation to the above, group your CSS rules and structure them in a way that makes sense. If <CodeInline>green-div</CodeInline>{' '}
 					and <CodeInline>purple-div</CodeInline> are close together on the same page and are meant to style content, keep them together. In
 					other words, if you have a bunch of styles, don't do this:
 				</p>
-				<CodeBlock header={'CSS'}>{cb11}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[10]}</CodeBlock>
 				<p>
 					There's one more thing I want to mention on the topic of formatting. Write CSS so it can be read, even by someone who is not
 					coding savvy. That might be difficult to imagine how to do, but by following the pointers I mentioned above, you'll be off to a
@@ -148,7 +151,7 @@ export const StructuringCode = () => {
 					</a>{' '}
 					formatters). Take for example the following:
 				</p>
-				<CodeBlock header={'CSS'}>{cb12}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[11]}</CodeBlock>
 				<p>
 					Yikes, right? I'm just going to take that and paste it into{' '}
 					<a href="//codebeautify.org/css-beautify-minify" target="_blank" rel="noreferrer">
@@ -156,7 +159,7 @@ export const StructuringCode = () => {
 					</a>{' '}
 					and end up with the following:
 				</p>
-				<CodeBlock header={'CSS'}>{cb13}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[12]}</CodeBlock>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[4]}>
@@ -167,13 +170,13 @@ export const StructuringCode = () => {
 					personally use tabs as I detest seeing tons of spaces in VS Code. But, to each their own.
 				</p>
 				<p>As an example, here is unstructured HTML:</p>
-				<CodeBlock header={'HTML'}>{cb14}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[13]}</CodeBlock>
 				<p>
 					It's difficult to tell where one element ends and another begins. If I wanted to add a new <CodeInline>p</CodeInline> tag inside
 					the <CodeInline>polka-dot-trex div</CodeInline>, without formatting, it takes longer to scan the code for correct placement. If we
 					tab it out, we're left with nice, readable code where new line or element insertion is easy.
 				</p>
-				<CodeBlock header={'HTML'}>{cb15}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[14]}</CodeBlock>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[5]}>
@@ -181,10 +184,10 @@ export const StructuringCode = () => {
 					I'm not going to tell you to comment <strong>ALL THE THINGS</strong> as that can get tiring really fast. However, where you think
 					someone might want to alter a color or a font face, it's' helpful to point out where to change that using comments.
 				</p>
-				<CodeBlock header={'CSS'}>{cb16}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[15]}</CodeBlock>
 				<p>The above code illustrates adding comments to CSS, but comments are available in pretty much all coding languages.</p>
-				<CodeBlock header={'CSS'}>{cb17}</CodeBlock>
-				<CodeBlock header={'HTML'}>{cb18}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[16]}</CodeBlock>
+				<CodeBlock header={'HTML'}>{codeBlocks[17]}</CodeBlock>
 				<p>
 					I'm not going to get into commenting for all the other languages, but know that comments are your friends and they are there for
 					you to provide directions. Keep in mind that when using comments, they must be closed properly. So{' '}
@@ -222,7 +225,7 @@ export const StructuringCode = () => {
 					an extra unnecessary resource. Alternatively, provide font family fallbacks in your CSS so that if a person doesn't want to use
 					Google Fonts, they don't need to. Here's an example:
 				</p>
-				<CodeBlock header={'CSS'}>{cb19}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[18]}</CodeBlock>
 				<p>
 					The above template will use "Open Sans" if that font is available. If not, the browser will try "Tahoma", then "Arial", and then
 					sans-serif, which is the generic font provided by the browser.
@@ -235,157 +238,3 @@ export const StructuringCode = () => {
 		</>
 	);
 };
-
-/* Code blocks */
-const cb01 = `<div id="displaycoffee">
-	<p>This is all the stuff that is unique and special to me.</p>
-</div>`;
-const cb02 = `<div id="displaycoffee dc">
-	<p>This is all the stuff that is unique and special to me.</p>
-</div>`;
-const cb03 = `<div id="displaycoffee">
-	<p>This is all the stuff that is unique and special to me.</p>
-	<p class="eye-color">
-		Rainbow Sparkle
-	</p>
-</div>
-<div id="displaycoffees-friend">
-	<p>This is all the stuff that is unique to displaycoffee's friend.</p>
-	<p class="eye-color">
-		Glittering ocean
-	</p>
-</div>`;
-const cb04 = `<h3>Table of Contents</h3>
-<a href="#thing-01">Thing 01</a>
-<a href="#thing-01">Thing 02</a>
-
-<h3 id="thing-01">Thing 01</h3>
-<div>Here's a thing.</div>
-
-<h3 id="thing-01">Thing 02</h3>
-<div>Here's another thing.</div>`;
-const cb05 = `<style>
-	.fancy-pants-div {
-		background: #ff00ff;
-		color: #ffffff;
-		padding: 10px;
-		border: 1px dashed red;
-	}
-</style>
-<div class="fancy-pants-div">Look at dem fancy pants.</div>`;
-const cb06 = `.fancy-pants-div {
-	background: #ff00ff;
-	color: #ffffff;
-	padding: 10px;
-	border: 1px dashed red;
-}`;
-const cb07 = `<div class="fancy-pants-div">Look at dem fancy pants.</div>`;
-const cb08 = `<div style="background: green; font-family: Arial, sans-serif; color: #ffffff;">Here's a green div.</div>
-<div style="background: purple; font-family: Arial, sans-serif; color: #ffffff;">Here's a purple div.</div>`;
-const cb09 = `<style>
-	.green-div {
-		background: green;
-		font-family: Arial, sans-serif;
-		color: #ffffff;
-	}
-	.purple-div {
-		background: purple;
-		font-family: Arial, sans-serif;
-		color: #ffffff;
-	}
-</style>
-<div class="green-div">Here's a green div.</div>
-<div class="purple-div">Here's a purple div.</div>`;
-const cb10 = `<style>
-	.green-div, .purple-div {
-		font-family: Arial, sans-serif;
-		color: #ffffff;  
-	}
-	.green-div {
-		background: green;
-	}
-	.purple-div {
-		background: purple;
-	}
-</style>
-<div class="green-div">Here's a green div.</div>
-<div class="purple-div">Here's a purple div.</div>`;
-const cb11 = `.green-div {
-	background: green;
-}
-.random-style {
-	text-transform: uppercase;
-	font-size: 20px;
-}
-.a-new-style {
-	margin: 0 0 20px 0;
-}
-.green-div, .purple-div {
-	font-family: Arial, sans-serif;
-	color: #ffffff;  
-}
-.got-style-yo {
-	float: left;
-	width: 200px;
-	height: 30px;
-}
-.purple-div {
-	background: purple;
-}`;
-const cb12 = `.green-div, .purple-div {font-family:Arial, sans-serif;color:#ffffff;}
-.green-div
-{
-    background: green; }
-.purple-div {
-
-
-background: purple;
-   }`;
-const cb13 = `.green-div, .purple-div {
-	font-family: Arial, sans-serif;
-	color: #ffffff;
-}
-.green-div {
-	background: green;
-}
-.purple-div {
-	background: purple;
-}`;
-const cb14 = `<div class="polka-dot-trex">I got some text for you right here.<p>Okay, but be nice!</p><img src="//placecats.com/millie/300/150" /><div class="glow-in-the-dark-triceratops">Maybe we'll put some new text here.</div>
-<div class="dinosaur-broadway-musical"><p>What is this about?</p></div></div>`;
-const cb15 = `<div class="polka-dot-trex">
-	<p>I got some text for you right here.</p>
-
-	<p>Okay, but be nice!</p>
-
-	<img src="//placecats.com/millie/300/150" />
-
-	<div class="glow-in-the-dark-triceratops">
-		Maybe we'll put some new text here.
-	</div>
-	
-	<div class="dinosaur-broadway-musical">
-		<p>What is this about?</p>
-	</div>
-</div>`;
-const cb16 = `.green-div, .purple-div {
-	font-family: Arial, sans-serif; /* Change the font family here */
-	color: #ffffff; /* Change the font color here */
-}
-.green-div {
-	background: green; /* Green background color. Change to something else. */
-}
-.purple-div {
-	background: purple; /* Purple background color. Change to something else. */
-}`;
-const cb17 = `/* CSS Comment! */
-
-/* You can make fancy CSS Headers like this.
-   -------------------------------------------------------------------------- */`;
-const cb18 = `<!-- HTML comment! -->
-
-<!-- Look at this though!
-I can span multiple lines. -->`;
-const cb19 = `.fonts-are-great {
-	font-family: 'Open Sans', Tahoma, Arial, sans-serif;
-}`;

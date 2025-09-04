@@ -1,6 +1,9 @@
+/* Local scripts */
+import { codeBlocks } from './scripts/styling-text-code-blocks';
+
 /* Local components */
-import { ArticlesToc, ArticlesSection } from '../Articles';
-import { CodeBlock, CodeInline, Output } from '../../../components/blocks/Blocks';
+import { ArticlesToc, ArticlesSection } from '../../Articles';
+import { CodeBlock, CodeInline, Output } from '../../../../components/blocks/Blocks';
 
 export const StylingText = () => {
 	const sections = [
@@ -53,7 +56,7 @@ export const StylingText = () => {
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[1]}>
-				<CodeBlock header={'CSS'}>{cb01}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[0]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -114,9 +117,9 @@ export const StylingText = () => {
 					first font that it recognizes. The last font in the family will usually be either <CodeInline>sans-serif</CodeInline> or{' '}
 					<CodeInline>serif</CodeInline> meaning if all fonts in the family fail to render, it will fall back to the default style.
 				</p>
-				<CodeBlock header={'HTML'}>{cb02}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb03}</CodeBlock>
-				<Output className="output-articles output-font-families" code={cb02} />
+				<CodeBlock header={'HTML'}>{codeBlocks[1]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[2]}</CodeBlock>
+				<Output className="output-articles output-font-families" code={codeBlocks[1]} />
 				<p>
 					The first font listed is "Roboto" from{' '}
 					<a href="//fonts.google.com/specimen/Roboto" target="_blank" rel="noreferrer">
@@ -144,7 +147,7 @@ export const StylingText = () => {
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[2]}>
-				<CodeBlock header={'CSS'}>{cb04}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[3]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -193,13 +196,13 @@ export const StylingText = () => {
 						</dd>
 					</div>
 				</dl>
-				<CodeBlock header={'HTML'}>{cb05}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb06}</CodeBlock>
-				<Output className="output-articles output-font-size" code={cb05} />
+				<CodeBlock header={'HTML'}>{codeBlocks[4]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[5]}</CodeBlock>
+				<Output className="output-articles output-font-size" code={codeBlocks[4]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[3]}>
-				<CodeBlock header={'CSS'}>{cb07}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[6]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -231,25 +234,25 @@ export const StylingText = () => {
 					Essentially, this makes less overrides of line height in CSS down the road.
 				</p>
 				<p>Let's go over some examples.</p>
-				<CodeBlock header={'HTML'}>{cb08}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb09}</CodeBlock>
-				<Output className="output-articles output-line-height-01" code={cb08} />
+				<CodeBlock header={'HTML'}>{codeBlocks[7]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[8]}</CodeBlock>
+				<Output className="output-articles output-line-height-01" code={codeBlocks[7]} />
 				<p>
 					If we just add text to the <CodeInline>div</CodeInline>, the calculated line height is <CodeInline>24px</CodeInline>. Now, let's
 					add a child element with a different font size that's bigger than the normal text.
 				</p>
-				<CodeBlock header={'HTML'}>{cb10}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb11}</CodeBlock>
-				<Output className="output-articles output-line-height-02" code={cb10} />
+				<CodeBlock header={'HTML'}>{codeBlocks[9]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[10]}</CodeBlock>
+				<Output className="output-articles output-line-height-02" code={codeBlocks[9]} />
 				<p>
 					The line height for that new <CodeInline>div</CodeInline> is calculated by the parent <CodeInline>em</CodeInline>, which for a{' '}
 					<CodeInline>font-size: 30px</CodeInline>, is not very good. Basically, we still have a line height of{' '}
 					<CodeInline>24px</CodeInline>, so our <CodeInline>30px</CodeInline> font is starting to look a little cramped. The higher we go,
 					the more squished it gets. Vice versa, the lower we go, the further the spacing is. Let's make adjustments.
 				</p>
-				<CodeBlock header={'HTML'}>{cb12}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb13}</CodeBlock>
-				<Output className="output-articles output-line-height-03" code={cb12} />
+				<CodeBlock header={'HTML'}>{codeBlocks[11]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[12]}</CodeBlock>
+				<Output className="output-articles output-line-height-03" code={codeBlocks[11]} />
 				<p>
 					We still have <CodeInline>line-height: 24px</CodeInline> for any text in the first <CodeInline>div</CodeInline>. However, child
 					elements are now calculating their line height value based on the font size rather than a unit determined in the parent. Our child{' '}
@@ -261,7 +264,7 @@ export const StylingText = () => {
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[4]}>
-				<CodeBlock header={'CSS'}>{cb14}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[13]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -295,13 +298,13 @@ export const StylingText = () => {
 					<CodeInline>800</CodeInline> or <CodeInline>900</CodeInline> to this font will be the same as <CodeInline>700</CodeInline>. If
 					you're looking for a font with a lot of different variations, keep this in mind.
 				</p>
-				<CodeBlock header={'HTML'}>{cb15}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb16}</CodeBlock>
-				<Output className="output-articles output-font-weight" code={cb15} />
+				<CodeBlock header={'HTML'}>{codeBlocks[14]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[15]}</CodeBlock>
+				<Output className="output-articles output-font-weight" code={codeBlocks[14]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[5]}>
-				<CodeBlock header={'CSS'}>{cb17}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[16]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -325,13 +328,13 @@ export const StylingText = () => {
 					italic font style and a font that has an italic variant. Sometimes this is very subtle, but be aware when using font-face kits
 					where you do not have an italic version of the font.
 				</p>
-				<CodeBlock header={'HTML'}>{cb18}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb19}</CodeBlock>
-				<Output className="output-articles output-font-style" code={cb18} />
+				<CodeBlock header={'HTML'}>{codeBlocks[17]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[18]}</CodeBlock>
+				<Output className="output-articles output-font-style" code={codeBlocks[17]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[6]}>
-				<CodeBlock header={'CSS'}>{cb20}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[19]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -346,13 +349,13 @@ export const StylingText = () => {
 					<CodeInline>font-size: 16px</CodeInline> with <CodeInline>small-caps</CodeInline> leaves the "C" at <CodeInline>16px</CodeInline>{' '}
 					and the "at" will now be uppercase, but a smaller size.
 				</p>
-				<CodeBlock header={'HTML'}>{cb21}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb22}</CodeBlock>
-				<Output className="output-articles output-font-variant" code={cb21} />
+				<CodeBlock header={'HTML'}>{codeBlocks[20]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[21]}</CodeBlock>
+				<Output className="output-articles output-font-variant" code={codeBlocks[20]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[7]}>
-				<CodeBlock header={'CSS'}>{cb23}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[22]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -382,13 +385,13 @@ export const StylingText = () => {
 					word "CAT", it stays "CAT" instead of "Cat". And unfortunately, you can't set a parent element to have a lowercase value and then
 					a child to have to have a capitalize value. I've tried; it doesn't work. :(
 				</p>
-				<CodeBlock header={'HTML'}>{cb24}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb25}</CodeBlock>
-				<Output className="output-articles output-text-transform" code={cb24} />
+				<CodeBlock header={'HTML'}>{codeBlocks[23]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[24]}</CodeBlock>
+				<Output className="output-articles output-text-transform" code={codeBlocks[23]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[8]}>
-				<CodeBlock header={'CSS'}>{cb26}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[25]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -423,13 +426,13 @@ export const StylingText = () => {
 					using <CodeInline>text-decoration</CodeInline>. If you're underlining something in the middle of a paragraph of text, do make sure
 					it won't be mistaken for a link.
 				</p>
-				<CodeBlock header={'HTML'}>{cb27}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb28}</CodeBlock>
-				<Output className="output-articles output-text-decoration" code={cb27} />
+				<CodeBlock header={'HTML'}>{codeBlocks[26]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[27]}</CodeBlock>
+				<Output className="output-articles output-text-decoration" code={codeBlocks[26]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[9]}>
-				<CodeBlock header={'CSS'}>{cb29}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[28]}</CodeBlock>
 				<h5>Values</h5>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -442,13 +445,13 @@ export const StylingText = () => {
 					characters out, where negative values bring the letters closer together. (You probably shouldn't use negative values <em>too</em>{' '}
 					much. &#128521;)
 				</p>
-				<CodeBlock header={'HTML'}>{cb30}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb31}</CodeBlock>
-				<Output className="output-articles output-letter-spacing" code={cb30} />
+				<CodeBlock header={'HTML'}>{codeBlocks[29]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[30]}</CodeBlock>
+				<Output className="output-articles output-letter-spacing" code={codeBlocks[29]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[10]}>
-				<CodeBlock header={'CSS'}>{cb32}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[31]}</CodeBlock>
 				<h5>Values</h5>
 				<p>
 					After going through all the above properties, we can combine certain values into one property called <CodeInline>font</CodeInline>
@@ -460,9 +463,9 @@ export const StylingText = () => {
 					If you're using the <CodeInline>font</CodeInline> property, you can leave certain values out and it should still work correctly.
 					The two values that are required are <CodeInline>font-size</CodeInline> and <CodeInline>font-family</CodeInline>.
 				</p>
-				<CodeBlock header={'HTML'}>{cb33}</CodeBlock>
-				<CodeBlock header={'CSS'}>{cb34}</CodeBlock>
-				<Output className="output-articles output-font-shorthand" code={cb33} />
+				<CodeBlock header={'HTML'}>{codeBlocks[32]}</CodeBlock>
+				<CodeBlock header={'CSS'}>{codeBlocks[33]}</CodeBlock>
+				<Output className="output-articles output-font-shorthand" code={codeBlocks[32]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[11]}>
@@ -475,180 +478,3 @@ export const StylingText = () => {
 		</>
 	);
 };
-
-/* Code blocks */
-const cb01 = `font-family: family-name, generic-family;`;
-const cb02 = `<div class="fonts-are-awesome">
-	We're using font families! Woohoo!
-</div>`;
-const cb03 = `.fonts-are-awesome {
-	font-family: 'Roboto', Tahoma, Calibri, Arial, sans-serif;
-}`;
-const cb04 = `font-size: value;`;
-const cb05 = `<div class="fonts-are-awesome">
-	Here we have some font that's set to 0.85em. With a body at a font size of 100%, this is about 14 pixels.
-	<div class="child">
-		Here is a child element. Look how it's smaller, even though the value is 0.85em again.
-	</div>
-</div>
-<div class="fonts-are-awesome-part-02">
-	This text, on the other hand, is set to 20px in font size.
-	<div class="child">
-		And its child is 20px as well regardless of the parent elements.
-	</div>
-</div>`;
-const cb06 = `.fonts-are-awesome, .fonts-are-awesome > .child {
-	font-size: 0.85em;
-}
-.fonts-are-awesome-part-02, .fonts-are-awesome-part-02 > .child {
-	font-size: 20px;
-}`;
-const cb07 = `line-height: value;`;
-const cb08 = `<body>
-	<div class="fonts-are-awesome">
-		This is a long paragraph to show you how line-height looks. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-	</div>
-</body>`;
-const cb09 = `body {
-	font-size: 100%; /* Base font-size should be roughly 16px */
-	line-height: 1.5em;
-}`;
-const cb10 = `<body>
-	<div class="fonts-are-awesome">
-		This is a long paragraph to show you how line-height looks. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-		<div class="fonts-are-awesome-part-02">
-			This is a long paragraph to show you how line-height looks.
-		</div>  
-	</div>
-</body>`;
-const cb11 = `body {
-	font-size: 100%; /* Base font-size should be roughly 16px */
-	line-height: 1.5em;
-}
-.fonts-are-awesome-part-02 {
-	font-size: 30px;
-}`;
-const cb12 = `<body>
-	<div class="fonts-are-awesome">
-		This is a long paragraph to show you how line-height looks. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-		<div class="fonts-are-awesome-part-02">
-			This is a long paragraph to show you how line-height looks.
-		</div>  
-	</div>
-</body>`;
-const cb13 = `body {
-	font-size: 100%; /* Base font-size should be roughly 16px */
-	line-height: 1.5;
-}
-.fonts-are-awesome-part-02 {
-	font-size: 30px;
-}`;
-const cb14 = `font-weight: value;`;
-const cb15 = `<div class="fonts-are-awesome">
-	Light text (100 weight).
-</div>
-<div class="fonts-are-awesome-part-02">
-	Normal text (400 weight).
-</div>
-<div class="fonts-are-awesome-part-03">
-	Bold text (900 weight).
-</div>`;
-const cb16 = `.fonts-are-awesome {
-	font-weight: 100;
-}
-.fonts-are-awesome-part-02 {
-	font-weight: 400;
-}
-.fonts-are-awesome-part-03 {
-	font-weight: 900;
-}`;
-const cb17 = `font-style: value;`;
-const cb18 = `<div class="fonts-are-awesome">
-	This is font styled italic.
-</div>
-<div class="fonts-are-awesome-part-02">
-	This is not!
-</div>`;
-const cb19 = `.fonts-are-awesome {
-	font-style: italic;
-}
-.fonts-are-awesome-part-02 {
-	font-style: normal;
-}`;
-const cb20 = `font-variant: value;`;
-const cb21 = `<div class="fonts-are-awesome">
-	This is an EXAMPLE testing casing with small-caps.
-</div>`;
-const cb22 = `.fonts-are-awesome {
-	font-variant: small-caps;
-}`;
-const cb23 = `text-transform: value;`;
-const cb24 = `<div class="fonts-are-awesome">
-	this TEXT is capitalized.
-</div>
-<div class="fonts-are-awesome-part-02">
-	THIS TEXT IS NOW ALL LOWERCASE. MAGIC!
-</div>
-<div class="fonts-are-awesome-part-03">
-	this text is now all uppercase. more magic!
-</div>`;
-const cb25 = `.fonts-are-awesome {
-	text-transform: capitalize;
-}
-.fonts-are-awesome-part-02 {
-	text-transform: lowercase;
-}
-.fonts-are-awesome-part-03 {
-	text-transform: uppercase;
-}`;
-const cb26 = `text-decoration: value;`;
-const cb27 = `<div class="fonts-are-awesome">
-	Text with a line-through.
-</div>
-<div class="fonts-are-awesome-part-02">
-	Text with a line above it.
-</div>
-<div class="fonts-are-awesome-part-03">
-	Text with a line below it.
-</div>`;
-const cb28 = `.fonts-are-awesome {
-	text-decoration: line-through;
-}
-.fonts-are-awesome-part-02 {
-	text-decoration: overline;
-}
-.fonts-are-awesome-part-03 {
-	text-decoration: underline;
-}`;
-const cb29 = `letter-spacing: value;`;
-const cb30 = `<div class="fonts-are-awesome">
-	Text with adjusted letter spacing.
-</div>
-<div class="fonts-are-awesome-part-02">
-	Text with negative letter spacing.
-</div>`;
-const cb31 = `.fonts-are-awesome {
-	letter-spacing: 5px;
-}
-.fonts-are-awesome-part-02 {
-	letter-spacing: -3px;
-}`;
-const cb32 = `font: font-style font-variant font-weight font-size/line-height font-family;`;
-const cb33 = `<div class="fonts-are-awesome">
-	Shorthand example 01.
-</div>
-<div class="fonts-are-awesome-part-02">
-	Shorthand example 02.
-</div>
-<div class="fonts-are-awesome-part-03">
-	Shorthand example 03.
-</div>`;
-const cb34 = `.fonts-are-awesome {
-	font: 14px 'Roboto', sans-serif;
-}
-.fonts-are-awesome-part-02 {
-	font: italic bold 14px 'Roboto', sans-serif;
-}
-.fonts-are-awesome-part-03 {
-	font: italic small-caps bold 14px/18px 'Roboto', sans-serif;
-}`;

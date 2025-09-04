@@ -2,34 +2,39 @@ export const resume = {
 	technical: {
 		languages: [
 			{
-				id: 7,
+				id: 8,
 				name: 'HTML',
 				value: 9,
 			},
 			{
-				id: 6,
+				id: 7,
 				name: 'CSS',
 				value: 9,
 			},
 			{
-				id: 5,
+				id: 6,
 				name: 'Sass',
 				value: 9,
 			},
 			{
-				id: 4,
+				id: 5,
 				name: 'JavaScript',
 				value: 8,
 			},
 			{
-				id: 3,
+				id: 4,
 				name: 'jQuery',
 				value: 8,
 			},
 			{
-				id: 2,
+				id: 3,
 				name: 'React',
 				value: 8,
+			},
+			{
+				id: 2,
+				name: 'TypeScript',
+				value: 4.5,
 			},
 			{
 				id: 1,
@@ -44,26 +49,26 @@ export const resume = {
 		],
 		cms: 'WordPress, WooCommerce, WHMCS, Interwoven / Teamsite, phpBB, eCommerce platforms (Shopify, BigCommerce, Magento2, etc.)',
 		tools: 'Windows, MacOS, VSCode, Chrome Dev Tools, Word, Excel, Outlook, Photoshop',
-		other: 'Git, Webpack, Gulp, experience with all major web browsers, API interaction, GraphQL',
+		other: 'Git, Vite, Webpack, Gulp, experience with all major web browsers, API interaction, GraphQL, Cypress',
 	},
 	history: [
 		{
 			id: 4,
 			name: 'Searchspring',
-			role: 'Manager of Professional Services and Frontend Team Lead',
+			role: 'Senior Frontend Engineer and Team Lead',
 			date: 'November 2014 to <strong>Current</strong>',
 			description: [
-				`Use Searchspring API and SDKs (based on Angular or React) to perform job tasks`,
-				`Create mockups to demo how the product looks and functions when integrated on a client's eCommerce website`,
-				`Code JavaScript for additional functionality on mockups`,
-				`Construct templates and modules built with Sass and JavaScript frameworks for standardized code`,
-				`Create Searchspring specific themes for client websites`,
-				`QA mockups on different browsers and mobile devices`,
-				`Write customer-facing Knowledge Base articles (through Zendesk) and internal team documentation and code snippets`,
+				`Use Searchspring API and SDKs (React/Angular and JavaScript) to perform job tasks`,
+				`Create mockups to demo product features when integrated on a client's eCommerce website`,
+				`Construct internal team scaffolds (template and component libraries built with Sass and JavaScript frameworks)`,
+				`Help build customer-facing "Snap Templates" using React, TypeScript, CSS-in-JS (Emotion) which allows customers to choose themes and layouts to build their own frontend`,
+				`Define QA process and participate in QAs before work is handed off to client`,
+				`Write customer-facing Knowledge Base articles, internal team documentation, and code snippets`,
 				`Lead frontend developer team and define best practices for the entire Professional Services team`,
-				`Prior to Searchspring's open PTO policy, proposed "Volunteer Time Off" which was approved by leadership enabling others to have 16 separate hours devoted to volunteer work`,
+				`Scope technical requirements for custom work, ultimately generating additional revenue for all regions`,
+				`Prior to open PTO policy, advocated for "Volunteer Time Off" which was approved and allowed for 16 separate hours devoted to volunteer work`,
 				`Help to plan and advocate for the first Implementations Team Meet-up in 2023`,
-				`HTML, CSS, Sass, JavaScript, JavaScript frameworks (jQuery, React, Angular), Git`,
+				`HTML, CSS, Sass, JavaScript, JavaScript frameworks (jQuery, React, Angular), Git, TypeScript, CSS-in-JS`,
 			],
 		},
 		{
@@ -133,7 +138,7 @@ export const resume = {
 				get together to raise money for St. Jude Children's Research Hospital`,
 				`Built a React application using the Tiltify API that tracks donations, challenges, and rewards from all
 				supporting campaigns for event`,
-				`To date, we have raised $50,870.13 for St. Jude`,
+				`To date, we have raised $53,607.61 for St. Jude`,
 			],
 		},
 		{
