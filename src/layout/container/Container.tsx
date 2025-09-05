@@ -22,14 +22,14 @@ export const Container = () => {
 	const context = useContext(Context);
 	const { theme } = context;
 	const location = useLocation();
-	const isDesktop = useRespond(theme.bps.bp02);
+	const isDesktop = useRespond(theme.bps.bp02 as number);
 	let [sidebar, setSidebar] = useState(true);
 
 	// Set body class using custom hook
 	useBodyClass('start');
 
 	// Determine if layout should have sidebar or not
-	const excludeSidebar = [];
+	const excludeSidebar: string[] = [];
 	useEffect(() => {
 		sidebar = excludeSidebar.includes(location.pathname) ? false : true;
 		setSidebar(sidebar);

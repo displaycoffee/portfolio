@@ -11,7 +11,7 @@ export const theme = {
 };
 
 /* Ensure an empty or undefined sass value is false */
-function checkSassVar(value) {
+function checkSassVar(value: string) {
 	if (value) {
 		if (value == 'true') {
 			return true;
