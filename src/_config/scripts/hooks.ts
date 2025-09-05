@@ -7,7 +7,7 @@ let pageCache = {
 	previous: '',
 };
 
-export function useBodyClass(defaultPrefix) {
+export function useBodyClass(defaultPrefix: string) {
 	const location = useLocation();
 	const bodySelector = document.querySelector('body');
 	const bodyPrefix = 'page-';
@@ -30,7 +30,7 @@ export function useBodyClass(defaultPrefix) {
 	return null;
 }
 
-export function useRespond(bp) {
+export function useRespond(bp: number) {
 	const rule = window.matchMedia(`(min-width: ${bp}px)`);
 	let [match, setMatch] = useState(rule.matches);
 

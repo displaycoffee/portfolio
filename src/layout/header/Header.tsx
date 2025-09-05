@@ -14,7 +14,7 @@ import { Context } from '../../context/Context';
 export const Header = () => {
 	const context = useContext(Context);
 	const theme = context.theme;
-	const desktopHeader = useRespond(theme.bps.bp01 - 100);
+	const desktopHeader = useRespond((theme.bps.bp01 as number) - 100);
 	let [timer, setTimer] = useState(false);
 	const headerText = desktopHeader ? `* { display : coffee; }` : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
 	const mugs = ['blue', 'green', 'purple', 'red', 'orange'];

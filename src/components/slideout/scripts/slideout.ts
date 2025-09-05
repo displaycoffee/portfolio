@@ -16,13 +16,13 @@ export const slideout = {
 		},
 	},
 	get: {
-		orientation: (direction) => {
+		orientation: (direction: string) => {
 			// Get orientation of slideout
 			return direction == 'top' || direction == 'bottom' ? 'vertical' : 'horizontal';
 		},
 	},
 	set: {
-		body: (state) => {
+		body: (state: string) => {
 			// Toggle slideout body class
 			const classes = slideout.config.classes;
 			const body = document.querySelector('body');
@@ -34,16 +34,16 @@ export const slideout = {
 				}
 			}
 		},
-		slideout: (element, state) => {
+		slideout: (element: HTMLElement, state: string) => {
 			// Helper function to toggle slideout properties
 			const config = slideout.config;
 			const { classes, values } = config;
-			const menu = element.querySelector(`.${classes.menu}`);
+			const menu = element.querySelector(`.${classes.menu}`) as HTMLElement;
 
 			if (menu && element?.dataset) {
 				// Get data attributes
 				const width = element.dataset.width;
-				const direction = element.dataset.direction;
+				const direction = element.dataset.direction as string;
 				const orientation = element.dataset.orientation;
 
 				// Update elements depending on state
@@ -57,20 +57,21 @@ export const slideout = {
 			}
 		},
 	},
-	toggle: (e, id) => {
+	toggle: (e: EventType, id: string | boolean) => {
 		e.preventDefault();
 		const { config, set } = slideout;
 		const classes = config.classes;
 		const activeSelector = `.${classes.slideout}.${classes.active}`;
 
 		// Reset active slideout menus
-		document.querySelectorAll(activeSelector).forEach((element) => {
+		document.querySelectorAll(activeSelector).forEach((active) => {
+			const element = active as HTMLElement;
 			set.slideout(element, 'remove');
 		});
 
 		// Perform actions for current slideout menu
 		if (id) {
-			const element = document.querySelector(`#${id}`);
+			const element = document.querySelector(`#${id}`) as HTMLElement;
 			const elementState = !element.classList.contains(classes.active) ? 'add' : 'remove';
 			set.slideout(element, elementState);
 		}

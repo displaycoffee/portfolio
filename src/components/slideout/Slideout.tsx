@@ -1,5 +1,5 @@
 /* React */
-import { useId, useContext, useRef } from 'react';
+import { useId, useContext, useRef, ReactNode, RefObject } from 'react';
 
 /* Local styles */
 import './styles/slideout.scss';
@@ -10,7 +10,7 @@ import { slideout } from './scripts/slideout';
 /* Local components */
 import { Context } from '../../context/Context';
 
-export const Slideout = (props) => {
+export const Slideout = (props: SlideoutProps) => {
 	let { options } = props;
 	const { config, get, toggle } = slideout;
 	const fallbackId = useId().replace(/:/g, '');
@@ -64,9 +64,11 @@ export const Slideout = (props) => {
 					<div
 						className="slideout-content"
 						onClick={(e) => {
+							const eventNode = e.target as Node;
+
 							// Close slideout menu if inner element is a link or button
-							if (e?.target?.nodeName) {
-								const nodeLower = e.target.nodeName.toLowerCase();
+							if (eventNode?.nodeName) {
+								const nodeLower = eventNode.nodeName.toLowerCase();
 								if (nodeLower == 'a' || nodeLower == 'button') {
 									setTimeout(() => {
 										toggle(e, false);
@@ -84,14 +86,14 @@ export const Slideout = (props) => {
 	);
 };
 
-export const SlideoutOverlay = (props) => {
+export const SlideoutOverlay = (props: SlideoutOverlayProps) => {
 	const { options } = props;
 	const context = useContext(Context);
 	const { config, set, toggle } = slideout;
 
 	// Get slideout target and create element reference
 	const slideoutTarget = useRef(document.querySelector('body')).current;
-	const elementRef = useRef(null);
+	const elementRef: RefObject<HTMLDivElement | null> = useRef(null);
 
 	// If there is no target, don't return anything
 	if (!slideoutTarget) return null;
@@ -113,3 +115,22 @@ export const SlideoutOverlay = (props) => {
 		set.body('remove');
 	}
 };
+
+/* Types */
+type SlideoutProps = {
+	options: {
+		closeOnClick: boolean;
+		content: ReactNode;
+		direction?: string;
+		id: string;
+		isDesktop: boolean;
+		label: string;
+		orientation?: string;
+		width?: number;
+		button: {
+			outside: boolean;
+			show: boolean;
+		};
+	};
+};
+type SlideoutOverlayProps = SlideoutProps;

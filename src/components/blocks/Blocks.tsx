@@ -1,11 +1,11 @@
 /* React */
-import { useRef } from 'react';
+import { JSX, MouseEventHandler, ReactNode, RefObject, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 /* Local styles */
 import './styles/blocks.scss';
 
-export const HeaderIcon = (props) => {
+export const HeaderIcon = (props: HeaderIconProps) => {
 	const { tag, className, children } = props;
 	const Tag = tag ? tag : 'h3'; // This will define the element / tag to be used
 	const headerClass = className ? `${className} ` : '';
@@ -18,7 +18,7 @@ export const HeaderIcon = (props) => {
 	);
 };
 
-export const Button = (props) => {
+export const Button = (props: ButtonProps) => {
 	let { type, size, className, onClick, children } = props;
 	type = typeof type == 'undefined' ? 'primary' : type;
 	const buttonClass = className ? `${className} ` : '';
@@ -30,12 +30,12 @@ export const Button = (props) => {
 	);
 };
 
-export const CodeBlock = (props) => {
+export const CodeBlock = (props: CodeBlockProps) => {
 	let { className, header, children } = props;
 	const codeClass = className ? `${className} ` : '';
 
 	// Set code block ref
-	const codeRef = useRef(false);
+	const codeRef: RefObject<HTMLDivElement | null> = useRef(null);
 
 	// Function to select code inside code block
 	const selectCode = () => {
@@ -44,14 +44,17 @@ export const CodeBlock = (props) => {
 			const range = document.createRange();
 			range.selectNodeContents(codeBlock);
 			const selection = window.getSelection();
-			selection.removeAllRanges();
-			selection.addRange(range);
+			if (selection) {
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
 		}
 	};
 
 	// Re-format children HTML to get aligned code blocks
-	if (children.includes('\n\t')) {
-		children = children.replace(/\n\t/g, '\n');
+	const childrenString = children as string;
+	if (childrenString && childrenString.includes('\n\t')) {
+		children = childrenString.replace(/\n\t/g, '\n');
 	}
 
 	return (
@@ -71,14 +74,14 @@ export const CodeBlock = (props) => {
 	);
 };
 
-export const CodeInline = (props) => {
+export const CodeInline = (props: CodeInlineProps) => {
 	let { className, children } = props;
 	const codeClass = className ? `${className} ` : '';
 
 	return <code className={`${codeClass}code-inline`}>{children}</code>;
 };
 
-export const Output = (props) => {
+export const Output = (props: OutputProps) => {
 	const { className, code, children } = props;
 	const outputClass = className ? ` ${className}` : '';
 	const outputContentClass = 'output-content spacing-reset';
@@ -97,7 +100,7 @@ export const Output = (props) => {
 	);
 };
 
-export const Preview = (props) => {
+export const Preview = (props: PreviewProps) => {
 	const { className, children } = props;
 	const previewClass = className ? ` ${className}` : '';
 
@@ -109,7 +112,7 @@ export const Preview = (props) => {
 	);
 };
 
-export const PixelSection = (props) => {
+export const PixelSection = (props: PixelSectionProps) => {
 	let { className, children, navigation } = props;
 	const pixelClass = className ? `${className} ` : '';
 
@@ -147,7 +150,7 @@ export const PixelSection = (props) => {
 									{navigationSeparator}
 
 									<li className="pixel-navigation-list-item pixel-navigation-back">
-										<Link className="pixel-navigation-link" to={navigation.path}>
+										<Link className="pixel-navigation-link" to={`${navigation.path}`}>
 											{navigation.back}
 										</Link>
 									</li>
@@ -170,4 +173,37 @@ export const PixelSection = (props) => {
 			</div>
 		</section>
 	);
+};
+
+/* Types */
+type GenericProps = {
+	className: string;
+	children: ReactNode;
+};
+type HeaderIconProps = GenericProps & {
+	tag?: keyof JSX.IntrinsicElements;
+};
+type ButtonProps = GenericProps & {
+	type?: string;
+	size: string;
+	onClick: MouseEventHandler<HTMLButtonElement>;
+};
+type CodeBlockProps = GenericProps & {
+	header?: string;
+};
+type CodeInlineProps = GenericProps;
+type OutputProps = GenericProps & {
+	code: string;
+};
+type PreviewProps = GenericProps;
+type PixelSectionHandle = {
+	handle: String;
+};
+type PixelSectionProps = GenericProps & {
+	navigation: {
+		path: String;
+		back: String;
+		previous: PixelSectionHandle;
+		next: PixelSectionHandle;
+	};
 };
