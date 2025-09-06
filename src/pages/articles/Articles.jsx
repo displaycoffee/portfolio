@@ -16,19 +16,20 @@ export const Articles = () => {
 	const showContent = window.location.pathname == '/articles' ? true : false;
 	const hasArticles = articles && articles.length !== 0 ? true : false;
 
-	// Options for articles
-	const options = {
-		path: '/articles',
+	// Contents for articles
+	const contents = {
 		navigation: {
 			back: 'Back to "Articles"',
 		},
+		path: '/articles',
+		values: hasArticles ? articles : false,
 	};
 
 	return (
 		<>
 			{showContent && <HeaderIcon>Articles</HeaderIcon>}
 
-			<Contents contents={hasArticles ? articles : false} options={options} />
+			<Contents contents={contents} />
 		</>
 	);
 };

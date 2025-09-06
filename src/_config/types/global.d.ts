@@ -1,30 +1,47 @@
 /* React */
 import { ReactNode, SyntheticEvent } from 'react';
 
+/* Declare global types */
 declare global {
-	type EventType = SyntheticEvent | Event;
-	type PageType = {
-		alt?: string;
-		component: JSX.Element;
-		id: number;
-		hasChildren?: boolean;
-		isRoute?: boolean;
-		label: string;
-		showInNav?: boolean;
-		url: string;
-		props?: {
-			[key: string]: string | number | boolean;
-		};
-	};
 	type ChildPagesType = {
 		url: string;
 		childPages: PageType[];
 	};
-	type ValueType = {
+
+	type DateType = {
+		date: string;
+		name?: string;
+		timestamp?: number;
+	};
+
+	type EventType = SyntheticEvent | Event;
+
+	type NavigationValueType = {
+		handle: string;
 		id: number;
 		index: number;
-		handle: string;
+	};
+
+	type ObjectStringType = {
+		[key: string]: string;
+	};
+
+	type ObjectPrimitiveType = {
+		[key: string]: string | number | boolean;
+	};
+
+	type PageType = {
+		alt?: string;
+		component: JSX.Element;
+		hasChildren?: boolean;
+		id: number;
+		isRoute?: boolean;
+		label: string;
+		props?: ObjectPrimitiveType;
+		showInNav?: boolean;
+		url: string;
 	};
 }
 
+/* Export global types */
 export {};
