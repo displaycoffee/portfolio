@@ -1,25 +1,15 @@
 /* React */
-import { JSX, MouseEventHandler, ReactNode, RefObject, useRef } from 'react';
+import { RefObject, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 /* Local styles */
 import './styles/blocks.scss';
 
-export const HeaderIcon = (props: HeaderIconProps) => {
-	const { tag, className, children } = props;
-	const Tag = tag ? tag : 'h3'; // This will define the element / tag to be used
-	const headerClass = className ? `${className} ` : '';
-
-	return (
-		<Tag className={`${headerClass}h-icon`}>
-			<span className="icon icon-angle-right icon-bold icon-shadow-x2"></span>
-			{children}
-		</Tag>
-	);
-};
+/* Local scripts */
+import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputProps, PixelSectionProps, PreviewProps } from './scripts/blocks-types';
 
 export const Button = (props: ButtonProps) => {
-	let { type, size, className, onClick, children } = props;
+	let { children, className, onClick, size, type } = props;
 	type = typeof type == 'undefined' ? 'primary' : type;
 	const buttonClass = className ? `${className} ` : '';
 
@@ -31,7 +21,7 @@ export const Button = (props: ButtonProps) => {
 };
 
 export const CodeBlock = (props: CodeBlockProps) => {
-	let { className, header, children } = props;
+	let { children, className, header } = props;
 	const codeClass = className ? `${className} ` : '';
 
 	// Set code block ref
@@ -75,14 +65,27 @@ export const CodeBlock = (props: CodeBlockProps) => {
 };
 
 export const CodeInline = (props: CodeInlineProps) => {
-	let { className, children } = props;
+	let { children, className } = props;
 	const codeClass = className ? `${className} ` : '';
 
 	return <code className={`${codeClass}code-inline`}>{children}</code>;
 };
 
+export const HeaderIcon = (props: HeaderIconProps) => {
+	const { children, className, tag } = props;
+	const Tag = tag ? tag : 'h3'; // This will define the element / tag to be used
+	const headerClass = className ? `${className} ` : '';
+
+	return (
+		<Tag className={`${headerClass}h-icon`}>
+			<span className="icon icon-angle-right icon-bold icon-shadow-x2"></span>
+			{children}
+		</Tag>
+	);
+};
+
 export const Output = (props: OutputProps) => {
-	const { className, code, children } = props;
+	const { children, className, code } = props;
 	const outputClass = className ? ` ${className}` : '';
 	const outputContentClass = 'output-content spacing-reset';
 
@@ -100,20 +103,8 @@ export const Output = (props: OutputProps) => {
 	);
 };
 
-export const Preview = (props: PreviewProps) => {
-	const { className, children } = props;
-	const previewClass = className ? ` ${className}` : '';
-
-	return (
-		<>
-			<h5>Preview</h5>
-			<div className={`preview${previewClass}`}>{children}</div>
-		</>
-	);
-};
-
 export const PixelSection = (props: PixelSectionProps) => {
-	let { className, children, navigation } = props;
+	let { children, className, navigation } = props;
 	const pixelClass = className ? `${className} ` : '';
 
 	// Show pixel navigation if props are available
@@ -175,35 +166,14 @@ export const PixelSection = (props: PixelSectionProps) => {
 	);
 };
 
-/* Types */
-type GenericProps = {
-	className: string;
-	children: ReactNode;
-};
-type HeaderIconProps = GenericProps & {
-	tag?: keyof JSX.IntrinsicElements;
-};
-type ButtonProps = GenericProps & {
-	type?: string;
-	size: string;
-	onClick: MouseEventHandler<HTMLButtonElement>;
-};
-type CodeBlockProps = GenericProps & {
-	header?: string;
-};
-type CodeInlineProps = GenericProps;
-type OutputProps = GenericProps & {
-	code: string;
-};
-type PreviewProps = GenericProps;
-type PixelSectionHandle = {
-	handle: String;
-};
-type PixelSectionProps = GenericProps & {
-	navigation: {
-		path: String;
-		back: String;
-		previous: PixelSectionHandle;
-		next: PixelSectionHandle;
-	};
+export const Preview = (props: PreviewProps) => {
+	const { children, className } = props;
+	const previewClass = className ? ` ${className}` : '';
+
+	return (
+		<>
+			<h5>Preview</h5>
+			<div className={`preview${previewClass}`}>{children}</div>
+		</>
+	);
 };

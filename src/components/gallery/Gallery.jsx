@@ -1,5 +1,5 @@
 /* React */
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
 
 /* Local styles */

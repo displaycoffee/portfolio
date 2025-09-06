@@ -13,19 +13,20 @@ export const CheatCodes = () => {
 	const showContent = window.location.pathname == '/cheat-codes' ? true : false;
 	const hasCheatCodes = cheatCodes && cheatCodes.length !== 0 ? true : false;
 
-	// Options for cheat codes
-	const options = {
-		path: '/cheat-codes',
+	// Contents for cheat codes
+	const contents = {
 		navigation: {
 			back: 'Back to "Cheat Codes"',
 		},
+		path: '/cheat-codes',
+		values: hasCheatCodes ? cheatCodes : false,
 	};
 
 	return (
 		<>
 			{showContent && <HeaderIcon>Cheat Codes</HeaderIcon>}
 
-			<Contents contents={hasCheatCodes ? cheatCodes : false} options={options} />
+			<Contents contents={contents} />
 		</>
 	);
 };

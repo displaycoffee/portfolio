@@ -1,5 +1,5 @@
 /* React */
-import React, { useContext } from 'react';
+import { Fragment, useContext } from 'react';
 
 /* Local styles */
 import './styles/footer.scss';
@@ -25,7 +25,7 @@ export const Footer = () => {
 					<div className="footer-navigation column">
 						<nav className="footer-navigation-links">
 							{footer.map((link) => (
-								<React.Fragment key={link.id}>
+								<Fragment key={link.id}>
 									<a className="footer-navigation-link" href={link.url} target="_blank" rel="noreferrer">
 										<img
 											src={utils.setIcon(`${link.label.toLowerCase()}-color`, iconSize)}
@@ -33,7 +33,7 @@ export const Footer = () => {
 											title={link.alt || link.label}
 										/>
 									</a>
-								</React.Fragment>
+								</Fragment>
 							))}
 
 							<button className="footer-navigation-link unstyled pointer bounce-5" onClick={(e) => utils.scrollTo(e, 'body')}>
