@@ -6,21 +6,29 @@ import { Link, Navigate, Routes, Route, useParams, useSearchParams } from 'react
 import './styles/contents.scss';
 
 /* Local scripts */
-//import { ContentsProps, ContentsRoutesProps } from './scripts/contents-types';
+import {
+	ContentsBodyProps,
+	ContentsLinksProps,
+	ContentsProps,
+	ContentsRoutesProps,
+	ContentsTagsType,
+	ContentsTagType,
+	ContentsType,
+} from './scripts/contents-types';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Local components */
 import { Context } from '../../context/Context';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
-export const Contents = (props) => {
+export const Contents = (props: ContentsProps) => {
 	const { contents } = props;
 	const hasContents = contents && contents?.path && contents.values && contents.values.length !== 0 ? true : false;
 
 	return hasContents ? <ContentsRoutes contents={contents} /> : null;
 };
 
-export const ContentsRoutes = (props) => {
+export const ContentsRoutes = (props: ContentsRoutesProps) => {
 	const { contents } = props;
 
 	// Ensure navigation is set
@@ -45,13 +53,13 @@ export const ContentsRoutes = (props) => {
 	) : null;
 };
 
-export const ContentsLinks = (props) => {
-	const { values, path } = props;
+export const ContentsLinks = (props: ContentsLinksProps) => {
+	const { path, values } = props;
 	const context = useContext(Context);
 	const utils = context.utils;
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
-	let [tags, setTags] = useState({});
+	let [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
 	let [tagParams, setTagParams] = useSearchParams();
 
 	// Create tags from content values
@@ -87,16 +95,16 @@ export const ContentsLinks = (props) => {
 	}, []);
 
 	// Click functionality for applying tabs
-	const handleTag = (e, tag) => {
+	const handleTag = (e: EventType, tag: ContentsTagType) => {
 		e.preventDefault();
 
 		if (tags[tag.value].active) {
 			// Remove filter parameters from url and set active state
-			contentsUtils.params.remove(tagParams, tagParam, tag.value, setTagParams);
+			contentsUtils.params.remove(String(tagParams), tagParam, tag.value, setTagParams);
 			tags[tag.value].active = false;
 		} else {
 			// Add filter parameters to url and set active state
-			contentsUtils.params.add(tagParams, tagParam, tag.value, setTagParams);
+			contentsUtils.params.add(String(tagParams), tagParam, tag.value, setTagParams);
 			tags[tag.value].active = true;
 		}
 
@@ -105,11 +113,11 @@ export const ContentsLinks = (props) => {
 	};
 
 	// Click functionality for clear
-	const handleClear = (e) => {
+	const handleClear = (e: EventType) => {
 		e.preventDefault();
 
 		// Remove all tag params
-		contentsUtils.params.clear(tagParams, tagParam, setTagParams);
+		contentsUtils.params.clear(String(tagParams), tagParam, setTagParams);
 
 		// Set all tags to inactive
 		Object.keys(tags).forEach((tag) => {
@@ -184,12 +192,12 @@ export const ContentsLinks = (props) => {
 	);
 };
 
-export const ContentsBody = (props) => {
-	const { path, values, navigation } = props;
+export const ContentsBody = (props: ContentsBodyProps) => {
+	const { navigation, path, values } = props;
 	const { id } = useParams();
 	const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
-	const elements = contentsUtils.get.navigation(values, id);
-	const current = elements?.current ? elements.current : false;
+	const elements = contentsUtils.get.navigation(values, id as string);
+	const current = (elements?.current ? elements.current : {}) as ContentsType;
 
 	// Build navigation props
 	const navigationProps = {
@@ -248,9 +256,7 @@ export const ContentsBody = (props) => {
 					</div>
 				) : null}
 
-				<div className="contents-body spacing-reset">
-					<Body />
-				</div>
+				<div className="contents-body spacing-reset">{/* <Body /> */}</div>
 
 				<PixelSection navigation={navigationProps} />
 			</div>

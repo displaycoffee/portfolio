@@ -9,13 +9,14 @@ type ContentsTag = {
 };
 
 type Contents = {
-	component: ReactNode;
+	component: JSX.Element;
 	date: string;
 	description: string;
 	description2?: string;
 	handle: string;
 	id: number;
 	name: string;
+	name2?: string;
 	tags: string;
 	thumb: string;
 	timestamp: number;
@@ -27,46 +28,26 @@ type ContentsPage = {
 		back?: string;
 	};
 	path: string;
-	values: Contents[];
+	values: ContentsType[];
 };
 
 /* Export types */
-// export type ContentsBodyProps = Contents;
+export type ContentsBodyProps = ContentsPage;
 
-// export type ContentsLinksProps = Contents;
+export type ContentsLinksProps = ContentsPage;
 
 export type ContentsProps = {
-	contents: ContentsType[];
-	options: {
-		path: string;
-		navigation: {
-			back?: string;
-		};
-	};
+	contents: ContentsPage;
 };
 
-export type ContentsRoutesProps = ContentsProps;
-
-// export type ContentsTagsType = {
-// 	[key: string]: ContentsTagType;
-// };
-
-export type ContentsTagType = {
-	active: boolean;
-	label: string;
-	value: string;
+export type ContentsRoutesProps = {
+	contents: ContentsPage;
 };
 
-export type ContentsType = {
-	component: ReactNode;
-	date: string;
-	description: string;
-	description2?: string;
-	handle: string;
-	id: number;
-	name: string;
-	tags: string;
-	thumb: string;
-	timestamp: number;
-	updated: string;
+export type ContentsTagsType = {
+	[key: string]: ContentsTagType;
 };
+
+export type ContentsTagType = ContentsTag;
+
+export type ContentsType = Contents;

@@ -43,12 +43,17 @@ export const utils = {
 
 		return navigation;
 	},
-	handle: (handle: string | boolean, value: DateType, index: number) => {
+	handle: (category: string | boolean, value: NameType, index: number) => {
+		// Determine handle for
+		let name = index as string | number;
+		if (value?.name2) {
+			name = utils.handleize(value.name2);
+		} else if (value?.name) {
+			name = utils.handleize(value.name);
+		}
+
 		// Create unique handle / path for url routes
-		const category = handle ? `${handle}-` : ``;
-		const name = value.name ? utils.handleize(value.name) : index;
-		const number = value.date ? value.date.replace(/\./g, '') : index;
-		return `${category}${name}-${number}`;
+		return `${category ? `${category}-` : ``}${name}`;
 	},
 	handleize: (value: string) => {
 		// Format value for html classes

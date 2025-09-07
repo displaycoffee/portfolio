@@ -3,7 +3,7 @@ import { JSX, MouseEventHandler, ReactNode } from 'react';
 
 /* Type definitions */
 type GenericProps = {
-	children: ReactNode;
+	children?: ReactNode;
 	className?: string;
 };
 
@@ -34,9 +34,9 @@ export type OutputProps = GenericProps & {
 
 export type PixelSectionProps = GenericProps & {
 	navigation?: {
-		back: String;
+		back: string;
 		next: PixelSectionHandle;
-		path: String;
+		path: string;
 		previous: PixelSectionHandle;
 	};
 };
