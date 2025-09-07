@@ -15,14 +15,23 @@ export const contents = {
 		}
 	},
 	get: {
-		navigation: (values: NavigationValueType[], id: string) => {
+		navigation: (values: ContentsType[], id: string) => {
 			// Get navigation for contents
-			return utils.getNavigation(values, id);
+			const newValues: NavigationValueType[] = [];
+			values.forEach((value, index) => {
+				newValues.push({
+					handle: value.handle,
+					id: value.id,
+					index: index,
+				});
+			});
+
+			return utils.getNavigation(newValues, id);
 		},
 	},
 	params: {
 		add: (params: string, field: string, value: string, callback: Function) => {
-			let newParams = new URLSearchParams(String(params));
+			let newParams = new URLSearchParams(params);
 
 			// Append new parameters to url
 			newParams.append(field, value);
@@ -33,7 +42,7 @@ export const contents = {
 			}
 		},
 		clear: (params: string, field: string, callback: Function) => {
-			let newParams = new URLSearchParams(String(params));
+			let newParams = new URLSearchParams(params);
 
 			// Delete field from parameters
 			newParams.delete(field);
@@ -48,7 +57,7 @@ export const contents = {
 			return decodeURIComponent(window.location.search.replace(/^\?/, '').replace(/\+/g, ' '));
 		},
 		remove: (params: string, field: string, value: string, callback: Function) => {
-			let newParams = new URLSearchParams(String(params));
+			let newParams = new URLSearchParams(params);
 
 			// Filter out values which should be retained
 			const keepParams = newParams.getAll(field).filter((keep) => {
