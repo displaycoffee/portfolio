@@ -90,18 +90,17 @@ export const ContentsLinks = (props) => {
 	const handleTag = (e, tag) => {
 		e.preventDefault();
 
-		if (tag.active) {
+		if (tags[tag.value].active) {
 			// Remove filter parameters from url and set active state
 			contentsUtils.params.remove(tagParams, tagParam, tag.value, setTagParams);
-			tag.active = false;
+			tags[tag.value].active = false;
 		} else {
 			// Add filter parameters to url and set active state
 			contentsUtils.params.add(tagParams, tagParam, tag.value, setTagParams);
-			tag.active = true;
+			tags[tag.value].active = true;
 		}
 
 		// Update tags when values are clicked
-		tags[tag.value].active = tag.active;
 		setTags(tags);
 	};
 
@@ -160,10 +159,13 @@ export const ContentsLinks = (props) => {
 							{tagsConfig.hasTags ? (
 								<ContentsTags>
 									{tagsConfig.values.map((tag, index) => {
+										// Set active state for tag
+										tag.active = tags[tag.value].active;
+
 										return (
 											<div className="contents-tags-column" key={index}>
 												<Button
-													type={tag.active ? 'secondary' : 'primary'}
+													type={tag.active ? 'secondary active' : 'primary'}
 													size={'x-small'}
 													onClick={(e) => handleTag(e, tag)}
 												>

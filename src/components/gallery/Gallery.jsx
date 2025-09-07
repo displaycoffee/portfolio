@@ -80,7 +80,7 @@ export const GalleryLayout = (props) => {
 								return current.gallery.show ? (
 									<div className="column" key={current.gallery.handle}>
 										<Button
-											type={tab && tab == current.gallery.id ? 'secondary' : 'primary'}
+											type={tab && tab == current.gallery.id ? 'secondary active' : 'primary'}
 											onClick={() => {
 												// Update tab on click
 												tab = current.gallery.id;
