@@ -1,13 +1,19 @@
 /* Local scripts */
-import { ContentsTagType, ContentsType } from './contents-types';
+import { ContentTagType, ContentType } from './contents-types';
 import { utils } from '../../../_config/scripts/utils';
 
 export const contents = {
-	build: (values: ContentsType[]) => {
+	build: (values: ContentType[]) => {
 		// Build values properties for content
 		if (values && values.length !== 0) {
 			values.forEach((value, index) => {
-				value.handle = utils.handle(false, value, index);
+				let name = `${index}`;
+				if (value?.name2) {
+					name = utils.handleize(value.name2);
+				} else if (value?.name) {
+					name = utils.handleize(value.name);
+				}
+				value.handle = name;
 			});
 			return values;
 		} else {
@@ -15,18 +21,39 @@ export const contents = {
 		}
 	},
 	get: {
-		navigation: (values: ContentsType[], id: string) => {
-			// Get navigation for contents
-			const newValues: NavigationValueType[] = [];
-			values.forEach((value, index) => {
-				newValues.push({
-					handle: value.handle,
-					id: value.id,
-					index: index,
-				});
+		navigation: (values: ContentType[], id: string) => {
+			// Function to get navigation indexes
+			const valuesCount = values.length - 1;
+
+			// Set initial variables for navigation
+			let navigation: {
+				[key: string]: Boolean | ContentType;
+			} = {
+				current: false,
+				previous: false,
+				next: false,
+			};
+
+			// Find active index
+			let selected = values.filter((value, index) => {
+				value.index = index;
+				return (value?.handle || value?.id) == id;
 			});
 
-			return utils.getNavigation(newValues, id);
+			// Update content details and create previous / next elements
+			if (selected && selected.length !== 0) {
+				// Set current
+				navigation.current = selected.pop() as ContentType;
+
+				// If previous / next index is out of bounds, loop around to start / end of values
+				const previousIndex = navigation.current.index - 1;
+				const nextIndex = navigation.current.index + 1;
+				navigation.previous = previousIndex < 0 ? values[valuesCount] : values[previousIndex];
+				navigation.next = nextIndex > valuesCount ? values[0] : values[nextIndex];
+			}
+
+			// Return navigation
+			return navigation;
 		},
 	},
 	params: {
@@ -84,7 +111,7 @@ export const contents = {
 	tags: (value: string) => {
 		// Check tags and build values
 		const splitValues = value ? value.split(', ') : [];
-		const tags = [] as ContentsTagType[];
+		const tags = [] as ContentTagType[];
 		const hasTags = splitValues && splitValues.length !== 0 ? true : false;
 
 		// Format tag values

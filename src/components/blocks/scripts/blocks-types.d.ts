@@ -34,7 +34,7 @@ export type OutputProps = GenericProps & {
 
 export type PixelSectionProps = GenericProps & {
 	navigation?: {
-		back: string;
+		back: string | boolean;
 		next: PixelSectionHandle;
 		path: string;
 		previous: PixelSectionHandle;

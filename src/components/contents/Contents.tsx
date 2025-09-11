@@ -8,12 +8,14 @@ import './styles/contents.scss';
 /* Local scripts */
 import {
 	ContentsBodyProps,
+	ContentsDateProps,
 	ContentsLinksProps,
 	ContentsProps,
 	ContentsRoutesProps,
+	ContentsTagsProps,
 	ContentsTagsType,
 	ContentsTagType,
-	ContentsType,
+	ContentType,
 } from './scripts/contents-types';
 import { contents as contentsUtils } from './scripts/contents';
 
@@ -197,13 +199,15 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const { id } = useParams();
 	const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
 	const elements = contentsUtils.get.navigation(values, id as string);
-	const current = (elements?.current ? elements.current : {}) as ContentsType;
+	const current = (elements?.current ?? false) as ContentType;
+	const next = (elements?.next ?? false) as ContentType;
+	const previous = (elements?.previous ?? false) as ContentType;
 
 	// Build navigation props
 	const navigationProps = {
 		path: path,
-		previous: elements?.previous ? elements.previous : false,
-		next: elements?.next ? elements.next : false,
+		previous: previous,
+		next: next,
 		back: navigation?.back ? navigation.back : false,
 	};
 
@@ -211,7 +215,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const tagsConfig = contentsUtils.tags(current?.tags);
 
 	// Check if we have a header
-	const hasHeader = tagsConfig.hasTags || current?.name || current?.date || current?.updated ? true : false;
+	const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
 
 	// Set component for body
 	const Body = current.component;
@@ -256,7 +260,9 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 					</div>
 				) : null}
 
-				<div className="contents-body spacing-reset">{/* <Body /> */}</div>
+				<div className="contents-body spacing-reset">
+					<Body />
+				</div>
 
 				<PixelSection navigation={navigationProps} />
 			</div>
@@ -266,7 +272,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	) : null;
 };
 
-export const ContentsDate = (props) => {
+export const ContentsDate = (props: ContentsDateProps) => {
 	const { content } = props;
 
 	// Check dates
@@ -282,7 +288,7 @@ export const ContentsDate = (props) => {
 	) : null;
 };
 
-export const ContentsTags = (props) => {
+export const ContentsTags = (props: ContentsTagsProps) => {
 	const { children } = props;
 
 	return (
