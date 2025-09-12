@@ -22,16 +22,16 @@ export const Articles = () => {
 			back: 'Back to "Articles"',
 		},
 		path: '/articles',
-		values: hasArticles ? articles : false,
+		values: hasArticles ? articles : [],
 	};
 
-	return (
+	return hasArticles ? (
 		<>
 			{showContent && <HeaderIcon>Articles</HeaderIcon>}
 
 			<Contents contents={contents} />
 		</>
-	);
+	) : null;
 };
 
 export const ArticlesSection = (props) => {

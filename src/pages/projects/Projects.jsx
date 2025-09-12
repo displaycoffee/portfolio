@@ -9,16 +9,17 @@ export const Projects = () => {
 	const showContent = window.location.pathname == '/projects' ? true : false;
 	const hasProjects = projects && projects.length !== 0 ? true : false;
 
-	// Options for gallery
-	const options = {
+	// Gallery for projects
+	const gallery = {
+		navigation: {
+			back: 'Back to "Projects"',
+		},
 		path: '/projects',
 		thumbnails: {
 			headers: false,
 			tabs: true,
 		},
-		navigation: {
-			back: 'Back to "Projects"',
-		},
+		values: hasProjects ? projects : [],
 	};
 
 	return hasProjects ? (
@@ -37,7 +38,7 @@ export const Projects = () => {
 				</>
 			)}
 
-			<Gallery gallery={hasProjects ? projects : false} options={options} />
+			<Gallery gallery={gallery} />
 		</>
 	) : null;
 };

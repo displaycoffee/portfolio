@@ -9,16 +9,17 @@ export const Art = () => {
 	const showContent = window.location.pathname == '/art' ? true : false;
 	const hasArt = art && art.length !== 0 ? true : false;
 
-	// Options for gallery
-	const options = {
+	// Gallery for art
+	const gallery = {
+		navigation: {
+			back: 'Back to "Art"',
+		},
 		path: '/art',
 		thumbnails: {
 			headers: false,
 			tabs: true,
 		},
-		navigation: {
-			back: 'Back to "Art"',
-		},
+		values: hasArt ? art : [],
 	};
 
 	return hasArt ? (
@@ -34,7 +35,7 @@ export const Art = () => {
 				</>
 			)}
 
-			<Gallery gallery={hasArt ? art : false} options={options} />
+			<Gallery gallery={gallery} />
 		</>
 	) : null;
 };

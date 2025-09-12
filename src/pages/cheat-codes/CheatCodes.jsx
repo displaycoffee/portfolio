@@ -19,16 +19,16 @@ export const CheatCodes = () => {
 			back: 'Back to "Cheat Codes"',
 		},
 		path: '/cheat-codes',
-		values: hasCheatCodes ? cheatCodes : false,
+		values: hasCheatCodes ? cheatCodes : [],
 	};
 
-	return (
+	return hasCheatCodes ? (
 		<>
 			{showContent && <HeaderIcon>Cheat Codes</HeaderIcon>}
 
 			<Contents contents={contents} />
 		</>
-	);
+	) : null;
 };
 
 export const CheatCodesSection = (props) => {
