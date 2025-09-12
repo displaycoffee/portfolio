@@ -15,7 +15,6 @@ import {
 	ContentsTagsProps,
 	ContentsTagsType,
 	ContentsTagType,
-	ContentType,
 } from './scripts/contents-types';
 import { contents as contentsUtils } from './scripts/contents';
 
@@ -199,9 +198,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const { id } = useParams();
 	const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
 	const elements = contentsUtils.get.navigation(values, id as string);
-	const current = (elements?.current ?? false) as ContentType;
-	const next = (elements?.next ?? false) as ContentType;
-	const previous = (elements?.previous ?? false) as ContentType;
+	const { current, next, previous } = elements;
 
 	// Build navigation props
 	const navigationProps = {

@@ -2,43 +2,53 @@
 import { JSX, MouseEventHandler, ReactNode } from 'react';
 
 /* Type definitions */
-type GenericProps = {
+type BlockShared = {
 	children?: ReactNode;
 	className?: string;
 };
 
-type PixelSectionHandle = {
-	handle: String;
-};
-
-/* Export types */
-export type ButtonProps = GenericProps & {
+type Button = {
 	onClick: MouseEventHandler<HTMLButtonElement>;
 	type?: string;
 	size?: string;
 };
 
-export type CodeBlockProps = GenericProps & {
+type CodeBlock = {
 	header?: string;
 };
 
-export type CodeInlineProps = GenericProps;
-
-export type HeaderIconProps = GenericProps & {
+type HeaderIcon = {
 	tag?: keyof JSX.IntrinsicElements;
 };
 
-export type OutputProps = GenericProps & {
-	code: string;
-};
-
-export type PixelSectionProps = GenericProps & {
+type Navigation = {
 	navigation?: {
 		back: string | boolean;
-		next: PixelSectionHandle;
+		next: {
+			handle: string;
+		};
 		path: string;
-		previous: PixelSectionHandle;
+		previous: {
+			handle: string;
+		};
 	};
 };
 
-export type PreviewProps = GenericProps;
+type Output = {
+	code: string;
+};
+
+/* Export prop types */
+export type ButtonProps = BlockShared & Button;
+
+export type CodeBlockProps = BlockShared & CodeBlock;
+
+export type CodeInlineProps = BlockShared;
+
+export type HeaderIconProps = BlockShared & HeaderIcon;
+
+export type OutputProps = BlockShared & Output;
+
+export type PixelSectionProps = BlockShared & Navigation;
+
+export type PreviewProps = BlockShared;

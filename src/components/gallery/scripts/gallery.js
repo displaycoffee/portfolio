@@ -3,17 +3,43 @@ import { utils } from '../../../_config/scripts/utils';
 
 export const gallery = {
 	get: {
-		category: (modified, key, options) => {
+		category: (modified, key, gallery) => {
 			// Get category details for looping
 			const current = modified[key];
+
 			return {
-				options: options,
-				gallery: current,
+				...current,
+				navigation: gallery.navigation,
+				path: gallery.path,
+				thumbnails: gallery.thumbnails,
 			};
 		},
 		navigation: (values, id) => {
-			// Get navigation for gallery
-			return utils.getNavigation(values, id);
+			// Function to get navigation indexes
+			const valuesCount = values.length - 1;
+
+			// Find active index
+			let selected = values.filter((value, index) => {
+				value.index = index;
+				return (value?.handle || value?.id) == id;
+			});
+
+			// Set current
+			const current = selected.pop();
+
+			// If previous / next index is out of bounds, loop around to start / end of values
+			const nextIndex = current.index + 1;
+			const previousIndex = current.index - 1;
+
+			// Set navigation
+			let navigation = {
+				current: current,
+				next: nextIndex > valuesCount ? values[0] : values[nextIndex],
+				previous: previousIndex < 0 ? values[valuesCount] : values[previousIndex],
+			};
+
+			// Return navigation
+			return navigation;
 		},
 	},
 	create: {
@@ -54,13 +80,15 @@ export const gallery = {
 				};
 
 				// Build values for "All" category
-				values.forEach((value) => {
+				values.forEach((value, index) => {
+					value.index = index;
 					gallery.create.values(modified, 'all', value);
 				});
 			}
 
 			// Build values for other categories
-			values.forEach((value) => {
+			values.forEach((value, index) => {
+				value.index = index;
 				value.categories = value.categories ? value.categories : 'Uncategorized';
 				const handle = utils.handleize(value.categories);
 				gallery.create.values(modified, handle, value);

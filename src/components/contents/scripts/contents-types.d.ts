@@ -2,7 +2,7 @@
 import { FunctionComponent, ReactNode } from 'react';
 
 /* Type definitions */
-type Content = {
+type Contents = {
 	component: FunctionComponent;
 	date: string;
 	description: string;
@@ -24,39 +24,46 @@ type ContentsTag = {
 	value: string;
 };
 
+type ContentsTags = {
+	[key: string]: ContentsTag;
+};
+
 type ContentsPage = {
 	navigation: {
 		back?: string;
 	};
 	path: string;
-	values: ContentType[];
+	values: ContentsType[];
+};
+
+type ContentsWithChildren = {
+	children: ReactNode;
+};
+
+type ContentsWithContent = {
+	content: Contents;
+};
+
+type ContentsWithContents = {
+	contents: ContentsPage;
 };
 
 /* Export types */
+export type ContentsTagsType = ContentsTags;
+
+export type ContentsTagType = ContentsTag;
+
+export type ContentsType = Contents;
+
+/* Export prop types */
 export type ContentsBodyProps = ContentsPage;
 
 export type ContentsLinksProps = ContentsPage;
 
-export type ContentsDateProps = {
-	content: Content;
-};
+export type ContentsDateProps = ContentsWithContent;
 
-export type ContentsProps = {
-	contents: ContentsPage;
-};
+export type ContentsProps = ContentsWithContents;
 
-export type ContentsRoutesProps = {
-	contents: ContentsPage;
-};
+export type ContentsRoutesProps = ContentsWithContents;
 
-export type ContentsTagsProps = {
-	children: ReactNode;
-};
-
-export type ContentsTagsType = {
-	[key: string]: ContentsTagType;
-};
-
-export type ContentsTagType = ContentsTag;
-
-export type ContentType = Content;
+export type ContentsTagsProps = ContentsWithChildren;

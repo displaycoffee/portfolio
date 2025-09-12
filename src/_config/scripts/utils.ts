@@ -16,7 +16,7 @@ export const utils = {
 
 		// Set initial variables for navigation
 		let navigation: {
-			[key: string]: Boolean | NavigationValueType;
+			[key: string]: boolean | NavigationValueType;
 		} = {
 			current: false,
 			previous: false,
@@ -53,7 +53,8 @@ export const utils = {
 		}
 
 		// Create unique handle / path for url routes
-		return `${category ? `${category}-` : ``}${name}`;
+		//return `${category ? `${category}-` : ``}${name}`;
+		return name;
 	},
 	handleize: (value: string) => {
 		// Format value for html classes
