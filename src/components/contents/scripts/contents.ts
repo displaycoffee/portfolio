@@ -7,13 +7,17 @@ export const contents = {
 		// Build values properties for content
 		if (values && values.length !== 0) {
 			values.forEach((value, index) => {
-				let name = `${index}`;
+				// Create handle for value (needed for routes)
+				let handle = `${index}`;
 				if (value?.name2) {
-					name = utils.handleize(value.name2);
+					handle = utils.handleize(value.name2);
 				} else if (value?.name) {
-					name = utils.handleize(value.name);
+					handle = utils.handleize(value.name);
 				}
-				value.handle = name;
+
+				// Set new properties
+				value.handle = handle;
+				value.index = index;
 			});
 			return values;
 		} else {
@@ -27,7 +31,7 @@ export const contents = {
 
 			// Find active index
 			let selected = values.filter((value, index) => {
-				value.index = index;
+				value.index = index; // Ensure value has correct index
 				return (value?.handle || value?.id) == id;
 			});
 

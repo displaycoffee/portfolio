@@ -11,13 +11,14 @@ export const Projects = () => {
 
 	// Gallery for projects
 	const gallery = {
+		headers: false,
 		navigation: {
 			back: 'Back to "Projects"',
 		},
 		path: '/projects',
-		thumbnails: {
-			headers: false,
-			tabs: true,
+		tabs: {
+			all: true,
+			enabled: true,
 		},
 		values: hasProjects ? projects : [],
 	};

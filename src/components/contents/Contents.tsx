@@ -38,16 +38,16 @@ export const ContentsRoutes = (props: ContentsRoutesProps) => {
 	}
 
 	// Create modified contents
-	const modifiedContents = contentsUtils.build(contents.values);
+	contents.values = contentsUtils.build(contents.values);
 
 	// Get contents count
-	const contentsCount = modifiedContents.length;
+	const contentsCount = contents.values.length;
 
 	return contentsCount !== 0 ? (
 		<Routes>
 			<Route path="/" element={<ContentsLinks {...contents} />} />
 
-			{modifiedContents.map((content) => {
+			{contents.values.map((content) => {
 				return <Route path=":id" element={<ContentsBody {...contents} />} key={content.id} />;
 			})}
 		</Routes>
