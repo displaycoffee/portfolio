@@ -1,25 +1,33 @@
 /* React */
-import { useEffect, useState, useContext } from 'react';
-import { Link, Routes, Route, useParams, Navigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/gallery.scss';
 
 /* Local scripts */
+import {
+	GalleryBodyProps,
+	GalleryLinksProps,
+	GalleryProps,
+	GalleryRoutesProps,
+	GalleryThumbnailsProps,
+	GalleryTabsType,
+} from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
 import { Context } from '../../context/Context';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
-export const Gallery = (props) => {
-	let { gallery } = props;
+export const Gallery = (props: GalleryProps) => {
+	const { gallery } = props;
 	const hasGallery = gallery && gallery?.path && gallery.values && gallery.values.length !== 0 ? true : false;
 
 	return hasGallery ? <GalleryRoutes gallery={gallery} /> : null;
 };
 
-export const GalleryRoutes = (props) => {
+export const GalleryRoutes = (props: GalleryRoutesProps) => {
 	const { gallery } = props;
 	const allTab = 'All';
 
@@ -33,18 +41,18 @@ export const GalleryRoutes = (props) => {
 		gallery.navigation = {};
 	}
 
-	// Ensure thumbnails are set
-	if (!gallery.thumbnails) {
-		gallery.thumbnails = {};
-	}
+	// Ensure tabs are set
+	gallery.tabs = {
+		all: gallery?.tabs?.all ? gallery.tabs.all : false,
+		enabled: gallery?.tabs?.enabled ? gallery.tabs.enabled : false,
+		values: [],
+	};
 
 	// Create modified gallery
 	gallery.values = galleryUtils.build(gallery.values, gallery?.tabs);
 
 	// Ensure tabs are set and that they have categories
 	if (gallery?.tabs?.enabled) {
-		gallery.tabs['values'] = [];
-
 		gallery.values.forEach((value) => {
 			// Add all category if set
 			const categoriesSplit = value.categories.split(', ');
@@ -56,14 +64,6 @@ export const GalleryRoutes = (props) => {
 				}
 			});
 		});
-	} else {
-		// Set object if no tabs are defined
-		gallery.tabs = {
-			all: false,
-			enabled: false,
-			headers: gallery.headers,
-			values: [],
-		};
 	}
 
 	// Set state for tab
@@ -91,7 +91,7 @@ export const GalleryRoutes = (props) => {
 	) : null;
 };
 
-export const GalleryLinks = (props) => {
+export const GalleryLinks = (props: GalleryLinksProps) => {
 	const { tabs, values } = props;
 	let { activeTab, setActiveTab } = props;
 	const context = useContext(Context);
@@ -141,7 +141,7 @@ export const GalleryLinks = (props) => {
 	);
 };
 
-export const GalleryThumbnails = (props) => {
+export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 	const { activeTab, headers, path, tabs, values } = props;
 
 	return (
@@ -167,7 +167,7 @@ export const GalleryThumbnails = (props) => {
 	);
 };
 
-export const GalleryBody = (props) => {
+export const GalleryBody = (props: GalleryBodyProps) => {
 	const { activeTab, navigation, path, values } = props;
 	const { id } = useParams();
 	const showGallery = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
@@ -178,7 +178,7 @@ export const GalleryBody = (props) => {
 	});
 
 	// Get elements
-	const elements = galleryUtils.get.navigation(filteredValues, id);
+	const elements = galleryUtils.navigation(filteredValues, id as string);
 	const { current, next, previous } = elements;
 
 	// Build navigation props

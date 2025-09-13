@@ -24,34 +24,32 @@ export const contents = {
 			return [];
 		}
 	},
-	get: {
-		navigation: (values: ContentsType[], id: string) => {
-			// Function to get navigation indexes
-			const valuesCount = values.length - 1;
+	navigation: (values: ContentsType[], id: string) => {
+		// Function to get navigation indexes
+		const valuesCount = values.length - 1;
 
-			// Find active index
-			let selected = values.filter((value, index) => {
-				value.index = index; // Ensure value has correct index
-				return (value?.handle || value?.id) == id;
-			});
+		// Find active index
+		let selected = values.filter((value, index) => {
+			value.index = index; // Ensure value has correct index
+			return (value?.handle || value?.id) == id;
+		});
 
-			// Set current
-			const current = selected.pop() as ContentsType;
+		// Set current
+		const current = selected.pop() as ContentsType;
 
-			// If previous / next index is out of bounds, loop around to start / end of values
-			const nextIndex = current.index + 1;
-			const previousIndex = current.index - 1;
+		// If previous / next index is out of bounds, loop around to start / end of values
+		const nextIndex = current.index + 1;
+		const previousIndex = current.index - 1;
 
-			// Set navigation
-			let navigation = {
-				current: current,
-				next: nextIndex > valuesCount ? values[0] : values[nextIndex],
-				previous: previousIndex < 0 ? values[valuesCount] : values[previousIndex],
-			};
+		// Set navigation
+		let navigation = {
+			current: current,
+			next: nextIndex > valuesCount ? values[0] : values[nextIndex],
+			previous: previousIndex < 0 ? values[valuesCount] : values[previousIndex],
+		};
 
-			// Return navigation
-			return navigation;
-		},
+		// Return navigation
+		return navigation;
 	},
 	params: {
 		add: (params: string, field: string, value: string, callback: Function) => {

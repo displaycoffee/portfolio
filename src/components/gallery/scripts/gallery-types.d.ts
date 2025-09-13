@@ -1,79 +1,62 @@
 /* React */
-import { FunctionComponent, ReactNode } from 'react';
+import { Dispatch } from 'react';
 
 /* Type definitions */
-type Galleries = {
-	[key: string]: Gallery;
-};
-
 type Gallery = {
-	handle: string;
-	header: string;
-	id: string;
-	show: boolean;
-	values: GalleryImage[];
-};
-
-type GalleryImage = {
 	categories: string;
 	date: string;
 	description: string;
 	description2?: string;
+	handle: string;
 	id: number;
-	image: string;
-	thumb: string;
-	mediums: string;
+	image?: string;
+	index: number;
+	mediums?: string;
 	name: string;
 	name2?: string;
+	technologies?: string;
+	thumb: string;
+	timestamp: number;
+	url?: string;
 };
 
-type GalleryOptions = {
+type GalleryPage = {
+	headers: boolean;
 	navigation: {
 		back?: string;
 	};
 	path: string;
+	tabs: GalleryTabs;
+	values: GalleryType[];
 };
 
-// type GalleryTag = {
-// 	active: boolean;
-// 	label: string;
-// 	value: string;
-// };
+type GalleryState = {
+	activeTab: string;
+	setActiveTab: Dispatch<string>;
+};
 
-// type GalleryPage = {
-// 	navigation: {
-// 		back?: string;
-// 	};
-// 	path: string;
-// 	values: ContentType[];
-// };
+type GalleryTabs = {
+	all: boolean;
+	enabled: boolean;
+	values?: string[];
+};
+
+type GalleryWithGallery = {
+	gallery: GalleryPage;
+};
 
 /* Export types */
-export type GalleriesType = Galleries;
-// export type GalleryBodyProps = GalleryPage;
+export type GalleryTabsType = GalleryTabs;
 
-// export type GalleryLinksProps = GalleryPage;
+export type GalleryType = Gallery;
 
-// export type GalleryDateProps = {
-// 	gallery: Content;
-// };
+/* Export prop types */
+export type GalleryBodyProps = GalleryPage & GalleryState;
 
-// export type GalleryProps = {
-// 	gallery: GalleryPage;
-// };
+export type GalleryLinksProps = GalleryPage & GalleryState;
 
-// export type GalleryRoutesProps = {
-// 	gallery: GalleryPage;
-// };
+export type GalleryProps = GalleryWithGallery;
 
-// export type GalleryTagsProps = {
-// 	children: ReactNode;
-// };
+export type GalleryRoutesProps = GalleryWithGallery;
 
-// export type GalleryTagsType = {
-// 	[key: string]: GalleryTagType;
-// };
-
-// export type GalleryTagType = GalleryTag;
-
-// export type ContentType = Content;
+export type GalleryThumbnailsProps = GalleryPage & GalleryState;

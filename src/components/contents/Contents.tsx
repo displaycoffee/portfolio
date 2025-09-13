@@ -197,7 +197,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const { navigation, path, values } = props;
 	const { id } = useParams();
 	const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
-	const elements = contentsUtils.get.navigation(values, id as string);
+	const elements = contentsUtils.navigation(values, id as string);
 	const { current, next, previous } = elements;
 
 	// Build navigation props
