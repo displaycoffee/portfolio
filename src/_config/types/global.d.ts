@@ -15,21 +15,6 @@ declare global {
 
 	type EventType = SyntheticEvent | Event;
 
-	type NameType = {
-		name: string;
-		name2?: string;
-	};
-
-	type NavigationValueType = {
-		handle: string;
-		id: number;
-		index: number;
-	};
-
-	type ObjectNumberType = {
-		[key: string]: number;
-	};
-
 	type ObjectStringType = {
 		[key: string]: string;
 	};

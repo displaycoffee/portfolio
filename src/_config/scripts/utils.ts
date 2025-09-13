@@ -10,52 +10,6 @@ const day = today.getDate();
 const fallback = `${year}-${month < 10 ? '0' + month : month}-${day}`;
 
 export const utils = {
-	getNavigation: (values: NavigationValueType[], id: string) => {
-		// Function to get navigation indexes
-		const valuesCount = values.length - 1;
-
-		// Set initial variables for navigation
-		let navigation: {
-			[key: string]: boolean | NavigationValueType;
-		} = {
-			current: false,
-			previous: false,
-			next: false,
-		};
-
-		// Find active index
-		let selected = values.filter((value: NavigationValueType, index: number) => {
-			value.index = index;
-			return (value?.handle || value?.id) == id;
-		});
-
-		// Update content details and create previous / next elements
-		if (selected && selected.length !== 0) {
-			// Set current
-			navigation.current = selected.pop() as NavigationValueType;
-
-			// If previous / next index is out of bounds, loop around to start / end of values
-			const previousIndex = navigation.current.index - 1;
-			const nextIndex = navigation.current.index + 1;
-			navigation.previous = previousIndex < 0 ? values[valuesCount] : values[previousIndex];
-			navigation.next = nextIndex > valuesCount ? values[0] : values[nextIndex];
-		}
-
-		return navigation;
-	},
-	handle: (category: string | boolean, value: NameType, index: number) => {
-		// Determine handle for
-		let name = index as string | number;
-		if (value?.name2) {
-			name = utils.handleize(value.name2);
-		} else if (value?.name) {
-			name = utils.handleize(value.name);
-		}
-
-		// Create unique handle / path for url routes
-		//return `${category ? `${category}-` : ``}${name}`;
-		return name;
-	},
 	handleize: (value: string) => {
 		// Format value for html classes
 		return value

@@ -5,6 +5,7 @@ import React from 'react';
 import './styles/resume.scss';
 
 /* Local scripts */
+import { ResumeSkillBarProps } from './scripts/resume-types';
 import { resume } from './scripts/resume';
 
 /* Local components */
@@ -137,8 +138,9 @@ export const Resume = () => {
 	);
 };
 
-export const ResumeSkillBar = (props) => {
+export const ResumeSkillBar = (props: ResumeSkillBarProps) => {
 	const { name, outOf } = props;
+	const outOfPercent = (outOf as number) * 10;
 
 	return (
 		<div className="skill-bar flex-wrap flex-align-items-center">
@@ -146,7 +148,7 @@ export const ResumeSkillBar = (props) => {
 
 			<div className="skill-bar-progress pixel-border-rounded">
 				<div className="skill-bar-total"></div>
-				<div className="skill-bar-out-of" style={{ width: `${outOf * 10}%` }}></div>
+				<div className="skill-bar-out-of" style={{ width: `${outOfPercent}%` }}></div>
 			</div>
 		</div>
 	);
