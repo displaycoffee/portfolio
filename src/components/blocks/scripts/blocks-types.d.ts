@@ -24,14 +24,14 @@ type HeaderIcon = {
 type Navigation = {
 	navigation?: {
 		back: string | boolean;
-		next: {
-			handle: string;
-		};
+		next: NavigationHandle;
 		path: string;
-		previous: {
-			handle: string;
-		};
+		previous: NavigationHandle;
 	};
+};
+
+type NavigationHandle = {
+	handle: string | boolean;
 };
 
 type Output = {

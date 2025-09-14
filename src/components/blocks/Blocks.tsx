@@ -127,7 +127,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 				) : showNavigation ? (
 					<nav className="pixel-navigation">
 						<ul className="pixel-navigation-list unstyled flex-wrap flex-align-items-center">
-							{navigation?.previous && (
+							{navigation?.previous?.handle && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
 									<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.previous.handle}`}>
 										<span className="icon icon-angle-left icon-shadow-x1"></span>
@@ -138,7 +138,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 
 							{navigation?.back && (
 								<>
-									{navigationSeparator}
+									{navigation?.previous?.handle ? navigationSeparator : null}
 
 									<li className="pixel-navigation-list-item pixel-navigation-back">
 										<Link className="pixel-navigation-link" to={`${navigation.path}`}>
@@ -148,15 +148,17 @@ export const PixelSection = (props: PixelSectionProps) => {
 								</>
 							)}
 
-							{navigationSeparator}
+							{navigation?.next?.handle && (
+								<>
+									{navigationSeparator}
 
-							{navigation?.next && (
-								<li className="pixel-navigation-list-item pixel-navigation-next">
-									<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.next.handle}`}>
-										<span className="pixel-navigation-label">Next</span>
-										<span className="icon icon-angle-right icon-shadow-x1"></span>
-									</Link>
-								</li>
+									<li className="pixel-navigation-list-item pixel-navigation-next">
+										<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.next.handle}`}>
+											<span className="pixel-navigation-label">Next</span>
+											<span className="icon icon-angle-right icon-shadow-x1"></span>
+										</Link>
+									</li>
+								</>
 							)}
 						</ul>
 					</nav>
