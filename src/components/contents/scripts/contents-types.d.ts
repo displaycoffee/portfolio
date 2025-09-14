@@ -5,17 +5,27 @@ import { FunctionComponent, ReactNode } from 'react';
 type Contents = {
 	component: FunctionComponent;
 	date: string;
-	description: string;
+	description?: string;
 	description2?: string;
-	handle: string;
+	handle?: string;
 	id: number;
-	index: number;
+	index?: number;
 	name: string;
 	name2?: string;
-	tags: string;
+	tags?: string;
 	thumb: string;
-	timestamp: number;
-	updated: string;
+	timestamp?: number;
+	updated?: string;
+};
+
+type ContentsOptions = {
+	options: {
+		navigation?: {
+			back?: string;
+		};
+		path: string;
+		values: Contents[];
+	};
 };
 
 type ContentsTag = {
@@ -30,22 +40,18 @@ type ContentsTags = {
 
 type ContentsPage = {
 	navigation: {
-		back?: string;
+		back: string | boolean;
 	};
 	path: string;
-	values: ContentsType[];
+	values: Contents[];
 };
 
 type ContentsWithChildren = {
 	children: ReactNode;
 };
 
-type ContentsWithContent = {
+type ContentsDate = {
 	content: Contents;
-};
-
-type ContentsWithContents = {
-	contents: ContentsPage;
 };
 
 /* Export types */
@@ -60,10 +66,10 @@ export type ContentsBodyProps = ContentsPage;
 
 export type ContentsLinksProps = ContentsPage;
 
-export type ContentsDateProps = ContentsWithContent;
+export type ContentsDateProps = ContentsDate;
 
-export type ContentsProps = ContentsWithContents;
+export type ContentsProps = ContentsOptions;
 
-export type ContentsRoutesProps = ContentsWithContents;
+export type ContentsRoutesProps = ContentsOptions;
 
 export type ContentsTagsProps = ContentsWithChildren;

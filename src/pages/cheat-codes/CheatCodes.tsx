@@ -2,6 +2,7 @@
 import { useContext, useId } from 'react';
 
 /* Local scripts */
+import { CheatCodesSectionProps } from './scripts/cheat-codes-types';
 import { cheatCodes } from './scripts/cheat-codes';
 
 /* Local components */
@@ -13,8 +14,8 @@ export const CheatCodes = () => {
 	const showContent = window.location.pathname == '/cheat-codes' ? true : false;
 	const hasCheatCodes = cheatCodes && cheatCodes.length !== 0 ? true : false;
 
-	// Contents for cheat codes
-	const contents = {
+	// Options for content
+	const contentsOptions = {
 		navigation: {
 			back: 'Back to "Cheat Codes"',
 		},
@@ -26,13 +27,13 @@ export const CheatCodes = () => {
 		<>
 			{showContent && <HeaderIcon>Cheat Codes</HeaderIcon>}
 
-			<Contents contents={contents} />
+			<Contents options={contentsOptions} />
 		</>
 	) : null;
 };
 
-export const CheatCodesSection = (props) => {
-	const { header, children } = props;
+export const CheatCodesSection = (props: CheatCodesSectionProps) => {
+	const { children, header } = props;
 	const fallbackId = useId().replace(/:/g, '');
 	const context = useContext(Context);
 	const utils = context.utils;

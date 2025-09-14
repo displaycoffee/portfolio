@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 9,
+		date: `09.14.25`,
+		description: `Well, I finally did it. Finished converting this portfolio to TypeScript, which was a huger task than I had anticipated.`,
+	},
+	{
 		id: 8,
 		date: `09.03.25`,
 		description: `It's been a while. I've been working on things behind the scenes. Mostly I updated the underlying code structure for this portfolio. I did, however, update my resume section, "Burmecia" template, and also changed the hover effect for the "Friends Not Food" cheat code.`,

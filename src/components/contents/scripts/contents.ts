@@ -38,8 +38,8 @@ export const contents = {
 		const current = selected.pop() as ContentsType;
 
 		// If previous / next index is out of bounds, loop around to start / end of values
-		const nextIndex = current.index + 1;
-		const previousIndex = current.index - 1;
+		const nextIndex = (current.index as number) + 1;
+		const previousIndex = (current.index as number) - 1;
 
 		// Set navigation
 		let navigation = {

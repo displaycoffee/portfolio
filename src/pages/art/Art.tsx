@@ -11,9 +11,6 @@ export const Art = () => {
 
 	// Options for gallery
 	const galleryOptions = {
-		headers: {
-			enabled: false,
-		},
 		navigation: {
 			back: 'Back to "Art"',
 		},

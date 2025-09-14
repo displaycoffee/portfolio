@@ -5,6 +5,7 @@ import { useContext, useId } from 'react';
 import './styles/articles.scss';
 
 /* Local scripts */
+import { ArticlesSectionProps, ArticlesTocProps } from './scripts/articles-types';
 import { articles } from './scripts/articles';
 
 /* Local components */
@@ -16,8 +17,8 @@ export const Articles = () => {
 	const showContent = window.location.pathname == '/articles' ? true : false;
 	const hasArticles = articles && articles.length !== 0 ? true : false;
 
-	// Contents for articles
-	const contents = {
+	// Options for content
+	const contentsOptions = {
 		navigation: {
 			back: 'Back to "Articles"',
 		},
@@ -29,13 +30,13 @@ export const Articles = () => {
 		<>
 			{showContent && <HeaderIcon>Articles</HeaderIcon>}
 
-			<Contents contents={contents} />
+			<Contents options={contentsOptions} />
 		</>
 	) : null;
 };
 
-export const ArticlesSection = (props) => {
-	let { header, scrollTop, children } = props;
+export const ArticlesSection = (props: ArticlesSectionProps) => {
+	let { children, header, scrollTop } = props;
 	scrollTop = typeof scrollTop == 'undefined' ? true : scrollTop;
 	const fallbackId = useId().replace(/:/g, '');
 	const context = useContext(Context);
@@ -58,8 +59,8 @@ export const ArticlesSection = (props) => {
 	);
 };
 
-export const ArticlesToc = (props) => {
-	const { sections, offset } = props;
+export const ArticlesToc = (props: ArticlesTocProps) => {
+	const { offset, sections } = props;
 	const context = useContext(Context);
 	const utils = context.utils;
 
