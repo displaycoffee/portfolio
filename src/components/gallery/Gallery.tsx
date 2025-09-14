@@ -1,19 +1,12 @@
 /* React */
-import { useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/gallery.scss';
 
 /* Local scripts */
-import {
-	GalleryBodyProps,
-	GalleryLinksProps,
-	GalleryProps,
-	GalleryRoutesProps,
-	GalleryThumbnailsProps,
-	GalleryTabsType,
-} from './scripts/gallery-types';
+import { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryRoutesProps, GalleryThumbnailsProps } from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
@@ -21,70 +14,75 @@ import { Context } from '../../context/Context';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
 export const Gallery = (props: GalleryProps) => {
-	const { gallery } = props;
-	const hasGallery = gallery && gallery?.path && gallery.values && gallery.values.length !== 0 ? true : false;
+	const { options } = props;
+	const hasGallery = options && options?.path && options.values && options.values.length !== 0 ? true : false;
 
-	return hasGallery ? <GalleryRoutes gallery={gallery} /> : null;
+	return hasGallery ? <GalleryRoutes options={options} /> : null;
 };
 
 export const GalleryRoutes = (props: GalleryRoutesProps) => {
-	const { gallery } = props;
+	const { options } = props;
+	const { headers, navigation, path, tabs, values } = options;
 	const allTab = 'All';
+	let [activeTab, setActiveTab] = useState(allTab);
 
-	// Ensure headers is set
-	if (!gallery.headers) {
-		gallery.headers = false;
-	}
-
-	// Ensure navigation is set
-	if (!gallery.navigation) {
-		gallery.navigation = {};
-	}
-
-	// Ensure tabs are set
-	gallery.tabs = {
-		all: gallery?.tabs?.all ? gallery.tabs.all : false,
-		enabled: gallery?.tabs?.enabled ? gallery.tabs.enabled : false,
-		values: [],
+	// Create gallery props for forming properties
+	const galleryProps = {
+		headers: {
+			enabled: headers?.enabled ? headers.enabled : false,
+			label: headers?.label ? headers.label : false,
+		},
+		navigation: {
+			back: navigation?.back ? navigation.back : false,
+		},
+		path: path,
+		tabs: {
+			activeTab: activeTab,
+			all: tabs?.all ? tabs.all : false,
+			enabled: tabs?.enabled ? tabs.enabled : false,
+			setActiveTab: setActiveTab,
+			values: [] as string[],
+		},
+		values: values,
 	};
 
 	// Create modified gallery
-	gallery.values = galleryUtils.build(gallery.values, gallery?.tabs);
+	galleryProps.values = galleryUtils.build(galleryProps.values, galleryProps.tabs);
 
 	// Ensure tabs are set and that they have categories
-	if (gallery?.tabs?.enabled) {
-		gallery.values.forEach((value) => {
-			// Add all category if set
-			const categoriesSplit = value.categories.split(', ');
+	if (galleryProps.tabs.enabled) {
+		galleryProps.values.forEach((value) => {
+			if (value?.categories) {
+				// Add all category if set
+				const categoriesSplit = value.categories.split(', ');
 
-			// If category is not in tabs, add it
-			categoriesSplit.forEach((category) => {
-				if (!gallery.tabs.values.includes(category)) {
-					gallery.tabs.values.push(category);
-				}
-			});
+				// If category is not in tabs, add it
+				categoriesSplit.forEach((category) => {
+					if (!galleryProps.tabs.values.includes(category)) {
+						galleryProps.tabs.values.push(category);
+					}
+				});
+			}
 		});
 	}
 
 	// Set state for tab
-	const firstTab = gallery.tabs.values[0] ? gallery.tabs.values[0] : allTab;
-	let [activeTab, setActiveTab] = useState(firstTab);
+	const firstTab = galleryProps.tabs.values[0] ? galleryProps.tabs.values[0] : allTab;
 
-	// Set gallery props
-	const galleryProps = {
-		...gallery,
-		activeTab: activeTab,
-		setActiveTab: setActiveTab,
-	};
+	// Update state for galleryProps
+	useEffect(() => {
+		setActiveTab(firstTab);
+		galleryProps.tabs.activeTab = activeTab;
+	}, []);
 
 	// Get gallery count
-	const galleryCount = gallery.values.length;
+	const galleryCount = galleryProps.values.length;
 
 	return galleryCount !== 0 ? (
 		<Routes>
 			<Route path="/" element={<GalleryLinks {...galleryProps} />} />
 
-			{gallery.values.map((value) => {
+			{galleryProps.values.map((value) => {
 				return <Route path=":id" element={<GalleryBody {...galleryProps} />} key={value.id} />;
 			})}
 		</Routes>
@@ -93,7 +91,7 @@ export const GalleryRoutes = (props: GalleryRoutesProps) => {
 
 export const GalleryLinks = (props: GalleryLinksProps) => {
 	const { tabs, values } = props;
-	let { activeTab, setActiveTab } = props;
+	let { activeTab, setActiveTab } = tabs;
 	const context = useContext(Context);
 	const utils = context.utils;
 
@@ -104,7 +102,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 	// Sort values by newest
 	values.sort((a, b) => {
-		return b.timestamp - a.timestamp;
+		return (b.timestamp as number) - (a.timestamp as number);
 	});
 
 	return (
@@ -142,7 +140,8 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 };
 
 export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
-	const { activeTab, headers, path, tabs, values } = props;
+	const { headers, path, tabs, values } = props;
+	const { activeTab } = tabs;
 
 	return (
 		<div className="gallery active">
@@ -150,7 +149,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 
 			<div className="gallery-items">
 				{values.map((value) => {
-					const showItem = !tabs.enabled || (tabs.enabled && value.categories.includes(activeTab)) ? true : false;
+					const showItem = !tabs.enabled || (tabs.enabled && value.categories && value.categories.includes(activeTab)) ? true : false;
 
 					return showItem ? (
 						<div className="gallery-item" key={value.id}>
@@ -168,25 +167,31 @@ export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 };
 
 export const GalleryBody = (props: GalleryBodyProps) => {
-	const { activeTab, navigation, path, values } = props;
+	const { navigation, path, tabs, values } = props;
+	const { activeTab } = tabs;
 	const { id } = useParams();
 	const showGallery = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
 
 	// Filter values according to current tab
 	const filteredValues = values.filter((value) => {
-		return value.categories.includes(activeTab);
+		return value.categories && value.categories.includes(activeTab);
 	});
 
 	// Get elements
 	const elements = galleryUtils.navigation(filteredValues, id as string);
 	const { current, next, previous } = elements;
 
+	// Ensure handles do not match current
+	const compareHandle = (handle: string) => {
+		return handle == current.handle ? { handle: false } : { handle: handle };
+	};
+
 	// Build navigation props
 	const navigationProps = {
+		back: navigation.back,
+		next: compareHandle(next.handle as string),
 		path: path,
-		previous: previous,
-		next: next,
-		back: navigation?.back ? navigation.back : false,
+		previous: compareHandle(previous.handle as string),
 	};
 
 	return showGallery ? (
@@ -202,7 +207,9 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 					{(current.image || current.thumb) && (
 						<div className="gallery-image">
 							<a href={current.image ? current.image : current.thumb} target="_blank" rel="noreferrer">
-								<div className={`gallery-image-wrapper${current.categories.includes('Pixels') ? '' : ' pixel-border'}`}>
+								<div
+									className={`gallery-image-wrapper${current.categories && current.categories.includes('Pixels') ? '' : ' pixel-border'}`}
+								>
 									<img src={current.image ? current.image : current.thumb} alt={current.name} title={current.name} loading="lazy" />
 								</div>
 							</a>
