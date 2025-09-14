@@ -2,7 +2,7 @@ export const updates = [
 	{
 		id: 9,
 		date: `09.14.25`,
-		description: `Well, I finally did it. Finished converting this portfolio to TypeScript, which was a huger task than I had anticipated.`,
+		description: `Well, I finally did it. Finished converting this portfolio to TypeScript, which was a huger task than I had anticipated. Also, I apparently finished this conversion on the two year anniversary of creating this portfolio.`,
 	},
 	{
 		id: 8,
