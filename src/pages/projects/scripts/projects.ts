@@ -5,11 +5,11 @@ const projectsPath = `${distPath}projects/`;
 export const projects = [
 	{
 		id: 30,
-		image: `${projectsPath}2022-09-14-displaycoffee.jpg`,
-		thumb: `${projectsPath}2022-09-14-displaycoffee-${thumbnailSize}.jpg`,
+		image: `${projectsPath}2023-09-14-displaycoffee.jpg`,
+		thumb: `${projectsPath}2023-09-14-displaycoffee-${thumbnailSize}.jpg`,
 		name: 'Portfolio',
 		name2: 'Portfolio 4',
-		date: '09.14.22',
+		date: '09.14.23',
 		technologies: 'HTML, CSS, Sass, JavaScript, React, TypeScript',
 		categories: 'Personal',
 		description: `The latest version of my portfolio. You're on it.`,

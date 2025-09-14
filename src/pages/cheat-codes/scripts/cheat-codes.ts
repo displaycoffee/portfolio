@@ -20,7 +20,7 @@ export const cheatCodes = [
 		name: `Burmecia`,
 		date: `03.28.22`,
 		updated: `08.25.25`,
-		tags: `React, JavaScript, Sass, Vite, Framework`,
+		tags: `React, TypeScript, JavaScript, Sass, Vite, Framework`,
 		thumb: `${cheatCodesPath}burmecia-400x250.jpg`,
 		description: `React-based framework to create projects. Primarily built with React, TypeScript, JavaScript, Sass, and Vite. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.`,
 		description2: `This is named after a city in the game Final Fantasy IX -- the "Realm of Eternal Rain" and home to the character Freya.`,
