@@ -26,7 +26,7 @@ export const GalleryRoutes = (props: GalleryRoutesProps) => {
 	const allTab = 'All';
 	let [activeTab, setActiveTab] = useState(allTab);
 
-	// Create gallery props for forming properties
+	// Create galleryProps for components
 	const galleryProps = {
 		headers: {
 			enabled: headers?.enabled ? headers.enabled : false,
@@ -143,9 +143,12 @@ export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 	const { headers, path, tabs, values } = props;
 	const { activeTab } = tabs;
 
+	// Determine label for header
+	const label = headers.enabled && headers.label && !tabs.enabled ? headers.label : activeTab;
+
 	return (
-		<div className="gallery active">
-			{headers ? <HeaderIcon tag={'h4'}>{activeTab}</HeaderIcon> : null}
+		<div className="gallery">
+			{headers?.enabled ? <HeaderIcon tag={'h4'}>{label}</HeaderIcon> : null}
 
 			<div className="gallery-items">
 				{values.map((value) => {

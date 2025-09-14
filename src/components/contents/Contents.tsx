@@ -23,35 +23,41 @@ import { Context } from '../../context/Context';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
 export const Contents = (props: ContentsProps) => {
-	const { contents } = props;
-	const hasContents = contents && contents?.path && contents.values && contents.values.length !== 0 ? true : false;
+	const { options } = props;
+	const hasContents = options && options?.path && options.values && options.values.length !== 0 ? true : false;
 
-	return hasContents ? <ContentsRoutes contents={contents} /> : null;
+	return hasContents ? <ContentsRoutes options={options} /> : null;
 };
 
 export const ContentsRoutes = (props: ContentsRoutesProps) => {
-	const { contents } = props;
+	const { options } = props;
+	const { navigation, path, values } = options;
 
-	// Ensure navigation is set
-	if (!contents.navigation) {
-		contents.navigation = {};
-	}
+	// Create contentsProps for components
+	const contentsProps = {
+		navigation: {
+			back: navigation?.back ? navigation.back : false,
+		},
+		path: path,
+		values: values,
+	};
 
 	// Create modified contents
-	contents.values = contentsUtils.build(contents.values);
+	contentsProps.values = contentsUtils.build(contentsProps.values);
 
 	// Get contents count
-	const contentsCount = contents.values.length;
+	const contentsCount = contentsProps.values.length;
 
 	return contentsCount !== 0 ? (
 		<Routes>
-			<Route path="/" element={<ContentsLinks {...contents} />} />
+			<Route path="/" element={<ContentsLinks {...contentsProps} />} />
 
-			{contents.values.map((content) => {
-				return <Route path=":id" element={<ContentsBody {...contents} />} key={content.id} />;
+			{contentsProps.values.map((content) => {
+				return <Route path=":id" element={<ContentsBody {...contentsProps} />} key={content.id} />;
 			})}
 		</Routes>
 	) : null;
+	return null;
 };
 
 export const ContentsLinks = (props: ContentsLinksProps) => {
@@ -65,7 +71,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 	// Create tags from content values
 	values.forEach((value) => {
-		const tagsConfig = contentsUtils.tags(value?.tags);
+		const tagsConfig = contentsUtils.tags(value?.tags as string);
 
 		// Set timestamp to sort values
 		utils.setTimestamp(value);
@@ -87,7 +93,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 	// Sort values by newest
 	values.sort((a, b) => {
-		return b.timestamp - a.timestamp;
+		return (b.timestamp as number) - (a.timestamp as number);
 	});
 
 	// Once tags are built, set tags
@@ -141,7 +147,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 			<div className="contents-row row row-wrap row-spacing-20">
 				{values.map((value) => {
-					const tagsConfig = contentsUtils.tags(value?.tags);
+					const tagsConfig = contentsUtils.tags(value?.tags as string);
 
 					// Check if any tags are active to display certain content
 					const findActive = tagsConfig.hasTags ? tagsConfig.values.filter((tag) => tags[tag.value].active) : [];
@@ -200,16 +206,21 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const elements = contentsUtils.navigation(values, id as string);
 	const { current, next, previous } = elements;
 
+	// Ensure handles do not match current
+	const compareHandle = (handle: string) => {
+		return handle == current.handle ? { handle: false } : { handle: handle };
+	};
+
 	// Build navigation props
 	const navigationProps = {
+		back: navigation.back,
+		next: compareHandle(next.handle as string),
 		path: path,
-		previous: previous,
-		next: next,
-		back: navigation?.back ? navigation.back : false,
+		previous: compareHandle(previous.handle as string),
 	};
 
 	// Get tags
-	const tagsConfig = contentsUtils.tags(current?.tags);
+	const tagsConfig = contentsUtils.tags(current?.tags as string);
 
 	// Check if we have a header
 	const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
