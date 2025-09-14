@@ -219,13 +219,13 @@
 			padding: 0 theme.$spacing-x4;
 			font-size: functions.em(14px, rem);
 		}
-		.button-primary:hover {
+		.button-primary:not(.active):hover {
 			text-shadow: 2px 2px 0 theme.$color-07;
 			&, &:before, &:after {
 				background-color: theme.$color-03;
 			}
 		}
-		.button-secondary:hover {
+		.button-secondary:not(.active):hover {
 			text-shadow: 2px 2px 0 theme.$color-03;
 			&, &:before, &:after {
 				background-color: theme.$color-04;
