@@ -121,11 +121,10 @@
 
 	.main {
 		.main-layout {
-			margin: 0 -#{$layout-main-spacing};
+			@include mixins.gap($layout-main-spacing);
 			.content, .sidebar {
 				@include mixins.flex(0 1 auto);
 				width: 100%;
-				padding: 0 $layout-main-spacing;
 			}
 		}
 	}
