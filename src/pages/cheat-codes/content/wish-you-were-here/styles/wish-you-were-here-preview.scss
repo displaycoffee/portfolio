@@ -137,16 +137,14 @@
 				display: -ms-flex;
 				display: -moz-flex;
 				display: flex;
-				margin: 0 -#{$wish-you-were-here-spacing} -#{$wish-you-were-here-spacing} -#{$wish-you-were-here-spacing};
+				-ms-gap: $wish-you-were-here-spacing;
+				gap: $wish-you-were-here-spacing;
 				.dc-wish-you-were-here-column {
 					min-width: 1px;
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					-moz-flex: 0 1 auto;
-					flex: 0 1 auto;
-					width: 100%;
-					padding: 0 $wish-you-were-here-spacing;
-					margin: 0 0 $wish-you-were-here-spacing 0;
+					-webkit-flex: 1 1 100%;
+					-ms-flex: 1 1 100%;
+					-moz-flex: 1 1 100%;
+					flex: 1 1 100%;
 				}
 			}
 		}
@@ -159,7 +157,11 @@
 					text-align: right;
 				}
 				.dc-wish-you-were-here-row .dc-wish-you-were-here-column {
-					width: 50%;
+					-webkit-flex: 0 1 auto;
+					-ms-flex: 0 1 auto;
+					-moz-flex: 0 1 auto;
+					flex: 0 1 auto;
+					width: calc((100% - ($wish-you-were-here-spacing * 1)) / 2);
 				}
 			}
 		}
