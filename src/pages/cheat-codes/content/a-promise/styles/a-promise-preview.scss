@@ -80,13 +80,12 @@
 			flex-flow: row wrap;
 			-webkit-align-items: center;
 			align-items: center;
-			margin: 0 -#{$a-promise-spacing};
+			-ms-gap: $a-promise-spacing-double;
+			gap: $a-promise-spacing-double;
 			&:after, .dc-a-promise-column {
 				width: auto;
 				min-height: 1px;
 				min-width: 1px;
-				padding: 0 $a-promise-spacing;
-				margin: 0 0 $a-promise-spacing-double 0;
 			}
 			&:after {
 				content: '';

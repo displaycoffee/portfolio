@@ -83,7 +83,8 @@
 			display: flex;
 			-webkit-flex-flow: row wrap;
 			flex-flow: row wrap;
-			margin: 0 -#{$dreaming-of-snow-spacing-half} -#{$dreaming-of-snow-spacing} -#{$dreaming-of-snow-spacing-half};
+			-ms-gap: $dreaming-of-snow-spacing;
+			gap: $dreaming-of-snow-spacing;
 			.dc-dreaming-of-snow-column {
 				-webkit-flex: 1 1 100%;
 				-ms-flex: 1 1 100%;
@@ -92,8 +93,6 @@
 				width: auto;
 				min-height: 1px;
 				min-width: 1px;
-				padding: 0 $dreaming-of-snow-spacing-half;
-				margin: 0 0 $dreaming-of-snow-spacing 0;
 			}
 		}
 		.dc-dreaming-of-snow-blue {
