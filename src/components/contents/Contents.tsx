@@ -1,6 +1,6 @@
 /* React */
-import { useContext, useEffect, useState } from 'react';
-import { Link, Navigate, Routes, Route, useParams, useSearchParams } from 'react-router-dom';
+import { MouseEventHandler, useContext, useEffect, useState } from 'react';
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/contents.scss';
@@ -8,10 +8,10 @@ import './styles/contents.scss';
 /* Local scripts */
 import {
 	ContentsBodyProps,
+	ContentsBodyProps2,
 	ContentsDateProps,
 	ContentsLinksProps,
 	ContentsProps,
-	ContentsRoutesProps,
 	ContentsTagsProps,
 	ContentsTagsType,
 	ContentsTagType,
@@ -24,14 +24,8 @@ import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
 export const Contents = (props: ContentsProps) => {
 	const { options } = props;
-	const hasContents = options && options?.path && options.values && options.values.length !== 0 ? true : false;
-
-	return hasContents ? <ContentsRoutes options={options} /> : null;
-};
-
-export const ContentsRoutes = (props: ContentsRoutesProps) => {
-	const { options } = props;
 	const { navigation, path, values } = options;
+	const hasContents = path && values && values.length !== 0 ? true : false;
 
 	// Create contentsProps for components
 	const contentsProps = {
@@ -39,7 +33,7 @@ export const ContentsRoutes = (props: ContentsRoutesProps) => {
 			back: navigation?.back ? navigation.back : false,
 		},
 		path: path,
-		values: values,
+		values: hasContents ? values : [],
 	};
 
 	// Create modified contents
@@ -48,16 +42,7 @@ export const ContentsRoutes = (props: ContentsRoutesProps) => {
 	// Get contents count
 	const contentsCount = contentsProps.values.length;
 
-	return contentsCount !== 0 ? (
-		<Routes>
-			<Route path="/" element={<ContentsLinks {...contentsProps} />} />
-
-			{contentsProps.values.map((content) => {
-				return <Route path=":id" element={<ContentsBody {...contentsProps} />} key={content.id} />;
-			})}
-		</Routes>
-	) : null;
-	return null;
+	return contentsCount !== 0 ? <ContentsLinks {...contentsProps} /> : null;
 };
 
 export const ContentsLinks = (props: ContentsLinksProps) => {
@@ -102,7 +87,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	}, []);
 
 	// Click functionality for applying tabs
-	const handleTag = (e: EventType, tag: ContentsTagType) => {
+	const handleTag = (e: EventsType, tag: ContentsTagType) => {
 		e.preventDefault();
 
 		if (tags[tag.value].active) {
@@ -120,7 +105,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	};
 
 	// Click functionality for clear
-	const handleClear = (e: EventType) => {
+	const handleClear = (e: EventsType) => {
 		e.preventDefault();
 
 		// Remove all tag params
@@ -141,7 +126,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 		<div className="contents">
 			{searchParams ? (
 				<div className="contents-clear">
-					<Button onClick={(e) => handleClear(e)}>Clear tags</Button>
+					<Button onClick={(e: MouseEventHandler<HTMLButtonElement>) => handleClear(e)}>Clear tags</Button>
 				</div>
 			) : null}
 
@@ -182,7 +167,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 												<Button
 													type={tag.active ? 'secondary active' : 'primary'}
 													size={'x-small'}
-													onClick={(e) => handleTag(e, tag)}
+													onClick={(e: MouseEventHandler<HTMLButtonElement>) => handleTag(e, tag)}
 												>
 													{tag.label}
 												</Button>
@@ -197,6 +182,89 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 			</div>
 		</div>
 	);
+};
+
+export const ContentsBodyCopy = (props: ContentsBodyProps2) => {
+	const { navigation, path, values, children } = props;
+	// const { id } = useParams();
+	// const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
+	// const elements = contentsUtils.navigation(values, id as string);
+	// const { current, next, previous } = elements;
+
+	// // Ensure handles do not match current
+	// const compareHandle = (handle: string) => {
+	// 	return handle == current.handle ? { handle: false } : { handle: handle };
+	// };
+
+	// // Build navigation props
+	// const navigationProps = {
+	// 	back: navigation.back,
+	// 	next: compareHandle(next.handle as string),
+	// 	path: path,
+	// 	previous: compareHandle(previous.handle as string),
+	// };
+
+	// // Get tags
+	// const tagsConfig = contentsUtils.tags(current?.tags as string);
+
+	// // Check if we have a header
+	// const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
+
+	// Set component for body
+	const Body = children;
+
+	return children;
+
+	// return showContents ? (
+	// 	current ? (
+	// 		<div id={`contents-${current.handle}`} className="contents spacing-reset">
+	// 			{hasHeader ? (
+	// 				<header className="contents-header">
+	// 					{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
+
+	// 					<ContentsDate content={current} />
+
+	// 					{tagsConfig.hasTags ? (
+	// 						<ContentsTags>
+	// 							{tagsConfig.values.map((tag, index) => {
+	// 								return (
+	// 									<div className="contents-tags-column" key={index}>
+	// 										<Button
+	// 											size={'x-small'}
+	// 											onClick={() => {
+	// 												window.location.href = `${path}?${contentsUtils.params.url.tag}=${tag.value}`;
+	// 											}}
+	// 										>
+	// 											{tag.label}
+	// 										</Button>
+	// 									</div>
+	// 								);
+	// 							})}
+	// 						</ContentsTags>
+	// 					) : null}
+	// 				</header>
+	// 			) : null}
+
+	// 			{current?.description ? (
+	// 				<div className="contents-description spacing-reset">
+	// 					<h4>Description</h4>
+
+	// 					<p>{current.description}</p>
+
+	// 					{current?.description2 ? <p>{current.description2}</p> : null}
+	// 				</div>
+	// 			) : null}
+
+	// 			<div className="contents-body spacing-reset">
+	// 				<Body />
+	// 			</div>
+
+	// 			<PixelSection navigation={navigationProps} />
+	// 		</div>
+	// 	) : (
+	// 		<Navigate to={path} replace />
+	// 	)
+	// ) : null;
 };
 
 export const ContentsBody = (props: ContentsBodyProps) => {

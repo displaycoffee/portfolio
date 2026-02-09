@@ -1,6 +1,3 @@
-/* React */
-import { Dispatch } from 'react';
-
 /* Type definitions */
 type Gallery = {
 	categories?: string;

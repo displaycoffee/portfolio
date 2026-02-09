@@ -5,7 +5,6 @@ import React from 'react';
 import './styles/resume.scss';
 
 /* Local scripts */
-import { ResumeSkillBarProps } from './scripts/resume-types';
 import { resume } from './scripts/resume';
 
 /* Local components */
@@ -138,7 +137,7 @@ export const Resume = () => {
 	);
 };
 
-export const ResumeSkillBar = (props: ResumeSkillBarProps) => {
+export const ResumeSkillBar = (props: ObjectPrimitiveProps) => {
 	const { name, outOf } = props;
 	const outOfPercent = (outOf as number) * 10;
 

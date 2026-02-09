@@ -1,6 +1,3 @@
-/* React */
-import { JSX, MouseEventHandler, ReactNode } from 'react';
-
 /* Type definitions */
 type BlockShared = {
 	children?: ReactNode;
