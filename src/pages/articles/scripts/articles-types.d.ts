@@ -1,6 +1,3 @@
-/* React */
-import { ReactNode } from 'react';
-
 /* Type definitions */
 type ArticlesSection = {
 	children: ReactNode;

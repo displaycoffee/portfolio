@@ -1,102 +1,90 @@
-/* Local components */
-import { Start } from '../../../pages/start/Start';
-import { About } from '../../../pages/about/About';
-import { Art } from '../../../pages/art/Art';
-import { Projects } from '../../../pages/projects/Projects';
-import { Articles } from '../../../pages/articles/Articles';
-import { CheatCodes } from '../../../pages/cheat-codes/CheatCodes';
-import { Resume } from '../../../pages/resume/Resume';
+/* Local scripts */
+import { utils } from '../../../_config/scripts/utils';
+import { NavigationType, NavigationChildType } from './navigation-types';
+import { articles } from '../../../pages/articles/scripts/articles';
+import { cheatCodes } from '../../../pages/cheat-codes/scripts/cheat-codes';
+
+/* Helper function to build children */
+const buildChildren = (child: NavigationChildType, parent: string) => {
+	return {
+		id: child.id,
+		alt: child.name,
+		isRoute: true,
+		label: child.name,
+		showInNav: false,
+		url: `/${parent}/${utils.handleize(child.name)}`,
+	};
+};
+
+/* Build articles children */
+const articlesChildren = [] as NavigationType[];
+articles.forEach((article) => {
+	articlesChildren.push(buildChildren(article, 'articles'));
+});
+
+/* Build cheat-codes children */
+const cheatCodesChildren = [] as NavigationType[];
+cheatCodes.forEach((code) => {
+	cheatCodesChildren.push(buildChildren(code, 'cheat-codes'));
+});
 
 export const navigation = [
 	{
-		id: 6,
-		label: 'Cheat codes',
-		alt: 'Coming soon... code snippets',
-		url: '/cheat-codes',
-		showInNav: true,
+		id: 0,
+		alt: 'Back to start',
 		isRoute: true,
-		hasChildren: true,
-		component: CheatCodes,
-	},
-	{
-		id: 5,
-		label: 'Articles',
-		alt: 'Coming soon... articles',
-		url: '/articles',
+		label: 'Start',
 		showInNav: true,
-		isRoute: true,
-		hasChildren: true,
-		component: Articles,
-	},
-	{
-		id: 4,
-		label: 'Resume',
-		alt: 'Fancy online resume',
-		url: '/resume',
-		showInNav: true,
-		isRoute: true,
-		hasChildren: false,
-		component: Resume,
-	},
-	{
-		id: 3,
-		label: 'Art',
-		alt: 'Pixel, traditional, and digital art',
-		url: '/art',
-		showInNav: true,
-		isRoute: true,
-		hasChildren: true,
-		component: Art,
-	},
-	{
-		id: 2,
-		label: 'Projects',
-		alt: 'Web projects throughout the years',
-		url: '/projects',
-		showInNav: true,
-		isRoute: true,
-		hasChildren: true,
-		component: Projects,
+		url: '/',
 	},
 	{
 		id: 1,
-		label: 'About',
 		alt: 'All about me, Adria',
-		url: '/about',
-		showInNav: true,
 		isRoute: true,
-		hasChildren: false,
-		component: About,
+		label: 'About',
+		showInNav: true,
+		url: '/about',
 	},
 	{
-		id: 0,
-		label: 'Start',
-		alt: 'Back to start',
-		url: '/',
-		showInNav: true,
+		id: 2,
+		alt: 'Web projects throughout the years',
 		isRoute: true,
-		hasChildren: false,
-		component: Start,
+		label: 'Projects',
+		showInNav: true,
+		url: '/projects',
 	},
-].sort((a, b) => {
-	// Sort navigation by id
-	return a.id - b.id;
-});
-
-/* Function to filter out navigation links */
-export const createNavigationList = (navigation: PageType[], isRoute: boolean) => {
-	// Determine initial navigaton check
-	let hasNavigation = navigation && navigation.length !== 0 ? true : false;
-
-	// Filter out navigation links
-	navigation = navigation.filter((nav) => {
-		const hasNavLink = (isRoute && nav.isRoute) || (!isRoute && nav.showInNav) ? true : false;
-		return hasNavLink;
-	});
-
-	// Check navigation again
-	hasNavigation = navigation && navigation.length !== 0 ? true : false;
-
-	// Return final navigation
-	return hasNavigation ? navigation : [];
-};
+	{
+		id: 3,
+		alt: 'Pixel, traditional, and digital art',
+		isRoute: true,
+		label: 'Art',
+		showInNav: true,
+		url: '/art',
+	},
+	{
+		id: 4,
+		alt: 'Fancy online resume',
+		isRoute: true,
+		label: 'Resume',
+		showInNav: true,
+		url: '/resume',
+	},
+	{
+		id: 5,
+		alt: 'Words and things',
+		children: articlesChildren,
+		isRoute: true,
+		label: 'Articles',
+		showInNav: true,
+		url: '/articles',
+	},
+	{
+		id: 6,
+		alt: 'Code snippets',
+		children: cheatCodesChildren,
+		isRoute: true,
+		label: 'Cheat codes',
+		showInNav: true,
+		url: '/cheat-codes',
+	},
+] as NavigationType[];

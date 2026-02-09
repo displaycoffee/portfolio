@@ -1,6 +1,3 @@
-/* React */
-import { FunctionComponent, ReactNode } from 'react';
-
 /* Type definitions */
 type Contents = {
 	component: FunctionComponent;
@@ -46,6 +43,15 @@ type ContentsPage = {
 	values: Contents[];
 };
 
+type ContentsPage2 = {
+	navigation: {
+		back: string | boolean;
+	};
+	path: string;
+	values: Contents[];
+	children: ReactNode;
+};
+
 type ContentsWithChildren = {
 	children: ReactNode;
 };
@@ -64,12 +70,12 @@ export type ContentsType = Contents;
 /* Export prop types */
 export type ContentsBodyProps = ContentsPage;
 
+export type ContentsBodyProps2 = ContentsPage2;
+
 export type ContentsLinksProps = ContentsPage;
 
 export type ContentsDateProps = ContentsDate;
 
 export type ContentsProps = ContentsOptions;
-
-export type ContentsRoutesProps = ContentsOptions;
 
 export type ContentsTagsProps = ContentsWithChildren;
