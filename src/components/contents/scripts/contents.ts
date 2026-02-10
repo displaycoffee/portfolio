@@ -24,14 +24,17 @@ export const contents = {
 			return [];
 		}
 	},
-	navigation: (values: ContentsType[], id: string) => {
+	navigation: (values: ContentsType[], location: string) => {
 		// Function to get navigation indexes
 		const valuesCount = values.length - 1;
+
+		// Get last path in location
+		const lastPath = utils.getLast(location, '/');
 
 		// Find active index
 		let selected = values.filter((value, index) => {
 			value.index = index; // Ensure value has correct index
-			return (value?.handle || value?.id) == id;
+			return value?.handle == lastPath;
 		});
 
 		// Set current

@@ -1,38 +1,65 @@
 /* React */
 import { useContext, useId } from 'react';
+import { useLocation } from 'react-router-dom';
 
 /* Local styles */
 import './styles/articles.scss';
 
 /* Local scripts */
-import { ArticlesSectionProps, ArticlesTocProps } from './scripts/articles-types';
+import { ArticlesIndexProps, ArticlesContentProps, ArticlesSectionProps, ArticlesTocProps } from './scripts/articles-types';
 import { articles } from './scripts/articles';
 
 /* Local components */
 import { Context } from '../../context/Context';
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
+import { BoxSizing } from './content/box-sizing/BoxSizing';
+
+/* Options for contents */
+const options = {
+	navigation: {
+		back: 'Back to "Articles"',
+	},
+	path: '/articles',
+};
 
 export const Articles = () => {
-	const showContent = window.location.pathname == '/articles' ? true : false;
-	const hasArticles = articles && articles.length !== 0 ? true : false;
+	const location = useLocation();
+	const showContent = location.pathname == '/articles' ? true : false;
 
-	// Options for content
+	return showContent ? <ArticlesIndex location={location.pathname} /> : <ArticlesContent location={location.pathname} />;
+};
+
+export const ArticlesIndex = (props: ArticlesIndexProps) => {
 	const contentsOptions = {
-		navigation: {
-			back: 'Back to "Articles"',
-		},
-		path: '/articles',
-		values: hasArticles ? articles : [],
+		...options,
+		location: props.location,
+		type: 'links',
+		values: articles && articles.length !== 0 ? articles : [],
 	};
 
-	return hasArticles ? (
+	return (
 		<>
-			{showContent && <HeaderIcon>Articles</HeaderIcon>}
+			<HeaderIcon>Articles</HeaderIcon>
 
-			<Contents options={contentsOptions} />
+			<Contents {...contentsOptions} />
 		</>
-	) : null;
+	);
+};
+
+export const ArticlesContent = (props: ArticlesContentProps) => {
+	const contentsOptions = {
+		...options,
+		location: props.location,
+		type: 'body',
+		values: articles && articles.length !== 0 ? articles : [],
+	};
+
+	return (
+		<Contents {...contentsOptions}>
+			<BoxSizing />
+		</Contents>
+	);
 };
 
 export const ArticlesSection = (props: ArticlesSectionProps) => {

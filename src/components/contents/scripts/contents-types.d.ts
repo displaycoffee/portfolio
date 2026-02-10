@@ -16,13 +16,14 @@ type Contents = {
 };
 
 type ContentsOptions = {
-	options: {
-		navigation?: {
-			back?: string;
-		};
-		path: string;
-		values: Contents[];
+	children?: ReactNode;
+	location: string;
+	navigation?: {
+		back?: string;
 	};
+	path: string;
+	type: string;
+	values: Contents[];
 };
 
 type ContentsTag = {
@@ -44,12 +45,13 @@ type ContentsPage = {
 };
 
 type ContentsPage2 = {
+	children: ReactNode;
+	location: string;
 	navigation: {
 		back: string | boolean;
 	};
 	path: string;
 	values: Contents[];
-	children: ReactNode;
 };
 
 type ContentsWithChildren = {

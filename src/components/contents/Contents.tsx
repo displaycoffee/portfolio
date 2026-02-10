@@ -23,12 +23,12 @@ import { Context } from '../../context/Context';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
 export const Contents = (props: ContentsProps) => {
-	const { options } = props;
-	const { navigation, path, values } = options;
+	const { children, location, navigation, path, type, values } = props;
 	const hasContents = path && values && values.length !== 0 ? true : false;
 
 	// Create contentsProps for components
 	const contentsProps = {
+		location: location,
 		navigation: {
 			back: navigation?.back ? navigation.back : false,
 		},
@@ -42,7 +42,13 @@ export const Contents = (props: ContentsProps) => {
 	// Get contents count
 	const contentsCount = contentsProps.values.length;
 
-	return contentsCount !== 0 ? <ContentsLinks {...contentsProps} /> : null;
+	return contentsCount !== 0 ? (
+		type == 'links' ? (
+			<ContentsLinks {...contentsProps} />
+		) : (
+			<ContentsBodyCopy {...contentsProps} children={children} />
+		)
+	) : null;
 };
 
 export const ContentsLinks = (props: ContentsLinksProps) => {
@@ -185,86 +191,79 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 };
 
 export const ContentsBodyCopy = (props: ContentsBodyProps2) => {
-	const { navigation, path, values, children } = props;
-	// const { id } = useParams();
-	// const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
-	// const elements = contentsUtils.navigation(values, id as string);
-	// const { current, next, previous } = elements;
+	const { children, location, navigation, path, values } = props;
+	const context = useContext(Context);
+	const showContents = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching contents
+	const elements = contentsUtils.navigation(values, location);
+	const { current, next, previous } = elements;
 
-	// // Ensure handles do not match current
-	// const compareHandle = (handle: string) => {
-	// 	return handle == current.handle ? { handle: false } : { handle: handle };
-	// };
+	// Ensure handles do not match current
+	const compareHandle = (handle: string) => {
+		return handle == current.handle ? { handle: false } : { handle: handle };
+	};
 
-	// // Build navigation props
-	// const navigationProps = {
-	// 	back: navigation.back,
-	// 	next: compareHandle(next.handle as string),
-	// 	path: path,
-	// 	previous: compareHandle(previous.handle as string),
-	// };
+	// Build navigation props
+	const navigationProps = {
+		back: navigation.back,
+		next: compareHandle(next.handle as string),
+		path: path,
+		previous: compareHandle(previous.handle as string),
+	};
 
-	// // Get tags
-	// const tagsConfig = contentsUtils.tags(current?.tags as string);
+	// Get tags
+	const tagsConfig = contentsUtils.tags(current?.tags as string);
 
-	// // Check if we have a header
-	// const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
+	// Check if we have a header
+	const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
 
-	// Set component for body
-	const Body = children;
+	return showContents ? (
+		current ? (
+			<div id={`contents-${current.handle}`} className="contents spacing-reset">
+				{hasHeader ? (
+					<header className="contents-header">
+						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
 
-	return children;
+						<ContentsDate content={current} />
 
-	// return showContents ? (
-	// 	current ? (
-	// 		<div id={`contents-${current.handle}`} className="contents spacing-reset">
-	// 			{hasHeader ? (
-	// 				<header className="contents-header">
-	// 					{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
+						{tagsConfig.hasTags ? (
+							<ContentsTags>
+								{tagsConfig.values.map((tag, index) => {
+									return (
+										<div className="contents-tags-column" key={index}>
+											<Button
+												size={'x-small'}
+												onClick={() => {
+													window.location.href = `${path}?${contentsUtils.params.url.tag}=${tag.value}`;
+												}}
+											>
+												{tag.label}
+											</Button>
+										</div>
+									);
+								})}
+							</ContentsTags>
+						) : null}
+					</header>
+				) : null}
 
-	// 					<ContentsDate content={current} />
+				{current?.description ? (
+					<div className="contents-description spacing-reset">
+						<h4>Description</h4>
 
-	// 					{tagsConfig.hasTags ? (
-	// 						<ContentsTags>
-	// 							{tagsConfig.values.map((tag, index) => {
-	// 								return (
-	// 									<div className="contents-tags-column" key={index}>
-	// 										<Button
-	// 											size={'x-small'}
-	// 											onClick={() => {
-	// 												window.location.href = `${path}?${contentsUtils.params.url.tag}=${tag.value}`;
-	// 											}}
-	// 										>
-	// 											{tag.label}
-	// 										</Button>
-	// 									</div>
-	// 								);
-	// 							})}
-	// 						</ContentsTags>
-	// 					) : null}
-	// 				</header>
-	// 			) : null}
+						<p>{current.description}</p>
 
-	// 			{current?.description ? (
-	// 				<div className="contents-description spacing-reset">
-	// 					<h4>Description</h4>
+						{current?.description2 ? <p>{current.description2}</p> : null}
+					</div>
+				) : null}
 
-	// 					<p>{current.description}</p>
+				<div className="contents-body spacing-reset">{children}</div>
 
-	// 					{current?.description2 ? <p>{current.description2}</p> : null}
-	// 				</div>
-	// 			) : null}
-
-	// 			<div className="contents-body spacing-reset">
-	// 				<Body />
-	// 			</div>
-
-	// 			<PixelSection navigation={navigationProps} />
-	// 		</div>
-	// 	) : (
-	// 		<Navigate to={path} replace />
-	// 	)
-	// ) : null;
+				<PixelSection navigation={navigationProps} />
+			</div>
+		) : (
+			<Navigate to={path} replace />
+		)
+	) : null;
 };
 
 export const ContentsBody = (props: ContentsBodyProps) => {

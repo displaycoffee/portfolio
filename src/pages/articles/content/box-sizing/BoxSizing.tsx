@@ -1,26 +1,15 @@
 /* Local scripts */
 import { codeBlocks } from './scripts/box-sizing-code-blocks';
-import { articles } from '../../scripts/articles';
 
 /* Local components */
-import { ContentsBodyCopy } from '../../../../components/contents/Contents';
 import { ArticlesToc, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
 
 export const BoxSizing = () => {
 	const sections = ['The Box Model', 'The Problem', 'The Solution', 'Shining Star', 'Usage / Compatibility', 'Closing'];
 
-	// Options for content
-	const contentsOptions = {
-		navigation: {
-			back: 'Back to "Articles"',
-		},
-		path: '/articles',
-		values: articles && articles.length !== 0 ? articles : [],
-	};
-
 	return (
-		<ContentsBodyCopy {...contentsOptions}>
+		<>
 			<ArticlesToc sections={sections} offset={50} />
 
 			<ArticlesSection header={sections[0]}>
@@ -187,6 +176,6 @@ export const BoxSizing = () => {
 					recommend adding it. Building your designs with this from the start will save you a lot of trouble.
 				</p>
 			</ArticlesSection>
-		</ContentsBodyCopy>
+		</>
 	);
 };
