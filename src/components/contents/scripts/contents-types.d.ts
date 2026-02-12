@@ -1,6 +1,5 @@
 /* Type definitions */
 type Contents = {
-	component: FunctionComponent;
 	date: string;
 	description?: string;
 	description2?: string;
@@ -17,11 +16,9 @@ type Contents = {
 
 type ContentsOptions = {
 	children?: ReactNode;
-	location: string;
 	navigation?: {
 		back?: string;
 	};
-	path: string;
 	type: string;
 	values: Contents[];
 };
@@ -37,20 +34,11 @@ type ContentsTags = {
 };
 
 type ContentsPage = {
-	navigation: {
-		back: string | boolean;
-	};
-	path: string;
-	values: Contents[];
-};
-
-type ContentsPage2 = {
-	children: ReactNode;
+	children?: ReactNode;
 	location: string;
 	navigation: {
 		back: string | boolean;
 	};
-	path: string;
 	values: Contents[];
 };
 
@@ -71,8 +59,6 @@ export type ContentsType = Contents;
 
 /* Export prop types */
 export type ContentsBodyProps = ContentsPage;
-
-export type ContentsBodyProps2 = ContentsPage2;
 
 export type ContentsLinksProps = ContentsPage;
 
