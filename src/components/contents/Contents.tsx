@@ -1,6 +1,6 @@
 /* React */
 import { MouseEventHandler, useContext, useEffect, useState } from 'react';
-import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/contents.scss';
@@ -8,7 +8,6 @@ import './styles/contents.scss';
 /* Local scripts */
 import {
 	ContentsBodyProps,
-	ContentsBodyProps2,
 	ContentsDateProps,
 	ContentsLinksProps,
 	ContentsProps,
@@ -23,16 +22,16 @@ import { Context } from '../../context/Context';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
 export const Contents = (props: ContentsProps) => {
-	const { children, location, navigation, path, type, values } = props;
-	const hasContents = path && values && values.length !== 0 ? true : false;
+	const { children, navigation, type, values } = props;
+	const location = useLocation();
+	const hasContents = values && values.length !== 0 ? true : false;
 
 	// Create contentsProps for components
 	const contentsProps = {
-		location: location,
+		location: location.pathname,
 		navigation: {
 			back: navigation?.back ? navigation.back : false,
 		},
-		path: path,
 		values: hasContents ? values : [],
 	};
 
@@ -46,15 +45,14 @@ export const Contents = (props: ContentsProps) => {
 		type == 'links' ? (
 			<ContentsLinks {...contentsProps} />
 		) : (
-			<ContentsBodyCopy {...contentsProps} children={children} />
+			<ContentsBody {...contentsProps} children={children} />
 		)
 	) : null;
 };
 
 export const ContentsLinks = (props: ContentsLinksProps) => {
-	const { path, values } = props;
+	const { location, values } = props;
 	const context = useContext(Context);
-	const utils = context.utils;
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
 	let [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
@@ -65,7 +63,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 		const tagsConfig = contentsUtils.tags(value?.tags as string);
 
 		// Set timestamp to sort values
-		utils.setTimestamp(value);
+		context.utils.setTimestamp(value);
 
 		if (tagsConfig.hasTags) {
 			tagsConfig.values.forEach((tag) => {
@@ -146,7 +144,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 					return contentActive ? (
 						<div className="contents-column column column-width-33" key={value.id}>
-							<Link className="contents-link" to={`${path}/${value.handle}`}>
+							<Link className="contents-link" to={`${location}/${value.handle}`}>
 								<div className="pixel-border">
 									<div className="image-wrapper image-wrapper-fit">
 										<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
@@ -190,12 +188,13 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	);
 };
 
-export const ContentsBodyCopy = (props: ContentsBodyProps2) => {
-	const { children, location, navigation, path, values } = props;
+export const ContentsBody = (props: ContentsBodyProps) => {
+	const { children, location, navigation, values } = props;
 	const context = useContext(Context);
 	const showContents = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching contents
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
+	const parentPage = context.utils.getPage();
 
 	// Ensure handles do not match current
 	const compareHandle = (handle: string) => {
@@ -206,7 +205,7 @@ export const ContentsBodyCopy = (props: ContentsBodyProps2) => {
 	const navigationProps = {
 		back: navigation.back,
 		next: compareHandle(next.handle as string),
-		path: path,
+		path: parentPage,
 		previous: compareHandle(previous.handle as string),
 	};
 
@@ -233,7 +232,7 @@ export const ContentsBodyCopy = (props: ContentsBodyProps2) => {
 											<Button
 												size={'x-small'}
 												onClick={() => {
-													window.location.href = `${path}?${contentsUtils.params.url.tag}=${tag.value}`;
+													window.location.href = `${parentPage}?${contentsUtils.params.url.tag}=${tag.value}`;
 												}}
 											>
 												{tag.label}
@@ -261,88 +260,7 @@ export const ContentsBodyCopy = (props: ContentsBodyProps2) => {
 				<PixelSection navigation={navigationProps} />
 			</div>
 		) : (
-			<Navigate to={path} replace />
-		)
-	) : null;
-};
-
-export const ContentsBody = (props: ContentsBodyProps) => {
-	const { navigation, path, values } = props;
-	const { id } = useParams();
-	const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
-	const elements = contentsUtils.navigation(values, id as string);
-	const { current, next, previous } = elements;
-
-	// Ensure handles do not match current
-	const compareHandle = (handle: string) => {
-		return handle == current.handle ? { handle: false } : { handle: handle };
-	};
-
-	// Build navigation props
-	const navigationProps = {
-		back: navigation.back,
-		next: compareHandle(next.handle as string),
-		path: path,
-		previous: compareHandle(previous.handle as string),
-	};
-
-	// Get tags
-	const tagsConfig = contentsUtils.tags(current?.tags as string);
-
-	// Check if we have a header
-	const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
-
-	// Set component for body
-	const Body = current.component;
-
-	return showContents ? (
-		current ? (
-			<div id={`contents-${current.handle}`} className="contents spacing-reset">
-				{hasHeader ? (
-					<header className="contents-header">
-						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
-
-						<ContentsDate content={current} />
-
-						{tagsConfig.hasTags ? (
-							<ContentsTags>
-								{tagsConfig.values.map((tag, index) => {
-									return (
-										<div className="contents-tags-column" key={index}>
-											<Button
-												size={'x-small'}
-												onClick={() => {
-													window.location.href = `${path}?${contentsUtils.params.url.tag}=${tag.value}`;
-												}}
-											>
-												{tag.label}
-											</Button>
-										</div>
-									);
-								})}
-							</ContentsTags>
-						) : null}
-					</header>
-				) : null}
-
-				{current?.description ? (
-					<div className="contents-description spacing-reset">
-						<h4>Description</h4>
-
-						<p>{current.description}</p>
-
-						{current?.description2 ? <p>{current.description2}</p> : null}
-					</div>
-				) : null}
-
-				<div className="contents-body spacing-reset">
-					<Body />
-				</div>
-
-				<PixelSection navigation={navigationProps} />
-			</div>
-		) : (
-			<Navigate to={path} replace />
+			<Navigate to={parentPage} replace />
 		)
 	) : null;
 };

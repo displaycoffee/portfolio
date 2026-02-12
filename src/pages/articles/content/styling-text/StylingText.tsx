@@ -2,7 +2,7 @@
 import { codeBlocks } from './scripts/styling-text-code-blocks';
 
 /* Local components */
-import { ArticlesToc, ArticlesSection } from '../../Articles';
+import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline, Output } from '../../../../components/blocks/Blocks';
 
 export const StylingText = () => {
@@ -23,7 +23,7 @@ export const StylingText = () => {
 
 	return (
 		<>
-			<ArticlesToc sections={sections} offset={50} />
+			<ArticlesToC sections={sections} offset={50} />
 
 			<ArticlesSection header={sections[0]}>
 				<p>

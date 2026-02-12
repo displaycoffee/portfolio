@@ -2,7 +2,7 @@
 import { codeBlocks } from './scripts/structuring-code-code-blocks';
 
 /* Local components */
-import { ArticlesToc, ArticlesSection } from '../../Articles';
+import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
 
 export const StructuringCode = () => {
@@ -10,7 +10,7 @@ export const StructuringCode = () => {
 
 	return (
 		<>
-			<ArticlesToc sections={sections} offset={50} />
+			<ArticlesToC sections={sections} offset={50} />
 
 			<ArticlesSection header={sections[0]}>
 				<p>
