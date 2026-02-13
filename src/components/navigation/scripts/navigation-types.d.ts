@@ -13,6 +13,7 @@ type Navigation = {
 type NavigationChild = {
 	id: number;
 	name: string;
+	name2?: string;
 };
 
 type NavigationListItem = {

@@ -56,11 +56,11 @@ export const navigationUtils = {
 	},
 	routes: {
 		build: {
-			config: (nav: NavigationType, map: NavigationMapType) => {
+			config: (nav: NavigationType, map: NavigationMapType, parent?: NavigationType) => {
 				// Build route config
 				const config = {
 					id: nav.id,
-					element: map[navigationUtils.routes.build.key(nav.url)],
+					element: map[navigationUtils.routes.build.key(parent?.url ? parent.url : nav.url)],
 					path: nav.url,
 				} as NavigationRoutesType;
 
