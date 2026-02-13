@@ -7,7 +7,7 @@ import { navigationUtils } from './navigation-utils';
 import { Start } from '../../../pages/start/Start';
 import { About } from '../../../pages/about/About';
 import { Art } from '../../../pages/art/Art';
-import { Projects } from '../../../pages/projects/Projects';
+import { Projects2 } from '../../../pages/projects/Projects';
 import { Resume } from '../../../pages/resume/Resume';
 import { Articles } from '../../../pages/articles/Articles';
 import { CheatCodes } from '../../../pages/cheat-codes/CheatCodes';
@@ -40,7 +40,7 @@ const routeMap = {
 	start: Start,
 	about: About,
 	art: Art,
-	projects: Projects,
+	projects: Projects2,
 	resume: Resume,
 	...articlesMap,
 	...cheatCodesMap,
@@ -58,14 +58,15 @@ navigation.forEach((nav) => {
 			...navigationUtils.routes.build.config(nav, routeMap),
 			children: [] as NavigationRoutesType[],
 		};
-
 		// Build child config
 		if (nav?.children && nav.children.length !== 0) {
 			nav.children.forEach((child) => {
 				const childKey = navigationUtils.routes.build.key(child.url);
+				const isGallery = navKey == 'projects' || navKey == 'art' ? true : false;
+				const buildChild = isGallery || (!isGallery && child.isRoute && routeMap[childKey]) ? true : false;
 
-				if (child.isRoute && routeMap[childKey]) {
-					const childConfig = navigationUtils.routes.build.config(child, routeMap);
+				if (buildChild) {
+					const childConfig = navigationUtils.routes.build.config(child, routeMap, isGallery ? nav : undefined);
 					navConfig.children.push(childConfig);
 				}
 			});

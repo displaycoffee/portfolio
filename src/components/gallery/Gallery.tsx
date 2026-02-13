@@ -1,17 +1,91 @@
 /* React */
 import { useEffect, useState, useContext } from 'react';
-import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/gallery.scss';
 
 /* Local scripts */
-import { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryRoutesProps, GalleryThumbnailsProps } from './scripts/gallery-types';
+import {
+	GalleryBodyProps,
+	GalleryLinksProps,
+	GalleryProps,
+	GalleryProps2,
+	GalleryRoutesProps,
+	GalleryThumbnailsProps,
+} from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
 import { Context } from '../../context/Context';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
+
+/* Save active tab */
+const tabAll = 'All';
+let tabStorage = tabAll;
+
+export const Gallery2 = (props: GalleryProps2) => {
+	const { headers, navigation, tabs, type, values } = props;
+	const location = useLocation();
+	const allTab = 'All';
+	let [activeTab, setActiveTab] = useState(allTab);
+	const hasGallery = values && values.length !== 0 ? true : false;
+
+	// Create galleryProps for components
+	const galleryProps = {
+		headers: {
+			enabled: headers?.enabled ? headers.enabled : false,
+			label: headers?.label ? headers.label : false,
+		},
+		location: location.pathname,
+		navigation: {
+			back: navigation?.back ? navigation.back : false,
+		},
+		tabs: {
+			activeTab: activeTab,
+			all: tabs?.all ? tabs.all : false,
+			enabled: tabs?.enabled ? tabs.enabled : false,
+			setActiveTab: setActiveTab,
+			values: [] as string[],
+		},
+		values: hasGallery ? values : [],
+	};
+
+	// Create modified gallery
+	galleryProps.values = galleryUtils.build(galleryProps.values, galleryProps.tabs);
+
+	// Ensure tabs are set and that they have categories
+	if (galleryProps.tabs.enabled) {
+		galleryProps.values.forEach((value) => {
+			if (value?.categories) {
+				// Add all category if set
+				const categoriesSplit = value.categories.split(', ');
+
+				// If category is not in tabs, add it
+				categoriesSplit.forEach((category) => {
+					if (!galleryProps.tabs.values.includes(category)) {
+						galleryProps.tabs.values.push(category);
+					}
+				});
+			}
+		});
+	}
+
+	// Set state for tab
+	const firstTab = galleryProps.tabs.values[0] ? galleryProps.tabs.values[0] : allTab;
+
+	// Update state for galleryProps
+	useEffect(() => {
+		setActiveTab(firstTab);
+		galleryProps.tabs.activeTab = activeTab;
+		tabStorage = activeTab;
+	}, []);
+
+	// Get gallery count
+	const galleryCount = galleryProps.values.length;
+
+	return galleryCount !== 0 ? type == 'links' ? <GalleryLinks {...galleryProps} /> : <GalleryBody {...galleryProps} /> : null;
+};
 
 export const Gallery = (props: GalleryProps) => {
 	const { options } = props;
@@ -119,6 +193,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 											// Update tab on click
 											activeTab = tab;
 											setActiveTab(activeTab);
+											tabStorage = activeTab;
 										}}
 									>
 										{tab}
@@ -140,7 +215,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 };
 
 export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
-	const { headers, path, tabs, values } = props;
+	const { headers, location, tabs, values } = props;
 	const { activeTab } = tabs;
 
 	// Determine label for header
@@ -156,7 +231,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 
 					return showItem ? (
 						<div className="gallery-item" key={value.id}>
-							<Link className="gallery-image" to={`${path}/${value.handle}`}>
+							<Link className="gallery-image" to={`${location}/${value.handle}`}>
 								<div className="image-wrapper image-wrapper-fluid pixel-border">
 									<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
 								</div>
@@ -170,10 +245,11 @@ export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 };
 
 export const GalleryBody = (props: GalleryBodyProps) => {
-	const { navigation, path, tabs, values } = props;
+	const { location, navigation, tabs, values } = props;
 	const { activeTab } = tabs;
-	const { id } = useParams();
-	const showGallery = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
+	const context = useContext(Context);
+	const showGallery = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching gallery
+	const parentPage = context.utils.getPage();
 
 	// Filter values according to current tab
 	const filteredValues = values.filter((value) => {
@@ -181,7 +257,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 	});
 
 	// Get elements
-	const elements = galleryUtils.navigation(filteredValues, id as string);
+	const elements = galleryUtils.navigation2(filteredValues, location);
 	const { current, next, previous } = elements;
 
 	// Ensure handles do not match current
@@ -193,7 +269,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 	const navigationProps = {
 		back: navigation.back,
 		next: compareHandle(next.handle as string),
-		path: path,
+		path: parentPage,
 		previous: compareHandle(previous.handle as string),
 	};
 
@@ -266,7 +342,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 				<PixelSection navigation={navigationProps} />
 			</div>
 		) : (
-			<Navigate to={path} replace />
+			<Navigate to={parentPage} replace />
 		)
 	) : null;
 };

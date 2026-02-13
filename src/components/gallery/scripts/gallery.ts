@@ -60,4 +60,34 @@ export const gallery = {
 		// Return navigation
 		return navigation;
 	},
+	navigation2: (values: GalleryType[], location: string) => {
+		// Function to get navigation indexes
+		const valuesCount = values.length - 1;
+
+		// Get last path in location
+		const lastPath = utils.getLast(location, '/');
+
+		// Find active index
+		let selected = values.filter((value, index) => {
+			value.index = index; // Ensure value has correct index
+			return value?.handle == lastPath;
+		});
+
+		// Set current
+		const current = selected.pop() as GalleryType;
+
+		// If previous / next index is out of bounds, loop around to start / end of values
+		const nextIndex = (current.index as number) + 1;
+		const previousIndex = (current.index as number) - 1;
+
+		// Set navigation
+		let navigation = {
+			current: current,
+			next: nextIndex > valuesCount ? values[0] : values[nextIndex],
+			previous: previousIndex < 0 ? values[valuesCount] : values[previousIndex],
+		};
+
+		// Return navigation
+		return navigation;
+	},
 };

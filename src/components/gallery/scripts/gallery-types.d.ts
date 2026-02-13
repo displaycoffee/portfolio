@@ -35,15 +35,31 @@ type GalleryOptions = {
 	};
 };
 
+type GalleryOptions2 = {
+	headers?: {
+		enabled?: boolean;
+		label?: string;
+	};
+	navigation?: {
+		back?: string;
+	};
+	tabs?: {
+		all?: boolean;
+		enabled?: boolean;
+	};
+	type: string;
+	values: Gallery[];
+};
+
 type GalleryPage = {
 	headers: {
 		enabled: boolean;
 		label: string | boolean;
 	};
+	location: string;
 	navigation: {
 		back: string | boolean;
 	};
-	path: string;
 	tabs: GalleryTabs;
 	values: Gallery[];
 };
@@ -67,6 +83,8 @@ export type GalleryBodyProps = GalleryPage;
 export type GalleryLinksProps = GalleryPage;
 
 export type GalleryProps = GalleryOptions;
+
+export type GalleryProps2 = GalleryOptions2;
 
 export type GalleryRoutesProps = GalleryOptions;
 
