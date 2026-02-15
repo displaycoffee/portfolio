@@ -12,7 +12,7 @@ export const Burmecia = () => {
 					</div>
 					<div className="definition-list-item">
 						<dt>Languages</dt>
-						<dd>React, JavaScript, and Sass</dd>
+						<dd>React, TypeScript, JavaScript, Sass</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Responsive</dt>
