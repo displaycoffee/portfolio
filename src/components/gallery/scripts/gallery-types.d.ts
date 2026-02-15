@@ -65,10 +65,10 @@ type GalleryPage = {
 };
 
 type GalleryTabs = {
-	activeTab: string;
+	//activeTab: string;
 	all: boolean;
 	enabled: boolean;
-	setActiveTab: Dispatch<string>;
+	//setActiveTab: Dispatch<string>;
 	values: string[];
 };
 
