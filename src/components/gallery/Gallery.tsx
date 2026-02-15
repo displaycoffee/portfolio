@@ -20,71 +20,107 @@ import { gallery as galleryUtils } from './scripts/gallery';
 import { Context } from '../../context/Context';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
-/* Save active tab */
+/* Set up tab storage */
 const tabAll = 'All';
-let tabStorage = tabAll;
+//let tabStorage = tabAll;
+const tabStorage = {
+	default: 0,
+	active: false,
+	toggle: (value) => {
+		tabStorage.active = value;
+	},
+};
 
 export const Gallery2 = (props: GalleryProps2) => {
 	const { headers, navigation, tabs, type, values } = props;
 	const location = useLocation();
-	const allTab = 'All';
-	let [activeTab, setActiveTab] = useState(allTab);
+	let [activeTab, setActiveTab] = useState(tabAll);
 	const hasGallery = values && values.length !== 0 ? true : false;
 
-	// Create galleryProps for components
-	const galleryProps = {
-		headers: {
-			enabled: headers?.enabled ? headers.enabled : false,
-			label: headers?.label ? headers.label : false,
-		},
-		location: location.pathname,
-		navigation: {
-			back: navigation?.back ? navigation.back : false,
-		},
-		tabs: {
-			activeTab: activeTab,
-			all: tabs?.all ? tabs.all : false,
-			enabled: tabs?.enabled ? tabs.enabled : false,
-			setActiveTab: setActiveTab,
-			values: [] as string[],
-		},
-		values: hasGallery ? values : [],
+	// Create header options
+	const headerOptions = {
+		enabled: headers?.enabled ? headers.enabled : false,
+		label: headers?.label ? headers.label : false,
 	};
 
-	// Create modified gallery
-	galleryProps.values = galleryUtils.build(galleryProps.values, galleryProps.tabs);
+	// Create navigation options
+	const navigationOptions = {
+		back: navigation?.back ? navigation.back : false,
+	};
+
+	// Create tabs options
+	const tabsOptions = {
+		//activeTab: tabAll,
+		...tabStorage,
+		all: tabs?.all ? tabs.all : false,
+		enabled: tabs?.enabled ? tabs.enabled : false,
+		//setActiveTab: setActiveTab,
+		values: [] as string[],
+	};
+
+	// Modify gallery values based on tabs
+	const galleryValues = galleryUtils.build(hasGallery ? values : [], tabsOptions);
 
 	// Ensure tabs are set and that they have categories
-	if (galleryProps.tabs.enabled) {
-		galleryProps.values.forEach((value) => {
+	if (tabsOptions.enabled) {
+		galleryValues.forEach((value) => {
 			if (value?.categories) {
 				// Add all category if set
 				const categoriesSplit = value.categories.split(', ');
 
 				// If category is not in tabs, add it
 				categoriesSplit.forEach((category) => {
-					if (!galleryProps.tabs.values.includes(category)) {
-						galleryProps.tabs.values.push(category);
+					if (!tabsOptions.values.includes(category)) {
+						tabsOptions.values.push(category);
 					}
 				});
 			}
 		});
 	}
 
-	// Set state for tab
-	const firstTab = galleryProps.tabs.values[0] ? galleryProps.tabs.values[0] : allTab;
+	// Create galleryProps for components
+	const galleryProps = {
+		headers: headerOptions,
+		location: location.pathname,
+		navigation: navigationOptions,
+		tabs: tabsOptions,
+		values: galleryValues,
+	};
 
-	// Update state for galleryProps
-	useEffect(() => {
-		setActiveTab(firstTab);
-		galleryProps.tabs.activeTab = activeTab;
-		tabStorage = activeTab;
-	}, []);
+	// Set state for tab
+	const firstTab = tabsOptions.values[0] ? tabsOptions.values[0] : tabAll;
+
+	// Update state for tabsOptions
+	const defaultTab = galleryProps.tabs.values[tabStorage.default];
+	const activeTab2 = tabStorage.active;
+	// console.log('in body', firstTab, activeTab2);
+	// activeTab2 = firstTab;
+	// setActiveTab2(activeTab2);
+	//const selectedTab = galleryProps.tabs.values[tabStorage.default];
+
+	//console.log(defaultTab, activeTab2);
+
+	if (defaultTab != activeTab2) {
+		tabStorage.active = activeTab2 ? activeTab2 : defaultTab;
+	} else {
+		tabStorage.active = defaultTab;
+	}
+	// useEffect(() => {
+	// 	console.log(tabStorage);
+	// }, []);
 
 	// Get gallery count
 	const galleryCount = galleryProps.values.length;
 
-	return galleryCount !== 0 ? type == 'links' ? <GalleryLinks {...galleryProps} /> : <GalleryBody {...galleryProps} /> : null;
+	console.log('in gallery', tabStorage);
+
+	return galleryCount !== 0 ? (
+		type == 'links' ? (
+			<GalleryLinks {...galleryProps} activeTab={activeTab} setActiveTab={setActiveTab} />
+		) : (
+			<GalleryBody {...galleryProps} activeTab={activeTab} setActiveTab={setActiveTab} />
+		)
+	) : null;
 };
 
 export const Gallery = (props: GalleryProps) => {
@@ -165,9 +201,11 @@ export const GalleryRoutes = (props: GalleryRoutesProps) => {
 
 export const GalleryLinks = (props: GalleryLinksProps) => {
 	const { tabs, values } = props;
-	let { activeTab, setActiveTab } = tabs;
+	let { activeTab, setActiveTab } = props;
 	const context = useContext(Context);
 	const utils = context.utils;
+
+	console.log('in gallery links', tabStorage);
 
 	// Set timestamp to sort values
 	values.forEach((value) => {
@@ -188,12 +226,15 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 							{tabs.values.map((tab, index) => (
 								<div className="column" key={index}>
 									<Button
-										type={activeTab == tab ? 'secondary active' : 'primary'}
+										type={tabStorage.active == tab ? 'secondary active' : 'primary'}
 										onClick={() => {
 											// Update tab on click
-											activeTab = tab;
-											setActiveTab(activeTab);
-											tabStorage = activeTab;
+											// activeTab = tab;
+											// setActiveTab(activeTab);
+											//tabStorage = activeTab;
+											//tabs.active = tab;
+											tabStorage.toggle(tab);
+											console.log(tabStorage);
 										}}
 									>
 										{tab}
@@ -215,11 +256,13 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 };
 
 export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
-	const { headers, location, tabs, values } = props;
-	const { activeTab } = tabs;
+	const { activeTab, headers, location, tabs, values } = props;
+	//const { activeTab } = tabs;
+
+	console.log('in gallery thumbnails', tabStorage);
 
 	// Determine label for header
-	const label = headers.enabled && headers.label && !tabs.enabled ? headers.label : activeTab;
+	const label = headers.enabled && headers.label && !tabs.enabled ? headers.label : tabStorage.active;
 
 	return (
 		<div className="gallery">
@@ -227,7 +270,8 @@ export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 
 			<div className="gallery-items">
 				{values.map((value) => {
-					const showItem = !tabs.enabled || (tabs.enabled && value.categories && value.categories.includes(activeTab)) ? true : false;
+					const showItem =
+						!tabs.enabled || (tabs.enabled && value.categories && value.categories.includes(tabStorage.active)) ? true : false;
 
 					return showItem ? (
 						<div className="gallery-item" key={value.id}>
@@ -245,11 +289,13 @@ export const GalleryThumbnails = (props: GalleryThumbnailsProps) => {
 };
 
 export const GalleryBody = (props: GalleryBodyProps) => {
-	const { location, navigation, tabs, values } = props;
-	const { activeTab } = tabs;
+	const { activeTab, location, navigation, tabs, values } = props;
+	//const { activeTab } = tabs;
 	const context = useContext(Context);
 	const showGallery = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching gallery
 	const parentPage = context.utils.getPage();
+
+	console.log('in gallery body', props, tabStorage);
 
 	// Filter values according to current tab
 	const filteredValues = values.filter((value) => {
