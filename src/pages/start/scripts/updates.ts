@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 10,
+		date: `02.15.26`,
+		description: `This last addition has taken me a bit to get to. On the surface, it doesn't look like much, but I did re-work a lot of the code and functionality of the site. I've also updated "<a href="/cheat-codes">Cheat Codes</a>" such as "Burmecia", "Best Friends", and "Friends Not Food".`,
+	},
+	{
 		id: 9,
 		date: `09.14.25`,
 		description: `Well, I finally did it. Finished converting this portfolio to TypeScript, which was a huger task than I had anticipated. Also, I apparently finished this conversion on the two year anniversary of creating this portfolio.`,
