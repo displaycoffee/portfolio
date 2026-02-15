@@ -22,19 +22,15 @@ import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
 /* Set up tab storage */
 const tabAll = 'All';
-//let tabStorage = tabAll;
 const tabStorage = {
 	default: 0,
 	active: false,
-	toggle: (value) => {
-		tabStorage.active = value;
-	},
 };
 
 export const Gallery2 = (props: GalleryProps2) => {
 	const { headers, navigation, tabs, type, values } = props;
 	const location = useLocation();
-	let [activeTab, setActiveTab] = useState(tabAll);
+	let [activeTab, setActiveTab] = useState(false as string | boolean);
 	const hasGallery = values && values.length !== 0 ? true : false;
 
 	// Create header options
@@ -50,11 +46,10 @@ export const Gallery2 = (props: GalleryProps2) => {
 
 	// Create tabs options
 	const tabsOptions = {
-		//activeTab: tabAll,
-		...tabStorage,
+		activeTab: activeTab,
 		all: tabs?.all ? tabs.all : false,
 		enabled: tabs?.enabled ? tabs.enabled : false,
-		//setActiveTab: setActiveTab,
+		setActiveTab: setActiveTab,
 		values: [] as string[],
 	};
 
@@ -88,23 +83,24 @@ export const Gallery2 = (props: GalleryProps2) => {
 	};
 
 	// Set state for tab
-	const firstTab = tabsOptions.values[0] ? tabsOptions.values[0] : tabAll;
+	//const firstTab = tabsOptions.values[0] ? tabsOptions.values[0] : tabAll;
 
-	// Update state for tabsOptions
-	const defaultTab = galleryProps.tabs.values[tabStorage.default];
-	const activeTab2 = tabStorage.active;
-	// console.log('in body', firstTab, activeTab2);
-	// activeTab2 = firstTab;
-	// setActiveTab2(activeTab2);
+	// // Update state for tabsOptions
+	// const defaultTab = tabStorage.active ? tabStorage.active : galleryProps.tabs.values[tabStorage.default];
+
+	// useEffect(() => {
+	// 	activeTab = defaultTab;
+	// 	setActiveTab(defaultTab);
+	// }, []);
 	//const selectedTab = galleryProps.tabs.values[tabStorage.default];
 
 	//console.log(defaultTab, activeTab2);
 
-	if (defaultTab != activeTab2) {
-		tabStorage.active = activeTab2 ? activeTab2 : defaultTab;
-	} else {
-		tabStorage.active = defaultTab;
-	}
+	// if (defaultTab != activeTab2) {
+	// 	tabStorage.active = activeTab2 ? activeTab2 : defaultTab;
+	// } else {
+	// 	tabStorage.active = defaultTab;
+	// }
 	// useEffect(() => {
 	// 	console.log(tabStorage);
 	// }, []);
@@ -112,15 +108,9 @@ export const Gallery2 = (props: GalleryProps2) => {
 	// Get gallery count
 	const galleryCount = galleryProps.values.length;
 
-	console.log('in gallery', tabStorage);
+	console.log('in gallery', galleryProps, activeTab);
 
-	return galleryCount !== 0 ? (
-		type == 'links' ? (
-			<GalleryLinks {...galleryProps} activeTab={activeTab} setActiveTab={setActiveTab} />
-		) : (
-			<GalleryBody {...galleryProps} activeTab={activeTab} setActiveTab={setActiveTab} />
-		)
-	) : null;
+	return galleryCount !== 0 ? type == 'links' ? <GalleryLinks {...galleryProps} /> : <GalleryBody {...galleryProps} /> : null;
 };
 
 export const Gallery = (props: GalleryProps) => {
@@ -201,11 +191,19 @@ export const GalleryRoutes = (props: GalleryRoutesProps) => {
 
 export const GalleryLinks = (props: GalleryLinksProps) => {
 	const { tabs, values } = props;
-	let { activeTab, setActiveTab } = props;
+	let { activeTab, setActiveTab } = tabs;
 	const context = useContext(Context);
 	const utils = context.utils;
 
-	console.log('in gallery links', tabStorage);
+	// console.log('in gallery links', props);
+
+	// // Update state for tabsOptions
+	// const defaultTab = tabStorage.active ? tabStorage.active : tabs.values[tabStorage.default];
+
+	// useEffect(() => {
+	// 	activeTab = defaultTab;
+	// 	setActiveTab(defaultTab);
+	// }, []);
 
 	// Set timestamp to sort values
 	values.forEach((value) => {
