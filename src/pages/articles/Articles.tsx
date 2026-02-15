@@ -1,38 +1,76 @@
 /* React */
 import { useContext, useId } from 'react';
+import { useLocation } from 'react-router-dom';
 
 /* Local styles */
 import './styles/articles.scss';
 
 /* Local scripts */
-import { ArticlesSectionProps, ArticlesTocProps } from './scripts/articles-types';
+import { ArticlesSectionProps, ArticlesToCProps } from './scripts/articles-types';
 import { articles } from './scripts/articles';
 
 /* Local components */
 import { Context } from '../../context/Context';
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
+import { BoxSizing } from './content/box-sizing/BoxSizing';
+import { StructuringCode } from './content/structuring-code/StructuringCode';
+import { StylingText } from './content/styling-text/StylingText';
+
+/* Options for contents */
+const options = {
+	navigation: {
+		back: 'Back to "Articles"',
+	},
+};
 
 export const Articles = () => {
-	const showContent = window.location.pathname == '/articles' ? true : false;
-	const hasArticles = articles && articles.length !== 0 ? true : false;
+	const location = useLocation();
+	const showArticles = location.pathname == '/articles' ? true : false;
 
-	// Options for content
+	return showArticles ? <ArticlesIndex /> : <ArticlesContent />;
+};
+
+export const ArticlesIndex = () => {
 	const contentsOptions = {
-		navigation: {
-			back: 'Back to "Articles"',
-		},
-		path: '/articles',
-		values: hasArticles ? articles : [],
+		...options,
+		type: 'links',
+		values: articles && articles.length !== 0 ? articles : [],
 	};
 
-	return hasArticles ? (
+	return (
 		<>
-			{showContent && <HeaderIcon>Articles</HeaderIcon>}
+			<HeaderIcon>Articles</HeaderIcon>
 
-			<Contents options={contentsOptions} />
+			<Contents {...contentsOptions} />
 		</>
-	) : null;
+	);
+};
+
+export const ArticlesContent = () => {
+	const context = useContext(Context);
+	const location = useLocation();
+	const contentsOptions = {
+		...options,
+		type: 'body',
+		values: articles && articles.length !== 0 ? articles : [],
+	};
+
+	// Get last path
+	const last = context.utils.getLast(location.pathname, '/');
+
+	// Default content
+	const defaultContent = <p>Thank you! But the article is in another castle.</p>;
+
+	return (
+		<Contents {...contentsOptions}>
+			{{
+				'boxsizing-my-best-friend': <BoxSizing />,
+				'structuring-code': <StructuringCode />,
+				'styling-text': <StylingText />,
+			}[last as string] || defaultContent}
+		</Contents>
+	);
 };
 
 export const ArticlesSection = (props: ArticlesSectionProps) => {
@@ -59,7 +97,7 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 	);
 };
 
-export const ArticlesToc = (props: ArticlesTocProps) => {
+export const ArticlesToC = (props: ArticlesToCProps) => {
 	const { offset, sections } = props;
 	const context = useContext(Context);
 	const utils = context.utils;

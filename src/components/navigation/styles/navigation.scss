@@ -6,29 +6,30 @@
 //// NAVIGATION
 //// --------------------------------------------------------------------------
 
-	// Configuration
-
-	$navigation-is-inline: true; // determine if navigation is inline
-
 	// Style block
 
 	.navigation-section {
 		.pixel-section-wrapper {
-			.slideout-button {
-				font-size: functions.em(16px, rem);
-				.icon {
-					margin-right: theme.$spacing-x2;
-				}
-			}
 			.navigation {
 				.navigation-list {
+					@include mixins.gap(theme.$spacing-x2);
 					.navigation-list-item {
-						&:not(.active) a:hover .icon:before {
-							top: 1px;
-							content: '\00003e';
+						&:not(:has(.navigation-link-active)) {
+							.navigation-link:hover {
+								.icon {
+									animation-name: bounce-horizontal;
+									&:before {
+										top: 1px;
+										content: '\00003e';
+									}
+								}
+							}
 						}
-						&:not(.active) a:hover .icon {
-							animation-name: bounce-horizontal;
+						.navigation-link {
+							font-size: functions.em(12px, rem);
+							.icon {
+								margin-right: theme.$spacing-x1;
+							}
 						}
 					}
 				}
@@ -38,17 +39,38 @@
 	.navigation {
 		.navigation-list {
 			.navigation-list-item {
-				&.active a .icon:before {
-					top: 1px;
-					content: '\00003e';
+				&:has(.navigation-link-active) {
+					.navigation-link .icon:before {
+						top: 1px;
+						content: '\00003e';
+					}
 				}
-				a {
+				.navigation-link {
 					position: relative;
 					color: theme.$color-02;
 					text-shadow: 2px 2px 0 theme.$color-03;
 					.icon {
 						margin-right: theme.$spacing-x2;
 						min-width: 16px;
+					}
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-03) {
+		.navigation-section {
+			.pixel-section-wrapper {
+				.navigation {
+					.navigation-list {
+						@include mixins.gap(theme.$spacing-x2 theme.$spacing-x4);
+						.navigation-list-item {
+							.navigation-link {
+								font-size: functions.em(14px, rem);
+								.icon {
+									margin-right: theme.$spacing-x2;
+								}
+							}
+						}
 					}
 				}
 			}

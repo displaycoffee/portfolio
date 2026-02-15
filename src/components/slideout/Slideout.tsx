@@ -67,10 +67,9 @@ export const Slideout = (props: SlideoutProps) => {
 						onClick={(e) => {
 							const eventNode = e.target as Node;
 
-							// Close slideout menu if inner element is a link or button
+							// Close slideout menu if inner link is clicked on
 							if (eventNode?.nodeName) {
-								const nodeLower = eventNode.nodeName.toLowerCase();
-								if (nodeLower == 'a' || nodeLower == 'button') {
+								if (eventNode.nodeName.toLowerCase() == 'a') {
 									setTimeout(() => {
 										toggle(e, false);
 									});
@@ -110,7 +109,7 @@ export const SlideoutOverlay = (props: SlideoutOverlayProps) => {
 		slideoutTarget.appendChild(elementRef.current);
 	}
 
-	// If we are no desktop and slideout is active, remove body classes to hide overlay
+	// If we are on desktop and slideout is active, remove body classes to hide overlay
 	const body = document.querySelector('body');
 	if (body && body.classList.contains(config.classes.activeBody) && options.isDesktop) {
 		set.body('remove');

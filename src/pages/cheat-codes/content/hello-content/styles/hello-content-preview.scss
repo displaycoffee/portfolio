@@ -30,7 +30,7 @@
 			border-bottom: 1px solid $hello-content-color-02;
 			.dc-hello-content-tabs-list {
 				list-style: none;
-				margin: 0 -5px -1px -5px;
+				margin: 0 0 -1px 0;
 				padding: 0;
 				-webkit-flex-flow: row wrap;
 				flex-flow: row wrap;
@@ -47,7 +47,7 @@
 					-ms-flex: 0 1 auto;
 					-moz-flex: 0 1 auto;
 					flex: 0 1 auto;
-					padding: 0 5px;
+					padding: 0;
 					margin: 0;
 					&:before {
 						display: none; // custom for preview
@@ -104,16 +104,21 @@
 		}
 	}
 	@media only screen and (min-width: $hello-content-breakpoint) {
+		$hello-content-items-per-row-adjust: $hello-content-items-per-row - 1;
 		#{$hello-content-selector} {
 			.dc-hello-content-tabs-buttons {
-				.dc-hello-content-tabs-list li {
-					width: calc(100% / $hello-content-items-per-row);
-					button {
-						-webkit-border-radius: 3px 3px 0 0;
-						-moz-border-radius: 3px 3px 0 0;
-						-ms-border-radius: 3px 3px 0 0;
-						-o-border-radius: 3px 3px 0 0;
-						border-radius: 3px 3px 0 0;
+				.dc-hello-content-tabs-list {				
+					-ms-gap: 10px;
+					gap: 10px;
+					li {
+						width: calc((100% - (10px * $hello-content-items-per-row-adjust)) / $hello-content-items-per-row);
+						button {
+							-webkit-border-radius: 3px 3px 0 0;
+							-moz-border-radius: 3px 3px 0 0;
+							-ms-border-radius: 3px 3px 0 0;
+							-o-border-radius: 3px 3px 0 0;
+							border-radius: 3px 3px 0 0;
+						}
 					}
 				}
 			}

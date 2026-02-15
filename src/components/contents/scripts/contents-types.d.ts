@@ -1,9 +1,5 @@
-/* React */
-import { FunctionComponent, ReactNode } from 'react';
-
 /* Type definitions */
 type Contents = {
-	component: FunctionComponent;
 	date: string;
 	description?: string;
 	description2?: string;
@@ -19,13 +15,12 @@ type Contents = {
 };
 
 type ContentsOptions = {
-	options: {
-		navigation?: {
-			back?: string;
-		};
-		path: string;
-		values: Contents[];
+	children?: ReactNode;
+	navigation?: {
+		back?: string;
 	};
+	type: string;
+	values: Contents[];
 };
 
 type ContentsTag = {
@@ -39,10 +34,11 @@ type ContentsTags = {
 };
 
 type ContentsPage = {
+	children?: ReactNode;
+	location: string;
 	navigation: {
 		back: string | boolean;
 	};
-	path: string;
 	values: Contents[];
 };
 
@@ -69,7 +65,5 @@ export type ContentsLinksProps = ContentsPage;
 export type ContentsDateProps = ContentsDate;
 
 export type ContentsProps = ContentsOptions;
-
-export type ContentsRoutesProps = ContentsOptions;
 
 export type ContentsTagsProps = ContentsWithChildren;

@@ -1,22 +1,26 @@
 /* React */
-import { useContext, useEffect } from 'react';
-import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Fragment, useContext, useEffect } from 'react';
+import { NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 /* Local styles */
 import './styles/navigation.scss';
 
 /* Local scripts */
-import { createNavigationList, navigation } from './scripts/navigation';
+import { NavigationListItemProps, NavigationRoutesProps } from './scripts/navigation-types';
+import { navigationUtils } from './scripts/navigation-utils';
+import { navigationRoutes } from './scripts/navigation-routes';
 
 /* Local components */
 import { Context } from '../../context/Context';
+
+/* Get navigation menu */
+const navigationList = navigationUtils.get.list();
 
 export const Navigation = () => {
 	const { pathname } = useLocation();
 	const context = useContext(Context);
 	const utils = context.utils;
-	const navigationList = createNavigationList(navigation, false);
-	const windowPath = window.location.pathname;
+	const navigationLinkClass = 'navigation-link';
 
 	// Scroll to top when navigation link is clicked on
 	useEffect(() => {
@@ -26,25 +30,11 @@ export const Navigation = () => {
 	return navigationList && navigationList.length != 0 ? (
 		<nav className="navigation">
 			<ul className="navigation-list unstyled">
-				{navigationList.map((nav: PageType) => {
-					const isIndex = nav.url == '/' ? true : false;
-					const isIndexWindow = windowPath == '/' ? true : false;
-
-					// Determine active navigation link
-					let isActive = isIndex && isIndexWindow ? true : false;
-					if (!isIndex && !isIndexWindow) {
-						const windowSlash = `${windowPath}/`;
-						const navSlash = `${nav.url}/`;
-						isActive = windowSlash.includes(navSlash) ? true : false;
-					}
-
+				{navigationList.map((nav) => {
 					return (
-						<li className={`navigation-list-item${isActive ? ' active' : ''}`} key={nav.id}>
-							<Link to={nav.url} title={nav.alt || nav.label}>
-								<span className="icon icon-bullet icon-shadow-x1 animate-left"></span>
-								{nav.label}
-							</Link>
-						</li>
+						<Fragment key={nav.id}>
+							<NavigationListItem navigationLinkClass={navigationLinkClass} nav={nav} />
+						</Fragment>
 					);
 				})}
 			</ul>
@@ -52,16 +42,44 @@ export const Navigation = () => {
 	) : null;
 };
 
+export const NavigationListItem = (props: NavigationListItemProps) => {
+	const { children, nav, navigationLinkClass } = props;
+	const navigationActiveClass = `${navigationLinkClass} ${navigationLinkClass}-active`;
+
+	return (
+		<li className="navigation-list-item">
+			<NavLink to={nav.url} title={nav.alt || nav.label} className={({ isActive }) => (isActive ? navigationActiveClass : navigationLinkClass)}>
+				<span className="icon icon-bullet icon-shadow-x1 animate-left"></span>
+				{nav.label}
+			</NavLink>
+
+			{children ? children : null}
+		</li>
+	);
+};
+
 export const NavigationRoutes = () => {
-	const navigationList = createNavigationList(navigation, true);
-
-	return navigationList && navigationList.length != 0 ? (
+	return navigationRoutes && navigationRoutes.length != 0 ? (
 		<Routes>
-			{navigationList.map((nav: PageType) => {
-				const path = nav.hasChildren ? `${nav.url}/*` : nav.url;
-				const navProps = nav?.props ? nav.props : {};
+			{navigationRoutes.map((nav: NavigationRoutesProps) => {
+				const navProps = nav?.props ? nav.props : false;
 
-				return <Route path={path} element={<nav.component {...navProps} />} key={nav.id} />;
+				return (
+					<Fragment key={nav.id}>
+						{nav?.children && nav.children.length !== 0 ? (
+							<>
+								<Route path={`${nav.path}/*`} element={<nav.element {...navProps} />} />
+
+								{nav.children.map((child: NavigationRoutesProps) => {
+									const childProps = child?.props ? child.props : false;
+									return <Route path={child.path} element={<child.element {...childProps} />} key={child.id} />;
+								})}
+							</>
+						) : (
+							<Route path={nav.path} element={<nav.element {...navProps} />} />
+						)}
+					</Fragment>
+				);
 			})}
 
 			<Route path="*" element={<Navigate to="/" />} />

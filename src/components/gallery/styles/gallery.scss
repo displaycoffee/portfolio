@@ -16,17 +16,20 @@
 			@include mixins.grid-layout(5px, 75px);
 		}
 		.gallery-body {
-			&, .gallery-image {
-				margin: 0 0 theme.$spacing-x4 0;
-			}
+			@include mixins.gap(theme.$spacing-x4);
+			margin: 0 0 theme.$spacing-x4 0;
 			.gallery-header, .gallery-image, .gallery-details {
 				min-width: 1px;
 			}
 			.gallery-header, .gallery-details {				
 				@include mixins.flex(1 1 100%);
 			}
+			.gallery-header .gallery-header-title {
+				margin: 0;
+			}
 			.gallery-image {
 				@include mixins.flex(0 1 auto);
+				line-height: 0;
 				.gallery-image-wrapper {					
 					display: inline-block;
 				}
@@ -83,7 +86,6 @@
 					@include mixins.flex(0 1 auto);
 					max-width: 500px;
 					min-width: 400px;
-					margin: 0 theme.$spacing-x4 0 0;
 				}
 				.gallery-details {
 					@include mixins.flex;

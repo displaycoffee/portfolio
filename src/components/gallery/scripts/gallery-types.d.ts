@@ -1,7 +1,6 @@
-/* React */
-import { Dispatch } from 'react';
-
 /* Type definitions */
+type Galleries = Gallery[];
+
 type Gallery = {
 	categories?: string;
 	date: string;
@@ -21,21 +20,19 @@ type Gallery = {
 };
 
 type GalleryOptions = {
-	options: {
-		headers?: {
-			enabled?: boolean;
-			label?: string;
-		};
-		navigation?: {
-			back?: string;
-		};
-		path: string;
-		tabs?: {
-			all?: boolean;
-			enabled?: boolean;
-		};
-		values: Gallery[];
+	headers?: {
+		enabled?: boolean;
+		label?: string;
 	};
+	navigation?: {
+		back?: string;
+	};
+	tabs?: {
+		all?: boolean;
+		enabled?: boolean;
+	};
+	type: string;
+	values: Galleries;
 };
 
 type GalleryPage = {
@@ -43,24 +40,35 @@ type GalleryPage = {
 		enabled: boolean;
 		label: string | boolean;
 	};
+	location: string;
 	navigation: {
 		back: string | boolean;
 	};
-	path: string;
-	tabs: GalleryTabs;
-	values: Gallery[];
+	tabs: {
+		all: boolean;
+		enabled: boolean;
+	};
+	values: Galleries;
 };
 
-type GalleryTabs = {
-	activeTab: string;
-	all: boolean;
-	enabled: boolean;
-	setActiveTab: Dispatch<string>;
-	values: string[];
+type GalleryTabsOptions = {
+	all?: boolean;
+	enabled?: boolean;
+};
+
+type GalleryTabsStorage = {
+	default: number;
+	active: {
+		[key: string]: string;
+	};
 };
 
 /* Export types */
-export type GalleryTabsType = GalleryTabs;
+export type GalleriesType = Galleries;
+
+export type GalleryTabsOptionsType = GalleryTabsOptions;
+
+export type GalleryTabsStorageType = GalleryTabsStorage;
 
 export type GalleryType = Gallery;
 
@@ -71,6 +79,4 @@ export type GalleryLinksProps = GalleryPage;
 
 export type GalleryProps = GalleryOptions;
 
-export type GalleryRoutesProps = GalleryOptions;
-
-export type GalleryThumbnailsProps = GalleryPage;
+export type GalleryThumbnailProps = GalleryPage;
