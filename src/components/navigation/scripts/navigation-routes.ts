@@ -7,7 +7,7 @@ import { navigationUtils } from './navigation-utils';
 import { Start } from '../../../pages/start/Start';
 import { About } from '../../../pages/about/About';
 import { Art } from '../../../pages/art/Art';
-import { Projects2 } from '../../../pages/projects/Projects';
+import { Projects } from '../../../pages/projects/Projects';
 import { Resume } from '../../../pages/resume/Resume';
 import { Articles } from '../../../pages/articles/Articles';
 import { CheatCodes } from '../../../pages/cheat-codes/CheatCodes';
@@ -40,7 +40,7 @@ const routeMap = {
 	start: Start,
 	about: About,
 	art: Art,
-	projects: Projects2,
+	projects: Projects,
 	resume: Resume,
 	...articlesMap,
 	...cheatCodesMap,

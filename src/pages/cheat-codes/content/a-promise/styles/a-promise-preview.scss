@@ -22,7 +22,7 @@
 
 	// Calculations
 
-	$a-promise-spacing-double: calc($a-promise-spacing * 2);
+	$a-promise-spacing-x2: calc($a-promise-spacing * 2);
 	$a-promise-spacing-half: calc($a-promise-spacing / 2);
 
 	// Style block
@@ -31,7 +31,7 @@
 		width: auto;
 		max-width: 100%;
 		margin: 0;
-		padding: $a-promise-spacing-double;
+		padding: $a-promise-spacing-x2;
 		text-align: right;
 		background-color: $a-promise-color-01;
 		&, & * {
@@ -80,8 +80,8 @@
 			flex-flow: row wrap;
 			-webkit-align-items: center;
 			align-items: center;
-			-ms-gap: $a-promise-spacing-double;
-			gap: $a-promise-spacing-double;
+			-ms-gap: $a-promise-spacing-x2;
+			gap: $a-promise-spacing-x2;
 			&:after, .dc-a-promise-column {
 				width: auto;
 				min-height: 1px;
@@ -94,8 +94,8 @@
 				-ms-flex: 1 1 100%;
 				-moz-flex: 1 1 100%;
 				flex: 1 1 100%;
-				margin-left: $a-promise-spacing-double;
-				margin-right: $a-promise-spacing-double;
+				margin-left: $a-promise-spacing-x2;
+				margin-right: $a-promise-spacing-x2;
 				border-bottom: 1px dashed $a-promise-color-06;
 			}
 			&:last-child:after {

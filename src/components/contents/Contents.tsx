@@ -142,9 +142,25 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 					const findActive = tagsConfig.hasTags ? tagsConfig.values.filter((tag) => tags[tag.value].active) : [];
 					const contentActive = !searchParams || (findActive && findActive.length !== 0) ? true : false;
 
+					// Get params to add to url and save selection
+					let linkParams = [] as string[];
+					let linkParamsString = '';
+
+					if (tagsConfig.hasTags) {
+						// Add params for active values
+						tagsConfig.values.forEach((tag) => {
+							if (tags[tag.value].active) {
+								linkParams.push(`tag=${tag.value}`);
+							}
+						});
+
+						// Set params string
+						linkParamsString = `?${linkParams.join('&')}`;
+					}
+
 					return contentActive ? (
 						<div className="contents-column column column-width-33" key={value.id}>
-							<Link className="contents-link" to={`${location}/${value.handle}`}>
+							<Link className="contents-link" to={`${location}/${value.handle}${linkParamsString}`}>
 								<div className="pixel-border">
 									<div className="image-wrapper image-wrapper-fit">
 										<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
@@ -191,6 +207,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
 	const context = useContext(Context);
+	const searchParams = useLocation()?.search ? useLocation().search : '';
 	const showContents = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching contents
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
@@ -205,6 +222,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const navigationProps = {
 		back: navigation.back,
 		next: compareHandle(next.handle as string),
+		params: searchParams,
 		path: parentPage,
 		previous: compareHandle(previous.handle as string),
 	};
@@ -227,9 +245,13 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 						{tagsConfig.hasTags ? (
 							<ContentsTags>
 								{tagsConfig.values.map((tag, index) => {
+									// Set active state for tag
+									tag.active = searchParams && searchParams.includes(tag.value) ? true : false;
+
 									return (
 										<div className="contents-tags-column" key={index}>
 											<Button
+												type={tag.active ? 'secondary active' : 'primary'}
 												size={'x-small'}
 												onClick={() => {
 													window.location.href = `${parentPage}?${contentsUtils.params.url.tag}=${tag.value}`;
