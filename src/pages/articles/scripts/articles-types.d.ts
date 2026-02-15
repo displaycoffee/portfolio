@@ -1,6 +1,3 @@
-/* React */
-import { ReactNode } from 'react';
-
 /* Type definitions */
 type ArticlesSection = {
 	children: ReactNode;
@@ -8,7 +5,7 @@ type ArticlesSection = {
 	scrollTop?: boolean;
 };
 
-type ArticlesToc = {
+type ArticlesToC = {
 	offset: number;
 	sections: string[];
 };
@@ -16,4 +13,4 @@ type ArticlesToc = {
 /* Export prop types */
 export type ArticlesSectionProps = ArticlesSection;
 
-export type ArticlesTocProps = ArticlesToc;
+export type ArticlesToCProps = ArticlesToC;

@@ -1,6 +1,6 @@
 /* React */
-import { useContext, useEffect, useState } from 'react';
-import { Link, Navigate, Routes, Route, useParams, useSearchParams } from 'react-router-dom';
+import { MouseEventHandler, useContext, useEffect, useState } from 'react';
+import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/contents.scss';
@@ -11,7 +11,6 @@ import {
 	ContentsDateProps,
 	ContentsLinksProps,
 	ContentsProps,
-	ContentsRoutesProps,
 	ContentsTagsProps,
 	ContentsTagsType,
 	ContentsTagType,
@@ -23,23 +22,17 @@ import { Context } from '../../context/Context';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
 export const Contents = (props: ContentsProps) => {
-	const { options } = props;
-	const hasContents = options && options?.path && options.values && options.values.length !== 0 ? true : false;
-
-	return hasContents ? <ContentsRoutes options={options} /> : null;
-};
-
-export const ContentsRoutes = (props: ContentsRoutesProps) => {
-	const { options } = props;
-	const { navigation, path, values } = options;
+	const { children, navigation, type, values } = props;
+	const location = useLocation();
+	const hasContents = values && values.length !== 0 ? true : false;
 
 	// Create contentsProps for components
 	const contentsProps = {
+		location: location.pathname,
 		navigation: {
 			back: navigation?.back ? navigation.back : false,
 		},
-		path: path,
-		values: values,
+		values: hasContents ? values : [],
 	};
 
 	// Create modified contents
@@ -49,21 +42,17 @@ export const ContentsRoutes = (props: ContentsRoutesProps) => {
 	const contentsCount = contentsProps.values.length;
 
 	return contentsCount !== 0 ? (
-		<Routes>
-			<Route path="/" element={<ContentsLinks {...contentsProps} />} />
-
-			{contentsProps.values.map((content) => {
-				return <Route path=":id" element={<ContentsBody {...contentsProps} />} key={content.id} />;
-			})}
-		</Routes>
+		type == 'links' ? (
+			<ContentsLinks {...contentsProps} />
+		) : (
+			<ContentsBody {...contentsProps} children={children} />
+		)
 	) : null;
-	return null;
 };
 
 export const ContentsLinks = (props: ContentsLinksProps) => {
-	const { path, values } = props;
+	const { location, values } = props;
 	const context = useContext(Context);
-	const utils = context.utils;
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
 	let [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
@@ -74,7 +63,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 		const tagsConfig = contentsUtils.tags(value?.tags as string);
 
 		// Set timestamp to sort values
-		utils.setTimestamp(value);
+		context.utils.setTimestamp(value);
 
 		if (tagsConfig.hasTags) {
 			tagsConfig.values.forEach((tag) => {
@@ -102,7 +91,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	}, []);
 
 	// Click functionality for applying tabs
-	const handleTag = (e: EventType, tag: ContentsTagType) => {
+	const handleTag = (e: EventsType, tag: ContentsTagType) => {
 		e.preventDefault();
 
 		if (tags[tag.value].active) {
@@ -120,7 +109,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	};
 
 	// Click functionality for clear
-	const handleClear = (e: EventType) => {
+	const handleClear = (e: EventsType) => {
 		e.preventDefault();
 
 		// Remove all tag params
@@ -141,7 +130,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 		<div className="contents">
 			{searchParams ? (
 				<div className="contents-clear">
-					<Button onClick={(e) => handleClear(e)}>Clear tags</Button>
+					<Button onClick={(e: MouseEventHandler<HTMLButtonElement>) => handleClear(e)}>Clear tags</Button>
 				</div>
 			) : null}
 
@@ -153,9 +142,25 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 					const findActive = tagsConfig.hasTags ? tagsConfig.values.filter((tag) => tags[tag.value].active) : [];
 					const contentActive = !searchParams || (findActive && findActive.length !== 0) ? true : false;
 
+					// Get params to add to url and save selection
+					let linkParams = [] as string[];
+					let linkParamsString = '';
+
+					if (tagsConfig.hasTags) {
+						// Add params for active values
+						tagsConfig.values.forEach((tag) => {
+							if (tags[tag.value].active) {
+								linkParams.push(`tag=${tag.value}`);
+							}
+						});
+
+						// Set params string
+						linkParamsString = `?${linkParams.join('&')}`;
+					}
+
 					return contentActive ? (
 						<div className="contents-column column column-width-33" key={value.id}>
-							<Link className="contents-link" to={`${path}/${value.handle}`}>
+							<Link className="contents-link" to={`${location}/${value.handle}${linkParamsString}`}>
 								<div className="pixel-border">
 									<div className="image-wrapper image-wrapper-fit">
 										<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
@@ -182,7 +187,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 												<Button
 													type={tag.active ? 'secondary active' : 'primary'}
 													size={'x-small'}
-													onClick={(e) => handleTag(e, tag)}
+													onClick={(e: MouseEventHandler<HTMLButtonElement>) => handleTag(e, tag)}
 												>
 													{tag.label}
 												</Button>
@@ -200,11 +205,13 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 };
 
 export const ContentsBody = (props: ContentsBodyProps) => {
-	const { navigation, path, values } = props;
-	const { id } = useParams();
-	const showContents = window.location.href.includes(`${path}/${id}`) ? true : false; // Do not render current item if not in matching contents
-	const elements = contentsUtils.navigation(values, id as string);
+	const { children, location, navigation, values } = props;
+	const context = useContext(Context);
+	const searchParams = useLocation()?.search ? useLocation().search : '';
+	const showContents = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching contents
+	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
+	const parentPage = context.utils.getPage();
 
 	// Ensure handles do not match current
 	const compareHandle = (handle: string) => {
@@ -215,7 +222,8 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const navigationProps = {
 		back: navigation.back,
 		next: compareHandle(next.handle as string),
-		path: path,
+		params: searchParams,
+		path: parentPage,
 		previous: compareHandle(previous.handle as string),
 	};
 
@@ -224,9 +232,6 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 
 	// Check if we have a header
 	const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
-
-	// Set component for body
-	const Body = current.component;
 
 	return showContents ? (
 		current ? (
@@ -240,12 +245,16 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 						{tagsConfig.hasTags ? (
 							<ContentsTags>
 								{tagsConfig.values.map((tag, index) => {
+									// Set active state for tag
+									tag.active = searchParams && searchParams.includes(tag.value) ? true : false;
+
 									return (
 										<div className="contents-tags-column" key={index}>
 											<Button
+												type={tag.active ? 'secondary active' : 'primary'}
 												size={'x-small'}
 												onClick={() => {
-													window.location.href = `${path}?${contentsUtils.params.url.tag}=${tag.value}`;
+													window.location.href = `${parentPage}?${contentsUtils.params.url.tag}=${tag.value}`;
 												}}
 											>
 												{tag.label}
@@ -268,14 +277,12 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 					</div>
 				) : null}
 
-				<div className="contents-body spacing-reset">
-					<Body />
-				</div>
+				<div className="contents-body spacing-reset">{children}</div>
 
 				<PixelSection navigation={navigationProps} />
 			</div>
 		) : (
-			<Navigate to={path} replace />
+			<Navigate to={parentPage} replace />
 		)
 	) : null;
 };

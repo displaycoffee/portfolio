@@ -10,6 +10,20 @@ const day = today.getDate();
 const fallback = `${year}-${month < 10 ? '0' + month : month}-${day}`;
 
 export const utils = {
+	getLast: (value: string | [], delimeter?: string) => {
+		// Get last item in array
+		let valueArray = [] as string[] | number[];
+		if (Array.isArray(value)) {
+			valueArray = value;
+		} else if (delimeter) {
+			valueArray = value.split(delimeter);
+		}
+		return valueArray[valueArray.length - 1];
+	},
+	getPage: () => {
+		// Get previous / parent page
+		return window.location.pathname.split('/').slice(0, -1).join('/');
+	},
 	handleize: (value: string) => {
 		// Format value for html classes
 		return value
@@ -29,7 +43,7 @@ export const utils = {
 			}
 		}
 	},
-	scrollTo: (e: EventType, selector: string | undefined, offset: number) => {
+	scrollTo: (e: EventsType, selector: string | undefined, offset: number) => {
 		// Scroll to element on page
 		if (e) {
 			e.preventDefault();

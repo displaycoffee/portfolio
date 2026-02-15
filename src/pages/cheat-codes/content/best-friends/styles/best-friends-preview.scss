@@ -98,6 +98,8 @@
 			.dc-hello-content-tabs-buttons {
 				border: 0;
 				.dc-hello-content-tabs-list {
+					-ms-gap: 0;
+					gap: 0;
 					&, li {
 						margin: 0;
 						padding: 0;
@@ -128,6 +130,9 @@
 			}		
 			.dc-hello-content-tabs-content .dc-hello-content-block {
 				background-color: transparent;
+				*:not(a) {
+					color: $best-friends-color-02;
+				}
 			}
 		}
 	}

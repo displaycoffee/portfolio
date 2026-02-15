@@ -68,10 +68,8 @@
 		}
 		.contents-tags {
 			.contents-tags-row {
-				margin: 0 -#{theme.$spacing-x05} -#{theme.$spacing-x1} -#{theme.$spacing-x05};
+				@include mixins.gap(theme.$spacing-x1);
 				.contents-tags-column {
-					padding: 0 theme.$spacing-x05;
-					margin: 0 0 theme.$spacing-x1 0;
 					line-height: 0;
 				}
 			}
@@ -95,11 +93,11 @@
 			}
 		}
 	}
-	@media only screen and (min-width: #{theme.$bp-01 + 100}px) and (max-width: #{theme.$bp-03 - 1}px) {
+	@media only screen and (min-width: #{theme.$bp-02 - 100}px) and (max-width: #{theme.$bp-02 - 1}px) {
 		.contents {
 			.contents-row {
 				.contents-column {
-					width: 50%;
+					@include mixins.gap-width(theme.$spacing-x4, 2);
 				}
 			}
 		}

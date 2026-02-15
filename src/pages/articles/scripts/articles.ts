@@ -1,11 +1,6 @@
 const distPath = '/assets/images/';
 const articlesPath = `${distPath}articles/`;
 
-/* Local components */
-import { BoxSizing } from '../content/box-sizing/BoxSizing';
-import { StructuringCode } from '../content/structuring-code/StructuringCode';
-import { StylingText } from '../content/styling-text/StylingText';
-
 export const articles = [
 	{
 		id: 2,
@@ -15,7 +10,6 @@ export const articles = [
 		tags: `CSS`,
 		thumb: `${articlesPath}box-sizing-400x250.jpg`,
 		description: `If a person asked me what my favorite CSS property was, I'd tell them without a doubt, box-sizing. Not familiar with box-sizing? That's okay! The goal of this documentation is to teach you what it is and why it'll make writing CSS a little bit easier.`,
-		component: BoxSizing,
 	},
 	{
 		id: 1,
@@ -25,7 +19,6 @@ export const articles = [
 		tags: `CSS, HTML`,
 		thumb: `${articlesPath}structuring-code-400x250.jpg`,
 		description: `Not sure how to begin building your code? Sure, there's tons of formatters out there and even tools such as Prettier, but I feel it's a good idea to have a few ground rules for yourself. Or at the very least, so you don't drive others mad with ugly code.`,
-		component: StructuringCode,
 	},
 	{
 		id: 0,
@@ -35,6 +28,5 @@ export const articles = [
 		tags: `CSS`,
 		thumb: `${articlesPath}styling-text-400x250.jpg`,
 		description: `The world of CSS text styling is large and vast. This article goes over only a small fraction of those rules (including the basics) and aims to show you how to use them.`,
-		component: StylingText,
 	},
 ];

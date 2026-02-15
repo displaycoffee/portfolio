@@ -1,9 +1,9 @@
 /* Local scripts */
-import { GalleryTabsType, GalleryType } from './gallery-types';
+import { GalleriesType, GalleryTabsOptionsType, GalleryType } from './gallery-types';
 import { utils } from '../../../_config/scripts/utils';
 
 export const gallery = {
-	build: (values: GalleryType[], tabs: GalleryTabsType) => {
+	build: (values: GalleriesType, tabs: GalleryTabsOptionsType) => {
 		// Build values properties for content
 		if (values && values.length !== 0) {
 			values.forEach((value, index) => {
@@ -33,14 +33,25 @@ export const gallery = {
 			return [];
 		}
 	},
-	navigation: (values: GalleryType[], id: string) => {
+	includeValue: (enabled: boolean, categories?: string, storage?: string | boolean) => {
+		// Determine whether value should be includes in loop
+		let includeValue = true;
+		if (enabled && categories && storage) {
+			includeValue = categories.includes(storage as string) ? true : false;
+		}
+		return includeValue;
+	},
+	navigation: (values: GalleriesType, location: string) => {
 		// Function to get navigation indexes
 		const valuesCount = values.length - 1;
+
+		// Get last path in location
+		const lastPath = utils.getLast(location, '/');
 
 		// Find active index
 		let selected = values.filter((value, index) => {
 			value.index = index; // Ensure value has correct index
-			return (value?.handle || value?.id) == id;
+			return value?.handle == lastPath;
 		});
 
 		// Set current

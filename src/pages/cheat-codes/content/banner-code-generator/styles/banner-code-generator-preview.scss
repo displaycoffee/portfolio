@@ -21,7 +21,6 @@
 	// Calculations
 
 	$banner-code-generator-spacing-half: calc($banner-code-generator-spacing / 2);
-	$banner-code-generator-spacing-quarter: calc($banner-code-generator-spacing / 4);
 
 	// Style block
 
@@ -50,15 +49,15 @@
 				display: flex;
 				-webkit-align-items: center;
 				align-items: center;
-				margin: 0 -#{$banner-code-generator-spacing-quarter} -#{$banner-code-generator-spacing-half} -#{$banner-code-generator-spacing-quarter};
+				-ms-gap: $banner-code-generator-spacing-half;
+				gap: $banner-code-generator-spacing-half;
 				.dc-banner-code-generator-button {
 					min-width: 1px;
 					-webkit-flex: 0 1 auto;
 					-ms-flex: 0 1 auto;
 					-moz-flex: 0 1 auto;
 					flex: 0 1 auto;
-					padding: 0 $banner-code-generator-spacing-quarter;
-					margin: 0 0 $banner-code-generator-spacing-half 0;
+					padding: 0;
 					background-color: transparent;
 					border: 0;
 				}
