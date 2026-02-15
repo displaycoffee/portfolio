@@ -7,7 +7,36 @@ export const FriendsNotFood = () => {
 			<div className="dc-friends-not-food-container dc-friends-not-food-vertical">
 				<div className="dc-friends-not-food-hover dc-friends-not-food-font">Hover For More</div>
 
-				<div className="dc-friends-not-food-information-01">
+				<div className="dc-friends-not-food-more-info dc-friends-not-food-absolute">
+					<main className="dc-friends-not-food-vertical">
+						<div className="dc-friends-not-food-block">
+							<p>
+								Quagga mussel cat shark is batfish frogfish. . Peppered moray clownfish hawkfish at seahorse hammerhead a funny snake
+								eel. Wobbegong shark blue whale gold damsel faucet snail, in snake eel sea coral grouper. The crackin crazy Neon goby
+								nurse shark moon. Quagga musse.
+							</p>
+							<p>
+								Grey whale mermaid appeared. Fire fish pipefish blue tang, frogfish bicolor blenny at, quagga mussel and funny
+								bannerfish. Milk shark swim Asian clam soldierfish. Banana wrasse in yellow pseudochromis non mermaid parrotfish
+								mystery snail. In seahorse banded eel, butter hamlet are butterflyfish blue tang, wabas.
+							</p>
+						</div>
+
+						<div className="dc-friends-not-food-block">
+							<p>
+								Pigtoe sea coral king crab heelsplitter, in painted comber Banded eel bicolor blenny. Bursa trigger funny filefish, a
+								Snaggletooth shark lobster in. Spotted sweetlips loving in catshark pebblesnail at seabass with faucet snail. Yellow
+								pseudochromis weasel shark shadow, darkness in deap ocean an, Motionless Wabash pigtoe Full moon. Fishies asian cla
+							</p>
+							<p>
+								Painted comber, king crab a elktoe a, grey whale seahorse. The crackin crazy Neon goby nurse shark moon. Hippo tang
+								gold damsel peaclam.
+							</p>
+						</div>
+					</main>
+				</div>
+
+				<div className="dc-friends-not-food-details">
 					<header className="dc-friends-not-food-header">
 						<div className="dc-friends-not-food-name">
 							<h3 className="dc-friends-not-food-font">Imma Shark, Baby</h3>
@@ -86,35 +115,6 @@ export const FriendsNotFood = () => {
 									</p>
 								</div>
 							</div>
-						</div>
-					</main>
-				</div>
-
-				<div className="dc-friends-not-food-information-02 dc-friends-not-food-absolute">
-					<main className="dc-friends-not-food-vertical">
-						<div className="dc-friends-not-food-block">
-							<p>
-								Quagga mussel cat shark is batfish frogfish. . Peppered moray clownfish hawkfish at seahorse hammerhead a funny snake
-								eel. Wobbegong shark blue whale gold damsel faucet snail, in snake eel sea coral grouper. The crackin crazy Neon goby
-								nurse shark moon. Quagga musse.
-							</p>
-							<p>
-								Grey whale mermaid appeared. Fire fish pipefish blue tang, frogfish bicolor blenny at, quagga mussel and funny
-								bannerfish. Milk shark swim Asian clam soldierfish. Banana wrasse in yellow pseudochromis non mermaid parrotfish
-								mystery snail. In seahorse banded eel, butter hamlet are butterflyfish blue tang, wabas.
-							</p>
-						</div>
-
-						<div className="dc-friends-not-food-block">
-							<p>
-								Pigtoe sea coral king crab heelsplitter, in painted comber Banded eel bicolor blenny. Bursa trigger funny filefish, a
-								Snaggletooth shark lobster in. Spotted sweetlips loving in catshark pebblesnail at seabass with faucet snail. Yellow
-								pseudochromis weasel shark shadow, darkness in deap ocean an, Motionless Wabash pigtoe Full moon. Fishies asian cla
-							</p>
-							<p>
-								Painted comber, king crab a elktoe a, grey whale seahorse. The crackin crazy Neon goby nurse shark moon. Hippo tang
-								gold damsel peaclam.
-							</p>
 						</div>
 					</main>
 				</div>

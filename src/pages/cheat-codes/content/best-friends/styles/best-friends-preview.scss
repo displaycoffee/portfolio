@@ -130,6 +130,9 @@
 			}		
 			.dc-hello-content-tabs-content .dc-hello-content-block {
 				background-color: transparent;
+				*:not(a) {
+					color: $best-friends-color-02;
+				}
 			}
 		}
 	}

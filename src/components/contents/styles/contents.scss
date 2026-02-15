@@ -93,7 +93,7 @@
 			}
 		}
 	}
-	@media only screen and (min-width: #{theme.$bp-01 + 100}px) and (max-width: #{theme.$bp-03 - 1}px) {
+	@media only screen and (min-width: #{theme.$bp-02 - 100}px) and (max-width: #{theme.$bp-02 - 1}px) {
 		.contents {
 			.contents-row {
 				.contents-column {

@@ -73,7 +73,7 @@ export const CodeInline = (props: CodeInlineProps) => {
 
 export const HeaderIcon = (props: HeaderIconProps) => {
 	const { children, className, tag } = props;
-	const Tag = tag ? tag : 'h3'; // This will define the element / tag to be used
+	const Tag = (tag ? tag : 'h3') as React.ElementType; // This will define the element / tag to be used
 	const headerClass = className ? `${className} ` : '';
 
 	return (
@@ -129,7 +129,10 @@ export const PixelSection = (props: PixelSectionProps) => {
 						<ul className="pixel-navigation-list unstyled flex-wrap flex-align-items-center">
 							{navigation?.previous?.handle && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
-									<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.previous.handle}`}>
+									<Link
+										className="pixel-navigation-link"
+										to={`${navigation.path}/${navigation.previous.handle}${navigation.params}`}
+									>
 										<span className="icon icon-angle-left icon-shadow-x1"></span>
 										<span className="pixel-navigation-label">Previous</span>
 									</Link>
@@ -141,7 +144,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 									{navigation?.previous?.handle ? navigationSeparator : null}
 
 									<li className="pixel-navigation-list-item pixel-navigation-back">
-										<Link className="pixel-navigation-link" to={`${navigation.path}`}>
+										<Link className="pixel-navigation-link" to={`${navigation.path}${navigation.params}`}>
 											{navigation.back}
 										</Link>
 									</li>
@@ -153,7 +156,10 @@ export const PixelSection = (props: PixelSectionProps) => {
 									{navigationSeparator}
 
 									<li className="pixel-navigation-list-item pixel-navigation-next">
-										<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.next.handle}`}>
+										<Link
+											className="pixel-navigation-link"
+											to={`${navigation.path}/${navigation.next.handle}${navigation.params}`}
+										>
 											<span className="pixel-navigation-label">Next</span>
 											<span className="icon icon-angle-right icon-shadow-x1"></span>
 										</Link>

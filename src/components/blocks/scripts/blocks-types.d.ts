@@ -15,13 +15,14 @@ type CodeBlock = {
 };
 
 type HeaderIcon = {
-	tag?: keyof JSX.IntrinsicElements;
+	tag?: string;
 };
 
 type Navigation = {
 	navigation?: {
 		back: string | boolean;
 		next: NavigationHandle;
+		params?: string;
 		path: string;
 		previous: NavigationHandle;
 	};
