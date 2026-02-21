@@ -1,9 +1,4 @@
 /* Type definitions */
-type ChildPages = {
-	url: string;
-	childPages: Page[];
-};
-
 type Date = {
 	date: string;
 	timestamp?: number;
@@ -19,23 +14,9 @@ type ObjectPrimitive = {
 	[key: string]: string | number | boolean;
 };
 
-type Page = {
-	alt?: string;
-	component: JSX.Element;
-	hasChildren?: boolean;
-	id: number;
-	isRoute?: boolean;
-	label: string;
-	props?: ObjectPrimitive;
-	showInNav?: boolean;
-	url: string;
-};
-
 /* Declare global types */
 declare global {
 	/* Declare global types */
-	type ChildPagesType = ChildPages;
-
 	type DateType = Date;
 
 	type EventsType = Events;
@@ -43,8 +24,6 @@ declare global {
 	type ObjectStringType = ObjectString;
 
 	type ObjectPrimitiveType = ObjectPrimitive;
-
-	type PageType = Page;
 
 	/* Declare global prop types */
 	type ObjectPrimitiveProps = ObjectPrimitive;
