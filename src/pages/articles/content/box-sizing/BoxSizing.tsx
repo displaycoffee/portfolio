@@ -4,6 +4,7 @@ import { codeBlocks } from './scripts/box-sizing-code-blocks';
 /* Local components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
+import { Image } from '../../../../components/image/Image';
 
 export const BoxSizing = () => {
 	const sections = ['The Box Model', 'The Problem', 'The Solution', 'Shining Star', 'Usage / Compatibility', 'Closing'];
@@ -39,14 +40,12 @@ export const BoxSizing = () => {
 					to <CodeInline>p</CodeInline> tags.
 				</p>
 				<p>Here's a basic image of what "The Box Model" looks like when viewed with Chrome Development Tools.</p>
-				<div className="image-wrapper">
-					<img
-						src="/assets/images/articles/box-sizing-01.jpg"
-						alt="The Box Model in Chrome"
-						title="The Box Model in Chrome"
-						loading="lazy"
-					/>
-				</div>
+				<Image
+					alt={'The Box Model in Chrome'}
+					hasLazy={true}
+					image={'/assets/images/articles/box-sizing-01.jpg'}
+					wrapperClass={'image-wrapper'}
+				/>
 				<p>Here's the actual HTML:</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[0]}</CodeBlock>
 				<p>
@@ -81,9 +80,7 @@ export const BoxSizing = () => {
 					Well, guess what size our element is now? <strong>730 pixels</strong>. The padding was calculated and added onto the width, the
 					border is making everything too big, and our design doesn't look anything like it should. Here's the updated box model:
 				</p>
-				<div className="image-wrapper">
-					<img src="/assets/images/articles/box-sizing-02.jpg" alt="Updated Box Model" title="Updated Box Model" loading="lazy" />
-				</div>
+				<Image alt={'Updated Box Model'} hasLazy={true} image={'/assets/images/articles/box-sizing-02.jpg'} wrapperClass={'image-wrapper'} />
 				<p>
 					<strong>Calculation:</strong>
 				</p>
@@ -108,9 +105,7 @@ export const BoxSizing = () => {
 					But that's annoying to do all the time for every element. Box-sizing takes care of those adjustments for us and says, "You want
 					the box to be 700 pixels? No problem." Here's the updated box model:
 				</p>
-				<div className="image-wrapper">
-					<img src="/assets/images/articles/box-sizing-03.jpg" alt="Updated Box Model" title="Updated Box Model" loading="lazy" />
-				</div>
+				<Image alt={'Updated Box Model'} hasLazy={true} image={'/assets/images/articles/box-sizing-03.jpg'} wrapperClass={'image-wrapper'} />
 				<p>
 					<strong>Calculation:</strong>
 				</p>
@@ -134,9 +129,7 @@ export const BoxSizing = () => {
 				<p>
 					Here's what the dimensions of our <CodeInline>div</CodeInline> look like:
 				</p>
-				<div className="image-wrapper">
-					<img src="/assets/images/articles/box-sizing-04.jpg" alt="Div dimensions" title="Div dimensions" loading="lazy" />
-				</div>
+				<Image alt={'"Div dimensions'} hasLazy={true} image={'/assets/images/articles/box-sizing-04.jpg'} wrapperClass={'image-wrapper'} />
 				<p>
 					As I mentioned above, my browser width is 1903 pixels. Without box-sizing, my box would overflow and create a horizontal scroll
 					bar, because...

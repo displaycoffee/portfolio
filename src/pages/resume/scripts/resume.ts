@@ -56,7 +56,7 @@ export const resume = {
 			id: 4,
 			name: 'Searchspring',
 			role: 'Senior Frontend Engineer and Team Lead',
-			date: 'November 2014 to <strong>Current</strong>',
+			date: 'November 2014 to March 2026',
 			description: [
 				`Engineered complex integrations using proprietary APIs/SDKs to build real-time search and discovery experiences for major global eCommerce brands`,
 				`Created mockups to demo product features when integrated on a client's eCommerce website`,

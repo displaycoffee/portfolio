@@ -13,6 +13,7 @@ import { articles } from './scripts/articles';
 import { Context } from '../../context/Context';
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
+import { Icon } from '../../components/icons/Icons';
 import { BoxSizing } from './content/box-sizing/BoxSizing';
 import { StructuringCode } from './content/structuring-code/StructuringCode';
 import { StylingText } from './content/styling-text/StylingText';
@@ -88,8 +89,14 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 
 			{scrollTop ? (
 				<div className="articles-top">
-					<button className="articles-top-button a" onClick={(e) => utils.scrollTo(e, 'body')}>
-						<span className="icon icon-angle-up"></span>Back to top
+					<button
+						className="articles-top-button a"
+						type="button"
+						aria-label="Back to top button"
+						onClick={(e) => utils.scrollTo(e, 'body')}
+					>
+						<Icon id={'angle-up'} shadowSize={'none'} />
+						Back to top
 					</button>
 				</div>
 			) : null}
@@ -111,6 +118,8 @@ export const ArticlesToC = (props: ArticlesToCProps) => {
 					<li key={section}>
 						<button
 							className="a"
+							type="button"
+							aria-label={`${section} button`}
 							onClick={(e) => utils.scrollTo(e, `#articles-section-${utils.handleize(section)}`, offset ? offset : 0)}
 						>
 							{section}

@@ -110,14 +110,14 @@ export const codeBlocks = [
 	.purple-div {
 		background: purple;
 	}`,
-	`<div class="polka-dot-trex">I got some text for you right here.<p>Okay, but be nice!</p><img src="//placecats.com/millie/300/150" /><div class="glow-in-the-dark-triceratops">Maybe we'll put some new text here.</div>
+	`<div class="polka-dot-trex">I got some text for you right here.<p>Okay, but be nice!</p><img src="//placecats.com/millie/300/150" alt="It's a cat" title="It's a cat" width="300" height="150" /><div class="glow-in-the-dark-triceratops">Maybe we'll put some new text here.</div>
 	<div class="dinosaur-broadway-musical"><p>What is this about?</p></div></div>`,
 	`<div class="polka-dot-trex">
 		<p>I got some text for you right here.</p>
 
 		<p>Okay, but be nice!</p>
 
-		<img src="//placecats.com/millie/300/150" />
+		<img src="//placecats.com/millie/300/150" alt="It's a cat" title="It's a cat" width="300" height="150" />
 
 		<div class="glow-in-the-dark-triceratops">
 			Maybe we'll put some new text here.

@@ -11,6 +11,7 @@ import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { Image } from '../image/Image';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
 /* Set up tab storage */
@@ -149,9 +150,12 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 					return showItem ? (
 						<div className="gallery-item" key={value.id}>
 							<Link className="gallery-image" to={`${location}/${value.handle}`}>
-								<div className="image-wrapper image-wrapper-fluid pixel-border">
-									<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
-								</div>
+								<Image
+									alt={value.name}
+									hasLazy={true}
+									image={value.thumb}
+									wrapperClass={'image-wrapper image-wrapper-fluid pixel-border'}
+								/>
 							</Link>
 						</div>
 					) : null;
@@ -202,11 +206,12 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 					{(current.image || current.thumb) && (
 						<div className="gallery-image">
 							<a href={current.image ? current.image : current.thumb} target="_blank" rel="noreferrer">
-								<div
-									className={`gallery-image-wrapper${current.categories && current.categories.includes('Pixels') ? '' : ' pixel-border'}`}
-								>
-									<img src={current.image ? current.image : current.thumb} alt={current.name} title={current.name} loading="lazy" />
-								</div>
+								<Image
+									alt={current.name}
+									hasLazy={true}
+									image={current.image ? current.image : current.thumb}
+									wrapperClass={`image-wrapper gallery-image-wrapper${current.categories && current.categories.includes('Pixels') ? '' : ' pixel-border'}`}
+								/>
 							</a>
 						</div>
 					)}

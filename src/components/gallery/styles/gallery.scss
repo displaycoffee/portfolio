@@ -29,10 +29,6 @@
 			}
 			.gallery-image {
 				@include mixins.flex(0 1 auto);
-				line-height: 0;
-				.gallery-image-wrapper {					
-					display: inline-block;
-				}
 			}
 		}
 	}
@@ -66,10 +62,8 @@
 				.gallery-item {
 					overflow: hidden;
 					.gallery-image {
-						&:hover {
-							.image-wrapper img {
-								@include mixins.transform(scale(1.5, 1.5));
-							}
+						&:hover .image-wrapper img {
+							@include mixins.transform(scale(1.5, 1.5));
 						}
 						.image-wrapper img {
 							@include mixins.transition(transform 0.5s ease-in-out);
