@@ -9,6 +9,8 @@ import { footer } from './scripts/footer';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { Icon } from '../../components/icons/Icons';
+import { Image } from '../../components/image/Image';
 
 export const Footer = () => {
 	const context = useContext(Context);
@@ -27,17 +29,24 @@ export const Footer = () => {
 							{footer.map((link) => (
 								<Fragment key={link.id}>
 									<a className="footer-navigation-link" href={link.url} target="_blank" rel="noreferrer">
-										<img
-											src={utils.setIcon(`${link.label.toLowerCase()}-color`, iconSize)}
+										<Image
 											alt={link.alt || link.label}
-											title={link.alt || link.label}
+											hasLazy={true}
+											hasWrapper={false}
+											image={utils.setIcon(`${link.label.toLowerCase()}-color`, iconSize)}
 										/>
 									</a>
 								</Fragment>
 							))}
 
-							<button className="footer-navigation-link unstyled pointer bounce-5" onClick={(e) => utils.scrollTo(e, 'body')}>
-								<span className="icon icon-angle-up icon-lg icon-bold icon-shadow-x1 animate-bottom"></span>
+							<button
+								className="footer-navigation-link unstyled pointer bounce-5"
+								type="button"
+								aria-label="Back to top button"
+								title="Back to top button"
+								onClick={(e) => utils.scrollTo(e, 'body')}
+							>
+								<Icon animate={'bottom'} id={'angle-up'} isBold={true} size={'lg'} />
 							</button>
 						</nav>
 					</div>

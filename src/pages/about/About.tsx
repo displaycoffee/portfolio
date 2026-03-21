@@ -3,17 +3,19 @@ import './styles/about.scss';
 
 /* Local components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
+import { Image } from '../../components/image/Image';
 
 export const About = () => {
 	return (
 		<>
 			<HeaderIcon>About</HeaderIcon>
 
-			<div className="about-photo pixel-border image-wrapper image-wrapper-float-left">
-				<div className="image-wrapper-fluid">
-					<img src="/assets/images/theme/me.jpg" alt="Me riding a real dinosaur" title="Me riding a real dinosaur" loading="lazy" />
-				</div>
-			</div>
+			<Image
+				alt={'Me riding a real dinosaur'}
+				hasLazy={true}
+				image={'/assets/images/theme/me.jpg'}
+				wrapperClass={'about-photo pixel-border image-wrapper image-wrapper-float-left'}
+			/>
 
 			<p>
 				If you are on this particular page, you likely came here to understand a little more about who I am. Okay, well, first things first.

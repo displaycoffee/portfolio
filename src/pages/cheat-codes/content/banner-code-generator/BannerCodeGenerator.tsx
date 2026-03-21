@@ -91,7 +91,7 @@ export const BannerCodeGenerator = () => {
 				<p>
 					The component accepts a <CodeInline>banners</CodeInline> prop which is an nested object array of banners. The initial level should
 					contain a <CodeInline>header</CodeInline> property and then a <CodeInline>values</CodeInline> array containing details of the
-					banners. Each banner can have <CodeInline>src</CodeInline>, <CodeInline>alt</CodeInline>, and <CodeInline>title</CodeInline>{' '}
+					banners. Each banner can have <CodeInline>src</CodeInline> and <CodeInline>alt</CodeInline>
 					attributes. The <CodeInline>site</CodeInline> prop should contain your site url that you want to link people to.{' '}
 					<CodeInline>defaultBanner</CodeInline> is optional.
 				</p>
@@ -141,17 +141,14 @@ const banners = [
 		values: [
 			{
 				alt: 'Coffee Banner - 88x31',
-				title: 'Coffee Banner - 88x31',
 				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-88x31.jpg',
 			},
 			{
 				alt: 'Dog Banner - 88x31',
-				title: 'Dog Banner - 88x31',
 				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-88x31.jpg',
 			},
 			{
 				alt: 'Lightning Banner - 88x31',
-				title: 'Lightning Banner - 88x31',
 				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-88x31.jpg',
 			},
 		],
@@ -161,17 +158,14 @@ const banners = [
 		values: [
 			{
 				alt: 'Coffee Banner - 100x50',
-				title: 'Coffee Banner - 100x50',
 				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-coffee-100x50.jpg',
 			},
 			{
 				alt: 'Dog Banner - 100x50',
-				title: 'Dog Banner - 100x50',
 				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-dog-100x50.jpg',
 			},
 			{
 				alt: 'Lightning Banner - 100x50',
-				title: 'Lightning Banner - 100x50',
 				src: '//display.coffee/assets/images/cheat-codes/banner-code-generator-lightning-100x50.jpg',
 			},
 		],

@@ -8,13 +8,21 @@ import './styles/blocks.scss';
 /* Local scripts */
 import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputProps, PixelSectionProps, PreviewProps } from './scripts/blocks-types';
 
+/* Local components */
+import { Icon } from '../icons/Icons';
+
 export const Button = (props: ButtonProps) => {
 	let { children, className, onClick, size, type } = props;
 	type = typeof type == 'undefined' ? 'primary' : type;
 	const buttonClass = className ? `${className} ` : '';
 
 	return (
-		<button className={`${buttonClass}button button-${type}${size ? ' button-' + size : ''}`} onClick={(e) => onClick(e)} type="button">
+		<button
+			className={`${buttonClass}button button-${type}${size ? ' button-' + size : ''}`}
+			type="button"
+			aria-label={`${children} button`}
+			onClick={(e) => onClick(e)}
+		>
 			<span>{children}</span>
 		</button>
 	);
@@ -52,7 +60,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
 			<header className="code-block-header flex-nowrap flex-align-items-center">
 				{header ? <span className="code-block-label">{header}</span> : null}
 
-				<button className="code-block-button a" onClick={() => selectCode()}>
+				<button className="code-block-button a" type="button" aria-label="Select code button" onClick={() => selectCode()}>
 					Select code
 				</button>
 			</header>
@@ -78,7 +86,7 @@ export const HeaderIcon = (props: HeaderIconProps) => {
 
 	return (
 		<Tag className={`${headerClass}h-icon`}>
-			<span className="icon icon-angle-right icon-bold icon-shadow-x2"></span>
+			<Icon id={'angle-right'} isBold={true} shadowSize={'x2'} />
 			{children}
 		</Tag>
 	);
@@ -113,7 +121,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 	// Separator for naviation
 	const navigationSeparator = (
 		<li className="pixel-navigation-list-item pixel-navigation-separator">
-			<span className="icon icon-bullet icon-shadow-x1"></span>
+			<Icon id={'bullet'} />
 		</li>
 	);
 
@@ -133,7 +141,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 							{navigation?.previous?.handle && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
 									<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.previous.handle}${params}`}>
-										<span className="icon icon-angle-left icon-shadow-x1"></span>
+										<Icon id={'angle-left'} />
 										<span className="pixel-navigation-label">Previous</span>
 									</Link>
 								</li>
@@ -158,7 +166,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 									<li className="pixel-navigation-list-item pixel-navigation-next">
 										<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.next.handle}${params}`}>
 											<span className="pixel-navigation-label">Next</span>
-											<span className="icon icon-angle-right icon-shadow-x1"></span>
+											<Icon id={'angle-right'} />
 										</Link>
 									</li>
 								</>

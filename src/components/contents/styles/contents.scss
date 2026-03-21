@@ -39,15 +39,8 @@
 			.pixel-border:after {
 				z-index: 2;
 			}
-			.image-wrapper {
-				position: relative;
-				height: 0;
+			.image-wrapper-fluid {
 				padding-bottom: 64%;
-				img {
-					max-height: 100%;
-					max-width: 100%;
-					@include mixins.position-fill(auto);
-				}
 			}
 			.contents-name {
 				margin: 0;
