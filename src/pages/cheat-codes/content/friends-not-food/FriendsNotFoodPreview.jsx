@@ -53,6 +53,8 @@ export const FriendsNotFood = () => {
 								src="//display.coffee/assets/images/cheat-codes/friends-not-food-avatar.gif"
 								alt="Friends Not Food - Avatar"
 								title="Friends Not Food - Avatar"
+								width="150"
+								height="150"
 							/>
 						</div>
 					</header>

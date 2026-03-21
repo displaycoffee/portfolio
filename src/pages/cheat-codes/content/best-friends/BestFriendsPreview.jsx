@@ -42,6 +42,8 @@ export const BestFriends = () => {
 					src="//display.coffee/assets/images/cheat-codes/best-friends-banner.jpg"
 					alt="Best Friends - Banner"
 					title="Best Friends - Banner"
+					width="700"
+					height="300"
 				/>
 				<h3>Best Friends</h3>
 			</header>

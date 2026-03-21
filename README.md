@@ -4,10 +4,5 @@ Portfolio of Adria Murphy. [Go here](https://display.coffee) to view.
 
 ### Built with
 
-- React
-- TypeScript
-- JavaScript
-- CSS
-- Sass
-- HTML
-- Vite
+[![Built with](https://skillicons.dev/icons?i=react,ts,js,css,sass,html,vite)](https://skillicons.dev)<br />
+Also uses ESLint and Prettier.

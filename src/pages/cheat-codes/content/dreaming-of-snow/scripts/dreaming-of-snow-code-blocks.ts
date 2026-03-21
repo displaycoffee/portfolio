@@ -1,6 +1,6 @@
 /* Code block snippets */
 export const codeBlocks = [
-	`<img src="//display.coffee/assets/images/cheat-codes/dreaming-of-snow-avatar.jpg" alt="Dreaming of Snow - Avatar" title="Dreaming of Snow - Avatar" />`,
+	`<img src="//display.coffee/assets/images/cheat-codes/dreaming-of-snow-avatar.jpg" alt="Dreaming of Snow - Avatar" title="Dreaming of Snow - Avatar" width="200" height="200" />`,
 	`import { DreamingOfSnow } from './DreamingOfSnow';`,
 	`<DreamingOfSnow />`,
 	`@import url('//fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');`,

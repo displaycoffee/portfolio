@@ -19,6 +19,7 @@ import { contents as contentsUtils } from './scripts/contents';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { Image } from '../image/Image';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
 export const Contents = (props: ContentsProps) => {
@@ -162,9 +163,12 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 						<div className="contents-column column column-width-33" key={value.id}>
 							<Link className="contents-link" to={`${location}/${value.handle}${linkParamsString}`}>
 								<div className="pixel-border">
-									<div className="image-wrapper image-wrapper-fit">
-										<img src={value.thumb} alt={value.name} title={value.name} loading="lazy" />
-									</div>
+									<Image
+										alt={value.name}
+										hasLazy={true}
+										image={value.thumb}
+										wrapperClass={'image-wrapper image-wrapper-fluid image-wrapper-fit'}
+									/>
 								</div>
 
 								<p className="contents-name">
