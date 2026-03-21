@@ -32,7 +32,6 @@ export const codeBlocks = [
 			values: [
 				{
 					alt: 'Banner - 88x31',
-					title: 'Banner - 88x31',
 					src: 'banner-88x31.jpg',
 				},
 			],
@@ -42,7 +41,6 @@ export const codeBlocks = [
 			values: [
 				{
 					alt: 'Banner - 100x50',
-					title: 'Banner - 100x50',
 					src: 'banner-100x50.jpg',
 				},
 			],

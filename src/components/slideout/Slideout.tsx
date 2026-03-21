@@ -11,6 +11,7 @@ import { slideout } from './scripts/slideout';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { Icon } from '../icons/Icons';
 
 export const Slideout = (props: SlideoutProps) => {
 	let { options } = props;
@@ -30,10 +31,8 @@ export const Slideout = (props: SlideoutProps) => {
 
 	// Create shared slideout button
 	const slideoutButton = (
-		<button className="slideout-button unstyled pointer" type="button" onClick={(e) => toggle(e, slideoutId)}>
-			<span className="icon icon-filter icon-shadow-x1">
-				<span></span>
-			</span>
+		<button className="slideout-button unstyled pointer" type="button" aria-label="Slideout button" onClick={(e) => toggle(e, slideoutId)}>
+			<Icon id={'filter'} />
 			{options.label}
 		</button>
 	);
@@ -55,10 +54,15 @@ export const Slideout = (props: SlideoutProps) => {
 
 			<div className={config.classes.menu} style={styles}>
 				<header className="slideout-header flex-nowrap flex-align-items-center">
-					<h3 className="slideout-title">{options.label}</h3>
+					<h2 className="slideout-title h3">{options.label}</h2>
 
-					<button className="slideout-close pointer unstyled" type="button" onClick={(e) => toggle(e, false)}>
-						<span className="icon icon-close icon-lg icon-bold icon-shadow-x1"></span>
+					<button
+						className="slideout-close pointer unstyled"
+						type="button"
+						aria-label="Slideout close button"
+						onClick={(e) => toggle(e, false)}
+					>
+						<Icon id={'close'} isBold={true} size={'lg'} />
 					</button>
 				</header>
 

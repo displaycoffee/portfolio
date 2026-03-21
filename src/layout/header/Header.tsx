@@ -10,6 +10,7 @@ import { useRespond } from '../../_config/scripts/hooks';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { Image } from '../../components/image/Image';
 
 export const Header = () => {
 	const context = useContext(Context);
@@ -43,11 +44,11 @@ export const Header = () => {
 
 			<div className="header-mugs">
 				{mugs.map((mug, index) => (
-					<img
-						src={`/assets/images/theme/mug-${mug}-${desktopHeader ? '36x36' : '18x18'}.png`}
+					<Image
 						alt={`${mug} coffee mug`}
-						title={`${mug} coffee mug`}
-						loading="lazy"
+						hasLazy={true}
+						hasWrapper={false}
+						image={`/assets/images/theme/mug-${mug}-${desktopHeader ? '36x36' : '18x18'}.png`}
 						key={index}
 					/>
 				))}

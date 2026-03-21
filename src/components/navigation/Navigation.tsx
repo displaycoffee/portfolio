@@ -12,6 +12,7 @@ import { navigationRoutes } from './scripts/navigation-routes';
 
 /* Local components */
 import { Context } from '../../context/Context';
+import { Icon } from '../icons/Icons';
 
 /* Get navigation menu */
 const navigationList = navigationUtils.get.list();
@@ -54,12 +55,12 @@ export const NavigationListItem = (props: NavigationListItemProps) => {
 					title={nav.alt || nav.label}
 					className={({ isActive }) => (isActive ? navigationActiveClass : navigationLinkClass)}
 				>
-					<span className="icon icon-bullet icon-shadow-x1 animate-left"></span>
+					<Icon animate={'left'} id={'bullet'} />
 					{nav.label}
 				</NavLink>
 			) : (
 				<a href={nav.url} title={nav.alt || nav.label} target="_blank" rel="noreferrer">
-					<span className="icon icon-bullet icon-shadow-x1 animate-left"></span>
+					<Icon animate={'left'} id={'bullet'} />
 					{nav.label}
 				</a>
 			)}

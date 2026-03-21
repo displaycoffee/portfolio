@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 11,
+		date: `03.20.26`,
+		description: `Not a very visual update, but I improved Lighthouse scores and updated my resume.`,
+	},
+	{
 		id: 10,
 		date: `02.15.26`,
 		description: `This last addition has taken me a bit to get to. On the surface, it doesn't look like much, but I did re-work a lot of the code and functionality of the site. I've also updated "<a href="/cheat-codes">Cheat Codes</a>" such as "Burmecia", "Best Friends", and "Friends Not Food".`,

@@ -74,6 +74,11 @@ export const Resume = () => {
 									</div>
 
 									<div className="definition-list-item">
+										<dt>Date</dt>
+										<dd>{value.date}</dd>
+									</div>
+
+									<div className="definition-list-item">
 										<dt>Role</dt>
 										<dd dangerouslySetInnerHTML={{ __html: value.role }}></dd>
 									</div>

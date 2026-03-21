@@ -7,7 +7,13 @@ export const Dragony = () => {
 			<header className="dc-dragony-header">
 				<h3>Toothless</h3>
 				<div className="dc-dragony-banner">
-					<img src="//display.coffee/assets/images/cheat-codes/dragony-banner.gif" alt="Dragony - Banner" title="Dragony - Banner" />
+					<img
+						src="//display.coffee/assets/images/cheat-codes/dragony-banner.gif"
+						alt="Dragony - Banner"
+						title="Dragony - Banner"
+						width="490"
+						height="230"
+					/>
 				</div>
 			</header>
 

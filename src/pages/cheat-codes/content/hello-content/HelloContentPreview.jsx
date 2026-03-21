@@ -23,6 +23,7 @@ export const HelloContent = (props) => {
 							<button
 								className={`dc-hello-content-button${index == activeTab ? ` ${activeClass}` : ``}`}
 								type="button"
+								aria-label={`${tab.label} button`}
 								onClick={() => {
 									// Update tab on click
 									activeTab = index;
