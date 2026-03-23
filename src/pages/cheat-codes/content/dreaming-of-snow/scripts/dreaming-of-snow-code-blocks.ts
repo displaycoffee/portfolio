@@ -3,7 +3,9 @@ export const codeBlocks = [
 	`<img src="//display.coffee/assets/images/cheat-codes/dreaming-of-snow-avatar.jpg" alt="Dreaming of Snow - Avatar" title="Dreaming of Snow - Avatar" width="200" height="200" />`,
 	`import { DreamingOfSnow } from './DreamingOfSnow';`,
 	`<DreamingOfSnow />`,
-	`@import url('//fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');`,
+	`<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Vollkorn:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet"	/>`,
 	`background: url('//display.coffee/assets/images/cheat-codes/dreaming-of-snow-bg.jpg') no-repeat;`,
 	`<style>
 		/* Copied styles go here */
