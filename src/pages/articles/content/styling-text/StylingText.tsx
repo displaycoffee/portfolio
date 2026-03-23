@@ -23,6 +23,10 @@ export const StylingText = () => {
 
 	return (
 		<>
+			<link rel="preconnect" href="https://fonts.googleapis.com" />
+			<link rel="preconnect" href="https://fonts.gstatic.com" />
+			<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
+
 			<ArticlesToC sections={sections} offset={50} />
 
 			<ArticlesSection header={sections[0]}>

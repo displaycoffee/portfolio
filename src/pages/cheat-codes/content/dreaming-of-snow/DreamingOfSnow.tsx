@@ -82,7 +82,7 @@ export const DreamingOfSnow = () => {
 					<a href="//fonts.google.com" target="_blank" rel="noreferrer">
 						Google Fonts
 					</a>{' '}
-					and are imported into the CSS files. You can change the fonts to whatever you'd like.
+					and are added above the main HTML. You can change the fonts to whatever you'd like.
 				</p>
 				<CodeBlock header={'Fonts'}>{codeBlocks[3]}</CodeBlock>
 				<p>
