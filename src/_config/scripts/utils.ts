@@ -38,8 +38,9 @@ export const utils = {
 		if (targetElement) {
 			const targetHasChildren = targetElement?.children && targetElement.children.length !== 0 ? true : false;
 			if (!targetHasChildren) {
-				const targetTarget = createRoot(targetElement);
-				targetTarget.render(component);
+				targetElement.removeAttribute('style');
+				const target = createRoot(targetElement);
+				target.render(component);
 			}
 		}
 	},
