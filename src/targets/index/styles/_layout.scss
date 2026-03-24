@@ -120,6 +120,7 @@
 	// Style block
 
 	.main {
+		min-height: 80vh;
 		.main-layout {
 			@include mixins.gap($layout-main-spacing);
 			.content, .sidebar {
@@ -130,6 +131,7 @@
 	}
 	@include mixins.respond-min($layout-main-bp) {
 		.main {
+			min-height: 40vh;
 			.main-layout {
 				.content {
 					@include mixins.flex;

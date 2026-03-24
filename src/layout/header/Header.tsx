@@ -15,7 +15,7 @@ import { Image } from '../../components/image/Image';
 export const Header = () => {
 	const context = useContext(Context);
 	const theme = context.theme;
-	const desktopHeader = useRespond((theme.bps.bp01 as number) - 100);
+	const desktopHeader = useRespond(theme.bps.bp01 as number);
 	let [timer, setTimer] = useState(false);
 	const headerText = desktopHeader ? `* { display : coffee; }` : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
 	const mugs = ['blue', 'green', 'purple', 'red', 'orange'];
@@ -48,7 +48,7 @@ export const Header = () => {
 						alt={`${mug} coffee mug`}
 						hasLazy={true}
 						hasWrapper={false}
-						image={`/assets/images/theme/mug-${mug}-${desktopHeader ? '36x36' : '18x18'}.png`}
+						image={`/assets/images/theme/mug-${mug}-36x36.png`}
 						key={index}
 					/>
 				))}
