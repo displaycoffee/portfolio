@@ -9,8 +9,8 @@
 	"license": "ISC",
 	"homepage": "https://display.coffee",
 	"scripts": {
-		"build": "vite build",
-		"dev": "vite --host",
+		"build": "vite build && node optimize-html.js && npx prettier --write dist/index.html --ignore-path /dev/null",
+		"dev": "vite --host && node optimize-html.js",
 		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
 		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
 		"preview": "vite preview"
