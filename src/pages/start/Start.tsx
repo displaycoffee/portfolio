@@ -10,7 +10,9 @@ import { HeaderIcon } from '../../components/blocks/Blocks';
 export const Start = () => {
 	return (
 		<>
-			<p>Welcome to the portfolio of Adria Murphy, frontend developer and expert pixel installer.</p>
+			<p>
+				Welcome to the portfolio of <strong>Adria Murphy</strong>, frontend developer and expert pixel installer.
+			</p>
 
 			{updates && updates.length !== 0 ? (
 				<>

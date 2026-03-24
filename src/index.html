@@ -22,6 +22,17 @@
 		<script type="module" src="./targets/index/Index.tsx"></script>
 		<style id="font-face">
 			@font-face {
+				font-family: 'Fallback';
+				src: local('Courier New');
+				size-adjust: 135%;
+			}
+			@font-face {
+				font-family: 'Fallback Bold';
+				src: local('Courier New Bold'), local('Courier New');
+				font-weight: bold;
+				size-adjust: 135%;
+			}
+			@font-face {
 				font-family: 'Dogica Pixel';
 				src: url('/assets/fonts/dogica-pixel.woff2') format('woff2');
 				font-weight: 400;
@@ -39,6 +50,6 @@
 	</head>
 
 	<body class="scrollbar">
-		<div id="index"></div>
+		<div id="index" style="min-height: 100vh"></div>
 	</body>
 </html>
