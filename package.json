@@ -10,7 +10,7 @@
 	"homepage": "https://display.coffee",
 	"scripts": {
 		"build": "vite build && node optimize-html.js && npx prettier --write dist/index.html --ignore-path /dev/null",
-		"dev": "vite --host && node optimize-html.js",
+		"dev": "vite --host",
 		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
 		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
 		"preview": "vite preview"
