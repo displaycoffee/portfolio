@@ -27,14 +27,14 @@ export const HelloContent = () => {
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
-				<h5 className="h-remove-shadow">Source / repo</h5>
+				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/tree/production/hello-content" target="_blank" rel="noreferrer">
 						View @ displaycoffee
 					</a>
 				</p>
 
-				<h5 className="h-remove-shadow">HTML</h5>
+				<h4 className="h-remove-shadow">HTML</h4>
 				<p>If using HTML and not React, copy the template HTML and place it on the page.</p>
 				<p>
 					<a
@@ -55,7 +55,7 @@ export const HelloContent = () => {
 					The button and content selectors can be changed. If using JavaScript, you will need to pass in options to update these selectors.
 				</p>
 
-				<h5 className="h-remove-shadow">JavaScript</h5>
+				<h4 className="h-remove-shadow">JavaScript</h4>
 				<p>If using JavaScript and not React, copy the script from the link below and add according to your preferred method.</p>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.js" target="_blank" rel="noreferrer">
@@ -74,7 +74,7 @@ export const HelloContent = () => {
 				</p>
 				<CodeBlock header={'JavaScript'}>{codeBlocks[4]}</CodeBlock>
 
-				<h5 className="h-remove-shadow">React</h5>
+				<h4 className="h-remove-shadow">React</h4>
 				<p>If using React and not JavaScript, copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/HelloContent.jsx" target="_blank" rel="noreferrer">
@@ -96,7 +96,7 @@ export const HelloContent = () => {
 				</p>
 				<CodeBlock header={'Content block'}>{codeBlocks[8]}</CodeBlock>
 
-				<h5 className="h-remove-shadow">CSS</h5>
+				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.css" target="_blank" rel="noreferrer">
@@ -108,7 +108,7 @@ export const HelloContent = () => {
 				<CodeBlock header={'CSS import'}>{codeBlocks[11]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[12]}</CodeBlock>
 
-				<h5 className="h-remove-shadow">Sass</h5>
+				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
 					<a

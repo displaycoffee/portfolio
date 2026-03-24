@@ -83,7 +83,7 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 
 	return (
 		<section id={`articles-section-${utils.handleize(header ? header : fallbackId)}`} className={`articles-section spacing-reset`}>
-			{header ? <h4>{header}</h4> : null}
+			{header ? <h3>{header}</h3> : null}
 
 			{children}
 
@@ -111,7 +111,7 @@ export const ArticlesToC = (props: ArticlesToCProps) => {
 
 	return (
 		<div className="articles-toc">
-			<h4>Table of Contents</h4>
+			<h3>Table of Contents</h3>
 
 			<ol>
 				{sections.map((section) => (

@@ -27,7 +27,7 @@ export const NavigationMenus = () => {
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
-				<h5 className="h-remove-shadow">Source / repo</h5>
+				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/tree/production/navigation-menus" target="_blank" rel="noreferrer">
 						View @ displaycoffee
@@ -38,7 +38,7 @@ export const NavigationMenus = () => {
 					all three if you really need that many menus.
 				</p>
 
-				<h5 className="h-remove-shadow">HTML</h5>
+				<h4 className="h-remove-shadow">HTML</h4>
 				<p>
 					Copy the menu HTML and place it on the page. The menu should easily adapt to any containing element you place it in. Change the
 					links in the HTML to whatever you'd like them to link to. Remove or add links as needed.
@@ -88,7 +88,7 @@ export const NavigationMenus = () => {
 					CSS or Sass examples below.
 				</p>
 
-				<h5 className="h-remove-shadow">React</h5>
+				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
 					<a
@@ -105,7 +105,7 @@ export const NavigationMenus = () => {
 					The component accepts an <CodeInline>id</CodeInline> prop which is the id of the menu you want to use.
 				</p>
 
-				<h5 className="h-remove-shadow">CSS</h5>
+				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the links below and add according to your preferred method.</p>
 				<dl className="definition-list">
 					<div className="definition-list-item">
@@ -161,7 +161,7 @@ export const NavigationMenus = () => {
 				<p>Six items:</p>
 				<CodeBlock header={'CSS'}>{codeBlocks[9]}</CodeBlock>
 
-				<h5 className="h-remove-shadow">Sass</h5>
+				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the links below and add according to your preferred method.</p>
 				<dl className="definition-list">
 					<div className="definition-list-item">

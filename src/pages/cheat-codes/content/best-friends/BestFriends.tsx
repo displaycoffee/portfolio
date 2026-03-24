@@ -35,21 +35,21 @@ export const BestFriends = () => {
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
-				<h5 className="h-remove-shadow">Source / repo</h5>
+				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/tree/production/best-friends" target="_blank" rel="noreferrer">
 						View @ displaycoffee
 					</a>
 				</p>
 
-				<h5 className="h-remove-shadow">HTML or React</h5>
+				<h4 className="h-remove-shadow">HTML or React</h4>
 				<p>
 					The banner can be altered by changing the below <CodeInline>img</CodeInline> source. If possible, please re-host any images and
 					upload to your own server.
 				</p>
 				<CodeBlock header={'Images'}>{codeBlocks[0]}</CodeBlock>
 
-				<h5 className="h-remove-shadow">HTML</h5>
+				<h4 className="h-remove-shadow">HTML</h4>
 				<p>If using HTML and not React, copy the template HTML and place it on the page.</p>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.html" target="_blank" rel="noreferrer">
@@ -57,7 +57,7 @@ export const BestFriends = () => {
 					</a>
 				</p>
 
-				<h5 className="h-remove-shadow">JavaScript</h5>
+				<h4 className="h-remove-shadow">JavaScript</h4>
 				<p>If using JavaScript and not React, copy the script from the link below and add according to your preferred method.</p>
 				<p>
 					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.js" target="_blank" rel="noreferrer">
@@ -72,7 +72,7 @@ export const BestFriends = () => {
 				</p>
 				<CodeBlock header={'JavaScript'}>{codeBlocks[3]}</CodeBlock>
 
-				<h5 className="h-remove-shadow">React</h5>
+				<h4 className="h-remove-shadow">React</h4>
 				<p>
 					If using React and not JavaScript, copy both JSX components from the link below and add according to your preferred method. If
 					you're already using <CodeInline>HelloContent</CodeInline>, you don't need to get it again.
@@ -94,7 +94,7 @@ export const BestFriends = () => {
 					placed the <CodeInline>HelloContent</CodeInline> component.
 				</p>
 
-				<h5 className="h-remove-shadow">CSS</h5>
+				<h4 className="h-remove-shadow">CSS</h4>
 				<p>
 					If using CSS and not Sass, copy the styles from both links below and add according to your preferred method. If you're already
 					using <CodeInline>hello-content.css</CodeInline>, you don't need to get it again.
@@ -114,7 +114,7 @@ export const BestFriends = () => {
 				<CodeBlock header={'CSS import'}>{codeBlocks[8]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[9]}</CodeBlock>
 
-				<h5 className="h-remove-shadow">Sass</h5>
+				<h4 className="h-remove-shadow">Sass</h4>
 				<p>
 					If using Sass and not CSS, copy the styles from both links below and add according to your preferred method. If you're already
 					using <CodeInline>hello-content.scss</CodeInline>, you don't need to get it again.

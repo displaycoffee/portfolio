@@ -94,7 +94,7 @@ export const CheatCodesSection = (props: CheatCodesSectionProps) => {
 
 	return (
 		<section id={`cheat-codes-section-${utils.handleize(header ? header : fallbackId)}`} className={`cheat-codes-section spacing-reset`}>
-			{header ? <h4>{header}</h4> : null}
+			{header ? <h3>{header}</h3> : null}
 
 			{children}
 		</section>

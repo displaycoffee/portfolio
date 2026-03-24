@@ -44,13 +44,7 @@ export const Header = () => {
 
 			<div className="header-mugs">
 				{mugs.map((mug, index) => (
-					<Image
-						alt={`${mug} coffee mug`}
-						hasLazy={true}
-						hasWrapper={false}
-						image={`/assets/images/theme/mug-${mug}-36x36.png`}
-						key={index}
-					/>
+					<Image alt={`${mug} coffee mug`} hasLazy={true} hasWrapper={false} image={`/assets/images/theme/mug-${mug}.svg`} key={index} />
 				))}
 			</div>
 		</header>

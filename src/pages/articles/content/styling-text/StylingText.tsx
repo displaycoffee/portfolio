@@ -61,7 +61,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[1]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[0]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>family-name</dt>
@@ -152,7 +152,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[2]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[3]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>size</dt>
@@ -207,7 +207,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[3]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[6]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>length</dt>
@@ -269,7 +269,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[4]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[13]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>bold</dt>
@@ -309,7 +309,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[5]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[16]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>italic</dt>
@@ -339,7 +339,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[6]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[19]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>small-caps</dt>
@@ -360,7 +360,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[7]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[22]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>capitalize</dt>
@@ -396,7 +396,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[8]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[25]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>blink</dt>
@@ -437,7 +437,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[9]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[28]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>length</dt>
@@ -456,7 +456,7 @@ export const StylingText = () => {
 
 			<ArticlesSection header={sections[10]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[31]}</CodeBlock>
-				<h5>Values</h5>
+				<h4>Values</h4>
 				<p>
 					After going through all the above properties, we can combine certain values into one property called <CodeInline>font</CodeInline>
 					. This CSS property accepts a string of different values (noted above). It can be useful if you want to declare a bunch of styles

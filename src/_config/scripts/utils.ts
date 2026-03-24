@@ -38,7 +38,6 @@ export const utils = {
 		if (targetElement) {
 			const targetHasChildren = targetElement?.children && targetElement.children.length !== 0 ? true : false;
 			if (!targetHasChildren) {
-				targetElement.removeAttribute('style');
 				const target = createRoot(targetElement);
 				target.render(component);
 			}
@@ -64,9 +63,6 @@ export const utils = {
 		for (const attribute in attributes) {
 			element.setAttribute(attribute, attributes[attribute]);
 		}
-	},
-	setIcon: (file: string, size: string) => {
-		return `/assets/images/theme/${file}-${size}.png`;
 	},
 	setTimestamp: (value: DateType) => {
 		// Set date for each value

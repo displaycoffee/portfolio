@@ -81,7 +81,7 @@ export const CodeInline = (props: CodeInlineProps) => {
 
 export const HeaderIcon = (props: HeaderIconProps) => {
 	const { children, className, tag } = props;
-	const Tag = (tag ? tag : 'h3') as React.ElementType; // This will define the element / tag to be used
+	const Tag = (tag ? tag : 'h2') as React.ElementType; // This will define the element / tag to be used
 	const headerClass = className ? `${className} ` : '';
 
 	return (
@@ -99,7 +99,7 @@ export const Output = (props: OutputProps) => {
 
 	return (
 		<>
-			<h5>Output</h5>
+			<h4>Output</h4>
 			<div className={`output${outputClass}`}>
 				{children ? (
 					<div className={outputContentClass}>{children}</div>
@@ -185,7 +185,7 @@ export const Preview = (props: PreviewProps) => {
 
 	return (
 		<>
-			<h5>Preview</h5>
+			<h4>Preview</h4>
 			<div className={`preview${previewClass}`}>{children}</div>
 		</>
 	);
