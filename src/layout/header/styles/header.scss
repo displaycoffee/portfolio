@@ -9,6 +9,7 @@
 	// Style block
 
 	.header {
+		min-height: 136px;
 		.header-title {
 			&.header-title-cursor {
 				display: inline-block;
@@ -34,7 +35,7 @@
 				color: inherit;
 			}
 			.header-type {
-				font-size: functions.em(14px, rem);
+				font-size: functions.em(16px, rem);
 			}
 		}
 		.header-mugs {
@@ -43,29 +44,29 @@
 			line-height: 1;
 		}
 	}
-	@include mixins.respond-min(386px) {
+	@include mixins.respond-min(theme.$bp-01 - 100) {
 		.header {
+			min-height: 156px;
 			.header-title {
-				.header-type {
-					font-size: functions.em(18px, rem);
-				}
-			}
-		}
-	}
-	@include mixins.respond-min(theme.$bp-01) {
-		.header {
-			.header-title {
-				&.header-title-cursor .header-type:after {
-					height: 25px;
-				}
 				.header-type {
 					font-size: functions.em(20px, rem);
 				}
 			}
 		}
 	}
+	@include mixins.respond-min(theme.$bp-01) {
+		.header {
+			min-height: 88px;
+			.header-title {
+				&.header-title-cursor .header-type:after {
+					height: 25px;
+				}
+			}
+		}
+	}
 	@include mixins.respond-min(theme.$bp-02) {
 		.header {
+			min-height: 98px;
 			.header-title {
 				&.header-title-cursor .header-type:after {
 					height: 30px;
