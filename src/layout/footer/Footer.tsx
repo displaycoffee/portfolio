@@ -15,7 +15,6 @@ import { Image } from '../../components/image/Image';
 export const Footer = () => {
 	const context = useContext(Context);
 	const { utils } = context;
-	const iconSize = '32x32';
 	const date = new Date().getFullYear();
 
 	return (
@@ -33,7 +32,7 @@ export const Footer = () => {
 											alt={link.alt || link.label}
 											hasLazy={true}
 											hasWrapper={false}
-											image={utils.setIcon(`${link.label.toLowerCase()}-color`, iconSize)}
+											image={`/assets/images/theme/${link.label.toLowerCase()}.svg`}
 										/>
 									</a>
 								</Fragment>

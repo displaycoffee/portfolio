@@ -273,7 +273,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 
 				{current?.description ? (
 					<div className="contents-description spacing-reset">
-						<h4>Description</h4>
+						<h3>Description</h3>
 
 						<p>{current.description}</p>
 

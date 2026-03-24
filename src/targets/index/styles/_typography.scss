@@ -83,15 +83,12 @@
 		font-size: functions.em(24px, rem);
 	}
 	h2, .h2 {
-		font-size: functions.em(22px, rem);
-	}
-	h3, .h3 {
 		font-size: functions.em(18px, rem);
 	}
-	h4, .h4 {
+	h3, .h3 {
 		font-size: functions.em(16px, rem);
 	}
-	h5, h6, .h5, .h6 {
+	h4, .h4, h5, h6, .h5, .h6 {
 		font-size: functions.em(14px, rem);
 	}
 	.h-shadow-lg {

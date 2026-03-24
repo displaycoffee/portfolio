@@ -26,7 +26,7 @@ export const Burmecia = () => {
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
-				<h5 className="h-remove-shadow">Source / repo</h5>
+				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
 					<a href="//github.com/displaycoffee/burmecia" target="_blank" rel="noreferrer">
 						View @ displaycoffee

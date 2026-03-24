@@ -140,7 +140,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 
 	return (
 		<div className="gallery">
-			{headers?.enabled ? <HeaderIcon tag={'h4'}>{label}</HeaderIcon> : null}
+			{headers?.enabled ? <HeaderIcon tag={'h3'}>{label}</HeaderIcon> : null}
 
 			<div className="gallery-items">
 				{values.map((value) => {

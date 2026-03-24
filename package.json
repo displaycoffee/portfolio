@@ -1,6 +1,6 @@
 {
 	"name": "portfolio",
-	"version": "3.2.1",
+	"version": "3.3.0",
 	"description": "Portfolio of Adria Murphy.",
 	"main": "bundle.js",
 	"type": "module",
@@ -36,9 +36,7 @@
 		"vite-plugin-sitemap": "^0.8.2"
 	},
 	"dependencies": {
-		"@tanstack/react-query": "^5.90.21",
 		"react": "^19.2.4",
-		"react-cookie": "^8.0.1",
 		"react-dom": "^19.2.4",
 		"react-router-dom": "^7.13.0"
 	},

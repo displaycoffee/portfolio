@@ -20,16 +20,16 @@ export const Resume = () => {
 
 			<div className="resume-section resume-note spacing-reset">
 				<p>
-					<strong>Note</strong> - If you're looking for a downloadable version of this resume, grab the pdf{' '}
+					<strong>Note</strong> - If you're looking for an alternate version of this resume,{' '}
 					<a href="/assets/documents/adria-murphy-resume.pdf" target="_blank" rel="noreferrer">
-						here
+						grab the downloadable pdf
 					</a>
 					.
 				</p>
 			</div>
 
 			<div className="resume-section resume-skills spacing-reset">
-				<HeaderIcon tag={'h4'}>Skills</HeaderIcon>
+				<HeaderIcon tag={'h3'}>Skills</HeaderIcon>
 
 				{languages && languages.length !== 0
 					? languages.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />)
@@ -37,24 +37,24 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-inventory">
-				<HeaderIcon tag={'h4'}>Inventory</HeaderIcon>
+				<HeaderIcon tag={'h3'}>Inventory</HeaderIcon>
 
 				<div className="row row-wrap row-spacing-20">
 					{cms && (
 						<div className="column">
-							<h5 className="h-remove-shadow">Armor</h5>
+							<h4 className="h-remove-shadow">Armor</h4>
 							<p>{cms}</p>
 						</div>
 					)}
 					{tools && (
 						<div className="column">
-							<h5 className="h-remove-shadow">Weapons</h5>
+							<h4 className="h-remove-shadow">Weapons</h4>
 							<p>{tools}</p>
 						</div>
 					)}
 					{other && (
 						<div className="column">
-							<h5 className="h-remove-shadow">Items</h5>
+							<h4 className="h-remove-shadow">Items</h4>
 							<p>{other}</p>
 						</div>
 					)}
@@ -62,7 +62,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-story-quests spacing-reset">
-				<HeaderIcon tag={'h4'}>Story Quests</HeaderIcon>
+				<HeaderIcon tag={'h3'}>Story Quests</HeaderIcon>
 
 				{history && history.length !== 0
 					? history.map((value) => (
@@ -107,7 +107,7 @@ export const Resume = () => {
 			</div>
 
 			<div className="resume-section resume-side-quests spacing-reset">
-				<HeaderIcon tag={'h4'}>Side Quests</HeaderIcon>
+				<HeaderIcon tag={'h3'}>Side Quests</HeaderIcon>
 
 				{volunteer && volunteer.length !== 0
 					? volunteer.map((value) => (
