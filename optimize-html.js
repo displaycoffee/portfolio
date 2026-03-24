@@ -14,14 +14,14 @@ if (fs.existsSync(htmlPath)) {
 		<noscript><link rel="stylesheet" href="${href}" /></noscript>`;
 	});
 
-	// 2. Extract and remove the font-face block
-	const fontStyleRegex = /<style id="font-face">([\s\S]*?)<\/style>/;
-	const fontStyleMatch = html.match(fontStyleRegex);
+	// 2. Extract and remove the preloaded-styles block
+	const preloadedStylesRegex = /<style id="preloaded-styles">([\s\S]*?)<\/style>/;
+	const preloadedStylesMatch = html.match(preloadedStylesRegex);
 	let fullStyleBlock = '';
 
-	if (fontStyleMatch) {
-		fullStyleBlock = fontStyleMatch[0];
-		html = html.replace(fontStyleRegex, '');
+	if (preloadedStylesMatch) {
+		fullStyleBlock = preloadedStylesMatch[0];
+		html = html.replace(preloadedStylesRegex, '');
 	}
 
 	// 3. Re-inject font-face block after bundle.vendor.js
