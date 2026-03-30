@@ -40,16 +40,16 @@ export const Resume = () => {
 				<HeaderIcon tag={'h3'}>Inventory</HeaderIcon>
 
 				<div className="row row-wrap row-spacing-20">
-					{cms && (
-						<div className="column">
-							<h4 className="h-remove-shadow">Armor</h4>
-							<p>{cms}</p>
-						</div>
-					)}
 					{tools && (
 						<div className="column">
 							<h4 className="h-remove-shadow">Weapons</h4>
 							<p>{tools}</p>
+						</div>
+					)}
+					{cms && (
+						<div className="column">
+							<h4 className="h-remove-shadow">Armor</h4>
+							<p>{cms}</p>
 						</div>
 					)}
 					{other && (

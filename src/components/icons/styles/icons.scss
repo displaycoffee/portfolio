@@ -11,9 +11,11 @@
 	.icon {
 		@include mixins.flex-layout((display: inline-flex, flex-flow: column nowrap, justify-content: center, align-items: center));
 		@include mixins.flex(0 0 auto);
+		font-family: theme.$font-family-01;
+		font-size: theme.$icon-size;
+		line-height: theme.$icon-size;
 		&, &:before {
 			@include mixins.sizing(auto, auto);
-			line-height: 1;
 		}
 		&:before {
 			position: relative;
@@ -22,8 +24,8 @@
 			padding: 0;
 			max-width: 100%;
 			max-height: 100%;
-			font-family: theme.$font-family-01;
-			font-size: theme.$icon-size;
+			font-family: inherit;
+			font-size: inherit;
 			font-style: normal;
 			font-weight: normal;
 			font-variant: normal;
@@ -34,8 +36,9 @@
 			-moz-osx-font-smoothing: grayscale;
 		}
 	}
-	.icon-lg:before {
+	.icon-lg {
 		font-size: theme.$icon-size + 6;
+		line-height: theme.$icon-size + 6;
 	}
 	.icon-bold:before {
 		font-family: theme.$font-family-02;
