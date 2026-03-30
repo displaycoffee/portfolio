@@ -125,21 +125,23 @@ export const resume = {
 			date: 'December 2020 to Current',
 			description: [
 				`Assisted in organizing and managing a global charity event where Final Fantasy VII speed runners get together to raise money for St. Jude Children's Research Hospital`,
-				`Architected a real-time React dashboard for the event, integrating the Tiltify API to visualize live donation data and event milestones for thousands of concurrent users`,
-				`To date, we have raised $53,607.61 for St. Jude`,
+				`Architected a real-time React dashboard integrated with the Tiltify API to visualize live donation data and milestones for a global charity event`,
+				`Raised over $53,000 to date for St. Jude Children's Research Hospital through technical coordination and event management`,
 			],
 		},
 		{
 			id: 1,
 			name: 'Girls in Tech - Colorado Springs',
 			date: 'November 2019 to November 2020',
-			description: [`Helped start Colorado Springs Girls in Tech chapter and first event`, `Performed website updates for the chapter`],
+			description: [`Co-founded the Colorado Springs chapter and managed web updates to drive community engagement and launch the first event`],
 		},
 		{
 			id: 0,
 			name: 'BarkaBull Dog Rescue',
 			date: 'October 2018 to March 2019',
-			description: [`Fostered dogs until they were ready for adoption`, `Cared for dogs by providing daily essential and medical needs`],
+			description: [
+				`Provided specialized care and fostering for dogs in transition, managing medical and behavioral needs to ensure successful permanent adoptions`,
+			],
 		},
 	],
 };
