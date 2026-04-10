@@ -27,7 +27,7 @@ export const BannerCodeGenerator = (props) => {
 	// Then set default banner
 	const defaultIndex = typeof defaultBanner == 'undefined' ? 0 : defaultBanner - 1;
 	defaultBanner = allBanners[defaultIndex] ? defaultIndex : 0;
-	let [activeBanner, setActiveBanner] = useState(defaultBanner);
+	const [activeBanner, setActiveBanner] = useState(defaultBanner);
 
 	// Create code output
 	const createOutput = (image) => {
@@ -50,12 +50,11 @@ export const BannerCodeGenerator = (props) => {
 	};
 
 	// Set code output
-	let [output, setOutput] = useState(createOutput(allBanners[activeBanner]));
+	const [output, setOutput] = useState(createOutput(allBanners[activeBanner]));
 
 	// Whenever active banner changes, update output
 	useEffect(() => {
-		output = createOutput(allBanners[activeBanner]);
-		setOutput(output);
+		setOutput(createOutput(allBanners[activeBanner]));
 	}, [activeBanner]);
 
 	// Set code block ref
@@ -92,8 +91,7 @@ export const BannerCodeGenerator = (props) => {
 											aria-label={imageAlt ? `${imageAlt} - button` : ``}
 											onClick={() => {
 												// Update banner on click
-												activeBanner = valueIndex;
-												setActiveBanner(activeBanner);
+												setActiveBanner(valueIndex);
 											}}
 											key={valueIndex}
 										>

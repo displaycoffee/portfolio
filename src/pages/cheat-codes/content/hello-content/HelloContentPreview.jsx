@@ -12,7 +12,7 @@ export const HelloContent = (props) => {
 	// Set default tab
 	const defaultIndex = typeof defaultTab == 'undefined' ? 0 : defaultTab - 1;
 	defaultTab = tabs[defaultIndex] ? defaultIndex : 0;
-	let [activeTab, setActiveTab] = useState(defaultTab);
+	const [activeTab, setActiveTab] = useState(defaultTab);
 
 	return hasTabs ? (
 		<div className="dc-hello-content-tabs displaycoffee">
@@ -26,8 +26,7 @@ export const HelloContent = (props) => {
 								aria-label={`${tab.label} button`}
 								onClick={() => {
 									// Update tab on click
-									activeTab = index;
-									setActiveTab(activeTab);
+									setActiveTab(index);
 								}}
 							>
 								{tab.label}

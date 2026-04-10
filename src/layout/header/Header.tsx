@@ -16,22 +16,23 @@ export const Header = () => {
 	const context = useContext(Context);
 	const theme = context.theme;
 	const desktopHeader = useRespond(theme.bps.bp01 as number);
-	let [timer, setTimer] = useState(false);
+	const [timer, setTimer] = useState(false);
 	const headerText = desktopHeader ? `* { display : coffee; }` : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
 	const mugs = ['blue', 'green', 'purple', 'red', 'orange'];
 
 	// Set a timer for cursor to turn off
 	// Reset when desktopHeader changes
 	useEffect(() => {
-		if (desktopHeader) {
-			setTimeout(() => {
-				timer = true;
-				setTimer(timer);
-			}, 10000);
-		} else {
-			timer = false;
-			setTimer(timer);
-		}
+		if (!desktopHeader) return;
+
+		const timeoutId = setTimeout(() => {
+			setTimer(true);
+		}, 10000);
+
+		return () => {
+			clearTimeout(timeoutId);
+			setTimer(false);
+		};
 	}, [desktopHeader]);
 
 	return (

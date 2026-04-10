@@ -12,7 +12,8 @@ import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputPr
 import { Icon } from '../icons/Icons';
 
 export const Button = (props: ButtonProps) => {
-	let { children, className, onClick, size, type } = props;
+	const { children, className, onClick, size } = props;
+	let type = props.type;
 	type = typeof type == 'undefined' ? 'primary' : type;
 	const buttonClass = className ? `${className} ` : '';
 
@@ -29,7 +30,8 @@ export const Button = (props: ButtonProps) => {
 };
 
 export const CodeBlock = (props: CodeBlockProps) => {
-	let { children, className, header } = props;
+	const { className, header } = props;
+	let children = props.children;
 	const codeClass = className ? `${className} ` : '';
 
 	// Set code block ref
@@ -73,7 +75,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
 };
 
 export const CodeInline = (props: CodeInlineProps) => {
-	let { children, className } = props;
+	const { children, className } = props;
 	const codeClass = className ? `${className} ` : '';
 
 	return <code className={`${codeClass}code-inline`}>{children}</code>;
@@ -112,7 +114,7 @@ export const Output = (props: OutputProps) => {
 };
 
 export const PixelSection = (props: PixelSectionProps) => {
-	let { children, className, navigation } = props;
+	const { children, className, navigation } = props;
 	const pixelClass = className ? `${className} ` : '';
 
 	// Show pixel navigation if props are available

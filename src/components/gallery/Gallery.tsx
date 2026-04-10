@@ -54,13 +54,12 @@ export const Gallery = (props: GalleryProps) => {
 
 export const GalleryLinks = (props: GalleryLinksProps) => {
 	const { location, tabs, values } = props;
-	let [activeTab, setActiveTab] = useState(false as string | boolean);
 	const context = useContext(Context);
 	const utils = context.utils;
+	let defaultTab = false as string | boolean;
 
 	// Build tabs
 	const tabsValues = [] as string[];
-	let defaultTab = false as string | boolean;
 
 	if (tabs.enabled) {
 		// Ensure tabs are set and that they have categories
@@ -80,20 +79,23 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 		// Get default tab
 		defaultTab = tabStorage.active[location] ? tabStorage.active[location] : tabsValues[tabStorage.default];
+		console.log(defaultTab);
 	}
+
+	// Set active tab state
+	const [activeTab, setActiveTab] = useState<string | boolean>(tabs.enabled ? defaultTab : false);
 
 	// Set tab function
 	const setTab = (tab: string) => {
-		tabStorage.active[location] = tab;
-		activeTab = tab;
 		setActiveTab(tab);
 	};
 
+	// Sync active tab back to tabStorage so it persists across renders
 	useEffect(() => {
-		if (tabs.enabled) {
-			setTab(defaultTab as string);
+		if (tabs.enabled && activeTab) {
+			tabStorage.active[location] = activeTab as string;
 		}
-	}, []);
+	}, [activeTab, location, tabs.enabled]);
 
 	// Set timestamp to sort values
 	values.forEach((value) => {
@@ -122,21 +124,21 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 					</div>
 
 					<div className="gallery-tabs-content">
-						<GalleryThumbnails {...props} />
+						<GalleryThumbnails {...props} activeTab={activeTab} />
 					</div>
 				</>
 			) : (
-				<GalleryThumbnails {...props} />
+				<GalleryThumbnails {...props} activeTab={activeTab} />
 			)}
 		</div>
 	);
 };
 
 export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
-	const { headers, location, tabs, values } = props;
+	const { activeTab, headers, location, tabs, values } = props;
 
 	// Determine label for header
-	const label = headers.enabled && headers.label && !tabs.enabled ? headers.label : tabStorage.active[location];
+	const label = headers.enabled && headers.label && !tabs.enabled ? headers.label : activeTab;
 
 	return (
 		<div className="gallery">
@@ -145,7 +147,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 			<div className="gallery-items">
 				{values.map((value) => {
 					// Determine if we should show item based on tab settings
-					const showItem = galleryUtils.includeValue(tabs.enabled, value?.categories, tabStorage.active[location]);
+					const showItem = galleryUtils.includeValue(tabs.enabled, value?.categories, activeTab as string);
 
 					return showItem ? (
 						<div className="gallery-item" key={value.id}>
@@ -193,9 +195,12 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 		previous: compareHandle(previous.handle as string),
 	};
 
+	// Determine if this is a pixel gallery
+	const isPixels = current && current.categories && current.categories.includes('Pixels') ? true : false;
+
 	return showGallery ? (
 		current ? (
-			<div id={`gallery-${current.handle}`} className="gallery">
+			<div id={`gallery-${current.handle}`} className={`gallery${isPixels ? ' gallery-pixels' : ''}`}>
 				<div className="gallery-body flex-wrap">
 					{current.name && (
 						<header className="gallery-header">
@@ -210,7 +215,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 									alt={current.name}
 									hasLazy={true}
 									image={current.image ? current.image : current.thumb}
-									wrapperClass={`image-wrapper gallery-image-wrapper${current.categories && current.categories.includes('Pixels') ? '' : ' pixel-border'}`}
+									wrapperClass={`image-wrapper gallery-image-wrapper${isPixels ? '' : ' pixel-border'}`}
 								/>
 							</a>
 						</div>
