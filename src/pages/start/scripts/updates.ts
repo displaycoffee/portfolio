@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 13,
+		date: `04.10.26`,
+		description: `Big cleanup... code related mostly. I did add "Pixelated" under "Projects" though and update a few other minor details.`,
+	},
+	{
 		id: 12,
 		date: `03.30.26`,
 		description: `Just another resume update.`,
