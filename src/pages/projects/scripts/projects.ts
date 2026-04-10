@@ -12,6 +12,7 @@ export const projects = [
 		technologies: 'React, TypeScript, JavaScript, CSS, Sass, HTML, Vite, Immer, TanStack Query, ESLint, Prettier',
 		categories: 'Personal',
 		description: `A pixel "art" guessing game.`,
+		url: '//pixelated.display.coffee',
 	},
 	{
 		id: 30,
