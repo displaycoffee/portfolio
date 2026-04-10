@@ -6,7 +6,7 @@ import { IconsProps } from './scripts/icons-types';
 
 export const Icon = (props: IconsProps) => {
 	const { animate, id, isBold, size } = props;
-	let shadowSize = typeof props?.shadowSize == 'string' ? props.shadowSize : 'x1';
+	const shadowSize = typeof props?.shadowSize == 'string' ? props.shadowSize : 'x1';
 	const iconClass = 'icon';
 
 	// Create icon classes

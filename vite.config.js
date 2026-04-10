@@ -4,6 +4,7 @@ import { viteUtils } from './vite.utils';
 export default defineConfig({
 	root: 'src',
 	publicDir: '../public',
+	envDir: '../',
 	plugins: viteUtils.plugins,
 	server: {
 		host: 'localhost',
@@ -13,7 +14,7 @@ export default defineConfig({
 		outDir: '../dist',
 		emptyOutDir: false,
 		modulePreload: {
-			polyfill: true,
+			polyfill: false,
 		},
 		rollupOptions: {
 			output: {

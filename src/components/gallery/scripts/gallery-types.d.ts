@@ -36,6 +36,7 @@ type GalleryOptions = {
 };
 
 type GalleryPage = {
+	activeTab?: string | boolean;
 	headers: {
 		enabled: boolean;
 		label: string | boolean;

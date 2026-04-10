@@ -49,7 +49,7 @@ export const gallery = {
 		const lastPath = utils.getLast(location, '/');
 
 		// Find active index
-		let selected = values.filter((value, index) => {
+		const selected = values.filter((value, index) => {
 			value.index = index; // Ensure value has correct index
 			return value?.handle == lastPath;
 		});
@@ -62,7 +62,7 @@ export const gallery = {
 		const previousIndex = (current.index as number) - 1;
 
 		// Set navigation
-		let navigation = {
+		const navigation = {
 			current: current,
 			next: nextIndex > valuesCount ? values[0] : values[nextIndex],
 			previous: previousIndex < 0 ? values[valuesCount] : values[previousIndex],

@@ -1,7 +1,7 @@
 const distPath = '/assets/images/';
 const artPath = `${distPath}art/`;
 
-export let art = [
+export const art = [
 	{
 		id: 71,
 		image: `${artPath}2025-01-20-theme-icons.png`,
@@ -438,6 +438,7 @@ export let art = [
 		image: `${artPath}2008-08-03-cantrixe.jpg`,
 		thumb: `${artPath}2008-08-03-cantrixe-200x200.jpg`,
 		name: 'Cantrixe',
+		name2: 'Cantrixe 2',
 		date: '08.03.08',
 		mediums: 'Wacom tablet, Photoshop',
 		categories: 'Digital',

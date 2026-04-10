@@ -47,7 +47,7 @@ export const resume = {
 				value: 9,
 			},
 		],
-		tools: 'TanStack Query, GitHub, Vite, Webpack, GraphQL, Rest APIs, Cypress, Lighthouse, ESLint, Prettier, Node.js',
+		tools: 'TanStack Query, GitHub, Vite, Webpack, GraphQL, Rest APIs, Cypress, Lighthouse, ESLint, Prettier, Node.js, Claude Code, Gemini',
 		cms: 'eCommerce platforms (Shopify, BigCommerce, Magento2, etc.), WordPress, WHMCS, phpBB',
 		other: 'Windows, MacOS, VSCode, Chrome Dev Tools',
 	},
