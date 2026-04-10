@@ -32,7 +32,7 @@
 			}
 		}
 	}
-	#gallery-pixels {
+	.gallery-pixels {
 		.gallery-body {
 			.gallery-image {
 				min-width: 150px;
@@ -79,7 +79,6 @@
 				.gallery-image {
 					@include mixins.flex(0 1 auto);
 					max-width: 500px;
-					min-width: 400px;
 				}
 				.gallery-details {
 					@include mixins.flex;

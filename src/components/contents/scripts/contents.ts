@@ -32,7 +32,7 @@ export const contents = {
 		const lastPath = utils.getLast(location, '/');
 
 		// Find active index
-		let selected = values.filter((value, index) => {
+		const selected = values.filter((value, index) => {
 			value.index = index; // Ensure value has correct index
 			return value?.handle == lastPath;
 		});
@@ -45,7 +45,7 @@ export const contents = {
 		const previousIndex = (current.index as number) - 1;
 
 		// Set navigation
-		let navigation = {
+		const navigation = {
 			current: current,
 			next: nextIndex > valuesCount ? values[0] : values[nextIndex],
 			previous: previousIndex < 0 ? values[valuesCount] : values[previousIndex],
@@ -56,7 +56,7 @@ export const contents = {
 	},
 	params: {
 		add: (params: string, field: string, value: string, callback: Function) => {
-			let newParams = new URLSearchParams(params);
+			const newParams = new URLSearchParams(params);
 
 			// Append new parameters to url
 			newParams.append(field, value);
@@ -67,7 +67,7 @@ export const contents = {
 			}
 		},
 		clear: (params: string, field: string, callback: Function) => {
-			let newParams = new URLSearchParams(params);
+			const newParams = new URLSearchParams(params);
 
 			// Delete field from parameters
 			newParams.delete(field);
@@ -82,7 +82,7 @@ export const contents = {
 			return decodeURIComponent(window.location.search.replace(/^\?/, '').replace(/\+/g, ' '));
 		},
 		remove: (params: string, field: string, value: string, callback: Function) => {
-			let newParams = new URLSearchParams(params);
+			const newParams = new URLSearchParams(params);
 
 			// Filter out values which should be retained
 			const keepParams = newParams.getAll(field).filter((keep) => {

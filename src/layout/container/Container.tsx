@@ -1,6 +1,6 @@
 /* React */
-import { useContext, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 /* Local styles */
 import './styles/container.scss';
@@ -21,19 +21,10 @@ import { Footer } from '../../layout/footer/Footer';
 export const Container = () => {
 	const context = useContext(Context);
 	const { theme } = context;
-	const location = useLocation();
 	const isDesktop = useRespond(theme.bps.bp02 as number);
-	let [sidebar, setSidebar] = useState(true);
 
 	// Set body class using custom hook
 	useBodyClass('start');
-
-	// Determine if layout should have sidebar or not
-	const excludeSidebar: string[] = [];
-	useEffect(() => {
-		sidebar = excludeSidebar.includes(location.pathname) ? false : true;
-		setSidebar(sidebar);
-	}, [location.pathname]);
 
 	// Slideout options
 	const slideoutOptions = {

@@ -1,20 +1,22 @@
 /* Type definitions */
 type BlockShared = {
-	children?: ReactNode;
+	children: ReactNode;
 	className?: string;
 };
 
-type Button = {
+type Button = BlockShared & {
 	onClick: MouseEventHandler<HTMLButtonElement>;
 	type?: string;
 	size?: string;
 };
 
-type CodeBlock = {
+type CodeBlock = BlockShared & {
 	header?: string;
 };
 
-type HeaderIcon = {
+type CodeInline = BlockShared;
+
+type HeaderIcon = BlockShared & {
 	tag?: string;
 };
 
@@ -33,20 +35,29 @@ type NavigationHandle = {
 };
 
 type Output = {
+	children?: ReactNode;
+	className?: string;
 	code: string;
 };
 
+type PixelSection = Navigation & {
+	children?: ReactNode;
+	className?: string;
+};
+
+type Preview = BlockShared;
+
 /* Export prop types */
-export type ButtonProps = BlockShared & Button;
+export type ButtonProps = Button;
 
-export type CodeBlockProps = BlockShared & CodeBlock;
+export type CodeBlockProps = CodeBlock;
 
-export type CodeInlineProps = BlockShared;
+export type CodeInlineProps = CodeInline;
 
-export type HeaderIconProps = BlockShared & HeaderIcon;
+export type HeaderIconProps = HeaderIcon;
 
-export type OutputProps = BlockShared & Output;
+export type OutputProps = Output;
 
-export type PixelSectionProps = BlockShared & Navigation;
+export type PixelSectionProps = PixelSection;
 
-export type PreviewProps = BlockShared;
+export type PreviewProps = Preview;

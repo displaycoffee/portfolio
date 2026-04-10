@@ -75,7 +75,8 @@ export const ArticlesContent = () => {
 };
 
 export const ArticlesSection = (props: ArticlesSectionProps) => {
-	let { children, header, scrollTop } = props;
+	const { children, header } = props;
+	let scrollTop = props.scrollTop;
 	scrollTop = typeof scrollTop == 'undefined' ? true : scrollTop;
 	const fallbackId = useId().replace(/:/g, '');
 	const context = useContext(Context);

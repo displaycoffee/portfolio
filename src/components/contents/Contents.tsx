@@ -46,7 +46,7 @@ export const Contents = (props: ContentsProps) => {
 		type == 'links' ? (
 			<ContentsLinks {...contentsProps} />
 		) : (
-			<ContentsBody {...contentsProps} children={children} />
+			<ContentsBody {...contentsProps}>{children}</ContentsBody>
 		)
 	) : null;
 };
@@ -56,8 +56,8 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	const context = useContext(Context);
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
-	let [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
-	let [tagParams, setTagParams] = useSearchParams();
+	const [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
+	const [tagParams, setTagParams] = useSearchParams();
 
 	// Create tags from content values
 	values.forEach((value) => {
@@ -89,24 +89,39 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	// Once tags are built, set tags
 	useEffect(() => {
 		setTags(tags);
-	}, []);
+	}, [tags]);
 
 	// Click functionality for applying tabs
 	const handleTag = (e: EventsType, tag: ContentsTagType) => {
 		e.preventDefault();
 
+		// Set new tags
+		let newTags = tags;
+
 		if (tags[tag.value].active) {
 			// Remove filter parameters from url and set active state
 			contentsUtils.params.remove(String(tagParams), tagParam, tag.value, setTagParams);
-			tags[tag.value].active = false;
+			newTags = {
+				...tags,
+				[tag.value]: {
+					...tag,
+					active: false,
+				},
+			};
 		} else {
 			// Add filter parameters to url and set active state
 			contentsUtils.params.add(String(tagParams), tagParam, tag.value, setTagParams);
-			tags[tag.value].active = true;
+			newTags = {
+				...tags,
+				[tag.value]: {
+					...tag,
+					active: true,
+				},
+			};
 		}
 
 		// Update tags when values are clicked
-		setTags(tags);
+		setTags(newTags);
 	};
 
 	// Click functionality for clear
@@ -144,7 +159,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 					const contentActive = !searchParams || (findActive && findActive.length !== 0) ? true : false;
 
 					// Get params to add to url and save selection
-					let linkParams = [] as string[];
+					const linkParams = [] as string[];
 					let linkParamsString = '';
 
 					if (tagsConfig.hasTags) {
@@ -211,7 +226,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
 	const context = useContext(Context);
-	const searchParams = useLocation()?.search ? useLocation().search : '';
+	const searchParams = useLocation().search || '';
 	const showContents = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching contents
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
@@ -258,7 +273,18 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 												type={tag.active ? 'secondary active' : 'primary'}
 												size={'x-small'}
 												onClick={() => {
-													window.location.href = `${parentPage}?${contentsUtils.params.url.tag}=${tag.value}`;
+													// Set up current param
+													const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
+
+													// If current tag is not in search params, add it
+													if (searchParams) {
+														const newParams = !searchParams.includes(currentParam)
+															? `${searchParams}&${currentParam}`
+															: searchParams;
+														window.location.href = `${parentPage}${newParams}`;
+													} else {
+														window.location.href = `${parentPage}?${currentParam}`;
+													}
 												}}
 											>
 												{tag.label}
