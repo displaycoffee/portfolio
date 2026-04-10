@@ -2,7 +2,7 @@ export const updates = [
 	{
 		id: 13,
 		date: `04.10.26`,
-		description: `Big cleanup... code related mostly. I did add "Pixelated" under "Projects" though and update a few other minor details.`,
+		description: `Big cleanup... code related mostly. I did add "Pixelated" under "Projects" and updated a few additional minor details.`,
 	},
 	{
 		id: 12,
