@@ -8,7 +8,7 @@ export const BannerCodeGenerator = (props) => {
 	let { banners, defaultBanner, site } = props;
 	site = typeof site == 'undefined' ? '/' : site;
 	const activeClass = 'dc-banner-code-generator-active';
-	const hasBanners = banners && banners.length !== 0 ? true : false;
+	const hasBanners = banners && banners.length !== 0;
 
 	// Since array of banners is nested, create and array that combines values
 	let allBanners = [];

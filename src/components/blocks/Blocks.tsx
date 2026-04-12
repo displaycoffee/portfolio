@@ -118,7 +118,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 	const pixelClass = className ? `${className} ` : '';
 
 	// Show pixel navigation if props are available
-	const showNavigation = !children && navigation && navigation.path ? true : false;
+	const showNavigation = !children && navigation && navigation.path;
 
 	// Separator for naviation
 	const navigationSeparator = (

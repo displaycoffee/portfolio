@@ -10,7 +10,7 @@ navigation.forEach((nav) => {
 	if (nav.isRoute) {
 		// Build parent nav config
 		const navConfig = {
-			...navigationUtils.routes.build.config(nav),
+			...navigationUtils.routes.build(nav),
 			children: [] as NavigationRoutesType[],
 		};
 
@@ -18,10 +18,10 @@ navigation.forEach((nav) => {
 		if (nav?.children && nav.children.length !== 0) {
 			nav.children.forEach((child) => {
 				const isGallery = nav.id === 2 || nav.id === 3;
-				const buildChild = isGallery || (!isGallery && child.isRoute) ? true : false;
+				const buildChild = isGallery || (!isGallery && child.isRoute);
 
 				if (buildChild) {
-					const childConfig = navigationUtils.routes.build.config(child);
+					const childConfig = navigationUtils.routes.build(child);
 					navConfig.children.push(childConfig);
 				}
 			});

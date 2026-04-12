@@ -25,7 +25,7 @@ import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 export const Contents = (props: ContentsProps) => {
 	const { children, navigation, type, values } = props;
 	const location = useLocation();
-	const hasContents = values && values.length !== 0 ? true : false;
+	const hasContents = values && values.length !== 0;
 
 	// Create contentsProps for components
 	const contentsProps = {
@@ -71,7 +71,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 				// Check if tag is in searchParams
 				if (!tags[tag.value]) {
 					const param = `${tagParam}=${tag.value}`;
-					const isActive = searchParams && searchParams.includes(param) ? true : false;
+					const isActive = searchParams?.includes(param);
 					tags[tag.value] = {
 						...tag,
 						active: isActive,
@@ -156,7 +156,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 					// Check if any tags are active to display certain content
 					const findActive = tagsConfig.hasTags ? tagsConfig.values.filter((tag) => tags[tag.value].active) : [];
-					const contentActive = !searchParams || (findActive && findActive.length !== 0) ? true : false;
+					const contentActive = !searchParams || (findActive && findActive.length !== 0);
 
 					// Get params to add to url and save selection
 					const linkParams = [] as string[];
@@ -227,7 +227,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
 	const context = useContext(Context);
 	const searchParams = useLocation().search || '';
-	const showContents = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching contents
+	const showContents = window.location.href.includes(location); // Do not render current item if not in matching contents
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
 	const parentPage = context.utils.getPage();
@@ -250,7 +250,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const tagsConfig = contentsUtils.tags(current?.tags as string);
 
 	// Check if we have a header
-	const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags ? true : false;
+	const hasHeader = current?.name || current?.date || current?.updated || tagsConfig.hasTags;
 
 	return showContents ? (
 		current ? (
@@ -265,7 +265,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 							<ContentsTags>
 								{tagsConfig.values.map((tag, index) => {
 									// Set active state for tag
-									tag.active = searchParams && searchParams.includes(tag.value) ? true : false;
+									tag.active = searchParams?.includes(tag.value);
 
 									return (
 										<div className="contents-tags-column" key={index}>
@@ -321,8 +321,8 @@ export const ContentsDate = (props: ContentsDateProps) => {
 	const { content } = props;
 
 	// Check dates
-	const hasDate = content?.date ? true : false;
-	const hasUpdated = content?.updated ? true : false;
+	const hasDate = content?.date;
+	const hasUpdated = content?.updated;
 
 	return hasDate || hasUpdated ? (
 		<p className="contents-date">

@@ -27,7 +27,7 @@ const options = {
 
 export const Articles = () => {
 	const location = useLocation();
-	const showArticles = location.pathname == '/articles' ? true : false;
+	const showArticles = location.pathname == '/articles';
 
 	return showArticles ? <ArticlesIndex /> : <ArticlesContent />;
 };
