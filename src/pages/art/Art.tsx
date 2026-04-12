@@ -21,7 +21,7 @@ const options = {
 
 export const Art = () => {
 	const location = useLocation();
-	const showArt = location.pathname == '/art' ? true : false;
+	const showArt = location.pathname == '/art';
 
 	return showArt ? <ArtIndex /> : <ArtGallery />;
 };

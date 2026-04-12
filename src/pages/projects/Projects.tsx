@@ -21,7 +21,7 @@ const options = {
 
 export const Projects = () => {
 	const location = useLocation();
-	const showProjects = location.pathname == '/projects' ? true : false;
+	const showProjects = location.pathname == '/projects';
 
 	return showProjects ? <ProjectsIndex /> : <ProjectsGallery />;
 };

@@ -31,7 +31,7 @@ const options = {
 
 export const CheatCodes = () => {
 	const location = useLocation();
-	const showCheatCodes = location.pathname == '/cheat-codes' ? true : false;
+	const showCheatCodes = location.pathname == '/cheat-codes';
 
 	return showCheatCodes ? <CheatCodesIndex /> : <CheatCodesContent />;
 };

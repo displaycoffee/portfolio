@@ -7,7 +7,7 @@ import './styles/hello-content-preview.scss';
 export const HelloContent = (props) => {
 	let { tabs, defaultTab } = props;
 	const activeClass = 'dc-hello-content-active';
-	const hasTabs = tabs && tabs.length !== 0 ? true : false;
+	const hasTabs = tabs && tabs.length !== 0;
 
 	// Set default tab
 	const defaultIndex = typeof defaultTab == 'undefined' ? 0 : defaultTab - 1;

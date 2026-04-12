@@ -110,7 +110,7 @@ export const contents = {
 		// Check tags and build values
 		const splitValues = value ? value.split(', ') : [];
 		const tags = [] as ContentsTagType[];
-		const hasTags = splitValues && splitValues.length !== 0 ? true : false;
+		const hasTags = splitValues && splitValues.length !== 0;
 
 		// Format tag values
 		if (hasTags) {

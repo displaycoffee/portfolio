@@ -37,7 +37,7 @@ export const gallery = {
 		// Determine whether value should be includes in loop
 		let includeValue = true;
 		if (enabled && categories && storage) {
-			includeValue = categories.includes(storage as string) ? true : false;
+			includeValue = categories.includes(storage as string);
 		}
 		return includeValue;
 	},

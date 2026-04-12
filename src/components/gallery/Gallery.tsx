@@ -24,7 +24,7 @@ const tabStorage = {
 export const Gallery = (props: GalleryProps) => {
 	const { headers, navigation, tabs, type, values } = props;
 	const location = useLocation();
-	const hasGallery = values && values.length !== 0 ? true : false;
+	const hasGallery = values && values.length !== 0;
 
 	// Create galleryProps for components
 	const galleryProps = {
@@ -170,7 +170,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 export const GalleryBody = (props: GalleryBodyProps) => {
 	const { location, navigation, tabs, values } = props;
 	const context = useContext(Context);
-	const showGallery = window.location.href.includes(location) ? true : false; // Do not render current item if not in matching gallery
+	const showGallery = window.location.href.includes(location); // Do not render current item if not in matching gallery
 	const parentPage = context.utils.getPage();
 
 	// Filter values according to current tab
@@ -196,7 +196,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 	};
 
 	// Determine if this is a pixel gallery
-	const isPixels = current && current.categories && current.categories.includes('Pixels') ? true : false;
+	const isPixels = current && current.categories && current.categories.includes('Pixels');
 
 	return showGallery ? (
 		current ? (
