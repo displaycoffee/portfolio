@@ -6,7 +6,7 @@ export const cheatCodes = [
 		id: 10,
 		name: `Burmecia`,
 		date: `03.28.22`,
-		updated: `04.10.26`,
+		updated: `04.20.26`,
 		tags: `React, TypeScript, JavaScript, Sass, Vite, Framework`,
 		thumb: `${cheatCodesPath}burmecia-400x250.jpg`,
 		description: `React-based framework to create projects. Primarily built with React, TypeScript, JavaScript, Sass, and Vite. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.`,
