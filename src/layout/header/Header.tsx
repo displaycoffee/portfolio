@@ -1,5 +1,5 @@
 /* React */
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 /* Local styles */
@@ -7,14 +7,13 @@ import './styles/header.scss';
 
 /* Local scripts */
 import { useRespond } from '../../_config/scripts/hooks';
+import { useAppContext } from '../../context/scripts/context-hooks';
 
 /* Local components */
-import { Context } from '../../context/Context';
 import { Image } from '../../components/image/Image';
 
 export const Header = () => {
-	const context = useContext(Context);
-	const theme = context.theme;
+	const { theme } = useAppContext();
 	const desktopHeader = useRespond(theme.bps.bp01 as number);
 	const [timer, setTimer] = useState(false);
 	const headerText = desktopHeader ? `* { display : coffee; }` : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
