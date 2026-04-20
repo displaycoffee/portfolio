@@ -1,20 +1,19 @@
 /* React */
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
 
 /* Local styles */
 import './styles/footer.scss';
 
 /* Local scripts */
+import { useAppContext } from '../../context/scripts/context-hooks';
 import { footer } from './scripts/footer';
 
 /* Local components */
-import { Context } from '../../context/Context';
 import { Icon } from '../../components/icons/Icons';
 import { Image } from '../../components/image/Image';
 
 export const Footer = () => {
-	const context = useContext(Context);
-	const { utils } = context;
+	const { utils } = useAppContext();
 	const date = new Date().getFullYear();
 
 	return (

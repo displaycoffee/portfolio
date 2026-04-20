@@ -1,16 +1,16 @@
 /* React */
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 
 /* Local styles */
 import './styles/gallery.scss';
 
 /* Local scripts */
+import { useAppContext } from '../../context/scripts/context-hooks';
 import { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Local components */
-import { Context } from '../../context/Context';
 import { Image } from '../image/Image';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
 
@@ -54,8 +54,7 @@ export const Gallery = (props: GalleryProps) => {
 
 export const GalleryLinks = (props: GalleryLinksProps) => {
 	const { location, tabs, values } = props;
-	const context = useContext(Context);
-	const utils = context.utils;
+	const { utils } = useAppContext();
 	let defaultTab = false as string | boolean;
 
 	// Build tabs
@@ -169,9 +168,9 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 
 export const GalleryBody = (props: GalleryBodyProps) => {
 	const { location, navigation, tabs, values } = props;
-	const context = useContext(Context);
+	const { utils } = useAppContext();
 	const showGallery = window.location.href.includes(location); // Do not render current item if not in matching gallery
-	const parentPage = context.utils.getPage();
+	const parentPage = utils.getPage();
 
 	// Filter values according to current tab
 	const filteredValues = values.filter((value) => {
