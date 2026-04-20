@@ -1,11 +1,12 @@
 /* React */
-import { MouseEventHandler, useContext, useEffect, useState } from 'react';
+import { MouseEventHandler, useEffect, useState } from 'react';
 import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/contents.scss';
 
 /* Local scripts */
+import { useAppContext } from '../../context/scripts/context-hooks';
 import {
 	ContentsBodyProps,
 	ContentsDateProps,
@@ -18,7 +19,6 @@ import {
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Local components */
-import { Context } from '../../context/Context';
 import { Image } from '../image/Image';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 
@@ -53,7 +53,7 @@ export const Contents = (props: ContentsProps) => {
 
 export const ContentsLinks = (props: ContentsLinksProps) => {
 	const { location, values } = props;
-	const context = useContext(Context);
+	const { utils } = useAppContext();
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
 	const [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
@@ -64,7 +64,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 		const tagsConfig = contentsUtils.tags(value?.tags as string);
 
 		// Set timestamp to sort values
-		context.utils.setTimestamp(value);
+		utils.setTimestamp(value);
 
 		if (tagsConfig.hasTags) {
 			tagsConfig.values.forEach((tag) => {
@@ -225,12 +225,12 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
-	const context = useContext(Context);
+	const { utils } = useAppContext();
 	const searchParams = useLocation().search || '';
 	const showContents = window.location.href.includes(location); // Do not render current item if not in matching contents
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
-	const parentPage = context.utils.getPage();
+	const parentPage = utils.getPage();
 
 	// Ensure handles do not match current
 	const compareHandle = (handle: string) => {
