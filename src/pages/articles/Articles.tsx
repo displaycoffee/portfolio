@@ -1,16 +1,16 @@
 /* React */
-import { useContext, useId } from 'react';
+import { useId } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /* Local styles */
 import './styles/articles.scss';
 
 /* Local scripts */
+import { useAppContext } from '../../context/scripts/context-hooks';
 import { ArticlesSectionProps, ArticlesToCProps } from './scripts/articles-types';
 import { articles } from './scripts/articles';
 
 /* Local components */
-import { Context } from '../../context/Context';
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
 import { Icon } from '../../components/icons/Icons';
@@ -49,7 +49,7 @@ export const ArticlesIndex = () => {
 };
 
 export const ArticlesContent = () => {
-	const context = useContext(Context);
+	const { utils } = useAppContext();
 	const location = useLocation();
 	const contentsOptions = {
 		...options,
@@ -58,7 +58,7 @@ export const ArticlesContent = () => {
 	};
 
 	// Get last path
-	const last = context.utils.getLast(location.pathname, '/');
+	const last = utils.getLast(location.pathname, '/');
 
 	// Default content
 	const defaultContent = <p>Thank you! But the article is in another castle.</p>;
@@ -79,8 +79,7 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 	let scrollTop = props.scrollTop;
 	scrollTop = typeof scrollTop == 'undefined' ? true : scrollTop;
 	const fallbackId = useId().replace(/:/g, '');
-	const context = useContext(Context);
-	const utils = context.utils;
+	const { utils } = useAppContext();
 
 	return (
 		<section id={`articles-section-${utils.handleize(header ? header : fallbackId)}`} className={`articles-section spacing-reset`}>
@@ -107,8 +106,7 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 
 export const ArticlesToC = (props: ArticlesToCProps) => {
 	const { offset, sections } = props;
-	const context = useContext(Context);
-	const utils = context.utils;
+	const { utils } = useAppContext();
 
 	return (
 		<div className="articles-toc">

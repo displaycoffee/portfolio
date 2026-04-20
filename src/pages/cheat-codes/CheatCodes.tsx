@@ -1,13 +1,13 @@
 /* React */
-import { useContext, useId } from 'react';
+import { useId } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /* Local scripts */
+import { useAppContext } from '../../context/scripts/context-hooks';
 import { CheatCodesSectionProps } from './scripts/cheat-codes-types';
 import { cheatCodes } from './scripts/cheat-codes';
 
 /* Local components */
-import { Context } from '../../context/Context';
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
 import { APromise } from './content/a-promise/APromise';
@@ -53,7 +53,7 @@ export const CheatCodesIndex = () => {
 };
 
 export const CheatCodesContent = () => {
-	const context = useContext(Context);
+	const { utils } = useAppContext();
 	const location = useLocation();
 	const contentsOptions = {
 		...options,
@@ -62,7 +62,7 @@ export const CheatCodesContent = () => {
 	};
 
 	// Get last path
-	const last = context.utils.getLast(location.pathname, '/');
+	const last = utils.getLast(location.pathname, '/');
 
 	// Default content
 	const defaultContent = <p>Thank you! But the cheat code is in another castle.</p>;
@@ -89,8 +89,7 @@ export const CheatCodesContent = () => {
 export const CheatCodesSection = (props: CheatCodesSectionProps) => {
 	const { children, header } = props;
 	const fallbackId = useId().replace(/:/g, '');
-	const context = useContext(Context);
-	const utils = context.utils;
+	const { utils } = useAppContext();
 
 	return (
 		<section id={`cheat-codes-section-${utils.handleize(header ? header : fallbackId)}`} className={`cheat-codes-section spacing-reset`}>
