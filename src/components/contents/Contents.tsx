@@ -6,6 +6,7 @@ import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 import './styles/contents.scss';
 
 /* Local scripts */
+import { useViewTransition } from '../../_config/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import {
 	ContentsBodyProps,
@@ -56,6 +57,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	const { utils } = useAppContext();
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
+	const handleTransition = useViewTransition();
 	const [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
 	const [tagParams, setTagParams] = useSearchParams();
 
@@ -174,9 +176,12 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 						linkParamsString = `?${linkParams.join('&')}`;
 					}
 
+					// Set content url
+					const contentUrl = `${location}/${value.handle}${linkParamsString}`;
+
 					return contentActive ? (
 						<div className="contents-column column column-width-33" key={value.id}>
-							<Link className="contents-link" to={`${location}/${value.handle}${linkParamsString}`}>
+							<Link className="contents-link" to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
 								<div className="pixel-border">
 									<Image
 										alt={value.name}
@@ -276,15 +281,19 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 													// Set up current param
 													const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
 
+													// Create url
+													let tagUrl = `${parentPage}?${currentParam}`;
+
 													// If current tag is not in search params, add it
 													if (searchParams) {
 														const newParams = !searchParams.includes(currentParam)
 															? `${searchParams}&${currentParam}`
 															: searchParams;
-														window.location.href = `${parentPage}${newParams}`;
-													} else {
-														window.location.href = `${parentPage}?${currentParam}`;
+														tagUrl = `${parentPage}${newParams}`;
 													}
+
+													// Go back to content back with param
+													window.location.href = tagUrl;
 												}}
 											>
 												{tag.label}

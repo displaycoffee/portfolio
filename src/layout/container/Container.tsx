@@ -45,7 +45,7 @@ export const Container = () => {
 
 				<Header />
 
-				<PixelSection className={'navigation-section'}>{isDesktop ? <Navigation /> : <Slideout options={slideoutOptions} />}</PixelSection>
+				<PixelSection className={'navigation-block'}>{isDesktop ? <Navigation /> : <Slideout options={slideoutOptions} />}</PixelSection>
 
 				{isDesktop ? null : (
 					<Slideout

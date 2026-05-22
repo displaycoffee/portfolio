@@ -24,6 +24,7 @@
 				margin: 0 0 theme.$spacing-x2 0;
 			}
 			.skill-bar-progress {
+				z-index: 1;
 				height: 30px;
 				overflow: hidden;
 				.skill-bar-total, .skill-bar-out-of {

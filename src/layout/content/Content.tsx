@@ -6,8 +6,8 @@ import { NavigationRoutes } from '../../components/navigation/Navigation';
 
 export const Content = () => {
 	return (
-		<section className="content spacing-reset">
+		<div className="content spacing-reset">
 			<NavigationRoutes />
-		</section>
+		</div>
 	);
 };

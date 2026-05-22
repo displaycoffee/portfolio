@@ -16,10 +16,12 @@ import { BestFriends } from './content/best-friends/BestFriends';
 import { Burmecia } from './content/burmecia/Burmecia';
 import { Dragony } from './content/dragony/Dragony';
 import { DreamingOfSnow } from './content/dreaming-of-snow/DreamingOfSnow';
+import { FramerMotion } from './content/framer-motion/FramerMotion';
 import { FriendsNotFood } from './content/friends-not-food/FriendsNotFood';
 import { HelloContent } from './content/hello-content/HelloContent';
 import { NavigationMenus } from './content/navigation-menus/NavigationMenus';
 import { VelociraptorPack } from './content/velociraptor-pack/VelociraptorPack';
+import { ViewTransitions } from './content/view-transitions/ViewTransitions';
 import { WishYouWereHere } from './content/wish-you-were-here/WishYouWereHere';
 
 /* Options for contents */
@@ -76,10 +78,12 @@ export const CheatCodesContent = () => {
 				burmecia: <Burmecia />,
 				dragony: <Dragony />,
 				'dreaming-of-snow': <DreamingOfSnow />,
+				'framer-motion': <FramerMotion />,
 				'friends-not-food': <FriendsNotFood />,
 				'hello-content-a-tabbing-script': <HelloContent />,
 				'navigation-menus': <NavigationMenus />,
 				'velociraptor-pack': <VelociraptorPack />,
+				'view-transitions-api': <ViewTransitions />,
 				'wish-you-were-here': <WishYouWereHere />,
 			}[last as string] || defaultContent}
 		</Contents>
