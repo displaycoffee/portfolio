@@ -3,6 +3,24 @@ const cheatCodesPath = `${distPath}cheat-codes/`;
 
 export const cheatCodes = [
 	{
+		id: 12,
+		name: `View Transitions API`,
+		date: `05.22.26`,
+		updated: `05.22.26`,
+		tags: `React, JavaScript, CSS, Animation, API`,
+		thumb: `${cheatCodesPath}view-transitions-400x250.jpg`,
+		description: `A demonstration of the native "View Transitions API". Shows how to animate between two UI states using document.startViewTransition() and flushSync, with no external dependencies.`,
+	},
+	{
+		id: 11,
+		name: `Framer Motion`,
+		date: `05.22.26`,
+		updated: `05.22.26`,
+		tags: `React, JavaScript, Framer Motion, Animation`,
+		thumb: `${cheatCodesPath}framer-motion-400x250.jpg`,
+		description: `A demonstration of "Framer Motion", a React animation library. Shows staggered card entrances, fade and slide transitions, and hover interactions - all driven by variants.`,
+	},
+	{
 		id: 10,
 		name: `Burmecia`,
 		date: `03.28.22`,
@@ -34,7 +52,7 @@ export const cheatCodes = [
 		id: 7,
 		name: `Dreaming of Snow`,
 		date: `01.17.16`,
-		updated: `03.23.26`,
+		updated: `05.22.26`,
 		tags: `HTML, React, CSS, Sass, Template`,
 		thumb: `${cheatCodesPath}dreaming-of-snow-400x250.jpg`,
 		description: `A wintery themed template. The images can be changed. The circle avatar has a hover where you can place a small bit of code.`,

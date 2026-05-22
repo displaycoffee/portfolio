@@ -149,15 +149,15 @@
 			color: theme.$color-03;
 		}
 	}
-	.pixel-section {
-		&, .pixel-section-wrapper {			
+	.pixel-block {
+		&, .pixel-block-wrapper {			
 			position: relative;
 		}
 		.pixel-border-rounded {
 			@include mixins.position-fill($z: 1);
 			background-color: theme.$color-04;
 		}
-		.pixel-section-wrapper {
+		.pixel-block-wrapper {
 			padding: theme.$spacing-x4 theme.$spacing-x4 calc(theme.$spacing-x4 - 8px) theme.$spacing-x4;
 			z-index: 2;
 			a, button {
@@ -228,8 +228,8 @@
 				background-color: theme.$color-04;
 			}
 		}
-		.pixel-section {
-			.pixel-section-wrapper {
+		.pixel-block {
+			.pixel-block-wrapper {
 				.pixel-navigation {
 					.pixel-navigation-list {
 						.pixel-navigation-list-item {

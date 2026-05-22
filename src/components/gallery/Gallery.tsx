@@ -6,6 +6,7 @@ import { Link, Navigate, useLocation } from 'react-router-dom';
 import './styles/gallery.scss';
 
 /* Local scripts */
+import { useViewTransition } from '../../_config/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';
@@ -135,6 +136,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 	const { activeTab, headers, location, tabs, values } = props;
+	const handleTransition = useViewTransition();
 
 	// Determine label for header
 	const label = headers.enabled && headers.label && !tabs.enabled ? headers.label : activeTab;
@@ -148,9 +150,12 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 					// Determine if we should show item based on tab settings
 					const showItem = galleryUtils.includeValue(tabs.enabled, value?.categories, activeTab as string);
 
+					// Set gallery url
+					const galleryUrl = `${location}/${value.handle}`;
+
 					return showItem ? (
 						<div className="gallery-item" key={value.id}>
-							<Link className="gallery-image" to={`${location}/${value.handle}`}>
+							<Link className="gallery-image" to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
 								<Image
 									alt={value.name}
 									hasLazy={true}

@@ -1,0 +1,88 @@
+//// FRAMER MOTION
+//// --------------------------------------------------------------------------
+
+	// Colors
+
+	$framer-motion-color-01: #2a1c15; // background
+	$framer-motion-color-02: #523526; // card background
+	$framer-motion-color-03: #704a37; // card background hover
+	$framer-motion-color-04: #ffffff; // card heading
+	$framer-motion-color-05: #dac0b3; // card body text
+	$framer-motion-color-06: #9c684c; // button background
+	$framer-motion-color-07: #704a37; // button hover
+	$framer-motion-color-08: #ffffff; // button text
+
+	// Configuration
+
+	$framer-motion-selector: '.dc-framer-motion';
+	$framer-motion-spacing: 20px;
+	$framer-motion-breakpoint: 600px;
+	$framer-motion-font-family: Arial, Helvetica, sans-serif;
+	$framer-motion-font-size: 14px;
+	$framer-motion-border-radius: 8px;
+
+	// Calculations
+
+	$framer-motion-spacing-half: calc($framer-motion-spacing / 2);
+
+	// Style block
+
+	#{$framer-motion-selector} {
+		padding: $framer-motion-spacing;
+		background-color: $framer-motion-color-01;
+		&, & * {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font-family: $framer-motion-font-family;
+			font-size: $framer-motion-font-family;
+		}
+		.dc-framer-motion-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: $framer-motion-spacing;
+			margin-bottom: $framer-motion-spacing;
+		}
+		.dc-framer-motion-card {
+			padding: $framer-motion-spacing;
+			background-color: $framer-motion-color-02;
+			border-radius: $framer-motion-border-radius;
+			cursor: default;
+			will-change: transform;
+			h4 {
+				color: $framer-motion-color-04;
+				margin: 0 0 $framer-motion-spacing-half 0;
+				font-size: $framer-motion-font-size + 2;
+				font-weight: 700;
+				letter-spacing: 0;
+				text-shadow: none;
+				text-transform: none;
+				line-height: 1.3;
+			}
+			p {
+				color: $framer-motion-color-05;
+				margin: 0;
+				line-height: 1.5;
+			}
+		}
+		.dc-framer-motion-button {
+			display: block;
+			margin: 0 auto;
+			padding: $framer-motion-spacing-half $framer-motion-spacing;
+			background-color: $framer-motion-color-06;
+			color: $framer-motion-color-08;
+			border: 0;
+			border-radius: $framer-motion-border-radius;
+			cursor: pointer;
+			&:hover {
+				background-color: $framer-motion-color-07;
+			}
+		}
+	}
+	@media only screen and (min-width: $framer-motion-breakpoint) {
+		#{$framer-motion-selector} {
+			.dc-framer-motion-grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+	}
