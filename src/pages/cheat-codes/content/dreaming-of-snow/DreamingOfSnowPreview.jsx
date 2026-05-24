@@ -1,5 +1,5 @@
 /* Local styles */
-import './styles/dreaming-of-snow-preview.scss';
+import './styles/dreaming-of-snow.scss';
 
 export const DreamingOfSnow = () => {
 	return (

@@ -1,28 +1,9 @@
-/* Local styles */
-import './styles/framer-motion-preview.scss';
-
 /* React */
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-/* Sample card content */
-const cards = [
-	{
-		id: 1,
-		title: 'Stagger',
-		description: 'Children animate in sequence using staggerChildren on the container variant.',
-	},
-	{
-		id: 2,
-		title: 'Fade + Slide',
-		description: 'Opacity and Y-axis transitions combine for a smooth entrance effect.',
-	},
-	{
-		id: 3,
-		title: 'Hover',
-		description: 'whileHover and whileTap respond to pointer interactions in real time.',
-	},
-];
+/* Local styles */
+import './styles/framer-motion.scss';
 
 /* Container details */
 const container = {
@@ -40,15 +21,16 @@ const card = {
 	show: { opacity: 1, y: 0, backgroundColor: '#523526', transition: { duration: 0.45, ease: 'easeOut' } },
 };
 
-export const FramerMotionPreview = () => {
+export const FramerMotion = (props) => {
+	const { cards } = props;
 	const [key, setKey] = useState(0);
 
 	return (
 		<div className="dc-framer-motion">
-			<motion.div key={key} className="dc-framer-motion-grid" variants={container} initial="hidden" animate="show">
+			<motion.div key={key} className="dc-framer-motion-row" variants={container} initial="hidden" animate="show">
 				{cards.map((item) => (
 					<motion.div
-						className="dc-framer-motion-card"
+						className="dc-framer-motion-column dc-framer-motion-card"
 						variants={card}
 						whileHover={{ scale: 1.06, backgroundColor: '#704a37' }}
 						whileTap={{ scale: 0.94, backgroundColor: '#2a1c15' }}
