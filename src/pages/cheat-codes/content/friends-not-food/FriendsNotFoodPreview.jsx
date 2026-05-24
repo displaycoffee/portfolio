@@ -1,5 +1,5 @@
 /* Local styles */
-import './styles/friends-not-food-preview.scss';
+import './styles/friends-not-food.scss';
 
 export const FriendsNotFood = () => {
 	return (

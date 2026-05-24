@@ -1,33 +1,13 @@
-/* Local styles */
-import './styles/view-transitions-preview.scss';
-
 /* React */
 import { useState } from 'react';
 import { flushSync } from 'react-dom';
 
-/* Sample post content */
-const posts = [
-	{
-		id: 1,
-		title: 'Part I',
-		excerpt: 'An introduction to the basics.',
-		body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra, sapien vel suscipit tempus, nibh erat hendrerit libero, sed ultrices massa justo non lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae ante quis lectus egestas placerat sed non eros. Nulla efficitur lectus massa, nec tincidunt tortor accumsan non. Phasellus bibendum, elit ut euismod varius, magna diam porta leo, vitae tincidunt arcu eros vel sem. Nullam et lacus quis dui imperdiet ornare eget a risus. Aenean vel congue quam. Etiam nulla eros, convallis quis purus eget, dignissim interdum mi. Duis sit amet consectetur felis.',
-	},
-	{
-		id: 2,
-		title: 'Part II',
-		excerpt: 'Things get interesting.',
-		body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra, sapien vel suscipit tempus, nibh erat hendrerit libero, sed ultrices massa justo non lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae ante quis lectus egestas placerat sed non eros. Nulla efficitur lectus massa, nec tincidunt tortor accumsan non. Phasellus bibendum, elit ut euismod varius, magna diam porta leo, vitae tincidunt arcu eros vel sem. Nullam et lacus quis dui imperdiet ornare eget a risus. Aenean vel congue quam. Etiam nulla eros, convallis quis purus eget, dignissim interdum mi. Duis sit amet consectetur felis.',
-	},
-	{
-		id: 3,
-		title: 'Part III',
-		excerpt: 'Where it all comes together.',
-		body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra, sapien vel suscipit tempus, nibh erat hendrerit libero, sed ultrices massa justo non lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae ante quis lectus egestas placerat sed non eros. Nulla efficitur lectus massa, nec tincidunt tortor accumsan non. Phasellus bibendum, elit ut euismod varius, magna diam porta leo, vitae tincidunt arcu eros vel sem. Nullam et lacus quis dui imperdiet ornare eget a risus. Aenean vel congue quam. Etiam nulla eros, convallis quis purus eget, dignissim interdum mi. Duis sit amet consectetur felis.',
-	},
-];
+/* Local styles */
+import './styles/view-transitions.scss';
 
-export const ViewTransitionsPreview = () => {
+export const ViewTransitions = (props) => {
+	const { items } = props;
+
 	// Set selected state
 	const [selected, setSelected] = useState(null);
 
@@ -50,7 +30,7 @@ export const ViewTransitionsPreview = () => {
 	};
 
 	// Select item and transition between selections
-	const handleSelect = (post) => withPreviewTransition(() => setSelected(post));
+	const handleSelect = (item) => withPreviewTransition(() => setSelected(item));
 
 	// Go back to selection list
 	const handleBack = () => withPreviewTransition(() => setSelected(null));
@@ -78,21 +58,21 @@ export const ViewTransitionsPreview = () => {
 					</div>
 				) : (
 					<ul className="dc-view-transitions-list unstyled">
-						{posts.map((post) => (
-							<li className="dc-view-transitions-item" key={post.id}>
+						{items.map((item) => (
+							<li className="dc-view-transitions-item" key={item.id}>
 								<button
 									className="dc-view-transitions-item-button dc-view-transitions-item-wrapper"
-									onClick={() => handleSelect(post)}
+									onClick={() => handleSelect(item)}
 									type="button"
 								>
-									<span id={`dc-view-transitions-item-number-${post.id}`} className="dc-view-transitions-item-number">
-										{post.id}
+									<span id={`dc-view-transitions-item-number-${item.id}`} className="dc-view-transitions-item-number">
+										{item.id}
 									</span>
 
 									<div className="dc-view-transitions-item-text">
-										<h4>{post.title}</h4>
+										<h4>{item.title}</h4>
 
-										<p>{post.excerpt}</p>
+										<p>{item.excerpt}</p>
 									</div>
 								</button>
 							</li>

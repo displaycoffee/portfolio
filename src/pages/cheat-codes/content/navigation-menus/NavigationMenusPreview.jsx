@@ -1,8 +1,8 @@
 /* Local styles */
-import './styles/navigation-menus-01-preview.scss';
-import './styles/navigation-menus-02-preview.scss';
-import './styles/navigation-menus-03-preview.scss';
-import './styles/navigation-menus-preview.scss';
+import './styles/navigation-menus-01.scss';
+import './styles/navigation-menus-02.scss';
+import './styles/navigation-menus-03.scss';
+import './styles/navigation-menus.scss';
 
 export const NavigationMenus = (props) => {
 	let { id } = props;
