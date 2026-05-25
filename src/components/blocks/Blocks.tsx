@@ -130,43 +130,60 @@ export const PixelSection = (props: PixelSectionProps) => {
 	// Set params if available
 	const params = navigation?.params ? navigation.params : '';
 
+	// Set urls if navigation element
+	let previousUrl = '';
+	let nextUrl = '';
+	let backUrl = '';
+
+	if (showNavigation) {
+		if (navigation?.previous?.handle) {
+			previousUrl = `${navigation.path}/${navigation.previous.handle}${params}`;
+		}
+		if (navigation?.next?.handle) {
+			nextUrl = `${navigation.path}/${navigation.next.handle}${params}`;
+		}
+		if (navigation?.back) {
+			backUrl = `${navigation.path}${params}`;
+		}
+	}
+
 	return (
-		<section className={`${pixelClass}pixel-section`}>
+		<div className={`${pixelClass}pixel-block`}>
 			<div className="pixel-border-rounded"></div>
 
-			<div className="pixel-section-wrapper">
+			<div className="pixel-block-wrapper">
 				{children ? (
 					children
 				) : showNavigation ? (
 					<nav className="pixel-navigation">
 						<ul className="pixel-navigation-list unstyled flex-wrap flex-align-items-center">
-							{navigation?.previous?.handle && (
+							{previousUrl && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
-									<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.previous.handle}${params}`}>
+									<Link className="pixel-navigation-link" to={previousUrl}>
 										<Icon id={'angle-left'} />
 										<span className="pixel-navigation-label">Previous</span>
 									</Link>
 								</li>
 							)}
 
-							{navigation?.back && (
+							{backUrl && (
 								<>
 									{navigation?.previous?.handle ? navigationSeparator : null}
 
 									<li className="pixel-navigation-list-item pixel-navigation-back">
-										<Link className="pixel-navigation-link" to={`${navigation.path}${params}`}>
+										<Link className="pixel-navigation-link" to={backUrl}>
 											{navigation.back}
 										</Link>
 									</li>
 								</>
 							)}
 
-							{navigation?.next?.handle && (
+							{nextUrl && (
 								<>
 									{navigationSeparator}
 
 									<li className="pixel-navigation-list-item pixel-navigation-next">
-										<Link className="pixel-navigation-link" to={`${navigation.path}/${navigation.next.handle}${params}`}>
+										<Link className="pixel-navigation-link" to={nextUrl}>
 											<span className="pixel-navigation-label">Next</span>
 											<Icon id={'angle-right'} />
 										</Link>
@@ -177,7 +194,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 					</nav>
 				) : null}
 			</div>
-		</section>
+		</div>
 	);
 };
 

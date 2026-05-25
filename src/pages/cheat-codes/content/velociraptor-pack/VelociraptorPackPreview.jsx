@@ -1,5 +1,5 @@
 /* Local styles */
-import './styles/velociraptor-pack-preview.scss';
+import './styles/velociraptor-pack.scss';
 
 export const VelociraptorPack = () => {
 	return (

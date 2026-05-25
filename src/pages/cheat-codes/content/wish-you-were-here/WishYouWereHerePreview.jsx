@@ -1,5 +1,5 @@
 /* Local styles */
-import './styles/wish-you-were-here-preview.scss';
+import './styles/wish-you-were-here.scss';
 
 export const WishYouWereHere = () => {
 	return (

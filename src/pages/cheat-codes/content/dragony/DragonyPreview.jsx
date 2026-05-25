@@ -1,5 +1,5 @@
 /* Local styles */
-import './styles/dragony-preview.scss';
+import './styles/dragony.scss';
 
 export const Dragony = () => {
 	return (

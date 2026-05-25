@@ -8,8 +8,8 @@
 
 	// Style block
 
-	.navigation-section {
-		.pixel-section-wrapper {
+	.navigation-block {
+		.pixel-block-wrapper {
 			.navigation {
 				.navigation-list {
 					@include mixins.gap(theme.$spacing-x2);
@@ -58,8 +58,8 @@
 		}
 	}
 	@include mixins.respond-min(theme.$bp-03) {
-		.navigation-section {
-			.pixel-section-wrapper {
+		.navigation-block {
+			.pixel-block-wrapper {
 				.navigation {
 					.navigation-list {
 						@include mixins.gap(theme.$spacing-x2 theme.$spacing-x4);

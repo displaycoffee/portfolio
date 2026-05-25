@@ -1,6 +1,6 @@
 export const resume = {
 	technical: {
-		languages: [
+		skills: [
 			{
 				id: 8,
 				name: 'HTML5',
@@ -22,18 +22,8 @@ export const resume = {
 				value: 9,
 			},
 			{
-				id: 4,
-				name: 'React',
-				value: 8,
-			},
-			{
 				id: 3,
 				name: 'TypeScript',
-				value: 6,
-			},
-			{
-				id: 2,
-				name: 'Angular',
 				value: 6,
 			},
 			{
@@ -41,15 +31,28 @@ export const resume = {
 				name: 'PHP',
 				value: 7,
 			},
+		],
+		magic: [
+			{
+				id: 4,
+				name: 'React',
+				value: 8,
+			},
+			{
+				id: 2,
+				name: 'Angular',
+				value: 6,
+			},
 			{
 				id: 0,
 				name: 'jQuery',
 				value: 9,
 			},
 		],
-		tools: 'TanStack Query, GitHub, Vite, Webpack, GraphQL, Rest APIs, Cypress, Lighthouse, ESLint, Prettier, Node.js, Claude Code, Gemini',
+		languages: 'CSS Modules',
+		frameworks: 'Express, Framer Motion',
+		tools: 'TanStack Query, GitHub, Vite, Webpack, GraphQL, Rest APIs, Cypress, Lighthouse, ESLint, Prettier, Node.js, Claude Code, Gemini, View Transitions API',
 		cms: 'eCommerce platforms (Shopify, BigCommerce, Magento2, etc.), WordPress, WHMCS, phpBB',
-		other: 'Windows, MacOS, VSCode, Chrome Dev Tools',
 	},
 	history: [
 		{

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 /* Local styles */
-import './styles/hello-content-preview.scss';
+import './styles/hello-content.scss';
 
 export const HelloContent = (props) => {
 	let { tabs, defaultTab } = props;

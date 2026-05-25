@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 /* Local styles */
-import './styles/banner-code-generator-preview.scss';
+import './styles/banner-code-generator.scss';
 
 export const BannerCodeGenerator = (props) => {
 	let { banners, defaultBanner, site } = props;

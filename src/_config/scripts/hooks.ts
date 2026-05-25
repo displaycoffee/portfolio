@@ -1,5 +1,7 @@
 /* React */
-import { useEffect, useId, useState } from 'react';
+import { MouseEvent, useEffect, useId, useState } from 'react';
+import { flushSync } from 'react-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const useFormattedId = () => {
 	// Updates the format of useId hook
@@ -19,4 +21,31 @@ export const useRespond = (bp: number) => {
 	}, [bp]);
 
 	return match;
+};
+
+export const useViewTransition = () => {
+	// Custom hook to use View Transitions API
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	return (e: MouseEvent<HTMLElement>, url: string) => {
+		if (!document.startViewTransition || e.ctrlKey || e.metaKey || e.shiftKey || url === location.pathname) {
+			return false;
+		} else {
+			e.preventDefault();
+
+			const contentEl = document.querySelector('.content') as HTMLElement;
+			if (contentEl) contentEl.style.viewTransitionName = 'page-content';
+
+			void document
+				.startViewTransition(() => {
+					flushSync(() => {
+						void navigate(url);
+					});
+				})
+				.finished.finally(() => {
+					if (contentEl) contentEl.style.viewTransitionName = '';
+				});
+		}
+	};
 };
