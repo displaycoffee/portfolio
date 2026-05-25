@@ -167,18 +167,28 @@
 
 	// View transition animations (scoped to the preview's named transition)
 
-	::view-transition-image-pair(vt-preview-content) {
-		overflow: clip;
+	@keyframes vt-preview-slide-out {
+		to { 
+			opacity: 0; 
+		}
+	}
+	@keyframes vt-preview-slide-in {
+		from { 
+			opacity: 0; 
+			transform: translateX(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+	::view-transition-group(vt-preview-content) {
+		animation-duration: 0s;
 	}
 	::view-transition-old(vt-preview-content) {
-		animation: vt-preview-slide-out 0.25s ease;
+		animation: none;
+		opacity: 0;
 	}
 	::view-transition-new(vt-preview-content) {
 		animation: vt-preview-slide-in 0.25s ease;
-	}
-	@keyframes vt-preview-slide-out {
-		to { opacity: 0; }
-	}
-	@keyframes vt-preview-slide-in {
-		from { opacity: 0; transform: translateX(30px); }
 	}
