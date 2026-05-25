@@ -1,5 +1,5 @@
 /* Local styles */
-import './styles/best-friends-preview.scss';
+import './styles/best-friends.scss';
 
 /* Local components */
 import { HelloContent } from '../hello-content/HelloContentPreview';

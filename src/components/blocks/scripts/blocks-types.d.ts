@@ -5,7 +5,7 @@ type BlockShared = {
 };
 
 type Button = BlockShared & {
-	onClick: MouseEventHandler<HTMLButtonElement>;
+	onClick: MouseEvent<HTMLButtonElement>;
 	type?: string;
 	size?: string;
 };

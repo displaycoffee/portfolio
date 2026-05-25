@@ -1,5 +1,5 @@
 /* Local styles */
-import './styles/a-promise-preview.scss';
+import './styles/a-promise.scss';
 
 export const APromise = () => {
 	const separator = (

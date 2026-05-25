@@ -1,11 +1,13 @@
 /* React */
-import { MouseEventHandler, useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
 /* Local styles */
 import './styles/contents.scss';
 
 /* Local scripts */
+import { useViewTransition } from '../../_config/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import {
 	ContentsBodyProps,
@@ -56,6 +58,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	const { utils } = useAppContext();
 	const searchParams = contentsUtils.params.get();
 	const tagParam = contentsUtils.params.url.tag;
+	const handleTransition = useViewTransition();
 	const [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
 	const [tagParams, setTagParams] = useSearchParams();
 
@@ -91,7 +94,42 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 		setTags(tags);
 	}, [tags]);
 
-	// Click functionality for applying tabs
+	// Function to transition tags
+	const transitionTags = (tags: ContentsTagsType) => {
+		if (!document.startViewTransition) {
+			setTags(tags);
+			return false;
+		} else {
+			// Set transition names on all currently visible content items (old state)
+			const oldItems = document.querySelectorAll<HTMLElement>('[data-vt-id]');
+			oldItems.forEach((el) => {
+				el.style.viewTransitionName = `content-item-${el.dataset.vtId}`;
+			});
+
+			// Flag root so CSS can scope rules to content tag switches only
+			document.documentElement.setAttribute('data-content-transition', '');
+
+			void document
+				.startViewTransition(() => {
+					flushSync(() => setTags(tags));
+
+					// After React renders, name any newly visible items (new state)
+					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
+						if (!el.style.viewTransitionName) {
+							el.style.viewTransitionName = `content-item-${el.dataset.vtId}`;
+						}
+					});
+				})
+				.finished.finally(() => {
+					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
+						el.style.viewTransitionName = '';
+					});
+					document.documentElement.removeAttribute('data-content-transition');
+				});
+		}
+	};
+
+	// Click functionality for applying tags
 	const handleTag = (e: EventsType, tag: ContentsTagType) => {
 		e.preventDefault();
 
@@ -120,8 +158,8 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 			};
 		}
 
-		// Update tags when values are clicked
-		setTags(newTags);
+		// Perform tag transitions and update url with new tags
+		transitionTags(newTags);
 	};
 
 	// Click functionality for clear
@@ -138,15 +176,15 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 			}
 		});
 
-		// Update tags when clear all is clicked
-		setTags(tags);
+		// Perform tag transitions and update tags when clear all is clicked
+		transitionTags(tags);
 	};
 
 	return (
 		<div className="contents">
 			{searchParams ? (
 				<div className="contents-clear">
-					<Button onClick={(e: MouseEventHandler<HTMLButtonElement>) => handleClear(e)}>Clear tags</Button>
+					<Button onClick={(e: MouseEvent<HTMLButtonElement>) => handleClear(e)}>Clear tags</Button>
 				</div>
 			) : null}
 
@@ -174,9 +212,12 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 						linkParamsString = `?${linkParams.join('&')}`;
 					}
 
+					// Set content url
+					const contentUrl = `${location}/${value.handle}${linkParamsString}`;
+
 					return contentActive ? (
-						<div className="contents-column column column-width-33" key={value.id}>
-							<Link className="contents-link" to={`${location}/${value.handle}${linkParamsString}`}>
+						<div className="contents-column column column-width-33" key={value.id} data-vt-id={value.id}>
+							<Link className="contents-link" to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
 								<div className="pixel-border">
 									<Image
 										alt={value.name}
@@ -206,7 +247,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 												<Button
 													type={tag.active ? 'secondary active' : 'primary'}
 													size={'x-small'}
-													onClick={(e: MouseEventHandler<HTMLButtonElement>) => handleTag(e, tag)}
+													onClick={(e: MouseEvent<HTMLButtonElement>) => handleTag(e, tag)}
 												>
 													{tag.label}
 												</Button>
@@ -227,6 +268,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
 	const { utils } = useAppContext();
 	const searchParams = useLocation().search || '';
+	const handleTransition = useViewTransition();
 	const showContents = window.location.href.includes(location); // Do not render current item if not in matching contents
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
@@ -272,19 +314,23 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 											<Button
 												type={tag.active ? 'secondary active' : 'primary'}
 												size={'x-small'}
-												onClick={() => {
+												onClick={(e: MouseEvent<HTMLButtonElement>) => {
 													// Set up current param
 													const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
+
+													// Create url
+													let tagUrl = `${parentPage}?${currentParam}`;
 
 													// If current tag is not in search params, add it
 													if (searchParams) {
 														const newParams = !searchParams.includes(currentParam)
 															? `${searchParams}&${currentParam}`
 															: searchParams;
-														window.location.href = `${parentPage}${newParams}`;
-													} else {
-														window.location.href = `${parentPage}?${currentParam}`;
+														tagUrl = `${parentPage}${newParams}`;
 													}
+
+													// Go back to content back with param
+													handleTransition(e, tagUrl);
 												}}
 											>
 												{tag.label}
