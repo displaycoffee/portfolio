@@ -49,6 +49,11 @@ export const CheatCodesIndex = () => {
 		<>
 			<HeaderIcon>Cheat Codes</HeaderIcon>
 
+			<p>
+				This page contains code snippets for sites, projects, or whatever your heart fancies. A few of these snippets were originally created
+				for things like forum templates or signatures, but they've been revised to drag and drop onto any platform.
+			</p>
+
 			<Contents {...contentsOptions} />
 		</>
 	);
@@ -83,7 +88,7 @@ export const CheatCodesContent = () => {
 				'hello-content-a-tabbing-script': <HelloContent />,
 				'navigation-menus': <NavigationMenus />,
 				'velociraptor-pack': <VelociraptorPack />,
-				'view-transitions-api': <ViewTransitions />,
+				'view-transitions': <ViewTransitions />,
 				'wish-you-were-here': <WishYouWereHere />,
 			}[last as string] || defaultContent}
 		</Contents>

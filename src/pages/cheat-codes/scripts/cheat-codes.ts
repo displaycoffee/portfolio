@@ -5,6 +5,7 @@ export const cheatCodes = [
 	{
 		id: 12,
 		name: `View Transitions API`,
+		name2: `View Transitions`,
 		date: `05.22.26`,
 		updated: `05.24.26`,
 		tags: `React, JavaScript, CSS, Sass, Animation`,
@@ -24,7 +25,7 @@ export const cheatCodes = [
 		id: 10,
 		name: `Burmecia`,
 		date: `03.28.22`,
-		updated: `05.24.26`,
+		updated: `05.25.26`,
 		tags: `React, TypeScript, JavaScript, Sass, Vite, Framework`,
 		thumb: `${cheatCodesPath}burmecia-400x250.jpg`,
 		description: `React-based framework to create projects. Primarily built with React, TypeScript, JavaScript, Sass, and Vite. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.`,
