@@ -93,9 +93,9 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 			return false;
 		} else {
 			// Set transition names on all currently visible gallery items (old state)
-			const oldItems = document.querySelectorAll<HTMLElement>('[data-vt-id]');
+			const oldItems = document.querySelectorAll<HTMLElement>('[data-gallery-id]');
 			oldItems.forEach((el) => {
-				el.style.viewTransitionName = `gallery-item-${el.dataset.vtId}`;
+				el.style.viewTransitionName = `gallery-item-${el.dataset.galleryId}`;
 			});
 
 			// Flag root so CSS can scope rules to gallery tab switches only
@@ -104,16 +104,9 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 			void document
 				.startViewTransition(() => {
 					flushSync(() => setActiveTab(tab));
-
-					// After React renders, name any newly visible items (new state)
-					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
-						if (!el.style.viewTransitionName) {
-							el.style.viewTransitionName = `gallery-item-${el.dataset.vtId}`;
-						}
-					});
 				})
 				.finished.finally(() => {
-					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
+					document.querySelectorAll<HTMLElement>('[data-gallery-id]').forEach((el) => {
 						el.style.viewTransitionName = '';
 					});
 					document.documentElement.removeAttribute('data-gallery-transition');
@@ -185,7 +178,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 					const galleryUrl = `${location}/${value.handle}`;
 
 					return (
-						<div className={`gallery-item${showItem ? ' gallery-item-active' : ''}`} key={value.id} data-vt-id={value.id}>
+						<div className={`gallery-item${showItem ? ' gallery-item-active' : ''}`} key={value.id} data-gallery-id={value.id}>
 							<Link className="gallery-image" to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
 								<Image
 									alt={value.name}

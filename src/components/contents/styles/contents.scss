@@ -20,6 +20,13 @@
 		}
 		.contents-row {
 			.contents-column {
+				&:not(.contents-active) {
+					position: absolute;
+					@include mixins.sizing(0, 0);
+					padding: 0;
+					margin: 0;
+					overflow: hidden;
+				}
 				& > * {
 					margin: 0 0 theme.$spacing-x2 0;
 					&:last-child {
@@ -91,10 +98,10 @@
 		}
 	}
 
-	//// GALLERY VIEW TRANSITIONS
+//// CONTENTS - VIEW TRANSITIONS
 //// --------------------------------------------------------------------------
 
-	@keyframes gallery-item-in {
+	@keyframes contents-item-in {
 		from {
 			opacity: 0;
 			transform: scale(0.85);
@@ -104,7 +111,7 @@
 			transform: scale(1);
 		}
 	}
-	@keyframes gallery-item-out {
+	@keyframes contents-item-out {
 		from {
 			opacity: 1;
 			transform: scale(1);
@@ -113,31 +120,23 @@
 			opacity: 0;
 			transform: scale(0.85);
 		}
-	}
-
-	// Items entering (only exist in new state)
-	::view-transition-new(*):only-child {
-		animation: content-item-in 0.5s ease forwards;
 	}
 
 	// Items leaving (only exist in old state)
-	::view-transition-old(*):only-child {
-		animation: content-item-out 0.5s ease forwards;
+	:root[data-contents-transition] ::view-transition-old(*) {
+		animation: none;
+		opacity: 0;
 	}
 
-	// Persistent items: suppress cross-fade so only the position morph plays.
-	// Scoped to content switches via the root attribute set in handleTag(),
-	// so page navigation transitions are not affected.
-	:root[data-content-transition] ::view-transition-old(*):not(:only-child),
-	:root[data-content-transition] ::view-transition-new(*):not(:only-child) {
-		animation: none;
-		opacity: 1;
+	// Items entering (only exist in new state)
+	:root[data-contents-transition] ::view-transition-new(*) {
+		animation: contents-item-in 0.75s ease forwards;
 	}
 
 	// Control the speed of the position morph (the group is what actually moves).
-	// Targeted directly without ancestor scoping — descendant combinators are
+	// Targeted directly without ancestor scoping  - descendant combinators are
 	// unreliable between regular elements and UA pseudo-elements.
 	::view-transition-group(*) {
-		animation-duration: 0.5s;
+		animation-duration: 0.75s;
 		animation-timing-function: ease;
 	}
