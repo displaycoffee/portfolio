@@ -220,32 +220,6 @@
 //// VIEW TRANSITIONS
 //// --------------------------------------------------------------------------
 
-	// Clip the slide to the content element's bounds, preventing anything from rendering outside it
-	
-	::view-transition-image-pair(page-content) {
-		overflow: clip;
-	}
-
-	// Disable the full-page snapshot so only .content animates
-
-	::view-transition-old(root) { animation: none; }
-	::view-transition-new(root) { animation: none; }
-
-	// Option 1: Cross-fade
-
-	// ::view-transition-old(page-content) { animation: vt-fade-out 0.25s ease; }
-	// ::view-transition-new(page-content) { animation: vt-fade-in 0.25s ease; }
-
-	// Option 2: Fade + scale
-
-	// ::view-transition-old(page-content) { animation: vt-scale-out 0.25s ease; }
-	// ::view-transition-new(page-content) { animation: vt-scale-in 0.25s ease; }
-
-	// Option 3: Slide
-
-	::view-transition-old(page-content) { animation: vt-slide-out 0.25s ease; }
-	::view-transition-new(page-content) { animation: vt-slide-in 0.25s ease; }
-
 	// Option 1: Cross-fade (pure opacity, no movement)
 
 	@keyframes vt-fade-out {
@@ -272,3 +246,29 @@
 	@keyframes vt-slide-in {
 		from { opacity: 0; transform: translateX(500px); }
 	}
+
+	// Clip the slide to the content element's bounds, preventing anything from rendering outside it
+	
+	::view-transition-image-pair(page-content) {
+		overflow: clip;
+	}
+
+	// Disable the full-page snapshot so only .content animates
+
+	::view-transition-old(root) { animation: none; }
+	::view-transition-new(root) { animation: none; }
+
+	// Option 1: Cross-fade
+
+	// ::view-transition-old(page-content) { animation: vt-fade-out 0.25s ease; }
+	// ::view-transition-new(page-content) { animation: vt-fade-in 0.25s ease; }
+
+	// Option 2: Fade + scale
+
+	// ::view-transition-old(page-content) { animation: vt-scale-out 0.25s ease; }
+	// ::view-transition-new(page-content) { animation: vt-scale-in 0.25s ease; }
+
+	// Option 3: Slide
+
+	::view-transition-old(page-content) { animation: vt-slide-out 0.25s ease; }
+	::view-transition-new(page-content) { animation: vt-slide-in 0.25s ease; }

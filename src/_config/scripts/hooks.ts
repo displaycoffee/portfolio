@@ -28,7 +28,7 @@ export const useViewTransition = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	return (e: MouseEvent<HTMLAnchorElement>, url: string) => {
+	return (e: MouseEvent<HTMLElement>, url: string) => {
 		if (!document.startViewTransition || e.ctrlKey || e.metaKey || e.shiftKey || url === location.pathname) {
 			return false;
 		} else {

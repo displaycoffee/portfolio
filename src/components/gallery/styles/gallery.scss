@@ -14,6 +14,14 @@
 	.gallery {
 		.gallery-items {
 			@include mixins.grid-layout(5px, 75px);
+			.gallery-item {
+				@include mixins.transition(opacity 0.5s ease);
+				opacity: 1;
+				&:not(.gallery-item-active) {
+					@include mixins.sr-only;
+					opacity: 0;
+				}
+			}
 		}
 		.gallery-body {
 			@include mixins.gap(theme.$spacing-x4);
@@ -62,9 +70,6 @@
 				.gallery-item {
 					overflow: hidden;
 					.gallery-image {
-						&:hover .image-wrapper img {
-							@include mixins.transform(scale(1.5, 1.5));
-						}
 						.image-wrapper img {
 							@include mixins.transition(transform 0.5s ease-in-out);
 						}
@@ -116,4 +121,55 @@
 				}
 			}
 		}
+	}
+
+//// GALLERY VIEW TRANSITIONS
+//// --------------------------------------------------------------------------
+
+	@keyframes gallery-item-in {
+		from {
+			opacity: 0;
+			transform: scale(0.85);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+	@keyframes gallery-item-out {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(0.85);
+		}
+	}
+
+	// Items entering (only exist in new state)
+	::view-transition-new(*):only-child {
+		animation: gallery-item-in 0.5s ease forwards;
+	}
+
+	// Items leaving (only exist in old state)
+	::view-transition-old(*):only-child {
+		animation: gallery-item-out 0.5s ease forwards;
+	}
+
+	// Persistent items: suppress cross-fade so only the position morph plays.
+	// Scoped to gallery tab switches via the root attribute set in setTab(),
+	// so page navigation transitions are not affected.
+	:root[data-gallery-transition] ::view-transition-old(*):not(:only-child),
+	:root[data-gallery-transition] ::view-transition-new(*):not(:only-child) {
+		animation: none;
+		opacity: 1;
+	}
+
+	// Control the speed of the position morph (the group is what actually moves).
+	// Targeted directly without ancestor scoping — descendant combinators are
+	// unreliable between regular elements and UA pseudo-elements.
+	::view-transition-group(*) {
+		animation-duration: 0.5s;
+		animation-timing-function: ease;
 	}
