@@ -12,7 +12,7 @@ import { HeaderIcon } from '../../components/blocks/Blocks';
 
 export const Resume = () => {
 	const { technical, history, volunteer } = resume;
-	const { languages, cms, tools, other } = technical;
+	const { cms, frameworks, languages, magic, skills, tools } = technical;
 
 	return (
 		<>
@@ -31,9 +31,27 @@ export const Resume = () => {
 			<div className="resume-section resume-skills spacing-reset">
 				<HeaderIcon tag={'h3'}>Skills</HeaderIcon>
 
-				{languages && languages.length !== 0
-					? languages.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />)
+				{skills && skills.length !== 0
+					? skills.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />)
 					: null}
+
+				{languages && (
+					<>
+						<h4 className="h-remove-shadow">Additional skills</h4>
+						<p>{languages}</p>
+					</>
+				)}
+
+				<HeaderIcon tag={'h3'}>Magic</HeaderIcon>
+
+				{magic && magic.length !== 0 ? magic.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />) : null}
+
+				{frameworks && (
+					<>
+						<h4 className="h-remove-shadow">Additional magic</h4>
+						<p>{frameworks}</p>
+					</>
+				)}
 			</div>
 
 			<div className="resume-section resume-inventory">
@@ -50,12 +68,6 @@ export const Resume = () => {
 						<div className="column">
 							<h4 className="h-remove-shadow">Armor</h4>
 							<p>{cms}</p>
-						</div>
-					)}
-					{other && (
-						<div className="column">
-							<h4 className="h-remove-shadow">Items</h4>
-							<p>{other}</p>
 						</div>
 					)}
 				</div>

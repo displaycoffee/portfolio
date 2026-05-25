@@ -43,6 +43,11 @@ export const ArticlesIndex = () => {
 		<>
 			<HeaderIcon>Articles</HeaderIcon>
 
+			<p>
+				Below you'll find a few articles I wrote. Most of these are very basic (and some might be a little outdated), but maybe they’re still
+				useful.
+			</p>
+
 			<Contents {...contentsOptions} />
 		</>
 	);
