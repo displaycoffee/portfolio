@@ -1,5 +1,6 @@
 /* React */
 import { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 
 /* Local styles */
@@ -85,9 +86,39 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 	// Set active tab state
 	const [activeTab, setActiveTab] = useState<string | boolean>(tabs.enabled ? defaultTab : false);
 
-	// Set tab function
+	// Set tab function with view transition
 	const setTab = (tab: string) => {
-		setActiveTab(tab);
+		if (!document.startViewTransition) {
+			setActiveTab(tab);
+			return false;
+		} else {
+			// Set transition names on all currently visible gallery items (old state)
+			const oldItems = document.querySelectorAll<HTMLElement>('[data-vt-id]');
+			oldItems.forEach((el) => {
+				el.style.viewTransitionName = `gallery-item-${el.dataset.vtId}`;
+			});
+
+			// Flag root so CSS can scope rules to gallery tab switches only
+			document.documentElement.setAttribute('data-gallery-transition', '');
+
+			void document
+				.startViewTransition(() => {
+					flushSync(() => setActiveTab(tab));
+
+					// After React renders, name any newly visible items (new state)
+					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
+						if (!el.style.viewTransitionName) {
+							el.style.viewTransitionName = `gallery-item-${el.dataset.vtId}`;
+						}
+					});
+				})
+				.finished.finally(() => {
+					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
+						el.style.viewTransitionName = '';
+					});
+					document.documentElement.removeAttribute('data-gallery-transition');
+				});
+		}
 	};
 
 	// Sync active tab back to tabStorage so it persists across renders
@@ -153,8 +184,8 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 					// Set gallery url
 					const galleryUrl = `${location}/${value.handle}`;
 
-					return showItem ? (
-						<div className="gallery-item" key={value.id}>
+					return (
+						<div className={`gallery-item${showItem ? ' gallery-item-active' : ''}`} key={value.id} data-vt-id={value.id}>
 							<Link className="gallery-image" to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
 								<Image
 									alt={value.name}
@@ -164,7 +195,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 								/>
 							</Link>
 						</div>
-					) : null;
+					);
 				})}
 			</div>
 		</div>
