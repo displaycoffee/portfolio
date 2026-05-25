@@ -100,31 +100,24 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 			setTags(tags);
 			return false;
 		} else {
-			// Set transition names on all currently visible content items (old state)
-			const oldItems = document.querySelectorAll<HTMLElement>('[data-vt-id]');
+			// Set transition names on all content items
+			const oldItems = document.querySelectorAll<HTMLElement>('[data-contents-id]');
 			oldItems.forEach((el) => {
-				el.style.viewTransitionName = `content-item-${el.dataset.vtId}`;
+				el.style.viewTransitionName = `contents-item-${el.dataset.contentsId}`;
 			});
 
 			// Flag root so CSS can scope rules to content tag switches only
-			document.documentElement.setAttribute('data-content-transition', '');
+			document.documentElement.setAttribute('data-contents-transition', '');
 
 			void document
 				.startViewTransition(() => {
 					flushSync(() => setTags(tags));
-
-					// After React renders, name any newly visible items (new state)
-					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
-						if (!el.style.viewTransitionName) {
-							el.style.viewTransitionName = `content-item-${el.dataset.vtId}`;
-						}
-					});
 				})
 				.finished.finally(() => {
-					document.querySelectorAll<HTMLElement>('[data-vt-id]').forEach((el) => {
+					document.querySelectorAll<HTMLElement>('[data-contents-id]').forEach((el) => {
 						el.style.viewTransitionName = '';
 					});
-					document.documentElement.removeAttribute('data-content-transition');
+					document.documentElement.removeAttribute('data-contents-transition');
 				});
 		}
 	};
@@ -215,8 +208,12 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 					// Set content url
 					const contentUrl = `${location}/${value.handle}${linkParamsString}`;
 
-					return contentActive ? (
-						<div className="contents-column column column-width-33" key={value.id} data-vt-id={value.id}>
+					return (
+						<div
+							className={`contents-column${contentActive ? ' contents-active' : ''} column column-width-33`}
+							key={value.id}
+							data-contents-id={value.id}
+						>
 							<Link className="contents-link" to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
 								<div className="pixel-border">
 									<Image
@@ -257,7 +254,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 								</ContentsTags>
 							) : null}
 						</div>
-					) : null;
+					);
 				})}
 			</div>
 		</div>
