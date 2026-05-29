@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/structuring-code-code-blocks';
 
-/* Local components */
+/* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
 

@@ -1,9 +1,9 @@
-/* React */
+/* Styles */
+import './styles/framer-motion.scss';
+
+/* Packages */
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
-/* Local styles */
-import './styles/framer-motion.scss';
 
 /* Container details */
 const container = {

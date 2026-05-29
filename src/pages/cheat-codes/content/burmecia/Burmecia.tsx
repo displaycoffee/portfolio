@@ -1,4 +1,4 @@
-/* Local components */
+/* Components */
 import { CheatCodesSection } from '../../CheatCodes';
 
 export const Burmecia = () => {

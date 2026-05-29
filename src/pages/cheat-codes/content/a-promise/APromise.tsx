@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/a-promise-code-blocks';
 
-/* Local components */
+/* Components */
 import { APromise as APromisePreview } from './APromisePreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

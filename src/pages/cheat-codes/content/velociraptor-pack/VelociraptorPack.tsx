@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/velociraptor-pack-code-blocks';
 
-/* Local components */
+/* Components */
 import { VelociraptorPack as VelociraptorPackPreview } from './VelociraptorPackPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

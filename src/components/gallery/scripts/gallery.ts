@@ -1,4 +1,4 @@
-/* Local scripts */
+/* Scripts */
 import { GalleriesType, GalleryTabsOptionsType, GalleryType } from './gallery-types';
 import { utils } from '../../../_config/scripts/utils';
 

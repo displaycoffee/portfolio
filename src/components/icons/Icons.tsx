@@ -1,7 +1,7 @@
-/* Local styles */
+/* Styles */
 import './styles/icons.scss';
 
-/* Local scripts */
+/* Scripts */
 import { IconsProps } from './scripts/icons-types';
 
 export const Icon = (props: IconsProps) => {

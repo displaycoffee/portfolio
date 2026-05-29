@@ -1,15 +1,15 @@
-/* React */
+/* Styles */
+import './styles/header.scss';
+
+/* Packages */
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-/* Local styles */
-import './styles/header.scss';
-
-/* Local scripts */
+/* Scripts */
 import { useRespond, useViewTransition } from '../../_config/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 
-/* Local components */
+/* Components */
 import { Image } from '../../components/image/Image';
 
 export const Header = () => {

@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/styling-text-code-blocks';
 
-/* Local components */
+/* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline, Output } from '../../../../components/blocks/Blocks';
 
