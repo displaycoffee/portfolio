@@ -1,4 +1,4 @@
-/* Local styles */
+/* Styles */
 import './styles/friends-not-food.scss';
 
 export const FriendsNotFood = () => {

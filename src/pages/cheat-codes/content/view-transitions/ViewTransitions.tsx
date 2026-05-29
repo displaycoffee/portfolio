@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/view-transitions-code-blocks';
 
-/* Local components */
+/* Components */
 import { ViewTransitions as ViewTransitionsPreview } from './ViewTransitionsPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

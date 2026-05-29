@@ -1,12 +1,12 @@
-/* React */
+/* Styles */
+import './styles/contents.scss';
+
+/* Packages */
 import { MouseEvent, useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
-/* Local styles */
-import './styles/contents.scss';
-
-/* Local scripts */
+/* Scripts */
 import { useViewTransition } from '../../_config/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import {
@@ -20,7 +20,7 @@ import {
 } from './scripts/contents-types';
 import { contents as contentsUtils } from './scripts/contents';
 
-/* Local components */
+/* Components */
 import { Image } from '../image/Image';
 import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
 

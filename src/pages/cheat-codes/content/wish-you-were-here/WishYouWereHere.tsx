@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/wish-you-were-here-code-blocks';
 
-/* Local components */
+/* Components */
 import { WishYouWereHere as WishYouWereHerePreview } from './WishYouWereHerePreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

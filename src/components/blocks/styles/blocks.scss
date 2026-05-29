@@ -31,6 +31,9 @@
 		font-size: functions.em(12px, rem);
 		color: theme.$color-02;
 		line-height: calc(36px + $pixel-size);
+		&:focus, &:focus-visible, &:focus-visible {
+			outline: 0;
+		}
 		span {
 			display: block;
 			@include mixins.ellipsis();

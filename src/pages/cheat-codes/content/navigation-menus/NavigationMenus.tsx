@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/navigation-menus-code-blocks';
 
-/* Local components */
+/* Components */
 import { NavigationMenus as NavigationMenusPreview } from './NavigationMenusPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

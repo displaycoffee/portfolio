@@ -1,4 +1,4 @@
-/* Local styles */
+/* Styles */
 import './styles/a-promise.scss';
 
 export const APromise = () => {

@@ -1,13 +1,13 @@
-/* React */
-import React from 'react';
-
-/* Local styles */
+/* Styles */
 import './styles/resume.scss';
 
-/* Local scripts */
+/* Packages */
+import React from 'react';
+
+/* Scripts */
 import { resume } from './scripts/resume';
 
-/* Local components */
+/* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
 
 export const Resume = () => {

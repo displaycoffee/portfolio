@@ -1,7 +1,7 @@
-/* Local styles */
+/* Styles */
 import './styles/about.scss';
 
-/* Local components */
+/* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
 import { Image } from '../../components/image/Image';
 
