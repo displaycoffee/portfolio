@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/banner-code-generator-code-blocks';
 
-/* Local components */
+/* Components */
 import { BannerCodeGenerator as BannerCodeGeneratorPreview } from './BannerCodeGeneratorPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

@@ -1,8 +1,8 @@
-/* React */
-import React, { useState } from 'react';
-
-/* Local styles */
+/* Styles */
 import './styles/hello-content.scss';
+
+/* Packages */
+import React, { useState } from 'react';
 
 export const HelloContent = (props) => {
 	let { tabs, defaultTab } = props;

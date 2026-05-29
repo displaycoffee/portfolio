@@ -1,14 +1,14 @@
-/* React */
-import { Fragment } from 'react';
-
-/* Local styles */
+/* Styles */
 import './styles/footer.scss';
 
-/* Local scripts */
+/* Packages */
+import { Fragment } from 'react';
+
+/* Scripts */
 import { useAppContext } from '../../context/scripts/context-hooks';
 import { footer } from './scripts/footer';
 
-/* Local components */
+/* Components */
 import { Icon } from '../../components/icons/Icons';
 import { Image } from '../../components/image/Image';
 

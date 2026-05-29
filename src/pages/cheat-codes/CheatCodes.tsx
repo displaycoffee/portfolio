@@ -1,13 +1,13 @@
-/* React */
+/* Packages */
 import { useId } from 'react';
 import { useLocation } from 'react-router-dom';
 
-/* Local scripts */
+/* Scripts */
 import { useAppContext } from '../../context/scripts/context-hooks';
 import { CheatCodesSectionProps } from './scripts/cheat-codes-types';
 import { cheatCodes } from './scripts/cheat-codes';
 
-/* Local components */
+/* Components */
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
 import { APromise } from './content/a-promise/APromise';

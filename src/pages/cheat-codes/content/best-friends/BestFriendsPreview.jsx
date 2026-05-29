@@ -1,7 +1,7 @@
-/* Local styles */
+/* Styles */
 import './styles/best-friends.scss';
 
-/* Local components */
+/* Components */
 import { HelloContent } from '../hello-content/HelloContentPreview';
 
 export const BestFriends = () => {

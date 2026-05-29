@@ -1,4 +1,4 @@
-/* Local styles */
+/* Styles */
 import './styles/wish-you-were-here.scss';
 
 export const WishYouWereHere = () => {

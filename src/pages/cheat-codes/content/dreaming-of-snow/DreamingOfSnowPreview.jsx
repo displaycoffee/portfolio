@@ -1,4 +1,4 @@
-/* Local styles */
+/* Styles */
 import './styles/dreaming-of-snow.scss';
 
 export const DreamingOfSnow = () => {

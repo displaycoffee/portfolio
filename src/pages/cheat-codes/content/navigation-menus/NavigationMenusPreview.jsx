@@ -1,4 +1,4 @@
-/* Local styles */
+/* Styles */
 import './styles/navigation-menus-01.scss';
 import './styles/navigation-menus-02.scss';
 import './styles/navigation-menus-03.scss';

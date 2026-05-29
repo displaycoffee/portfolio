@@ -1,4 +1,4 @@
-/* Local styles */
+/* Styles */
 import './styles/dragony.scss';
 
 export const Dragony = () => {

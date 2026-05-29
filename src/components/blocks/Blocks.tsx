@@ -1,14 +1,14 @@
-/* React */
+/* Styles */
+import './styles/blocks.scss';
+
+/* Packages */
 import { RefObject, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-/* Local styles */
-import './styles/blocks.scss';
-
-/* Local scripts */
+/* Scripts */
 import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputProps, PixelSectionProps, PreviewProps } from './scripts/blocks-types';
 
-/* Local components */
+/* Components */
 import { Icon } from '../icons/Icons';
 
 export const Button = (props: ButtonProps) => {

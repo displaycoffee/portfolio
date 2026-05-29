@@ -1,4 +1,4 @@
-/* Local scripts */
+/* Scripts */
 import { ContentsTagType, ContentsType } from './contents-types';
 import { utils } from '../../../_config/scripts/utils';
 
