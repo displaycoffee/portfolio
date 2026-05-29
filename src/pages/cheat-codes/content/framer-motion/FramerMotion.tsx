@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/framer-motion-code-blocks';
 
-/* Local components */
+/* Components */
 import { FramerMotion as FramerMotionPreview } from './FramerMotionPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

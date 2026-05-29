@@ -1,7 +1,7 @@
-/* React */
+/* Packages */
 import { lazy, JSX, LazyExoticComponent } from 'react';
 
-/* Local scripts */
+/* Scripts */
 import { utils } from '../../../_config/scripts/utils';
 import { NavigationType, NavigationChildType } from './navigation-types';
 import { art } from '../../../pages/art/scripts/art';
@@ -9,7 +9,7 @@ import { articles } from '../../../pages/articles/scripts/articles';
 import { cheatCodes } from '../../../pages/cheat-codes/scripts/cheat-codes';
 import { projects } from '../../../pages/projects/scripts/projects';
 
-/* Local components */
+/* Components */
 const Start = lazy(() => import('../../../pages/start/Start').then((m) => ({ default: m.Start })));
 const About = lazy(() => import('../../../pages/about/About').then((m) => ({ default: m.About })));
 const Art = lazy(() => import('../../../pages/art/Art').then((m) => ({ default: m.Art })));

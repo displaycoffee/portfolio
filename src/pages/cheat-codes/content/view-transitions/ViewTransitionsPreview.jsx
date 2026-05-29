@@ -1,9 +1,9 @@
-/* React */
+/* Styles */
+import './styles/view-transitions.scss';
+
+/* Packages */
 import { useState } from 'react';
 import { flushSync } from 'react-dom';
-
-/* Local styles */
-import './styles/view-transitions.scss';
 
 export const ViewTransitions = (props) => {
 	const { items } = props;

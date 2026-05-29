@@ -1,10 +1,10 @@
-/* React */
+/* Packages */
 import { useLocation } from 'react-router-dom';
 
-/* Local scripts */
+/* Scripts */
 import { projects } from './scripts/projects';
 
-/* Local components */
+/* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
 import { Gallery } from '../../components/gallery/Gallery';
 

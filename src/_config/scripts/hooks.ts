@@ -1,4 +1,4 @@
-/* React */
+/* Packages */
 import { MouseEvent, useEffect, useId, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -28,8 +28,10 @@ export const useViewTransition = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	return (e: MouseEvent<HTMLElement>, url: string) => {
-		if (!document.startViewTransition || e.ctrlKey || e.metaKey || e.shiftKey || url === location.pathname) {
+	return (e: MouseEvent<HTMLElement>, target: string | (() => void)) => {
+		const isUrl = typeof target === 'string';
+
+		if (!document.startViewTransition || e.ctrlKey || e.metaKey || e.shiftKey || (isUrl && target === location.pathname)) {
 			return false;
 		} else {
 			e.preventDefault();
@@ -40,7 +42,11 @@ export const useViewTransition = () => {
 			void document
 				.startViewTransition(() => {
 					flushSync(() => {
-						void navigate(url);
+						if (isUrl) {
+							void navigate(target);
+						} else {
+							target();
+						}
 					});
 				})
 				.finished.finally(() => {

@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/dreaming-of-snow-code-blocks';
 
-/* Local components */
+/* Components */
 import { DreamingOfSnow as DreamingOfSnowPreview } from './DreamingOfSnowPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

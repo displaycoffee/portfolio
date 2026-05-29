@@ -1,8 +1,8 @@
-/* React */
-import { useState, useEffect, useRef } from 'react';
-
-/* Local styles */
+/* Styles */
 import './styles/banner-code-generator.scss';
+
+/* Packages */
+import { useState, useEffect, useRef } from 'react';
 
 export const BannerCodeGenerator = (props) => {
 	let { banners, defaultBanner, site } = props;

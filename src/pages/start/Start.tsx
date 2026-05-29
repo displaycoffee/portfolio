@@ -1,10 +1,10 @@
-/* Local styles */
+/* Styles */
 import './styles/start.scss';
 
-/* Local scripts */
+/* Scripts */
 import { updates } from './scripts/updates';
 
-/* Local components */
+/* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
 
 export const Start = () => {

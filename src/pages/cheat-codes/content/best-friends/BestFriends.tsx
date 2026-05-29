@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/best-friends-code-blocks';
 
-/* Local components */
+/* Components */
 import { BestFriends as BestFriendsPreview } from './BestFriendsPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

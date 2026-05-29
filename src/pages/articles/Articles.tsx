@@ -1,16 +1,16 @@
-/* React */
+/* Styles */
+import './styles/articles.scss';
+
+/* Packages */
 import { useId } from 'react';
 import { useLocation } from 'react-router-dom';
 
-/* Local styles */
-import './styles/articles.scss';
-
-/* Local scripts */
+/* Scripts */
 import { useAppContext } from '../../context/scripts/context-hooks';
 import { ArticlesSectionProps, ArticlesToCProps } from './scripts/articles-types';
 import { articles } from './scripts/articles';
 
-/* Local components */
+/* Components */
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
 import { Icon } from '../../components/icons/Icons';

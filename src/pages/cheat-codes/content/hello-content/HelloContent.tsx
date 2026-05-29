@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/hello-content-code-blocks';
 
-/* Local components */
+/* Components */
 import { HelloContent as HelloContentPreview } from './HelloContentPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';

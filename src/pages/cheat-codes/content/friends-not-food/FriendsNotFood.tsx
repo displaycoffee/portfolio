@@ -1,7 +1,7 @@
-/* Local scripts */
+/* Scripts */
 import { codeBlocks } from './scripts/friends-not-food-code-blocks';
 
-/* Local components */
+/* Components */
 import { FriendsNotFood as FriendsNotFoodPreview } from './FriendsNotFoodPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
