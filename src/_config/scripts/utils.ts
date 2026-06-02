@@ -24,9 +24,9 @@ export const utils = {
 		// Format value for html classes
 		return value
 			.toLowerCase()
+			.trim()
 			.replace(/[^\w\s]/g, '')
-			.replace(/\s/g, '-')
-			.trim();
+			.replace(/\s/g, '-');
 	},
 	scrollTo: (e: EventsType, selector: string | undefined, offset: number) => {
 		// Scroll to element on page
