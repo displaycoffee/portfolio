@@ -6,7 +6,7 @@ type Image = {
 	hasWrapper?: boolean;
 	image: string;
 	imageClass?: string;
-	wrapperClass?: string;
+	wrapperClasses?: string[];
 };
 
 type ImageAttributes = ImgHTMLAttributes<HTMLImageElement>;

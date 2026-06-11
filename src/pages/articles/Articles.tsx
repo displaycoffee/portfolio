@@ -87,7 +87,7 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 	const { utils } = useAppContext();
 
 	return (
-		<section id={`articles-section-${utils.handleize(header ? header : fallbackId)}`} className={`articles-section spacing-reset`}>
+		<section id={`articles-section-${utils.handleize(header ? header : fallbackId)}`} className={`articles-section margin-trim`}>
 			{header ? <h3>{header}</h3> : null}
 
 			{children}

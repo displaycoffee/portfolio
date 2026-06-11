@@ -97,7 +97,7 @@ export const HeaderIcon = (props: HeaderIconProps) => {
 export const Output = (props: OutputProps) => {
 	const { children, className, code } = props;
 	const outputClass = className ? ` ${className}` : '';
-	const outputContentClass = 'output-content spacing-reset';
+	const outputContentClass = 'output-content margin-trim';
 
 	return (
 		<>

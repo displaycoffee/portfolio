@@ -18,7 +18,7 @@ export const Resume = () => {
 		<>
 			<HeaderIcon>Resume</HeaderIcon>
 
-			<div className="resume-section resume-note spacing-reset">
+			<div className="resume-section resume-note margin-trim">
 				<p>
 					<strong>Note</strong> - If you're looking for an alternate version of this resume,{' '}
 					<a href="/assets/documents/adria-murphy-resume.pdf" target="_blank" rel="noreferrer">
@@ -28,7 +28,7 @@ export const Resume = () => {
 				</p>
 			</div>
 
-			<div className="resume-section resume-skills spacing-reset">
+			<div className="resume-section resume-skills margin-trim">
 				<HeaderIcon tag={'h3'}>Skills</HeaderIcon>
 
 				{skills && skills.length !== 0
@@ -73,7 +73,7 @@ export const Resume = () => {
 				</div>
 			</div>
 
-			<div className="resume-section resume-story-quests spacing-reset">
+			<div className="resume-section resume-story-quests margin-trim">
 				<HeaderIcon tag={'h3'}>Story Quests</HeaderIcon>
 
 				{history && history.length !== 0
@@ -118,7 +118,7 @@ export const Resume = () => {
 					: null}
 			</div>
 
-			<div className="resume-section resume-side-quests spacing-reset">
+			<div className="resume-section resume-side-quests margin-trim">
 				<HeaderIcon tag={'h3'}>Side Quests</HeaderIcon>
 
 				{volunteer && volunteer.length !== 0

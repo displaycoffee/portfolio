@@ -44,10 +44,10 @@
 		font-family: theme.$font-family-02;
 	}
 	.icon-shadow-x1:before {
-		text-shadow: 2px 2px 0 theme.$color-03;
+		text-shadow: 2px 2px 0 theme.$color-05;
 	}
 	.icon-shadow-x2:before {
-		text-shadow: 2px 2px 0 theme.$color-03, -1px -1px 0 theme.$color-06;
+		text-shadow: 2px 2px 0 theme.$color-05, -1px -1px 0 theme.$color-08;
 	}
 	.icon-angle-left {
 		&:before {
@@ -111,7 +111,7 @@
 		&:before, &:after, span {
 			display: block;
 			@include mixins.sizing(100%, 2px);
-			background-color: theme.$color-02;
+			background-color: theme.$color-04;
 			@include mixins.position($type: absolute, $left: 0, $right: 0);
 		}
 		&:before, &:after {
@@ -134,12 +134,12 @@
 		}
 		&.icon-shadow-x1 {
 			&:before, &:after, span {
-				box-shadow: 1px 2px 0 theme.$color-03;
+				box-shadow: 1px 2px 0 theme.$color-05;
 			}
 		}
 		&.icon-shadow-x2 {
 			&:before, &:after, span {
-				box-shadow: 1px 3px 0 theme.$color-03;
+				box-shadow: 1px 3px 0 theme.$color-05;
 			}
 		}
 	}

@@ -29,7 +29,7 @@
 		padding: 0 theme.$spacing-x2;
 		margin: $pixel-size 0;
 		font-size: functions.em(12px, rem);
-		color: theme.$color-02;
+		color: theme.$color-04;
 		line-height: calc(36px + $pixel-size);
 		&:focus, &:focus-visible, &:focus-visible {
 			outline: 0;
@@ -61,15 +61,15 @@
 		}
 	}
 	.button-primary {	
-		text-shadow: 2px 2px 0 theme.$color-03;
+		text-shadow: 2px 2px 0 theme.$color-05;
 		&, &:before, &:after {
-			background-color: theme.$color-04;
+			background-color: theme.$color-06;
 		}
 	}
 	.button-secondary {
-		text-shadow: 2px 2px 0 theme.$color-07;
+		text-shadow: 2px 2px 0 theme.$color-09;
 		&, &:before, &:after {
-			background-color: theme.$color-03;
+			background-color: theme.$color-05;
 		}
 	}
 	.code-block {
@@ -86,14 +86,14 @@
 		}
 		&:before {
 			top: 0;
-			background-color: theme.$color-04;
+			background-color: theme.$color-06;
 		}
 		&:after {
 			bottom: 0;
-			background-color: theme.$color-08;
+			background-color: theme.$color-10;
 		}
 		.code-block-header {
-			background-color: theme.$color-04;
+			background-color: theme.$color-06;
 			padding: theme.$spacing-x2;
 			& > * {
 				@include mixins.position($type: relative, $top: 2px);
@@ -105,9 +105,9 @@
 			}
 			.code-block-button {
 				margin: 0 0 0 auto;
-				color: theme.$color-08;
+				color: theme.$color-10;
 				&:hover {
-					color: theme.$color-02;
+					color: theme.$color-04;
 				}
 			}
 		}
@@ -115,10 +115,10 @@
 			max-height: 500px;
 			overflow-y: auto;
 			&::-webkit-scrollbar-thumb {
-				background: theme.$color-04;
+				background: theme.$color-06;
 			}
 			&::-webkit-scrollbar-track {
-				background: theme.$color-08
+				background: theme.$color-10
 			}
 		}
 	}
@@ -137,7 +137,7 @@
 			height: $pixel-size;
 			@include mixins.position($type: absolute, $left: 0, $right: 0);
 			margin: auto;
-			background-color: theme.$color-02;
+			background-color: theme.$color-04;
 		}
 		&:before {
 			top: 0;
@@ -146,10 +146,10 @@
 			bottom: 0;
 		}
 		.output-content {
-			background-color: theme.$color-02;
+			background-color: theme.$color-04;
 			padding: theme.$spacing-x4;			
 			font-family: theme.$font-family-03;
-			color: theme.$color-03;
+			color: theme.$color-05;
 		}
 	}
 	.pixel-block {
@@ -158,14 +158,14 @@
 		}
 		.pixel-border-rounded {
 			@include mixins.position-fill($z: 1);
-			background-color: theme.$color-04;
+			background-color: theme.$color-06;
 		}
 		.pixel-block-wrapper {
 			padding: theme.$spacing-x4 theme.$spacing-x4 calc(theme.$spacing-x4 - 8px) theme.$spacing-x4;
 			z-index: 2;
 			a, button {
-				color: theme.$color-02;
-				text-shadow: 2px 2px 0 theme.$color-03;
+				color: theme.$color-04;
+				text-shadow: 2px 2px 0 theme.$color-05;
 			}
 			ul {
 				@include mixins.flex-layout((align-items: center));
@@ -220,15 +220,15 @@
 			font-size: functions.em(14px, rem);
 		}
 		.button-primary:not(.active):hover {
-			text-shadow: 2px 2px 0 theme.$color-07;
+			text-shadow: 2px 2px 0 theme.$color-09;
 			&, &:before, &:after {
-				background-color: theme.$color-03;
+				background-color: theme.$color-05;
 			}
 		}
 		.button-secondary:not(.active):hover {
-			text-shadow: 2px 2px 0 theme.$color-03;
+			text-shadow: 2px 2px 0 theme.$color-05;
 			&, &:before, &:after {
-				background-color: theme.$color-04;
+				background-color: theme.$color-06;
 			}
 		}
 		.pixel-block {

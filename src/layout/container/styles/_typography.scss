@@ -19,7 +19,7 @@
 	body {
 		font-size: functions.em(theme.$font-size-global, rem);
 		font-weight: normal;
-		color: theme.$color-02;
+		color: theme.$color-04;
 		line-height: 1.7;
 	}
 	b, strong {
@@ -33,13 +33,13 @@
 		text-decoration: none;
 	}
 	a, .a {
-		color: theme.$color-03;
+		color: theme.$color-05;
 		&:active, &:hover {
-			color: theme.$color-02;
+			color: theme.$color-04;
 		}
 	}
 	mark {
-		background: theme.$color-10;
+		background: theme.$color-12;
 	}
 	small {
 		font-size: 80%;
@@ -69,13 +69,13 @@
 			font-style: theme.$font-style,
 			text-transform: theme.$font-transform
 		));
-		color: theme.$color-02;
-		text-shadow: 2px 2px 0 theme.$color-03, -1px -1px 0 theme.$color-06;
+		color: theme.$color-04;
+		text-shadow: 2px 2px 0 theme.$color-05, -1px -1px 0 theme.$color-08;
 		letter-spacing: 2px;
 		a {
 			color: inherit;
 			&:hover {
-				color: theme.$color-03;
+				color: theme.$color-05;
 			}
 		}
 	}
@@ -92,7 +92,7 @@
 		font-size: functions.em(14px, rem);
 	}
 	.h-shadow-lg {
-		text-shadow: 3px 3px 0 theme.$color-03, -1px -1px 0 theme.$color-06;
+		text-shadow: 3px 3px 0 theme.$color-05, -1px -1px 0 theme.$color-08;
 	}
 	.h-remove-shadow {
 		text-shadow: none;
@@ -104,12 +104,12 @@
 	// Style block
 	
 	code, kbd, pre, samp {
-		background-color: theme.$color-08;
+		background-color: theme.$color-10;
 		margin: 0;
 		padding: theme.$spacing-x4;
 		font-family: 'Courier New', monospace;
 		font-size: functions.em(16px, rem);
-		color: theme.$color-02;
+		color: theme.$color-04;
 		white-space: pre-wrap;
 		word-break: break-word;
 	}
