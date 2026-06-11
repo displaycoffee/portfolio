@@ -11,7 +11,47 @@ type ObjectString = {
 };
 
 type ObjectPrimitive = {
-	[key: string]: string | number | boolean;
+	[key: string]: Primitive;
+};
+
+type Primitive = string | number | boolean;
+
+type Theme = {
+	bps: {
+		bp01: Primitive;
+		bp02: Primitive;
+		bp03: Primitive;
+		bp04: Primitive;
+	};
+	colors: {
+		color01: Primitive;
+		color02: Primitive;
+		color03: Primitive;
+		color04: Primitive;
+		color05: Primitive;
+		color06: Primitive;
+		color07: Primitive;
+		color08: Primitive;
+		color09: Primitive;
+		color10: Primitive;
+		color11: Primitive;
+		color12: Primitive;
+	};
+};
+
+type Utils = {
+	getLast: (value: string | string[], delimeter?: string) => string | number;
+	getPage: () => string;
+	handleize: (value: string) => string;
+	scrollTo: (e: Events, selector: string | undefined, offset: number) => void;
+	setAttributes: (element: HTMLElement, attributes: ObjectString) => void;
+	setTimestamp: (value: Date) => void;
+};
+
+type Variables = {
+	paths: {
+		basename: string;
+	};
 };
 
 /* Declare global types */
@@ -24,6 +64,12 @@ declare global {
 	type ObjectStringType = ObjectString;
 
 	type ObjectPrimitiveType = ObjectPrimitive;
+
+	type ThemeType = Theme;
+
+	type UtilsType = Utils;
+
+	type VariablesType = Variables;
 
 	/* Declare global prop types */
 	type ObjectPrimitiveProps = ObjectPrimitive;

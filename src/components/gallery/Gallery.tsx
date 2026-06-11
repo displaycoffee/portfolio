@@ -132,7 +132,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 	});
 
 	return (
-		<div className={`gallery-${tabs.enabled ? 'tabs' : 'default'} spacing-reset`}>
+		<div className={`gallery-${tabs.enabled ? 'tabs' : 'default'} margin-trim`}>
 			{tabs.enabled ? (
 				<>
 					<div className="gallery-tabs-buttons">
@@ -249,7 +249,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 						</div>
 					)}
 
-					<div className="gallery-details spacing-reset">
+					<div className="gallery-details margin-trim">
 						<dl className="definition-list">
 							{current.date && (
 								<div className="definition-list-item">

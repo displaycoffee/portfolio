@@ -64,7 +64,7 @@ projects.forEach((projects) => {
 	projectsChildren.push(buildChildren(projects, 'projects', Projects));
 });
 
-export const navigation = [
+export const navigation: NavigationType[] = [
 	{
 		id: 0,
 		alt: 'Back to start',
@@ -132,4 +132,4 @@ export const navigation = [
 		showInNav: true,
 		url: '/cheat-codes',
 	},
-] as NavigationType[];
+];

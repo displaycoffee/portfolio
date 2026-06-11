@@ -216,12 +216,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 						>
 							<Link className="contents-link" to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
 								<div className="pixel-border">
-									<Image
-										alt={value.name}
-										hasLazy={true}
-										image={value.thumb}
-										wrapperClass={'image-wrapper image-wrapper-fluid image-wrapper-fit'}
-									/>
+									<Image alt={value.name} hasLazy={true} image={value.thumb} wrapperClasses={['fluid', 'fit']} />
 								</div>
 
 								<p className="contents-name">
@@ -293,7 +288,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 
 	return showContents ? (
 		current ? (
-			<div id={`contents-${current.handle}`} className="contents spacing-reset">
+			<div id={`contents-${current.handle}`} className="contents margin-trim">
 				{hasHeader ? (
 					<header className="contents-header">
 						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
@@ -341,7 +336,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 				) : null}
 
 				{current?.description ? (
-					<div className="contents-description spacing-reset">
+					<div className="contents-description margin-trim">
 						<h3>Description</h3>
 
 						<p>{current.description}</p>
@@ -350,7 +345,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 					</div>
 				) : null}
 
-				<div className="contents-body spacing-reset">{children}</div>
+				<div className="contents-body margin-trim">{children}</div>
 
 				<PixelSection navigation={navigationProps} />
 			</div>

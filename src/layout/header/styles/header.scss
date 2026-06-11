@@ -9,6 +9,12 @@
 	// Style block
 
 	.header {
+		& > * {
+			margin: 0 0 theme.$spacing-x4 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 		.header-title {
 			&.header-title-cursor {
 				display: inline-block;

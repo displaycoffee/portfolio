@@ -8,8 +8,8 @@
 
 	// Colors
 
-	$slideout-color-01: theme.$color-07; // overlay
-	$slideout-color-02: theme.$color-01; // menu background
+	$slideout-color-01: theme.$color-09; // overlay
+	$slideout-color-02: theme.$color-03; // menu background
 
 	// Configuration
 
@@ -41,6 +41,7 @@
 		font-size: functions.em(16px, rem);
 		@include mixins.flex-layout((flex-flow: row nowrap, align-items: center));
 		@include mixins.gap(theme.$spacing-x2);
+		margin: 0;
 		.icon-filter {
 			top: -3px;
 		}
@@ -65,7 +66,7 @@
 			background-image: url('../../../assets/images/theme/gradient-top.png');
 			background-repeat: repeat-x;
 			background-position: center top;
-			border-right: 2px solid theme.$color-03;
+			border-right: 2px solid theme.$color-05;
 			z-index: 9999;
 			padding: $slideout-spacing;
 			.slideout-header {
