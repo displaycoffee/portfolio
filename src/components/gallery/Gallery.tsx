@@ -132,7 +132,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 	});
 
 	return (
-		<div className={`gallery-${tabs.enabled ? 'tabs' : 'default'} spacing-reset`}>
+		<div className={`gallery-${tabs.enabled ? 'tabs' : 'default'} margin-trim`}>
 			{tabs.enabled ? (
 				<>
 					<div className="gallery-tabs-buttons">
@@ -180,12 +180,9 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 					return (
 						<div className={`gallery-item${showItem ? ' gallery-item-active' : ''}`} key={value.id} data-gallery-id={value.id}>
 							<Link className="gallery-image" to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
-								<Image
-									alt={value.name}
-									hasLazy={true}
-									image={value.thumb}
-									wrapperClass={'image-wrapper image-wrapper-fluid pixel-border'}
-								/>
+								<div className="image-wrapper image-wrapper-fluid pixel-border">
+									<Image alt={value.name} hasLazy={true} image={value.thumb} hasWrapper={false} />
+								</div>
 							</Link>
 						</div>
 					);
@@ -238,18 +235,15 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 
 					{(current.image || current.thumb) && (
 						<div className="gallery-image">
-							<a href={current.image ? current.image : current.thumb} target="_blank" rel="noreferrer">
-								<Image
-									alt={current.name}
-									hasLazy={true}
-									image={current.image ? current.image : current.thumb}
-									wrapperClass={`image-wrapper gallery-image-wrapper${isPixels ? '' : ' pixel-border'}`}
-								/>
+							<a href={current.image || current.thumb} target="_blank" rel="noreferrer">
+								<div className={`image-wrapper gallery-image-wrapper${isPixels ? '' : ' pixel-border'}`}>
+									<Image alt={current.name} hasLazy={true} image={current.image || current.thumb} hasWrapper={false} />
+								</div>
 							</a>
 						</div>
 					)}
 
-					<div className="gallery-details spacing-reset">
+					<div className="gallery-details margin-trim">
 						<dl className="definition-list">
 							{current.date && (
 								<div className="definition-list-item">

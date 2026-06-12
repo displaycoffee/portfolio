@@ -65,20 +65,6 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-02) {
-		.gallery {
-			.gallery-items {
-				.gallery-item {
-					overflow: hidden;
-					.gallery-image {
-						.image-wrapper img {
-							@include mixins.transition(transform 0.5s ease-in-out);
-						}
-					}
-				}
-			}
-		}
-	}
 	@include mixins.respond-min(theme.$bp-03) {
 		.gallery {
 			.gallery-body {

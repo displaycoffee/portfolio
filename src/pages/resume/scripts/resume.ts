@@ -50,7 +50,7 @@ export const resume = {
 			},
 		],
 		languages: 'CSS Modules',
-		frameworks: 'Express, Framer Motion',
+		frameworks: 'Express, Framer Motion, Astro',
 		tools: 'TanStack Query, GitHub, Vite, Webpack, GraphQL, Rest APIs, Cypress, Lighthouse, ESLint, Prettier, Node.js, Claude Code, Gemini, View Transitions API',
 		cms: 'eCommerce platforms (Shopify, BigCommerce, Magento2, etc.), WordPress, WHMCS, phpBB',
 	},

@@ -36,7 +36,7 @@ export const Header = () => {
 	}, [desktopHeader]);
 
 	return (
-		<header className="header spacing-reset">
+		<header className="header margin-trim">
 			<h1 className={`header-title${desktopHeader && !timer ? ' header-title-cursor' : ''} h-shadow-lg`}>
 				<Link to={'/'} title="Back to start" onClick={(e) => handleTransition(e, '/')}>
 					<div className="header-type" dangerouslySetInnerHTML={{ __html: headerText }}></div>

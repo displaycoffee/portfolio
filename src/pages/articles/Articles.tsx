@@ -82,12 +82,12 @@ export const ArticlesContent = () => {
 export const ArticlesSection = (props: ArticlesSectionProps) => {
 	const { children, header } = props;
 	let scrollTop = props.scrollTop;
-	scrollTop = typeof scrollTop == 'undefined' ? true : scrollTop;
+	scrollTop = scrollTop ?? true;
 	const fallbackId = useId().replace(/:/g, '');
 	const { utils } = useAppContext();
 
 	return (
-		<section id={`articles-section-${utils.handleize(header ? header : fallbackId)}`} className={`articles-section spacing-reset`}>
+		<section id={`articles-section-${utils.handleize(header || fallbackId)}`} className={`articles-section margin-trim`}>
 			{header ? <h3>{header}</h3> : null}
 
 			{children}
