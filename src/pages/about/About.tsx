@@ -10,12 +10,9 @@ export const About = () => {
 		<>
 			<HeaderIcon>About</HeaderIcon>
 
-			<Image
-				alt={'Me riding a real dinosaur'}
-				hasLazy={true}
-				image={'/assets/images/theme/me.jpg'}
-				wrapperClass={'about-photo pixel-border image-wrapper image-wrapper-float-left'}
-			/>
+			<div className="about-photo pixel-border image-wrapper image-wrapper-float-left">
+				<Image alt={'Me riding a real dinosaur'} hasLazy={true} image={'/assets/images/theme/me.jpg'} hasWrapper={false} />
+			</div>
 
 			<p>
 				If you are on this particular page, you likely came here to understand a little more about who I am. Okay, well, first things first.

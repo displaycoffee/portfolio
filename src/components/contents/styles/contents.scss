@@ -78,16 +78,6 @@
 			margin: 0 0 theme.$spacing-x4 0;
 		}
 	}
-	@include mixins.respond-min(theme.$bp-02) {
-		.contents {
-			.contents-link {
-				overflow: hidden;
-				.image-wrapper img {
-					@include mixins.transition(transform 0.5s ease-in-out);
-				}
-			}
-		}
-	}
 	@media only screen and (min-width: #{theme.$bp-02 - 100}px) and (max-width: #{theme.$bp-02 - 1}px) {
 		.contents {
 			.contents-row {

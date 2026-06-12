@@ -31,9 +31,7 @@ export const Resume = () => {
 			<div className="resume-section resume-skills margin-trim">
 				<HeaderIcon tag={'h3'}>Skills</HeaderIcon>
 
-				{skills && skills.length !== 0
-					? skills.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />)
-					: null}
+				{skills.length !== 0 ? skills.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />) : null}
 
 				{languages && (
 					<>
@@ -44,7 +42,7 @@ export const Resume = () => {
 
 				<HeaderIcon tag={'h3'}>Magic</HeaderIcon>
 
-				{magic && magic.length !== 0 ? magic.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />) : null}
+				{magic.length !== 0 ? magic.map((value) => <ResumeSkillBar key={value.id} name={value.name} outOf={value.value} />) : null}
 
 				{frameworks && (
 					<>
@@ -76,7 +74,7 @@ export const Resume = () => {
 			<div className="resume-section resume-story-quests margin-trim">
 				<HeaderIcon tag={'h3'}>Story Quests</HeaderIcon>
 
-				{history && history.length !== 0
+				{history.length !== 0
 					? history.map((value) => (
 							<React.Fragment key={value.id}>
 								<dl className="definition-list">
@@ -121,7 +119,7 @@ export const Resume = () => {
 			<div className="resume-section resume-side-quests margin-trim">
 				<HeaderIcon tag={'h3'}>Side Quests</HeaderIcon>
 
-				{volunteer && volunteer.length !== 0
+				{volunteer.length !== 0
 					? volunteer.map((value) => (
 							<React.Fragment key={value.id}>
 								<dl className="definition-list">
