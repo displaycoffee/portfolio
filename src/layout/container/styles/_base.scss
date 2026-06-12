@@ -17,7 +17,7 @@
 
 	// Colors
 
-	$base-elements-color-01: theme.$color-01; // body background
+	$base-elements-color-01: theme.$color-03; // body background
 
 	// Configuration
 
@@ -42,10 +42,10 @@
 			@include mixins.sizing(8px, 8px);
 		}
 	}
-	p, h1, h2, h3, h4, h5, h6, .spacing-reset > div, .spacing-reset > section {
+	p, h1, h2, h3, h4, h5, h6, .margin-trim > div, .margin-trim > section {
 		margin: 0 0 $base-elements-spacing 0;
 	}
-	.spacing-reset > *:last-child {
+	.margin-trim > *:last-child {
 		margin-bottom: 0;
 	}
 	ul, ol {
@@ -143,8 +143,8 @@
 
 	// Colors
 
-	$base-helpers-color-01: theme.$color-04; // scrollbar background
-	$base-helpers-color-02: theme.$color-06; // scrollbar foreground
+	$base-helpers-color-01: theme.$color-06; // scrollbar background
+	$base-helpers-color-02: theme.$color-08; // scrollbar foreground
 
 	// Configuration
 
@@ -166,10 +166,10 @@
 		@include mixins.scrollbar('&', $base-helpers-scrollbar-width, $base-helpers-scrollbar-height, $base-helpers-color-01, $base-helpers-color-02);
 	}
 	.pixel-border {
-		@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06);
+		@include mixins.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08);
 	}
 	.pixel-border-rounded {
-		@include mixins.pixel-border($bg: theme.$color-01, $border: theme.$color-04, $inset: theme.$color-05, $highlight: theme.$color-06, $rounded: true);
+		@include mixins.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08, $rounded: true);
 	}
 	.pixel-border-image {
 		display: inline-block;
@@ -196,7 +196,7 @@
 	}
 	@keyframes cursor {
 		from, to { background-color: transparent }
-		50%      { background-color: darken(theme.$color-03, 8%) }
+		50%      { background-color: darken(theme.$color-05, 8%) }
 	}
 	@keyframes bounce-horizontal {
 		0%   { transform: translateX(0); }

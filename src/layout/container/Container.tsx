@@ -30,7 +30,6 @@ export const Container = () => {
 		id: 'menu',
 		isDesktop: isDesktop,
 		label: 'Menu',
-		content: <Navigation disableTransition={true} />,
 		closeOnClick: true,
 		button: {
 			outside: true,
@@ -39,7 +38,7 @@ export const Container = () => {
 	};
 
 	return (
-		<div className="container container-main">
+		<div className="container">
 			<ErrorBoundary message={<ContainerError />}>
 				<SlideoutOverlay options={slideoutOptions} />
 
@@ -56,7 +55,9 @@ export const Container = () => {
 								show: false,
 							},
 						}}
-					/>
+					>
+						<Navigation disableTransition={true} />
+					</Slideout>
 				)}
 
 				<main className="main">

@@ -53,12 +53,12 @@
 				margin: 0;
 				@include mixins.position($type: absolute, $left: 0, $right: 0, $bottom: 0, $z: 1);
 				padding: 0 theme.$spacing-x4;
-				background-color: rgba(theme.$color-08, 0.90);
+				background-color: rgba(theme.$color-10, 0.90);
 				height: 45px;
 				line-height: 45px;
 				span {
-					color: theme.$color-02;
-					text-shadow: 2px 2px 0 theme.$color-03;
+					color: theme.$color-04;
+					text-shadow: 2px 2px 0 theme.$color-05;
 					@include mixins.line-clamp(1);
 				}
 			}
@@ -76,16 +76,6 @@
 		}
 		.contents-clear {
 			margin: 0 0 theme.$spacing-x4 0;
-		}
-	}
-	@include mixins.respond-min(theme.$bp-02) {
-		.contents {
-			.contents-link {
-				overflow: hidden;
-				.image-wrapper img {
-					@include mixins.transition(transform 0.5s ease-in-out);
-				}
-			}
 		}
 	}
 	@media only screen and (min-width: #{theme.$bp-02 - 100}px) and (max-width: #{theme.$bp-02 - 1}px) {
