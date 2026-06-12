@@ -43,7 +43,7 @@ type Utils = {
 	getLast: (value: string | string[], delimeter?: string) => string | number;
 	getPage: () => string;
 	handleize: (value: string) => string;
-	scrollTo: (e: Events, selector: string | undefined, offset: number) => void;
+	scrollTo: (e?: Events, selector?: string, offset?: number) => void;
 	setAttributes: (element: HTMLElement, attributes: ObjectString) => void;
 	setTimestamp: (value: Date) => void;
 };

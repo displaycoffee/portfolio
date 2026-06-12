@@ -101,7 +101,7 @@ export const CheatCodesSection = (props: CheatCodesSectionProps) => {
 	const { utils } = useAppContext();
 
 	return (
-		<section id={`cheat-codes-section-${utils.handleize(header ? header : fallbackId)}`} className={`cheat-codes-section margin-trim`}>
+		<section id={`cheat-codes-section-${utils.handleize(header || fallbackId)}`} className={`cheat-codes-section margin-trim`}>
 			{header ? <h3>{header}</h3> : null}
 
 			{children}

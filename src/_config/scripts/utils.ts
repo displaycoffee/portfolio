@@ -8,7 +8,7 @@ const fallback = `${year}-${month < 10 ? '0' + month : month}-${day}`;
 export const utils: UtilsType = {
 	getLast: (value: string | string[], delimeter?: string) => {
 		// Get last item in array
-		let valueArray = [] as string[] | number[];
+		let valueArray: string[] | number[] = [];
 		if (Array.isArray(value)) {
 			valueArray = value;
 		} else if (delimeter) {
@@ -28,7 +28,7 @@ export const utils: UtilsType = {
 			.replace(/[^\w\s]/g, '')
 			.replace(/\s/g, '-');
 	},
-	scrollTo: (e: EventsType, selector: string | undefined, offset: number) => {
+	scrollTo: (e?: EventsType, selector?: string, offset?: number) => {
 		// Scroll to element on page
 		if (e) {
 			e.preventDefault();
