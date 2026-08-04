@@ -42,7 +42,7 @@ export const BannerCodeGenerator = (props) => {
 			<>
 				{`\u003Ca href="${site}"\u003E`}
 				<br />
-				{`\u0009\u003Cimg${setImageAttr('src')}${setImageAttr('alt')}${setImageAttr('title')} /\u003E`}
+				{`\u0009\u003Cimg${setImageAttr('src')}${setImageAttr('alt')} /\u003E`}
 				<br />
 				{`\u003C/a\u003E`}
 			</>
