@@ -1,7 +1,7 @@
 /* Code block snippets */
 export const codeBlocks = [
-	`<img src="//display.coffee/assets/images/cheat-codes/a-promise-avatar.jpg" alt="A Promise - Avatar" title="A Promise - Avatar" width="444" height="273" />
-	<img src="//display.coffee/assets/images/cheat-codes/a-promise-leaf.png" alt="A Promise - Leaf" title="A Promise - Leaf" width="24" height="12" />`,
+	`<img src="//display.coffee/assets/images/cheat-codes/a-promise-avatar.jpg" alt="A Promise - Avatar" width="444" height="273" />
+	<img src="//display.coffee/assets/images/cheat-codes/a-promise-leaf.png" alt="A Promise - Leaf" width="24" height="12" />`,
 	`import { APromise } from './APromise';`,
 	`<APromise />`,
 	`<style>

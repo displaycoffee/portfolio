@@ -25,7 +25,6 @@ const buildChildren = (child: NavigationChildType, parent: string, element?: Laz
 	// Child config
 	const childConfig: NavigationType = {
 		id: child.id,
-		alt: child.name,
 		isRoute: true,
 		label: child.name,
 		showInNav: false,
@@ -67,7 +66,6 @@ projects.forEach((projects) => {
 export const navigation: NavigationType[] = [
 	{
 		id: 0,
-		alt: 'Back to start',
 		element: Start,
 		isRoute: true,
 		label: 'Start',
@@ -76,7 +74,6 @@ export const navigation: NavigationType[] = [
 	},
 	{
 		id: 1,
-		alt: 'All about me, Adria',
 		element: About,
 		isRoute: true,
 		label: 'About',
@@ -85,7 +82,6 @@ export const navigation: NavigationType[] = [
 	},
 	{
 		id: 2,
-		alt: 'Web projects throughout the years',
 		element: Projects,
 		children: projectsChildren,
 		isRoute: true,
@@ -95,7 +91,6 @@ export const navigation: NavigationType[] = [
 	},
 	{
 		id: 3,
-		alt: 'Pixel, traditional, and digital art',
 		element: Art,
 		children: artChildren,
 		isRoute: true,
@@ -105,7 +100,6 @@ export const navigation: NavigationType[] = [
 	},
 	{
 		id: 4,
-		alt: 'Fancy online resume',
 		element: Resume,
 		isRoute: true,
 		label: 'Resume',
@@ -114,7 +108,6 @@ export const navigation: NavigationType[] = [
 	},
 	{
 		id: 5,
-		alt: 'Words and things',
 		element: Articles,
 		children: articlesChildren,
 		isRoute: true,
@@ -124,7 +117,6 @@ export const navigation: NavigationType[] = [
 	},
 	{
 		id: 6,
-		alt: 'Code snippets',
 		element: CheatCodes,
 		children: cheatCodesChildren,
 		isRoute: true,

@@ -52,8 +52,8 @@ export const utils: UtilsType = {
 	setTimestamp: (value: DateType) => {
 		// Set date for each value
 		let date = fallback;
-		if (value?.date) {
-			const splitDate = value.date.split('.');
+		if (value?.updated || value?.date) {
+			const splitDate = value?.updated ? value.updated.split('.') : value?.date.split('.');
 			date = splitDate.length === 3 ? `20${splitDate[2]}-${splitDate[0]}-${splitDate[1]}` : fallback;
 		}
 

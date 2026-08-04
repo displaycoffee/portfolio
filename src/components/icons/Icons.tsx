@@ -24,5 +24,9 @@ export const Icon = (props: IconsProps) => {
 		iconClasses.push(`animate-${animate}`);
 	}
 
-	return <span className={iconClasses.join(' ')}>{id == 'filter' ? <span></span> : null}</span>;
+	return (
+		<span className={iconClasses.join(' ')} aria-hidden="true">
+			{id == 'filter' ? <span></span> : null}
+		</span>
+	);
 };

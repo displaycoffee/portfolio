@@ -98,7 +98,6 @@ export const BannerCodeGenerator = (props) => {
 											<img
 												src={value?.src ? value.src : ''}
 												alt={imageAlt}
-												title={imageAlt}
 												onLoad={(e) => {
 													e.target.setAttribute('width', e.target.naturalWidth);
 													e.target.setAttribute('height', e.target.naturalHeight);
