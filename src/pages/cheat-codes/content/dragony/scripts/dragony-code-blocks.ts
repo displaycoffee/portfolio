@@ -1,6 +1,6 @@
 /* Code block snippets */
 export const codeBlocks = [
-	`<img src="//display.coffee/assets/images/cheat-codes/dragony-banner.gif" alt="Dragony - Banner" title="Dragony - Banner" width="490" height="230" />`,
+	`<img src="//display.coffee/assets/images/cheat-codes/dragony-banner.gif" alt="Dragony - Banner" width="490" height="230" />`,
 	`import { Dragony } from './Dragony';`,
 	`<Dragony />`,
 	`<style>

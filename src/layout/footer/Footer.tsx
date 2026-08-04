@@ -41,7 +41,6 @@ export const Footer = () => {
 								className="footer-navigation-link unstyled pointer bounce-5"
 								type="button"
 								aria-label="Back to top button"
-								title="Back to top button"
 								onClick={(e) => utils.scrollTo(e, 'body')}
 							>
 								<Icon animate={'bottom'} id={'angle-up'} isBold={true} size={'lg'} />

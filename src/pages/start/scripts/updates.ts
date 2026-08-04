@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 16,
+		date: `08.04.26`,
+		description: `Added accessibility updates, "WordPress Block Preview" cheat code, and updated my resume.`,
+	},
+	{
 		id: 15,
 		date: `06.11.26`,
 		description: `Basically another code cleanup, though I did update my resume and "Burmecia" Cheat Code.`,

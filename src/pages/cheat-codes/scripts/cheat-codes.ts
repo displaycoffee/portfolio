@@ -3,6 +3,15 @@ const cheatCodesPath = `${distPath}cheat-codes/`;
 
 export const cheatCodes = [
 	{
+		id: 13,
+		name: `WordPress Block Preview`,
+		date: `06.22.26`,
+		updated: `07.27.26`,
+		tags: `HTML, CSS, WordPress`,
+		thumb: `${cheatCodesPath}wordpress-block-preview-400x250.jpg`,
+		description: `This code contains a preview of almost all the WordPress Gutenberg blocks. I was wanting an all encompassing list of the blocks so that when building themes locally, I can test how the blocks look on a page or post. There are some snippets out there already, but they were older (and possibly outdated).`,
+	},
+	{
 		id: 12,
 		name: `View Transitions API`,
 		name2: `View Transitions`,
@@ -25,7 +34,7 @@ export const cheatCodes = [
 		id: 10,
 		name: `Burmecia`,
 		date: `03.28.22`,
-		updated: `06.11.26`,
+		updated: `08.02.26`,
 		tags: `React, TypeScript, JavaScript, Sass, Vite, Framework`,
 		thumb: `${cheatCodesPath}burmecia-400x250.jpg`,
 		description: `React-based framework to create projects. Primarily built with React, TypeScript, JavaScript, Sass, and Vite. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.`,

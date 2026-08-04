@@ -80,7 +80,6 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 		// Get default tab
 		defaultTab = tabStorage.active[location] ? tabStorage.active[location] : tabsValues[tabStorage.default];
-		console.log(defaultTab);
 	}
 
 	// Set active tab state
