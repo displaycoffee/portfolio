@@ -23,6 +23,7 @@ import { NavigationMenus } from './content/navigation-menus/NavigationMenus';
 import { VelociraptorPack } from './content/velociraptor-pack/VelociraptorPack';
 import { ViewTransitions } from './content/view-transitions/ViewTransitions';
 import { WishYouWereHere } from './content/wish-you-were-here/WishYouWereHere';
+import { WordPressBlockPreview } from './content/wordpress-block-preview/WordPressBlockPreview';
 
 /* Options for contents */
 const options = {
@@ -90,6 +91,7 @@ export const CheatCodesContent = () => {
 				'velociraptor-pack': <VelociraptorPack />,
 				'view-transitions': <ViewTransitions />,
 				'wish-you-were-here': <WishYouWereHere />,
+				'wordpress-block-preview': <WordPressBlockPreview />,
 			}[last as string] || defaultContent}
 		</Contents>
 	);

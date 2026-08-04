@@ -42,9 +42,15 @@ export const Container = () => {
 			<ErrorBoundary message={<ContainerError />}>
 				<SlideoutOverlay options={slideoutOptions} />
 
+				<a href="#main-content" className="skip-link sr-only">
+					Skip to main content
+				</a>
+
 				<Header />
 
-				<PixelSection className={'navigation-block'}>{isDesktop ? <Navigation /> : <Slideout options={slideoutOptions} />}</PixelSection>
+				<PixelSection className={'navigation-block'}>
+					{isDesktop ? <Navigation label={'Header Navigation'} /> : <Slideout options={slideoutOptions} />}
+				</PixelSection>
 
 				{isDesktop ? null : (
 					<Slideout
@@ -56,11 +62,11 @@ export const Container = () => {
 							},
 						}}
 					>
-						<Navigation disableTransition={true} />
+						<Navigation disableTransition={true} label={'Mobile Navigation'} />
 					</Slideout>
 				)}
 
-				<main className="main">
+				<main id="main-content" className="main">
 					<div className="main-layout flex-wrap">
 						<Content />
 					</div>

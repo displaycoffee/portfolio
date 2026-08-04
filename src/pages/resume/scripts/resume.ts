@@ -50,8 +50,8 @@ export const resume = {
 			},
 		],
 		languages: 'CSS Modules',
-		frameworks: 'Express, Framer Motion, Astro',
-		tools: 'TanStack Query, GitHub, Vite, Webpack, GraphQL, Rest APIs, Cypress, Lighthouse, ESLint, Prettier, Node.js, Claude Code, Gemini, View Transitions API',
+		frameworks: 'Tailwind CSS, Express, Framer Motion, Astro',
+		tools: 'TanStack Query, Vite, Webpack, GraphQL, REST APIs, Cypress, Node.js, Claude Code, Gemini, View Transitions API, Performance Optimization, Core Web Vitals, Storybook, Figma',
 		cms: 'eCommerce platforms (Shopify, BigCommerce, Magento2, etc.), WordPress, WHMCS, phpBB',
 	},
 	history: [
@@ -63,11 +63,11 @@ export const resume = {
 			description: [
 				`Engineered complex real-time search discovery tools using proprietary SDKs and APIs, delivering high-performance UI / UX for major retail clients`,
 				`Developed internal scaffolds and component libraries that significantly reduced project implementation time and improved developer experience by 50%`,
-				`Architected "Snap Templates", a modular theme system that empowered clients to build high-conversion frontend experiences while internally standardizing architectural patterns across the organization`,
+				`Architected "Snap Templates", an Atomic Design System that empowered clients to deploy high-conversion frontend experiences while standardizing core engineering standards across the development team`,
 				`Utilized automated testing workflows with Cypress and Lighthouse and defined a manual, more specific QA checklist based on customer requirements`,
 				`Spearheaded technical scoping for high-revenue custom requirements, bridging the gap between client needs and engineering execution`,
 				`Provided technical leadership and mentorship, defining organizational standards for code quality, accessibility (A11y), and performance optimization`,
-				`React, TypeScript, Sass, CSS-in-JS, HTML5, GraphQL, REST APIs, Cypress, Lighthouse`,
+				`React, TypeScript, Sass, CSS-in-JS, HTML5, GraphQL, REST APIs, Cypress, Lighthouse, Storybook`,
 			],
 		},
 		{
@@ -76,10 +76,8 @@ export const resume = {
 			role: 'Frontend Web Developer',
 			date: 'October 2013 to September 2014',
 			description: [
-				`Architected and deployed custom WordPress mobile-first themes and plugins for clients, shifting from monolithic setups to modular, maintainable codebases`,
+				`Constructed and deployed custom WordPress mobile-first themes and plugins for clients, shifting from monolithic setups to modular, maintainable codebases`,
 				`Additionally built themes for WooCommerce and WHMCS and integrated third-party services (Mailchimp, Yoast SEO) to extend site functionality`,
-				`Implemented Schema.org markup and rich snippets to improve organic search visibility and click-through rates`,
-				`Constructed HTML email newsletters, ensuring they are readable on various email providers`,
 				`HTML5, CSS, Sass, Compass, PHP, JavaScript, jQuery, Photoshop`,
 			],
 		},
@@ -90,8 +88,7 @@ export const resume = {
 			date: 'April 2013 to September 2013',
 			description: [
 				`Modernized legacy codebases for DISH authorized retailers, transitioning outdated systems to modern web standards to improve cross-browser compatibility and page performance`,
-				`Engineered custom frontend components and UI enhancements, ensuring a seamless and high-performance user experience across a high volume of retailer sites`,
-				`Optimized web assets and delivery by creating performant image sprites, UI elements, and optimized CSS and JavaScript to reduce page load latency`,
+				`Developed custom frontend components and optimized web assets/delivery to significantly reduce page load latency`,
 				`JavaScript, jQuery, HTML5, CSS3, Photoshop, IntelliJ IDEA`,
 			],
 		},
@@ -103,8 +100,7 @@ export const resume = {
 			description: [
 				`Engineered custom productivity tools using JavaScript and HTML to automate character translation and data validation`,
 				`Led technical QA and code reviews for large-scale content deployments on att.com, ensuring high standards for production code integrity and cross-browser consistency`,
-				`Participated in  site-wide "scrubs" and legacy code clean-up efforts within TeamSite to improve maintainability and remove technical debt`,
-				`Analyzed complex project requirements to translate business logic into functional web content, proactively identifying and resolving architectural bottlenecks before deployment`,
+				`Participated in site-wide "scrubs" and legacy code clean-up efforts within TeamSite to improve maintainability and remove technical debt`,
 				`JavaScript, HTML5, CSS, TeamSite`,
 			],
 		},
@@ -114,9 +110,7 @@ export const resume = {
 			role: 'Web Analyst',
 			date: 'November 2007 to April 2010',
 			description: [
-				`Deployed global frontend updates and promotional content across the Hilton Worldwide brand portfolio, ensuring visual and functional consistency for millions of users`,
-				`Optimized digital assets and UI components for web delivery, leveraging CMS tools (TeamSite, MediaBin) to maintain high-performance standards across Hilton.com and brand-specific sites`,
-				`Maintained production code integrity through rigorous HTML and CSS editing, technical copywriting, and proofreading`,
+				`Deployed global frontend updates and optimized digital assets across the Hilton Worldwide brand portfolio, ensuring visual and functional consistency for millions of users`,
 				`HTML, CSS, JavaScript, Photoshop, TeamSite, MediaBin`,
 			],
 		},
@@ -127,24 +121,21 @@ export const resume = {
 			name: 'FF7 for St. Jude',
 			date: 'December 2020 to Current',
 			description: [
-				`Assisted in organizing and managing a global charity event where Final Fantasy VII speed runners get together to raise money for St. Jude Children's Research Hospital`,
-				`Architected a real-time React dashboard integrated with the Tiltify API to visualize live donation data and milestones for a global charity event`,
-				`Raised over $53,000 to date for St. Jude Children's Research Hospital through technical coordination and event management`,
+				`Created and deployed a real-time React dashboard leveraging the Tiltify API to stream live donation analytics and milestone tracking for a global audience`,
+				`Co-organized technical execution, broadcast production workflows, and global schedules for a recurring charity initiative, raising over $53,000 to date for St. Jude Children's Research Hospital`,
 			],
 		},
 		{
 			id: 1,
 			name: 'Girls in Tech - Colorado Springs',
 			date: 'November 2019 to November 2020',
-			description: [`Co-founded the Colorado Springs chapter and managed web updates to drive community engagement and launch the first event`],
+			description: [`Co-founded the Colorado Springs chapter and managed web updates to drive community engagement`],
 		},
 		{
 			id: 0,
 			name: 'BarkaBull Dog Rescue',
 			date: 'October 2018 to March 2019',
-			description: [
-				`Provided specialized care and fostering for dogs in transition, managing medical and behavioral needs to ensure successful permanent adoptions`,
-			],
+			description: [`Provided specialized care and fostering for dogs to ensure successful permanent adoptions`],
 		},
 	],
 };
