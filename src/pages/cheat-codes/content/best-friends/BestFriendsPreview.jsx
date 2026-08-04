@@ -38,13 +38,7 @@ export const BestFriends = () => {
 	return tabs && tabs.length !== 0 ? (
 		<div className="dc-best-friends displaycoffee">
 			<header className="dc-best-friends-header">
-				<img
-					src="//display.coffee/assets/images/cheat-codes/best-friends-banner.jpg"
-					alt="Best Friends - Banner"
-					title="Best Friends - Banner"
-					width="700"
-					height="300"
-				/>
+				<img src="//display.coffee/assets/images/cheat-codes/best-friends-banner.jpg" alt="Best Friends - Banner" width="700" height="300" />
 				<h3>Best Friends</h3>
 			</header>
 

@@ -28,7 +28,6 @@ export const DreamingOfSnow = () => {
 									<img
 										src="//display.coffee/assets/images/cheat-codes/dreaming-of-snow-avatar.jpg"
 										alt="Dreaming of Snow - Avatar"
-										title="Dreaming of Snow - Avatar"
 										width="200"
 										height="200"
 									/>

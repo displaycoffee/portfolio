@@ -2,6 +2,7 @@
 type Date = {
 	date: string;
 	timestamp?: number;
+	updated?: string;
 };
 
 type Events = SyntheticEvent | Event;

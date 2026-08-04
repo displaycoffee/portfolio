@@ -13,7 +13,7 @@ export const FramerMotion = () => {
 				<dl className="definition-list">
 					<div className="definition-list-item">
 						<dt>Skill level</dt>
-						<dd>Intermediate</dd>
+						<dd>Medium</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Languages</dt>

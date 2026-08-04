@@ -55,7 +55,7 @@ export const contents = {
 		return navigation;
 	},
 	params: {
-		add: (params: string, field: string, value: string, callback: Function) => {
+		add: (params: string, field: string, value: string, callback: (value: string) => void) => {
 			const newParams = new URLSearchParams(params);
 
 			// Append new parameters to url
@@ -66,7 +66,7 @@ export const contents = {
 				callback(String(newParams));
 			}
 		},
-		clear: (params: string, field: string, callback: Function) => {
+		clear: (params: string, field: string, callback: (value: string) => void) => {
 			const newParams = new URLSearchParams(params);
 
 			// Delete field from parameters
@@ -81,7 +81,7 @@ export const contents = {
 			// Get decoded parameters from window location
 			return decodeURIComponent(window.location.search.replace(/^\?/, '').replace(/\+/g, ' '));
 		},
-		remove: (params: string, field: string, value: string, callback: Function) => {
+		remove: (params: string, field: string, value: string, callback: (value: string) => void) => {
 			const newParams = new URLSearchParams(params);
 
 			// Filter out values which should be retained

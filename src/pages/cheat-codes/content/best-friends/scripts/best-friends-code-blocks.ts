@@ -1,6 +1,6 @@
 /* Code block snippets */
 export const codeBlocks = [
-	`<img src="//display.coffee/assets/images/cheat-codes/best-friends-banner.jpg" alt="Best Friends - Banner" title="Best Friends - Banner" width="700" height="300" />`,
+	`<img src="//display.coffee/assets/images/cheat-codes/best-friends-banner.jpg" alt="Best Friends - Banner" width="700" height="300" />`,
 	`<script type="text/javascript">
 		// Copied JavaScript goes here
 	</script>`,
