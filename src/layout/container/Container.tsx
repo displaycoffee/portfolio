@@ -30,7 +30,6 @@ export const Container = () => {
 		id: 'menu',
 		isDesktop: isDesktop,
 		label: 'Menu',
-		closeOnClick: true,
 		button: {
 			outside: true,
 			show: true,
