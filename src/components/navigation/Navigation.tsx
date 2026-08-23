@@ -14,6 +14,7 @@ import { navigationRoutes } from './scripts/navigation-routes';
 
 /* Components */
 import { Icon } from '../icons/Icons';
+import { LinkExternal } from '../blocks-2/Blocks';
 
 /* Get navigation menu */
 const navigationList = navigationUtils.get.list();
@@ -61,10 +62,10 @@ export const NavigationListItem = (props: NavigationListItemProps) => {
 					{nav.label}
 				</NavLink>
 			) : (
-				<a href={nav.url} target="_blank" rel="noreferrer">
+				<LinkExternal href={nav.url}>
 					<Icon animate={'left'} id={'bullet'} />
 					{nav.label}
-				</a>
+				</LinkExternal>
 			)}
 
 			{children}

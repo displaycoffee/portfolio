@@ -5,6 +5,7 @@ import { codeBlocks } from './scripts/framer-motion-code-blocks';
 import { FramerMotion as FramerMotionPreview } from './FramerMotionPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const FramerMotion = () => {
 	return (
@@ -29,9 +30,7 @@ export const FramerMotion = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/framer-motion" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/framer-motion">View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">React</h4>
@@ -39,9 +38,9 @@ export const FramerMotion = () => {
 				<CodeBlock header={'Framer Motion install'}>{codeBlocks[0]}</CodeBlock>
 				<p>Then, copy the JSX component from the link below.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/framer-motion/FramerMotion.jsx" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/framer-motion/FramerMotion.jsx">
 						framer-motion/FramerMotion.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[1]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[2]}</CodeBlock>
@@ -67,9 +66,9 @@ export const FramerMotion = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/framer-motion/framer-motion.css" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/framer-motion/framer-motion.css">
 						framer-motion/framer-motion.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[4]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[5]}</CodeBlock>
@@ -79,13 +78,9 @@ export const FramerMotion = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/framer-motion/framer-motion.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/framer-motion/framer-motion.scss">
 						framer-motion/framer-motion.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[7]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[8]}</CodeBlock>

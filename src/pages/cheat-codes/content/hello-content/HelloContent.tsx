@@ -5,6 +5,7 @@ import { codeBlocks } from './scripts/hello-content-code-blocks';
 import { HelloContent as HelloContentPreview } from './HelloContentPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const HelloContent = () => {
 	return (
@@ -29,21 +30,15 @@ export const HelloContent = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/hello-content" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/hello-content">View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>If using HTML and not React, copy the template HTML and place it on the page.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.html"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.html">
 						hello-content/hello-content.html
-					</a>
+					</LinkExternal>
 				</p>
 				<p>
 					For multiple sets of tabs, duplicate the <CodeInline>dc-hello-content-tabs</CodeInline> element and anything inside of it. Ideally
@@ -58,9 +53,9 @@ export const HelloContent = () => {
 				<h4 className="h-remove-shadow">JavaScript</h4>
 				<p>If using JavaScript and not React, copy the script from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.js" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.js">
 						hello-content/hello-content.js
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Script block'}>{codeBlocks[1]}</CodeBlock>
 				<CodeBlock header={'Script src'}>{codeBlocks[2]}</CodeBlock>
@@ -77,9 +72,9 @@ export const HelloContent = () => {
 				<h4 className="h-remove-shadow">React</h4>
 				<p>If using React and not JavaScript, copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/HelloContent.jsx" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/HelloContent.jsx">
 						hello-content/HelloContent.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[5]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[6]}</CodeBlock>
@@ -99,9 +94,9 @@ export const HelloContent = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.css" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.css">
 						hello-content/hello-content.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[9]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[10]}</CodeBlock>
@@ -111,13 +106,9 @@ export const HelloContent = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.scss">
 						hello-content/hello-content.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[13]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[14]}</CodeBlock>

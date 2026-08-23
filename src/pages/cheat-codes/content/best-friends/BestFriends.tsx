@@ -1,3 +1,6 @@
+/* Packages */
+import { Link } from 'react-router-dom';
+
 /* Scripts */
 import { codeBlocks } from './scripts/best-friends-code-blocks';
 
@@ -5,6 +8,7 @@ import { codeBlocks } from './scripts/best-friends-code-blocks';
 import { BestFriends as BestFriendsPreview } from './BestFriendsPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const BestFriends = () => {
 	return (
@@ -27,8 +31,8 @@ export const BestFriends = () => {
 						<dt>Note</dt>
 						<dd>
 							This requires code from{' '}
-							<a href="/cheat-codes/hello-content-a-tabbing-script-091615">"Hello Content! (A Tabbing Script)"</a>. For more information
-							on how to use this snippet, see the linked article.
+							<Link to="/cheat-codes/hello-content-a-tabbing-script-091615">"Hello Content! (A Tabbing Script)"</Link>. For more
+							information on how to use this snippet, see the linked article.
 						</dd>
 					</div>
 				</dl>
@@ -37,9 +41,7 @@ export const BestFriends = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/best-friends" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/best-friends">View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML or React</h4>
@@ -52,17 +54,17 @@ export const BestFriends = () => {
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>If using HTML and not React, copy the template HTML and place it on the page.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.html" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.html">
 						best-friends/best-friends.html
-					</a>
+					</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">JavaScript</h4>
 				<p>If using JavaScript and not React, copy the script from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.js" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.js">
 						hello-content/hello-content.js
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Script block'}>{codeBlocks[1]}</CodeBlock>
 				<CodeBlock header={'Script src'}>{codeBlocks[2]}</CodeBlock>
@@ -78,14 +80,14 @@ export const BestFriends = () => {
 					you're already using <CodeInline>HelloContent</CodeInline>, you don't need to get it again.
 				</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/HelloContent.jsx" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/HelloContent.jsx">
 						hello-content/HelloContent.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/BestFriends.jsx" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/BestFriends.jsx">
 						best-friends/BestFriends.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[4]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[5]}</CodeBlock>
@@ -100,14 +102,14 @@ export const BestFriends = () => {
 					using <CodeInline>hello-content.css</CodeInline>, you don't need to get it again.
 				</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.css" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.css">
 						hello-content/hello-content.css
-					</a>
+					</LinkExternal>
 				</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.css" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.css">
 						best-friends/best-friends.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[6]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[7]}</CodeBlock>
@@ -120,18 +122,14 @@ export const BestFriends = () => {
 					using <CodeInline>hello-content.scss</CodeInline>, you don't need to get it again.
 				</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/hello-content/hello-content.scss">
 						hello-content/hello-content.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.scss" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/best-friends/best-friends.scss">
 						best-friends/best-friends.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[10]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[11]}</CodeBlock>

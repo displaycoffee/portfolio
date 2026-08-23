@@ -9,6 +9,7 @@ import { resume } from './scripts/resume';
 
 /* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
+import { LinkExternal } from '../../components/blocks-2/Blocks';
 
 export const Resume = () => {
 	const { technical, history, volunteer } = resume;
@@ -21,10 +22,7 @@ export const Resume = () => {
 			<div className="resume-section resume-note margin-trim">
 				<p>
 					<strong>Note</strong> - If you're looking for an alternate version of this resume,{' '}
-					<a href="/assets/documents/adria-murphy-resume.pdf" target="_blank" rel="noreferrer">
-						grab the downloadable pdf
-					</a>
-					.
+					<LinkExternal href="/assets/documents/adria-murphy-resume.pdf">grab the downloadable pdf</LinkExternal>.
 				</p>
 			</div>
 

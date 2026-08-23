@@ -3,6 +3,7 @@ import './styles/about.scss';
 
 /* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
+import { LinkExternal } from '../../components/blocks-2/Blocks';
 import { Image } from '../../components/image/Image';
 
 export const About = () => {
@@ -24,17 +25,12 @@ export const About = () => {
 			<p>
 				I dove head-first into coding ages ago because I wanted to make websites for all my roleplaying (RPG) characters and an anime review
 				site. The RPG thing stuck and I often use it for inspiration. For example, you can see my personal site -{' '}
-				<a href="//khyeras.org" target="_blank" rel="noreferrer">
-					Khy'eras
-				</a>{' '}
-				- for which I created all the lore and coding versus this{' '}
-				<a href="//www.angelfire.com/stars2/wishofthestars" target="_blank" rel="noreferrer">
-					sad, excuse of a site
-				</a>{' '}
-				I made back when Angelfire and Geocities were still a thing. I'm not embarrassed to show the differences here, because it illustrates
-				how far I've come. Another interesting tidbit is that my high school years were ones without access to a PC, and as such, I did all my
-				coding on a WebTV using the TV's connected keyboard and spamming that tab button. I didn't really understand how websites worked back
-				then and what HTML pages were, so my start included signing up for about 20+ accounts to create HTML documents for each content page.
+				<LinkExternal href="//khyeras.org">Khy'eras</LinkExternal> - for which I created all the lore and coding versus this{' '}
+				<LinkExternal href="//www.angelfire.com/stars2/wishofthestars">sad, excuse of a site</LinkExternal> I made back when Angelfire and
+				Geocities were still a thing. I'm not embarrassed to show the differences here, because it illustrates how far I've come. Another
+				interesting tidbit is that my high school years were ones without access to a PC, and as such, I did all my coding on a WebTV using
+				the TV's connected keyboard and spamming that tab button. I didn't really understand how websites worked back then and what HTML pages
+				were, so my start included signing up for about 20+ accounts to create HTML documents for each content page.
 			</p>
 			<p>
 				Anyway, things change with time. I figured out what that you could just... make a new HTML document on the same hosting account and
