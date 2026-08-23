@@ -4,6 +4,7 @@ import { codeBlocks } from './scripts/styling-text-code-blocks';
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline, Output } from '../../../../components/blocks/Blocks';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const StylingText = () => {
 	const sections = [
@@ -125,28 +126,19 @@ export const StylingText = () => {
 				<CodeBlock header={'CSS'}>{codeBlocks[2]}</CodeBlock>
 				<Output className="output-articles output-font-families" code={codeBlocks[1]} />
 				<p>
-					The first font listed is "Roboto" from{' '}
-					<a href="//fonts.google.com/specimen/Roboto" target="_blank" rel="noreferrer">
-						Google Fonts
-					</a>
-					. If that is not available for some reason, as long as my computer knows what "Tahoma" is, it will use that font. Otherwise, it
-					falls back to "Calibri" and so on.
+					The first font listed is "Roboto" from <LinkExternal href="//fonts.google.com/specimen/Roboto">Google Fonts</LinkExternal>. If
+					that is not available for some reason, as long as my computer knows what "Tahoma" is, it will use that font. Otherwise, it falls
+					back to "Calibri" and so on.
 				</p>
 				<p>
 					The above mostly relates to web safe fonts. Google Fonts and{' '}
-					<a href="//www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="noreferrer">
-						font-face kits
-					</a>{' '}
-					are an entirely different thing and I won't get into that here. It's good practice to declare fallbacks for font families, but if
-					you're using Google Fonts or hosting the font on your own website, you probably don't have to worry about this.
+					<LinkExternal href="//www.fontsquirrel.com/tools/webfont-generator">font-face kits</LinkExternal> are an entirely different thing
+					and I won't get into that here. It's good practice to declare fallbacks for font families, but if you're using Google Fonts or
+					hosting the font on your own website, you probably don't have to worry about this.
 				</p>
 				<p>
-					You can also try out{' '}
-					<a href="//cssfontstack.com" target="_blank" rel="noreferrer">
-						CSS Font Stack
-					</a>
-					, which will give you fonts that are related to each other and also the percentage of how common that font is on Windows versus
-					Mac.
+					You can also try out <LinkExternal href="//cssfontstack.com">CSS Font Stack</LinkExternal>, which will give you fonts that are
+					related to each other and also the percentage of how common that font is on Windows versus Mac.
 				</p>
 			</ArticlesSection>
 

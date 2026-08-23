@@ -5,6 +5,7 @@ import { codeBlocks } from './scripts/navigation-menus-code-blocks';
 import { NavigationMenus as NavigationMenusPreview } from './NavigationMenusPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const NavigationMenus = () => {
 	return (
@@ -29,9 +30,7 @@ export const NavigationMenus = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/navigation-menus" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/navigation-menus">View @ displaycoffee</LinkExternal>
 				</p>
 				<p>
 					There are three different styles. Pick whichever one you want and copy the appropriate code below. You can also use the code for
@@ -47,37 +46,25 @@ export const NavigationMenus = () => {
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.html"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.html">
 								navigation-menus/navigation-menus-01.html
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Menu 2</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.html"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.html">
 								navigation-menus/navigation-menus-02.html
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Menu 3</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.html"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.html">
 								navigation-menus/navigation-menus-03.html
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 				</dl>
@@ -91,13 +78,9 @@ export const NavigationMenus = () => {
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/NavigationMenus.jsx"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/NavigationMenus.jsx">
 						navigation-menus/NavigationMenus.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[0]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[1]}</CodeBlock>
@@ -111,37 +94,25 @@ export const NavigationMenus = () => {
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.css"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.css">
 								navigation-menus/navigation-menus-01.css
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Menu 2</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.css"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.css">
 								navigation-menus/navigation-menus-02.css
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Menu 3</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.css"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.css">
 								navigation-menus/navigation-menus-03.css
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 				</dl>
@@ -167,37 +138,25 @@ export const NavigationMenus = () => {
 					<div className="definition-list-item">
 						<dt>Menu 1</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.scss"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.scss">
 								navigation-menus/navigation-menus-01.scss
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Menu 2</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.scss"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.scss">
 								navigation-menus/navigation-menus-02.scss
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 					<div className="definition-list-item">
 						<dt>Menu 3</dt>
 						<dd>
-							<a
-								href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.scss"
-								target="_blank"
-								rel="noreferrer"
-							>
+							<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.scss">
 								navigation-menus/navigation-menus-03.scss
-							</a>
+							</LinkExternal>
 						</dd>
 					</div>
 				</dl>

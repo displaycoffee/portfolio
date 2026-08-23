@@ -5,6 +5,7 @@ import { codeBlocks } from './scripts/friends-not-food-code-blocks';
 import { FriendsNotFood as FriendsNotFoodPreview } from './FriendsNotFoodPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const FriendsNotFood = () => {
 	return (
@@ -29,9 +30,7 @@ export const FriendsNotFood = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/friends-not-food" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/friends-not-food">View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML or React</h4>
@@ -44,36 +43,25 @@ export const FriendsNotFood = () => {
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.html"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.html">
 						friends-not-food/friends-not-food.html
-					</a>
+					</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/FriendsNotFood.jsx"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/FriendsNotFood.jsx">
 						friends-not-food/FriendsNotFood.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[1]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[2]}</CodeBlock>
 
 				<h4 className="h-remove-shadow">CSS or Sass</h4>
 				<p>
-					The fonts are from{' '}
-					<a href="//fonts.google.com" target="_blank" rel="noreferrer">
-						Google Fonts
-					</a>{' '}
-					and are added above the main HTML. You can change the fonts to whatever you'd like.
+					The fonts are from <LinkExternal href="//fonts.google.com">Google Fonts</LinkExternal> and are added above the main HTML. You can
+					change the fonts to whatever you'd like.
 				</p>
 				<CodeBlock header={'Fonts'}>{codeBlocks[3]}</CodeBlock>
 				<p>
@@ -85,13 +73,9 @@ export const FriendsNotFood = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.css"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.css">
 						friends-not-food/friends-not-food.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[5]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[6]}</CodeBlock>
@@ -105,13 +89,9 @@ export const FriendsNotFood = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.scss">
 						friends-not-food/friends-not-food.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[10]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[11]}</CodeBlock>

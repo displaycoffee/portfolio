@@ -1,5 +1,6 @@
 /* Components */
 import { CheatCodesSection } from '../../CheatCodes';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const Burmecia = () => {
 	return (
@@ -28,9 +29,7 @@ export const Burmecia = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/burmecia" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/burmecia">View @ displaycoffee</LinkExternal>
 				</p>
 			</CheatCodesSection>
 		</>

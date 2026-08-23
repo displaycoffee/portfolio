@@ -5,6 +5,7 @@ import { codeBlocks } from './scripts/wish-you-were-here-code-blocks';
 import { WishYouWereHere as WishYouWereHerePreview } from './WishYouWereHerePreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { LinkExternal } from '../../../../components/blocks-2/Blocks';
 
 export const WishYouWereHere = () => {
 	return (
@@ -26,10 +27,7 @@ export const WishYouWereHere = () => {
 					<div className="definition-list-item">
 						<dt>Credits</dt>
 						<dd>
-							Image from{' '}
-							<a href="//unsplash.com" target="_blank" rel="noreferrer">
-								Unsplash
-							</a>
+							Image from <LinkExternal href="//unsplash.com">Unsplash</LinkExternal>
 						</dd>
 					</div>
 				</dl>
@@ -38,44 +36,31 @@ export const WishYouWereHere = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/wish-you-were-here" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/wish-you-were-here">View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.html"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.html">
 						wish-you-were-here/wish-you-were-here.html
-					</a>
+					</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/WishYouWereHere.jsx"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/WishYouWereHere.jsx">
 						wish-you-were-here/WishYouWereHere.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[0]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[1]}</CodeBlock>
 
 				<h4 className="h-remove-shadow">CSS or Sass</h4>
 				<p>
-					The fonts are from{' '}
-					<a href="//fonts.google.com" target="_blank" rel="noreferrer">
-						Google Fonts
-					</a>{' '}
-					and are added above the main HTML. You can change the fonts to whatever you'd like.
+					The fonts are from <LinkExternal href="//fonts.google.com">Google Fonts</LinkExternal> and are added above the main HTML. You can
+					change the fonts to whatever you'd like.
 				</p>
 				<CodeBlock header={'Fonts'}>{codeBlocks[2]}</CodeBlock>
 				<p>
@@ -87,13 +72,9 @@ export const WishYouWereHere = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.css"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.css">
 						wish-you-were-here/wish-you-were-here.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[4]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[5]}</CodeBlock>
@@ -107,13 +88,9 @@ export const WishYouWereHere = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.scss">
 						wish-you-were-here/wish-you-were-here.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[9]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[10]}</CodeBlock>

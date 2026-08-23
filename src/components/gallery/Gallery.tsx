@@ -15,6 +15,7 @@ import { gallery as galleryUtils } from './scripts/gallery';
 /* Components */
 import { Image } from '../image/Image';
 import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
+import { LinkExternal } from '../blocks-2/Blocks';
 
 /* Set up tab storage */
 /* Note: "active" is an object because galleries can have different tabs, so we store from location. */
@@ -234,11 +235,11 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 
 					{(current.image || current.thumb) && (
 						<div className="gallery-image">
-							<a href={current.image || current.thumb} target="_blank" rel="noreferrer">
+							<LinkExternal href={current.image || current.thumb}>
 								<div className={`image-wrapper gallery-image-wrapper${isPixels ? '' : ' pixel-border'}`}>
 									<Image alt={current.name} hasLazy={true} image={current.image || current.thumb} hasWrapper={false} />
 								</div>
-							</a>
+							</LinkExternal>
 						</div>
 					)}
 
@@ -255,9 +256,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 								<div className="definition-list-item">
 									<dt>Visit</dt>
 									<dd>
-										<a href={current.url} target="_blank" rel="noreferrer">
-											{current.url.replace('//', '')}
-										</a>
+										<LinkExternal href={current.url}>{current.url.replace('//', '')}</LinkExternal>
 									</dd>
 								</div>
 							)}

@@ -9,6 +9,7 @@ import { useAppContext } from '../../context/scripts/context-hooks';
 import { footer } from './scripts/footer';
 
 /* Components */
+import { LinkExternal } from '../../components/blocks-2/Blocks';
 import { Icon } from '../../components/icons/Icons';
 import { Image } from '../../components/image/Image';
 
@@ -26,14 +27,14 @@ export const Footer = () => {
 						<nav className="footer-navigation-links">
 							{footer.map((link) => (
 								<Fragment key={link.id}>
-									<a className="footer-navigation-link" href={link.url} target="_blank" rel="noreferrer">
+									<LinkExternal className="footer-navigation-link" href={link.url}>
 										<Image
 											alt={link.alt || link.label}
 											hasLazy={true}
 											hasWrapper={false}
 											image={`/assets/images/theme/${link.label.toLowerCase()}.svg`}
 										/>
-									</a>
+									</LinkExternal>
 								</Fragment>
 							))}
 
