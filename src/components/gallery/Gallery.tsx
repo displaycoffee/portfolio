@@ -14,7 +14,7 @@ import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Components */
 import { Image } from '../image/Image';
-import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
+import { HeaderIcon, Button, PixelBlock } from '../blocks/Blocks';
 import { LinkExternal } from '../blocks-2/Blocks';
 
 /* Set up tab storage */
@@ -285,7 +285,7 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 					</div>
 				</div>
 
-				<PixelSection navigation={navigationProps} />
+				<PixelBlock navigation={navigationProps} />
 			</div>
 		) : (
 			<Navigate to={parentPage} replace />

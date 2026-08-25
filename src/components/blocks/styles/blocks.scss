@@ -10,17 +10,11 @@
 
 	$pixel-size: 4px;
 
+//// BLOCKS - BUTTON
+//// --------------------------------------------------------------------------
+
 	// Style block
 
-	.h-icon {
-		.icon {			
-			margin-left: theme.$spacing-x2;
-			&:first-child {
-				margin-left: 0;
-				margin-right: theme.$spacing-x2;				
-			}
-		}
-	}
 	.button {
 		position: relative;
 		display: inline-block;		
@@ -71,7 +65,30 @@
 		&, &:before, &:after {
 			background-color: theme.$color-05;
 		}
+	}	@include mixins.respond-min(theme.$bp-02) {
+		.button {
+			padding: 0 theme.$spacing-x4;
+			font-size: functions.em(14px, rem);
+		}
+		.button-primary:not(.active):hover {
+			text-shadow: 2px 2px 0 theme.$color-09;
+			&, &:before, &:after {
+				background-color: theme.$color-05;
+			}
+		}
+		.button-secondary:not(.active):hover {
+			text-shadow: 2px 2px 0 theme.$color-05;
+			&, &:before, &:after {
+				background-color: theme.$color-06;
+			}
+		}
 	}
+
+//// BLOCKS - CODE BLOCK
+//// --------------------------------------------------------------------------
+
+	// Style block
+
 	.code-block {
 		position: relative;
 		padding: $pixel-size 0;
@@ -122,10 +139,37 @@
 			}
 		}
 	}
+
+//// BLOCKS - CODE INLINE
+//// --------------------------------------------------------------------------
+
+	// Style block
+		
 	.code-inline {
 		padding: theme.$spacing-x05 theme.$spacing-x1;
 		@include mixins.position($type: relative, $top: -2px);
 	}
+
+//// BLOCKS - HEADER ICON
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	.h-icon {
+		.icon {
+			margin-left: theme.$spacing-x2;
+			&:first-child {
+				margin-left: 0;
+				margin-right: theme.$spacing-x2;				
+			}
+		}
+	}
+
+//// BLOCKS - OUTPUT
+//// --------------------------------------------------------------------------
+
+	// Style block
+
 	.output {
 		position: relative;
 		padding: $pixel-size 0;
@@ -152,6 +196,12 @@
 			color: theme.$color-05;
 		}
 	}
+
+//// BLOCKS - PIXEL BLOCK
+//// --------------------------------------------------------------------------
+
+	// Style block
+
 	.pixel-block {
 		&, .pixel-block-wrapper {			
 			position: relative;
@@ -215,22 +265,6 @@
 		}
 	}
 	@include mixins.respond-min(theme.$bp-02) {
-		.button {
-			padding: 0 theme.$spacing-x4;
-			font-size: functions.em(14px, rem);
-		}
-		.button-primary:not(.active):hover {
-			text-shadow: 2px 2px 0 theme.$color-09;
-			&, &:before, &:after {
-				background-color: theme.$color-05;
-			}
-		}
-		.button-secondary:not(.active):hover {
-			text-shadow: 2px 2px 0 theme.$color-05;
-			&, &:before, &:after {
-				background-color: theme.$color-06;
-			}
-		}
 		.pixel-block {
 			.pixel-block-wrapper {
 				.pixel-navigation {
