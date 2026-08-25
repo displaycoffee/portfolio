@@ -40,7 +40,7 @@ type Output = {
 	code: string;
 };
 
-type PixelSection = Navigation & {
+type PixelBlock = Navigation & {
 	children?: ReactNode;
 	className?: string;
 };
@@ -58,6 +58,6 @@ export type HeaderIconProps = HeaderIcon;
 
 export type OutputProps = Output;
 
-export type PixelSectionProps = PixelSection;
+export type PixelBlockProps = PixelBlock;
 
 export type PreviewProps = Preview;

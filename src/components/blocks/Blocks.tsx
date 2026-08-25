@@ -6,7 +6,7 @@ import { RefObject, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 /* Scripts */
-import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputProps, PixelSectionProps, PreviewProps } from './scripts/blocks-types';
+import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputProps, PixelBlockProps, PreviewProps } from './scripts/blocks-types';
 
 /* Components */
 import { Icon } from '../icons/Icons';
@@ -113,7 +113,7 @@ export const Output = (props: OutputProps) => {
 	);
 };
 
-export const PixelSection = (props: PixelSectionProps) => {
+export const PixelBlock = (props: PixelBlockProps) => {
 	const { children, className, navigation } = props;
 	const pixelClass = className ? `${className} ` : '';
 

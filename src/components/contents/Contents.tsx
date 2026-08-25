@@ -22,7 +22,7 @@ import { contents as contentsUtils } from './scripts/contents';
 
 /* Components */
 import { Image } from '../image/Image';
-import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
+import { Button, HeaderIcon, PixelBlock } from '../blocks/Blocks';
 
 export const Contents = (props: ContentsProps) => {
 	const { children, navigation, type, values } = props;
@@ -347,7 +347,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 
 				<div className="contents-body margin-trim">{children}</div>
 
-				<PixelSection navigation={navigationProps} />
+				<PixelBlock navigation={navigationProps} />
 			</div>
 		) : (
 			<Navigate to={parentPage} replace />
