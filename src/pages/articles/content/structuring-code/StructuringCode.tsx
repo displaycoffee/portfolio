@@ -4,7 +4,7 @@ import { codeBlocks } from './scripts/structuring-code-code-blocks';
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List } from '../../../../components/blocks-2/Blocks';
 
 export const StructuringCode = () => {
 	const sections = ['Introduction', 'Classes versus IDs', "Don't Be Generic", 'Formatting CSS', 'Tabbing', 'Comments', 'Choosing Fonts', 'Closing'];
@@ -28,11 +28,11 @@ export const StructuringCode = () => {
 					You may also be wondering why you should even care what your code looks like when you're merely providing it for free. There are
 					benefits to providing good code.
 				</p>
-				<ul>
+				<List>
 					<li>You're making it easier for people to understand and the masses will love you for it.</li>
 					<li>Less people ask you questions in the future about issues that might arise.</li>
 					<li>Proper code documentation means people can customize things to their liking.</li>
-				</ul>
+				</List>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[1]}>

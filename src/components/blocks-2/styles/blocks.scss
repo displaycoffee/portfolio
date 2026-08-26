@@ -18,6 +18,7 @@
 	}
 	.list-ordered, .list-unordered {
 		margin: 0 0 theme.$spacing-x4 0;
+		padding: 0 0 0 $blocks-list-spacing;
 		& > li {
 			position: relative;
 			margin: 0 0 calc($blocks-list-spacing / 4) 0;
@@ -33,18 +34,61 @@
 	}
 	.list-ordered {
 		counter-reset: section;
-		& > li:before {
-			top: 0;
-			counter-increment: section;
-			content: counter(section)'.';
+		& > li {
+			padding: 0 0 0 calc($blocks-list-spacing * 2);
+			&:before {
+				top: 0;
+				counter-increment: section;
+				content: counter(section)'.';
+			}
 		}
 	}
 	.list-unordered {
 		& > li:before {
 			top: 2px;
-			content: '\002022';
-			font-size: functions.em(20px, rem);
+			content: '\0025AA';
+			font-size: functions.em(16px, rem);
 			line-height: 1;
+		}
+	}
+	.list-definition {
+		margin: 0 0 $blocks-list-spacing 0;
+		.list-item-definition {
+			@include mixins.flex-layout;
+			margin: 0 0 calc($blocks-list-spacing / 2) 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			dt, dd {
+				min-width: 1px;
+			}
+			dt {
+				@include mixins.flex(0 0 175px);
+				font-family: theme.$font-family-02;
+				font-weight: theme.$font-weight-02;
+				margin: 0 0 calc($blocks-list-spacing / 4) 0;
+			}
+			dd {
+				@include mixins.flex(1 1 100%);
+				& > *:last-child {
+					margin-bottom: 0;
+				}
+				ul {
+					padding: 0;
+				}
+			}
+		}
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.list-definition {
+			.list-item-definition {
+				dt {
+					margin: 0;
+				}
+				dd {
+					@include mixins.flex;
+				}
+			}
 		}
 	}
 	.list-unstyled {

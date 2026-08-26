@@ -1,29 +1,17 @@
 /* Components */
 import { CheatCodesSection } from '../../CheatCodes';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
 
 export const Burmecia = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Medium</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>React, TypeScript, JavaScript, Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Note</dt>
-						<dd>For more information on how to use this framework, visit the repo link below.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Medium</ListItem>
+					<ListItem term="Languages">React, TypeScript, JavaScript, Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+					<ListItem term="Note">For more information on how to use this framework, visit the repo link below.</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>

@@ -9,7 +9,7 @@ import { resume } from './scripts/resume';
 
 /* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
-import { LinkExternal } from '../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../components/blocks-2/Blocks';
 
 export const Resume = () => {
 	const { technical, history, volunteer } = resume;
@@ -75,40 +75,25 @@ export const Resume = () => {
 				{history.length !== 0
 					? history.map((value) => (
 							<React.Fragment key={value.id}>
-								<dl className="definition-list">
-									<div className="definition-list-item">
-										<dt>Name</dt>
-										<dd>{value.name}</dd>
-									</div>
-
-									<div className="definition-list-item">
-										<dt>Date</dt>
-										<dd>{value.date}</dd>
-									</div>
-
-									<div className="definition-list-item">
-										<dt>Role</dt>
-										<dd dangerouslySetInnerHTML={{ __html: value.role }}></dd>
-									</div>
-
-									<div className="definition-list-item">
-										<dt>Objectives</dt>
-										<dd>
-											<ul>
-												{value.description.map((content, index) => (
-													<li key={index}>
-														{index == value.description.length - 1 ? (
-															<>
-																<strong>Inventory</strong> -&nbsp;
-															</>
-														) : null}
-														{content}
-													</li>
-												))}
-											</ul>
-										</dd>
-									</div>
-								</dl>
+								<List variant="dl">
+									<ListItem term="Name">{value.name}</ListItem>
+									<ListItem term="Date">{value.date}</ListItem>
+									<ListItem term="Role">{value.role}</ListItem>
+									<ListItem term="Objectives">
+										<List>
+											{value.description.map((content, index) => (
+												<li key={index}>
+													{index == value.description.length - 1 ? (
+														<>
+															<strong>Inventory</strong> -&nbsp;
+														</>
+													) : null}
+													{content}
+												</li>
+											))}
+										</List>
+									</ListItem>
+								</List>
 							</React.Fragment>
 						))
 					: null}
@@ -120,28 +105,17 @@ export const Resume = () => {
 				{volunteer.length !== 0
 					? volunteer.map((value) => (
 							<React.Fragment key={value.id}>
-								<dl className="definition-list">
-									<div className="definition-list-item">
-										<dt>Name</dt>
-										<dd>{value.name}</dd>
-									</div>
-
-									<div className="definition-list-item">
-										<dt>Date</dt>
-										<dd>{value.date}</dd>
-									</div>
-
-									<div className="definition-list-item">
-										<dt>Objectives</dt>
-										<dd>
-											<ul>
-												{value.description.map((content, index) => (
-													<li key={index}>{content}</li>
-												))}
-											</ul>
-										</dd>
-									</div>
-								</dl>
+								<List variant="dl">
+									<ListItem term="Name">{value.name}</ListItem>
+									<ListItem term="Date">{value.date}</ListItem>
+									<ListItem term="Objectives">
+										<List>
+											{value.description.map((content, index) => (
+												<li key={index}>{content}</li>
+											))}
+										</List>
+									</ListItem>
+								</List>
 							</React.Fragment>
 						))
 					: null}

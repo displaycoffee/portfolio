@@ -15,14 +15,14 @@ import { gallery as galleryUtils } from './scripts/gallery';
 /* Components */
 import { Image } from '../image/Image';
 import { HeaderIcon, Button, PixelBlock } from '../blocks/Blocks';
-import { LinkExternal } from '../blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../blocks-2/Blocks';
 
 /* Set up tab storage */
 /* Note: "active" is an object because galleries can have different tabs, so we store from location. */
-const tabStorage = {
+const tabStorage: GalleryTabsStorageType = {
 	default: 0,
 	active: {},
-} as GalleryTabsStorageType;
+};
 
 export const Gallery = (props: GalleryProps) => {
 	const { headers, navigation, tabs, type, values } = props;
@@ -172,7 +172,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 			<div className="gallery-items">
 				{values.map((value) => {
 					// Determine if we should show item based on tab settings
-					const showItem = galleryUtils.includeValue(tabs.enabled, value?.categories, activeTab as string);
+					const showItem = galleryUtils.includeValue(tabs.enabled, value?.categories, activeTab);
 
 					// Set gallery url
 					const galleryUrl = `${location}/${value.handle}`;
@@ -244,44 +244,25 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 					)}
 
 					<div className="gallery-details margin-trim">
-						<dl className="definition-list">
-							{current.date && (
-								<div className="definition-list-item">
-									<dt>Date</dt>
-									<dd>{current.date}</dd>
-								</div>
-							)}
+						<List variant="dl">
+							{current.date && <ListItem term="Date">{current.date}</ListItem>}
 
 							{current.url && (
-								<div className="definition-list-item">
-									<dt>Visit</dt>
-									<dd>
-										<LinkExternal href={current.url}>{current.url.replace('//', '')}</LinkExternal>
-									</dd>
-								</div>
+								<ListItem term="Visit">
+									<LinkExternal href={current.url}>{current.url.replace('//', '')}</LinkExternal>
+								</ListItem>
 							)}
 
-							{current.technologies && (
-								<div className="definition-list-item">
-									<dt>Technologies</dt>
-									<dd>{current.technologies}</dd>
-								</div>
-							)}
+							{current.technologies && <ListItem term="Technologies">{current.technologies}</ListItem>}
 
-							{current.mediums && (
-								<div className="definition-list-item">
-									<dt>Mediums</dt>
-									<dd>{current.mediums}</dd>
-								</div>
-							)}
+							{current.mediums && <ListItem term="Mediums">{current.mediums}</ListItem>}
 
 							{current.description && (
-								<div className="definition-list-item">
-									<dt>Description</dt>
-									<dd dangerouslySetInnerHTML={{ __html: current.description }}></dd>
-								</div>
+								<ListItem term="Description">
+									<div dangerouslySetInnerHTML={{ __html: current.description }}></div>
+								</ListItem>
 							)}
-						</dl>
+						</List>
 					</div>
 				</div>
 

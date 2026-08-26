@@ -11,8 +11,13 @@ type LinkExternal = {
 type List = {
 	children: ReactNode;
 	className?: string;
-	variant?: 'ol' | 'ol-unstyled' | 'ul' | 'ul-unstyled';
+	variant?: 'dl' | 'ol' | 'ol-unstyled' | 'ul' | 'ul-unstyled';
 } & Omit<OlHTMLAttributes<HTMLOListElement>, 'children' | 'className' | 'variant'>;
+
+type ListItem = {
+	children: ReactNode;
+	term: string | number;
+};
 
 type Section = {
 	children: ReactNode;
@@ -26,5 +31,7 @@ type Section = {
 export type LinkExternalProps = LinkExternal;
 
 export type ListProps = List;
+
+export type ListItemProps = ListItem;
 
 export type SectionProps = Section;

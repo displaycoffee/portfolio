@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputProps, PixelBlockProps, PreviewProps } from './scripts/blocks-types';
 
 /* Components */
+import { List } from '../blocks-2/Blocks';
 import { Icon } from '../icons/Icons';
 
 export const Button = (props: ButtonProps) => {
@@ -156,7 +157,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 					children
 				) : showNavigation ? (
 					<nav className="pixel-navigation">
-						<ul className="pixel-navigation-list unstyled flex-wrap flex-align-items-center">
+						<List className="pixel-navigation-list flex-wrap flex-align-items-center" variant="ul-unstyled">
 							{previousUrl && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
 									<Link className="pixel-navigation-link" to={previousUrl}>
@@ -190,7 +191,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 									</li>
 								</>
 							)}
-						</ul>
+						</List>
 					</nav>
 				) : null}
 			</div>
