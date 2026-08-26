@@ -41,13 +41,13 @@
 		visibility: hidden;
 	}
 	.slideout-button {
-		font-size: functions.em(16px, rem);
-		@include mixins.flex-layout((flex-flow: row nowrap, align-items: center));
-		@include mixins.gap(theme.$spacing-x2);
+		// font-size: functions.em(16px, rem);
+		// @include mixins.flex-layout((flex-flow: row nowrap, align-items: center));
+		// @include mixins.gap(theme.$spacing-x2);
 		margin: 0;
-		.icon-filter {
-			top: -3px;
-		}
+		// .icon-filter {
+		// 	top: -3px;
+		// }
 	}
 	.slideout {
 		&.slideout-active {
@@ -72,10 +72,10 @@
 			@include mixins.transition($slideout-transition-closed);
 			max-width: 100%;
 			background-color: $slideout-color-02;
-			background-image: url('../../../assets/images/theme/gradient-top.png');
-			background-repeat: repeat-x;
-			background-position: center top;
-			border-right: 2px solid theme.$color-05;
+			// background-image: url('../../../assets/images/theme/gradient-top.png');
+			// background-repeat: repeat-x;
+			// background-position: center top;
+			// border-right: 2px solid theme.$color-05;
 			z-index: 9999;
 			padding: $slideout-spacing;
 			.slideout-header {
@@ -99,20 +99,21 @@
 				max-height: calc(100% - ($slideout-header + $slideout-spacing));
 				.navigation {
 					.navigation-list {
+						//display: block;
 						.navigation-list-item {
 							font-size: functions.em(16px, rem);
 							margin: 0  0 theme.$spacing-x2 0;
 							&:last-child {
 								margin-bottom: 0;
 							}
-							.navigation-link {
-								&:before {
-									top: -7px;
-								}
-								&:hover:before {
-									top: -5px;
-								}
-							}
+							// .navigation-link {
+							// 	&:before {
+							// 		top: -7px;
+							// 	}
+							// 	&:hover:before {
+							// 		top: -5px;
+							// 	}
+							// }
 						}
 					}
 				}

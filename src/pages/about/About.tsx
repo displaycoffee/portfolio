@@ -3,7 +3,7 @@ import './styles/about.scss';
 
 /* Components */
 import { HeaderIcon } from '../../components/blocks/Blocks';
-import { LinkExternal } from '../../components/blocks-2/Blocks';
+import { LinkExternal, List } from '../../components/blocks-2/Blocks';
 import { Image } from '../../components/image/Image';
 
 export const About = () => {
@@ -49,7 +49,7 @@ export const About = () => {
 				If you've made it through this, congratulations! As a reward here are extra "fun" facts about me. These are a few of my favorite
 				things:
 			</p>
-			<ul>
+			<List>
 				<li>
 					<strong>Video games</strong> - Final Fantasy IX, Valkyrie Profile
 				</li>
@@ -69,7 +69,7 @@ export const About = () => {
 				<li>
 					<strong>Books</strong> - Extremely Loud and Incredibly Close
 				</li>
-			</ul>
+			</List>
 		</>
 	);
 };

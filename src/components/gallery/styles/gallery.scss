@@ -74,8 +74,8 @@
 				}
 				.gallery-details {
 					@include mixins.flex;
-					.definition-list {
-						.definition-list-item {
+					.list-definition {
+						.list-item-definition {
 							dt {
 								margin: 0 0 theme.$spacing-x1 0;
 							}
@@ -95,8 +95,8 @@
 					max-width: 600px;
 				}
 				.gallery-details {
-					.definition-list {
-						.definition-list-item {
+					.list-definition {
+						.list-item-definition {
 							dt {
 								margin: 0;
 							}

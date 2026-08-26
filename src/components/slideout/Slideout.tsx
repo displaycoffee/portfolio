@@ -2,7 +2,7 @@
 import './styles/slideout.scss';
 
 /* Packages */
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /* Scripts */
 import { useFormattedId } from '../../_config/scripts/hooks';
@@ -11,6 +11,7 @@ import { SlideoutOverlayProps, SlideoutProps, SlideoutTouchType, SlideoutTouchRe
 import { slideout } from './scripts/slideout';
 
 /* Components */
+import { Button } from '../forms/Forms';
 import { Icon } from '../icons/Icons';
 
 export const Slideout = (props: SlideoutProps) => {
@@ -19,6 +20,7 @@ export const Slideout = (props: SlideoutProps) => {
 	const fallbackId = useFormattedId();
 	const id = `slideout-${options?.id ?? fallbackId}`;
 	const title = `${id}-title`;
+	const [isActive, setIsActive] = useState(false);
 
 	// Get default attributes for slideout
 	const width = options?.width ?? config.values.width;
@@ -26,12 +28,30 @@ export const Slideout = (props: SlideoutProps) => {
 	const orientation = slideout.get.orientation(direction);
 	const styles = get.styles(direction, width);
 
+	// // Create shared slideout button
+	// const slideoutButton = (
+	// 	<button
+	// 		className="slideout-button unstyled pointer"
+	// 		type="button"
+	// 		onClick={(e) => toggle(e, id)}
+	// 		aria-expanded={isActive}
+	// 		aria-label={`Open ${options.label}`}
+	// 	>
+	// 		<Icon id={'filter'} />
+	// 		{options.label}
+	// 	</button>
+	// );
 	// Create shared slideout button
 	const slideoutButton = (
-		<button className="slideout-button unstyled pointer" type="button" onClick={(e) => toggle(e, id)}>
+		<Button
+			className="slideout-button"
+			label={options.label}
+			onClick={(e) => toggle(e, id)}
+			aria-expanded={isActive}
+			aria-label={`Open ${options.label}`}
+		>
 			<Icon id={'filter'} />
-			{options.label}
-		</button>
+		</Button>
 	);
 
 	// Set button properties
@@ -70,6 +90,43 @@ export const Slideout = (props: SlideoutProps) => {
 		if (isClosingSwipe) toggle(e, false);
 	};
 
+	// Track active state for aria-expanded
+	// Note: looked up by id (not ref) since toggle() mutates classList directly, and the button can render
+	// separately from the slideout element when options.button.outside is true (a different Slideout instance
+	// renders the element with this id) — watch the document for it to mount rather than assuming it's already there
+	useEffect(() => {
+		let classObserver: MutationObserver | null = null;
+
+		// Start tracking the slideout element's active class once it's found
+		const trackElement = (element: HTMLElement) => {
+			const updateActiveState = () => setIsActive(element.classList.contains(config.classes.active));
+			updateActiveState();
+
+			classObserver = new MutationObserver(updateActiveState);
+			classObserver.observe(element, { attributes: true, attributeFilter: ['class'] });
+		};
+
+		const existingElement = document.getElementById(id);
+		if (existingElement) {
+			trackElement(existingElement);
+			return () => classObserver?.disconnect();
+		}
+
+		// Element isn't mounted yet — watch the document for it to appear
+		const bodyObserver = new MutationObserver(() => {
+			const element = document.getElementById(id);
+			if (!element) return;
+			bodyObserver.disconnect();
+			trackElement(element);
+		});
+		bodyObserver.observe(document.body, { childList: true, subtree: true });
+
+		return () => {
+			bodyObserver.disconnect();
+			classObserver?.disconnect();
+		};
+	}, [id, config.classes.active]);
+
 	return button.outside && button.show ? (
 		slideoutButton
 	) : (
@@ -97,30 +154,37 @@ export const Slideout = (props: SlideoutProps) => {
 						{options.label}
 					</h2>
 
-					<button
+					<Button
+						className="slideout-close"
+						hideLabel={true}
+						label="Slideout Close Button"
+						onClick={(e) => toggle(e, false)}
+						variant="unstyled"
+					>
+						<Icon id={'close'} isBold={true} size={'lg'} />
+					</Button>
+
+					{/* <button
 						className="slideout-close pointer unstyled"
 						type="button"
 						aria-label="Slideout close button"
 						onClick={(e) => toggle(e, false)}
 					>
 						<Icon id={'close'} isBold={true} size={'lg'} />
-					</button>
+					</button> */}
 				</header>
 
 				<div className="slideout-scrollbar scrollbar">
 					<div
 						className="slideout-body"
 						onClick={(e) => {
-							const eventElement = e.target as HTMLElement;
+							const eventElement = (e.target as HTMLElement)?.closest('a, button.a');
 
 							// Close slideout content if inner nav button is clicked on
 							if (eventElement) {
-								const elementName = eventElement?.nodeName?.toLowerCase() ?? '';
-								if (elementName === 'a' || (elementName === 'button' && eventElement.classList.contains('a'))) {
-									setTimeout(() => {
-										toggle(e, false);
-									});
-								}
+								setTimeout(() => {
+									toggle(e, false);
+								});
 							}
 						}}
 						role="presentation"

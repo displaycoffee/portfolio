@@ -8,34 +8,22 @@ import { codeBlocks } from './scripts/best-friends-code-blocks';
 import { BestFriends as BestFriendsPreview } from './BestFriendsPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
 
 export const BestFriends = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Medium</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>HTML / JavaScript or React, CSS or Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Note</dt>
-						<dd>
-							This requires code from{' '}
-							<Link to="/cheat-codes/hello-content-a-tabbing-script-091615">"Hello Content! (A Tabbing Script)"</Link>. For more
-							information on how to use this snippet, see the linked article.
-						</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Medium</ListItem>
+					<ListItem term="Languages">HTML / JavaScript or React, CSS or Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+					<ListItem term="Note">
+						This requires code from{' '}
+						<Link to="/cheat-codes/hello-content-a-tabbing-script-091615">"Hello Content! (A Tabbing Script)"</Link>. For more information
+						on how to use this snippet, see the linked article.
+					</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>

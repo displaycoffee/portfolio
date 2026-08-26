@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 /* Scripts */
 import { useFormattedId } from '../../_config/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
-import { LinkExternalProps, ListProps, SectionProps } from './scripts/blocks-types';
+import { LinkExternalProps, ListProps, ListItemProps, SectionProps } from './scripts/blocks-types';
 import { blocks } from './scripts/blocks';
 
 /* Components */
@@ -28,15 +28,39 @@ export const List = (props: ListProps) => {
 	const { children, className: propClassName, reversed, start, type: listType, variant = 'ul', ...rest } = props;
 	const isOrdered = variant.includes('ol');
 	const isUnstyled = variant.includes('unstyled');
-	const Tag = isOrdered ? 'ol' : 'ul';
-	const classes = `list-${isUnstyled ? 'unstyled' : isOrdered ? 'ordered' : 'unordered'}`;
-	const className = propClassName ? `${propClassName} ${classes}` : classes;
+	const Tag = variant === 'dl' ? 'dl' : isOrdered ? 'ol' : 'ul';
+
+	// Create classes
+	const classes = [];
+	if (isUnstyled) {
+		classes.push(`list-unstyled`);
+	} else {
+		if (isOrdered) {
+			classes.push(`list-ordered`);
+		} else {
+			classes.push(`list-${variant == 'dl' ? 'definition' : 'unordered'}`);
+		}
+	}
+	const className = propClassName ? `${propClassName} ${classes.join(' ')}` : classes.join(' ');
+
+	// Set up ol attributes
 	const olAttributes = isOrdered ? { reversed, start, type: listType } : {};
 
 	return (
 		<Tag className={className} {...rest} {...olAttributes}>
 			{children}
 		</Tag>
+	);
+};
+
+export const ListItem = (props: ListItemProps) => {
+	const { children, term } = props;
+
+	return (
+		<div className="list-item-definition">
+			<dt>{term}</dt>
+			<dd>{children}</dd>
+		</div>
 	);
 };
 

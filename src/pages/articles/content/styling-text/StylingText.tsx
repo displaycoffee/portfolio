@@ -4,7 +4,7 @@ import { codeBlocks } from './scripts/styling-text-code-blocks';
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
 import { CodeBlock, CodeInline, Output } from '../../../../components/blocks/Blocks';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
 
 export const StylingText = () => {
 	const sections = [
@@ -37,24 +37,12 @@ export const StylingText = () => {
 					here in the beginning as the overall behavior should be treated the same way across CSS properties. Specifically, here are the
 					values I am referring to:
 				</p>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>inherit</dt>
-						<dd>The value is inherited by the parent element.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>initial</dt>
-						<dd>The default is determined by the browser.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>normal</dt>
-						<dd>Pretty much the same as initial.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>none</dt>
-						<dd>Resets the value back to the default.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="inherit">The value is inherited by the parent element.</ListItem>
+					<ListItem term="initial">The default is determined by the browser.</ListItem>
+					<ListItem term="normal">Pretty much the same as initial.</ListItem>
+					<ListItem term="none">Resets the value back to the default.</ListItem>
+				</List>
 				<p>
 					<strong>Please note:</strong> Not all CSS properties share the above values, but they are very common.
 				</p>
@@ -63,55 +51,35 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[1]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[0]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>family-name</dt>
-						<dd>A specific font. Names with spaces should have single or double quotes around them. (e.g. "Times New Roman").</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>generic-family</dt>
-						<dd>A font meant to be used as a fallback method.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="family-name">
+						A specific font. Names with spaces should have single or double quotes around them. (e.g. "Times New Roman").
+					</ListItem>
+					<ListItem term="generic-family">A font meant to be used as a fallback method.</ListItem>
+				</List>
 				<p>
 					Before getting into the <CodeInline>font-family</CodeInline> property, it may be important to know the difference between the two
 					major generic fonts families that we can use: <CodeInline>sans-serif</CodeInline> and <CodeInline>serif</CodeInline>.
 				</p>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>sans-serif</dt>
-						<dd>
-							<strong>Does not</strong> have hanging strokes or lines at the ends of characters (e.g. Arial, Vedana, Calibri, etc.).
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>serif</dt>
-						<dd>
-							<strong>Does</strong> have hanging strokes or lines at the ends of characters (e.g. Times New Roman, Garamond, Georgia,
-							etc.).
-						</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="sans-serif">
+						<strong>Does not</strong> have hanging strokes or lines at the ends of characters (e.g. Arial, Vedana, Calibri, etc.).
+					</ListItem>
+					<ListItem term="serif">
+						<strong>Does</strong> have hanging strokes or lines at the ends of characters (e.g. Times New Roman, Garamond, Georgia, etc.).
+					</ListItem>
+				</List>
 				<p>There are some other (less used) generic families that you may need on occasion as a fallback:</p>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>cursive</dt>
-						<dd>
-							Script type characters that are sometimes "joined" or brush-like in display. Might also be referred to as "script" (e.g.
-							Corsive, Zapfino, etc.).
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>fantasy</dt>
-						<dd>Decorative characters (e.g. Papyrus, Copperplate, Comic Sans, etc.).</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>monospace</dt>
-						<dd>
-							Characters are the same size and appear as if from a typewriter (e.g. Courier New, Lucida Sans Typewriter, Monaco, etc.).
-						</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="cursive">
+						Script type characters that are sometimes "joined" or brush-like in display. Might also be referred to as "script" (e.g.
+						Corsive, Zapfino, etc.).
+					</ListItem>
+					<ListItem term="fantasy">Decorative characters (e.g. Papyrus, Copperplate, Comic Sans, etc.).</ListItem>
+					<ListItem term="monospace">
+						Characters are the same size and appear as if from a typewriter (e.g. Courier New, Lucida Sans Typewriter, Monaco, etc.).
+					</ListItem>
+				</List>
 				<p>
 					The actual family that renders when one of these generic types is used depends on the browser and/or operating system. A font like
 					"Arial" can be widely found on both Windows and Mac, while something like Helvetica is used more on Mac rather than Windows.
@@ -145,53 +113,37 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[2]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[3]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>size</dt>
-						<dd>
-							A value such as xx-small, x-small, smaller, small, medium, large, larger, x-large, xx-large. Medium is the default value.
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>unit</dt>
-						<dd>A defined value measured with %, px, em, pt, cm, etc.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="size">
+						A value such as xx-small, x-small, smaller, small, medium, large, larger, x-large, xx-large. Medium is the default value.
+					</ListItem>
+					<ListItem term="unit">A defined value measured with %, px, em, pt, cm, etc.</ListItem>
+				</List>
 				<p>
 					There's something we should know about before using the <CodeInline>font-size</CodeInline> property and that is units of
 					measurement. There are quite a few, but let's focus on three: %, px and em.
 				</p>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>% (Percentage)</dt>
-						<dd>
-							Percentages are perhaps the most scalable of the units as they resize with whatever font size your browser is set to. You
-							can change the font size of your browser by pressing 'Control' and '+' on Windows.
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>em (Ems)</dt>
-						<dd>
-							A scalable unit equal to the current font size. I usually declare <CodeInline>font-size: 100%</CodeInline> on the{' '}
-							<CodeInline>body</CodeInline> element. If I set another size on a child element to <CodeInline>1.0em</CodeInline>, this
-							makes that font equal to <CodeInline>16px</CodeInline>. Whereas if I set the child element size to{' '}
-							<CodeInline>0.85em</CodeInline>, it's roughly equal to <CodeInline>14px</CodeInline>. This gets a little tricky when you
-							are changing sizes within child elements. If I had another child element within my element that had{' '}
-							<CodeInline>font-size: 0.85em</CodeInline>, my new child element will use <CodeInline>0.85em</CodeInline> to calculate any
-							size changes. In any case, <CodeInline>em</CodeInline> is pretty useful for designs that need to be responsive or
-							mobile-friendly.
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>px (Pixels)</dt>
-						<dd>
-							Fixed units of measurements that are not scalable. Using our previous example, if we set the <CodeInline>body</CodeInline>{' '}
-							to <CodeInline>font-size: 100%</CodeInline> then set a child element to <CodeInline>14px</CodeInline> or{' '}
-							<CodeInline>20px</CodeInline>, the percentage doesn't have any play in the rendered size. The pixel value will always be
-							what you set it as.
-						</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="% (Percentage)">
+						Percentages are perhaps the most scalable of the units as they resize with whatever font size your browser is set to. You can
+						change the font size of your browser by pressing 'Control' and '+' on Windows.
+					</ListItem>
+					<ListItem term="em (Ems)">
+						A scalable unit equal to the current font size. I usually declare <CodeInline>font-size: 100%</CodeInline> on the{' '}
+						<CodeInline>body</CodeInline> element. If I set another size on a child element to <CodeInline>1.0em</CodeInline>, this makes
+						that font equal to <CodeInline>16px</CodeInline>. Whereas if I set the child element size to <CodeInline>0.85em</CodeInline>,
+						it's roughly equal to <CodeInline>14px</CodeInline>. This gets a little tricky when you are changing sizes within child
+						elements. If I had another child element within my element that had <CodeInline>font-size: 0.85em</CodeInline>, my new child
+						element will use <CodeInline>0.85em</CodeInline> to calculate any size changes. In any case, <CodeInline>em</CodeInline> is
+						pretty useful for designs that need to be responsive or mobile-friendly.
+					</ListItem>
+					<ListItem term="px (Pixels)">
+						Fixed units of measurements that are not scalable. Using our previous example, if we set the <CodeInline>body</CodeInline> to{' '}
+						<CodeInline>font-size: 100%</CodeInline> then set a child element to <CodeInline>14px</CodeInline> or{' '}
+						<CodeInline>20px</CodeInline>, the percentage doesn't have any play in the rendered size. The pixel value will always be what
+						you set it as.
+					</ListItem>
+				</List>
 				<CodeBlock header={'HTML'}>{codeBlocks[4]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[5]}</CodeBlock>
 				<Output className="output-articles output-font-size" code={codeBlocks[4]} />
@@ -200,12 +152,9 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[3]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[6]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>length</dt>
-						<dd>A defined value measured with %, px, em, pt, cm, etc. It can also be unitless.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="length">A defined value measured with %, px, em, pt, cm, etc. It can also be unitless.</ListItem>
+				</List>
 				<p>
 					I'd like to discuss the <CodeInline>line-height</CodeInline> property next as I always felt this goes hand-in-hand with font
 					sizes. <CodeInline>line-height</CodeInline> is a property that defines the amount of spacing in-between lines of text. I often see
@@ -262,24 +211,12 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[4]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[13]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>bold</dt>
-						<dd>Turns font bold.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>lighter</dt>
-						<dd>The font is lighter.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>bolder</dt>
-						<dd>The font is bolder.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>numeric</dt>
-						<dd>Differing weights such as 100, 200, 300, 400, 500, 600, 700, 800 and 900.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="bold">Turns font bold.</ListItem>
+					<ListItem term="bolder">The font is bolder.</ListItem>
+					<ListItem term="lighter">The font is lighter.</ListItem>
+					<ListItem term="numeric">Differing weights such as 100, 200, 300, 400, 500, 600, 700, 800 and 900.</ListItem>
+				</List>
 				<p>
 					After all that confusing math about <CodeInline>font-size</CodeInline> and <CodeInline>line-height</CodeInline>, we're going to
 					get decorating text starting with the property <CodeInline>font-weight</CodeInline>. This property determines how bold or light
@@ -302,22 +239,16 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[5]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[16]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>italic</dt>
-						<dd>
-							Searches for an italic version of the font if one is available. If there is none, it gets set to "oblique". Italic fonts
-							are usually cursive or script like in nature.
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>oblique</dt>
-						<dd>
-							A slanted version of the font used when an italic version is not present. If neither italic nor oblique are available, the
-							font becomes slanted to give it the effect of italics.
-						</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="italic">
+						Searches for an italic version of the font if one is available. If there is none, it gets set to "oblique". Italic fonts are
+						usually cursive or script like in nature.
+					</ListItem>
+					<ListItem term="oblique">
+						A slanted version of the font used when an italic version is not present. If neither italic nor oblique are available, the
+						font becomes slanted to give it the effect of italics.
+					</ListItem>
+				</List>
 				<p>
 					The <CodeInline>font-style</CodeInline> property has similarities with <CodeInline>font-weight</CodeInline>. Setting a font style
 					to italic will slant the font even if there is not an italic version of the font. There is a difference though between using
@@ -332,12 +263,9 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[6]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[19]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>small-caps</dt>
-						<dd>Turns all characters to caps and decreases their size.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="small-caps">Turns all characters to caps and decreases their size.</ListItem>
+				</List>
 				<p>
 					There's not much to say about the <CodeInline>font-variant</CodeInline> property. It actually has a lot of values, but the one
 					thing you may find useful is <CodeInline>small-caps</CodeInline>. This value will change everything to caps, but makes the rest of
@@ -353,23 +281,14 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[7]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[22]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>capitalize</dt>
-						<dd>
-							Capitalizes the first letter of every word. If another character, such as the second or third character is capitalized, it
-							does nothing to this character.
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>lowercase</dt>
-						<dd>Changes all characters to lowercase.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>uppercase</dt>
-						<dd>Changes all characters to uppercase.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="capitalize">
+						Capitalizes the first letter of every word. If another character, such as the second or third character is capitalized, it
+						does nothing to this character.
+					</ListItem>
+					<ListItem term="lowercase">Changes all characters to lowercase.</ListItem>
+					<ListItem term="uppercase">Changes all characters to uppercase.</ListItem>
+				</List>
 				<p>
 					Transforming text gives us the flexibility to change the formatting of the text without worrying about how a user has input a
 					value. I often see alot of forum admins asking their users to register in all caps or lowercase, but this effect can usually be
@@ -389,27 +308,15 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[8]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[25]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>blink</dt>
-						<dd>
-							Makes the text blink or flash. Though you can use this property, in a lot of browsers it's disabled. Probably for a good
-							reason.
-						</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>line-through</dt>
-						<dd>Places a 1px line through the text.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>overline</dt>
-						<dd>Places a 1px line above the text.</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>underline</dt>
-						<dd>Places a 1px line below the text.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="blink">
+						Makes the text blink or flash. Though you can use this property, in a lot of browsers it's disabled. Probably for a good
+						reason.
+					</ListItem>
+					<ListItem term="line-through">Places a 1px line through the text.</ListItem>
+					<ListItem term="overline">Places a 1px line above the text.</ListItem>
+					<ListItem term="underline">Places a 1px line below the text.</ListItem>
+				</List>
 				<p>
 					My favorite value out of all <CodeInline>text-decoration</CodeInline> choices above is "none". I state this because I often use
 					the value "none" to remove the underline from a link element. The other properties should be used mostly for emphasis and I
@@ -430,12 +337,9 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[9]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[28]}</CodeBlock>
 				<h4>Values</h4>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>length</dt>
-						<dd>A defined value usually measured with %, px, em, pt, cm, etc.</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="length">A defined value usually measured with %, px, em, pt, cm, etc.</ListItem>
+				</List>
 				<p>
 					The <CodeInline>letter-spacing</CodeInline> property controls how much space is in-between each character. Positive values spread
 					characters out, where negative values bring the letters closer together. (You probably shouldn't use negative values <em>too</em>{' '}

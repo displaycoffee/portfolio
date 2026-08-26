@@ -5,32 +5,20 @@ import { codeBlocks } from './scripts/view-transitions-code-blocks';
 import { ViewTransitions as ViewTransitionsPreview } from './ViewTransitionsPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
 
 export const ViewTransitions = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Medium</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>React, JavaScript, and CSS or Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Support</dt>
-						<dd>
-							<LinkExternal href="//caniuse.com/view-transitions">caniuse</LinkExternal>
-						</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Medium</ListItem>
+					<ListItem term="Languages">React, JavaScript, and CSS or Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+					<ListItem term="Support">
+						<LinkExternal href="//caniuse.com/view-transitions">caniuse</LinkExternal>
+					</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>

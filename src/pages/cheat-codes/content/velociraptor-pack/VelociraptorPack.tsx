@@ -5,30 +5,18 @@ import { codeBlocks } from './scripts/velociraptor-pack-code-blocks';
 import { VelociraptorPack as VelociraptorPackPreview } from './VelociraptorPackPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
 
 export const VelociraptorPack = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Easy</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>HTML or React, CSS or Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Credits</dt>
-						<dd>Image from Jurrasic World</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Easy</ListItem>
+					<ListItem term="Languages">HTML or React, CSS or Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+					<ListItem term="Credits">Image from Jurrasic World</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>

@@ -5,26 +5,17 @@ import { codeBlocks } from './scripts/framer-motion-code-blocks';
 import { FramerMotion as FramerMotionPreview } from './FramerMotionPreview';
 import { CheatCodesSection } from '../../CheatCodes';
 import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
 
 export const FramerMotion = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Medium</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>React, JavaScript, and CSS or Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Medium</ListItem>
+					<ListItem term="Languages">React, JavaScript, and CSS or Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>

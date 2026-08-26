@@ -13,6 +13,7 @@ import { articles } from './scripts/articles';
 /* Components */
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
+import { List } from '../../components/blocks-2/Blocks';
 import { Icon } from '../../components/icons/Icons';
 import { BoxSizing } from './content/box-sizing/BoxSizing';
 import { StructuringCode } from './content/structuring-code/StructuringCode';
@@ -117,7 +118,7 @@ export const ArticlesToC = (props: ArticlesToCProps) => {
 		<div className="articles-toc">
 			<h3>Table of Contents</h3>
 
-			<ol>
+			<List variant="ol">
 				{sections.map((section) => (
 					<li key={section}>
 						<button
@@ -130,7 +131,7 @@ export const ArticlesToC = (props: ArticlesToCProps) => {
 						</button>
 					</li>
 				))}
-			</ol>
+			</List>
 		</div>
 	);
 };
