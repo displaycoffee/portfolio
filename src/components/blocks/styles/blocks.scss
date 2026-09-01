@@ -15,7 +15,7 @@
 
 	// Style block
 
-	.button {
+	.button2 {
 		position: relative;
 		display: inline-block;		
 		border: 0;
@@ -54,29 +54,30 @@
 			line-height: calc(20px + $pixel-size);
 		}
 	}
-	.button-primary {	
+	.butto2-primary {	
 		text-shadow: 2px 2px 0 theme.$color-05;
 		&, &:before, &:after {
 			background-color: theme.$color-06;
 		}
 	}
-	.button-secondary {
+	.button2-secondary {
 		text-shadow: 2px 2px 0 theme.$color-09;
 		&, &:before, &:after {
 			background-color: theme.$color-05;
 		}
-	}	@include mixins.respond-min(theme.$bp-02) {
-		.button {
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.button2 {
 			padding: 0 theme.$spacing-x4;
 			font-size: functions.em(14px, rem);
 		}
-		.button-primary:not(.active):hover {
+		.button2-primary:not(.active):hover {
 			text-shadow: 2px 2px 0 theme.$color-09;
 			&, &:before, &:after {
 				background-color: theme.$color-05;
 			}
 		}
-		.button-secondary:not(.active):hover {
+		.button2-secondary:not(.active):hover {
 			text-shadow: 2px 2px 0 theme.$color-05;
 			&, &:before, &:after {
 				background-color: theme.$color-06;
