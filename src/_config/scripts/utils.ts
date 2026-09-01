@@ -96,6 +96,10 @@ export const utils: UtilsType = {
 			.replace(/[^\w\s]/g, '')
 			.replace(/\s/g, '-');
 	},
+	linkExternal: (href: string, label: string) => {
+		// Create external url in HTML string
+		return `<a href="${href}" target="_blank" rel="noreferrer">${label}<span class="sr-only"> (opens in a new tab)</span></a>`;
+	},
 	scrollTo: (e?: EventsType, selector?: string, offset?: number) => {
 		// Scroll to element on page
 		if (e) {

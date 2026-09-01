@@ -145,6 +145,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 											className={isActive ? 'active' : ''}
 											label={tab}
 											variant={isActive ? 'secondary' : 'primary'}
+											aria-pressed={isActive}
 											onClick={() => setTab(tab)}
 										/>
 									</div>

@@ -1,3 +1,6 @@
+/* Scripts */
+import { utils } from '../../../_config/scripts/utils';
+
 const distPath = '/assets/images/';
 const artPath = `${distPath}art/`;
 
@@ -20,7 +23,7 @@ export const art = [
 		date: '11.20.22',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `A blue support materia, which is used for the <a href="//ff7forstjude.org" target="_blank" rel="noreferrer">FF7 for St. Jude</a> page as the favicon.`,
+		description: `A blue support materia, which is used for the ${utils.linkExternal('//ff7forstjude.org', 'FF7 for St. Jude')} page as the favicon.`,
 	},
 	{
 		id: 69,
@@ -30,7 +33,7 @@ export const art = [
 		date: '12.04.21',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Does a sad bread make itself soggy? For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `Does a sad bread make itself soggy? For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 68,
@@ -40,7 +43,7 @@ export const art = [
 		date: '12.04.21',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `I kinda hate this one, lol, but it's bread with materia slots. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `I kinda hate this one, lol, but it's bread with materia slots. For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 67,
@@ -50,7 +53,7 @@ export const art = [
 		date: '11.28.21',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Currency with a bread icon. It's even animated! For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `Currency with a bread icon. It's even animated! For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 66,
@@ -60,7 +63,7 @@ export const art = [
 		date: '11.26.21',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Okay, it's not really bread, but a tombstone shaped like bread. I felt kinda clever. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `Okay, it's not really bread, but a tombstone shaped like bread. I felt kinda clever. For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 65,
@@ -70,7 +73,7 @@ export const art = [
 		date: '11.26.21',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `The bread is back and this one is mad. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `The bread is back and this one is mad. For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 64,
@@ -80,7 +83,7 @@ export const art = [
 		date: '03.13.21',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `A heart badge for a Valentine's Day writing prompt event at <a href="//khyeras.org" target="_blank" rel="noreferrer">Khy'eras</a>.`,
+		description: `A heart badge for a Valentine's Day writing prompt event at ${utils.linkExternal('//khyeras.org', 'Khy\u0027eras')}.`,
 	},
 	{
 		id: 63,
@@ -90,7 +93,7 @@ export const art = [
 		date: '12.20.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Feena from "Grandia" doing a little wave. For my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
+		description: `Feena from "Grandia" doing a little wave. For my ${utils.linkExternal('//twitch.tv/displaycoffee', 'channel')}.`,
 	},
 	{
 		id: 62,
@@ -100,7 +103,7 @@ export const art = [
 		date: '12.20.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Alundra from "Alundra" thinking about puzzles. For my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
+		description: `Alundra from "Alundra" thinking about puzzles. For my ${utils.linkExternal('//twitch.tv/displaycoffee', 'channel')}.`,
 	},
 	{
 		id: 61,
@@ -110,7 +113,7 @@ export const art = [
 		date: '12.20.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Frog from "Chrono Trigger" for my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
+		description: `Frog from "Chrono Trigger" for my ${utils.linkExternal('//twitch.tv/displaycoffee', 'channel')}.`,
 	},
 	{
 		id: 60,
@@ -120,7 +123,7 @@ export const art = [
 		date: '10.25.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `A pumpkin badge for a Halloween writing prompt event at <a href="//khyeras.org" target="_blank" rel="noreferrer">Khy'eras</a>.`,
+		description: `A pumpkin badge for a Halloween writing prompt event at ${utils.linkExternal('//khyeras.org', 'Khy\u0027eras')}.`,
 	},
 	{
 		id: 59,
@@ -130,7 +133,7 @@ export const art = [
 		date: '08.24.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `I created this for my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>, but ended up removing it. It's Toothless from "How to Train Your Dragon" waving.`,
+		description: `I created this for my ${utils.linkExternal('//twitch.tv/displaycoffee', 'channel')}, but ended up removing it. It's Toothless from "How to Train Your Dragon" waving.`,
 	},
 	{
 		id: 58,
@@ -140,7 +143,7 @@ export const art = [
 		date: '07.25.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Also known as "get good". For <a href="//twitch.tv/chestermcfisty" target="_blank" rel="noreferrer">chestermcfisty</a>.`,
+		description: `Also known as "get good". For ${utils.linkExternal('//twitch.tv/chestermcfisty', 'chestermcfisty')}.`,
 	},
 	{
 		id: 57,
@@ -150,7 +153,7 @@ export const art = [
 		date: '07.19.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `<a href="//twitch.tv/scubasaul" target="_blank" rel="noreferrer">scubasaul</a>'s safe word to get a hint in a game is "pineapple", so I made him a not-so-impressed Terminator pineapple.`,
+		description: `${utils.linkExternal('//twitch.tv/scubasaul', 'scubasaul')}'s safe word to get a hint in a game is "pineapple", so I made him a not-so-impressed Terminator pineapple.`,
 	},
 	{
 		id: 56,
@@ -160,7 +163,7 @@ export const art = [
 		date: '07.12.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `A coffee bean used for the channel point icon on my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
+		description: `A coffee bean used for the channel point icon on my ${utils.linkExternal('//twitch.tv/displaycoffee', 'channel')}.`,
 	},
 	{
 		id: 55,
@@ -170,7 +173,7 @@ export const art = [
 		date: '07.11.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a red coffee mug with a paw print.`,
+		description: `${utils.linkExternal('//twitch.tv/displaycoffee', 'My')} sub-badge of a red coffee mug with a paw print.`,
 	},
 	{
 		id: 54,
@@ -180,7 +183,7 @@ export const art = [
 		date: '07.11.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a purple coffee mug with a starburst (not the candy).`,
+		description: `${utils.linkExternal('//twitch.tv/displaycoffee', 'My')} sub-badge of a purple coffee mug with a starburst (not the candy).`,
 	},
 	{
 		id: 53,
@@ -190,7 +193,7 @@ export const art = [
 		date: '07.11.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a orange coffee mug with a crescent moon.`,
+		description: `${utils.linkExternal('//twitch.tv/displaycoffee', 'My')} sub-badge of a orange coffee mug with a crescent moon.`,
 	},
 	{
 		id: 52,
@@ -200,7 +203,7 @@ export const art = [
 		date: '07.11.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a green coffee mug with a swirl.`,
+		description: `${utils.linkExternal('//twitch.tv/displaycoffee', 'My')} sub-badge of a green coffee mug with a swirl.`,
 	},
 	{
 		id: 51,
@@ -210,7 +213,7 @@ export const art = [
 		date: '07.11.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `<a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">My</a> sub-badge of a blue coffee mug with a heart.`,
+		description: `${utils.linkExternal('//twitch.tv/displaycoffee', 'My')} sub-badge of a blue coffee mug with a heart.`,
 	},
 	{
 		id: 50,
@@ -220,7 +223,7 @@ export const art = [
 		date: '07.11.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Vivi from Final Fantasy IX. For my <a href="//twitch.tv/displaycoffee" target="_blank" rel="noreferrer">channel</a>.`,
+		description: `Vivi from Final Fantasy IX. For my ${utils.linkExternal('//twitch.tv/displaycoffee', 'channel')}.`,
 	},
 	{
 		id: 49,
@@ -230,7 +233,7 @@ export const art = [
 		date: '07.05.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `A medkit for all those viewers that support <a href="//twitch.tv/novakatebs" target="_blank" rel="noreferrer">novakatebs</a>.`,
+		description: `A medkit for all those viewers that support ${utils.linkExternal('//twitch.tv/novakatebs', 'novakatebs')}.`,
 	},
 	{
 		id: 48,
@@ -240,7 +243,7 @@ export const art = [
 		date: '07.05.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Gold knuckles with GGEZ. I think that's "good game easy" for all you hip youngesters out there. For <a href="//twitch.tv/chestermcfisty" target="_blank" rel="noreferrer">chestermcfisty</a>.`,
+		description: `Gold knuckles with GGEZ. I think that's "good game easy" for all you hip youngesters out there. For ${utils.linkExternal('//twitch.tv/chestermcfisty', 'chestermcfisty')}.`,
 	},
 	{
 		id: 47,
@@ -250,7 +253,7 @@ export const art = [
 		date: '07.04.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `An enraged, tilted <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a>.`,
+		description: `An enraged, tilted ${utils.linkExternal('//twitch.tv/savko', 'savko')}.`,
 	},
 	{
 		id: 46,
@@ -260,7 +263,7 @@ export const art = [
 		date: '07.04.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `An attempt at platforming for <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a> as there's always some sort of fail.`,
+		description: `An attempt at platforming for ${utils.linkExternal('//twitch.tv/savko', 'savko')} as there's always some sort of fail.`,
 	},
 	{
 		id: 45,
@@ -270,7 +273,7 @@ export const art = [
 		date: '07.04.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `One of my favorite RPG / fantasy monsters, the mimic. For <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a>.`,
+		description: `One of my favorite RPG / fantasy monsters, the mimic. For ${utils.linkExternal('//twitch.tv/savko', 'savko')}.`,
 	},
 	{
 		id: 44,
@@ -280,7 +283,7 @@ export const art = [
 		date: '07.03.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Made for <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a> as he always has the coolest stories to tell.`,
+		description: `Made for ${utils.linkExternal('//twitch.tv/savko', 'savko')} as he always has the coolest stories to tell.`,
 	},
 	{
 		id: 43,
@@ -290,7 +293,7 @@ export const art = [
 		date: '07.03.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Was Kate right? According to <a href="//twitch.tv/savko" target="_blank" rel="noreferrer">savko</a> she was, so we gave her a little crown.`,
+		description: `Was Kate right? According to ${utils.linkExternal('//twitch.tv/savko', 'savko')} she was, so we gave her a little crown.`,
 	},
 	{
 		id: 42,
@@ -300,7 +303,7 @@ export const art = [
 		date: '06.06.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Just bread saying hello. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `Just bread saying hello. For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 41,
@@ -310,7 +313,7 @@ export const art = [
 		date: '06.06.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `That's some shiny bread. Probably doesn't taste good. For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `That's some shiny bread. Probably doesn't taste good. For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 40,
@@ -330,7 +333,7 @@ export const art = [
 		date: '05.23.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Smile. &#128512; For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `Smile. &#128512; For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 38,
@@ -340,7 +343,7 @@ export const art = [
 		date: '05.23.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `This bread is in love. <3 For <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `This bread is in love. <3 For ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 37,
@@ -350,7 +353,7 @@ export const art = [
 		date: '05.07.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Well done toast for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `Well done toast for ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 36,
@@ -360,7 +363,7 @@ export const art = [
 		date: '04.30.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Bread sub-badges for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>. We didn't use all of these, but the gradient is cool.`,
+		description: `Bread sub-badges for ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}. We didn't use all of these, but the gradient is cool.`,
 	},
 	{
 		id: 35,
@@ -370,7 +373,7 @@ export const art = [
 		date: '04.30.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `Dead Bread for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>. Reminds us of the Nirvana smiley face, most likely inspired by it.`,
+		description: `Dead Bread for ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}. Reminds us of the Nirvana smiley face, most likely inspired by it.`,
 	},
 	{
 		id: 34,
@@ -380,7 +383,7 @@ export const art = [
 		date: '04.17.20',
 		mediums: 'Aseprite',
 		categories: 'Pixels',
-		description: `My first twitch emote for <a href="//twitch.tv/toast_matt" target="_blank" rel="noreferrer">toast_matt</a>.`,
+		description: `My first twitch emote for ${utils.linkExternal('//twitch.tv/toast_matt', 'toast_matt')}.`,
 	},
 	{
 		id: 33,
@@ -390,7 +393,7 @@ export const art = [
 		date: '12.12.19',
 		mediums: 'Photoshop',
 		categories: 'Digital',
-		description: `My second attempt at making a map, for Khy'eras, and a much improved version. This is an interactive version of the map <a href="//khyeras.org/setting-map" target="_blank" rel="noreferrer">found here</a>.`,
+		description: `My second attempt at making a map, for Khy'eras, and a much improved version. This is an interactive version of the map ${utils.linkExternal('//khyeras.org/setting-map', 'found here')}.`,
 	},
 	{
 		id: 32,
