@@ -3,7 +3,7 @@ import { codeBlocks } from './scripts/box-sizing-code-blocks';
 
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
-import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
+import { CodeBlock, CodeInline, LinkExternal } from '../../../../components/blocks/Blocks';
 import { Image } from '../../../../components/image/Image';
 
 export const BoxSizing = () => {
@@ -149,11 +149,9 @@ export const BoxSizing = () => {
 				</p>
 				<p>
 					As for browser support, unless you're using IE 6 - 7 (???), you can pretty much{' '}
-					<a href="//caniuse.com/?search=box-sizing" target="_blank" rel="noreferrer">
-						use it with everything
-					</a>
-					. Go nuts. In my examples above, I include box-sizing vendor prefixes (<CodeInline>-webkit-box-sizing</CodeInline> and{' '}
-					<CodeInline>-moz-box-sizing</CodeInline>), but these days, it's really not necessary.
+					<LinkExternal href="//caniuse.com/?search=box-sizing">use it with everything</LinkExternal>. Go nuts. In my examples above, I
+					include box-sizing vendor prefixes (<CodeInline>-webkit-box-sizing</CodeInline> and <CodeInline>-moz-box-sizing</CodeInline>), but
+					these days, it's really not necessary.
 				</p>
 			</ArticlesSection>
 

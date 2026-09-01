@@ -4,46 +4,33 @@ import { codeBlocks } from './scripts/banner-code-generator-code-blocks';
 /* Components */
 import { BannerCodeGenerator as BannerCodeGeneratorPreview } from './BannerCodeGeneratorPreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const BannerCodeGenerator = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Medium</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>HTML / JavaScript or React, CSS or Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Medium</ListItem>
+					<ListItem term="Languages">HTML / JavaScript or React, CSS or Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/banner-code-generator" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/banner-code-generator">
 						View @ displaycoffee
-					</a>
+					</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>If using HTML and not React, copy the template HTML and place it on the page.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.html"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.html">
 						banner-code-generator/banner-code-generator.html
-					</a>
+					</LinkExternal>
 				</p>
 				<p>
 					For multiple generators, duplicate the <CodeInline>dc-banner-code-generator</CodeInline> element and anything inside of it. Change
@@ -55,13 +42,9 @@ export const BannerCodeGenerator = () => {
 				<h4 className="h-remove-shadow">JavaScript</h4>
 				<p>If using JavaScript and not React, copy the script from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.js"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.js">
 						banner-code-generator/banner-code-generator.js
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Script block'}>{codeBlocks[1]}</CodeBlock>
 				<CodeBlock header={'Script src'}>{codeBlocks[2]}</CodeBlock>
@@ -78,13 +61,9 @@ export const BannerCodeGenerator = () => {
 				<h4 className="h-remove-shadow">React</h4>
 				<p>If using React and not JavaScript, copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/BannerCodeGenerator.jsx"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/BannerCodeGenerator.jsx">
 						banner-code-generator/BannerCodeGenerator.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[5]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[6]}</CodeBlock>
@@ -100,13 +79,9 @@ export const BannerCodeGenerator = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.css"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.css">
 						banner-code-generator/banner-code-generator.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[8]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[9]}</CodeBlock>
@@ -116,13 +91,9 @@ export const BannerCodeGenerator = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/banner-code-generator/banner-code-generator.scss">
 						banner-code-generator/banner-code-generator.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[12]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[13]}</CodeBlock>

@@ -36,8 +36,11 @@
 					}	
 				}
 			}
-			a:hover {
-				color: inherit;
+			a {
+				&:active, &:hover {
+					color: inherit;
+					text-decoration: none;
+				}
 			}
 			.header-type {
 				font-size: functions.em(16px, rem);

@@ -2,7 +2,7 @@
 import './styles/contents.scss';
 
 /* Packages */
-import { MouseEvent, useEffect, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
@@ -22,7 +22,8 @@ import { contents as contentsUtils } from './scripts/contents';
 
 /* Components */
 import { Image } from '../image/Image';
-import { Button, HeaderIcon, PixelSection } from '../blocks/Blocks';
+import { HeaderIcon, PixelBlock } from '../blocks/Blocks';
+import { Button } from '../forms/Forms';
 
 export const Contents = (props: ContentsProps) => {
 	const { children, navigation, type, values } = props;
@@ -88,11 +89,6 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	values.sort((a, b) => {
 		return (b.timestamp as number) - (a.timestamp as number);
 	});
-
-	// Once tags are built, set tags
-	useEffect(() => {
-		setTags(tags);
-	}, [tags]);
 
 	// Function to transition tags
 	const transitionTags = (tags: ContentsTagsType) => {
@@ -177,7 +173,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 		<div className="contents">
 			{searchParams ? (
 				<div className="contents-clear">
-					<Button onClick={(e: MouseEvent<HTMLButtonElement>) => handleClear(e)}>Clear tags</Button>
+					<Button label={'Clear tags'} onClick={(e: MouseEvent<HTMLButtonElement>) => handleClear(e)} />
 				</div>
 			) : null}
 
@@ -237,12 +233,13 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 										return (
 											<div className="contents-tags-column" key={index}>
 												<Button
-													type={tag.active ? 'secondary active' : 'primary'}
+													className={tag.active ? 'active' : ''}
+													label={tag.label}
 													size={'x-small'}
+													variant={tag.active ? 'secondary' : 'primary'}
+													aria-pressed={tag.active}
 													onClick={(e: MouseEvent<HTMLButtonElement>) => handleTag(e, tag)}
-												>
-													{tag.label}
-												</Button>
+												/>
 											</div>
 										);
 									})}
@@ -304,8 +301,11 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 									return (
 										<div className="contents-tags-column" key={index}>
 											<Button
-												type={tag.active ? 'secondary active' : 'primary'}
+												className={tag.active ? 'active' : ''}
+												label={tag.label}
 												size={'x-small'}
+												variant={tag.active ? 'secondary' : 'primary'}
+												aria-pressed={tag.active}
 												onClick={(e: MouseEvent<HTMLButtonElement>) => {
 													// Set up current param
 													const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
@@ -324,9 +324,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 													// Go back to content back with param
 													handleTransition(e, tagUrl);
 												}}
-											>
-												{tag.label}
-											</Button>
+											/>
 										</div>
 									);
 								})}
@@ -347,7 +345,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 
 				<div className="contents-body margin-trim">{children}</div>
 
-				<PixelSection navigation={navigationProps} />
+				<PixelBlock navigation={navigationProps} />
 			</div>
 		) : (
 			<Navigate to={parentPage} replace />

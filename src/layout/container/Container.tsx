@@ -10,7 +10,7 @@ import { useAppContext } from '../../context/scripts/context-hooks';
 import { useBodyClass } from './scripts/container-hooks';
 
 /* Components */
-import { PixelSection } from '../../components/blocks/Blocks';
+import { PixelBlock } from '../../components/blocks/Blocks';
 import { Navigation } from '../../components/navigation/Navigation';
 import { ErrorBoundary } from '../../components/error-boundary/ErrorBoundary';
 import { Slideout, SlideoutOverlay } from '../../components/slideout/Slideout';
@@ -30,7 +30,6 @@ export const Container = () => {
 		id: 'menu',
 		isDesktop: isDesktop,
 		label: 'Menu',
-		closeOnClick: true,
 		button: {
 			outside: true,
 			show: true,
@@ -48,9 +47,9 @@ export const Container = () => {
 
 				<Header />
 
-				<PixelSection className={'navigation-block'}>
+				<PixelBlock className={'navigation-block'}>
 					{isDesktop ? <Navigation label={'Header Navigation'} /> : <Slideout options={slideoutOptions} />}
-				</PixelSection>
+				</PixelBlock>
 
 				{isDesktop ? null : (
 					<Slideout

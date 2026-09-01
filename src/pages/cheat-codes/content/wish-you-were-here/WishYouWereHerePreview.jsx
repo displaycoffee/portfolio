@@ -17,7 +17,7 @@ export const WishYouWereHere = () => {
 				<main className="dc-wish-you-were-here-content">
 					<div className="dc-wish-you-were-here-row">
 						<div className="dc-wish-you-were-here-column dc-wish-you-were-here-column-01">
-							<dl>
+							<List>
 								<dt>Name:</dt>
 								<dd>Beach Goer</dd>
 								<dt>Gender:</dt>
@@ -36,7 +36,7 @@ export const WishYouWereHere = () => {
 								<dd>Another answer</dd>
 								<dt>Another Field:</dt>
 								<dd>Another answer</dd>
-							</dl>
+							</List>
 							<p>
 								<a href="/">Link 01</a>
 								<span className="dc-wish-you-were-here-separator"></span>

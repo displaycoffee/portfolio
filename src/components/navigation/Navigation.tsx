@@ -14,6 +14,7 @@ import { navigationRoutes } from './scripts/navigation-routes';
 
 /* Components */
 import { Icon } from '../icons/Icons';
+import { LinkExternal, List } from '../blocks/Blocks';
 
 /* Get navigation menu */
 const navigationList = navigationUtils.get.list();
@@ -31,7 +32,7 @@ export const Navigation = (props: NavigationComponentProps) => {
 
 	return navigationList.length != 0 ? (
 		<nav className="navigation" aria-label={label}>
-			<ul className="navigation-list unstyled">
+			<List className="navigation-list" variant="ul-unstyled">
 				{navigationList.map((nav) => {
 					return (
 						<Fragment key={nav.id}>
@@ -39,7 +40,7 @@ export const Navigation = (props: NavigationComponentProps) => {
 						</Fragment>
 					);
 				})}
-			</ul>
+			</List>
 		</nav>
 	) : null;
 };
@@ -61,10 +62,10 @@ export const NavigationListItem = (props: NavigationListItemProps) => {
 					{nav.label}
 				</NavLink>
 			) : (
-				<a href={nav.url} target="_blank" rel="noreferrer">
+				<LinkExternal href={nav.url}>
 					<Icon animate={'left'} id={'bullet'} />
 					{nav.label}
-				</a>
+				</LinkExternal>
 			)}
 
 			{children}

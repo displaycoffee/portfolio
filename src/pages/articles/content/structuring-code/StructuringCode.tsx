@@ -3,7 +3,7 @@ import { codeBlocks } from './scripts/structuring-code-code-blocks';
 
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
-import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List } from '../../../../components/blocks/Blocks';
 
 export const StructuringCode = () => {
 	const sections = ['Introduction', 'Classes versus IDs', "Don't Be Generic", 'Formatting CSS', 'Tabbing', 'Comments', 'Choosing Fonts', 'Closing'];
@@ -27,11 +27,11 @@ export const StructuringCode = () => {
 					You may also be wondering why you should even care what your code looks like when you're merely providing it for free. There are
 					benefits to providing good code.
 				</p>
-				<ul>
+				<List>
 					<li>You're making it easier for people to understand and the masses will love you for it.</li>
 					<li>Less people ask you questions in the future about issues that might arise.</li>
 					<li>Proper code documentation means people can customize things to their liking.</li>
-				</ul>
+				</List>
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[1]}>
@@ -145,19 +145,12 @@ export const StructuringCode = () => {
 				</p>
 				<p>
 					In the end, if I need to read your CSS, I can copy the code and put it in one of the many CSS Beautifiers found around the
-					internet (or use{' '}
-					<a href="//code.visualstudio.com" target="_blank" rel="noreferrer">
-						VS Code
-					</a>{' '}
-					formatters). Take for example the following:
+					internet (or use <LinkExternal href="//code.visualstudio.com">VS Code</LinkExternal> formatters). Take for example the following:
 				</p>
 				<CodeBlock header={'CSS'}>{codeBlocks[11]}</CodeBlock>
 				<p>
 					Yikes, right? I'm just going to take that and paste it into{' '}
-					<a href="//codebeautify.org/css-beautify-minify" target="_blank" rel="noreferrer">
-						CSS Beautifier
-					</a>{' '}
-					and end up with the following:
+					<LinkExternal href="//codebeautify.org/css-beautify-minify">CSS Beautifier</LinkExternal> and end up with the following:
 				</p>
 				<CodeBlock header={'CSS'}>{codeBlocks[12]}</CodeBlock>
 			</ArticlesSection>
@@ -201,16 +194,9 @@ export const StructuringCode = () => {
 					I want to preface this section by saying, I love being able to use hosted font families. Back when I began coding, that was not an
 					option and I was left to use standard, browser provided fonts. And even then, I had to determine what percentage of that font
 					worked on Mac and what percentage worked on Windows. These days, adding different fonts is amazingly easy thanks in part to things
-					like{' '}
-					<a href="//fonts.google.com" target="_blank" rel="noreferrer">
-						Google Fonts
-					</a>
-					. New font styles don't end with Google. We can get even more decorative by uploading fonts to our web servers that are permitted
-					for web usage and turning them into{' '}
-					<a href="//www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="noreferrer">
-						font kits
-					</a>
-					.
+					like <LinkExternal href="//fonts.google.com">Google Fonts</LinkExternal>. New font styles don't end with Google. We can get even
+					more decorative by uploading fonts to our web servers that are permitted for web usage and turning them into{' '}
+					<LinkExternal href="//www.fontsquirrel.com/tools/webfont-generator">font kits</LinkExternal>.
 				</p>
 				<p>
 					All of that said, I completely understand the temptation to add Google Fonts to your templates. I'm not saying don't do it, but

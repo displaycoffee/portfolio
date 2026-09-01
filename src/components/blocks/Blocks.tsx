@@ -6,28 +6,21 @@ import { RefObject, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 /* Scripts */
-import { ButtonProps, CodeBlockProps, CodeInlineProps, HeaderIconProps, OutputProps, PixelSectionProps, PreviewProps } from './scripts/blocks-types';
+import {
+	CodeBlockProps,
+	CodeInlineProps,
+	HeaderIconProps,
+	LinkExternalProps,
+	ListProps,
+	ListItemProps,
+	OutputProps,
+	PixelBlockProps,
+	PreviewProps,
+} from './scripts/blocks-types';
 
 /* Components */
+import { Button } from '../forms/Forms';
 import { Icon } from '../icons/Icons';
-
-export const Button = (props: ButtonProps) => {
-	const { children, className, onClick, size } = props;
-	let type = props.type;
-	type = typeof type == 'undefined' ? 'primary' : type;
-	const buttonClass = className ? `${className} ` : '';
-
-	return (
-		<button
-			className={`${buttonClass}button button-${type}${size ? ' button-' + size : ''}`}
-			type="button"
-			aria-label={`${children} button`}
-			onClick={(e) => onClick(e)}
-		>
-			<span>{children}</span>
-		</button>
-	);
-};
 
 export const CodeBlock = (props: CodeBlockProps) => {
 	const { className, header } = props;
@@ -62,9 +55,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
 			<header className="code-block-header flex-nowrap flex-align-items-center">
 				{header ? <span className="code-block-label">{header}</span> : null}
 
-				<button className="code-block-button a" type="button" aria-label="Select code button" onClick={() => selectCode()}>
-					Select code
-				</button>
+				<Button className="code-block-button a" label="Select code" variant="unstyled" onClick={() => selectCode()} />
 			</header>
 
 			<pre className="code-block-pre scrollbar">
@@ -94,6 +85,57 @@ export const HeaderIcon = (props: HeaderIconProps) => {
 	);
 };
 
+export const LinkExternal = (props: LinkExternalProps) => {
+	const { children, className, href, ...rest } = props;
+
+	return (
+		<a className={className} href={href} target="_blank" rel="noreferrer" {...rest}>
+			{children}
+			<span className="sr-only"> (opens in a new tab)</span>
+		</a>
+	);
+};
+
+export const List = (props: ListProps) => {
+	const { children, className: propClassName, reversed, start, type: listType, variant = 'ul', ...rest } = props;
+	const isOrdered = variant.includes('ol');
+	const isUnstyled = variant.includes('unstyled');
+	const Tag = variant === 'dl' ? 'dl' : isOrdered ? 'ol' : 'ul';
+
+	// Create classes
+	const classes = [];
+	if (isUnstyled) {
+		classes.push(`list-unstyled`);
+	} else {
+		if (isOrdered) {
+			classes.push(`list-ordered`);
+		} else {
+			classes.push(`list-${variant == 'dl' ? 'definition' : 'unordered'}`);
+		}
+	}
+	const className = propClassName ? `${propClassName} ${classes.join(' ')}` : classes.join(' ');
+
+	// Set up ol attributes
+	const olAttributes = isOrdered ? { reversed, start, type: listType } : {};
+
+	return (
+		<Tag className={className} {...rest} {...olAttributes}>
+			{children}
+		</Tag>
+	);
+};
+
+export const ListItem = (props: ListItemProps) => {
+	const { children, term } = props;
+
+	return (
+		<div className="list-item-definition">
+			<dt>{term}</dt>
+			<dd>{children}</dd>
+		</div>
+	);
+};
+
 export const Output = (props: OutputProps) => {
 	const { children, className, code } = props;
 	const outputClass = className ? ` ${className}` : '';
@@ -113,7 +155,7 @@ export const Output = (props: OutputProps) => {
 	);
 };
 
-export const PixelSection = (props: PixelSectionProps) => {
+export const PixelBlock = (props: PixelBlockProps) => {
 	const { children, className, navigation } = props;
 	const pixelClass = className ? `${className} ` : '';
 
@@ -156,7 +198,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 					children
 				) : showNavigation ? (
 					<nav className="pixel-navigation">
-						<ul className="pixel-navigation-list unstyled flex-wrap flex-align-items-center">
+						<List className="pixel-navigation-list flex-wrap flex-align-items-center" variant="ul-unstyled">
 							{previousUrl && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
 									<Link className="pixel-navigation-link" to={previousUrl}>
@@ -190,7 +232,7 @@ export const PixelSection = (props: PixelSectionProps) => {
 									</li>
 								</>
 							)}
-						</ul>
+						</List>
 					</nav>
 				) : null}
 			</div>

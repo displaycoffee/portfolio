@@ -4,62 +4,40 @@ import { codeBlocks } from './scripts/velociraptor-pack-code-blocks';
 /* Components */
 import { VelociraptorPack as VelociraptorPackPreview } from './VelociraptorPackPreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const VelociraptorPack = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Easy</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>HTML or React, CSS or Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Credits</dt>
-						<dd>Image from Jurrasic World</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Easy</ListItem>
+					<ListItem term="Languages">HTML or React, CSS or Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+					<ListItem term="Credits">Image from Jurrasic World</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/velociraptor-pack" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/velociraptor-pack">View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/velociraptor-pack.html"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/velociraptor-pack.html">
 						velociraptor-pack/velociraptor-pack.html
-					</a>
+					</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/VelociraptorPack.jsx"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/VelociraptorPack.jsx">
 						velociraptor-pack/VelociraptorPack.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[0]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[1]}</CodeBlock>
@@ -74,13 +52,9 @@ export const VelociraptorPack = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/velociraptor-pack.css"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/velociraptor-pack.css">
 						velociraptor-pack/velociraptor-pack.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[3]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[4]}</CodeBlock>
@@ -94,13 +68,9 @@ export const VelociraptorPack = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a
-						href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/velociraptor-pack.scss"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/velociraptor-pack/velociraptor-pack.scss">
 						velociraptor-pack/velociraptor-pack.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[8]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[9]}</CodeBlock>

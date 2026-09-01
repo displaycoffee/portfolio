@@ -14,14 +14,15 @@ import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Components */
 import { Image } from '../image/Image';
-import { HeaderIcon, Button, PixelSection } from '../blocks/Blocks';
+import { HeaderIcon, LinkExternal, List, ListItem, PixelBlock } from '../blocks/Blocks';
+import { Button } from '../forms/Forms';
 
 /* Set up tab storage */
 /* Note: "active" is an object because galleries can have different tabs, so we store from location. */
-const tabStorage = {
+const tabStorage: GalleryTabsStorageType = {
 	default: 0,
 	active: {},
-} as GalleryTabsStorageType;
+};
 
 export const Gallery = (props: GalleryProps) => {
 	const { headers, navigation, tabs, type, values } = props;
@@ -136,13 +137,20 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 				<>
 					<div className="gallery-tabs-buttons">
 						<div className="row row-wrap row-spacing-10 row-align-items-center">
-							{tabsValues.map((tab, index) => (
-								<div className="column" key={index}>
-									<Button type={activeTab == tab ? 'secondary active' : 'primary'} onClick={() => setTab(tab)}>
-										{tab}
-									</Button>
-								</div>
-							))}
+							{tabsValues.map((tab, index) => {
+								const isActive = activeTab == tab;
+								return (
+									<div className="column" key={index}>
+										<Button
+											className={isActive ? 'active' : ''}
+											label={tab}
+											variant={isActive ? 'secondary' : 'primary'}
+											aria-pressed={isActive}
+											onClick={() => setTab(tab)}
+										/>
+									</div>
+								);
+							})}
 						</div>
 					</div>
 
@@ -171,7 +179,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 			<div className="gallery-items">
 				{values.map((value) => {
 					// Determine if we should show item based on tab settings
-					const showItem = galleryUtils.includeValue(tabs.enabled, value?.categories, activeTab as string);
+					const showItem = galleryUtils.includeValue(tabs.enabled, value?.categories, activeTab);
 
 					// Set gallery url
 					const galleryUrl = `${location}/${value.handle}`;
@@ -234,59 +242,38 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 
 					{(current.image || current.thumb) && (
 						<div className="gallery-image">
-							<a href={current.image || current.thumb} target="_blank" rel="noreferrer">
+							<LinkExternal href={current.image || current.thumb}>
 								<div className={`image-wrapper gallery-image-wrapper${isPixels ? '' : ' pixel-border'}`}>
 									<Image alt={current.name} hasLazy={true} image={current.image || current.thumb} hasWrapper={false} />
 								</div>
-							</a>
+							</LinkExternal>
 						</div>
 					)}
 
 					<div className="gallery-details margin-trim">
-						<dl className="definition-list">
-							{current.date && (
-								<div className="definition-list-item">
-									<dt>Date</dt>
-									<dd>{current.date}</dd>
-								</div>
-							)}
+						<List variant="dl">
+							{current.date && <ListItem term="Date">{current.date}</ListItem>}
 
 							{current.url && (
-								<div className="definition-list-item">
-									<dt>Visit</dt>
-									<dd>
-										<a href={current.url} target="_blank" rel="noreferrer">
-											{current.url.replace('//', '')}
-										</a>
-									</dd>
-								</div>
+								<ListItem term="Visit">
+									<LinkExternal href={current.url}>{current.url.replace('//', '')}</LinkExternal>
+								</ListItem>
 							)}
 
-							{current.technologies && (
-								<div className="definition-list-item">
-									<dt>Technologies</dt>
-									<dd>{current.technologies}</dd>
-								</div>
-							)}
+							{current.technologies && <ListItem term="Technologies">{current.technologies}</ListItem>}
 
-							{current.mediums && (
-								<div className="definition-list-item">
-									<dt>Mediums</dt>
-									<dd>{current.mediums}</dd>
-								</div>
-							)}
+							{current.mediums && <ListItem term="Mediums">{current.mediums}</ListItem>}
 
 							{current.description && (
-								<div className="definition-list-item">
-									<dt>Description</dt>
-									<dd dangerouslySetInnerHTML={{ __html: current.description }}></dd>
-								</div>
+								<ListItem term="Description">
+									<div dangerouslySetInnerHTML={{ __html: current.description }}></div>
+								</ListItem>
 							)}
-						</dl>
+						</List>
 					</div>
 				</div>
 
-				<PixelSection navigation={navigationProps} />
+				<PixelBlock navigation={navigationProps} />
 			</div>
 		) : (
 			<Navigate to={parentPage} replace />

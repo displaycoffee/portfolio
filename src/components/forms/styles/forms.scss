@@ -1,0 +1,197 @@
+// Use utils and theme variables
+@use '../../../_config/styles/utils/_functions';
+@use '../../../_config/styles/utils/_mixins';
+@use '../../../_config/styles/theme/_theme';
+
+//// FORMS
+//// --------------------------------------------------------------------------
+
+	// Colors
+
+	$forms-color-01: theme.$color-04; // focus visible border color
+
+	// Style block
+	
+	:focus-visible {
+		outline: 1px solid $forms-color-01;
+		outline-offset: 2px;
+	}
+	fieldset, label, .label, legend {
+		margin: 0;
+	}
+	fieldset { 
+		padding: 0;
+		border: 0;
+	}
+	legend {
+		display: inline;
+	}
+	.disabled {
+		opacity: 0.65;
+		cursor: not-allowed;
+	}
+
+//// FORMS - BUTTON
+//// --------------------------------------------------------------------------
+
+	// Colors
+
+	$forms-button-color-01: theme.$color-06; // primary button background
+	$forms-button-color-02: theme.$color-06; // primary button border
+	$forms-button-color-03: theme.$color-04; // primary button color	
+	$forms-button-color-04: theme.$color-05; // primary hover button background
+	$forms-button-color-05: theme.$color-05; // primary hover button border
+	$forms-button-color-06: false; // primary hover button color
+	$forms-button-color-07: theme.$color-05; // secondary button background
+	$forms-button-color-08: theme.$color-05; // secondary button border
+	$forms-button-color-09: theme.$color-04; // secondary button color	
+	$forms-button-color-10: theme.$color-06; // secondary hover button background
+	$forms-button-color-11: theme.$color-06; // secondary hover button border
+	$forms-button-color-12: false; // secondary hover button color	
+	$forms-button-color-13: theme.$color-10; // tertiary button background
+	$forms-button-color-14: theme.$color-10; // tertiary button border
+	$forms-button-color-15: theme.$color-04; // tertiary button color
+	$forms-button-color-16: theme.$color-05; // tertiary hover button background
+	$forms-button-color-17: theme.$color-05; // tertiary hover button border
+	$forms-button-color-18: false; // tertiary hover button color
+
+	// Configuration
+	
+	$forms-button-spacing: 0 theme.$spacing-x2; // button spacing
+	$forms-button-height: 36px; // button height
+	$forms-button-border-width: false; // button border width
+	$forms-button-pixel-size: 4px; // size of pixel for button
+
+	// Style block
+
+	button, .button {
+		@include mixins.flex-layout((display: inline-flex, flex-flow: row nowrap, align-items: center, justify-content: center));
+		@include mixins.gap(theme.$spacing-x2);
+		border: 0;
+	}
+	.button {
+		position: relative;
+		max-width: 100%;
+		@include mixins.if-exists((
+			padding: $forms-button-spacing,
+		));
+		margin: $forms-button-pixel-size 0;
+		@if $forms-button-border-width != false {
+			border: $forms-button-border-width solid transparent;
+		}
+		height: $forms-button-height;
+		line-height: $forms-button-height;
+		font-size: functions.em(12px, rem);
+		&:focus, &:focus-visible, &:focus-visible {
+			outline: 0;
+		}
+		&:before, &:after {
+			content: '';
+			display: block;
+			@include mixins.position($type: absolute, $left: 0, $right: 0);
+			margin: auto;
+			@include mixins.sizing(calc(100% - calc($forms-button-pixel-size * 2)), $forms-button-pixel-size);
+		}
+		&:before {
+			top: -#{$forms-button-pixel-size};
+		}
+		&:after {
+			bottom: -#{$forms-button-pixel-size};
+		}
+		&.button-x-small {
+			@include mixins.if-exists((
+				padding: $forms-button-spacing,
+			));
+			height: $forms-button-height - 16;
+			line-height: $forms-button-height - 16;
+			font-size: functions.em(12px, rem);
+			.button-label {
+				top: 1px;
+			}
+		}
+		.button-label {
+			@include mixins.position($type: relative, $top: calc($forms-button-pixel-size / 2));
+			line-height: 1.5;
+			@include mixins.ellipsis;
+		}
+	}
+	.button-primary {
+		@include mixins.if-exists((
+			border-color: $forms-button-color-02,
+			color: $forms-button-color-03,
+		));
+		text-shadow: 2px 2px 0 theme.$color-05;
+		&, &:before, &:after {
+			background-color: $forms-button-color-01;
+		}
+		&:not(.active):hover {
+			@include mixins.if-exists((
+				border-color: $forms-button-color-05,
+				color: $forms-button-color-06,
+			));
+			text-shadow: 2px 2px 0 theme.$color-09;
+			&, &:before, &:after {
+				@include mixins.if-exists((
+					background-color: $forms-button-color-04,
+				));
+			}
+		}
+	}
+	.button-secondary {
+		@include mixins.if-exists((
+			border-color: $forms-button-color-08,
+			color: $forms-button-color-09,
+		));
+		text-shadow: 2px 2px 0 theme.$color-09;
+		&, &:before, &:after {
+			@include mixins.if-exists((
+				background-color: $forms-button-color-07,
+			));
+		}
+		&:not(.active):hover {
+			@include mixins.if-exists((
+				border-color: $forms-button-color-11,
+				color: $forms-button-color-12,
+			));
+			text-shadow: 2px 2px 0 theme.$color-05;
+			&, &:before, &:after {
+				@include mixins.if-exists((
+					background-color: $forms-button-color-10,
+				));
+			}
+		}
+	}
+	.button-tertiary {
+		@include mixins.if-exists((
+			border-color: $forms-button-color-14,
+			color: $forms-button-color-15,
+		));
+		text-shadow: 2px 2px 0 theme.$color-02;		
+		&, &:before, &:after {
+			@include mixins.if-exists((
+				background-color: $forms-button-color-13,
+			));
+		}	
+		&:not(.active):hover {
+			@include mixins.if-exists((
+				border-color: $forms-button-color-17,
+				color: $forms-button-color-18,
+			));
+			text-shadow: 2px 2px 0 theme.$color-09;
+			&, &:before, &:after {
+				@include mixins.if-exists((
+					background-color: $forms-button-color-16,
+				));
+			}
+		}
+	}
+	.button-unstyled {
+		padding: 0;
+		background-color: transparent;
+	}
+	@include mixins.respond-min(theme.$bp-02) {
+		.button {
+			padding: 0 theme.$spacing-x4;
+			font-size: functions.em(14px, rem);
+		}
+	}

@@ -4,34 +4,23 @@ import { codeBlocks } from './scripts/a-promise-code-blocks';
 /* Components */
 import { APromise as APromisePreview } from './APromisePreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const APromise = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<dl className="definition-list">
-					<div className="definition-list-item">
-						<dt>Skill level</dt>
-						<dd>Easy</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Languages</dt>
-						<dd>HTML or React, CSS or Sass</dd>
-					</div>
-					<div className="definition-list-item">
-						<dt>Responsive</dt>
-						<dd>Yes</dd>
-					</div>
-				</dl>
+				<List variant="dl">
+					<ListItem term="Skill level">Easy</ListItem>
+					<ListItem term="Languages">HTML or React, CSS or Sass</ListItem>
+					<ListItem term="Responsive">Yes</ListItem>
+				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/tree/production/a-promise" target="_blank" rel="noreferrer">
-						View @ displaycoffee
-					</a>
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/a-promise">View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML or React</h4>
@@ -44,17 +33,17 @@ export const APromise = () => {
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/a-promise.html" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/a-promise.html">
 						a-promise/a-promise.html
-					</a>
+					</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/APromise.jsx" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/APromise.jsx">
 						a-promise/APromise.jsx
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'React import'}>{codeBlocks[1]}</CodeBlock>
 				<CodeBlock header={'React component'}>{codeBlocks[2]}</CodeBlock>
@@ -62,9 +51,9 @@ export const APromise = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/a-promise.css" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/a-promise.css">
 						a-promise/a-promise.css
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Style block'}>{codeBlocks[3]}</CodeBlock>
 				<CodeBlock header={'Stylesheet'}>{codeBlocks[4]}</CodeBlock>
@@ -78,9 +67,9 @@ export const APromise = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<a href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/a-promise.scss" target="_blank" rel="noreferrer">
+					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/a-promise/a-promise.scss">
 						a-promise/a-promise.scss
-					</a>
+					</LinkExternal>
 				</p>
 				<CodeBlock header={'Sass import'}>{codeBlocks[8]}</CodeBlock>
 				<CodeBlock header={'React import'}>{codeBlocks[9]}</CodeBlock>

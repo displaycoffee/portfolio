@@ -1,3 +1,6 @@
+/* Packages */
+import { AnchorHTMLAttributes, OlHTMLAttributes, ReactNode } from 'react';
+
 /* Type definitions */
 type BlockShared = {
 	children: ReactNode;
@@ -20,6 +23,23 @@ type HeaderIcon = BlockShared & {
 	tag?: string;
 };
 
+type LinkExternal = {
+	children: ReactNode;
+	className?: string;
+	href: string;
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children' | 'className' | 'href' | 'rel' | 'target'>;
+
+type List = {
+	children: ReactNode;
+	className?: string;
+	variant?: 'dl' | 'ol' | 'ol-unstyled' | 'ul' | 'ul-unstyled';
+} & Omit<OlHTMLAttributes<HTMLOListElement>, 'children' | 'className' | 'variant'>;
+
+type ListItem = {
+	children: ReactNode;
+	term: string | number;
+};
+
 type Navigation = {
 	navigation?: {
 		back: string | boolean;
@@ -40,7 +60,7 @@ type Output = {
 	code: string;
 };
 
-type PixelSection = Navigation & {
+type PixelBlock = Navigation & {
 	children?: ReactNode;
 	className?: string;
 };
@@ -56,8 +76,14 @@ export type CodeInlineProps = CodeInline;
 
 export type HeaderIconProps = HeaderIcon;
 
+export type LinkExternalProps = LinkExternal;
+
+export type ListProps = List;
+
+export type ListItemProps = ListItem;
+
 export type OutputProps = Output;
 
-export type PixelSectionProps = PixelSection;
+export type PixelBlockProps = PixelBlock;
 
 export type PreviewProps = Preview;
