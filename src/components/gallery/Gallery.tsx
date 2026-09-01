@@ -14,8 +14,7 @@ import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Components */
 import { Image } from '../image/Image';
-import { HeaderIcon, PixelBlock } from '../blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../blocks-2/Blocks';
+import { HeaderIcon, LinkExternal, List, ListItem, PixelBlock } from '../blocks/Blocks';
 import { Button } from '../forms/Forms';
 
 /* Set up tab storage */
@@ -138,12 +137,19 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 				<>
 					<div className="gallery-tabs-buttons">
 						<div className="row row-wrap row-spacing-10 row-align-items-center">
-							{tabsValues.map((tab, index) => (
-								<div className="column" key={index}>
-									{/* activeTab == tab ? 'secondary active' : 'primary' */}
-									<Button label={tab} variant={activeTab == tab ? 'secondary' : 'primary'} onClick={() => setTab(tab)} />
-								</div>
-							))}
+							{tabsValues.map((tab, index) => {
+								const isActive = activeTab == tab;
+								return (
+									<div className="column" key={index}>
+										<Button
+											className={isActive ? 'active' : ''}
+											label={tab}
+											variant={isActive ? 'secondary' : 'primary'}
+											onClick={() => setTab(tab)}
+										/>
+									</div>
+								);
+							})}
 						</div>
 					</div>
 

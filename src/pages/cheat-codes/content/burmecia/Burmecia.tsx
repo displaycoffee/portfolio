@@ -1,6 +1,6 @@
 /* Components */
 import { CheatCodesSection } from '../../CheatCodes';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
+import { LinkExternal, List, ListItem } from '../../../../components/blocks/Blocks';
 
 export const Burmecia = () => {
 	return (

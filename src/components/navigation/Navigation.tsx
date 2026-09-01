@@ -14,7 +14,7 @@ import { navigationRoutes } from './scripts/navigation-routes';
 
 /* Components */
 import { Icon } from '../icons/Icons';
-import { LinkExternal, List } from '../blocks-2/Blocks';
+import { LinkExternal, List } from '../blocks/Blocks';
 
 /* Get navigation menu */
 const navigationList = navigationUtils.get.list();

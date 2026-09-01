@@ -4,8 +4,7 @@ import { codeBlocks } from './scripts/velociraptor-pack-code-blocks';
 /* Components */
 import { VelociraptorPack as VelociraptorPackPreview } from './VelociraptorPackPreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const VelociraptorPack = () => {
 	return (

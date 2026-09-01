@@ -4,8 +4,7 @@ import { codeBlocks } from './scripts/a-promise-code-blocks';
 /* Components */
 import { APromise as APromisePreview } from './APromisePreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const APromise = () => {
 	return (

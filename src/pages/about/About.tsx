@@ -2,8 +2,7 @@
 import './styles/about.scss';
 
 /* Components */
-import { HeaderIcon } from '../../components/blocks/Blocks';
-import { LinkExternal, List } from '../../components/blocks-2/Blocks';
+import { HeaderIcon, LinkExternal, List } from '../../components/blocks/Blocks';
 import { Image } from '../../components/image/Image';
 
 export const About = () => {

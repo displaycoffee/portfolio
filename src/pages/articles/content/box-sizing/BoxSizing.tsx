@@ -3,8 +3,7 @@ import { codeBlocks } from './scripts/box-sizing-code-blocks';
 
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
-import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
-import { LinkExternal } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, LinkExternal } from '../../../../components/blocks/Blocks';
 import { Image } from '../../../../components/image/Image';
 
 export const BoxSizing = () => {

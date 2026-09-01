@@ -4,8 +4,7 @@ import { codeBlocks } from './scripts/banner-code-generator-code-blocks';
 /* Components */
 import { BannerCodeGenerator as BannerCodeGeneratorPreview } from './BannerCodeGeneratorPreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const BannerCodeGenerator = () => {
 	return (

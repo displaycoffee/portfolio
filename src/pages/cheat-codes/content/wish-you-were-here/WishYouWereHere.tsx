@@ -4,8 +4,7 @@ import { codeBlocks } from './scripts/wish-you-were-here-code-blocks';
 /* Components */
 import { WishYouWereHere as WishYouWereHerePreview } from './WishYouWereHerePreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const WishYouWereHere = () => {
 	return (

@@ -9,7 +9,8 @@ import { useAppContext } from '../../context/scripts/context-hooks';
 import { footer } from './scripts/footer';
 
 /* Components */
-import { LinkExternal } from '../../components/blocks-2/Blocks';
+import { LinkExternal } from '../../components/blocks/Blocks';
+import { Button } from '../../components/forms/Forms';
 import { Icon } from '../../components/icons/Icons';
 import { Image } from '../../components/image/Image';
 
@@ -38,14 +39,15 @@ export const Footer = () => {
 								</Fragment>
 							))}
 
-							<button
-								className="footer-navigation-link unstyled pointer bounce-5"
-								type="button"
-								aria-label="Back to top button"
+							<Button
+								className="footer-navigation-link bounce-5"
+								label="Back to top button"
+								hideLabel={true}
+								variant="unstyled"
 								onClick={(e) => utils.scrollTo(e, 'body')}
 							>
 								<Icon animate={'bottom'} id={'angle-up'} isBold={true} size={'lg'} />
-							</button>
+							</Button>
 						</nav>
 					</div>
 				) : null}
