@@ -237,6 +237,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 													label={tag.label}
 													size={'x-small'}
 													variant={tag.active ? 'secondary' : 'primary'}
+													aria-pressed={tag.active}
 													onClick={(e: MouseEvent<HTMLButtonElement>) => handleTag(e, tag)}
 												/>
 											</div>
@@ -304,6 +305,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 												label={tag.label}
 												size={'x-small'}
 												variant={tag.active ? 'secondary' : 'primary'}
+												aria-pressed={tag.active}
 												onClick={(e: MouseEvent<HTMLButtonElement>) => {
 													// Set up current param
 													const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
