@@ -30,10 +30,11 @@ import { Icon } from '../icons/Icons';
 const ChoiceGroupContext = createContext<string | undefined>(undefined);
 
 export const Button = (props: ButtonProps) => {
-	const { children, className: propClassName, hideLabel = false, label, type = 'button', variant = 'primary', ...rest } = props;
+	const { children, className: propClassName, hideLabel = false, label, size, type = 'button', variant = 'primary', ...rest } = props;
 	const buttonClass = variant != 'unstyled' && variant != 'link' ? 'button ' : '';
+	const sizeClass = size ? `button-${size} ` : ``;
 	const variantClass = variant == 'link' ? `button-${variant} button-unstyled a` : `button-${variant}`;
-	const className = forms.build.className(`${buttonClass}${variantClass}`, propClassName, rest?.disabled, true);
+	const className = forms.build.className(`${buttonClass}${sizeClass}${variantClass}`, propClassName, rest?.disabled, true);
 
 	return (
 		<button className={className} type={type} aria-label={hideLabel ? label : undefined} {...rest}>

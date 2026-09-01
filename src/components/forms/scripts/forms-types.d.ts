@@ -18,9 +18,10 @@ type Button = {
 	className?: string;
 	hideLabel?: boolean;
 	label: string;
+	size?: string;
 	type?: 'button' | 'reset' | 'submit';
 	variant?: 'link' | 'primary' | 'secondary' | 'tertiary' | 'unstyled';
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'className' | 'type' | 'variant'>;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'className' | 'size' | 'type' | 'variant'>;
 
 type ButtonScroll = Omit<Button, 'onClick' | 'type' | 'variant'> & {
 	offset?: number;

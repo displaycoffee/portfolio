@@ -3,8 +3,7 @@ import { codeBlocks } from './scripts/structuring-code-code-blocks';
 
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
-import { CodeBlock, CodeInline } from '../../../../components/blocks/Blocks';
-import { LinkExternal, List } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List } from '../../../../components/blocks/Blocks';
 
 export const StructuringCode = () => {
 	const sections = ['Introduction', 'Classes versus IDs', "Don't Be Generic", 'Formatting CSS', 'Tabbing', 'Comments', 'Choosing Fonts', 'Closing'];

@@ -8,8 +8,7 @@ import React from 'react';
 import { resume } from './scripts/resume';
 
 /* Components */
-import { HeaderIcon } from '../../components/blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../../components/blocks-2/Blocks';
+import { HeaderIcon, LinkExternal, List, ListItem } from '../../components/blocks/Blocks';
 
 export const Resume = () => {
 	const { technical, history, volunteer } = resume;

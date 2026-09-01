@@ -28,24 +28,12 @@ export const Slideout = (props: SlideoutProps) => {
 	const orientation = slideout.get.orientation(direction);
 	const styles = get.styles(direction, width);
 
-	// // Create shared slideout button
-	// const slideoutButton = (
-	// 	<button
-	// 		className="slideout-button unstyled pointer"
-	// 		type="button"
-	// 		onClick={(e) => toggle(e, id)}
-	// 		aria-expanded={isActive}
-	// 		aria-label={`Open ${options.label}`}
-	// 	>
-	// 		<Icon id={'filter'} />
-	// 		{options.label}
-	// 	</button>
-	// );
 	// Create shared slideout button
 	const slideoutButton = (
 		<Button
-			className="slideout-button"
+			className="slideout-button h3"
 			label={options.label}
+			variant="unstyled"
 			onClick={(e) => toggle(e, id)}
 			aria-expanded={isActive}
 			aria-label={`Open ${options.label}`}
@@ -155,23 +143,14 @@ export const Slideout = (props: SlideoutProps) => {
 					</h2>
 
 					<Button
-						className="slideout-close"
+						className="slideout-close h2"
 						hideLabel={true}
+						variant="unstyled"
 						label="Slideout Close Button"
 						onClick={(e) => toggle(e, false)}
-						variant="unstyled"
 					>
 						<Icon id={'close'} isBold={true} size={'lg'} />
 					</Button>
-
-					{/* <button
-						className="slideout-close pointer unstyled"
-						type="button"
-						aria-label="Slideout close button"
-						onClick={(e) => toggle(e, false)}
-					>
-						<Icon id={'close'} isBold={true} size={'lg'} />
-					</button> */}
 				</header>
 
 				<div className="slideout-scrollbar scrollbar">

@@ -4,8 +4,7 @@ import { codeBlocks } from './scripts/friends-not-food-code-blocks';
 /* Components */
 import { FriendsNotFood as FriendsNotFoodPreview } from './FriendsNotFoodPreview';
 import { CheatCodesSection } from '../../CheatCodes';
-import { CodeBlock, CodeInline, Preview } from '../../../../components/blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
 
 export const FriendsNotFood = () => {
 	return (

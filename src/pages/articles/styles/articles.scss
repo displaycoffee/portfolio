@@ -98,9 +98,7 @@
 	}
 	.articles-top {
 		.articles-top-button {
-			.icon {
-				margin: 0 theme.$spacing-x2 0 0;
-			}
+			//@include mixins.gap(theme.$spacing-x2);
 		}
 	}
 	#contents-styling-text {

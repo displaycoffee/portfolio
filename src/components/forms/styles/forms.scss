@@ -66,7 +66,7 @@
 
 	button, .button {
 		@include mixins.flex-layout((display: inline-flex, flex-flow: row nowrap, align-items: center, justify-content: center));
-		@include mixins.gap(theme.$spacing-x1);
+		@include mixins.gap(theme.$spacing-x2);
 		border: 0;
 	}
 	.button {
@@ -99,23 +99,27 @@
 			bottom: -#{$forms-button-pixel-size};
 		}
 		&.button-x-small {
-			height: 20px;
-			//padding: 0 theme.$spacing-x2;
+			@include mixins.if-exists((
+				padding: $forms-button-spacing,
+			));
+			height: $forms-button-height - 16;
+			line-height: $forms-button-height - 16;
 			font-size: functions.em(12px, rem);
-			//line-height: calc(20px + $forms-button-pixel-size);
+			.button-label {
+				top: 1px;
+			}
 		}
 		.button-label {
-			//line-height: calc(36px +  $forms-button-pixel-size);
 			@include mixins.position($type: relative, $top: calc($forms-button-pixel-size / 2));
 			line-height: 1.5;
 			@include mixins.ellipsis;
 		}
 	}
 	.button-primary {
-		@if $forms-button-border-width != false and $forms-button-color-02 != false {
-			border-color: $forms-button-color-02;
-		}
-		color: $forms-button-color-03;
+		@include mixins.if-exists((
+			border-color: $forms-button-color-02,
+			color: $forms-button-color-03,
+		));
 		text-shadow: 2px 2px 0 theme.$color-05;
 		&, &:before, &:after {
 			background-color: $forms-button-color-01;
@@ -134,10 +138,8 @@
 		}
 	}
 	.button-secondary {
-		@if $forms-button-border-width != false and $forms-button-color-08 != false {
-			border-color: $forms-button-color-08;
-		}
 		@include mixins.if-exists((
+			border-color: $forms-button-color-08,
 			color: $forms-button-color-09,
 		));
 		text-shadow: 2px 2px 0 theme.$color-09;
@@ -160,10 +162,8 @@
 		}
 	}
 	.button-tertiary {
-		@if $forms-button-border-width != false and $forms-button-color-14 != false {
-			border-color: $forms-button-color-14;
-		}
 		@include mixins.if-exists((
+			border-color: $forms-button-color-14,
 			color: $forms-button-color-15,
 		));
 		text-shadow: 2px 2px 0 theme.$color-02;		

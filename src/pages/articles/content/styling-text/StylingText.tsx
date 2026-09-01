@@ -3,8 +3,7 @@ import { codeBlocks } from './scripts/styling-text-code-blocks';
 
 /* Components */
 import { ArticlesToC, ArticlesSection } from '../../Articles';
-import { CodeBlock, CodeInline, Output } from '../../../../components/blocks/Blocks';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks-2/Blocks';
+import { CodeBlock, CodeInline, Output, LinkExternal, List, ListItem } from '../../../../components/blocks/Blocks';
 
 export const StylingText = () => {
 	const sections = [
