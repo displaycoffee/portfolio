@@ -36,13 +36,13 @@
 		color: theme.$color-05;
 		&:active, &:hover {
 			color: theme.$color-04;
-			@include mixins.text-decoration($thickness: 1px, $offset: 5px, $color: inherit);
+			@include mixins.text-decoration(1px, 5px, inherit);
 		}
 		&:has(.button-label) {
 			&:active, &:hover {
 				text-decoration: none;
 				.button-label {
-					@include mixins.text-decoration($thickness: 1px, $offset: 5px, $color: inherit);
+					@include mixins.text-decoration(1px, 5px, inherit);
 				}
 			}
 		}
