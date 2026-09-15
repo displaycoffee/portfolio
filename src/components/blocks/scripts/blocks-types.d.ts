@@ -1,5 +1,5 @@
 /* Packages */
-import { AnchorHTMLAttributes, OlHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, MouseEventHandler, OlHTMLAttributes, ReactNode } from 'react';
 
 /* Type definitions */
 type BlockShared = {
@@ -8,7 +8,7 @@ type BlockShared = {
 };
 
 type Button = BlockShared & {
-	onClick: MouseEvent<HTMLButtonElement>;
+	onClick: MouseEventHandler<HTMLButtonElement>;
 	type?: string;
 	size?: string;
 };

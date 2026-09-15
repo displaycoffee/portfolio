@@ -1,9 +1,10 @@
 /* Packages */
-import { lazy, JSX, LazyExoticComponent } from 'react';
+import type { JSX, LazyExoticComponent } from 'react';
+import { lazy } from 'react';
 
 /* Scripts */
 import { utils } from '../../../_config/scripts/utils';
-import { NavigationType, NavigationChildType } from './navigation-types';
+import type { NavigationType, NavigationChildType } from './navigation-types';
 import { art } from '../../../pages/art/scripts/art';
 import { articles } from '../../../pages/articles/scripts/articles';
 import { cheatCodes } from '../../../pages/cheat-codes/scripts/cheat-codes';

@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 /* Scripts */
 import { useAppContext } from '../../context/scripts/context-hooks';
-import { CheatCodesSectionProps } from './scripts/cheat-codes-types';
+import type { CheatCodesSectionProps } from './scripts/cheat-codes-types';
 import { cheatCodes } from './scripts/cheat-codes';
 
 /* Components */

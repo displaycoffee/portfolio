@@ -1,5 +1,5 @@
 /* Scripts */
-import { ContentsTagType, ContentsType } from './contents-types';
+import type { ContentsTagType, ContentsType } from './contents-types';
 import { utils } from '../../../_config/scripts/utils';
 
 export const contents = {

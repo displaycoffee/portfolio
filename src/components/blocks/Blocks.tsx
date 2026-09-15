@@ -2,11 +2,12 @@
 import './styles/blocks.scss';
 
 /* Packages */
-import { RefObject, useRef } from 'react';
+import type { RefObject } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 /* Scripts */
-import {
+import type {
 	CodeBlockProps,
 	CodeInlineProps,
 	HeaderIconProps,

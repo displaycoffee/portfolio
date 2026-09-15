@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 /* Scripts */
 import { useAppContext } from '../../context/scripts/context-hooks';
-import { ArticlesSectionProps, ArticlesToCProps } from './scripts/articles-types';
+import type { ArticlesSectionProps, ArticlesToCProps } from './scripts/articles-types';
 import { articles } from './scripts/articles';
 
 /* Components */
