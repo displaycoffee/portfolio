@@ -7,7 +7,7 @@ import { flushSync } from 'react-dom';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 
 /* Scripts */
-import { useViewTransition } from '../../_config/scripts/hooks';
+import { useViewTransition } from '../../_core/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';

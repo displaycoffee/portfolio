@@ -1,5 +1,5 @@
 /* Scripts */
-import { utils } from '../../../_config/scripts/utils';
+import { utils } from '../../../_core/scripts/utils';
 
 const distPath = '/assets/images/';
 const artPath = `${distPath}art/`;

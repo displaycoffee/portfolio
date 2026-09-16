@@ -3,7 +3,7 @@ import type { JSX, LazyExoticComponent } from 'react';
 import { lazy } from 'react';
 
 /* Scripts */
-import { utils } from '../../../_config/scripts/utils';
+import { utils } from '../../../_core/scripts/utils';
 import type { NavigationType, NavigationChildType } from './navigation-types';
 import { art } from '../../../pages/art/scripts/art';
 import { articles } from '../../../pages/articles/scripts/articles';

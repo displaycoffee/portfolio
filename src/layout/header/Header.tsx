@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 /* Scripts */
-import { useRespond, useViewTransition } from '../../_config/scripts/hooks';
+import { useRespond, useViewTransition } from '../../_core/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 
 /* Components */

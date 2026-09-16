@@ -1,6 +1,6 @@
 /* Scripts */
 import type { ContentsTagType, ContentsType } from './contents-types';
-import { utils } from '../../../_config/scripts/utils';
+import { utils } from '../../../_core/scripts/utils';
 
 export const contents = {
 	build: (values: ContentsType[]) => {
