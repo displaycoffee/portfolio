@@ -1,6 +1,7 @@
 // Use utils and theme variables
 @use '../../../_core/styles/utils/_functions';
 @use '../../../_core/styles/utils/_mixins';
+@use '../../../_core/styles/utils/_mixins-custom';
 @use '../../../_core/styles/theme/_theme';
 
 //// RESETS
@@ -98,10 +99,10 @@
 		@include mixins.scrollbar('&', $base-helpers-scrollbar-width, $base-helpers-scrollbar-height, $base-helpers-color-01, $base-helpers-color-02);
 	}
 	.pixel-border {
-		@include mixins.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08);
+		@include mixins-custom.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08);
 	}
 	.pixel-border-rounded {
-		@include mixins.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08, $rounded: true);
+		@include mixins-custom.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08, $rounded: true);
 	}
 	.pixel-border-image {
 		display: inline-block;
