@@ -19,9 +19,7 @@ export const gallery = {
 				let categories = value?.categories ? value.categories : 'Uncategorized';
 
 				// If tabs.all is set, add "All" category
-				if (tabs.enabled && tabs.all && !categories.includes('All')) {
-					categories = 'All, ' + categories;
-				}
+				if (tabs.enabled && tabs.all && !categories.includes('All')) categories = 'All, ' + categories;
 
 				// Set new properties
 				value.categories = categories;
@@ -36,9 +34,7 @@ export const gallery = {
 	includeValue: (enabled: boolean, categories?: string, storage?: string | boolean) => {
 		// Determine whether value should be includes in loop
 		let includeValue = true;
-		if (enabled && categories && storage) {
-			includeValue = categories.includes(storage as string);
-		}
+		if (enabled && categories && storage) includeValue = categories.includes(storage as string);
 		return includeValue;
 	},
 	navigation: (values: GalleriesType, location: string) => {

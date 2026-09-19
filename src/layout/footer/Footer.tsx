@@ -28,7 +28,7 @@ export const Footer = () => {
 						<nav className="footer-navigation-links">
 							{footer.map((link) => (
 								<Fragment key={link.id}>
-									<LinkExternal className="footer-navigation-link" href={link.url}>
+									<LinkExternal className={'footer-navigation-link'} href={link.url}>
 										<Image
 											alt={link.alt || link.label}
 											hasLazy={true}
@@ -40,10 +40,10 @@ export const Footer = () => {
 							))}
 
 							<Button
-								className="footer-navigation-link bounce-5"
-								label="Back to top button"
+								className={'footer-navigation-link bounce-5'}
+								label={'Back to top button'}
 								hideLabel={true}
-								variant="unstyled"
+								variant={'unstyled'}
 								onClick={(e) => utils.scrollTo(e, 'body')}
 							>
 								<Icon animate={'bottom'} id={'angle-up'} isBold={true} size={'lg'} />

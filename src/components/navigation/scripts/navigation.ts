@@ -3,8 +3,8 @@ import type { JSX, LazyExoticComponent } from 'react';
 import { lazy } from 'react';
 
 /* Scripts */
-import { utils } from '../../../_core/scripts/utils';
 import type { NavigationType, NavigationChildType } from './navigation-types';
+import { utils } from '../../../_core/scripts/utils';
 import { art } from '../../../pages/art/scripts/art';
 import { articles } from '../../../pages/articles/scripts/articles';
 import { cheatCodes } from '../../../pages/cheat-codes/scripts/cheat-codes';
@@ -33,9 +33,7 @@ const buildChildren = (child: NavigationChildType, parent: string, element?: Laz
 	};
 
 	// Add component element if passed down
-	if (element) {
-		childConfig.element = element;
-	}
+	if (element) childConfig.element = element;
 
 	return childConfig;
 };

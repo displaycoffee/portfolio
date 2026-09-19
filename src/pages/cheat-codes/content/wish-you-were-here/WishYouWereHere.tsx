@@ -10,12 +10,12 @@ export const WishYouWereHere = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<List variant="dl">
-					<ListItem term="Skill level">Easy</ListItem>
-					<ListItem term="Languages">HTML or React, CSS or Sass</ListItem>
-					<ListItem term="Responsive">Yes</ListItem>
-					<ListItem term="Credits">
-						Image from <LinkExternal href="//unsplash.com">Unsplash</LinkExternal>
+				<List variant={'dl'}>
+					<ListItem term={'Skill level'}>Easy</ListItem>
+					<ListItem term={'Languages'}>HTML or React, CSS or Sass</ListItem>
+					<ListItem term={'Responsive'}>Yes</ListItem>
+					<ListItem term={'Credits'}>
+						Image from <LinkExternal href={'//unsplash.com'}>Unsplash</LinkExternal>
 					</ListItem>
 				</List>
 			</CheatCodesSection>
@@ -23,13 +23,15 @@ export const WishYouWereHere = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/wish-you-were-here">View @ displaycoffee</LinkExternal>
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/tree/production/wish-you-were-here'}>
+						View @ displaycoffee
+					</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.html">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.html'}>
 						wish-you-were-here/wish-you-were-here.html
 					</LinkExternal>
 				</p>
@@ -37,7 +39,7 @@ export const WishYouWereHere = () => {
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/WishYouWereHere.jsx">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/WishYouWereHere.jsx'}>
 						wish-you-were-here/WishYouWereHere.jsx
 					</LinkExternal>
 				</p>
@@ -46,8 +48,8 @@ export const WishYouWereHere = () => {
 
 				<h4 className="h-remove-shadow">CSS or Sass</h4>
 				<p>
-					The fonts are from <LinkExternal href="//fonts.google.com">Google Fonts</LinkExternal> and are added above the main HTML. You can
-					change the fonts to whatever you'd like.
+					The fonts are from <LinkExternal href={'//fonts.google.com'}>Google Fonts</LinkExternal> and are added above the main HTML. You
+					can change the fonts to whatever you'd like.
 				</p>
 				<CodeBlock header={'Fonts'}>{codeBlocks[2]}</CodeBlock>
 				<p>
@@ -59,7 +61,7 @@ export const WishYouWereHere = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.css">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.css'}>
 						wish-you-were-here/wish-you-were-here.css
 					</LinkExternal>
 				</p>
@@ -75,7 +77,7 @@ export const WishYouWereHere = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.scss">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/wish-you-were-here/wish-you-were-here.scss'}>
 						wish-you-were-here/wish-you-were-here.scss
 					</LinkExternal>
 				</p>
@@ -87,7 +89,7 @@ export const WishYouWereHere = () => {
 				<CodeBlock header={'Sass'}>{codeBlocks[11]}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className="preview-cheat-codes preview-wish-you-were-here">
+			<Preview className={'preview-cheat-codes preview-wish-you-were-here'}>
 				<WishYouWereHerePreview />
 			</Preview>
 		</>

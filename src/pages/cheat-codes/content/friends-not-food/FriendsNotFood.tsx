@@ -10,17 +10,17 @@ export const FriendsNotFood = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<List variant="dl">
-					<ListItem term="Skill level">Easy</ListItem>
-					<ListItem term="Languages">HTML or React, CSS or Sass</ListItem>
-					<ListItem term="Responsive">Yes</ListItem>
+				<List variant={'dl'}>
+					<ListItem term={'Skill level'}>Easy</ListItem>
+					<ListItem term={'Languages'}>HTML or React, CSS or Sass</ListItem>
+					<ListItem term={'Responsive'}>Yes</ListItem>
 				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/friends-not-food">View @ displaycoffee</LinkExternal>
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/tree/production/friends-not-food'}>View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">HTML or React</h4>
@@ -33,7 +33,7 @@ export const FriendsNotFood = () => {
 				<h4 className="h-remove-shadow">HTML</h4>
 				<p>Copy the template HTML and place it on the page.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.html">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.html'}>
 						friends-not-food/friends-not-food.html
 					</LinkExternal>
 				</p>
@@ -41,7 +41,7 @@ export const FriendsNotFood = () => {
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/FriendsNotFood.jsx">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/FriendsNotFood.jsx'}>
 						friends-not-food/FriendsNotFood.jsx
 					</LinkExternal>
 				</p>
@@ -50,8 +50,8 @@ export const FriendsNotFood = () => {
 
 				<h4 className="h-remove-shadow">CSS or Sass</h4>
 				<p>
-					The fonts are from <LinkExternal href="//fonts.google.com">Google Fonts</LinkExternal> and are added above the main HTML. You can
-					change the fonts to whatever you'd like.
+					The fonts are from <LinkExternal href={'//fonts.google.com'}>Google Fonts</LinkExternal> and are added above the main HTML. You
+					can change the fonts to whatever you'd like.
 				</p>
 				<CodeBlock header={'Fonts'}>{codeBlocks[3]}</CodeBlock>
 				<p>
@@ -63,7 +63,7 @@ export const FriendsNotFood = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.css">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.css'}>
 						friends-not-food/friends-not-food.css
 					</LinkExternal>
 				</p>
@@ -79,7 +79,7 @@ export const FriendsNotFood = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.scss">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/friends-not-food/friends-not-food.scss'}>
 						friends-not-food/friends-not-food.scss
 					</LinkExternal>
 				</p>
@@ -91,7 +91,7 @@ export const FriendsNotFood = () => {
 				<CodeBlock header={'Sass'}>{codeBlocks[12]}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className="preview-cheat-codes preview-friends-not-food">
+			<Preview className={'preview-cheat-codes preview-friends-not-food'}>
 				<FriendsNotFoodPreview />
 			</Preview>
 		</>

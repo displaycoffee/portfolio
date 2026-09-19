@@ -6,8 +6,8 @@ import { useId } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /* Scripts */
-import { useAppContext } from '../../context/scripts/context-hooks';
 import type { ArticlesSectionProps, ArticlesToCProps } from './scripts/articles-types';
+import { useAppContext } from '../../context/scripts/context-hooks';
 import { articles } from './scripts/articles';
 
 /* Components */
@@ -45,7 +45,7 @@ export const ArticlesIndex = () => {
 			<HeaderIcon>Articles</HeaderIcon>
 
 			<p>
-				Below you'll find a few articles I wrote. Most of these are very basic (and some might be a little outdated), but maybe they’re still
+				Below you'll find a few articles I wrote. Most of these are very basic (and some might be a little outdated), but maybe they're still
 				useful.
 			</p>
 
@@ -95,7 +95,7 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 
 			{scrollTop ? (
 				<div className="articles-top">
-					<ButtonScroll className="articles-top-button" label="Back to top" target="body">
+					<ButtonScroll className={'articles-top-button'} label={'Back to top'} target={'body'}>
 						<Icon id={'angle-up'} shadowSize={'none'} />
 					</ButtonScroll>
 				</div>
@@ -112,11 +112,11 @@ export const ArticlesToC = (props: ArticlesToCProps) => {
 		<div className="articles-toc">
 			<h3>Table of Contents</h3>
 
-			<List variant="ol">
+			<List variant={'ol'}>
 				{sections.map((section) => (
 					<li key={section}>
 						<ButtonScroll
-							className="articles-top-button"
+							className={'articles-top-button'}
 							label={section}
 							target={`#articles-section-${utils.handleize(section)}`}
 							offset={offset ? offset : 0}

@@ -8,8 +8,6 @@ import { flushSync } from 'react-dom';
 import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 
 /* Scripts */
-import { useViewTransition } from '../../_core/scripts/hooks';
-import { useAppContext } from '../../context/scripts/context-hooks';
 import type {
 	ContentsBodyProps,
 	ContentsDateProps,
@@ -19,6 +17,8 @@ import type {
 	ContentsTagsType,
 	ContentsTagType,
 } from './scripts/contents-types';
+import { useViewTransition } from '../../_core/scripts/hooks';
+import { useAppContext } from '../../context/scripts/context-hooks';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Components */
@@ -161,9 +161,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 		// Set all tags to inactive
 		Object.keys(tags).forEach((tag) => {
-			if (tags[tag].active) {
-				tags[tag].active = false;
-			}
+			if (tags[tag].active) tags[tag].active = false;
 		});
 
 		// Perform tag transitions and update tags when clear all is clicked
@@ -193,9 +191,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 					if (tagsConfig.hasTags) {
 						// Add params for active values
 						tagsConfig.values.forEach((tag) => {
-							if (tags[tag.value].active) {
-								linkParams.push(`tag=${tag.value}`);
-							}
+							if (tags[tag.value].active) linkParams.push(`tag=${tag.value}`);
 						});
 
 						// Set params string
@@ -211,7 +207,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 							key={value.id}
 							data-contents-id={value.id}
 						>
-							<Link className="contents-link" to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
+							<Link className={'contents-link'} to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
 								<div className="pixel-border">
 									<Image alt={value.name} hasLazy={true} image={value.thumb} wrapperClasses={['fluid', 'fit']} />
 								</div>
@@ -289,7 +285,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 			<div id={`contents-${current.handle}`} className="contents margin-trim">
 				{hasHeader ? (
 					<header className="contents-header">
-						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
+						{current?.name ? <HeaderIcon className={'contents-header-title'}>{current.name}</HeaderIcon> : null}
 
 						<ContentsDate content={current} />
 

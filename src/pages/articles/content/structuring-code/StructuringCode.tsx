@@ -145,12 +145,13 @@ export const StructuringCode = () => {
 				</p>
 				<p>
 					In the end, if I need to read your CSS, I can copy the code and put it in one of the many CSS Beautifiers found around the
-					internet (or use <LinkExternal href="//code.visualstudio.com">VS Code</LinkExternal> formatters). Take for example the following:
+					internet (or use <LinkExternal href={'//code.visualstudio.com'}>VS Code</LinkExternal> formatters). Take for example the
+					following:
 				</p>
 				<CodeBlock header={'CSS'}>{codeBlocks[11]}</CodeBlock>
 				<p>
 					Yikes, right? I'm just going to take that and paste it into{' '}
-					<LinkExternal href="//codebeautify.org/css-beautify-minify">CSS Beautifier</LinkExternal> and end up with the following:
+					<LinkExternal href={'//codebeautify.org/css-beautify-minify'}>CSS Beautifier</LinkExternal> and end up with the following:
 				</p>
 				<CodeBlock header={'CSS'}>{codeBlocks[12]}</CodeBlock>
 			</ArticlesSection>
@@ -194,9 +195,9 @@ export const StructuringCode = () => {
 					I want to preface this section by saying, I love being able to use hosted font families. Back when I began coding, that was not an
 					option and I was left to use standard, browser provided fonts. And even then, I had to determine what percentage of that font
 					worked on Mac and what percentage worked on Windows. These days, adding different fonts is amazingly easy thanks in part to things
-					like <LinkExternal href="//fonts.google.com">Google Fonts</LinkExternal>. New font styles don't end with Google. We can get even
+					like <LinkExternal href={'//fonts.google.com'}>Google Fonts</LinkExternal>. New font styles don't end with Google. We can get even
 					more decorative by uploading fonts to our web servers that are permitted for web usage and turning them into{' '}
-					<LinkExternal href="//www.fontsquirrel.com/tools/webfont-generator">font kits</LinkExternal>.
+					<LinkExternal href={'//www.fontsquirrel.com/tools/webfont-generator'}>font kits</LinkExternal>.
 				</p>
 				<p>
 					All of that said, I completely understand the temptation to add Google Fonts to your templates. I'm not saying don't do it, but

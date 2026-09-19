@@ -62,9 +62,7 @@ export const contents = {
 			newParams.append(field, value);
 
 			// Run callback if defined
-			if (callback) {
-				callback(String(newParams));
-			}
+			if (callback) callback(String(newParams));
 		},
 		clear: (params: string, field: string, callback: (value: string) => void) => {
 			const newParams = new URLSearchParams(params);
@@ -73,9 +71,7 @@ export const contents = {
 			newParams.delete(field);
 
 			// Run callback if defined
-			if (callback) {
-				callback(String(newParams));
-			}
+			if (callback) callback(String(newParams));
 		},
 		get: () => {
 			// Get decoded parameters from window location
@@ -98,9 +94,7 @@ export const contents = {
 			});
 
 			// Run callback if defined
-			if (callback) {
-				callback(String(newParams));
-			}
+			if (callback) callback(String(newParams));
 		},
 		url: {
 			tag: 'tag',

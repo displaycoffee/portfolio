@@ -10,17 +10,17 @@ export const NavigationMenus = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<List variant="dl">
-					<ListItem term="Skill level">Easy</ListItem>
-					<ListItem term="Languages">HTML or React, CSS or Sass</ListItem>
-					<ListItem term="Responsive">Mostly, but might get squished on small screens</ListItem>
+				<List variant={'dl'}>
+					<ListItem term={'Skill level'}>Easy</ListItem>
+					<ListItem term={'Languages'}>HTML or React, CSS or Sass</ListItem>
+					<ListItem term={'Responsive'}>Mostly, but might get squished on small screens</ListItem>
 				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/navigation-menus">View @ displaycoffee</LinkExternal>
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/tree/production/navigation-menus'}>View @ displaycoffee</LinkExternal>
 				</p>
 				<p>
 					There are three different styles. Pick whichever one you want and copy the appropriate code below. You can also use the code for
@@ -32,19 +32,19 @@ export const NavigationMenus = () => {
 					Copy the menu HTML and place it on the page. The menu should easily adapt to any containing element you place it in. Change the
 					links in the HTML to whatever you'd like them to link to. Remove or add links as needed.
 				</p>
-				<List variant="dl">
-					<ListItem term="Menu 1">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.html">
+				<List variant={'dl'}>
+					<ListItem term={'Menu 1'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.html'}>
 							navigation-menus/navigation-menus-01.html
 						</LinkExternal>
 					</ListItem>
-					<ListItem term="Menu 2">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.html">
+					<ListItem term={'Menu 2'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.html'}>
 							navigation-menus/navigation-menus-02.html
 						</LinkExternal>
 					</ListItem>
-					<ListItem term="Menu 3">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.html">
+					<ListItem term={'Menu 3'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.html'}>
 							navigation-menus/navigation-menus-03.html
 						</LinkExternal>
 					</ListItem>
@@ -59,7 +59,7 @@ export const NavigationMenus = () => {
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/NavigationMenus.jsx">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/NavigationMenus.jsx'}>
 						navigation-menus/NavigationMenus.jsx
 					</LinkExternal>
 				</p>
@@ -71,19 +71,19 @@ export const NavigationMenus = () => {
 
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the links below and add according to your preferred method.</p>
-				<List variant="dl">
-					<ListItem term="Menu 1">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.css">
+				<List variant={'dl'}>
+					<ListItem term={'Menu 1'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.css'}>
 							navigation-menus/navigation-menus-01.css
 						</LinkExternal>
 					</ListItem>
-					<ListItem term="Menu 2">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.css">
+					<ListItem term={'Menu 2'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.css'}>
 							navigation-menus/navigation-menus-02.css
 						</LinkExternal>
 					</ListItem>
-					<ListItem term="Menu 3">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.css">
+					<ListItem term={'Menu 3'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.css'}>
 							navigation-menus/navigation-menus-03.css
 						</LinkExternal>
 					</ListItem>
@@ -106,19 +106,19 @@ export const NavigationMenus = () => {
 
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the links below and add according to your preferred method.</p>
-				<List variant="dl">
-					<ListItem term="Menu 1">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.scss">
+				<List variant={'dl'}>
+					<ListItem term={'Menu 1'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.scss'}>
 							navigation-menus/navigation-menus-01.scss
 						</LinkExternal>
 					</ListItem>
-					<ListItem term="Menu 2">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.scss">
+					<ListItem term={'Menu 2'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.scss'}>
 							navigation-menus/navigation-menus-02.scss
 						</LinkExternal>
 					</ListItem>
-					<ListItem term="Menu 3">
-						<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.scss">
+					<ListItem term={'Menu 3'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.scss'}>
 							navigation-menus/navigation-menus-03.scss
 						</LinkExternal>
 					</ListItem>
@@ -133,7 +133,7 @@ export const NavigationMenus = () => {
 				<CodeBlock header={'Sass'}>{codeBlocks[13]}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className="preview-cheat-codes preview-navigation-menus">
+			<Preview className={'preview-cheat-codes preview-navigation-menus'}>
 				<NavigationMenusPreview />
 				<NavigationMenusPreview id={'02'} />
 				<NavigationMenusPreview id={'03'} />

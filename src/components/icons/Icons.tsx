@@ -11,16 +11,10 @@ export const Icon = (props: IconsProps) => {
 
 	// Create icon classes
 	const iconClasses = [`icon`, `icon-${id}`];
-	if (isBold) {
-		iconClasses.push(`${iconClass}-bold`);
-	}
+	if (isBold) iconClasses.push(`${iconClass}-bold`);
 	if (size) iconClasses.push(`${iconClass}-${size}`);
-	if (shadowSize != 'none') {
-		iconClasses.push(`${iconClass}-shadow-${shadowSize}`);
-	}
-	if (animate) {
-		iconClasses.push(`animate-${animate}`);
-	}
+	if (shadowSize != 'none') iconClasses.push(`${iconClass}-shadow-${shadowSize}`);
+	if (animate) iconClasses.push(`animate-${animate}`);
 
 	return (
 		<span className={iconClasses.join(' ')} aria-hidden="true">

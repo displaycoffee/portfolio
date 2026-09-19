@@ -10,12 +10,12 @@ export const ViewTransitions = () => {
 	return (
 		<>
 			<CheatCodesSection header={'Information'}>
-				<List variant="dl">
-					<ListItem term="Skill level">Medium</ListItem>
-					<ListItem term="Languages">React, JavaScript, and CSS or Sass</ListItem>
-					<ListItem term="Responsive">Yes</ListItem>
-					<ListItem term="Support">
-						<LinkExternal href="//caniuse.com/view-transitions">caniuse</LinkExternal>
+				<List variant={'dl'}>
+					<ListItem term={'Skill level'}>Medium</ListItem>
+					<ListItem term={'Languages'}>React, JavaScript, and CSS or Sass</ListItem>
+					<ListItem term={'Responsive'}>Yes</ListItem>
+					<ListItem term={'Support'}>
+						<LinkExternal href={'//caniuse.com/view-transitions'}>caniuse</LinkExternal>
 					</ListItem>
 				</List>
 			</CheatCodesSection>
@@ -23,13 +23,13 @@ export const ViewTransitions = () => {
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/tree/production/view-transitions">View @ displaycoffee</LinkExternal>
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/tree/production/view-transitions'}>View @ displaycoffee</LinkExternal>
 				</p>
 
 				<h4 className="h-remove-shadow">React</h4>
 				<p>Copy the JSX component from the link below.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/view-transitions/ViewTransitions.jsx">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/view-transitions/ViewTransitions.jsx'}>
 						view-transitions/ViewTransitions.jsx
 					</LinkExternal>
 				</p>
@@ -56,7 +56,7 @@ export const ViewTransitions = () => {
 				<h4 className="h-remove-shadow">CSS</h4>
 				<p>If using CSS and not Sass, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/view-transitions/view-transitions.css">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/view-transitions/view-transitions.css'}>
 						view-transitions/view-transitions.css
 					</LinkExternal>
 				</p>
@@ -68,7 +68,7 @@ export const ViewTransitions = () => {
 				<h4 className="h-remove-shadow">Sass</h4>
 				<p>If using Sass and not CSS, copy the styles from the link below and add according to your preferred method.</p>
 				<p>
-					<LinkExternal href="//github.com/displaycoffee/cheat-codes/blob/production/view-transitions/view-transitions.scss">
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/view-transitions/view-transitions.scss'}>
 						view-transitions/view-transitions.scss
 					</LinkExternal>
 				</p>
@@ -76,7 +76,7 @@ export const ViewTransitions = () => {
 				<CodeBlock header={'React import'}>{codeBlocks[8]}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className="preview-cheat-codes preview-view-transitions">
+			<Preview className={'preview-cheat-codes preview-view-transitions'}>
 				<ViewTransitionsPreview items={items} />
 			</Preview>
 		</>

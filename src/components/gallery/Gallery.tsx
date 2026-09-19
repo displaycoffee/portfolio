@@ -7,9 +7,9 @@ import { flushSync } from 'react-dom';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 
 /* Scripts */
+import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
 import { useViewTransition } from '../../_core/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
-import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Components */
@@ -72,9 +72,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 				// If category is not in tabs, add it
 				categoriesSplit.forEach((category) => {
-					if (!tabsValues.includes(category)) {
-						tabsValues.push(category);
-					}
+					if (!tabsValues.includes(category)) tabsValues.push(category);
 				});
 			}
 		});
@@ -116,9 +114,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 	// Sync active tab back to tabStorage so it persists across renders
 	useEffect(() => {
-		if (tabs.enabled && activeTab) {
-			tabStorage.active[location] = activeTab as string;
-		}
+		if (tabs.enabled && activeTab) tabStorage.active[location] = activeTab as string;
 	}, [activeTab, location, tabs.enabled]);
 
 	// Set timestamp to sort values
@@ -186,7 +182,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 
 					return (
 						<div className={`gallery-item${showItem ? ' gallery-item-active' : ''}`} key={value.id} data-gallery-id={value.id}>
-							<Link className="gallery-image" to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
+							<Link className={'gallery-image'} to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
 								<div className="image-wrapper image-wrapper-fluid pixel-border">
 									<Image alt={value.name} hasLazy={true} image={value.thumb} hasWrapper={false} />
 								</div>
@@ -251,21 +247,21 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 					)}
 
 					<div className="gallery-details margin-trim">
-						<List variant="dl">
-							{current.date && <ListItem term="Date">{current.date}</ListItem>}
+						<List variant={'dl'}>
+							{current.date && <ListItem term={'Date'}>{current.date}</ListItem>}
 
 							{current.url && (
-								<ListItem term="Visit">
+								<ListItem term={'Visit'}>
 									<LinkExternal href={current.url}>{current.url.replace('//', '')}</LinkExternal>
 								</ListItem>
 							)}
 
-							{current.technologies && <ListItem term="Technologies">{current.technologies}</ListItem>}
+							{current.technologies && <ListItem term={'Technologies'}>{current.technologies}</ListItem>}
 
-							{current.mediums && <ListItem term="Mediums">{current.mediums}</ListItem>}
+							{current.mediums && <ListItem term={'Mediums'}>{current.mediums}</ListItem>}
 
 							{current.description && (
-								<ListItem term="Description">
+								<ListItem term={'Description'}>
 									<div dangerouslySetInnerHTML={{ __html: current.description }}></div>
 								</ListItem>
 							)}

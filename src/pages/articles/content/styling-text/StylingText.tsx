@@ -36,11 +36,11 @@ export const StylingText = () => {
 					here in the beginning as the overall behavior should be treated the same way across CSS properties. Specifically, here are the
 					values I am referring to:
 				</p>
-				<List variant="dl">
-					<ListItem term="inherit">The value is inherited by the parent element.</ListItem>
-					<ListItem term="initial">The default is determined by the browser.</ListItem>
-					<ListItem term="normal">Pretty much the same as initial.</ListItem>
-					<ListItem term="none">Resets the value back to the default.</ListItem>
+				<List variant={'dl'}>
+					<ListItem term={'inherit'}>The value is inherited by the parent element.</ListItem>
+					<ListItem term={'initial'}>The default is determined by the browser.</ListItem>
+					<ListItem term={'normal'}>Pretty much the same as initial.</ListItem>
+					<ListItem term={'none'}>Resets the value back to the default.</ListItem>
 				</List>
 				<p>
 					<strong>Please note:</strong> Not all CSS properties share the above values, but they are very common.
@@ -50,32 +50,32 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[1]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[0]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="family-name">
+				<List variant={'dl'}>
+					<ListItem term={'family-name'}>
 						A specific font. Names with spaces should have single or double quotes around them. (e.g. "Times New Roman").
 					</ListItem>
-					<ListItem term="generic-family">A font meant to be used as a fallback method.</ListItem>
+					<ListItem term={'generic-family'}>A font meant to be used as a fallback method.</ListItem>
 				</List>
 				<p>
 					Before getting into the <CodeInline>font-family</CodeInline> property, it may be important to know the difference between the two
 					major generic fonts families that we can use: <CodeInline>sans-serif</CodeInline> and <CodeInline>serif</CodeInline>.
 				</p>
-				<List variant="dl">
-					<ListItem term="sans-serif">
+				<List variant={'dl'}>
+					<ListItem term={'sans-serif'}>
 						<strong>Does not</strong> have hanging strokes or lines at the ends of characters (e.g. Arial, Vedana, Calibri, etc.).
 					</ListItem>
-					<ListItem term="serif">
+					<ListItem term={'serif'}>
 						<strong>Does</strong> have hanging strokes or lines at the ends of characters (e.g. Times New Roman, Garamond, Georgia, etc.).
 					</ListItem>
 				</List>
 				<p>There are some other (less used) generic families that you may need on occasion as a fallback:</p>
-				<List variant="dl">
-					<ListItem term="cursive">
+				<List variant={'dl'}>
+					<ListItem term={'cursive'}>
 						Script type characters that are sometimes "joined" or brush-like in display. Might also be referred to as "script" (e.g.
 						Corsive, Zapfino, etc.).
 					</ListItem>
-					<ListItem term="fantasy">Decorative characters (e.g. Papyrus, Copperplate, Comic Sans, etc.).</ListItem>
-					<ListItem term="monospace">
+					<ListItem term={'fantasy'}>Decorative characters (e.g. Papyrus, Copperplate, Comic Sans, etc.).</ListItem>
+					<ListItem term={'monospace'}>
 						Characters are the same size and appear as if from a typewriter (e.g. Courier New, Lucida Sans Typewriter, Monaco, etc.).
 					</ListItem>
 				</List>
@@ -91,20 +91,20 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[1]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[2]}</CodeBlock>
-				<Output className="output-articles output-font-families" code={codeBlocks[1]} />
+				<Output className={'output-articles output-font-families'} code={codeBlocks[1]} />
 				<p>
-					The first font listed is "Roboto" from <LinkExternal href="//fonts.google.com/specimen/Roboto">Google Fonts</LinkExternal>. If
+					The first font listed is "Roboto" from <LinkExternal href={'//fonts.google.com/specimen/Roboto'}>Google Fonts</LinkExternal>. If
 					that is not available for some reason, as long as my computer knows what "Tahoma" is, it will use that font. Otherwise, it falls
 					back to "Calibri" and so on.
 				</p>
 				<p>
 					The above mostly relates to web safe fonts. Google Fonts and{' '}
-					<LinkExternal href="//www.fontsquirrel.com/tools/webfont-generator">font-face kits</LinkExternal> are an entirely different thing
-					and I won't get into that here. It's good practice to declare fallbacks for font families, but if you're using Google Fonts or
-					hosting the font on your own website, you probably don't have to worry about this.
+					<LinkExternal href={'//www.fontsquirrel.com/tools/webfont-generator'}>font-face kits</LinkExternal> are an entirely different
+					thing and I won't get into that here. It's good practice to declare fallbacks for font families, but if you're using Google Fonts
+					or hosting the font on your own website, you probably don't have to worry about this.
 				</p>
 				<p>
-					You can also try out <LinkExternal href="//cssfontstack.com">CSS Font Stack</LinkExternal>, which will give you fonts that are
+					You can also try out <LinkExternal href={'//cssfontstack.com'}>CSS Font Stack</LinkExternal>, which will give you fonts that are
 					related to each other and also the percentage of how common that font is on Windows versus Mac.
 				</p>
 			</ArticlesSection>
@@ -112,22 +112,22 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[2]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[3]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="size">
+				<List variant={'dl'}>
+					<ListItem term={'size'}>
 						A value such as xx-small, x-small, smaller, small, medium, large, larger, x-large, xx-large. Medium is the default value.
 					</ListItem>
-					<ListItem term="unit">A defined value measured with %, px, em, pt, cm, etc.</ListItem>
+					<ListItem term={'unit'}>A defined value measured with %, px, em, pt, cm, etc.</ListItem>
 				</List>
 				<p>
 					There's something we should know about before using the <CodeInline>font-size</CodeInline> property and that is units of
 					measurement. There are quite a few, but let's focus on three: %, px and em.
 				</p>
-				<List variant="dl">
-					<ListItem term="% (Percentage)">
+				<List variant={'dl'}>
+					<ListItem term={'% (Percentage)'}>
 						Percentages are perhaps the most scalable of the units as they resize with whatever font size your browser is set to. You can
 						change the font size of your browser by pressing 'Control' and '+' on Windows.
 					</ListItem>
-					<ListItem term="em (Ems)">
+					<ListItem term={'em (Ems)'}>
 						A scalable unit equal to the current font size. I usually declare <CodeInline>font-size: 100%</CodeInline> on the{' '}
 						<CodeInline>body</CodeInline> element. If I set another size on a child element to <CodeInline>1.0em</CodeInline>, this makes
 						that font equal to <CodeInline>16px</CodeInline>. Whereas if I set the child element size to <CodeInline>0.85em</CodeInline>,
@@ -136,7 +136,7 @@ export const StylingText = () => {
 						element will use <CodeInline>0.85em</CodeInline> to calculate any size changes. In any case, <CodeInline>em</CodeInline> is
 						pretty useful for designs that need to be responsive or mobile-friendly.
 					</ListItem>
-					<ListItem term="px (Pixels)">
+					<ListItem term={'px (Pixels)'}>
 						Fixed units of measurements that are not scalable. Using our previous example, if we set the <CodeInline>body</CodeInline> to{' '}
 						<CodeInline>font-size: 100%</CodeInline> then set a child element to <CodeInline>14px</CodeInline> or{' '}
 						<CodeInline>20px</CodeInline>, the percentage doesn't have any play in the rendered size. The pixel value will always be what
@@ -145,14 +145,14 @@ export const StylingText = () => {
 				</List>
 				<CodeBlock header={'HTML'}>{codeBlocks[4]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[5]}</CodeBlock>
-				<Output className="output-articles output-font-size" code={codeBlocks[4]} />
+				<Output className={'output-articles output-font-size'} code={codeBlocks[4]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[3]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[6]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="length">A defined value measured with %, px, em, pt, cm, etc. It can also be unitless.</ListItem>
+				<List variant={'dl'}>
+					<ListItem term={'length'}>A defined value measured with %, px, em, pt, cm, etc. It can also be unitless.</ListItem>
 				</List>
 				<p>
 					I'd like to discuss the <CodeInline>line-height</CodeInline> property next as I always felt this goes hand-in-hand with font
@@ -180,14 +180,14 @@ export const StylingText = () => {
 				<p>Let's go over some examples.</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[7]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[8]}</CodeBlock>
-				<Output className="output-articles output-line-height-01" code={codeBlocks[7]} />
+				<Output className={'output-articles output-line-height-01'} code={codeBlocks[7]} />
 				<p>
 					If we just add text to the <CodeInline>div</CodeInline>, the calculated line height is <CodeInline>24px</CodeInline>. Now, let's
 					add a child element with a different font size that's bigger than the normal text.
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[9]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[10]}</CodeBlock>
-				<Output className="output-articles output-line-height-02" code={codeBlocks[9]} />
+				<Output className={'output-articles output-line-height-02'} code={codeBlocks[9]} />
 				<p>
 					The line height for that new <CodeInline>div</CodeInline> is calculated by the parent <CodeInline>em</CodeInline>, which for a{' '}
 					<CodeInline>font-size: 30px</CodeInline>, is not very good. Basically, we still have a line height of{' '}
@@ -196,7 +196,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[11]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[12]}</CodeBlock>
-				<Output className="output-articles output-line-height-03" code={codeBlocks[11]} />
+				<Output className={'output-articles output-line-height-03'} code={codeBlocks[11]} />
 				<p>
 					We still have <CodeInline>line-height: 24px</CodeInline> for any text in the first <CodeInline>div</CodeInline>. However, child
 					elements are now calculating their line height value based on the font size rather than a unit determined in the parent. Our child{' '}
@@ -210,11 +210,11 @@ export const StylingText = () => {
 			<ArticlesSection header={sections[4]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[13]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="bold">Turns font bold.</ListItem>
-					<ListItem term="bolder">The font is bolder.</ListItem>
-					<ListItem term="lighter">The font is lighter.</ListItem>
-					<ListItem term="numeric">Differing weights such as 100, 200, 300, 400, 500, 600, 700, 800 and 900.</ListItem>
+				<List variant={'dl'}>
+					<ListItem term={'bold'}>Turns font bold.</ListItem>
+					<ListItem term={'bolder'}>The font is bolder.</ListItem>
+					<ListItem term={'lighter'}>The font is lighter.</ListItem>
+					<ListItem term={'numeric'}>Differing weights such as 100, 200, 300, 400, 500, 600, 700, 800 and 900.</ListItem>
 				</List>
 				<p>
 					After all that confusing math about <CodeInline>font-size</CodeInline> and <CodeInline>line-height</CodeInline>, we're going to
@@ -232,18 +232,18 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[14]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[15]}</CodeBlock>
-				<Output className="output-articles output-font-weight" code={codeBlocks[14]} />
+				<Output className={'output-articles output-font-weight'} code={codeBlocks[14]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[5]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[16]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="italic">
+				<List variant={'dl'}>
+					<ListItem term={'italic'}>
 						Searches for an italic version of the font if one is available. If there is none, it gets set to "oblique". Italic fonts are
 						usually cursive or script like in nature.
 					</ListItem>
-					<ListItem term="oblique">
+					<ListItem term={'oblique'}>
 						A slanted version of the font used when an italic version is not present. If neither italic nor oblique are available, the
 						font becomes slanted to give it the effect of italics.
 					</ListItem>
@@ -256,14 +256,14 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[17]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[18]}</CodeBlock>
-				<Output className="output-articles output-font-style" code={codeBlocks[17]} />
+				<Output className={'output-articles output-font-style'} code={codeBlocks[17]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[6]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[19]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="small-caps">Turns all characters to caps and decreases their size.</ListItem>
+				<List variant={'dl'}>
+					<ListItem term={'small-caps'}>Turns all characters to caps and decreases their size.</ListItem>
 				</List>
 				<p>
 					There's not much to say about the <CodeInline>font-variant</CodeInline> property. It actually has a lot of values, but the one
@@ -274,19 +274,19 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[20]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[21]}</CodeBlock>
-				<Output className="output-articles output-font-variant" code={codeBlocks[20]} />
+				<Output className={'output-articles output-font-variant'} code={codeBlocks[20]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[7]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[22]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="capitalize">
+				<List variant={'dl'}>
+					<ListItem term={'capitalize'}>
 						Capitalizes the first letter of every word. If another character, such as the second or third character is capitalized, it
 						does nothing to this character.
 					</ListItem>
-					<ListItem term="lowercase">Changes all characters to lowercase.</ListItem>
-					<ListItem term="uppercase">Changes all characters to uppercase.</ListItem>
+					<ListItem term={'lowercase'}>Changes all characters to lowercase.</ListItem>
+					<ListItem term={'uppercase'}>Changes all characters to uppercase.</ListItem>
 				</List>
 				<p>
 					Transforming text gives us the flexibility to change the formatting of the text without worrying about how a user has input a
@@ -301,20 +301,20 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[23]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[24]}</CodeBlock>
-				<Output className="output-articles output-text-transform" code={codeBlocks[23]} />
+				<Output className={'output-articles output-text-transform'} code={codeBlocks[23]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[8]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[25]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="blink">
+				<List variant={'dl'}>
+					<ListItem term={'blink'}>
 						Makes the text blink or flash. Though you can use this property, in a lot of browsers it's disabled. Probably for a good
 						reason.
 					</ListItem>
-					<ListItem term="line-through">Places a 1px line through the text.</ListItem>
-					<ListItem term="overline">Places a 1px line above the text.</ListItem>
-					<ListItem term="underline">Places a 1px line below the text.</ListItem>
+					<ListItem term={'line-through'}>Places a 1px line through the text.</ListItem>
+					<ListItem term={'overline'}>Places a 1px line above the text.</ListItem>
+					<ListItem term={'underline'}>Places a 1px line below the text.</ListItem>
 				</List>
 				<p>
 					My favorite value out of all <CodeInline>text-decoration</CodeInline> choices above is "none". I state this because I often use
@@ -330,14 +330,14 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[26]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[27]}</CodeBlock>
-				<Output className="output-articles output-text-decoration" code={codeBlocks[26]} />
+				<Output className={'output-articles output-text-decoration'} code={codeBlocks[26]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[9]}>
 				<CodeBlock header={'CSS'}>{codeBlocks[28]}</CodeBlock>
 				<h4>Values</h4>
-				<List variant="dl">
-					<ListItem term="length">A defined value usually measured with %, px, em, pt, cm, etc.</ListItem>
+				<List variant={'dl'}>
+					<ListItem term={'length'}>A defined value usually measured with %, px, em, pt, cm, etc.</ListItem>
 				</List>
 				<p>
 					The <CodeInline>letter-spacing</CodeInline> property controls how much space is in-between each character. Positive values spread
@@ -346,7 +346,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[29]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[30]}</CodeBlock>
-				<Output className="output-articles output-letter-spacing" code={codeBlocks[29]} />
+				<Output className={'output-articles output-letter-spacing'} code={codeBlocks[29]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[10]}>
@@ -364,7 +364,7 @@ export const StylingText = () => {
 				</p>
 				<CodeBlock header={'HTML'}>{codeBlocks[32]}</CodeBlock>
 				<CodeBlock header={'CSS'}>{codeBlocks[33]}</CodeBlock>
-				<Output className="output-articles output-font-shorthand" code={codeBlocks[32]} />
+				<Output className={'output-articles output-font-shorthand'} code={codeBlocks[32]} />
 			</ArticlesSection>
 
 			<ArticlesSection header={sections[11]}>

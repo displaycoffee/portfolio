@@ -21,7 +21,7 @@ export const Resume = () => {
 			<div className="resume-section resume-note margin-trim">
 				<p>
 					<strong>Note</strong> - If you're looking for an alternate version of this resume,{' '}
-					<LinkExternal href="/assets/documents/adria-murphy-resume.pdf">grab the downloadable pdf</LinkExternal>.
+					<LinkExternal href={'/assets/documents/adria-murphy-resume.pdf'}>grab the downloadable pdf</LinkExternal>.
 				</p>
 			</div>
 
@@ -74,11 +74,11 @@ export const Resume = () => {
 				{history.length !== 0
 					? history.map((value) => (
 							<React.Fragment key={value.id}>
-								<List variant="dl">
-									<ListItem term="Name">{value.name}</ListItem>
-									<ListItem term="Date">{value.date}</ListItem>
-									<ListItem term="Role">{value.role}</ListItem>
-									<ListItem term="Objectives">
+								<List variant={'dl'}>
+									<ListItem term={'Name'}>{value.name}</ListItem>
+									<ListItem term={'Date'}>{value.date}</ListItem>
+									<ListItem term={'Role'}>{value.role}</ListItem>
+									<ListItem term={'Objectives'}>
 										<List>
 											{value.description.map((content, index) => (
 												<li key={index}>
@@ -104,10 +104,10 @@ export const Resume = () => {
 				{volunteer.length !== 0
 					? volunteer.map((value) => (
 							<React.Fragment key={value.id}>
-								<List variant="dl">
-									<ListItem term="Name">{value.name}</ListItem>
-									<ListItem term="Date">{value.date}</ListItem>
-									<ListItem term="Objectives">
+								<List variant={'dl'}>
+									<ListItem term={'Name'}>{value.name}</ListItem>
+									<ListItem term={'Date'}>{value.date}</ListItem>
+									<ListItem term={'Objectives'}>
 										<List>
 											{value.description.map((content, index) => (
 												<li key={index}>{content}</li>

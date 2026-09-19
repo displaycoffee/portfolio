@@ -56,7 +56,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
 			<header className="code-block-header flex-nowrap flex-align-items-center">
 				{header ? <span className="code-block-label">{header}</span> : null}
 
-				<Button className="code-block-button a" label="Select code" variant="unstyled" onClick={() => selectCode()} />
+				<Button className={'code-block-button a'} label={'Select code'} variant={'unstyled'} onClick={() => selectCode()} />
 			</header>
 
 			<pre className="code-block-pre scrollbar">
@@ -199,10 +199,10 @@ export const PixelBlock = (props: PixelBlockProps) => {
 					children
 				) : showNavigation ? (
 					<nav className="pixel-navigation">
-						<List className="pixel-navigation-list flex-wrap flex-align-items-center" variant="ul-unstyled">
+						<List className={'pixel-navigation-list flex-wrap flex-align-items-center'} variant={'ul-unstyled'}>
 							{previousUrl && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
-									<Link className="pixel-navigation-link" to={previousUrl}>
+									<Link className={'pixel-navigation-link'} to={previousUrl}>
 										<Icon id={'angle-left'} />
 										<span className="pixel-navigation-label">Previous</span>
 									</Link>
@@ -214,7 +214,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 									{navigation?.previous?.handle ? navigationSeparator : null}
 
 									<li className="pixel-navigation-list-item pixel-navigation-back">
-										<Link className="pixel-navigation-link" to={backUrl}>
+										<Link className={'pixel-navigation-link'} to={backUrl}>
 											{navigation.back}
 										</Link>
 									</li>
@@ -226,7 +226,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 									{navigationSeparator}
 
 									<li className="pixel-navigation-list-item pixel-navigation-next">
-										<Link className="pixel-navigation-link" to={nextUrl}>
+										<Link className={'pixel-navigation-link'} to={nextUrl}>
 											<span className="pixel-navigation-label">Next</span>
 											<Icon id={'angle-right'} />
 										</Link>

@@ -27,10 +27,10 @@ export const FramerMotion = (props) => {
 
 	return (
 		<div className="dc-framer-motion">
-			<motion.div key={key} className="dc-framer-motion-row" variants={container} initial="hidden" animate="show">
+			<motion.div key={key} className={'dc-framer-motion-row'} variants={container} initial={'hidden'} animate={'show'}>
 				{cards.map((item) => (
 					<motion.div
-						className="dc-framer-motion-column dc-framer-motion-card"
+						className={'dc-framer-motion-column dc-framer-motion-card'}
 						variants={card}
 						whileHover={{ scale: 1.06, backgroundColor: '#704a37' }}
 						whileTap={{ scale: 0.94, backgroundColor: '#2a1c15' }}
