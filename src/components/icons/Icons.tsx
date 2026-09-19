@@ -14,9 +14,7 @@ export const Icon = (props: IconsProps) => {
 	if (isBold) {
 		iconClasses.push(`${iconClass}-bold`);
 	}
-	if (size) {
-		iconClasses.push(`${iconClass}-${size}`);
-	}
+	if (size) iconClasses.push(`${iconClass}-${size}`);
 	if (shadowSize != 'none') {
 		iconClasses.push(`${iconClass}-shadow-${shadowSize}`);
 	}
