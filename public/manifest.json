@@ -1,24 +1,10 @@
 {
-	"short_name": "Portfolio",
-	"name": "Portfolio of Adria Murphy",
+	"short_name": "Portfolio of Adria Murphy.",
+	"name": "Portfolio of Adria Murphy.",
 	"icons": [
-		{
-			"src": "/favicon.svg",
-			"type": "image/svg+xml",
-			"sizes": "any"
-		},
-		{
-			"src": "/favicon-192x192.png",
-			"type": "image/png",
-			"sizes": "192x192",
-			"purpose": "any"
-		},
-		{
-			"src": "/favicon-512x512.png",
-			"type": "image/png",
-			"sizes": "512x512",
-			"purpose": "maskable"
-		}
+		{ "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+		{ "src": "/favicon-192x192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+		{ "src": "/favicon-512x512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
 	],
 	"start_url": ".",
 	"display": "standalone",

@@ -1,5 +1,6 @@
 // Local Sass modules
 @use './_functions';
+@use './_mixins';
 
 // Mixin for a pixel style border
 @mixin pixel-border($width: 2px, $bg: #333333, $border: #111111, $inset: #222222, $highlight: #666666, $rounded: false) {
@@ -20,7 +21,7 @@
 		&:before, &:after {
 			content : '';
 			display: block;
-			@include position-fill;
+			@include mixins.position-fill;
 		}
 		&:before {
 			background-image: $top-left, $top-right, $bottom-right, $bottom-left;
@@ -34,7 +35,7 @@
 		@if $rounded == false {
 			content : '';
 			display: block;
-			@include position-fill;
+			@include mixins.position-fill;
 		}
 		border: $width solid $border;
 		box-shadow: inset -#{$width} 0 0 0 $inset, inset $width 0 0 0 $highlight, inset 0 -#{$width} 0 0 $inset, inset 0 $width 0 0 $highlight;
