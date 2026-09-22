@@ -1,13 +1,13 @@
 /* Styles */
 import './styles/content.scss';
 
-/* Components */
-import { NavigationRoutes } from '../../components/navigation/Navigation';
+/* Packages */
+import { Outlet } from '@tanstack/react-router';
 
 export const Content = () => {
 	return (
-		<div className="content margin-trim">
-			<NavigationRoutes />
+		<div className="content">
+			<Outlet />
 		</div>
 	);
 };

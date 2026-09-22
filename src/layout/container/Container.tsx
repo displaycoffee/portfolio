@@ -3,12 +3,13 @@ import './styles/container.scss';
 
 /* Packages */
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from '@tanstack/react-router';
 
 /* Scripts */
 import { useRespond } from '../../_core/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import { useAvailableMinHeight, useBodyClass } from './scripts/container-hooks';
+import { navigationHeader } from '../../components/navigation/scripts/navigation';
 
 /* Components */
 import { PixelBlock } from '../../components/blocks/Blocks';
@@ -51,7 +52,7 @@ export const Container = () => {
 				<Header />
 
 				<PixelBlock className={'navigation-block'}>
-					{isDesktop ? <Navigation label={'Header Navigation'} /> : <Slideout options={slideoutOptions} />}
+					{isDesktop ? <Navigation data={navigationHeader} label={'Header Navigation'} /> : <Slideout options={slideoutOptions} />}
 				</PixelBlock>
 
 				{isDesktop ? null : (
@@ -64,7 +65,7 @@ export const Container = () => {
 							},
 						}}
 					>
-						<Navigation disableTransition={true} label={'Mobile Navigation'} />
+						<Navigation data={navigationHeader} disableTransition={true} label={'Mobile Navigation'} />
 					</Slideout>
 				)}
 

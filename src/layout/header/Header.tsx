@@ -3,7 +3,7 @@ import './styles/header.scss';
 
 /* Packages */
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 /* Scripts */
 import { useRespond, useViewTransition } from '../../_core/scripts/hooks';
