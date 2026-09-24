@@ -9,8 +9,8 @@ export const contents = {
 			values.forEach((value, index) => {
 				// Create handle for value (needed for routes)
 				let handle = `${index}`;
-				if (value?.name2) {
-					handle = utils.handleize(value.name2);
+				if (value?.nameAlt) {
+					handle = utils.handleize(value.nameAlt);
 				} else if (value?.name) {
 					handle = utils.handleize(value.name);
 				}
@@ -38,7 +38,10 @@ export const contents = {
 		});
 
 		// Set current
-		const current = selected.pop() as ContentsType;
+		const current = selected.pop();
+
+		// If the location does not match an item, there is nothing to navigate between
+		if (!current) return { current: undefined, next: undefined, previous: undefined };
 
 		// If previous / next index is out of bounds, loop around to start / end of values
 		const nextIndex = (current.index as number) + 1;

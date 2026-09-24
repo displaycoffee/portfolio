@@ -13,33 +13,487 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRouteImport } from './routes/__root'
 
 const IndexLazyRouteImport = createFileRoute('/')()
+const AboutIndexLazyRouteImport = createFileRoute('/about/')()
+const ArtIndexLazyRouteImport = createFileRoute('/art/')()
+const ArticlesIndexLazyRouteImport = createFileRoute('/articles/')()
+const CheatCodesIndexLazyRouteImport = createFileRoute('/cheat-codes/')()
+const ProjectsIndexLazyRouteImport = createFileRoute('/projects/')()
+const ResumeIndexLazyRouteImport = createFileRoute('/resume/')()
+const ArtHandleIndexLazyRouteImport = createFileRoute('/art/$handle/')()
+const ProjectsHandleIndexLazyRouteImport =
+  createFileRoute('/projects/$handle/')()
+const ArticleschildrenBoxsizingMyBestFriendIndexLazyRouteImport =
+  createFileRoute('/articles/(children)/boxsizing-my-best-friend/')()
+const ArticleschildrenStructuringCodeIndexLazyRouteImport = createFileRoute(
+  '/articles/(children)/structuring-code/',
+)()
+const ArticleschildrenStylingTextIndexLazyRouteImport = createFileRoute(
+  '/articles/(children)/styling-text/',
+)()
+const CheatCodeschildrenAPromiseIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/a-promise/',
+)()
+const CheatCodeschildrenBannerCodeGeneratorIndexLazyRouteImport =
+  createFileRoute('/cheat-codes/(children)/banner-code-generator/')()
+const CheatCodeschildrenBestFriendsIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/best-friends/',
+)()
+const CheatCodeschildrenBurmeciaIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/burmecia/',
+)()
+const CheatCodeschildrenDragonyIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/dragony/',
+)()
+const CheatCodeschildrenDreamingOfSnowIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/dreaming-of-snow/',
+)()
+const CheatCodeschildrenFramerMotionIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/framer-motion/',
+)()
+const CheatCodeschildrenFriendsNotFoodIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/friends-not-food/',
+)()
+const CheatCodeschildrenHelloContentATabbingScriptIndexLazyRouteImport =
+  createFileRoute('/cheat-codes/(children)/hello-content-a-tabbing-script/')()
+const CheatCodeschildrenNavigationMenusIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/navigation-menus/',
+)()
+const CheatCodeschildrenVelociraptorPackIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/velociraptor-pack/',
+)()
+const CheatCodeschildrenViewTransitionsApiIndexLazyRouteImport =
+  createFileRoute('/cheat-codes/(children)/view-transitions-api/')()
+const CheatCodeschildrenWishYouWereHereIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/wish-you-were-here/',
+)()
+const CheatCodeschildrenWordpressBlockPreviewIndexLazyRouteImport =
+  createFileRoute('/cheat-codes/(children)/wordpress-block-preview/')()
 
 const IndexLazyRoute = IndexLazyRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+const AboutIndexLazyRoute = AboutIndexLazyRouteImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/about/index.lazy').then((d) => d.Route))
+const ArtIndexLazyRoute = ArtIndexLazyRouteImport.update({
+  id: '/art/',
+  path: '/art/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/art/index.lazy').then((d) => d.Route))
+const ArticlesIndexLazyRoute = ArticlesIndexLazyRouteImport.update({
+  id: '/articles/',
+  path: '/articles/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/articles/index.lazy').then((d) => d.Route),
+)
+const CheatCodesIndexLazyRoute = CheatCodesIndexLazyRouteImport.update({
+  id: '/cheat-codes/',
+  path: '/cheat-codes/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/cheat-codes/index.lazy').then((d) => d.Route),
+)
+const ProjectsIndexLazyRoute = ProjectsIndexLazyRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/projects/index.lazy').then((d) => d.Route),
+)
+const ResumeIndexLazyRoute = ResumeIndexLazyRouteImport.update({
+  id: '/resume/',
+  path: '/resume/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/resume/index.lazy').then((d) => d.Route))
+const ArtHandleIndexLazyRoute = ArtHandleIndexLazyRouteImport.update({
+  id: '/art/$handle/',
+  path: '/art/$handle/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/art/$handle/index.lazy').then((d) => d.Route),
+)
+const ProjectsHandleIndexLazyRoute = ProjectsHandleIndexLazyRouteImport.update({
+  id: '/projects/$handle/',
+  path: '/projects/$handle/',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/projects/$handle/index.lazy').then((d) => d.Route),
+)
+const ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute =
+  ArticleschildrenBoxsizingMyBestFriendIndexLazyRouteImport.update({
+    id: '/articles/(children)/boxsizing-my-best-friend/',
+    path: '/articles/boxsizing-my-best-friend/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/articles/(children)/boxsizing-my-best-friend/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const ArticleschildrenStructuringCodeIndexLazyRoute =
+  ArticleschildrenStructuringCodeIndexLazyRouteImport.update({
+    id: '/articles/(children)/structuring-code/',
+    path: '/articles/structuring-code/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/articles/(children)/structuring-code/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const ArticleschildrenStylingTextIndexLazyRoute =
+  ArticleschildrenStylingTextIndexLazyRouteImport.update({
+    id: '/articles/(children)/styling-text/',
+    path: '/articles/styling-text/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/articles/(children)/styling-text/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenAPromiseIndexLazyRoute =
+  CheatCodeschildrenAPromiseIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/a-promise/',
+    path: '/cheat-codes/a-promise/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/a-promise/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute =
+  CheatCodeschildrenBannerCodeGeneratorIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/banner-code-generator/',
+    path: '/cheat-codes/banner-code-generator/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/banner-code-generator/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenBestFriendsIndexLazyRoute =
+  CheatCodeschildrenBestFriendsIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/best-friends/',
+    path: '/cheat-codes/best-friends/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/best-friends/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenBurmeciaIndexLazyRoute =
+  CheatCodeschildrenBurmeciaIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/burmecia/',
+    path: '/cheat-codes/burmecia/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/burmecia/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenDragonyIndexLazyRoute =
+  CheatCodeschildrenDragonyIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/dragony/',
+    path: '/cheat-codes/dragony/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/dragony/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenDreamingOfSnowIndexLazyRoute =
+  CheatCodeschildrenDreamingOfSnowIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/dreaming-of-snow/',
+    path: '/cheat-codes/dreaming-of-snow/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/dreaming-of-snow/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenFramerMotionIndexLazyRoute =
+  CheatCodeschildrenFramerMotionIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/framer-motion/',
+    path: '/cheat-codes/framer-motion/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/framer-motion/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenFriendsNotFoodIndexLazyRoute =
+  CheatCodeschildrenFriendsNotFoodIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/friends-not-food/',
+    path: '/cheat-codes/friends-not-food/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/friends-not-food/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute =
+  CheatCodeschildrenHelloContentATabbingScriptIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/hello-content-a-tabbing-script/',
+    path: '/cheat-codes/hello-content-a-tabbing-script/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/hello-content-a-tabbing-script/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenNavigationMenusIndexLazyRoute =
+  CheatCodeschildrenNavigationMenusIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/navigation-menus/',
+    path: '/cheat-codes/navigation-menus/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/navigation-menus/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenVelociraptorPackIndexLazyRoute =
+  CheatCodeschildrenVelociraptorPackIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/velociraptor-pack/',
+    path: '/cheat-codes/velociraptor-pack/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/velociraptor-pack/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenViewTransitionsApiIndexLazyRoute =
+  CheatCodeschildrenViewTransitionsApiIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/view-transitions-api/',
+    path: '/cheat-codes/view-transitions-api/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/view-transitions-api/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenWishYouWereHereIndexLazyRoute =
+  CheatCodeschildrenWishYouWereHereIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/wish-you-were-here/',
+    path: '/cheat-codes/wish-you-were-here/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/wish-you-were-here/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute =
+  CheatCodeschildrenWordpressBlockPreviewIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/wordpress-block-preview/',
+    path: '/cheat-codes/wordpress-block-preview/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/wordpress-block-preview/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
+  '/about/': typeof AboutIndexLazyRoute
+  '/art/': typeof ArtIndexLazyRoute
+  '/articles/': typeof ArticlesIndexLazyRoute
+  '/cheat-codes/': typeof CheatCodesIndexLazyRoute
+  '/projects/': typeof ProjectsIndexLazyRoute
+  '/resume/': typeof ResumeIndexLazyRoute
+  '/art/$handle/': typeof ArtHandleIndexLazyRoute
+  '/projects/$handle/': typeof ProjectsHandleIndexLazyRoute
+  '/articles/boxsizing-my-best-friend/': typeof ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute
+  '/articles/structuring-code/': typeof ArticleschildrenStructuringCodeIndexLazyRoute
+  '/articles/styling-text/': typeof ArticleschildrenStylingTextIndexLazyRoute
+  '/cheat-codes/a-promise/': typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  '/cheat-codes/banner-code-generator/': typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
+  '/cheat-codes/best-friends/': typeof CheatCodeschildrenBestFriendsIndexLazyRoute
+  '/cheat-codes/burmecia/': typeof CheatCodeschildrenBurmeciaIndexLazyRoute
+  '/cheat-codes/dragony/': typeof CheatCodeschildrenDragonyIndexLazyRoute
+  '/cheat-codes/dreaming-of-snow/': typeof CheatCodeschildrenDreamingOfSnowIndexLazyRoute
+  '/cheat-codes/framer-motion/': typeof CheatCodeschildrenFramerMotionIndexLazyRoute
+  '/cheat-codes/friends-not-food/': typeof CheatCodeschildrenFriendsNotFoodIndexLazyRoute
+  '/cheat-codes/hello-content-a-tabbing-script/': typeof CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute
+  '/cheat-codes/navigation-menus/': typeof CheatCodeschildrenNavigationMenusIndexLazyRoute
+  '/cheat-codes/velociraptor-pack/': typeof CheatCodeschildrenVelociraptorPackIndexLazyRoute
+  '/cheat-codes/view-transitions-api/': typeof CheatCodeschildrenViewTransitionsApiIndexLazyRoute
+  '/cheat-codes/wish-you-were-here/': typeof CheatCodeschildrenWishYouWereHereIndexLazyRoute
+  '/cheat-codes/wordpress-block-preview/': typeof CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
+  '/about': typeof AboutIndexLazyRoute
+  '/art': typeof ArtIndexLazyRoute
+  '/articles': typeof ArticlesIndexLazyRoute
+  '/cheat-codes': typeof CheatCodesIndexLazyRoute
+  '/projects': typeof ProjectsIndexLazyRoute
+  '/resume': typeof ResumeIndexLazyRoute
+  '/art/$handle': typeof ArtHandleIndexLazyRoute
+  '/projects/$handle': typeof ProjectsHandleIndexLazyRoute
+  '/articles/boxsizing-my-best-friend': typeof ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute
+  '/articles/structuring-code': typeof ArticleschildrenStructuringCodeIndexLazyRoute
+  '/articles/styling-text': typeof ArticleschildrenStylingTextIndexLazyRoute
+  '/cheat-codes/a-promise': typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  '/cheat-codes/banner-code-generator': typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
+  '/cheat-codes/best-friends': typeof CheatCodeschildrenBestFriendsIndexLazyRoute
+  '/cheat-codes/burmecia': typeof CheatCodeschildrenBurmeciaIndexLazyRoute
+  '/cheat-codes/dragony': typeof CheatCodeschildrenDragonyIndexLazyRoute
+  '/cheat-codes/dreaming-of-snow': typeof CheatCodeschildrenDreamingOfSnowIndexLazyRoute
+  '/cheat-codes/framer-motion': typeof CheatCodeschildrenFramerMotionIndexLazyRoute
+  '/cheat-codes/friends-not-food': typeof CheatCodeschildrenFriendsNotFoodIndexLazyRoute
+  '/cheat-codes/hello-content-a-tabbing-script': typeof CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute
+  '/cheat-codes/navigation-menus': typeof CheatCodeschildrenNavigationMenusIndexLazyRoute
+  '/cheat-codes/velociraptor-pack': typeof CheatCodeschildrenVelociraptorPackIndexLazyRoute
+  '/cheat-codes/view-transitions-api': typeof CheatCodeschildrenViewTransitionsApiIndexLazyRoute
+  '/cheat-codes/wish-you-were-here': typeof CheatCodeschildrenWishYouWereHereIndexLazyRoute
+  '/cheat-codes/wordpress-block-preview': typeof CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexLazyRoute
+  '/about/': typeof AboutIndexLazyRoute
+  '/art/': typeof ArtIndexLazyRoute
+  '/articles/': typeof ArticlesIndexLazyRoute
+  '/cheat-codes/': typeof CheatCodesIndexLazyRoute
+  '/projects/': typeof ProjectsIndexLazyRoute
+  '/resume/': typeof ResumeIndexLazyRoute
+  '/art/$handle/': typeof ArtHandleIndexLazyRoute
+  '/projects/$handle/': typeof ProjectsHandleIndexLazyRoute
+  '/articles/(children)/boxsizing-my-best-friend/': typeof ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute
+  '/articles/(children)/structuring-code/': typeof ArticleschildrenStructuringCodeIndexLazyRoute
+  '/articles/(children)/styling-text/': typeof ArticleschildrenStylingTextIndexLazyRoute
+  '/cheat-codes/(children)/a-promise/': typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  '/cheat-codes/(children)/banner-code-generator/': typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
+  '/cheat-codes/(children)/best-friends/': typeof CheatCodeschildrenBestFriendsIndexLazyRoute
+  '/cheat-codes/(children)/burmecia/': typeof CheatCodeschildrenBurmeciaIndexLazyRoute
+  '/cheat-codes/(children)/dragony/': typeof CheatCodeschildrenDragonyIndexLazyRoute
+  '/cheat-codes/(children)/dreaming-of-snow/': typeof CheatCodeschildrenDreamingOfSnowIndexLazyRoute
+  '/cheat-codes/(children)/framer-motion/': typeof CheatCodeschildrenFramerMotionIndexLazyRoute
+  '/cheat-codes/(children)/friends-not-food/': typeof CheatCodeschildrenFriendsNotFoodIndexLazyRoute
+  '/cheat-codes/(children)/hello-content-a-tabbing-script/': typeof CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute
+  '/cheat-codes/(children)/navigation-menus/': typeof CheatCodeschildrenNavigationMenusIndexLazyRoute
+  '/cheat-codes/(children)/velociraptor-pack/': typeof CheatCodeschildrenVelociraptorPackIndexLazyRoute
+  '/cheat-codes/(children)/view-transitions-api/': typeof CheatCodeschildrenViewTransitionsApiIndexLazyRoute
+  '/cheat-codes/(children)/wish-you-were-here/': typeof CheatCodeschildrenWishYouWereHereIndexLazyRoute
+  '/cheat-codes/(children)/wordpress-block-preview/': typeof CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about/'
+    | '/art/'
+    | '/articles/'
+    | '/cheat-codes/'
+    | '/projects/'
+    | '/resume/'
+    | '/art/$handle/'
+    | '/projects/$handle/'
+    | '/articles/boxsizing-my-best-friend/'
+    | '/articles/structuring-code/'
+    | '/articles/styling-text/'
+    | '/cheat-codes/a-promise/'
+    | '/cheat-codes/banner-code-generator/'
+    | '/cheat-codes/best-friends/'
+    | '/cheat-codes/burmecia/'
+    | '/cheat-codes/dragony/'
+    | '/cheat-codes/dreaming-of-snow/'
+    | '/cheat-codes/framer-motion/'
+    | '/cheat-codes/friends-not-food/'
+    | '/cheat-codes/hello-content-a-tabbing-script/'
+    | '/cheat-codes/navigation-menus/'
+    | '/cheat-codes/velociraptor-pack/'
+    | '/cheat-codes/view-transitions-api/'
+    | '/cheat-codes/wish-you-were-here/'
+    | '/cheat-codes/wordpress-block-preview/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/art'
+    | '/articles'
+    | '/cheat-codes'
+    | '/projects'
+    | '/resume'
+    | '/art/$handle'
+    | '/projects/$handle'
+    | '/articles/boxsizing-my-best-friend'
+    | '/articles/structuring-code'
+    | '/articles/styling-text'
+    | '/cheat-codes/a-promise'
+    | '/cheat-codes/banner-code-generator'
+    | '/cheat-codes/best-friends'
+    | '/cheat-codes/burmecia'
+    | '/cheat-codes/dragony'
+    | '/cheat-codes/dreaming-of-snow'
+    | '/cheat-codes/framer-motion'
+    | '/cheat-codes/friends-not-food'
+    | '/cheat-codes/hello-content-a-tabbing-script'
+    | '/cheat-codes/navigation-menus'
+    | '/cheat-codes/velociraptor-pack'
+    | '/cheat-codes/view-transitions-api'
+    | '/cheat-codes/wish-you-were-here'
+    | '/cheat-codes/wordpress-block-preview'
+  id:
+    | '__root__'
+    | '/'
+    | '/about/'
+    | '/art/'
+    | '/articles/'
+    | '/cheat-codes/'
+    | '/projects/'
+    | '/resume/'
+    | '/art/$handle/'
+    | '/projects/$handle/'
+    | '/articles/(children)/boxsizing-my-best-friend/'
+    | '/articles/(children)/structuring-code/'
+    | '/articles/(children)/styling-text/'
+    | '/cheat-codes/(children)/a-promise/'
+    | '/cheat-codes/(children)/banner-code-generator/'
+    | '/cheat-codes/(children)/best-friends/'
+    | '/cheat-codes/(children)/burmecia/'
+    | '/cheat-codes/(children)/dragony/'
+    | '/cheat-codes/(children)/dreaming-of-snow/'
+    | '/cheat-codes/(children)/framer-motion/'
+    | '/cheat-codes/(children)/friends-not-food/'
+    | '/cheat-codes/(children)/hello-content-a-tabbing-script/'
+    | '/cheat-codes/(children)/navigation-menus/'
+    | '/cheat-codes/(children)/velociraptor-pack/'
+    | '/cheat-codes/(children)/view-transitions-api/'
+    | '/cheat-codes/(children)/wish-you-were-here/'
+    | '/cheat-codes/(children)/wordpress-block-preview/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
+  AboutIndexLazyRoute: typeof AboutIndexLazyRoute
+  ArtIndexLazyRoute: typeof ArtIndexLazyRoute
+  ArticlesIndexLazyRoute: typeof ArticlesIndexLazyRoute
+  CheatCodesIndexLazyRoute: typeof CheatCodesIndexLazyRoute
+  ProjectsIndexLazyRoute: typeof ProjectsIndexLazyRoute
+  ResumeIndexLazyRoute: typeof ResumeIndexLazyRoute
+  ArtHandleIndexLazyRoute: typeof ArtHandleIndexLazyRoute
+  ProjectsHandleIndexLazyRoute: typeof ProjectsHandleIndexLazyRoute
+  ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute: typeof ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute
+  ArticleschildrenStructuringCodeIndexLazyRoute: typeof ArticleschildrenStructuringCodeIndexLazyRoute
+  ArticleschildrenStylingTextIndexLazyRoute: typeof ArticleschildrenStylingTextIndexLazyRoute
+  CheatCodeschildrenAPromiseIndexLazyRoute: typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute: typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
+  CheatCodeschildrenBestFriendsIndexLazyRoute: typeof CheatCodeschildrenBestFriendsIndexLazyRoute
+  CheatCodeschildrenBurmeciaIndexLazyRoute: typeof CheatCodeschildrenBurmeciaIndexLazyRoute
+  CheatCodeschildrenDragonyIndexLazyRoute: typeof CheatCodeschildrenDragonyIndexLazyRoute
+  CheatCodeschildrenDreamingOfSnowIndexLazyRoute: typeof CheatCodeschildrenDreamingOfSnowIndexLazyRoute
+  CheatCodeschildrenFramerMotionIndexLazyRoute: typeof CheatCodeschildrenFramerMotionIndexLazyRoute
+  CheatCodeschildrenFriendsNotFoodIndexLazyRoute: typeof CheatCodeschildrenFriendsNotFoodIndexLazyRoute
+  CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute: typeof CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute
+  CheatCodeschildrenNavigationMenusIndexLazyRoute: typeof CheatCodeschildrenNavigationMenusIndexLazyRoute
+  CheatCodeschildrenVelociraptorPackIndexLazyRoute: typeof CheatCodeschildrenVelociraptorPackIndexLazyRoute
+  CheatCodeschildrenViewTransitionsApiIndexLazyRoute: typeof CheatCodeschildrenViewTransitionsApiIndexLazyRoute
+  CheatCodeschildrenWishYouWereHereIndexLazyRoute: typeof CheatCodeschildrenWishYouWereHereIndexLazyRoute
+  CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute: typeof CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -51,11 +505,228 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about/'
+      preLoaderRoute: typeof AboutIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/art/': {
+      id: '/art/'
+      path: '/art'
+      fullPath: '/art/'
+      preLoaderRoute: typeof ArtIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/': {
+      id: '/articles/'
+      path: '/articles'
+      fullPath: '/articles/'
+      preLoaderRoute: typeof ArticlesIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/': {
+      id: '/cheat-codes/'
+      path: '/cheat-codes'
+      fullPath: '/cheat-codes/'
+      preLoaderRoute: typeof CheatCodesIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resume/': {
+      id: '/resume/'
+      path: '/resume'
+      fullPath: '/resume/'
+      preLoaderRoute: typeof ResumeIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/art/$handle/': {
+      id: '/art/$handle/'
+      path: '/art/$handle'
+      fullPath: '/art/$handle/'
+      preLoaderRoute: typeof ArtHandleIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$handle/': {
+      id: '/projects/$handle/'
+      path: '/projects/$handle'
+      fullPath: '/projects/$handle/'
+      preLoaderRoute: typeof ProjectsHandleIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/(children)/boxsizing-my-best-friend/': {
+      id: '/articles/(children)/boxsizing-my-best-friend/'
+      path: '/articles/boxsizing-my-best-friend'
+      fullPath: '/articles/boxsizing-my-best-friend/'
+      preLoaderRoute: typeof ArticleschildrenBoxsizingMyBestFriendIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/(children)/structuring-code/': {
+      id: '/articles/(children)/structuring-code/'
+      path: '/articles/structuring-code'
+      fullPath: '/articles/structuring-code/'
+      preLoaderRoute: typeof ArticleschildrenStructuringCodeIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/(children)/styling-text/': {
+      id: '/articles/(children)/styling-text/'
+      path: '/articles/styling-text'
+      fullPath: '/articles/styling-text/'
+      preLoaderRoute: typeof ArticleschildrenStylingTextIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/a-promise/': {
+      id: '/cheat-codes/(children)/a-promise/'
+      path: '/cheat-codes/a-promise'
+      fullPath: '/cheat-codes/a-promise/'
+      preLoaderRoute: typeof CheatCodeschildrenAPromiseIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/banner-code-generator/': {
+      id: '/cheat-codes/(children)/banner-code-generator/'
+      path: '/cheat-codes/banner-code-generator'
+      fullPath: '/cheat-codes/banner-code-generator/'
+      preLoaderRoute: typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/best-friends/': {
+      id: '/cheat-codes/(children)/best-friends/'
+      path: '/cheat-codes/best-friends'
+      fullPath: '/cheat-codes/best-friends/'
+      preLoaderRoute: typeof CheatCodeschildrenBestFriendsIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/burmecia/': {
+      id: '/cheat-codes/(children)/burmecia/'
+      path: '/cheat-codes/burmecia'
+      fullPath: '/cheat-codes/burmecia/'
+      preLoaderRoute: typeof CheatCodeschildrenBurmeciaIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/dragony/': {
+      id: '/cheat-codes/(children)/dragony/'
+      path: '/cheat-codes/dragony'
+      fullPath: '/cheat-codes/dragony/'
+      preLoaderRoute: typeof CheatCodeschildrenDragonyIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/dreaming-of-snow/': {
+      id: '/cheat-codes/(children)/dreaming-of-snow/'
+      path: '/cheat-codes/dreaming-of-snow'
+      fullPath: '/cheat-codes/dreaming-of-snow/'
+      preLoaderRoute: typeof CheatCodeschildrenDreamingOfSnowIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/framer-motion/': {
+      id: '/cheat-codes/(children)/framer-motion/'
+      path: '/cheat-codes/framer-motion'
+      fullPath: '/cheat-codes/framer-motion/'
+      preLoaderRoute: typeof CheatCodeschildrenFramerMotionIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/friends-not-food/': {
+      id: '/cheat-codes/(children)/friends-not-food/'
+      path: '/cheat-codes/friends-not-food'
+      fullPath: '/cheat-codes/friends-not-food/'
+      preLoaderRoute: typeof CheatCodeschildrenFriendsNotFoodIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/hello-content-a-tabbing-script/': {
+      id: '/cheat-codes/(children)/hello-content-a-tabbing-script/'
+      path: '/cheat-codes/hello-content-a-tabbing-script'
+      fullPath: '/cheat-codes/hello-content-a-tabbing-script/'
+      preLoaderRoute: typeof CheatCodeschildrenHelloContentATabbingScriptIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/navigation-menus/': {
+      id: '/cheat-codes/(children)/navigation-menus/'
+      path: '/cheat-codes/navigation-menus'
+      fullPath: '/cheat-codes/navigation-menus/'
+      preLoaderRoute: typeof CheatCodeschildrenNavigationMenusIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/velociraptor-pack/': {
+      id: '/cheat-codes/(children)/velociraptor-pack/'
+      path: '/cheat-codes/velociraptor-pack'
+      fullPath: '/cheat-codes/velociraptor-pack/'
+      preLoaderRoute: typeof CheatCodeschildrenVelociraptorPackIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/view-transitions-api/': {
+      id: '/cheat-codes/(children)/view-transitions-api/'
+      path: '/cheat-codes/view-transitions-api'
+      fullPath: '/cheat-codes/view-transitions-api/'
+      preLoaderRoute: typeof CheatCodeschildrenViewTransitionsApiIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/wish-you-were-here/': {
+      id: '/cheat-codes/(children)/wish-you-were-here/'
+      path: '/cheat-codes/wish-you-were-here'
+      fullPath: '/cheat-codes/wish-you-were-here/'
+      preLoaderRoute: typeof CheatCodeschildrenWishYouWereHereIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/wordpress-block-preview/': {
+      id: '/cheat-codes/(children)/wordpress-block-preview/'
+      path: '/cheat-codes/wordpress-block-preview'
+      fullPath: '/cheat-codes/wordpress-block-preview/'
+      preLoaderRoute: typeof CheatCodeschildrenWordpressBlockPreviewIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
+  AboutIndexLazyRoute: AboutIndexLazyRoute,
+  ArtIndexLazyRoute: ArtIndexLazyRoute,
+  ArticlesIndexLazyRoute: ArticlesIndexLazyRoute,
+  CheatCodesIndexLazyRoute: CheatCodesIndexLazyRoute,
+  ProjectsIndexLazyRoute: ProjectsIndexLazyRoute,
+  ResumeIndexLazyRoute: ResumeIndexLazyRoute,
+  ArtHandleIndexLazyRoute: ArtHandleIndexLazyRoute,
+  ProjectsHandleIndexLazyRoute: ProjectsHandleIndexLazyRoute,
+  ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute:
+    ArticleschildrenBoxsizingMyBestFriendIndexLazyRoute,
+  ArticleschildrenStructuringCodeIndexLazyRoute:
+    ArticleschildrenStructuringCodeIndexLazyRoute,
+  ArticleschildrenStylingTextIndexLazyRoute:
+    ArticleschildrenStylingTextIndexLazyRoute,
+  CheatCodeschildrenAPromiseIndexLazyRoute:
+    CheatCodeschildrenAPromiseIndexLazyRoute,
+  CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute:
+    CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute,
+  CheatCodeschildrenBestFriendsIndexLazyRoute:
+    CheatCodeschildrenBestFriendsIndexLazyRoute,
+  CheatCodeschildrenBurmeciaIndexLazyRoute:
+    CheatCodeschildrenBurmeciaIndexLazyRoute,
+  CheatCodeschildrenDragonyIndexLazyRoute:
+    CheatCodeschildrenDragonyIndexLazyRoute,
+  CheatCodeschildrenDreamingOfSnowIndexLazyRoute:
+    CheatCodeschildrenDreamingOfSnowIndexLazyRoute,
+  CheatCodeschildrenFramerMotionIndexLazyRoute:
+    CheatCodeschildrenFramerMotionIndexLazyRoute,
+  CheatCodeschildrenFriendsNotFoodIndexLazyRoute:
+    CheatCodeschildrenFriendsNotFoodIndexLazyRoute,
+  CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute:
+    CheatCodeschildrenHelloContentATabbingScriptIndexLazyRoute,
+  CheatCodeschildrenNavigationMenusIndexLazyRoute:
+    CheatCodeschildrenNavigationMenusIndexLazyRoute,
+  CheatCodeschildrenVelociraptorPackIndexLazyRoute:
+    CheatCodeschildrenVelociraptorPackIndexLazyRoute,
+  CheatCodeschildrenViewTransitionsApiIndexLazyRoute:
+    CheatCodeschildrenViewTransitionsApiIndexLazyRoute,
+  CheatCodeschildrenWishYouWereHereIndexLazyRoute:
+    CheatCodeschildrenWishYouWereHereIndexLazyRoute,
+  CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute:
+    CheatCodeschildrenWordpressBlockPreviewIndexLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

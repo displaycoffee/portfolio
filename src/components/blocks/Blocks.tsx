@@ -4,7 +4,7 @@ import './styles/blocks.scss';
 /* Packages */
 import type { RefObject } from 'react';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 /* Scripts */
 import type {

@@ -3,13 +3,13 @@
 @use '../../../_core/styles/utils/_mixins';
 @use '../../../_core/styles/theme/_theme';
 
-//// HOME
+//// START
 //// --------------------------------------------------------------------------
 
 	// Style block
 
-	.page-home {
-		.dropdown {
-			max-width: 400px;
+	.page-start {
+		.recent-updates {
+			text-align: right;
 		}
 	}

@@ -1,0 +1,152 @@
+/* Packages */
+import { createLazyFileRoute } from '@tanstack/react-router';
+
+/* Scripts */
+import { cheatCodesOptionsBody } from '../../scripts/cheat-codes-options';
+import { codeBlocks } from './scripts/code-blocks';
+
+/* Components */
+import { Preview as CheatCodesPreview } from './-Preview';
+import { CheatCodesSection } from '../../-CheatCodes';
+import { Contents } from '../../../../components/contents/Contents';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
+
+export const Route = createLazyFileRoute('/cheat-codes/(children)/navigation-menus/')({
+	component: RouteComponent,
+});
+
+function RouteComponent() {
+	return (
+		<Contents {...cheatCodesOptionsBody}>
+			<CheatCodesSection header={'Information'}>
+				<List variant={'dl'}>
+					<ListItem term={'Skill level'}>Easy</ListItem>
+					<ListItem term={'Languages'}>HTML or React, CSS or Sass</ListItem>
+					<ListItem term={'Responsive'}>Mostly, but might get squished on small screens</ListItem>
+				</List>
+			</CheatCodesSection>
+
+			<CheatCodesSection header={'Usage'}>
+				<h4 className="h-remove-shadow">Source / repo</h4>
+				<p>
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/tree/production/navigation-menus'}>View @ displaycoffee</LinkExternal>
+				</p>
+				<p>
+					There are three different styles. Pick whichever one you want and copy the appropriate code below. You can also use the code for
+					all three if you really need that many menus.
+				</p>
+
+				<h4 className="h-remove-shadow">HTML</h4>
+				<p>
+					Copy the menu HTML and place it on the page. The menu should easily adapt to any containing element you place it in. Change the
+					links in the HTML to whatever you'd like them to link to. Remove or add links as needed.
+				</p>
+				<List variant={'dl'}>
+					<ListItem term={'Menu 1'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.html'}>
+							navigation-menus/navigation-menus-01.html
+						</LinkExternal>
+					</ListItem>
+					<ListItem term={'Menu 2'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.html'}>
+							navigation-menus/navigation-menus-02.html
+						</LinkExternal>
+					</ListItem>
+					<ListItem term={'Menu 3'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.html'}>
+							navigation-menus/navigation-menus-03.html
+						</LinkExternal>
+					</ListItem>
+				</List>
+				<p>
+					To add more menu items, add additional <CodeInline>dc-navigation-list-item</CodeInline> or{' '}
+					<CodeInline>dc-navigation-sublist-item</CodeInline> elements inside the HTML. If adding more{' '}
+					<CodeInline>dc-navigation-list-item</CodeInline> elements, you'll need to adjust the width of the main navigation items. See the
+					CSS or Sass examples below.
+				</p>
+
+				<h4 className="h-remove-shadow">React</h4>
+				<p>Copy the JSX component from the link below and add according to your preferred method.</p>
+				<p>
+					<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/NavigationMenus.jsx'}>
+						navigation-menus/NavigationMenus.jsx
+					</LinkExternal>
+				</p>
+				<CodeBlock header={'React import'}>{codeBlocks[0]}</CodeBlock>
+				<CodeBlock header={'React component'}>{codeBlocks[1]}</CodeBlock>
+				<p>
+					The component accepts an <CodeInline>id</CodeInline> prop which is the id of the menu you want to use.
+				</p>
+
+				<h4 className="h-remove-shadow">CSS</h4>
+				<p>If using CSS and not Sass, copy the styles from the links below and add according to your preferred method.</p>
+				<List variant={'dl'}>
+					<ListItem term={'Menu 1'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.css'}>
+							navigation-menus/navigation-menus-01.css
+						</LinkExternal>
+					</ListItem>
+					<ListItem term={'Menu 2'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.css'}>
+							navigation-menus/navigation-menus-02.css
+						</LinkExternal>
+					</ListItem>
+					<ListItem term={'Menu 3'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.css'}>
+							navigation-menus/navigation-menus-03.css
+						</LinkExternal>
+					</ListItem>
+				</List>
+				<CodeBlock header={'Style block'}>{codeBlocks[2]}</CodeBlock>
+				<CodeBlock header={'Stylesheet'}>{codeBlocks[3]}</CodeBlock>
+				<CodeBlock header={'CSS import'}>{codeBlocks[4]}</CodeBlock>
+				<CodeBlock header={'React import'}>{codeBlocks[5]}</CodeBlock>
+				<p>
+					By default, each menu has a <CodeInline>max-width</CodeInline> of <CodeInline>100%</CodeInline>. You can lower, increase, or
+					change the value to a px unit.
+				</p>
+				<CodeBlock header={'CSS'}>{codeBlocks[6]}</CodeBlock>
+				<p>If adding more navigation items, adjust the widths per the number of items. Four items:</p>
+				<CodeBlock header={'CSS'}>{codeBlocks[7]}</CodeBlock>
+				<p>Five items:</p>
+				<CodeBlock header={'CSS'}>{codeBlocks[8]}</CodeBlock>
+				<p>Six items:</p>
+				<CodeBlock header={'CSS'}>{codeBlocks[9]}</CodeBlock>
+
+				<h4 className="h-remove-shadow">Sass</h4>
+				<p>If using Sass and not CSS, copy the styles from the links below and add according to your preferred method.</p>
+				<List variant={'dl'}>
+					<ListItem term={'Menu 1'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-01.scss'}>
+							navigation-menus/navigation-menus-01.scss
+						</LinkExternal>
+					</ListItem>
+					<ListItem term={'Menu 2'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-02.scss'}>
+							navigation-menus/navigation-menus-02.scss
+						</LinkExternal>
+					</ListItem>
+					<ListItem term={'Menu 3'}>
+						<LinkExternal href={'//github.com/displaycoffee/cheat-codes/blob/production/navigation-menus/navigation-menus-03.scss'}>
+							navigation-menus/navigation-menus-03.scss
+						</LinkExternal>
+					</ListItem>
+				</List>
+				<CodeBlock header={'Sass import'}>{codeBlocks[10]}</CodeBlock>
+				<CodeBlock header={'React import'}>{codeBlocks[11]}</CodeBlock>
+				<p>
+					To change the <CodeInline>max-width</CodeInline> of each menu, there is a variable configuration available.
+				</p>
+				<CodeBlock header={'Sass'}>{codeBlocks[12]}</CodeBlock>
+				<p>To add or remove navigation items:</p>
+				<CodeBlock header={'Sass'}>{codeBlocks[13]}</CodeBlock>
+			</CheatCodesSection>
+
+			<Preview className={'preview-cheat-codes preview-navigation-menus'}>
+				<CheatCodesPreview />
+				<CheatCodesPreview id={'02'} />
+				<CheatCodesPreview id={'03'} />
+			</Preview>
+		</Contents>
+	);
+}

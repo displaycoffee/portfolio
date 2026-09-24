@@ -4,7 +4,7 @@ import './styles/gallery.scss';
 /* Packages */
 import { useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from '@tanstack/react-router';
 
 /* Scripts */
 import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
@@ -198,7 +198,8 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 export const GalleryBody = (props: GalleryBodyProps) => {
 	const { location, navigation, tabs, values } = props;
 	const { utils } = useAppContext();
-	const showGallery = window.location.href.includes(location); // Do not render current item if not in matching gallery
+	const hasParentPage = location.split('/').filter(Boolean).length > 1;
+	const showGallery = hasParentPage && window.location.href.includes(location); // Do not render current item if not in matching gallery
 	const parentPage = utils.getPage();
 
 	// Filter values according to current tab
@@ -211,16 +212,16 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 	const { current, next, previous } = elements;
 
 	// Ensure handles do not match current
-	const compareHandle = (handle: string) => {
-		return handle == current.handle ? { handle: false } : { handle: handle };
+	const compareHandle = (handle?: string) => {
+		return !handle || handle == current?.handle ? { handle: false } : { handle: handle };
 	};
 
 	// Build navigation props
 	const navigationProps = {
 		back: navigation.back,
-		next: compareHandle(next.handle as string),
+		next: compareHandle(next?.handle),
 		path: parentPage,
-		previous: compareHandle(previous.handle as string),
+		previous: compareHandle(previous?.handle),
 	};
 
 	// Determine if this is a pixel gallery

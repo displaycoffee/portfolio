@@ -2,6 +2,11 @@
 import type { ReactNode } from 'react';
 
 /* Type definitions */
+type NavigationChild = {
+	name: string;
+	nameAlt?: string;
+};
+
 type NavigationComponent = {
 	data: NavigationMap;
 	disableTransition?: boolean;
@@ -50,6 +55,8 @@ type NavigationMapItemOptions = {
 };
 
 /* Export types */
+export type NavigationChildType = NavigationChild;
+
 export type NavigationFlatItemType = NavigationFlatItem;
 
 export type NavigationMapItemType = NavigationMapItem;

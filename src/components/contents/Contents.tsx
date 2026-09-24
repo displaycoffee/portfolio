@@ -5,7 +5,7 @@ import './styles/contents.scss';
 import type { MouseEvent } from 'react';
 import { useState } from 'react';
 import { flushSync } from 'react-dom';
-import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from '@tanstack/react-router';
 
 /* Scripts */
 import type {
@@ -62,7 +62,11 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	const tagParam = contentsUtils.params.url.tag;
 	const handleTransition = useViewTransition();
 	const [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
-	const [tagParams, setTagParams] = useSearchParams();
+
+	// TanStack Router has no useSearchParams, so read the raw query string ("?tag=css") and navigate to the same page with a new one
+	const navigate = useNavigate();
+	const tagParams = useLocation().searchStr.replace(/^\?/, '');
+	const setTagParams = (query: string) => void navigate({ href: `${location}${query ? `?${query}` : ''}` });
 
 	// Create tags from content values
 	values.forEach((value) => {
@@ -195,7 +199,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 						});
 
 						// Set params string
-						linkParamsString = `?${linkParams.join('&')}`;
+						if (linkParams.length !== 0) linkParamsString = `?${linkParams.join('&')}`;
 					}
 
 					// Set content url
@@ -253,25 +257,26 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
 	const { utils } = useAppContext();
-	const searchParams = useLocation().search || '';
+	const searchParams = useLocation().searchStr;
 	const handleTransition = useViewTransition();
-	const showContents = window.location.href.includes(location); // Do not render current item if not in matching contents
+	const hasParentPage = location.split('/').filter(Boolean).length > 1;
+	const showContents = hasParentPage && window.location.href.includes(location); // Do not render current item if not in matching contents
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
 	const parentPage = utils.getPage();
 
 	// Ensure handles do not match current
-	const compareHandle = (handle: string) => {
-		return handle == current.handle ? { handle: false } : { handle: handle };
+	const compareHandle = (handle?: string) => {
+		return !handle || handle == current?.handle ? { handle: false } : { handle: handle };
 	};
 
 	// Build navigation props
 	const navigationProps = {
 		back: navigation.back,
-		next: compareHandle(next.handle as string),
+		next: compareHandle(next?.handle),
 		params: searchParams,
 		path: parentPage,
-		previous: compareHandle(previous.handle as string),
+		previous: compareHandle(previous?.handle),
 	};
 
 	// Get tags

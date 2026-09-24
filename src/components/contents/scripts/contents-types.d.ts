@@ -10,7 +10,7 @@ type Contents = {
 	id: number;
 	index?: number;
 	name: string;
-	name2?: string;
+	nameAlt?: string;
 	tags?: string;
 	thumb: string;
 	timestamp?: number;

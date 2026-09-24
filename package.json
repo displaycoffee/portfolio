@@ -53,8 +53,7 @@
 		"framer-motion": "^13.3.0",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0",
-		"react-error-boundary": "^6.1.6",
-		"react-router-dom": "^7.18.3"
+		"react-error-boundary": "^6.1.6"
 	},
 	"repository": {
 		"type": "git",

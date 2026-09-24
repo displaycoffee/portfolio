@@ -1,0 +1,76 @@
+// Local Sass modules
+@use '../../../_core/styles/utils/_functions';
+@use '../../../_core/styles/utils/_mixins';
+@use '../../../_core/styles/theme/_theme';
+
+//// RESUME
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	.page-resume {
+		.resume-section {
+			margin: 0 0 theme.$spacing-x8 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		.resume-skills .skill-bar {
+			.skill-bar-name, .skill-bar-progress {
+				position: relative;
+				width: 100%;
+			}
+			.skill-bar-name {
+				margin: 0 0 theme.$spacing-x2 0;
+			}
+			.skill-bar-progress {
+				z-index: 1;
+				height: 30px;
+				overflow: hidden;
+				.skill-bar-total, .skill-bar-out-of {
+					@include mixins.position-fill($margin: 4px 0, $z: -2);
+				}
+				.skill-bar-total {
+					@include mixins.gradient-stripes((#201510, #2a1c15, theme.$color-05, theme.$color-06, theme.$color-06, theme.$color-06));
+				}
+				.skill-bar-out-of {
+					@include mixins.gradient-stripes((#3c5f9f, #5e81c1, #80a3e3, #91b4f4, #91b4f4, #91b4f4));
+					border-right: 2px solid #201510;
+				}
+			}
+		}
+		.resume-inventory {
+			.row {
+				.column {
+					@include mixins.flex(1 1 100%);
+					p {
+						margin: 0;
+					}
+				}
+			}
+		}
+		@include mixins.respond-min(theme.$bp-01) {
+			.resume-skills .skill-bar {
+				.skill-bar-name {
+					@include mixins.flex(0 1 auto);
+					top: 2px;
+					width: 130px;
+					margin: 0 theme.$spacing-x2 0 0;
+					line-height: 1;
+				}
+				.skill-bar-progress {
+					@include mixins.flex;
+					max-width: 400px;
+				}
+			}
+		}
+		@include mixins.respond-min(theme.$bp-03) {
+			.resume-inventory {
+				.row {
+					.column {
+						@include mixins.flex;
+					}
+				}
+			}
+		}
+	}

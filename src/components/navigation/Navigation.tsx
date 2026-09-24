@@ -12,8 +12,8 @@ import { useViewTransition } from '../../_core/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 
 /* Components */
+import { Icon } from '../icons/Icons';
 import { LinkExternal, List } from '../blocks/Blocks';
-import { Dropdown } from '../dropdown/Dropdown';
 
 export const Navigation = (props: NavigationComponentProps) => {
 	const { data, disableTransition, label } = props;
@@ -33,34 +33,7 @@ export const Navigation = (props: NavigationComponentProps) => {
 				{navigationList.map((nav) => {
 					return (
 						<Fragment key={nav.id}>
-							{nav?.children && nav.children.length !== 0 ? (
-								<NavigationListItem
-									disableTransition={disableTransition ?? false}
-									navigationLinkClass={navigationLinkClass}
-									nav={nav}
-								>
-									<Dropdown buttonLabel={`${nav.label} Menu`} closeOnClick={true} hideLabel={true}>
-										<List className={'navigation-list-submenu'} variant={'ul-unstyled'}>
-											{nav.children.map((child) => {
-												return (
-													<NavigationListItem
-														disableTransition={disableTransition ?? false}
-														nav={child}
-														navigationLinkClass={navigationLinkClass}
-														key={child.id}
-													/>
-												);
-											})}
-										</List>
-									</Dropdown>
-								</NavigationListItem>
-							) : (
-								<NavigationListItem
-									disableTransition={disableTransition ?? false}
-									navigationLinkClass={navigationLinkClass}
-									nav={nav}
-								/>
-							)}
+							<NavigationListItem disableTransition={disableTransition ?? false} navigationLinkClass={navigationLinkClass} nav={nav} />
 						</Fragment>
 					);
 				})}
@@ -82,10 +55,14 @@ export const NavigationListItem = (props: NavigationItemComponentProps) => {
 					className={navigationLinkClass}
 					activeProps={{ className: `${navigationLinkClass}-active` }}
 				>
+					<Icon animate={'left'} id={'bullet'} />
 					{nav.label}
 				</Link>
 			) : (
-				<LinkExternal href={nav.url}>{nav.label}</LinkExternal>
+				<LinkExternal href={nav.url}>
+					<Icon animate={'left'} id={'bullet'} />
+					{nav.label}
+				</LinkExternal>
 			)}
 			{children}
 		</li>

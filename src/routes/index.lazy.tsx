@@ -4,9 +4,11 @@ import './index/styles/index.scss';
 /* Packages */
 import { createLazyFileRoute } from '@tanstack/react-router';
 
+/* Scripts */
+import { updates } from './index/scripts/updates';
+
 /* Components */
-import { List } from '../components/blocks/Blocks';
-import { Dropdown } from '../components/dropdown/Dropdown';
+import { HeaderIcon } from '../components/blocks/Blocks';
 
 export const Route = createLazyFileRoute('/')({
 	component: RouteComponent,
@@ -14,33 +16,28 @@ export const Route = createLazyFileRoute('/')({
 
 function RouteComponent() {
 	return (
-		<div className="home margin-trim">
-			<h2>Home</h2>
+		<>
+			<p>
+				Welcome to the portfolio of <strong>Adria Murphy</strong>, frontend developer and expert pixel installer.
+			</p>
 
-			<p>This is an index page.</p>
+			{updates && updates.length !== 0 ? (
+				<>
+					<HeaderIcon>Recent Updates</HeaderIcon>
 
-			<Dropdown buttonLabel={'Label'}>
-				<List>
-					<li>Item 1</li>
-					<li>Item 2</li>
-					<li>Item 3</li>
-					<li>Item 4</li>
-				</List>
-			</Dropdown>
+					{updates
+						.map((update) => (
+							<p key={update.id}>
+								<strong>{update.date}</strong> - <span dangerouslySetInnerHTML={{ __html: update.description }}></span>
+							</p>
+						))
+						.slice(0, 5)}
 
-			<List>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-				<li>Item 4</li>
-			</List>
-
-			<List variant={'ol'}>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-				<li>Item 4</li>
-			</List>
-		</div>
+					<p className="recent-updates">
+						<em>The updates above are the last five updates to the site.</em>
+					</p>
+				</>
+			) : null}
+		</>
 	);
 }
