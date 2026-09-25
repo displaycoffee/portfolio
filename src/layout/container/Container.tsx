@@ -15,7 +15,7 @@ import { navigationHeader } from '../../components/navigation/scripts/navigation
 import { PixelBlock } from '../../components/blocks/Blocks';
 import { Navigation } from '../../components/navigation/Navigation';
 import { ErrorBoundary } from '../../components/error-boundary/ErrorBoundary';
-import { Slideout, SlideoutOverlay } from '../../components/slideout/Slideout';
+import { Slideout } from '../../components/slideout/Slideout';
 import { Header } from '../../layout/header/Header';
 import { Content } from '../../layout/content/Content';
 import { Footer } from '../../layout/footer/Footer';
@@ -32,19 +32,12 @@ export const Container = () => {
 	// Slideout options
 	const slideoutOptions = {
 		id: 'menu',
-		isDesktop: isDesktop,
 		label: 'Menu',
-		button: {
-			outside: true,
-			show: true,
-		},
 	};
 
 	return (
 		<div className="container">
 			<ErrorBoundary message={<ContainerError />}>
-				<SlideoutOverlay options={slideoutOptions} />
-
 				<a href="#main-content" className="skip-link sr-only">
 					Skip to main content
 				</a>
@@ -52,22 +45,14 @@ export const Container = () => {
 				<Header />
 
 				<PixelBlock className={'navigation-block'}>
-					{isDesktop ? <Navigation data={navigationHeader} label={'Header Navigation'} /> : <Slideout options={slideoutOptions} />}
+					{isDesktop ? (
+						<Navigation data={navigationHeader} label={'Header Navigation'} />
+					) : (
+						<Slideout options={slideoutOptions}>
+							<Navigation data={navigationHeader} disableTransition={true} label={'Mobile Navigation'} />
+						</Slideout>
+					)}
 				</PixelBlock>
-
-				{isDesktop ? null : (
-					<Slideout
-						options={{
-							...slideoutOptions,
-							button: {
-								outside: false,
-								show: false,
-							},
-						}}
-					>
-						<Navigation data={navigationHeader} disableTransition={true} label={'Mobile Navigation'} />
-					</Slideout>
-				)}
 
 				<main id="main-content" className="main" ref={mainRef}>
 					<div className="main-layout flex-wrap">
