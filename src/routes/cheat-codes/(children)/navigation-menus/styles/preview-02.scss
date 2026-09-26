@@ -29,8 +29,6 @@
 		margin: 0 auto;
 		text-align: center;
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 			font-family: $menu-font-family;
 			font-size: $menu-font-size;
@@ -55,20 +53,12 @@
 			}
 		}
 		.dc-navigation-list {
-			-webkit-flex-flow: row nowrap;
 			flex-flow: row nowrap;
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: -moz-flex;
 			display: flex;
-			-webkit-align-items: center;
 			align-items: center;
 			.dc-navigation-list-item {
 				position: relative;
 				min-width: 1px;
-				-webkit-flex: 0 1 auto;
-				-ms-flex: 0 1 auto;
-				-moz-flex: 0 1 auto;
 				flex: 0 1 auto;
 				width: calc(100% / $menu-items-per-row);
 				&:nth-child(even), &:nth-child(even) .dc-navigation-sublist .dc-navigation-sublist-item:nth-child(even),

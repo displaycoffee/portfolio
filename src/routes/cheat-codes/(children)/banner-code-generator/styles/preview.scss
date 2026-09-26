@@ -26,8 +26,6 @@
 
 	#{$banner-code-generator-selector} {
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 		}
 		& > * {
@@ -41,21 +39,12 @@
 				margin: 0 0 $banner-code-generator-spacing-half 0;
 			}
 			.dc-banner-code-generator-banners {
-				-webkit-flex-flow: row wrap;
 				flex-flow: row wrap;
-				display: -webkit-flex;
-				display: -ms-flex;
-				display: -moz-flex;
 				display: flex;
-				-webkit-align-items: center;
 				align-items: center;
-				-ms-gap: $banner-code-generator-spacing-half;
 				gap: $banner-code-generator-spacing-half;
 				.dc-banner-code-generator-button {
 					min-width: 1px;
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					-moz-flex: 0 1 auto;
 					flex: 0 1 auto;
 					padding: 0;
 					background-color: transparent;

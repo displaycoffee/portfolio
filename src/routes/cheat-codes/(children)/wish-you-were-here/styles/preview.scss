@@ -29,8 +29,6 @@
 		border-bottom: 20px solid $wish-you-were-here-color-06;
 		background-color: $wish-you-were-here-color-04;
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 		}
 		* {
@@ -127,19 +125,11 @@
 				text-shadow: 0 2px 0 rgba(0, 0, 0, 1.0);
 			}
 			.dc-wish-you-were-here-row {
-				-webkit-flex-flow: row wrap;
 				flex-flow: row wrap;
-				display: -webkit-flex;
-				display: -ms-flex;
-				display: -moz-flex;
 				display: flex;
-				-ms-gap: $wish-you-were-here-spacing;
 				gap: $wish-you-were-here-spacing;
 				.dc-wish-you-were-here-column {
 					min-width: 1px;
-					-webkit-flex: 1 1 100%;
-					-ms-flex: 1 1 100%;
-					-moz-flex: 1 1 100%;
 					flex: 1 1 100%;
 				}
 			}
@@ -153,9 +143,6 @@
 					text-align: right;
 				}
 				.dc-wish-you-were-here-row .dc-wish-you-were-here-column {
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					-moz-flex: 0 1 auto;
 					flex: 0 1 auto;
 					width: calc((100% - ($wish-you-were-here-spacing * 1)) / 2);
 				}

@@ -39,8 +39,6 @@
 		padding: 20px;
 		background-color: $dreaming-of-snow-color-01;
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 			font-family: $dreaming-of-snow-font-family-01;
 			font-size: $dreaming-of-snow-font-size-01;
@@ -73,18 +71,10 @@
 			}
 		}
 		.dc-dreaming-of-snow-row {
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: -moz-flex;
 			display: flex;
-			-webkit-flex-flow: row wrap;
 			flex-flow: row wrap;
-			-ms-gap: $dreaming-of-snow-spacing;
 			gap: $dreaming-of-snow-spacing;
 			.dc-dreaming-of-snow-column {
-				-webkit-flex: 1 1 100%;
-				-ms-flex: 1 1 100%;
-				-moz-flex: 1 1 100%;
 				flex: 1 1 100%;
 				width: auto;
 				min-height: 1px;
@@ -108,7 +98,6 @@
 					margin: 0;
 				}
 				.dc-dreaming-of-snow-column-title {
-					-webkit-align-self: flex-end;
 					align-self: flex-end;
 				}
 				.dc-dreaming-of-snow-column-avatar {
@@ -119,10 +108,6 @@
 				margin: 0 $dreaming-of-snow-spacing-half;
 				top: 0;
 				right: 0;
-				-webkit-border-radius: 50%;
-				-moz-border-radius: 50%;
-				-ms-border-radius: 50%;
-				-o-border-radius: 50%;
 				border-radius: 50%;
 				border: 5px solid $dreaming-of-snow-color-07;
 				overflow: hidden;
@@ -146,22 +131,12 @@
 					bottom: 0;
 					right: 0;
 					z-index: 2;
-					display: -webkit-flex;
-					display: -ms-flex;
-					display: -moz-flex;
 					display: flex;
-					-webkit-flex-flow: column nowrap;
 					flex-flow: column nowrap;
-					-webkit-justify-content: center;
 					justify-content: center;
-					-webkit-align-items: center;
 					align-items: center;
 					opacity: 0;
 					visibility: hidden;
-					-webkit-transition: opacity 0.5s ease;
-					-o-transition: opacity 0.5s ease;
-					-ms-transition: opacity 0.5s ease;
-					-moz-transition: opacity 0.5s ease;
 					transition: opacity 0.5s ease;
 					p {
 						max-width: 80%;
@@ -187,16 +162,10 @@
 			.dc-dreaming-of-snow-header {
 				.dc-dreaming-of-snow-row {
 					.dc-dreaming-of-snow-column-title {
-						-webkit-flex: 1 1 0%;
-						-ms-flex: 1 1 0%;
-						-moz-flex: 1 1 0%;
 						flex: 1 1 0%;
 					}
 					.dc-dreaming-of-snow-column-avatar {
 						order: 10;
-						-webkit-flex: 0 0 $dreaming-of-snow-image-size-01;
-						-ms-flex: 0 0 $dreaming-of-snow-image-size-01;
-						-moz-flex: 0 0 $dreaming-of-snow-image-size-01;
 						flex: 0 0 $dreaming-of-snow-image-size-01;
 					}
 				}
@@ -219,9 +188,6 @@
 			.dc-dreaming-of-snow-header {
 				.dc-dreaming-of-snow-row {
 					.dc-dreaming-of-snow-column-avatar {
-						-webkit-flex: 0 0 $dreaming-of-snow-image-size-02;
-						-ms-flex: 0 0 $dreaming-of-snow-image-size-02;
-						-moz-flex: 0 0 $dreaming-of-snow-image-size-02;
 						flex: 0 0 $dreaming-of-snow-image-size-02;
 					}
 				}
@@ -235,9 +201,6 @@
 				}
 			}
 			.dc-dreaming-of-snow-content .dc-dreaming-of-snow-row .dc-dreaming-of-snow-column {
-				-webkit-flex: 1 1 0%;
-				-ms-flex: 1 1 0%;
-				-moz-flex: 1 1 0%;
 				flex: 1 1 0%;
 			}
 		}

@@ -31,26 +31,17 @@
 		padding: $framer-motion-spacing;
 		background-color: $framer-motion-color-01;
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 			font-family: $framer-motion-font-family;
 			font-size: $framer-motion-font-size;
 		}
 		.dc-framer-motion-row {
-			-webkit-flex-flow: row wrap;
 			flex-flow: row wrap;
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: -moz-flex;
 			display: flex;
 			gap: $framer-motion-spacing;
 			margin: 0 0 $framer-motion-spacing 0;
 			.dc-framer-motion-column {
 				min-width: 1px;
-				-webkit-flex: 1 1 100%;
-				-ms-flex: 1 1 100%;
-				-moz-flex: 1 1 100%;
 				flex: 1 1 100%;
 			}
 			.dc-framer-motion-card {
@@ -93,9 +84,6 @@
 		#{$framer-motion-selector} {
 			.dc-framer-motion-row {
 				.dc-framer-motion-column {
-					-webkit-flex: 1 1 0%;
-					-ms-flex: 1 1 0%;
-					-moz-flex: 1 1 0%;
 					flex: 1 1 0%;
 				}
 			}

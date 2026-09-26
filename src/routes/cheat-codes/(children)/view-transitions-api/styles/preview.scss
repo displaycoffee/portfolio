@@ -30,8 +30,6 @@
 	#{$view-transitions-selector} {
 		padding: $view-transitions-spacing;		
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 			font-family: $view-transitions-font-family;
 			font-size: $view-transitions-font-size;
@@ -60,22 +58,14 @@
 				}
 			}
 			.dc-view-transitions-item-wrapper {
-				-webkit-flex-flow: row nowrap;
 				flex-flow: row nowrap;
-				display: -webkit-flex;
-				display: -ms-flex;
-				display: -moz-flex;
 				display: flex;
-				-webkit-align-items: center;
 				align-items: center;
 				gap: $view-transitions-spacing;
 				.dc-view-transitions-item-number, .dc-view-transitions-item-text {
 					min-width: 1px;
 				}
 				.dc-view-transitions-item-number {
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					-moz-flex: 0 1 auto;
 					flex: 0 1 auto;
 					width: 40px;
 					height: 40px;
@@ -84,19 +74,11 @@
 					color: $view-transitions-color-08;
 					font-size: $view-transitions-font-size + 4;
 					font-weight: 700;
-					display: -webkit-flex;
-					display: -ms-flex;
-					display: -moz-flex;
 					display: flex;
-					-webkit-align-items: center;
 					align-items: center;
-					-webkit-justify-content: center;
 					justify-content: center;
 				}
 				.dc-view-transitions-item-text {
-					-webkit-flex: 1 1 0%;
-					-ms-flex: 1 1 0%;
-					-moz-flex: 1 1 0%;
 					flex: 1 1 0%;
 					text-align: left;
 					* {
@@ -131,10 +113,6 @@
 				margin: 0 0 $view-transitions-spacing 0;
 				background-color: $view-transitions-color-02;
 				border-radius: $view-transitions-border-radius;				
-				-webkit-transition: background-color 0.15s ease;
-				-o-transition: background-color 0.15s ease;
-				-ms-transition: background-color 0.15s ease;
-				-moz-transition: background-color 0.15s ease;
 				transition: background-color 0.15s ease;
 				&:hover {
 					background-color: $view-transitions-color-03;

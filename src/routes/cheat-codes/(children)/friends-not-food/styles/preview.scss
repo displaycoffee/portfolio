@@ -34,8 +34,6 @@
 		max-width: 100%;
 		margin: 0;
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 			font-family: $friends-not-food-font-family-01;
 			font-size: $friends-not-food-font-size-01;
@@ -67,32 +65,22 @@
 			}
 		}
 		.dc-friends-not-food-row, .dc-friends-not-food-vertical {
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: -moz-flex;
 			display: flex;
 			& > * {
-				-webkit-flex: 0 1 auto;
-				-ms-flex: 0 1 auto;
-				-moz-flex: 0 1 auto;
 				flex: 0 1 auto;
 				min-height: 1px;
 				min-width: 1px;
 			}
 		}
 		.dc-friends-not-food-row {
-			-webkit-flex-flow: row wrap;
 			flex-flow: row wrap;
-			-webkit-align-items: center;
 			align-items: center;
-			-ms-gap: $friends-not-foods-spacing-half;
 			gap: $friends-not-foods-spacing-half;
 			.dc-friends-not-food-column {
 				width: 100%;
 			}
 		}
 		.dc-friends-not-food-vertical {
-			-webkit-flex-flow: column nowrap;
 			flex-flow: column nowrap;
 		}
 		p, h3, h4 {
@@ -108,10 +96,6 @@
 			overflow: hidden;
 			.dc-friends-not-food-more-info, .dc-friends-not-food-details {
 				padding: $friends-not-food-spacing;
-				-webkit-transition: opacity 0.5s ease, transform 0.5s ease;
-				-o-transition: opacity 0.5s ease, transform 0.5s ease;
-				-ms-transition: opacity 0.5s ease, transform 0.5s ease;
-				-moz-transition: opacity 0.5s ease, transform 0.5s ease;
 				transition: opacity 0.5s ease, transform 0.5s ease;
 			}
 			.dc-friends-not-food-hover {
@@ -130,10 +114,6 @@
 						visibility: visible;
 						opacity: 1;
 						z-index: 2;
-						-webkit-transform: translateY(0);
-						-o-transform: translateY(0);
-						-ms-transform: translateY(0);
-						-moz-transform: translateY(0);
 						transform: translateY(0);
 					}
 					& ~ .dc-friends-not-food-details {
@@ -146,10 +126,6 @@
 				top: 0;
 				bottom: 0;
 				z-index: 1;
-				-webkit-transform: translateY(-100%);
-				-o-transform: translateY(-100%);
-				-ms-transform: translateY(-100%);
-				-moz-transform: translateY(-100%);
 				transform: translateY(-100%);
 				margin: auto;
 				padding-bottom: $friends-not-foods-spacing-x4;
@@ -159,10 +135,6 @@
 					visibility: visible;
 					opacity: 1;
 					z-index: 2;
-					-webkit-transform: translateY(0);
-					-o-transform: translateY(0);
-					-ms-transform: translateY(0);
-					-moz-transform: translateY(0);
 					transform: translateY(0);
 					& ~ .dc-friends-not-food-details {
 						opacity: 0;
@@ -171,12 +143,8 @@
 				}
 				.dc-friends-not-food-vertical {
 					height: 100%;
-					-ms-gap: $friends-not-food-spacing;
 					gap: $friends-not-food-spacing;
 					.dc-friends-not-food-block {
-						-webkit-flex: 1 1 0%;
-						-ms-flex: 1 1 0%;
-						-moz-flex: 1 1 0%;
 						flex: 1 1 0%;
 						p {
 							margin: 0 0 $friends-not-food-spacing 0;

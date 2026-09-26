@@ -39,15 +39,9 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		border: 4px solid $velociraptor-pack-color-04;
-		-webkit-border-radius: 8px;
-		-moz-border-radius: 8px;
-		-ms-border-radius: 8px;
-		-o-border-radius: 8px;
 		border-radius: 8px;
 		overflow: hidden;
 		&, & * {
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 			font-family: $velociraptor-pack-font-family-01;
 			font-size: $velociraptor-pack-font-size-01;
@@ -77,20 +71,12 @@
 			margin: 0 0 $velociraptor-pack-spacing 0;
 		}
 		.dc-velociraptor-pack-container {
-			-webkit-flex-flow: row wrap;
 			flex-flow: row wrap;
-			display: -webkit-flex;
-			display: -ms-flex;
-			display: -moz-flex;
 			display: flex;
-			-ms-gap: $velociraptor-pack-spacing;
 			gap: $velociraptor-pack-spacing;
 			padding: 0 $velociraptor-pack-spacing;
 			& > * {
 				min-width: 1px;
-				-webkit-flex: 1 1 100%;
-				-ms-flex: 1 1 100%;
-				-moz-flex: 1 1 100%;
 				flex: 1 1 100%;
 				padding: $velociraptor-pack-spacing;
 			}				
@@ -149,15 +135,9 @@
 			max-width: $velociraptor-pack-max-width;
 			.dc-velociraptor-pack-container {
 				.dc-velociraptor-pack-content, .dc-velociraptor-pack-sidebar {
-					-webkit-flex: 0 1 auto;
-					-ms-flex: 0 1 auto;
-					-moz-flex: 0 1 auto;
 					flex: 0 1 auto;
 				}
 				.dc-velociraptor-pack-content {
-					-webkit-flex: 1 1 0%;
-					-ms-flex: 1 1 0%;
-					-moz-flex: 1 1 0%;
 					flex: 1 1 0%;
 					height: $velociraptor-pack-content-height;
 				}
