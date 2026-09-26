@@ -12,17 +12,17 @@
 		.about-photo {
 			width: 100%;
 		}	
-		@include mixins.respond-min(theme.$bp-01) {
+		@include mixins.respond(theme.$bp-01) {
 			.about-photo {
 				width: 300px;
 			}
 		}
-		@include mixins.respond-min(theme.$bp-02) {
+		@include mixins.respond(theme.$bp-02) {
 			.about-photo {
 				width: 200px;
 			}
 		}
-		@include mixins.respond-min(theme.$bp-03) {
+		@include mixins.respond(theme.$bp-03) {
 			.about-photo {
 				width: 300px;
 			}

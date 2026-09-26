@@ -166,7 +166,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond(theme.$bp-02) {
 		.list-definition {
 			.list-item-definition {
 				dt {
@@ -281,7 +281,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond(theme.$bp-02) {
 		.pixel-block {
 			.pixel-block-wrapper {
 				.pixel-navigation {

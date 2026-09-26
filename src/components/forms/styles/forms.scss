@@ -191,7 +191,7 @@
 		padding: 0;
 		background-color: transparent;
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond(theme.$bp-02) {
 		.button {
 			padding: 0 theme.$spacing-x4;
 			font-size: functions.em(14px, rem);

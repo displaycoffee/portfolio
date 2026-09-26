@@ -24,7 +24,7 @@
 			}
 		}	
 	}
-	@include mixins.respond-min(theme.$bp-01) {
+	@include mixins.respond(theme.$bp-01) {
 		.footer {
 			.row {
 				@include mixins.flex-parent(justify-content, flex-end);
@@ -38,7 +38,7 @@
 			}
 		}	
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond(theme.$bp-02) {
 		.footer {
 			.row {
 				.footer-navigation {

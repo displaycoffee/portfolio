@@ -57,7 +57,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-03) {
+	@include mixins.respond(theme.$bp-03) {
 		.navigation-block {
 			.pixel-block-wrapper {
 				.navigation {

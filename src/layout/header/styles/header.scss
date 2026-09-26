@@ -52,7 +52,7 @@
 			line-height: 1;
 		}
 	}
-	@include mixins.respond-min(theme.$bp-01 - 100) {
+	@include mixins.respond(theme.$bp-01 - 100) {
 		.header {
 			.header-title {
 				.header-type {
@@ -61,7 +61,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-01) {
+	@include mixins.respond(theme.$bp-01) {
 		.header {
 			.header-title {
 				&.header-title-cursor .header-type:after {
@@ -70,7 +70,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond(theme.$bp-02) {
 		.header {
 			.header-title {
 				&.header-title-cursor .header-type:after {
