@@ -13,11 +13,11 @@ import { useAppContext } from '../../context/scripts/context-hooks';
 import { Image } from '../../components/image/Image';
 
 export const Header = () => {
-	const { theme } = useAppContext();
+	const { theme, variables } = useAppContext();
 	const desktopHeader = useRespond(theme.breakpoints.sm);
 	const handleTransition = useViewTransition();
 	const [timer, setTimer] = useState(false);
-	const headerText = desktopHeader ? `* { display : coffee; }` : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
+	const headerText = desktopHeader ? variables.site.name : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
 	const mugs = ['blue', 'green', 'purple', 'red', 'orange'];
 
 	// Set a timer for cursor to turn off
