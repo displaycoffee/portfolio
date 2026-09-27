@@ -78,7 +78,7 @@
 			margin: 0 0 theme.$spacing-x4 0;
 		}
 	}
-	@media only screen and (min-width: #{theme.$bp-02 - 100}px) and (max-width: #{theme.$bp-02 - 1}px) {
+	@media only screen and (min-width: #{theme.$breakpoint-md - 100}px) and (max-width: #{theme.$breakpoint-md - 1}px) {
 		.contents {
 			.contents-row {
 				.contents-column {

@@ -57,7 +57,7 @@
 			}
 		}
 	}
-	@include mixins.respond(theme.$bp-03) {
+	@include mixins.respond(theme.$breakpoint-lg) {
 		.navigation-block {
 			.pixel-block-wrapper {
 				.navigation {

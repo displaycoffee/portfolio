@@ -14,7 +14,7 @@ import { Image } from '../../components/image/Image';
 
 export const Header = () => {
 	const { theme } = useAppContext();
-	const desktopHeader = useRespond(theme.bps.bp01 as number);
+	const desktopHeader = useRespond(theme.breakpoints.sm);
 	const handleTransition = useViewTransition();
 	const [timer, setTimer] = useState(false);
 	const headerText = desktopHeader ? `* { display : coffee; }` : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
