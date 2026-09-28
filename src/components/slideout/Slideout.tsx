@@ -99,7 +99,7 @@ export const Slideout = (props: SlideoutProps) => {
 						variant={'unstyled'}
 						data-autofocus
 					>
-						<Icon id={'close'} isBold={true} size={'lg'} />
+						<Icon id={'close'} isBold={true} size={'xl'} />
 					</Button>
 				</header>
 

@@ -12,8 +12,8 @@
 		@include mixins.flex-layout((display: inline-flex, flex-flow: column nowrap, justify-content: center, align-items: center));
 		@include mixins.flex(0 0 auto);
 		font-family: theme.$font-family-01;
-		font-size: theme.$icon-size;
-		line-height: theme.$icon-size;
+		font-size: theme.$icon-md;
+		line-height: theme.$icon-md;
 		&, &:before {
 			@include mixins.sizing(auto, auto);
 		}
@@ -36,9 +36,21 @@
 			-moz-osx-font-smoothing: grayscale;
 		}
 	}
+	.icon-sm {
+		font-size: theme.$icon-sm;
+		line-height: theme.$icon-sm;
+	}
 	.icon-lg {
-		font-size: theme.$icon-size + 6;
-		line-height: theme.$icon-size + 6;
+		font-size: theme.$icon-lg;
+		line-height: theme.$icon-lg;
+	}
+	.icon-xl {
+		font-size: theme.$icon-xl;
+		line-height: theme.$icon-xl;
+	}
+	.icon-2xl {
+		font-size: theme.$icon-2xl;
+		line-height: theme.$icon-2xl;
 	}
 	.icon-bold:before {
 		font-family: theme.$font-family-02;

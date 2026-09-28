@@ -80,8 +80,8 @@
 		"sm": "14px",
 		"md": "16px",
 		"lg": "18px",
-		"xl": "20px",
-		"2xl": "24px"
+		"xl": "22px",
+		"2xl": "26px"
 	},
 	"container": {
 		"width": "1600px"
@@ -100,7 +100,7 @@
 	},
 	"fallback": {
 		"name-body": "Fallback",
-		"name-header": "Fallback Bold",
+		"name-header": "Fallback Header",
 		"size-body": "105%",
 		"size-header": "98%",
 		"src-body": "local('Arial')",
@@ -108,7 +108,7 @@
 	},
 	"font": {
 		"family-body": "'Open Sans', 'Fallback', sans-serif",
-		"family-header": "'Montserrat', 'Fallback Bold', sans-serif",
+		"family-header": "'Montserrat', 'Fallback Header', sans-serif",
 		"name-body": "Open Sans",
 		"name-header": "Montserrat",
 		"path-body": "/assets/fonts/open-sans",
