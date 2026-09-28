@@ -119,6 +119,10 @@
 		"x12": "60px",
 		"x16": "80px"
 	},
+	"setting": {
+		"theme-default": "light",
+		"theme-system": true
+	},
 	"fallback": {
 		"name-body": "Fallback",
 		"name-header": "Fallback Header",

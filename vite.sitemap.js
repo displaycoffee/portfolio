@@ -75,6 +75,7 @@ let sitemap = {
 		'/art/verial-and-sorvynia',
 		'/art/verial-and-necia',
 		'/projects',
+		'/projects/matt-and-adria-2',
 		'/projects/pixelated',
 		'/projects/portfolio-4',
 		'/projects/ff7-for-st-jude',
