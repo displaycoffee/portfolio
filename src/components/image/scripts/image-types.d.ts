@@ -7,8 +7,10 @@ type Image = {
 	hasBg?: boolean;
 	hasLazy?: boolean;
 	hasWrapper?: boolean;
+	height?: number;
 	image: string;
 	imageClass?: string;
+	width?: number;
 	wrapperClasses?: string[];
 };
 

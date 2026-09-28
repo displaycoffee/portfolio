@@ -53,8 +53,8 @@
 
 	// Colors
 
-	$base-helpers-color-01: theme.$color-06; // scrollbar background
-	$base-helpers-color-02: theme.$color-08; // scrollbar foreground
+	$base-helpers-color-01: theme.$color-scrollbar-bg; // scrollbar background
+	$base-helpers-color-02: theme.$color-scrollbar-foreground; // scrollbar foreground
 
 	// Configuration
 
@@ -79,10 +79,10 @@
 		@include mixins.scrollbar('&', $base-helpers-scrollbar-width, $base-helpers-scrollbar-height, $base-helpers-color-01, $base-helpers-color-02);
 	}
 	.pixel-border {
-		@include mixins-custom.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08);
+		@include mixins-custom.pixel-border($bg: theme.$color-pixel-bg, $border: theme.$color-pixel-border, $inset: theme.$color-pixel-border-inset, $highlight: theme.$color-pixel-border-highlight);
 	}
 	.pixel-border-rounded {
-		@include mixins-custom.pixel-border($bg: theme.$color-03, $border: theme.$color-06, $inset: theme.$color-07, $highlight: theme.$color-08, $rounded: true);
+		@include mixins-custom.pixel-border($bg: theme.$color-pixel-bg, $border: theme.$color-pixel-border, $inset: theme.$color-pixel-border-inset, $highlight: theme.$color-pixel-border-highlight, $rounded: true);
 	}
 	.pixel-border-image {
 		display: inline-block;

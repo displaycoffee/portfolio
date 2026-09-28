@@ -4,7 +4,7 @@ import './styles/gallery.scss';
 /* Packages */
 import { useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { Link, Navigate, useLocation } from '@tanstack/react-router';
+import { Link, Navigate, useRouterState } from '@tanstack/react-router';
 
 /* Scripts */
 import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
@@ -26,7 +26,7 @@ const tabStorage: GalleryTabsStorageType = {
 
 export const Gallery = (props: GalleryProps) => {
 	const { headers, navigation, tabs, type, values } = props;
-	const location = useLocation();
+	const location = useRouterState({ select: (state) => state.resolvedLocation ?? state.location }); // Resolved location stays on the rendered route while leaving it, so the page never collapses mid-navigation
 	const hasGallery = values && values.length !== 0;
 
 	// Create galleryProps for components
@@ -197,10 +197,9 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 
 export const GalleryBody = (props: GalleryBodyProps) => {
 	const { location, navigation, tabs, values } = props;
-	const { utils } = useAppContext();
 	const hasParentPage = location.split('/').filter(Boolean).length > 1;
-	const showGallery = hasParentPage && window.location.href.includes(location); // Do not render current item if not in matching gallery
-	const parentPage = utils.getPage();
+	const showGallery = hasParentPage;
+	const parentPage = location.split('/').slice(0, -1).join('/');
 
 	// Filter values according to current tab
 	const filteredValues = values.filter((value) => {

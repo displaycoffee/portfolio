@@ -31,11 +31,11 @@
 					@include mixins.position-fill($margin: 4px 0, $z: -2);
 				}
 				.skill-bar-total {
-					@include mixins.gradient-stripes((#201510, #2a1c15, theme.$color-05, theme.$color-06, theme.$color-06, theme.$color-06));
+					@include mixins.gradient-stripes((theme.$color-brown-x1, theme.$color-brown-x2, theme.$color-brown-x3, theme.$color-brown-x4, theme.$color-brown-x4, theme.$color-brown-x4));
 				}
 				.skill-bar-out-of {
-					@include mixins.gradient-stripes((#3c5f9f, #5e81c1, #80a3e3, #91b4f4, #91b4f4, #91b4f4));
-					border-right: 2px solid #201510;
+					@include mixins.gradient-stripes((theme.$color-blue-x1, theme.$color-blue-x2, theme.$color-blue-x3, theme.$color-blue-x4, theme.$color-blue-x4, theme.$color-blue-x4));
+					border-right: 2px solid theme.$color-brown-x1;
 				}
 			}
 		}

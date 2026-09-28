@@ -5,7 +5,7 @@ import './styles/contents.scss';
 import type { MouseEvent } from 'react';
 import { useState } from 'react';
 import { flushSync } from 'react-dom';
-import { Link, Navigate, useLocation, useNavigate } from '@tanstack/react-router';
+import { Link, Navigate, useLocation, useNavigate, useRouterState } from '@tanstack/react-router';
 
 /* Scripts */
 import type {
@@ -28,7 +28,7 @@ import { Button } from '../forms/Forms';
 
 export const Contents = (props: ContentsProps) => {
 	const { children, navigation, type, values } = props;
-	const location = useLocation();
+	const location = useRouterState({ select: (state) => state.resolvedLocation ?? state.location }); // Resolved location stays on the rendered route while leaving it, so the page never collapses mid-navigation
 	const hasContents = values && values.length !== 0;
 
 	// Create contentsProps for components
@@ -256,14 +256,13 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
-	const { utils } = useAppContext();
 	const searchParams = useLocation().searchStr;
 	const handleTransition = useViewTransition();
 	const hasParentPage = location.split('/').filter(Boolean).length > 1;
-	const showContents = hasParentPage && window.location.href.includes(location); // Do not render current item if not in matching contents
+	const showContents = hasParentPage;
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
-	const parentPage = utils.getPage();
+	const parentPage = location.split('/').slice(0, -1).join('/');
 
 	// Ensure handles do not match current
 	const compareHandle = (handle?: string) => {

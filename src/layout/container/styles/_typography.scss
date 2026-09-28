@@ -32,21 +32,6 @@
 	a, abbr[title] {
 		text-decoration: none;
 	}
-	// a, .a {
-	// 	color: theme.$color-05;
-	// 	&:active, &:hover {
-	// 		color: theme.$color-04;
-	// 		@include mixins.text-decoration(1px, 5px, inherit);
-	// 	}
-	// 	&:has(.button-label) {
-	// 		&:active, &:hover {
-	// 			text-decoration: none;
-	// 			.button-label {
-	// 				@include mixins.text-decoration(1px, 5px, inherit);
-	// 			}
-	// 		}
-	// 	}
-	// }
 	mark {
 		background: theme.$color-highlight;
 		color: theme.$color-highlight-body;
@@ -147,7 +132,7 @@
 			text-transform: theme.$font-transform-header
 		));
 		color: theme.$color-header;
-		text-shadow: 2px 2px 0 theme.$color-05, -1px -1px 0 theme.$color-08;
+		text-shadow: 2px 2px 0 theme.$color-shadow-x1, -1px -1px 0 theme.$color-shadow-x2;
 		letter-spacing: 2px;
 		a, .a {
 			color: inherit;
@@ -169,7 +154,7 @@
 		font-size: functions.em(14px, rem);
 	}
 	.h-shadow-lg {
-		text-shadow: 3px 3px 0 theme.$color-05, -1px -1px 0 theme.$color-08;
+		text-shadow: 3px 3px 0 theme.$color-shadow-x1, -1px -1px 0 theme.$color-shadow-x2;
 	}
 	.h-remove-shadow {
 		text-shadow: none;
@@ -181,12 +166,12 @@
 	// Style block
 	
 	code, kbd, pre, samp {
-		background: theme.$color-body;
+		background: theme.$color-bg-x2;
 		margin: 0;
 		padding: theme.$spacing-x4;
 		font-family: 'Courier New', monospace;
 		font-size: functions.em(16px, rem);
-		color: theme.$color-bg;
+		color: theme.$color-body;
 		white-space: pre-wrap;
 		word-break: break-word;
 	}

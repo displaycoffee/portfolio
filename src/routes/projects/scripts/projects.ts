@@ -4,6 +4,18 @@ const projectsPath = `${distPath}projects/`;
 
 export const projects = [
 	{
+		id: 32,
+		image: `${projectsPath}2026-08-14-mattandadria.jpg`,
+		thumb: `${projectsPath}2026-08-14-mattandadria-${thumbnailSize}.jpg`,
+		name: 'Matt and Adria',
+		nameAlt: 'Matt and Adria 2',
+		date: '08.14.26',
+		technologies: 'React, TypeScript, JavaScript, CSS, Sass, HTML, Vite, ESLint, Prettier',
+		categories: 'Personal',
+		description: `A re-build of my wedding website for myself and my husband.`,
+		url: '//mattandadria.com',
+	},
+	{
 		id: 31,
 		image: `${projectsPath}2026-04-10-pixelated.jpg`,
 		thumb: `${projectsPath}2026-04-10-pixelated-${thumbnailSize}.jpg`,

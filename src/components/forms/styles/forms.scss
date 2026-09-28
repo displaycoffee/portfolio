@@ -122,7 +122,7 @@
 			border-color: $forms-button-color-02,
 			color: $forms-button-color-03,
 		));
-		text-shadow: 2px 2px 0 theme.$color-05;
+		text-shadow: 2px 2px 0 theme.$color-shadow-x1;
 		&, &:before, &:after {
 			background-color: $forms-button-color-01;
 		}
@@ -131,7 +131,7 @@
 				border-color: $forms-button-color-05,
 				color: $forms-button-color-06,
 			));
-			text-shadow: 2px 2px 0 theme.$color-09;
+			text-shadow: 2px 2px 0 theme.$color-shadow-x3;
 			&, &:before, &:after {
 				@include mixins.if-exists((
 					background-color: $forms-button-color-04,
@@ -144,7 +144,7 @@
 			border-color: $forms-button-color-08,
 			color: $forms-button-color-09,
 		));
-		text-shadow: 2px 2px 0 theme.$color-09;
+		text-shadow: 2px 2px 0 theme.$color-shadow-x3;
 		&, &:before, &:after {
 			@include mixins.if-exists((
 				background-color: $forms-button-color-07,
@@ -155,7 +155,7 @@
 				border-color: $forms-button-color-11,
 				color: $forms-button-color-12,
 			));
-			text-shadow: 2px 2px 0 theme.$color-05;
+			text-shadow: 2px 2px 0 theme.$color-shadow-x1;
 			&, &:before, &:after {
 				@include mixins.if-exists((
 					background-color: $forms-button-color-10,
@@ -168,7 +168,7 @@
 			border-color: $forms-button-color-14,
 			color: $forms-button-color-15,
 		));
-		text-shadow: 2px 2px 0 theme.$color-02;		
+		text-shadow: 2px 2px 0 theme.$color-black;		
 		&, &:before, &:after {
 			@include mixins.if-exists((
 				background-color: $forms-button-color-13,
@@ -179,7 +179,7 @@
 				border-color: $forms-button-color-17,
 				color: $forms-button-color-18,
 			));
-			text-shadow: 2px 2px 0 theme.$color-09;
+			text-shadow: 2px 2px 0 theme.$color-shadow-x3;
 			&, &:before, &:after {
 				@include mixins.if-exists((
 					background-color: $forms-button-color-16,

@@ -29,14 +29,14 @@
 		}
 		&:before {
 			top: 0;
-			background-color: theme.$color-06;
+			background-color: theme.$color-border;
 		}
 		&:after {
 			bottom: 0;
-			background-color: theme.$color-10;
+			background-color: theme.$color-bg-x2;
 		}
 		.code-block-header {
-			background-color: theme.$color-06;
+			background-color: theme.$color-border;
 			padding: theme.$spacing-x2;
 			& > * {
 				@include mixins.position($type: relative, $top: 2px);
@@ -48,9 +48,9 @@
 			}
 			.code-block-button {
 				margin: 0 0 0 auto;
-				color: theme.$color-10;
+				color: theme.$color-bg-x2;
 				&:hover {
-					color: theme.$color-04;
+					color: theme.$color-body;
 				}
 			}
 		}
@@ -58,10 +58,10 @@
 			max-height: 500px;
 			overflow-y: auto;
 			&::-webkit-scrollbar-thumb {
-				background: theme.$color-06;
+				background: theme.$color-border;
 			}
 			&::-webkit-scrollbar-track {
-				background: theme.$color-10
+				background: theme.$color-bg-x2
 			}
 		}
 	}
@@ -132,9 +132,9 @@
 	}
 	.list-unordered {
 		& > li:before {
-			top: 2px;
+			top: 3px;
 			content: '\0025AA';
-			font-size: functions.em(16px, rem);
+			font-size: 16px;
 			line-height: 1;
 		}
 	}
@@ -151,8 +151,8 @@
 			}
 			dt {
 				@include mixins.flex(0 0 175px);
-				font-family: theme.$font-family-02;
-				font-weight: theme.$font-weight-02;
+				font-family: theme.$font-family-header;
+				font-weight: theme.$font-weight-header;
 				margin: 0 0 calc($blocks-list-spacing / 4) 0;
 			}
 			dd {
@@ -198,7 +198,7 @@
 			height: $pixel-size;
 			@include mixins.position($type: absolute, $left: 0, $right: 0);
 			margin: auto;
-			background-color: theme.$color-04;
+			background-color: theme.$color-bg-x3;
 		}
 		&:before {
 			top: 0;
@@ -207,10 +207,10 @@
 			bottom: 0;
 		}
 		.output-content {
-			background-color: theme.$color-04;
+			background-color: theme.$color-bg-x3;
 			padding: theme.$spacing-x4;			
-			font-family: theme.$font-family-03;
-			color: theme.$color-05;
+			font-family: theme.$font-family-code;
+			color: theme.$color-link;
 		}
 	}
 
@@ -225,14 +225,14 @@
 		}
 		.pixel-border-rounded {
 			@include mixins.position-fill($z: 1);
-			background-color: theme.$color-06;
+			background-color: theme.$color-border;
 		}
 		.pixel-block-wrapper {
 			padding: theme.$spacing-x4 theme.$spacing-x4 calc(theme.$spacing-x4 - 8px) theme.$spacing-x4;
 			z-index: 2;
 			a, button {
-				color: theme.$color-04;
-				text-shadow: 2px 2px 0 theme.$color-05;
+				color: theme.$color-body;
+				text-shadow: 2px 2px 0 theme.$color-shadow-x1;
 			}
 			ul {
 				@include mixins.flex-layout((align-items: center));

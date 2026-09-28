@@ -17,7 +17,7 @@ import { LinkExternal, List } from '../blocks/Blocks';
 export const Navigation = (props: NavigationComponentProps) => {
 	const { data, disableTransition, label } = props;
 	const navigationList = navigationUtils.get.list(data);
-	const navigationLinkClass = 'navigation-link';
+	const navigationLinkClass = 'no-decoration navigation-link';
 
 	return navigationList.length != 0 ? (
 		<nav className="navigation" aria-label={label}>

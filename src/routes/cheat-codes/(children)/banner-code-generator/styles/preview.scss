@@ -6,10 +6,10 @@
 
 	// Colors
 
-	$banner-code-generator-color-01: rgba(0, 0, 0, 0.5); // select button font
-	$banner-code-generator-color-02: theme.$color-04; // select button font
-	$banner-code-generator-color-03: theme.$color-10; // code background
-	$banner-code-generator-color-04: theme.$color-04; // code font
+	$banner-code-generator-color-01: color-mix(in srgb, theme.$color-black 50%, transparent); // select button font
+	$banner-code-generator-color-02: theme.$color-body; // select button font
+	$banner-code-generator-color-03: theme.$color-bg-x2; // code background
+	$banner-code-generator-color-04: theme.$color-body; // code font
 
 	// Configuration
 

@@ -3,7 +3,7 @@
 		"$type": "dimension",
 		"sm": { "$value": "14px" },
 		"md": { "$value": "16px" },
-		"lg": { "$value": "18px" },
+		"lg": { "$value": "20px" },
 		"xl": { "$value": "22px" },
 		"2xl": { "$value": "26px" }
 	}

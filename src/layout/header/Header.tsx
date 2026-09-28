@@ -38,14 +38,21 @@ export const Header = () => {
 	return (
 		<header className="header margin-trim">
 			<h1 className={`header-title${desktopHeader && !timer ? ' header-title-cursor' : ''} h-shadow-lg`}>
-				<Link to={'/'} onClick={(e) => handleTransition(e, '/')}>
+				<Link className={'no-decoration'} to={'/'} onClick={(e) => handleTransition(e, '/')}>
 					<div className="header-type" dangerouslySetInnerHTML={{ __html: headerText }}></div>
 				</Link>
 			</h1>
 
 			<div className="header-mugs">
 				{mugs.map((mug, index) => (
-					<Image alt={`${mug} coffee mug`} hasLazy={true} hasWrapper={false} image={`/assets/images/theme/mug-${mug}.svg`} key={index} />
+					<Image
+						alt={`${mug} coffee mug`}
+						hasWrapper={false}
+						height={36}
+						image={`/assets/images/theme/mug-${mug}.svg`}
+						key={index}
+						width={36}
+					/>
 				))}
 			</div>
 		</header>
