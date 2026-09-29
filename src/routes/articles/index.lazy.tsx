@@ -8,8 +8,12 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { articlesOptionsLinks } from './scripts/articles-options';
 
 /* Components */
+import { PageTitle } from '../../components/page-title/PageTitle';
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
+
+/* Page title */
+const title = 'Articles';
 
 export const Route = createLazyFileRoute('/articles/')({
 	component: RouteComponent,
@@ -18,7 +22,9 @@ export const Route = createLazyFileRoute('/articles/')({
 function RouteComponent() {
 	return (
 		<>
-			<HeaderIcon>Articles</HeaderIcon>
+			<PageTitle title={title} />
+
+			<HeaderIcon>{title}</HeaderIcon>
 
 			<p>
 				Below you'll find a few articles I wrote. Most of these are very basic (and some might be a little outdated), but maybe they're still

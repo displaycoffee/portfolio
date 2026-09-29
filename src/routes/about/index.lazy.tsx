@@ -5,8 +5,12 @@ import './styles/about.scss';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Components */
+import { PageTitle } from '../../components/page-title/PageTitle';
 import { HeaderIcon, LinkExternal, List } from '../../components/blocks/Blocks';
 import { Image } from '../../components/image/Image';
+
+/* Page title */
+const title = 'About';
 
 export const Route = createLazyFileRoute('/about/')({
 	component: RouteComponent,
@@ -15,7 +19,9 @@ export const Route = createLazyFileRoute('/about/')({
 function RouteComponent() {
 	return (
 		<>
-			<HeaderIcon>About</HeaderIcon>
+			<PageTitle title={title} />
+
+			<HeaderIcon>{title}</HeaderIcon>
 
 			<div className="about-photo pixel-border image-wrapper image-wrapper-float-left">
 				<Image alt={'Me riding a real dinosaur'} hasLazy={true} image={'/assets/images/theme/me.jpg'} hasWrapper={false} />

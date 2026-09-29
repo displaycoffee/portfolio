@@ -5,8 +5,12 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { cheatCodesOptionsLinks } from './scripts/cheat-codes-options';
 
 /* Components */
+import { PageTitle } from '../../components/page-title/PageTitle';
 import { Contents } from '../../components/contents/Contents';
 import { HeaderIcon } from '../../components/blocks/Blocks';
+
+/* Page title */
+const title = 'Cheat Codes';
 
 export const Route = createLazyFileRoute('/cheat-codes/')({
 	component: RouteComponent,
@@ -15,7 +19,9 @@ export const Route = createLazyFileRoute('/cheat-codes/')({
 function RouteComponent() {
 	return (
 		<>
-			<HeaderIcon>Cheat Codes</HeaderIcon>
+			<PageTitle title={title} />
+
+			<HeaderIcon>{title}</HeaderIcon>
 
 			<p>
 				This page contains code snippets for sites, projects, or whatever your heart fancies. A few of these snippets were originally created

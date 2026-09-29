@@ -5,8 +5,12 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { projectsOptionsLinks } from './scripts/projects-options';
 
 /* Components */
+import { PageTitle } from '../../components/page-title/PageTitle';
 import { HeaderIcon } from '../../components/blocks/Blocks';
 import { Gallery } from '../../components/gallery/Gallery';
+
+/* Page title */
+const title = 'Projects';
 
 export const Route = createLazyFileRoute('/projects/')({
 	component: RouteComponent,
@@ -15,7 +19,9 @@ export const Route = createLazyFileRoute('/projects/')({
 function RouteComponent() {
 	return (
 		<>
-			<HeaderIcon>Projects</HeaderIcon>
+			<PageTitle title={title} />
+
+			<HeaderIcon>{title}</HeaderIcon>
 
 			<p>
 				Here is a collection of <em>almost</em> all of the web projects that I have worked on. These projects are mostly personal ones, though

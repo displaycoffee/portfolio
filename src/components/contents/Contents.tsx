@@ -22,6 +22,7 @@ import { useAppContext } from '../../context/scripts/context-hooks';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Components */
+import { PageTitle } from '../page-title/PageTitle';
 import { Image } from '../image/Image';
 import { HeaderIcon, PixelBlock } from '../blocks/Blocks';
 import { Button } from '../forms/Forms';
@@ -288,50 +289,54 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 		current ? (
 			<div id={`contents-${current.handle}`} className="contents margin-trim">
 				{hasHeader ? (
-					<header className="contents-header">
-						{current?.name ? <HeaderIcon className={'contents-header-title'}>{current.name}</HeaderIcon> : null}
+					<>
+						<PageTitle title={current.name} />
 
-						<ContentsDate content={current} />
+						<header className="contents-header">
+							{current?.name ? <HeaderIcon className={'contents-header-title'}>{current.name}</HeaderIcon> : null}
 
-						{tagsConfig.hasTags ? (
-							<ContentsTags>
-								{tagsConfig.values.map((tag, index) => {
-									// Set active state for tag
-									tag.active = searchParams?.includes(tag.value);
+							<ContentsDate content={current} />
 
-									return (
-										<div className="contents-tags-column" key={index}>
-											<Button
-												className={tag.active ? 'active' : ''}
-												label={tag.label}
-												size={'x-small'}
-												variant={tag.active ? 'secondary' : 'primary'}
-												aria-pressed={tag.active}
-												onClick={(e: MouseEvent<HTMLButtonElement>) => {
-													// Set up current param
-													const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
+							{tagsConfig.hasTags ? (
+								<ContentsTags>
+									{tagsConfig.values.map((tag, index) => {
+										// Set active state for tag
+										tag.active = searchParams?.includes(tag.value);
 
-													// Create url
-													let tagUrl = `${parentPage}?${currentParam}`;
+										return (
+											<div className="contents-tags-column" key={index}>
+												<Button
+													className={tag.active ? 'active' : ''}
+													label={tag.label}
+													size={'x-small'}
+													variant={tag.active ? 'secondary' : 'primary'}
+													aria-pressed={tag.active}
+													onClick={(e: MouseEvent<HTMLButtonElement>) => {
+														// Set up current param
+														const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
 
-													// If current tag is not in search params, add it
-													if (searchParams) {
-														const newParams = !searchParams.includes(currentParam)
-															? `${searchParams}&${currentParam}`
-															: searchParams;
-														tagUrl = `${parentPage}${newParams}`;
-													}
+														// Create url
+														let tagUrl = `${parentPage}?${currentParam}`;
 
-													// Go back to content back with param
-													handleTransition(e, tagUrl);
-												}}
-											/>
-										</div>
-									);
-								})}
-							</ContentsTags>
-						) : null}
-					</header>
+														// If current tag is not in search params, add it
+														if (searchParams) {
+															const newParams = !searchParams.includes(currentParam)
+																? `${searchParams}&${currentParam}`
+																: searchParams;
+															tagUrl = `${parentPage}${newParams}`;
+														}
+
+														// Go back to content back with param
+														handleTransition(e, tagUrl);
+													}}
+												/>
+											</div>
+										);
+									})}
+								</ContentsTags>
+							) : null}
+						</header>
+					</>
 				) : null}
 
 				{current?.description ? (

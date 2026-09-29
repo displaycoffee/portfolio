@@ -13,6 +13,7 @@ import { useAppContext } from '../../context/scripts/context-hooks';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Components */
+import { PageTitle } from '../page-title/PageTitle';
 import { Image } from '../image/Image';
 import { HeaderIcon, LinkExternal, List, ListItem, PixelBlock } from '../blocks/Blocks';
 import { Button } from '../forms/Forms';
@@ -229,6 +230,8 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 	return showGallery ? (
 		current ? (
 			<div id={`gallery-${current.handle}`} className={`gallery${isPixels ? ' gallery-pixels' : ''}`}>
+				{current.name && <PageTitle title={current.name} />}
+
 				<div className="gallery-body flex-wrap">
 					{current.name && (
 						<header className="gallery-header">

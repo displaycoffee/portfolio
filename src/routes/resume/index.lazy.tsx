@@ -6,10 +6,14 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { Fragment } from 'react';
 
 /* Scripts */
+import { PageTitle } from '../../components/page-title/PageTitle';
 import { resume } from './scripts/resume';
 
 /* Components */
 import { HeaderIcon, LinkExternal, List, ListItem } from '../../components/blocks/Blocks';
+
+/* Page title */
+const title = 'Resume';
 
 export const Route = createLazyFileRoute('/resume/')({
 	component: RouteComponent,
@@ -21,7 +25,9 @@ function RouteComponent() {
 
 	return (
 		<>
-			<HeaderIcon>Resume</HeaderIcon>
+			<PageTitle title={title} />
+
+			<HeaderIcon>{title}</HeaderIcon>
 
 			<div className="resume-section resume-note margin-trim">
 				<p>
