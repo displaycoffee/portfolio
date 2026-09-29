@@ -11,34 +11,6 @@ type Date = {
 
 type Events = SyntheticEvent | Event;
 
-type Fallback = {
-	family: string;
-	size: string;
-	src: string;
-};
-
-type Favicon = {
-	isHead: boolean;
-	isManifest: boolean;
-	purpose: string;
-	rel: string;
-	src: string;
-	size: string;
-	sizes: string;
-	type: string;
-};
-
-type Font = {
-	display: string;
-	ext: string;
-	family: string;
-	isLocal: boolean;
-	isPreload: boolean;
-	src: string;
-	style: string;
-	weight: string | number;
-};
-
 type ObjectString = {
 	[key: string]: string;
 };
@@ -48,14 +20,6 @@ type ObjectPrimitive = {
 };
 
 type Primitive = string | number | boolean;
-
-type Settings = {
-	theme: {
-		default: ThemeMode;
-		alternate: ThemeMode;
-		system: boolean;
-	};
-};
 
 type Site = {
 	name: string;
@@ -74,8 +38,6 @@ type Theme = {
 	breakpoints: (typeof themeJson)['breakpoint'];
 	colors: (typeof themeJson)['color'];
 };
-
-type ThemeMode = 'light' | 'dark';
 
 type Utils = {
 	getLast: (value: string | string[], delimeter?: string) => string | number;
@@ -100,25 +62,15 @@ declare global {
 
 	type EventsType = Events;
 
-	type FallbackType = Fallback;
-
-	type FaviconType = Favicon;
-
-	type FontType = Font;
-
 	type ObjectStringType = ObjectString;
 
 	type ObjectPrimitiveType = ObjectPrimitive;
-
-	type SettingsType = Settings;
 
 	type SiteType = Site;
 
 	type TargetType = Target;
 
 	type ThemeType = Theme;
-
-	type ThemeModeType = ThemeMode;
 
 	type UtilsType = Utils;
 

@@ -1,6 +1,6 @@
 // Local Sass modules
-@use './_functions';
-@use './_mixins';
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
 
 // Mixin for a pixel style border
 @mixin pixel-border($width: 2px, $bg: #333333, $border: #111111, $inset: #222222, $highlight: #666666, $rounded: false) {
