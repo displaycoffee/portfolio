@@ -3,7 +3,8 @@ import './styles/blocks.scss';
 
 /* Packages */
 import type { RefObject } from 'react';
-import { useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from '@tanstack/react-router';
 
 /* Scripts */
@@ -241,14 +242,40 @@ export const PixelBlock = (props: PixelBlockProps) => {
 	);
 };
 
+/* Reset for previews rendered in a shadow root, so they don't inherit the site's styles (color, font, line-height, etc.) */
+/* Note: all: initial also resets the font to the browser default (usually a serif), so a neutral base font is set back */
+const previewShadowReset = ':host { all: initial; display: block; font-family: system-ui, sans-serif; }';
+
+/* Previews with styles are rendered in a shadow root, so the site's styles can't reach in and the preview's styles can't leak out */
+/* Note: the styles need to be imported with ?inline (e.g. import styles from './styles/preview.scss?inline') so they're a string instead of being added to the page */
 export const Preview = (props: PreviewProps) => {
-	const { children, className } = props;
+	const { children, className, styles } = props;
 	const previewClass = className ? ` ${className}` : '';
+	const [shadowRoot, setShadowRoot] = useState<ShadowRoot | null>(null);
+
+	// Attach the shadow root once (the element keeps it if this runs again, e.g. in StrictMode)
+	const attachShadow = useCallback((element: HTMLDivElement | null) => {
+		if (element) setShadowRoot(element.shadowRoot ?? element.attachShadow({ mode: 'open' }));
+	}, []);
 
 	return (
 		<>
 			<h4>Preview</h4>
-			<div className={`preview${previewClass}`}>{children}</div>
+
+			{styles ? (
+				<div className={`preview${previewClass}`} ref={attachShadow}>
+					{shadowRoot &&
+						createPortal(
+							<>
+								<style>{`${previewShadowReset}\n${styles}`}</style>
+								{children}
+							</>,
+							shadowRoot,
+						)}
+				</div>
+			) : (
+				<div className={`preview${previewClass}`}>{children}</div>
+			)}
 		</>
 	);
 };

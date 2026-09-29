@@ -1,6 +1,3 @@
-/* Styles */
-import './styles/preview.scss';
-
 export const Preview = () => {
 	const separator = <img src="//display.coffee/assets/images/cheat-codes/a-promise-leaf.png" alt="A Promise - Leaf" width="24" height="12" />;
 

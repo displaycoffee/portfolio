@@ -1,6 +1,3 @@
-/* Styles */
-import './styles/preview.scss';
-
 export const Preview = () => {
 	return (
 		<div className="dc-dragony displaycoffee">

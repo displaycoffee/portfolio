@@ -1,3 +1,6 @@
+/* Styles */
+import previewStyles from './styles/preview.scss?inline';
+
 /* Packages */
 import { createLazyFileRoute } from '@tanstack/react-router';
 
@@ -6,7 +9,7 @@ import { cheatCodesOptionsBody } from '../../scripts/cheat-codes-options';
 import { codeBlocks } from './scripts/code-blocks';
 
 /* Components */
-import { Preview as CheatCodesPreview } from './-Preview';
+import { Preview as CheatCodesPreview, PreviewFonts } from './-Preview';
 import { CheatCodesSection } from '../../-CheatCodes';
 import { Contents } from '../../../../components/contents/Contents';
 import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
@@ -100,7 +103,8 @@ function RouteComponent() {
 				<CodeBlock header={'Sass'}>{codeBlocks[12]}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className={'preview-cheat-codes preview-friends-not-food'}>
+			<PreviewFonts />
+			<Preview className={'preview-cheat-codes preview-friends-not-food'} styles={previewStyles}>
 				<CheatCodesPreview />
 			</Preview>
 		</Contents>

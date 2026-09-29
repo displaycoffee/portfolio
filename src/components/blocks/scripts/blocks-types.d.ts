@@ -65,7 +65,9 @@ type PixelBlock = Navigation & {
 	className?: string;
 };
 
-type Preview = BlockShared;
+type Preview = BlockShared & {
+	styles?: string;
+};
 
 /* Export prop types */
 export type ButtonProps = Button;

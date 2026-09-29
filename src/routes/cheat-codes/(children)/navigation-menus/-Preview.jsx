@@ -1,9 +1,3 @@
-/* Styles */
-import './styles/preview-01.scss';
-import './styles/preview-02.scss';
-import './styles/preview-03.scss';
-import './styles/preview.scss';
-
 export const Preview = (props) => {
 	let { id } = props;
 	id = typeof id == 'undefined' ? '01' : id;

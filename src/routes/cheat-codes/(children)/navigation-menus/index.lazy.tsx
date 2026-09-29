@@ -1,3 +1,9 @@
+/* Styles */
+import previewStyles01 from './styles/preview-01.scss?inline';
+import previewStyles02 from './styles/preview-02.scss?inline';
+import previewStyles03 from './styles/preview-03.scss?inline';
+import previewStyles from './styles/preview.scss?inline';
+
 /* Packages */
 import { createLazyFileRoute } from '@tanstack/react-router';
 
@@ -142,7 +148,10 @@ function RouteComponent() {
 				<CodeBlock header={'Sass'}>{codeBlocks[13]}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className={'preview-cheat-codes preview-navigation-menus'}>
+			<Preview
+				className={'preview-cheat-codes preview-navigation-menus'}
+				styles={previewStyles01 + previewStyles02 + previewStyles03 + previewStyles}
+			>
 				<CheatCodesPreview />
 				<CheatCodesPreview id={'02'} />
 				<CheatCodesPreview id={'03'} />

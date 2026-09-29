@@ -1,6 +1,3 @@
-/* Styles */
-import './styles/preview.scss';
-
 /* Components */
 import { Preview as HelloContent } from '../hello-content-a-tabbing-script/-Preview';
 

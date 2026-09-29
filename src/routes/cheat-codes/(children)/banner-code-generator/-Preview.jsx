@@ -1,6 +1,3 @@
-/* Styles */
-import './styles/preview.scss';
-
 /* Packages */
 import { useState, useEffect, useRef } from 'react';
 

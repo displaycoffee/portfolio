@@ -1,6 +1,3 @@
-/* Styles */
-import './styles/preview.scss';
-
 /* Packages */
 import React, { useState } from 'react';
 

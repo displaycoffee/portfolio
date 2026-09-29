@@ -1,3 +1,7 @@
+/* Styles */
+import previewHelloContentStyles from '../hello-content-a-tabbing-script/styles/preview.scss?inline';
+import previewStyles from './styles/preview.scss?inline';
+
 /* Packages */
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 
@@ -127,7 +131,7 @@ function RouteComponent() {
 				<CodeBlock header={'React import'}>{codeBlocks[11]}</CodeBlock>
 			</CheatCodesSection>
 
-			<Preview className={'preview-cheat-codes preview-hello-content preview-best-friends'}>
+			<Preview className={'preview-cheat-codes preview-hello-content preview-best-friends'} styles={previewHelloContentStyles + previewStyles}>
 				<CheatCodesPreview />
 			</Preview>
 		</Contents>
