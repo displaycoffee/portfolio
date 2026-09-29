@@ -1,7 +1,7 @@
-// Use utils and theme variables
-@use '../../../_config/styles/utils/_functions';
-@use '../../../_config/styles/utils/_mixins';
-@use '../../../_config/styles/theme/_theme';
+// Local Sass modules
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
+@use '../../../_core/styles/_theme';
 
 //// NAVIGATION
 //// --------------------------------------------------------------------------
@@ -47,8 +47,8 @@
 				}
 				.navigation-link {
 					position: relative;
-					color: theme.$color-04;
-					text-shadow: 2px 2px 0 theme.$color-05;
+					color: theme.$color-body;
+					text-shadow: 2px 2px 0 theme.$color-shadow-x1;
 					.icon {
 						margin-right: theme.$spacing-x2;
 						min-width: 16px;
@@ -57,7 +57,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-03) {
+	@include mixins.respond(theme.$breakpoint-lg) {
 		.navigation-block {
 			.pixel-block-wrapper {
 				.navigation {

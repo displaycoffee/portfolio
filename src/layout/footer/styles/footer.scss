@@ -1,7 +1,7 @@
-// Use utils and theme variables
-@use '../../../_config/styles/utils/_functions';
-@use '../../../_config/styles/utils/_mixins';
-@use '../../../_config/styles/theme/_theme';
+// Local Sass modules
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
+@use '../../../_core/styles/_theme';
 
 //// FOOTER
 //// --------------------------------------------------------------------------
@@ -18,13 +18,13 @@
 					@include mixins.flex-layout((align-items: center));
 					@include mixins.gap(theme.$spacing-x4);
 					.footer-navigation-link {
-						color: theme.$color-04;
+						color: theme.$color-body;
 					}
 				}
 			}
 		}	
 	}
-	@include mixins.respond-min(theme.$bp-01) {
+	@include mixins.respond(theme.$breakpoint-sm) {
 		.footer {
 			.row {
 				@include mixins.flex-parent(justify-content, flex-end);
@@ -38,7 +38,7 @@
 			}
 		}	
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond(theme.$breakpoint-md) {
 		.footer {
 			.row {
 				.footer-navigation {

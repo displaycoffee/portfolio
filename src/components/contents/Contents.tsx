@@ -2,14 +2,13 @@
 import './styles/contents.scss';
 
 /* Packages */
-import { MouseEvent, useState } from 'react';
+import type { MouseEvent } from 'react';
+import { useState } from 'react';
 import { flushSync } from 'react-dom';
-import { Link, Navigate, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate, useRouterState } from '@tanstack/react-router';
 
 /* Scripts */
-import { useViewTransition } from '../../_config/scripts/hooks';
-import { useAppContext } from '../../context/scripts/context-hooks';
-import {
+import type {
 	ContentsBodyProps,
 	ContentsDateProps,
 	ContentsLinksProps,
@@ -18,16 +17,19 @@ import {
 	ContentsTagsType,
 	ContentsTagType,
 } from './scripts/contents-types';
+import { useViewTransition } from '../../_core/scripts/hooks';
+import { useAppContext } from '../../context/scripts/context-hooks';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Components */
+import { PageTitle } from '../page-title/PageTitle';
 import { Image } from '../image/Image';
 import { HeaderIcon, PixelBlock } from '../blocks/Blocks';
 import { Button } from '../forms/Forms';
 
 export const Contents = (props: ContentsProps) => {
 	const { children, navigation, type, values } = props;
-	const location = useLocation();
+	const location = useRouterState({ select: (state) => state.resolvedLocation ?? state.location }); // Resolved location stays on the rendered route while leaving it, so the page never collapses mid-navigation
 	const hasContents = values && values.length !== 0;
 
 	// Create contentsProps for components
@@ -61,7 +63,11 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 	const tagParam = contentsUtils.params.url.tag;
 	const handleTransition = useViewTransition();
 	const [tags, setTags] = useState<ContentsTagsType>({} as ContentsTagsType);
-	const [tagParams, setTagParams] = useSearchParams();
+
+	// TanStack Router has no useSearchParams, so read the raw query string ("?tag=css") and navigate to the same page with a new one
+	const navigate = useNavigate();
+	const tagParams = useLocation().searchStr.replace(/^\?/, '');
+	const setTagParams = (query: string) => void navigate({ href: `${location}${query ? `?${query}` : ''}` });
 
 	// Create tags from content values
 	values.forEach((value) => {
@@ -160,9 +166,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 		// Set all tags to inactive
 		Object.keys(tags).forEach((tag) => {
-			if (tags[tag].active) {
-				tags[tag].active = false;
-			}
+			if (tags[tag].active) tags[tag].active = false;
 		});
 
 		// Perform tag transitions and update tags when clear all is clicked
@@ -192,13 +196,11 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 					if (tagsConfig.hasTags) {
 						// Add params for active values
 						tagsConfig.values.forEach((tag) => {
-							if (tags[tag.value].active) {
-								linkParams.push(`tag=${tag.value}`);
-							}
+							if (tags[tag.value].active) linkParams.push(`tag=${tag.value}`);
 						});
 
 						// Set params string
-						linkParamsString = `?${linkParams.join('&')}`;
+						if (linkParams.length !== 0) linkParamsString = `?${linkParams.join('&')}`;
 					}
 
 					// Set content url
@@ -210,7 +212,7 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 							key={value.id}
 							data-contents-id={value.id}
 						>
-							<Link className="contents-link" to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
+							<Link className={'contents-link'} to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
 								<div className="pixel-border">
 									<Image alt={value.name} hasLazy={true} image={value.thumb} wrapperClasses={['fluid', 'fit']} />
 								</div>
@@ -255,26 +257,26 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 
 export const ContentsBody = (props: ContentsBodyProps) => {
 	const { children, location, navigation, values } = props;
-	const { utils } = useAppContext();
-	const searchParams = useLocation().search || '';
+	const searchParams = useLocation().searchStr;
 	const handleTransition = useViewTransition();
-	const showContents = window.location.href.includes(location); // Do not render current item if not in matching contents
+	const hasParentPage = location.split('/').filter(Boolean).length > 1;
+	const showContents = hasParentPage;
 	const elements = contentsUtils.navigation(values, location);
 	const { current, next, previous } = elements;
-	const parentPage = utils.getPage();
+	const parentPage = location.split('/').slice(0, -1).join('/');
 
 	// Ensure handles do not match current
-	const compareHandle = (handle: string) => {
-		return handle == current.handle ? { handle: false } : { handle: handle };
+	const compareHandle = (handle?: string) => {
+		return !handle || handle == current?.handle ? { handle: false } : { handle: handle };
 	};
 
 	// Build navigation props
 	const navigationProps = {
 		back: navigation.back,
-		next: compareHandle(next.handle as string),
+		next: compareHandle(next?.handle),
 		params: searchParams,
 		path: parentPage,
-		previous: compareHandle(previous.handle as string),
+		previous: compareHandle(previous?.handle),
 	};
 
 	// Get tags
@@ -287,50 +289,54 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 		current ? (
 			<div id={`contents-${current.handle}`} className="contents margin-trim">
 				{hasHeader ? (
-					<header className="contents-header">
-						{current?.name ? <HeaderIcon className="contents-header-title">{current.name}</HeaderIcon> : null}
+					<>
+						<PageTitle title={current.name} />
 
-						<ContentsDate content={current} />
+						<header className="contents-header">
+							{current?.name ? <HeaderIcon className={'contents-header-title'}>{current.name}</HeaderIcon> : null}
 
-						{tagsConfig.hasTags ? (
-							<ContentsTags>
-								{tagsConfig.values.map((tag, index) => {
-									// Set active state for tag
-									tag.active = searchParams?.includes(tag.value);
+							<ContentsDate content={current} />
 
-									return (
-										<div className="contents-tags-column" key={index}>
-											<Button
-												className={tag.active ? 'active' : ''}
-												label={tag.label}
-												size={'x-small'}
-												variant={tag.active ? 'secondary' : 'primary'}
-												aria-pressed={tag.active}
-												onClick={(e: MouseEvent<HTMLButtonElement>) => {
-													// Set up current param
-													const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
+							{tagsConfig.hasTags ? (
+								<ContentsTags>
+									{tagsConfig.values.map((tag, index) => {
+										// Set active state for tag
+										tag.active = searchParams?.includes(tag.value);
 
-													// Create url
-													let tagUrl = `${parentPage}?${currentParam}`;
+										return (
+											<div className="contents-tags-column" key={index}>
+												<Button
+													className={tag.active ? 'active' : ''}
+													label={tag.label}
+													size={'x-small'}
+													variant={tag.active ? 'secondary' : 'primary'}
+													aria-pressed={tag.active}
+													onClick={(e: MouseEvent<HTMLButtonElement>) => {
+														// Set up current param
+														const currentParam = `${contentsUtils.params.url.tag}=${tag.value}`;
 
-													// If current tag is not in search params, add it
-													if (searchParams) {
-														const newParams = !searchParams.includes(currentParam)
-															? `${searchParams}&${currentParam}`
-															: searchParams;
-														tagUrl = `${parentPage}${newParams}`;
-													}
+														// Create url
+														let tagUrl = `${parentPage}?${currentParam}`;
 
-													// Go back to content back with param
-													handleTransition(e, tagUrl);
-												}}
-											/>
-										</div>
-									);
-								})}
-							</ContentsTags>
-						) : null}
-					</header>
+														// If current tag is not in search params, add it
+														if (searchParams) {
+															const newParams = !searchParams.includes(currentParam)
+																? `${searchParams}&${currentParam}`
+																: searchParams;
+															tagUrl = `${parentPage}${newParams}`;
+														}
+
+														// Go back to content back with param
+														handleTransition(e, tagUrl);
+													}}
+												/>
+											</div>
+										);
+									})}
+								</ContentsTags>
+							) : null}
+						</header>
+					</>
 				) : null}
 
 				{current?.description ? (

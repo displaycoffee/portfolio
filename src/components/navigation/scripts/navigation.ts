@@ -1,127 +1,59 @@
-/* Packages */
-import { lazy, JSX, LazyExoticComponent } from 'react';
-
 /* Scripts */
-import { utils } from '../../../_config/scripts/utils';
-import { NavigationType, NavigationChildType } from './navigation-types';
-import { art } from '../../../pages/art/scripts/art';
-import { articles } from '../../../pages/articles/scripts/articles';
-import { cheatCodes } from '../../../pages/cheat-codes/scripts/cheat-codes';
-import { projects } from '../../../pages/projects/scripts/projects';
+import type { NavigationChildType, NavigationMapType } from './navigation-types';
+import { utils } from '../../../_core/scripts/utils';
+import { navigationUtils } from './navigation-utils';
+import { art } from '../../../routes/art/scripts/art';
+import { articles } from '../../../routes/articles/scripts/articles';
+import { cheatCodes } from '../../../routes/cheat-codes/scripts/cheat-codes';
+import { projects } from '../../../routes/projects/scripts/projects';
 
-/* Components */
-const Start = lazy(() => import('../../../pages/start/Start').then((m) => ({ default: m.Start })));
-const About = lazy(() => import('../../../pages/about/About').then((m) => ({ default: m.About })));
-const Art = lazy(() => import('../../../pages/art/Art').then((m) => ({ default: m.Art })));
-const Projects = lazy(() => import('../../../pages/projects/Projects').then((m) => ({ default: m.Projects })));
-const Resume = lazy(() => import('../../../pages/resume/Resume').then((m) => ({ default: m.Resume })));
-const Articles = lazy(() => import('../../../pages/articles/Articles').then((m) => ({ default: m.Articles })));
-const CheatCodes = lazy(() => import('../../../pages/cheat-codes/CheatCodes').then((m) => ({ default: m.CheatCodes })));
+const { create } = navigationUtils;
 
 /* Helper function to build children */
-const buildChildren = (child: NavigationChildType, parent: string, element?: LazyExoticComponent<() => JSX.Element>) => {
-	const name = child?.name2 ? child.name2 : child.name;
+const buildChildren = (child: NavigationChildType, parent: string) => {
+	const name = child?.nameAlt ? child.nameAlt : child.name;
+	const handle = utils.handleize(name);
 
 	// Child config
-	const childConfig: NavigationType = {
-		id: child.id,
-		isRoute: true,
-		label: child.name,
-		showInNav: false,
-		url: `/${parent}/${utils.handleize(name)}`,
-	};
+	const childConfig: NavigationMapType = create({ key: handle, label: child.name, showInNav: false, url: `/${parent}/${handle}` });
 
-	// Add component element if passed down
-	if (element) {
-		childConfig.element = element;
-	}
-
-	return childConfig;
+	return childConfig[handle];
 };
 
 /* Build art children */
-const artChildren = [] as NavigationType[];
-art.forEach((art) => {
-	artChildren.push(buildChildren(art, 'art', Art));
+const artChildren = {} as NavigationMapType;
+art.forEach((item) => {
+	const config = buildChildren(item, 'art');
+	artChildren[config.id] = config;
 });
 
 /* Build articles children */
-const articlesChildren = [] as NavigationType[];
-articles.forEach((article) => {
-	articlesChildren.push(buildChildren(article, 'articles', Articles));
+const articlesChildren = {} as NavigationMapType;
+articles.forEach((item) => {
+	const config = buildChildren(item, 'articles');
+	articlesChildren[config.id] = config;
 });
 
 /* Build cheat-codes children */
-const cheatCodesChildren = [] as NavigationType[];
-cheatCodes.forEach((code) => {
-	cheatCodesChildren.push(buildChildren(code, 'cheat-codes', CheatCodes));
+const cheatCodesChildren = {} as NavigationMapType;
+cheatCodes.forEach((item) => {
+	const config = buildChildren(item, 'cheat-codes');
+	cheatCodesChildren[config.id] = config;
 });
 
 /* Build projects children */
-const projectsChildren = [] as NavigationType[];
-projects.forEach((projects) => {
-	projectsChildren.push(buildChildren(projects, 'projects', Projects));
+const projectsChildren = {} as NavigationMapType;
+projects.forEach((item) => {
+	const config = buildChildren(item, 'projects');
+	projectsChildren[config.id] = config;
 });
 
-export const navigation: NavigationType[] = [
-	{
-		id: 0,
-		element: Start,
-		isRoute: true,
-		label: 'Start',
-		showInNav: true,
-		url: '/',
-	},
-	{
-		id: 1,
-		element: About,
-		isRoute: true,
-		label: 'About',
-		showInNav: true,
-		url: '/about',
-	},
-	{
-		id: 2,
-		element: Projects,
-		children: projectsChildren,
-		isRoute: true,
-		label: 'Projects',
-		showInNav: true,
-		url: '/projects',
-	},
-	{
-		id: 3,
-		element: Art,
-		children: artChildren,
-		isRoute: true,
-		label: 'Art',
-		showInNav: true,
-		url: '/art',
-	},
-	{
-		id: 4,
-		element: Resume,
-		isRoute: true,
-		label: 'Resume',
-		showInNav: true,
-		url: '/resume',
-	},
-	{
-		id: 5,
-		element: Articles,
-		children: articlesChildren,
-		isRoute: true,
-		label: 'Articles',
-		showInNav: true,
-		url: '/articles',
-	},
-	{
-		id: 6,
-		element: CheatCodes,
-		children: cheatCodesChildren,
-		isRoute: true,
-		label: 'Cheat codes',
-		showInNav: true,
-		url: '/cheat-codes',
-	},
-];
+export const navigationHeader: NavigationMapType = {
+	...create({ key: 'index', label: 'Start', url: '/' }),
+	...create({ key: 'about', label: 'About' }),
+	...create({ key: 'art', label: 'Art', children: artChildren }),
+	...create({ key: 'projects', label: 'Projects', children: projectsChildren }),
+	...create({ key: 'resume', label: 'Resume' }),
+	...create({ key: 'articles', label: 'Articles', children: articlesChildren }),
+	...create({ key: 'cheat-codes', label: 'Cheat Codes', children: cheatCodesChildren }),
+};

@@ -3,21 +3,21 @@ import './styles/header.scss';
 
 /* Packages */
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@tanstack/react-router';
 
 /* Scripts */
-import { useRespond, useViewTransition } from '../../_config/scripts/hooks';
+import { useRespond, useViewTransition } from '../../_core/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
 
 /* Components */
 import { Image } from '../../components/image/Image';
 
 export const Header = () => {
-	const { theme } = useAppContext();
-	const desktopHeader = useRespond(theme.bps.bp01 as number);
+	const { theme, variables } = useAppContext();
+	const desktopHeader = useRespond(theme.breakpoints.sm);
 	const handleTransition = useViewTransition();
 	const [timer, setTimer] = useState(false);
-	const headerText = desktopHeader ? `* { display : coffee; }` : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
+	const headerText = desktopHeader ? variables.site.name : `* {<br />\u00A0\u00A0display : coffee;<br />}`;
 	const mugs = ['blue', 'green', 'purple', 'red', 'orange'];
 
 	// Set a timer for cursor to turn off
@@ -38,14 +38,21 @@ export const Header = () => {
 	return (
 		<header className="header margin-trim">
 			<h1 className={`header-title${desktopHeader && !timer ? ' header-title-cursor' : ''} h-shadow-lg`}>
-				<Link to={'/'} onClick={(e) => handleTransition(e, '/')}>
+				<Link className={'no-decoration'} to={'/'} onClick={(e) => handleTransition(e, '/')}>
 					<div className="header-type" dangerouslySetInnerHTML={{ __html: headerText }}></div>
 				</Link>
 			</h1>
 
 			<div className="header-mugs">
 				{mugs.map((mug, index) => (
-					<Image alt={`${mug} coffee mug`} hasLazy={true} hasWrapper={false} image={`/assets/images/theme/mug-${mug}.svg`} key={index} />
+					<Image
+						alt={`${mug} coffee mug`}
+						hasWrapper={false}
+						height={36}
+						image={`/assets/images/theme/mug-${mug}.svg`}
+						key={index}
+						width={36}
+					/>
 				))}
 			</div>
 		</header>

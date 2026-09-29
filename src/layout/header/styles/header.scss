@@ -1,7 +1,7 @@
-// Use utils and theme variables
-@use '../../../_config/styles/utils/_functions';
-@use '../../../_config/styles/utils/_mixins';
-@use '../../../_config/styles/theme/_theme';
+// Local Sass modules
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
+@use '../../../_core/styles/_theme';
 
 //// HEADER
 //// --------------------------------------------------------------------------
@@ -39,7 +39,6 @@
 			a {
 				&:active, &:hover {
 					color: inherit;
-					text-decoration: none;
 				}
 			}
 			.header-type {
@@ -52,7 +51,7 @@
 			line-height: 1;
 		}
 	}
-	@include mixins.respond-min(theme.$bp-01 - 100) {
+	@include mixins.respond(theme.$breakpoint-sm - 100) {
 		.header {
 			.header-title {
 				.header-type {
@@ -61,7 +60,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-01) {
+	@include mixins.respond(theme.$breakpoint-sm) {
 		.header {
 			.header-title {
 				&.header-title-cursor .header-type:after {
@@ -70,7 +69,7 @@
 			}
 		}
 	}
-	@include mixins.respond-min(theme.$bp-02) {
+	@include mixins.respond(theme.$breakpoint-md) {
 		.header {
 			.header-title {
 				&.header-title-cursor .header-type:after {

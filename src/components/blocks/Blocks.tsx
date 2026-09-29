@@ -2,11 +2,13 @@
 import './styles/blocks.scss';
 
 /* Packages */
-import { RefObject, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import type { RefObject } from 'react';
+import { useCallback, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Link } from '@tanstack/react-router';
 
 /* Scripts */
-import {
+import type {
 	CodeBlockProps,
 	CodeInlineProps,
 	HeaderIconProps,
@@ -55,7 +57,7 @@ export const CodeBlock = (props: CodeBlockProps) => {
 			<header className="code-block-header flex-nowrap flex-align-items-center">
 				{header ? <span className="code-block-label">{header}</span> : null}
 
-				<Button className="code-block-button a" label="Select code" variant="unstyled" onClick={() => selectCode()} />
+				<Button className={'code-block-button a'} label={'Select code'} variant={'unstyled'} onClick={() => selectCode()} />
 			</header>
 
 			<pre className="code-block-pre scrollbar">
@@ -119,7 +121,7 @@ export const List = (props: ListProps) => {
 	const olAttributes = isOrdered ? { reversed, start, type: listType } : {};
 
 	return (
-		<Tag className={className} {...rest} {...olAttributes}>
+		<Tag className={className} role={'list'} {...rest} {...olAttributes}>
 			{children}
 		</Tag>
 	);
@@ -198,10 +200,10 @@ export const PixelBlock = (props: PixelBlockProps) => {
 					children
 				) : showNavigation ? (
 					<nav className="pixel-navigation">
-						<List className="pixel-navigation-list flex-wrap flex-align-items-center" variant="ul-unstyled">
+						<List className={'pixel-navigation-list flex-wrap flex-align-items-center'} variant={'ul-unstyled'}>
 							{previousUrl && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
-									<Link className="pixel-navigation-link" to={previousUrl}>
+									<Link className={'pixel-navigation-link'} to={previousUrl}>
 										<Icon id={'angle-left'} />
 										<span className="pixel-navigation-label">Previous</span>
 									</Link>
@@ -213,7 +215,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 									{navigation?.previous?.handle ? navigationSeparator : null}
 
 									<li className="pixel-navigation-list-item pixel-navigation-back">
-										<Link className="pixel-navigation-link" to={backUrl}>
+										<Link className={'pixel-navigation-link'} to={backUrl}>
 											{navigation.back}
 										</Link>
 									</li>
@@ -225,7 +227,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 									{navigationSeparator}
 
 									<li className="pixel-navigation-list-item pixel-navigation-next">
-										<Link className="pixel-navigation-link" to={nextUrl}>
+										<Link className={'pixel-navigation-link'} to={nextUrl}>
 											<span className="pixel-navigation-label">Next</span>
 											<Icon id={'angle-right'} />
 										</Link>
@@ -240,14 +242,40 @@ export const PixelBlock = (props: PixelBlockProps) => {
 	);
 };
 
+/* Reset for previews rendered in a shadow root, so they don't inherit the site's styles (color, font, line-height, etc.) */
+/* Note: all: initial also resets the font to the browser default (usually a serif), so a neutral base font is set back */
+const previewShadowReset = ':host { all: initial; display: block; font-family: system-ui, sans-serif; }';
+
+/* Previews with styles are rendered in a shadow root, so the site's styles can't reach in and the preview's styles can't leak out */
+/* Note: the styles need to be imported with ?inline (e.g. import styles from './styles/preview.scss?inline') so they're a string instead of being added to the page */
 export const Preview = (props: PreviewProps) => {
-	const { children, className } = props;
+	const { children, className, styles } = props;
 	const previewClass = className ? ` ${className}` : '';
+	const [shadowRoot, setShadowRoot] = useState<ShadowRoot | null>(null);
+
+	// Attach the shadow root once (the element keeps it if this runs again, e.g. in StrictMode)
+	const attachShadow = useCallback((element: HTMLDivElement | null) => {
+		if (element) setShadowRoot(element.shadowRoot ?? element.attachShadow({ mode: 'open' }));
+	}, []);
 
 	return (
 		<>
 			<h4>Preview</h4>
-			<div className={`preview${previewClass}`}>{children}</div>
+
+			{styles ? (
+				<div className={`preview${previewClass}`} ref={attachShadow}>
+					{shadowRoot &&
+						createPortal(
+							<>
+								<style>{`${previewShadowReset}\n${styles}`}</style>
+								{children}
+							</>,
+							shadowRoot,
+						)}
+				</div>
+			) : (
+				<div className={`preview${previewClass}`}>{children}</div>
+			)}
 		</>
 	);
 };

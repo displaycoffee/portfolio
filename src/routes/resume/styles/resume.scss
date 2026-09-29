@@ -1,0 +1,76 @@
+// Local Sass modules
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
+@use '../../../_core/styles/_theme';
+
+//// RESUME
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	.page-resume {
+		.resume-section {
+			margin: 0 0 theme.$spacing-x8 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		.resume-skills .skill-bar {
+			.skill-bar-name, .skill-bar-progress {
+				position: relative;
+				width: 100%;
+			}
+			.skill-bar-name {
+				margin: 0 0 theme.$spacing-x2 0;
+			}
+			.skill-bar-progress {
+				z-index: 1;
+				height: 30px;
+				overflow: hidden;
+				.skill-bar-total, .skill-bar-out-of {
+					@include mixins.position-fill($margin: 4px 0, $z: -2);
+				}
+				.skill-bar-total {
+					@include mixins.gradient-stripes((theme.$color-brown-x1, theme.$color-brown-x2, theme.$color-brown-x3, theme.$color-brown-x4, theme.$color-brown-x4, theme.$color-brown-x4));
+				}
+				.skill-bar-out-of {
+					@include mixins.gradient-stripes((theme.$color-blue-x1, theme.$color-blue-x2, theme.$color-blue-x3, theme.$color-blue-x4, theme.$color-blue-x4, theme.$color-blue-x4));
+					border-right: 2px solid theme.$color-brown-x1;
+				}
+			}
+		}
+		.resume-inventory {
+			.row {
+				.column {
+					@include mixins.flex(1 1 100%);
+					p {
+						margin: 0;
+					}
+				}
+			}
+		}
+		@include mixins.respond(theme.$breakpoint-sm) {
+			.resume-skills .skill-bar {
+				.skill-bar-name {
+					@include mixins.flex(0 1 auto);
+					top: 2px;
+					width: 130px;
+					margin: 0 theme.$spacing-x2 0 0;
+					line-height: 1;
+				}
+				.skill-bar-progress {
+					@include mixins.flex;
+					max-width: 400px;
+				}
+			}
+		}
+		@include mixins.respond(theme.$breakpoint-lg) {
+			.resume-inventory {
+				.row {
+					.column {
+						@include mixins.flex;
+					}
+				}
+			}
+		}
+	}

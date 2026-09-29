@@ -1,7 +1,7 @@
-// Use utils and theme variables
-@use '../../../_config/styles/utils/_functions';
-@use '../../../_config/styles/utils/_mixins';
-@use '../../../_config/styles/theme/_theme';
+// Local Sass modules
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
+@use '../../../_core/styles/_theme';
 
 //// CONTENTS
 //// --------------------------------------------------------------------------
@@ -53,12 +53,12 @@
 				margin: 0;
 				@include mixins.position($type: absolute, $left: 0, $right: 0, $bottom: 0, $z: 1);
 				padding: 0 theme.$spacing-x4;
-				background-color: rgba(theme.$color-10, 0.90);
+				background-color: color-mix(in srgb, theme.$color-bg-x2 90%, transparent);
 				height: 45px;
 				line-height: 45px;
 				span {
-					color: theme.$color-04;
-					text-shadow: 2px 2px 0 theme.$color-05;
+					color: theme.$color-body;
+					text-shadow: 2px 2px 0 theme.$color-shadow-x1;
 					@include mixins.line-clamp(1);
 				}
 			}
@@ -78,7 +78,7 @@
 			margin: 0 0 theme.$spacing-x4 0;
 		}
 	}
-	@media only screen and (min-width: #{theme.$bp-02 - 100}px) and (max-width: #{theme.$bp-02 - 1}px) {
+	@media only screen and (min-width: #{theme.$breakpoint-md - 100px}) and (max-width: #{theme.$breakpoint-md - 1px}) {
 		.contents {
 			.contents-row {
 				.contents-column {

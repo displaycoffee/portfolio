@@ -1,0 +1,30 @@
+// Local Sass modules
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
+@use '../../../_core/styles/_theme';
+
+//// ABOUT
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	.page-about {
+		.about-photo {
+			width: 100%;
+		}	
+		@include mixins.respond(theme.$breakpoint-sm) {
+			.about-photo {
+				width: 300px;
+			}
+		}
+		@include mixins.respond(theme.$breakpoint-md) {
+			.about-photo {
+				width: 200px;
+			}
+		}
+		@include mixins.respond(theme.$breakpoint-lg) {
+			.about-photo {
+				width: 300px;
+			}
+		}
+	}

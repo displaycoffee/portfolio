@@ -1,3 +1,6 @@
+/* Packages */
+import type { ReactNode } from 'react';
+
 /* Type definitions */
 type Contents = {
 	date: string;
@@ -7,7 +10,7 @@ type Contents = {
 	id: number;
 	index?: number;
 	name: string;
-	name2?: string;
+	nameAlt?: string;
 	tags?: string;
 	thumb: string;
 	timestamp?: number;

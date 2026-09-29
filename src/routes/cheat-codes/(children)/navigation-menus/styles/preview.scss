@@ -1,0 +1,13 @@
+// Local Sass modules
+@use '@displaycoffee/styles/functions';
+@use '@displaycoffee/styles/mixins';
+@use '../../../../../_core/styles/_theme';
+
+//// CHEAT CODES
+//// --------------------------------------------------------------------------
+
+	// Style block
+
+	#dc-navigation-menu-01, #dc-navigation-menu-02 {
+		margin-bottom: theme.$spacing-x4;
+	}

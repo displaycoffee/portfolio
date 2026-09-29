@@ -12,7 +12,7 @@ type Gallery = {
 	index?: number;
 	mediums?: string;
 	name: string;
-	name2?: string;
+	nameAlt?: string;
 	technologies?: string;
 	thumb: string;
 	timestamp?: number;

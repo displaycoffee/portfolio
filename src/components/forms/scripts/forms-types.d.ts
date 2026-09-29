@@ -1,5 +1,5 @@
 /* Packages */
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 /* Type definitions */
 type Button = {

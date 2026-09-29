@@ -4,15 +4,16 @@ import './styles/gallery.scss';
 /* Packages */
 import { useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useRouterState } from '@tanstack/react-router';
 
 /* Scripts */
-import { useViewTransition } from '../../_config/scripts/hooks';
+import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
+import { useViewTransition } from '../../_core/scripts/hooks';
 import { useAppContext } from '../../context/scripts/context-hooks';
-import { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Components */
+import { PageTitle } from '../page-title/PageTitle';
 import { Image } from '../image/Image';
 import { HeaderIcon, LinkExternal, List, ListItem, PixelBlock } from '../blocks/Blocks';
 import { Button } from '../forms/Forms';
@@ -26,7 +27,7 @@ const tabStorage: GalleryTabsStorageType = {
 
 export const Gallery = (props: GalleryProps) => {
 	const { headers, navigation, tabs, type, values } = props;
-	const location = useLocation();
+	const location = useRouterState({ select: (state) => state.resolvedLocation ?? state.location }); // Resolved location stays on the rendered route while leaving it, so the page never collapses mid-navigation
 	const hasGallery = values && values.length !== 0;
 
 	// Create galleryProps for components
@@ -72,9 +73,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 				// If category is not in tabs, add it
 				categoriesSplit.forEach((category) => {
-					if (!tabsValues.includes(category)) {
-						tabsValues.push(category);
-					}
+					if (!tabsValues.includes(category)) tabsValues.push(category);
 				});
 			}
 		});
@@ -116,9 +115,7 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 
 	// Sync active tab back to tabStorage so it persists across renders
 	useEffect(() => {
-		if (tabs.enabled && activeTab) {
-			tabStorage.active[location] = activeTab as string;
-		}
+		if (tabs.enabled && activeTab) tabStorage.active[location] = activeTab as string;
 	}, [activeTab, location, tabs.enabled]);
 
 	// Set timestamp to sort values
@@ -186,7 +183,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 
 					return (
 						<div className={`gallery-item${showItem ? ' gallery-item-active' : ''}`} key={value.id} data-gallery-id={value.id}>
-							<Link className="gallery-image" to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
+							<Link className={'gallery-image'} to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
 								<div className="image-wrapper image-wrapper-fluid pixel-border">
 									<Image alt={value.name} hasLazy={true} image={value.thumb} hasWrapper={false} />
 								</div>
@@ -201,9 +198,9 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 
 export const GalleryBody = (props: GalleryBodyProps) => {
 	const { location, navigation, tabs, values } = props;
-	const { utils } = useAppContext();
-	const showGallery = window.location.href.includes(location); // Do not render current item if not in matching gallery
-	const parentPage = utils.getPage();
+	const hasParentPage = location.split('/').filter(Boolean).length > 1;
+	const showGallery = hasParentPage;
+	const parentPage = location.split('/').slice(0, -1).join('/');
 
 	// Filter values according to current tab
 	const filteredValues = values.filter((value) => {
@@ -215,16 +212,16 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 	const { current, next, previous } = elements;
 
 	// Ensure handles do not match current
-	const compareHandle = (handle: string) => {
-		return handle == current.handle ? { handle: false } : { handle: handle };
+	const compareHandle = (handle?: string) => {
+		return !handle || handle == current?.handle ? { handle: false } : { handle: handle };
 	};
 
 	// Build navigation props
 	const navigationProps = {
 		back: navigation.back,
-		next: compareHandle(next.handle as string),
+		next: compareHandle(next?.handle),
 		path: parentPage,
-		previous: compareHandle(previous.handle as string),
+		previous: compareHandle(previous?.handle),
 	};
 
 	// Determine if this is a pixel gallery
@@ -233,6 +230,8 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 	return showGallery ? (
 		current ? (
 			<div id={`gallery-${current.handle}`} className={`gallery${isPixels ? ' gallery-pixels' : ''}`}>
+				{current.name && <PageTitle title={current.name} />}
+
 				<div className="gallery-body flex-wrap">
 					{current.name && (
 						<header className="gallery-header">
@@ -251,21 +250,21 @@ export const GalleryBody = (props: GalleryBodyProps) => {
 					)}
 
 					<div className="gallery-details margin-trim">
-						<List variant="dl">
-							{current.date && <ListItem term="Date">{current.date}</ListItem>}
+						<List variant={'dl'}>
+							{current.date && <ListItem term={'Date'}>{current.date}</ListItem>}
 
 							{current.url && (
-								<ListItem term="Visit">
+								<ListItem term={'Visit'}>
 									<LinkExternal href={current.url}>{current.url.replace('//', '')}</LinkExternal>
 								</ListItem>
 							)}
 
-							{current.technologies && <ListItem term="Technologies">{current.technologies}</ListItem>}
+							{current.technologies && <ListItem term={'Technologies'}>{current.technologies}</ListItem>}
 
-							{current.mediums && <ListItem term="Mediums">{current.mediums}</ListItem>}
+							{current.mediums && <ListItem term={'Mediums'}>{current.mediums}</ListItem>}
 
 							{current.description && (
-								<ListItem term="Description">
+								<ListItem term={'Description'}>
 									<div dangerouslySetInnerHTML={{ __html: current.description }}></div>
 								</ListItem>
 							)}

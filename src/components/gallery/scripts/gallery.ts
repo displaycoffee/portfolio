@@ -1,6 +1,6 @@
 /* Scripts */
-import { GalleriesType, GalleryTabsOptionsType, GalleryType } from './gallery-types';
-import { utils } from '../../../_config/scripts/utils';
+import type { GalleriesType, GalleryTabsOptionsType } from './gallery-types';
+import { utils } from '../../../_core/scripts/utils';
 
 export const gallery = {
 	build: (values: GalleriesType, tabs: GalleryTabsOptionsType) => {
@@ -9,8 +9,8 @@ export const gallery = {
 			values.forEach((value, index) => {
 				// Create handle for value (needed for routes)
 				let handle = `${index}`;
-				if (value?.name2) {
-					handle = utils.handleize(value.name2);
+				if (value?.nameAlt) {
+					handle = utils.handleize(value.nameAlt);
 				} else if (value?.name) {
 					handle = utils.handleize(value.name);
 				}
@@ -19,9 +19,7 @@ export const gallery = {
 				let categories = value?.categories ? value.categories : 'Uncategorized';
 
 				// If tabs.all is set, add "All" category
-				if (tabs.enabled && tabs.all && !categories.includes('All')) {
-					categories = 'All, ' + categories;
-				}
+				if (tabs.enabled && tabs.all && !categories.includes('All')) categories = 'All, ' + categories;
 
 				// Set new properties
 				value.categories = categories;
@@ -36,9 +34,7 @@ export const gallery = {
 	includeValue: (enabled: boolean, categories?: string, storage?: string | boolean) => {
 		// Determine whether value should be includes in loop
 		let includeValue = true;
-		if (enabled && categories && storage) {
-			includeValue = categories.includes(storage as string);
-		}
+		if (enabled && categories && storage) includeValue = categories.includes(storage as string);
 		return includeValue;
 	},
 	navigation: (values: GalleriesType, location: string) => {
@@ -55,7 +51,10 @@ export const gallery = {
 		});
 
 		// Set current
-		const current = selected.pop() as GalleryType;
+		const current = selected.pop();
+
+		// If the location does not match an item, there is nothing to navigate between
+		if (!current) return { current: undefined, next: undefined, previous: undefined };
 
 		// If previous / next index is out of bounds, loop around to start / end of values
 		const nextIndex = (current.index as number) + 1;
