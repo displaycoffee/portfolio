@@ -53,7 +53,14 @@ export const Gallery = (props: GalleryProps) => {
 	// Get gallery count
 	const galleryCount = galleryProps.values.length;
 
-	return galleryCount !== 0 ? type == 'links' ? <GalleryLinks {...galleryProps} /> : <GalleryBody {...galleryProps} /> : null;
+	// Key links by location so tab state resets when resolved location catches up to a new gallery page
+	return galleryCount !== 0 ? (
+		type == 'links' ? (
+			<GalleryLinks key={galleryProps.location} {...galleryProps} />
+		) : (
+			<GalleryBody {...galleryProps} />
+		)
+	) : null;
 };
 
 export const GalleryLinks = (props: GalleryLinksProps) => {
@@ -78,8 +85,9 @@ export const GalleryLinks = (props: GalleryLinksProps) => {
 			}
 		});
 
-		// Get default tab
-		defaultTab = tabStorage.active[location] ? tabStorage.active[location] : tabsValues[tabStorage.default];
+		// Get default tab, falling back if the stored tab does not exist in this gallery
+		const storedTab = tabStorage.active[location];
+		defaultTab = storedTab && tabsValues.includes(storedTab) ? storedTab : tabsValues[tabStorage.default];
 	}
 
 	// Set active tab state
