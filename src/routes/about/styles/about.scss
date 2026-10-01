@@ -11,6 +11,7 @@
 	.page-about {
 		.about-photo {
 			width: 100%;
+			margin-bottom: theme.$spacing-x4;
 		}	
 		@include mixins.respond(theme.$breakpoint-sm) {
 			.about-photo {

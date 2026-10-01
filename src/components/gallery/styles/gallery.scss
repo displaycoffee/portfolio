@@ -16,11 +16,7 @@
 			@include mixins.grid-layout(5px, 75px);
 			.gallery-item {
 				&:not(.gallery-item-active) {
-					position: absolute;
-					@include mixins.sizing(0, 0);
-					padding: 0;
-					margin: 0;
-					overflow: hidden;
+					display: none;
 				}
 			}
 		}
@@ -113,10 +109,18 @@
 //// GALLERY - VIEW TRANSITIONS
 //// --------------------------------------------------------------------------
 
+	// Configuration
+
+	$gallery-item-scale: 0.65; // the amount to scale the gallery item
+	$gallery-item-timing: theme.$duration-base; // duration of transition
+	$gallery-item-slide: true; // toggle slide transition for gallery items
+
+	// Style block
+
 	@keyframes gallery-item-in {
 		from {
 			opacity: 0;
-			transform: scale(0.85);
+			transform: scale($gallery-item-scale);
 		}
 		to {
 			opacity: 1;
@@ -130,25 +134,39 @@
 		}
 		to {
 			opacity: 0;
-			transform: scale(0.85);
+			transform: scale($gallery-item-scale);
 		}
 	}
 
+	// View transition pseudo-elements belong to :root itself, so there must be
+	// no space before "::" - a space makes them descendants and nothing matches.
+
 	// Items leaving (only exist in old state)
-	:root[data-gallery-transition] ::view-transition-old(*) {
+	:root[data-gallery-transition]::view-transition-old(*) {
 		animation: none;
 		opacity: 0;
 	}
 
 	// Items entering (only exist in new state)
-	:root[data-gallery-transition] ::view-transition-new(*) {
-		animation: gallery-item-in 0.75s ease forwards;
+	:root[data-gallery-transition]::view-transition-new(*) {
+		animation: gallery-item-in $gallery-item-timing ease forwards;
 	}
 
-	// Control the speed of the position morph (the group is what actually moves).
-	// Targeted directly without ancestor scoping  - descendant combinators are
-	// unreliable between regular elements and UA pseudo-elements.
-	::view-transition-group(*) {
-		animation-duration: 0.75s;
+	// Keep the page snapshot static so only the items animate
+	:root[data-gallery-transition]::view-transition-old(root),
+	:root[data-gallery-transition]::view-transition-new(root) {
+		animation: none;
+	}
+
+	// Control the speed of the position morph (the group is what actually moves)
+	:root[data-gallery-transition]::view-transition-group(*) {
+		animation-duration: $gallery-item-timing;
 		animation-timing-function: ease;
+	}
+
+	// Turn off the position morph when slide is disabled
+	@if $gallery-item-slide == false {
+		:root[data-gallery-transition]::view-transition-group(*) {
+			animation: none;
+		}
 	}

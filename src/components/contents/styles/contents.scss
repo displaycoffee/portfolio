@@ -21,11 +21,7 @@
 		.contents-row {
 			.contents-column {
 				&:not(.contents-active) {
-					position: absolute;
-					@include mixins.sizing(0, 0);
-					padding: 0;
-					margin: 0;
-					overflow: hidden;
+					display: none;
 				}
 				& > * {
 					margin: 0 0 theme.$spacing-x2 0;
@@ -91,10 +87,18 @@
 //// CONTENTS - VIEW TRANSITIONS
 //// --------------------------------------------------------------------------
 
+	// Configuration
+
+	$contents-item-scale: 0.85; // the amount to scale the content item
+	$contents-item-timing: theme.$duration-base; // duration of transition
+	$contents-item-slide: false; // toggle slide transition for content items
+
+	// Style block
+
 	@keyframes contents-item-in {
 		from {
 			opacity: 0;
-			transform: scale(0.85);
+			transform: scale($contents-item-scale);
 		}
 		to {
 			opacity: 1;
@@ -108,25 +112,39 @@
 		}
 		to {
 			opacity: 0;
-			transform: scale(0.85);
+			transform: scale($contents-item-scale);
 		}
 	}
 
+	// View transition pseudo-elements belong to :root itself, so there must be
+	// no space before "::" - a space makes them descendants and nothing matches.
+
 	// Items leaving (only exist in old state)
-	:root[data-contents-transition] ::view-transition-old(*) {
+	:root[data-contents-transition]::view-transition-old(*) {
 		animation: none;
 		opacity: 0;
 	}
 
 	// Items entering (only exist in new state)
-	:root[data-contents-transition] ::view-transition-new(*) {
-		animation: contents-item-in 0.75s ease forwards;
+	:root[data-contents-transition]::view-transition-new(*) {
+		animation: contents-item-in $contents-item-timing ease forwards;
 	}
 
-	// Control the speed of the position morph (the group is what actually moves).
-	// Targeted directly without ancestor scoping  - descendant combinators are
-	// unreliable between regular elements and UA pseudo-elements.
-	::view-transition-group(*) {
-		animation-duration: 0.75s;
+	// Keep the page snapshot static so only the items animate
+	:root[data-contents-transition]::view-transition-old(root),
+	:root[data-contents-transition]::view-transition-new(root) {
+		animation: none;
+	}
+
+	// Control the speed of the position morph (the group is what actually moves)
+	:root[data-contents-transition]::view-transition-group(*) {
+		animation-duration: $contents-item-timing;
 		animation-timing-function: ease;
+	}
+
+	// Turn off the position morph when slide is disabled
+	@if $contents-item-slide == false {
+		:root[data-contents-transition]::view-transition-group(*) {
+			animation: none;
+		}
 	}

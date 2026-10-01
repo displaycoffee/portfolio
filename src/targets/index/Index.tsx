@@ -31,6 +31,7 @@ const router = createRouter({
 	routeTree,
 	basepath: variables.paths.basename,
 	defaultNotFoundComponent: NotFound,
+	defaultPreload: 'intent', // Load route code on link hover/touch so it's ready before view transitions start
 	parseSearch: search.parse,
 	stringifySearch: search.stringify,
 	scrollRestorationBehavior: scrollBehavior,
