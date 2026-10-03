@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 
 /* Scripts */
 import type { SlideoutProps, SlideoutTouchType, SlideoutTouchRefType } from './scripts/slideout-types';
-import { useFormattedId } from '../../_core/scripts/hooks';
+import { useFormattedId } from '@displaycoffee/scripts/hooks';
 import { slideout } from './scripts/slideout';
 
 /* Components */

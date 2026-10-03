@@ -17,7 +17,7 @@ import type {
 	ContentsTagsType,
 	ContentsTagType,
 } from './scripts/contents-types';
-import { useViewTransition } from '../../_core/scripts/hooks';
+import { useViewTransition } from '@displaycoffee/scripts/hooks-tanstack';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import { contents as contentsUtils } from './scripts/contents';
 

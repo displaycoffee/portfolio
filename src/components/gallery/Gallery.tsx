@@ -8,7 +8,7 @@ import { Link, Navigate, useRouterState } from '@tanstack/react-router';
 
 /* Scripts */
 import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
-import { useViewTransition } from '../../_core/scripts/hooks';
+import { useViewTransition } from '@displaycoffee/scripts/hooks-tanstack';
 import { useAppContext } from '../../context/scripts/context-hooks';
 import { gallery as galleryUtils } from './scripts/gallery';
 

@@ -15,7 +15,7 @@ import { Icon } from '../../components/icons/Icons';
 import { Image } from '../../components/image/Image';
 
 export const Footer = () => {
-	const { utils } = useAppContext();
+	const { utilsBrowser } = useAppContext();
 	const date = new Date().getFullYear();
 
 	return (
@@ -46,7 +46,7 @@ export const Footer = () => {
 								label={'Back to top button'}
 								hideLabel={true}
 								variant={'unstyled'}
-								onClick={(e) => utils.scrollTo(e, 'body')}
+								onClick={(e) => utilsBrowser.scrollTo(e, 'body')}
 							>
 								<Icon animate={'bottom'} id={'angle-up'} isBold={true} size={'xl'} />
 							</Button>

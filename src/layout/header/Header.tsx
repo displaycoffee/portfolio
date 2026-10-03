@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 
 /* Scripts */
-import { useRespond, useViewTransition } from '../../_core/scripts/hooks';
+import { useRespond } from '@displaycoffee/scripts/hooks';
+import { useViewTransition } from '@displaycoffee/scripts/hooks-tanstack';
 import { useAppContext } from '../../context/scripts/context-hooks';
 
 /* Components */

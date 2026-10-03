@@ -1,3 +1,6 @@
+/* Packages */
+import { utils as utilsShared, utilsBrowser as utilsBrowserShared } from '@displaycoffee/scripts/utils';
+
 /* Get today's date as a fallback for setting timestamps */
 const today = new Date();
 const year = today.getFullYear();
@@ -5,59 +8,12 @@ const month = today.getMonth() + 1;
 const day = today.getDate();
 const fallback = `${year}-${month < 10 ? '0' + month : month}-${day}`;
 
+/* Utils from @displaycoffee/scripts, plus any custom scripts for this project */
 export const utils: UtilsType = {
-	getLast: (value: string | string[], delimeter?: string) => {
-		// Get last item in array
-		let valueArray: string[] | number[] = [];
-		if (Array.isArray(value)) {
-			valueArray = value;
-		} else if (delimeter) {
-			valueArray = value.split(delimeter);
-		}
-		return valueArray[valueArray.length - 1] ?? '';
-	},
-	getPage: () => {
-		// Get previous / parent page
-		return window.location.pathname.split('/').slice(0, -1).join('/');
-	},
-	handleize: (value: string) => {
-		// Format value for html classes
-		return value
-			.toLowerCase()
-			.trim()
-			.replace(/[^\w\s]/g, '')
-			.replace(/\s/g, '-');
-	},
+	...utilsShared,
 	linkExternal: (href: string, label: string) => {
 		// Create external url in HTML string
 		return `<a href="${href}" target="_blank" rel="noreferrer">${label}<span class="sr-only"> (opens in a new tab)</span></a>`;
-	},
-	scrollTo: (e?: EventsType, selector?: string, offset?: number) => {
-		// Scroll to element on page
-		if (e) {
-			e.preventDefault();
-		}
-		const anchor = {
-			selector: selector ?? '',
-			offset: offset ?? 0,
-			position: () => {
-				const anchorElement = anchor.selector ? document.querySelector(anchor.selector) : false;
-				return anchorElement ? anchorElement.getBoundingClientRect().top + window.scrollY - anchor.offset : -anchor.offset;
-			},
-		};
-		window.scroll({ top: anchor.position(), left: 0, behavior: 'smooth' });
-
-		// Move focus to the target so keyboard/screen-reader users know where they landed
-		if (anchor.selector) {
-			const anchorElement = document.querySelector<HTMLElement>(anchor.selector);
-			anchorElement?.focus({ preventScroll: true });
-		}
-	},
-	setAttributes: (element: HTMLElement, attributes: ObjectStringType) => {
-		// Set multiple attributes on an element
-		for (const attribute in attributes) {
-			element.setAttribute(attribute, attributes[attribute]);
-		}
 	},
 	setTimestamp: (value: DateType) => {
 		// Set date for each value
@@ -72,4 +28,8 @@ export const utils: UtilsType = {
 		const timestampFromString = dateFromString.getTime();
 		value.timestamp = timestampFromString;
 	},
+};
+
+export const utilsBrowser: UtilsBrowserType = {
+	...utilsBrowserShared,
 };
