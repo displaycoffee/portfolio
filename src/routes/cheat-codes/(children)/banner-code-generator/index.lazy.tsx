@@ -62,7 +62,7 @@ function RouteComponent() {
 			<CheatCodesSection header={'Information'}>
 				<List variant={'dl'}>
 					<ListItem term={'Skill level'}>Medium</ListItem>
-					<ListItem term={'Languages'}>HTML / JavaScript or React, CSS or Sass</ListItem>
+					<ListItem term={'Works with'}>HTML / JavaScript or React, CSS or Sass</ListItem>
 					<ListItem term={'Responsive'}>Yes</ListItem>
 				</List>
 			</CheatCodesSection>

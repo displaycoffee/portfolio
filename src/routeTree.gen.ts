@@ -33,6 +33,9 @@ const ArticleschildrenStylingTextIndexLazyRouteImport = createFileRoute(
 const CheatCodeschildrenAPromiseIndexLazyRouteImport = createFileRoute(
   '/cheat-codes/(children)/a-promise/',
 )()
+const CheatCodeschildrenAlexandriaIndexLazyRouteImport = createFileRoute(
+  '/cheat-codes/(children)/alexandria/',
+)()
 const CheatCodeschildrenBannerCodeGeneratorIndexLazyRouteImport =
   createFileRoute('/cheat-codes/(children)/banner-code-generator/')()
 const CheatCodeschildrenBestFriendsIndexLazyRouteImport = createFileRoute(
@@ -161,6 +164,16 @@ const CheatCodeschildrenAPromiseIndexLazyRoute =
     getParentRoute: () => rootRouteImport,
   } as any).lazy(() =>
     import('./routes/cheat-codes/(children)/a-promise/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const CheatCodeschildrenAlexandriaIndexLazyRoute =
+  CheatCodeschildrenAlexandriaIndexLazyRouteImport.update({
+    id: '/cheat-codes/(children)/alexandria/',
+    path: '/cheat-codes/alexandria/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/cheat-codes/(children)/alexandria/index.lazy').then(
       (d) => d.Route,
     ),
   )
@@ -309,6 +322,7 @@ export interface FileRoutesByFullPath {
   '/articles/structuring-code/': typeof ArticleschildrenStructuringCodeIndexLazyRoute
   '/articles/styling-text/': typeof ArticleschildrenStylingTextIndexLazyRoute
   '/cheat-codes/a-promise/': typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  '/cheat-codes/alexandria/': typeof CheatCodeschildrenAlexandriaIndexLazyRoute
   '/cheat-codes/banner-code-generator/': typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
   '/cheat-codes/best-friends/': typeof CheatCodeschildrenBestFriendsIndexLazyRoute
   '/cheat-codes/burmecia/': typeof CheatCodeschildrenBurmeciaIndexLazyRoute
@@ -337,6 +351,7 @@ export interface FileRoutesByTo {
   '/articles/structuring-code': typeof ArticleschildrenStructuringCodeIndexLazyRoute
   '/articles/styling-text': typeof ArticleschildrenStylingTextIndexLazyRoute
   '/cheat-codes/a-promise': typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  '/cheat-codes/alexandria': typeof CheatCodeschildrenAlexandriaIndexLazyRoute
   '/cheat-codes/banner-code-generator': typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
   '/cheat-codes/best-friends': typeof CheatCodeschildrenBestFriendsIndexLazyRoute
   '/cheat-codes/burmecia': typeof CheatCodeschildrenBurmeciaIndexLazyRoute
@@ -366,6 +381,7 @@ export interface FileRoutesById {
   '/articles/(children)/structuring-code/': typeof ArticleschildrenStructuringCodeIndexLazyRoute
   '/articles/(children)/styling-text/': typeof ArticleschildrenStylingTextIndexLazyRoute
   '/cheat-codes/(children)/a-promise/': typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  '/cheat-codes/(children)/alexandria/': typeof CheatCodeschildrenAlexandriaIndexLazyRoute
   '/cheat-codes/(children)/banner-code-generator/': typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
   '/cheat-codes/(children)/best-friends/': typeof CheatCodeschildrenBestFriendsIndexLazyRoute
   '/cheat-codes/(children)/burmecia/': typeof CheatCodeschildrenBurmeciaIndexLazyRoute
@@ -396,6 +412,7 @@ export interface FileRouteTypes {
     | '/articles/structuring-code/'
     | '/articles/styling-text/'
     | '/cheat-codes/a-promise/'
+    | '/cheat-codes/alexandria/'
     | '/cheat-codes/banner-code-generator/'
     | '/cheat-codes/best-friends/'
     | '/cheat-codes/burmecia/'
@@ -424,6 +441,7 @@ export interface FileRouteTypes {
     | '/articles/structuring-code'
     | '/articles/styling-text'
     | '/cheat-codes/a-promise'
+    | '/cheat-codes/alexandria'
     | '/cheat-codes/banner-code-generator'
     | '/cheat-codes/best-friends'
     | '/cheat-codes/burmecia'
@@ -452,6 +470,7 @@ export interface FileRouteTypes {
     | '/articles/(children)/structuring-code/'
     | '/articles/(children)/styling-text/'
     | '/cheat-codes/(children)/a-promise/'
+    | '/cheat-codes/(children)/alexandria/'
     | '/cheat-codes/(children)/banner-code-generator/'
     | '/cheat-codes/(children)/best-friends/'
     | '/cheat-codes/(children)/burmecia/'
@@ -481,6 +500,7 @@ export interface RootRouteChildren {
   ArticleschildrenStructuringCodeIndexLazyRoute: typeof ArticleschildrenStructuringCodeIndexLazyRoute
   ArticleschildrenStylingTextIndexLazyRoute: typeof ArticleschildrenStylingTextIndexLazyRoute
   CheatCodeschildrenAPromiseIndexLazyRoute: typeof CheatCodeschildrenAPromiseIndexLazyRoute
+  CheatCodeschildrenAlexandriaIndexLazyRoute: typeof CheatCodeschildrenAlexandriaIndexLazyRoute
   CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute: typeof CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute
   CheatCodeschildrenBestFriendsIndexLazyRoute: typeof CheatCodeschildrenBestFriendsIndexLazyRoute
   CheatCodeschildrenBurmeciaIndexLazyRoute: typeof CheatCodeschildrenBurmeciaIndexLazyRoute
@@ -587,6 +607,13 @@ declare module '@tanstack/react-router' {
       path: '/cheat-codes/a-promise'
       fullPath: '/cheat-codes/a-promise/'
       preLoaderRoute: typeof CheatCodeschildrenAPromiseIndexLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cheat-codes/(children)/alexandria/': {
+      id: '/cheat-codes/(children)/alexandria/'
+      path: '/cheat-codes/alexandria'
+      fullPath: '/cheat-codes/alexandria/'
+      preLoaderRoute: typeof CheatCodeschildrenAlexandriaIndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cheat-codes/(children)/banner-code-generator/': {
@@ -701,6 +728,8 @@ const rootRouteChildren: RootRouteChildren = {
     ArticleschildrenStylingTextIndexLazyRoute,
   CheatCodeschildrenAPromiseIndexLazyRoute:
     CheatCodeschildrenAPromiseIndexLazyRoute,
+  CheatCodeschildrenAlexandriaIndexLazyRoute:
+    CheatCodeschildrenAlexandriaIndexLazyRoute,
   CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute:
     CheatCodeschildrenBannerCodeGeneratorIndexLazyRoute,
   CheatCodeschildrenBestFriendsIndexLazyRoute:

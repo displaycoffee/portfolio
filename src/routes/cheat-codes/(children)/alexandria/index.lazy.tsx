@@ -9,7 +9,7 @@ import { CheatCodesSection } from '@/routes/cheat-codes/-CheatCodes';
 import { Contents } from '@/components/contents/Contents';
 import { LinkExternal, List, ListItem } from '@/components/blocks/Blocks';
 
-export const Route = createLazyFileRoute('/cheat-codes/(children)/wordpress-block-preview/')({
+export const Route = createLazyFileRoute('/cheat-codes/(children)/alexandria/')({
 	component: RouteComponent,
 });
 
@@ -18,17 +18,17 @@ function RouteComponent() {
 		<Contents {...cheatCodesOptionsBody}>
 			<CheatCodesSection header={'Information'}>
 				<List variant={'dl'}>
-					<ListItem term={'Skill level'}>Easy</ListItem>
-					<ListItem term={'Works with'}>HTML, CSS, WordPress</ListItem>
+					<ListItem term={'Skill level'}>Medium</ListItem>
+					<ListItem term={'Built with'}>Next.js, App Router, React, TypeScript, Sass</ListItem>
 					<ListItem term={'Responsive'}>Yes</ListItem>
-					<ListItem term={'Note'}>For more information on how to use this snippet, visit the repo link below.</ListItem>
+					<ListItem term={'Note'}>For more information on how to use this framework, visit the repo link below.</ListItem>
 				</List>
 			</CheatCodesSection>
 
 			<CheatCodesSection header={'Usage'}>
 				<h4 className="h-remove-shadow">Source / repo</h4>
 				<p>
-					<LinkExternal href={'//github.com/displaycoffee/wordpress-block-preview'}>View @ displaycoffee</LinkExternal>
+					<LinkExternal href={'//github.com/displaycoffee/alexandria'}>View @ displaycoffee</LinkExternal>
 				</p>
 			</CheatCodesSection>
 		</Contents>

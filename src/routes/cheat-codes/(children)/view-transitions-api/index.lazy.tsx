@@ -43,7 +43,7 @@ function RouteComponent() {
 			<CheatCodesSection header={'Information'}>
 				<List variant={'dl'}>
 					<ListItem term={'Skill level'}>Medium</ListItem>
-					<ListItem term={'Languages'}>React, JavaScript, and CSS or Sass</ListItem>
+					<ListItem term={'Works with'}>React, JavaScript, and CSS or Sass</ListItem>
 					<ListItem term={'Responsive'}>Yes</ListItem>
 					<ListItem term={'Support'}>
 						<LinkExternal href={'//caniuse.com/view-transitions'}>caniuse</LinkExternal>

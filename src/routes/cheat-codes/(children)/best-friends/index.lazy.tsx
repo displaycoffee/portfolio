@@ -25,7 +25,7 @@ function RouteComponent() {
 			<CheatCodesSection header={'Information'}>
 				<List variant={'dl'}>
 					<ListItem term={'Skill level'}>Medium</ListItem>
-					<ListItem term={'Languages'}>HTML / JavaScript or React, CSS or Sass</ListItem>
+					<ListItem term={'Works with'}>HTML / JavaScript or React, CSS or Sass</ListItem>
 					<ListItem term={'Responsive'}>Yes</ListItem>
 					<ListItem term={'Note'}>
 						This requires code from <Link to={'/cheat-codes/hello-content-a-tabbing-script'}>"Hello Content! (A Tabbing Script)"</Link>.

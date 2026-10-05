@@ -24,7 +24,14 @@ function RouteComponent() {
 			<HeaderIcon>{title}</HeaderIcon>
 
 			<div className="about-photo pixel-border image-wrapper image-wrapper-float-left">
-				<Image alt={'Me riding a real dinosaur'} hasLazy={true} image={'/assets/images/theme/me.jpg'} hasWrapper={false} />
+				<Image
+					alt={'Me riding a real dinosaur'}
+					hasLazy={true}
+					image={'/assets/images/theme/me.jpg'}
+					hasWrapper={false}
+					width={1000}
+					height={1000}
+				/>
 			</div>
 
 			<p>

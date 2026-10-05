@@ -33,9 +33,9 @@ export const Footer = () => {
 											alt={link.alt || link.label}
 											hasLazy={true}
 											hasWrapper={false}
-											height={32}
 											image={`/assets/images/theme/${link.label.toLowerCase()}.svg`}
 											width={32}
+											height={32}
 										/>
 									</LinkExternal>
 								</Fragment>

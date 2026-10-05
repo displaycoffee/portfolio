@@ -193,7 +193,7 @@ export const GalleryThumbnails = (props: GalleryThumbnailProps) => {
 						<div className={`gallery-item${showItem ? ' gallery-item-active' : ''}`} key={value.id} data-gallery-id={value.id}>
 							<Link className={'gallery-image'} to={galleryUrl} onClick={(e) => handleTransition(e, galleryUrl)}>
 								<div className="image-wrapper image-wrapper-fluid pixel-border">
-									<Image alt={value.name} hasLazy={true} image={value.thumb} hasWrapper={false} />
+									<Image alt={value.name} hasLazy={true} image={value.thumb} hasWrapper={false} width={200} height={200} />
 								</div>
 							</Link>
 						</div>

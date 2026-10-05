@@ -214,7 +214,14 @@ export const ContentsLinks = (props: ContentsLinksProps) => {
 						>
 							<Link className={'contents-link'} to={contentUrl} onClick={(e) => handleTransition(e, contentUrl)}>
 								<div className="pixel-border">
-									<Image alt={value.name} hasLazy={true} image={value.thumb} wrapperClasses={['fluid', 'fit']} />
+									<Image
+										alt={value.name}
+										hasLazy={true}
+										image={value.thumb}
+										wrapperClasses={['fluid', 'fit']}
+										width={400}
+										height={250}
+									/>
 								</div>
 
 								<p className="contents-name">

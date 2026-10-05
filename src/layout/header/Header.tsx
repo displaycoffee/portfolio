@@ -49,10 +49,10 @@ export const Header = () => {
 					<Image
 						alt={`${mug} coffee mug`}
 						hasWrapper={false}
-						height={36}
 						image={`/assets/images/theme/mug-${mug}.svg`}
 						key={index}
 						width={36}
+						height={36}
 					/>
 				))}
 			</div>

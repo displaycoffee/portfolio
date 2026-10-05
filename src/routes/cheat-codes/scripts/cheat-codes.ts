@@ -3,6 +3,16 @@ const cheatCodesPath = `${distPath}cheat-codes/`;
 
 export const cheatCodes = [
 	{
+		id: 14,
+		name: `Alexandria`,
+		date: `10.05.26`,
+		updated: `10.05.26`,
+		tags: `Next.js, App Router, React, TypeScript, Sass, Template`,
+		thumb: `${cheatCodesPath}alexandria-400x250.jpg`,
+		description: `Next.js-based template to create projects. Primarily built with Next.js, App Router, React, TypeScript, and Sass. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.`,
+		description2: `This is named after the kingdom in the game Final Fantasy IX -- home to Princess Garnet and the castle at the center of the story.`,
+	},
+	{
 		id: 13,
 		name: `WordPress Block Preview`,
 		date: `06.22.26`,
@@ -34,9 +44,9 @@ export const cheatCodes = [
 		name: `Burmecia`,
 		date: `03.28.22`,
 		updated: `09.29.26`,
-		tags: `React, TypeScript, JavaScript, Sass, Vite, TanStack Router, Framework`,
+		tags: `React, TanStack Router, TypeScript, Sass, Vite, Template`,
 		thumb: `${cheatCodesPath}burmecia-400x250.jpg`,
-		description: `React-based framework to create projects. Primarily built with React, TypeScript, JavaScript, Sass, and Vite. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.`,
+		description: `React-based template to create projects. Primarily built with React, TanStack Router, TypeScript, Sass, and Vite. It is not very "pretty" and contains very basic styles so that the template may be used as a boilerplate to create something better.`,
 		description2: `This is named after a city in the game Final Fantasy IX -- the "Realm of Eternal Rain" and home to the character Freya.`,
 	},
 	{

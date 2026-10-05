@@ -1,5 +1,10 @@
 export const updates = [
 	{
+		id: 18,
+		date: `10.05.26`,
+		description: `I've added a new cheat code called "Alexandria", which is a Next.js-based template and very similar to "Burmecia".`,
+	},
+	{
 		id: 17,
 		date: `09.28.26`,
 		description: `Again, not a bunch of huge changes though I did rework my entire set of projects, including this one. I also added a new "project" screenshot for my "Matt and Adria" site.`,

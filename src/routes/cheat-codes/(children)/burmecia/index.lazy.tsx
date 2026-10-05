@@ -19,7 +19,7 @@ function RouteComponent() {
 			<CheatCodesSection header={'Information'}>
 				<List variant={'dl'}>
 					<ListItem term={'Skill level'}>Medium</ListItem>
-					<ListItem term={'Languages'}>React, TypeScript, JavaScript, Sass</ListItem>
+					<ListItem term={'Built with'}>React, TanStack Router, TypeScript, Sass, Vite</ListItem>
 					<ListItem term={'Responsive'}>Yes</ListItem>
 					<ListItem term={'Note'}>For more information on how to use this framework, visit the repo link below.</ListItem>
 				</List>
