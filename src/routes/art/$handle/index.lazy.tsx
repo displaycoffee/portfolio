@@ -2,10 +2,10 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Scripts */
-import { artOptionsBody } from '../scripts/art-options';
+import { artOptionsBody } from '@/routes/art/scripts/art-options';
 
 /* Components */
-import { Gallery } from '../../../components/gallery/Gallery';
+import { Gallery } from '@/components/gallery/Gallery';
 
 export const Route = createLazyFileRoute('/art/$handle/')({
 	component: RouteComponent,

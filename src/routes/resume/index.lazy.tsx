@@ -6,11 +6,11 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { Fragment } from 'react';
 
 /* Scripts */
-import { PageTitle } from '../../components/page-title/PageTitle';
+import { PageTitle } from '@/components/page-title/PageTitle';
 import { resume } from './scripts/resume';
 
 /* Components */
-import { HeaderIcon, LinkExternal, List, ListItem } from '../../components/blocks/Blocks';
+import { HeaderIcon, LinkExternal, List, ListItem } from '@/components/blocks/Blocks';
 
 /* Page title */
 const title = 'Resume';

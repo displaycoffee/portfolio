@@ -1,6 +1,6 @@
 /* Scripts */
 import type { GalleriesType, GalleryTabsOptionsType } from './gallery-types';
-import { utils } from '../../../_core/scripts/utils';
+import { utils } from '@/_core/scripts/utils';
 
 export const gallery = {
 	build: (values: GalleriesType, tabs: GalleryTabsOptionsType) => {

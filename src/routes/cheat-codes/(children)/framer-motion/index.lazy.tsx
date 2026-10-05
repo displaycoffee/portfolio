@@ -5,14 +5,14 @@ import previewStyles from './styles/preview.scss?inline';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Scripts */
-import { cheatCodesOptionsBody } from '../../scripts/cheat-codes-options';
+import { cheatCodesOptionsBody } from '@/routes/cheat-codes/scripts/cheat-codes-options';
 import { codeBlocks } from './scripts/code-blocks';
 
 /* Components */
 import { Preview as CheatCodesPreview } from './-Preview';
-import { CheatCodesSection } from '../../-CheatCodes';
-import { Contents } from '../../../../components/contents/Contents';
-import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
+import { CheatCodesSection } from '@/routes/cheat-codes/-CheatCodes';
+import { Contents } from '@/components/contents/Contents';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '@/components/blocks/Blocks';
 
 /* Cards for preview */
 const cards = [

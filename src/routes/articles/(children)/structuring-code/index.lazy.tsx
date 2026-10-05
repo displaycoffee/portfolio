@@ -2,13 +2,13 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Scripts */
-import { articlesOptionsBody } from '../../scripts/articles-options';
+import { articlesOptionsBody } from '@/routes/articles/scripts/articles-options';
 import { codeBlocks } from './scripts/code-blocks';
 
 /* Components */
-import { ArticlesSection, ArticlesToC } from '../../-Articles';
-import { Contents } from '../../../../components/contents/Contents';
-import { CodeBlock, CodeInline, LinkExternal, List } from '../../../../components/blocks/Blocks';
+import { ArticlesSection, ArticlesToC } from '@/routes/articles/-Articles';
+import { Contents } from '@/components/contents/Contents';
+import { CodeBlock, CodeInline, LinkExternal, List } from '@/components/blocks/Blocks';
 
 export const Route = createLazyFileRoute('/articles/(children)/structuring-code/')({
 	component: RouteComponent,

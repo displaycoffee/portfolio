@@ -8,7 +8,7 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { updates } from './index/scripts/updates';
 
 /* Components */
-import { HeaderIcon } from '../components/blocks/Blocks';
+import { HeaderIcon } from '@/components/blocks/Blocks';
 
 export const Route = createLazyFileRoute('/')({
 	component: RouteComponent,

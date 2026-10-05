@@ -3,12 +3,12 @@ import { useId } from 'react';
 
 /* Scripts */
 import type { ArticlesSectionProps, ArticlesToCProps } from './scripts/articles-types';
-import { useAppContext } from '../../context/scripts/context-hooks';
+import { useAppContext } from '@/context/scripts/context-hooks';
 
 /* Components */
-import { List } from '../../components/blocks/Blocks';
-import { ButtonScroll } from '../../components/forms/Forms';
-import { Icon } from '../../components/icons/Icons';
+import { List } from '@/components/blocks/Blocks';
+import { ButtonScroll } from '@/components/forms/Forms';
+import { Icon } from '@/components/icons/Icons';
 
 export const ArticlesSection = (props: ArticlesSectionProps) => {
 	const { children, header } = props;

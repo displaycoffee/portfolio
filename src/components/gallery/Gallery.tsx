@@ -9,14 +9,14 @@ import { Link, Navigate, useRouterState } from '@tanstack/react-router';
 /* Scripts */
 import type { GalleryBodyProps, GalleryLinksProps, GalleryProps, GalleryTabsStorageType, GalleryThumbnailProps } from './scripts/gallery-types';
 import { useViewTransition } from '@displaycoffee/scripts/hooks-tanstack';
-import { useAppContext } from '../../context/scripts/context-hooks';
+import { useAppContext } from '@/context/scripts/context-hooks';
 import { gallery as galleryUtils } from './scripts/gallery';
 
 /* Components */
-import { PageTitle } from '../page-title/PageTitle';
-import { Image } from '../image/Image';
-import { HeaderIcon, LinkExternal, List, ListItem, PixelBlock } from '../blocks/Blocks';
-import { Button } from '../forms/Forms';
+import { PageTitle } from '@/components/page-title/PageTitle';
+import { Image } from '@/components/image/Image';
+import { HeaderIcon, LinkExternal, List, ListItem, PixelBlock } from '@/components/blocks/Blocks';
+import { Button } from '@/components/forms/Forms';
 
 /* Set up tab storage */
 /* Note: "active" is an object because galleries can have different tabs, so we store from location. */

@@ -5,9 +5,9 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { cheatCodesOptionsLinks } from './scripts/cheat-codes-options';
 
 /* Components */
-import { PageTitle } from '../../components/page-title/PageTitle';
-import { Contents } from '../../components/contents/Contents';
-import { HeaderIcon } from '../../components/blocks/Blocks';
+import { PageTitle } from '@/components/page-title/PageTitle';
+import { Contents } from '@/components/contents/Contents';
+import { HeaderIcon } from '@/components/blocks/Blocks';
 
 /* Page title */
 const title = 'Cheat Codes';

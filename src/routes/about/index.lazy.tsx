@@ -5,9 +5,9 @@ import './styles/about.scss';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Components */
-import { PageTitle } from '../../components/page-title/PageTitle';
-import { HeaderIcon, LinkExternal, List } from '../../components/blocks/Blocks';
-import { Image } from '../../components/image/Image';
+import { PageTitle } from '@/components/page-title/PageTitle';
+import { HeaderIcon, LinkExternal, List } from '@/components/blocks/Blocks';
+import { Image } from '@/components/image/Image';
 
 /* Page title */
 const title = 'About';

@@ -1,19 +1,19 @@
 /* Styles */
-import previewHelloContentStyles from '../hello-content-a-tabbing-script/styles/preview.scss?inline';
+import previewHelloContentStyles from '@/routes/cheat-codes/(children)/hello-content-a-tabbing-script/styles/preview.scss?inline';
 import previewStyles from './styles/preview.scss?inline';
 
 /* Packages */
 import { createLazyFileRoute, Link } from '@tanstack/react-router';
 
 /* Scripts */
-import { cheatCodesOptionsBody } from '../../scripts/cheat-codes-options';
+import { cheatCodesOptionsBody } from '@/routes/cheat-codes/scripts/cheat-codes-options';
 import { codeBlocks } from './scripts/code-blocks';
 
 /* Components */
 import { Preview as CheatCodesPreview } from './-Preview';
-import { CheatCodesSection } from '../../-CheatCodes';
-import { Contents } from '../../../../components/contents/Contents';
-import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '../../../../components/blocks/Blocks';
+import { CheatCodesSection } from '@/routes/cheat-codes/-CheatCodes';
+import { Contents } from '@/components/contents/Contents';
+import { CodeBlock, CodeInline, LinkExternal, List, ListItem, Preview } from '@/components/blocks/Blocks';
 
 export const Route = createLazyFileRoute('/cheat-codes/(children)/best-friends/')({
 	component: RouteComponent,

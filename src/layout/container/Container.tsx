@@ -8,17 +8,17 @@ import { Link } from '@tanstack/react-router';
 /* Scripts */
 import { useRespond } from '@displaycoffee/scripts/hooks';
 import { useAvailableMinHeight, useBodyClass } from '@displaycoffee/scripts/hooks-tanstack';
-import { useAppContext } from '../../context/scripts/context-hooks';
-import { navigationHeader } from '../../components/navigation/scripts/navigation';
+import { useAppContext } from '@/context/scripts/context-hooks';
+import { navigationHeader } from '@/components/navigation/scripts/navigation';
 
 /* Components */
-import { PixelBlock } from '../../components/blocks/Blocks';
-import { Navigation } from '../../components/navigation/Navigation';
-import { ErrorBoundary } from '../../components/error-boundary/ErrorBoundary';
-import { Slideout } from '../../components/slideout/Slideout';
-import { Header } from '../../layout/header/Header';
-import { Content } from '../../layout/content/Content';
-import { Footer } from '../../layout/footer/Footer';
+import { PixelBlock } from '@/components/blocks/Blocks';
+import { Navigation } from '@/components/navigation/Navigation';
+import { ErrorBoundary } from '@/components/error-boundary/ErrorBoundary';
+import { Slideout } from '@/components/slideout/Slideout';
+import { Header } from '@/layout/header/Header';
+import { Content } from '@/layout/content/Content';
+import { Footer } from '@/layout/footer/Footer';
 
 export const Container = () => {
 	const { theme } = useAppContext();

@@ -3,7 +3,7 @@ import { useId } from 'react';
 
 /* Scripts */
 import type { CheatCodesSectionProps } from './scripts/cheat-codes-types';
-import { useAppContext } from '../../context/scripts/context-hooks';
+import { useAppContext } from '@/context/scripts/context-hooks';
 
 export const CheatCodesSection = (props: CheatCodesSectionProps) => {
 	const { children, header } = props;

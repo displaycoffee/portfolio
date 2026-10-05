@@ -21,8 +21,8 @@ import type {
 } from './scripts/blocks-types';
 
 /* Components */
-import { Button } from '../forms/Forms';
-import { Icon } from '../icons/Icons';
+import { Button } from '@/components/forms/Forms';
+import { Icon } from '@/components/icons/Icons';
 
 export const CodeBlock = (props: CodeBlockProps) => {
 	const { className, header } = props;

@@ -3,12 +3,12 @@ import { createRouter, Link, RouterProvider } from '@tanstack/react-router';
 
 /* Scripts */
 import { index } from './scripts';
-import { search } from '../../_core/scripts/search';
-import { variables } from '../../_core/scripts/variables';
-import { routeTree } from '../../routeTree.gen';
+import { search } from '@/_core/scripts/search';
+import { variables } from '@/_core/scripts/variables';
+import { routeTree } from '@/routeTree.gen';
 
 /* Components */
-import { PageTitle } from '../../components/page-title/PageTitle';
+import { PageTitle } from '@/components/page-title/PageTitle';
 
 /* Not found component */
 function NotFound() {

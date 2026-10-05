@@ -11,8 +11,8 @@ import { navigationUtils } from './scripts/navigation-utils';
 import { useViewTransition } from '@displaycoffee/scripts/hooks-tanstack';
 
 /* Components */
-import { Icon } from '../icons/Icons';
-import { LinkExternal, List } from '../blocks/Blocks';
+import { Icon } from '@/components/icons/Icons';
+import { LinkExternal, List } from '@/components/blocks/Blocks';
 
 export const Navigation = (props: NavigationComponentProps) => {
 	const { data, disableTransition, label } = props;

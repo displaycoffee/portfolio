@@ -5,14 +5,14 @@ import './styles/footer.scss';
 import { Fragment } from 'react';
 
 /* Scripts */
-import { useAppContext } from '../../context/scripts/context-hooks';
+import { useAppContext } from '@/context/scripts/context-hooks';
 import { footer } from './scripts/footer';
 
 /* Components */
-import { LinkExternal } from '../../components/blocks/Blocks';
-import { Button } from '../../components/forms/Forms';
-import { Icon } from '../../components/icons/Icons';
-import { Image } from '../../components/image/Image';
+import { LinkExternal } from '@/components/blocks/Blocks';
+import { Button } from '@/components/forms/Forms';
+import { Icon } from '@/components/icons/Icons';
+import { Image } from '@/components/image/Image';
 
 export const Footer = () => {
 	const { utilsBrowser } = useAppContext();

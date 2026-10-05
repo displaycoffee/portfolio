@@ -2,14 +2,14 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Scripts */
-import { articlesOptionsBody } from '../../scripts/articles-options';
+import { articlesOptionsBody } from '@/routes/articles/scripts/articles-options';
 import { codeBlocks } from './scripts/code-blocks';
 
 /* Components */
-import { ArticlesSection, ArticlesToC } from '../../-Articles';
-import { Contents } from '../../../../components/contents/Contents';
-import { CodeBlock, CodeInline, LinkExternal } from '../../../../components/blocks/Blocks';
-import { Image } from '../../../../components/image/Image';
+import { ArticlesSection, ArticlesToC } from '@/routes/articles/-Articles';
+import { Contents } from '@/components/contents/Contents';
+import { CodeBlock, CodeInline, LinkExternal } from '@/components/blocks/Blocks';
+import { Image } from '@/components/image/Image';
 
 export const Route = createLazyFileRoute('/articles/(children)/boxsizing-my-best-friend/')({
 	component: RouteComponent,

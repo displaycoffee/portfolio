@@ -18,14 +18,14 @@ import type {
 	ContentsTagType,
 } from './scripts/contents-types';
 import { useViewTransition } from '@displaycoffee/scripts/hooks-tanstack';
-import { useAppContext } from '../../context/scripts/context-hooks';
+import { useAppContext } from '@/context/scripts/context-hooks';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Components */
-import { PageTitle } from '../page-title/PageTitle';
-import { Image } from '../image/Image';
-import { HeaderIcon, PixelBlock } from '../blocks/Blocks';
-import { Button } from '../forms/Forms';
+import { PageTitle } from '@/components/page-title/PageTitle';
+import { Image } from '@/components/image/Image';
+import { HeaderIcon, PixelBlock } from '@/components/blocks/Blocks';
+import { Button } from '@/components/forms/Forms';
 
 export const Contents = (props: ContentsProps) => {
 	const { children, navigation, type, values } = props;

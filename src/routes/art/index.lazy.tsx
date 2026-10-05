@@ -5,9 +5,9 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { artOptionsLinks } from './scripts/art-options';
 
 /* Components */
-import { PageTitle } from '../../components/page-title/PageTitle';
-import { HeaderIcon } from '../../components/blocks/Blocks';
-import { Gallery } from '../../components/gallery/Gallery';
+import { PageTitle } from '@/components/page-title/PageTitle';
+import { HeaderIcon } from '@/components/blocks/Blocks';
+import { Gallery } from '@/components/gallery/Gallery';
 
 /* Page title */
 const title = 'Art';

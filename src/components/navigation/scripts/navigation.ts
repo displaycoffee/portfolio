@@ -1,11 +1,11 @@
 /* Scripts */
 import type { NavigationChildType, NavigationMapType } from './navigation-types';
-import { utils } from '../../../_core/scripts/utils';
+import { utils } from '@/_core/scripts/utils';
 import { navigationUtils } from './navigation-utils';
-import { art } from '../../../routes/art/scripts/art';
-import { articles } from '../../../routes/articles/scripts/articles';
-import { cheatCodes } from '../../../routes/cheat-codes/scripts/cheat-codes';
-import { projects } from '../../../routes/projects/scripts/projects';
+import { art } from '@/routes/art/scripts/art';
+import { articles } from '@/routes/articles/scripts/articles';
+import { cheatCodes } from '@/routes/cheat-codes/scripts/cheat-codes';
+import { projects } from '@/routes/projects/scripts/projects';
 
 const { create } = navigationUtils;
 

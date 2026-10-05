@@ -2,12 +2,12 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Scripts */
-import { cheatCodesOptionsBody } from '../../scripts/cheat-codes-options';
+import { cheatCodesOptionsBody } from '@/routes/cheat-codes/scripts/cheat-codes-options';
 
 /* Components */
-import { CheatCodesSection } from '../../-CheatCodes';
-import { Contents } from '../../../../components/contents/Contents';
-import { LinkExternal, List, ListItem } from '../../../../components/blocks/Blocks';
+import { CheatCodesSection } from '@/routes/cheat-codes/-CheatCodes';
+import { Contents } from '@/components/contents/Contents';
+import { LinkExternal, List, ListItem } from '@/components/blocks/Blocks';
 
 export const Route = createLazyFileRoute('/cheat-codes/(children)/wordpress-block-preview/')({
 	component: RouteComponent,

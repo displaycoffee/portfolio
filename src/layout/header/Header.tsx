@@ -8,10 +8,10 @@ import { Link } from '@tanstack/react-router';
 /* Scripts */
 import { useRespond } from '@displaycoffee/scripts/hooks';
 import { useViewTransition } from '@displaycoffee/scripts/hooks-tanstack';
-import { useAppContext } from '../../context/scripts/context-hooks';
+import { useAppContext } from '@/context/scripts/context-hooks';
 
 /* Components */
-import { Image } from '../../components/image/Image';
+import { Image } from '@/components/image/Image';
 
 export const Header = () => {
 	const { theme, variables } = useAppContext();
