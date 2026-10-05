@@ -21,7 +21,7 @@ function RouteComponent() {
 					<ListItem term={'Skill level'}>Medium</ListItem>
 					<ListItem term={'Built with'}>Next.js, App Router, React, TypeScript, Sass</ListItem>
 					<ListItem term={'Responsive'}>Yes</ListItem>
-					<ListItem term={'Note'}>For more information on how to use this framework, visit the repo link below.</ListItem>
+					<ListItem term={'Note'}>For more information on how to use this template, visit the repo link below.</ListItem>
 				</List>
 			</CheatCodesSection>
 
