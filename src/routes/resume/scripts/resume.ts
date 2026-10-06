@@ -51,7 +51,7 @@ export const resume = {
 		],
 		languages: 'CSS Modules',
 		frameworks: 'Tailwind CSS, Express, Framer Motion, Astro, Next.js',
-		tools: 'TanStack Query, Vite, Webpack, GraphQL, REST APIs, Cypress, Node.js, Claude Code, Gemini, View Transitions API, Performance Optimization, Core Web Vitals, Storybook, Figma',
+		tools: 'TanStack Query, Vite, Webpack, GraphQL, REST APIs, Cypress, Node.js, Claude Code, Gemini, View Transitions API, Performance Optimization, Core Web Vitals, Storybook, Figma, Vercel',
 		cms: 'eCommerce platforms (Shopify, BigCommerce, Magento2, etc.), WordPress, WHMCS, phpBB',
 	},
 	history: [
