@@ -8,7 +8,7 @@ type NavigationChild = {
 };
 
 type NavigationComponent = {
-	data: NavigationMap;
+	data: NavigationMap | NavigationItem[];
 	disableTransition?: boolean;
 	label: string;
 };
@@ -16,18 +16,23 @@ type NavigationComponent = {
 type NavigationItemComponent = {
 	children?: ReactNode;
 	disableTransition: boolean;
-	nav: NavigationFlatItem;
+	nav: NavigationItem;
 	navigationLinkClass: string;
 };
 
-type NavigationFlatItem = {
-	children?: NavigationFlatItem[];
+/* What Navigation renders, whether the items come from a NavigationMap (navigation.ts) or a list from another source */
+type NavigationItem = {
+	children?: NavigationItem[];
 	id: string;
-	includeInSitemap: boolean;
 	isRoute: boolean;
 	label: string;
-	showInNav: boolean;
 	url: string;
+};
+
+type NavigationFlatItem = NavigationItem & {
+	children?: NavigationFlatItem[];
+	includeInSitemap: boolean;
+	showInNav: boolean;
 };
 
 type NavigationMapItem = {
@@ -56,6 +61,8 @@ type NavigationMapItemOptions = {
 
 /* Export types */
 export type NavigationChildType = NavigationChild;
+
+export type NavigationItemType = NavigationItem;
 
 export type NavigationFlatItemType = NavigationFlatItem;
 

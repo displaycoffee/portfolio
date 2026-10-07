@@ -114,6 +114,7 @@ let sitemap = {
 		'/articles/structuring-code',
 		'/articles/styling-text',
 		'/cheat-codes',
+		'/cheat-codes/alexandria',
 		'/cheat-codes/wordpress-block-preview',
 		'/cheat-codes/view-transitions-api',
 		'/cheat-codes/framer-motion',
