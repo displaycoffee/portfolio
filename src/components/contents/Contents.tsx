@@ -22,7 +22,7 @@ import { useAppContext } from '@/context/scripts/context-hooks';
 import { contents as contentsUtils } from './scripts/contents';
 
 /* Components */
-import { PageTitle } from '@/components/page-title/PageTitle';
+import { Title } from '@/components/title/Title';
 import { Image } from '@/components/image/Image';
 import { HeaderIcon, PixelBlock } from '@/components/blocks/Blocks';
 import { Button } from '@/components/forms/Forms';
@@ -297,7 +297,7 @@ export const ContentsBody = (props: ContentsBodyProps) => {
 			<div id={`contents-${current.handle}`} className="contents margin-trim">
 				{hasHeader ? (
 					<>
-						<PageTitle title={current.name} />
+						<Title title={current.name} />
 
 						<header className="contents-header">
 							{current?.name ? <HeaderIcon className={'contents-header-title'}>{current.name}</HeaderIcon> : null}

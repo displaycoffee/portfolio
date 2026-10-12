@@ -6,7 +6,7 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { Fragment } from 'react';
 
 /* Scripts */
-import { PageTitle } from '@/components/page-title/PageTitle';
+import { Title } from '@/components/title/Title';
 import { resume } from './scripts/resume';
 
 /* Components */
@@ -25,7 +25,7 @@ function RouteComponent() {
 
 	return (
 		<>
-			<PageTitle title={title} />
+			<Title title={title} />
 
 			<HeaderIcon>{title}</HeaderIcon>
 

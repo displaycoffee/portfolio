@@ -8,7 +8,7 @@ import { createLazyFileRoute } from '@tanstack/react-router';
 import { articlesOptionsLinks } from './scripts/articles-options';
 
 /* Components */
-import { PageTitle } from '@/components/page-title/PageTitle';
+import { Title } from '@/components/title/Title';
 import { Contents } from '@/components/contents/Contents';
 import { HeaderIcon } from '@/components/blocks/Blocks';
 
@@ -22,7 +22,7 @@ export const Route = createLazyFileRoute('/articles/')({
 function RouteComponent() {
 	return (
 		<>
-			<PageTitle title={title} />
+			<Title title={title} />
 
 			<HeaderIcon>{title}</HeaderIcon>
 

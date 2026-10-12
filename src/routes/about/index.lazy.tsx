@@ -5,7 +5,7 @@ import './styles/about.scss';
 import { createLazyFileRoute } from '@tanstack/react-router';
 
 /* Components */
-import { PageTitle } from '@/components/page-title/PageTitle';
+import { Title } from '@/components/title/Title';
 import { HeaderIcon, LinkExternal, List } from '@/components/blocks/Blocks';
 import { Image } from '@/components/image/Image';
 
@@ -19,7 +19,7 @@ export const Route = createLazyFileRoute('/about/')({
 function RouteComponent() {
 	return (
 		<>
-			<PageTitle title={title} />
+			<Title title={title} />
 
 			<HeaderIcon>{title}</HeaderIcon>
 
