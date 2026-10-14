@@ -1,8 +1,8 @@
 /* Type definitions */
 type Icons = {
 	animate?: string;
-	id: string;
 	isBold?: boolean;
+	name: string;
 	shadowSize?: string;
 	size?: string;
 };

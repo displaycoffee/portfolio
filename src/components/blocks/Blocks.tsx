@@ -81,7 +81,7 @@ export const HeaderIcon = (props: HeaderIconProps) => {
 
 	return (
 		<Tag className={`${headerClass}h-icon`}>
-			<Icon id={'angle-right'} isBold={true} shadowSize={'x2'} />
+			<Icon isBold={true} name={'angle-right'} shadowSize={'x2'} />
 			{children}
 		</Tag>
 	);
@@ -167,7 +167,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 	// Separator for naviation
 	const navigationSeparator = (
 		<li className="pixel-navigation-list-item pixel-navigation-separator">
-			<Icon id={'bullet'} />
+			<Icon name={'bullet'} />
 		</li>
 	);
 
@@ -204,7 +204,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 							{previousUrl && (
 								<li className="pixel-navigation-list-item pixel-navigation-previous">
 									<Link className={'pixel-navigation-link'} to={previousUrl}>
-										<Icon id={'angle-left'} />
+										<Icon name={'angle-left'} />
 										<span className="pixel-navigation-label">Previous</span>
 									</Link>
 								</li>
@@ -229,7 +229,7 @@ export const PixelBlock = (props: PixelBlockProps) => {
 									<li className="pixel-navigation-list-item pixel-navigation-next">
 										<Link className={'pixel-navigation-link'} to={nextUrl}>
 											<span className="pixel-navigation-label">Next</span>
-											<Icon id={'angle-right'} />
+											<Icon name={'angle-right'} />
 										</Link>
 									</li>
 								</>

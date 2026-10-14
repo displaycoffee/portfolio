@@ -48,7 +48,7 @@ export const Footer = () => {
 								variant={'unstyled'}
 								onClick={(e) => utilsBrowser.scrollTo(e, 'body')}
 							>
-								<Icon animate={'bottom'} id={'angle-up'} isBold={true} size={'xl'} />
+								<Icon animate={'bottom'} isBold={true} name={'angle-up'} size={'xl'} />
 							</Button>
 						</nav>
 					</div>

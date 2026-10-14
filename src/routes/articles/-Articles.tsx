@@ -26,7 +26,7 @@ export const ArticlesSection = (props: ArticlesSectionProps) => {
 			{scrollTop ? (
 				<div className="articles-top">
 					<ButtonScroll className={'articles-top-button'} label={'Back to top'} target={'body'}>
-						<Icon id={'angle-up'} shadowSize={'none'} />
+						<Icon name={'angle-up'} shadowSize={'none'} />
 					</ButtonScroll>
 				</div>
 			) : null}

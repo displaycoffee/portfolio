@@ -47,12 +47,12 @@ export const NavigationListItem = (props: NavigationItemComponentProps) => {
 					className={navigationLinkClass}
 					activeProps={{ className: `${navigationLinkClass}-active` }}
 				>
-					<Icon animate={'left'} id={'bullet'} />
+					<Icon animate={'left'} name={'bullet'} />
 					{nav.label}
 				</Link>
 			) : (
 				<LinkExternal href={nav.url}>
-					<Icon animate={'left'} id={'bullet'} />
+					<Icon animate={'left'} name={'bullet'} />
 					{nav.label}
 				</LinkExternal>
 			)}
