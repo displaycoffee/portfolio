@@ -9,6 +9,7 @@ type NavigationChild = {
 
 type NavigationComponent = {
 	data: NavigationMap | NavigationItem[];
+	direction?: 'horizontal' | 'vertical';
 	disableTransition?: boolean;
 	label: string;
 };
