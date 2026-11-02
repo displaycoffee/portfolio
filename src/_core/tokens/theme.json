@@ -55,7 +55,7 @@
 		"link": "#3b271d",
 		"link-hover": "#dac0b3",
 		"link-underline": false,
-		"link-underline-hover": "#dac0b3",
+		"link-underline-hover": "inherit",
 		"overlay": "color-mix(in srgb, #000000 60%, transparent)",
 		"pixel-bg": "#704a37",
 		"pixel-border": "#523526",

@@ -49,7 +49,7 @@
 		"link": { "$value": "#3b271d" },
 		"link-hover": { "$value": "#dac0b3" },
 		"link-underline": { "$value": false },
-		"link-underline-hover": { "$value": "#dac0b3" },
+		"link-underline-hover": { "$value": "inherit" },
 		"overlay": { "$value": "color-mix(in srgb, {color.black} 60%, transparent)" },
 		"pixel-bg": { "$value": "#704a37", "$extensions": { "static": true } },
 		"pixel-border": { "$value": "#523526", "$extensions": { "static": true } },
