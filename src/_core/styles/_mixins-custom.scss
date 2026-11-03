@@ -2,7 +2,7 @@
 @use '@displaycoffee/styles/functions';
 @use '@displaycoffee/styles/mixins';
 
-// Mixin for a pixel style border
+// Pixel style border
 @mixin pixel-border($width: 2px, $bg: #333333, $border: #111111, $inset: #222222, $highlight: #666666, $rounded: false) {
 	// Variables pixel borders
 	$svg-xlmns: 'xmlns="http://www.w3.org/2000/svg"';
